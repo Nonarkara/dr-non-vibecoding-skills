@@ -1,0 +1,52 @@
+# ~/.cloudflared/myapp.yml — ONE config file per tunnel. Never share one.
+#
+# ⚠️  THE INCIDENT THIS PREVENTS
+# `cloudflared tunnel run <name>` with no --config flag falls back to
+# ~/.cloudflared/config.yml. If two tunnels both fall back to it, they silently
+# overwrite each other's ingress routing. Two unrelated products go down together,
+# with no error anywhere — the tunnels are healthy, they're just routing wrong.
+#
+# So: (1) give every tunnel its own file, (2) always pass --config explicitly in the
+# plist, and (3) make the default config INERT so the wrong path fails loudly:
+#
+#   # ~/.cloudflared/config.yml
+#   # Deliberately unused. Every tunnel has its own config loaded via --config.
+#   # Don't add ingress here — give any new tunnel its own file.
+#   ingress:
+#     - service: http_status:404
+
+tunnel: <TUNNEL-UUID>
+credentials-file: /Users/USERNAME/.cloudflared/<TUNNEL-UUID>.json
+
+# Survive laptop sleep/wake and flaky wifi without manual intervention.
+retries: 5
+grace-period: 30s
+loglevel: info
+
+ingress:
+  # Backend API. The static frontend lives on a CDN and proxies /api/* here, so the
+  # site keeps loading even when this machine is asleep — only live data goes stale.
+  - hostname: api-myapp.example.org
+    service: http://localhost:8340
+    originRequest:
+      connectTimeout: 30s
+      noTLSVerify: true          # local origin is plain HTTP; TLS terminates at the edge
+
+  # Additional hostnames for THIS tunnel only. A different product = a different file.
+  # - hostname: myapp.example.org
+  #   service: http://localhost:8341
+
+  # Required catch-all, must be last.
+  - service: http_status:404
+
+# ── Running it ────────────────────────────────────────────────────────────────
+# In the launchd plist ProgramArguments — note the EXPLICIT --config:
+#
+#   /opt/homebrew/bin/cloudflared
+#   --config /Users/USERNAME/.cloudflared/myapp.yml
+#   tunnel run myapp
+#
+# First-time setup:
+#   cloudflared tunnel login
+#   cloudflared tunnel create myapp
+#   cloudflared tunnel route dns myapp api-myapp.example.org

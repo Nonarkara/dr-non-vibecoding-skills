@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd service template.  ~/Library/LaunchAgents/com.myapp.server.plist
+
+  Install:  launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.myapp.server.plist
+  Restart:  launchctl kickstart -k gui/$(id -u)/com.myapp.server
+  Status:   launchctl print gui/$(id -u)/com.myapp.server | head -30
+  Remove:   launchctl bootout gui/$(id -u)/com.myapp.server
+
+  Give every service THREE jobs, not one:
+    com.myapp.server     this file
+    com.myapp.tunnel     cloudflared, with its OWN --config file (see tunnel.yml.template)
+    com.myapp.watchdog   polls /api/health, restarts, ESCALATES to a human after N failures
+
+  Plus com.myapp.backup nightly. Four small jobs beat one clever one.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.myapp.server</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/bin/node</string>
+    <string>/Users/USERNAME/Projects/myapp/server/index.js</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/USERNAME/Projects/myapp</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>NODE_ENV</key>   <string>production</string>
+    <key>PORT</key>       <string>8340</string>
+    <!-- Point heavy data at external storage so a full boot volume doesn't
+         ENOSPC-crash-loop every service on the machine at once. -->
+    <key>APP_DB_PATH</key><string>/Volumes/Data/myapp/myapp.db</string>
+    <!-- Never put secret VALUES here. This file is world-readable.
+         Read secrets from Keychain at startup instead. -->
+  </dict>
+
+  <!-- Restart on crash and on logout. The whole point of using launchd. -->
+  <key>KeepAlive</key><true/>
+  <key>RunAtLoad</key><true/>
+
+  <!-- Don't let a crash-loop spin the CPU: minimum 10s between respawns. -->
+  <key>ThrottleInterval</key><integer>10</integer>
+
+  <!-- Rotate these externally (newsyslog / a rotate job). Unrotated logs fill the
+       disk, and a full disk takes down every service AND your monitoring. -->
+  <key>StandardOutPath</key>
+  <string>/Users/USERNAME/Projects/myapp/logs/out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/USERNAME/Projects/myapp/logs/err.log</string>
+
+  <!-- For a periodic job instead of a daemon, drop KeepAlive and use one of:
+  <key>StartInterval</key><integer>3600</integer>
+  <key>StartCalendarInterval</key>
+    <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>0</integer></dict>
+  -->
+</dict>
+</plist>

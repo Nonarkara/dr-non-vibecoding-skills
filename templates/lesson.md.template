@@ -1,0 +1,71 @@
+# The <Something> Pass — <one line on what this was>
+
+*YYYY-MM-DD — the user said: "<verbatim quote of what was actually asked>"*
+
+<Quote it exactly. Intent decays faster than code does, and a paraphrase written a
+week later is already a reconstruction.>
+
+## What the user asked for
+
+<The intent behind the words. What problem were they actually solving? What had
+just happened that made them ask this now?>
+
+## What landed
+
+### `path/to/file.ts` — <what it does in five words>
+
+<What this module is and the ONE design decision that defines it. Not a summary of
+the code — the code is right there. The reasoning that isn't.>
+
+<Repeat per significant file. Include the concrete constants, thresholds, or
+universes chosen, and why THOSE and not others.>
+
+### UI: <what a human now sees>
+
+<Which components, where they sit, what they show when empty.>
+
+## Patterns borrowed
+
+<Steal patterns, not repos. This table is how you prove you did the former.>
+
+| Source | Pattern | Where it landed |
+|---|---|---|
+| `<repo/article/product>` | <the idea, in one line> | <the file, and how it was adapted> |
+| `<the one you refused>` | <why it looked relevant> | **Refused** — <why it doesn't fit> |
+
+## Honest limits
+
+<What this genuinely cannot do. In the doc AND in the product — not buried in fine
+print. Being explicit here is what stops the next person over-trusting it.>
+
+- **<Limit>** — <why it exists, and whether it's fixable or fundamental>
+
+## What didn't make this cut
+
+<The highest-value section. Stops the next agent — or the next you — re-proposing
+something you already rejected for good reasons.>
+
+- **<Idea>** — <why not now: scope, or a real conflict with the goal>
+
+## CPDT trace
+
+```
+git pull origin main
+git add -A
+git commit -m "<type>(<scope>): <the actual message>"
+git push origin main
+npm run build                  # <result>
+<deploy command>               # <deploy id / preview URL>
+curl <live URL>                # <what proved it: status + the grep that matched>
+```
+
+<Test results, including any known-failing test NAMED and explained. A flake you
+can name is information; an unexplained failure is a landmine.>
+
+Live: **<url>**
+
+## One line for the next agent
+
+> <The compressed lesson. If you write nothing else in this file, write this.
+> It should be a principle, not a summary — something that changes a future
+> decision, not something that describes a past one.>

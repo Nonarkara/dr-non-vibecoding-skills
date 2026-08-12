@@ -1,0 +1,80 @@
+# <Project> — <one sentence: what it is and who it's for>
+
+<Stack in one line. Entry point file. Port if it runs as a service.>
+
+## Where it lives
+
+| What | Where |
+|------|-------|
+| Public URL | https://<host> (NOT <similar-host> — that's <the other product>, in `<path>`) |
+| Backend / tunnel | https://api-<host> → localhost:<PORT> |
+| Hosting project | `<pages/vercel/render project name>` |
+| Service labels | `com.<app>.server`, `com.<app>.tunnel`, `com.<app>.watchdog` |
+| Logs | `logs/out.log`, `logs/err.log` |
+
+## Commands — exact, not described
+
+```bash
+npm run dev                                                    # local
+npm run type-check                                             # before every commit
+./scripts/deploy.sh                                            # deploy + verify
+launchctl kickstart -k gui/$(id -u)/com.<app>.server           # restart backend
+curl -sS https://<host>/api/health | python3 -m json.tool      # health
+```
+
+## Definition of done
+
+Localhost is never a deliverable. Work is done when the deployed URL serves it and a
+command proves it. If you cannot verify, say "unverified" — do not say "done".
+
+## Anti-regression — DO NOT TOUCH
+
+<The highest-value section in this file. Numbered, specific, each with its reason.
+Agents don't vandalise, they tidy — anything that looks like an oddity gets "cleaned
+up" unless you've said it's deliberate.>
+
+1. `<the load-bearing thing>` — <why it exists>. It is load-bearing.
+2. `<the constrained ladder>` — e.g. three font sizes only; do not introduce a fourth.
+3. `<the fallback>` — e.g. mock data in `src/lib/api/mock.ts`; the app must render
+   fully with no API keys. Never remove mock fallbacks.
+4. `<the disclaimer / legal text>` — do not remove.
+
+## Architecture
+
+<3–6 bullets. What talks to what. Where data enters. Where it's cached and for how long.>
+
+## Key files
+
+| File | Purpose |
+|---|---|
+| `<path>` | <what it does> |
+
+## Data sources
+
+| Data | Source | Cadence → real latency | Auth |
+|---|---|---|---|
+| <thing> | <source> | <10 min → 10–60 min> | none / `ENV_VAR_NAME` |
+
+<Never put secret values here. Env var names only.>
+
+## Versioned keys and constants
+
+- `?v=X.Y.Z` on every cached asset; service worker cache name moves with it
+- `<app>_<thing>_v1` — localStorage keys, versioned so a schema change can't corrupt
+- `<CONSTANT> = <value>` — <why this number>
+
+## Gotchas — dated, with the symptom
+
+- **YYYY-MM-DD** — <what broke>. **Symptom:** <what it looked like from outside>.
+  **Cause:** <the actual cause>. **Fix:** <what was done>.
+
+## Reverted experiments — do not silently reintroduce
+
+- **<thing> — TRIALED THEN REVERTED (YYYY-MM-DD to YYYY-MM-DD)**
+  <What was tried, where it was wired, and that it was fully backed out. This note
+  exists so it isn't reintroduced, nor mistaken for an accidental deletion.>
+
+## Status
+
+🟢 active / active / dormant — as of YYYY-MM.
+<If dormant: what's pruned and what command resurrects it.>
