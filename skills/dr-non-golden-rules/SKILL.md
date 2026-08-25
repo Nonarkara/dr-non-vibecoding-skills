@@ -11,6 +11,8 @@ description: >-
 
 *Not theoretical best practices. Principles proven in production: real dashboards, real cities, real mayors.*
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 4.*
+
 ---
 
 ## 1. Think Before Coding — But Not Too Long

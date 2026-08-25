@@ -13,6 +13,8 @@ license: MIT
 
 That's the actual operating condition. It sounds reckless. It's survivable — and faster than the alternative — because the risk is *asymmetric and deliberately shaped*, not absent.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 14.*
+
 This skill is the calculus.
 
 ---

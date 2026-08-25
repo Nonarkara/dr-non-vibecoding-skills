@@ -4,6 +4,8 @@
 
 **How to use it:** three steps, five minutes of your time, then Claude does the rest.
 
+*Visual summary: [`INFOGRAPHICS.md`](INFOGRAPHICS.md), page 7.*
+
 ```mermaid
 flowchart LR
     A["1. Clone this repo\n(anywhere)"] --> B["2. Open Claude Code\nin your projects folder"]

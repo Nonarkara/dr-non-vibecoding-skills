@@ -13,6 +13,8 @@ license: MIT
 
 Three tiers. Each answers a different question, and putting content at the wrong tier is why most `CLAUDE.md` files stop being read.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 6.*
+
 ```mermaid
 flowchart TD
     T0["Tier 0 — The vault\n~1,300 notes, agents read AND write\n'why does this whole practice work this way'"]

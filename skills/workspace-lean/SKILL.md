@@ -13,6 +13,8 @@ license: MIT
 
 A workspace that's been running for months with multiple agents accumulates worktrees the way a kitchen accumulates jars. This skill is how to clear them without losing anything or taking down a live service.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 17.*
+
 ---
 
 ## Rule 0 — map what's alive before touching anything

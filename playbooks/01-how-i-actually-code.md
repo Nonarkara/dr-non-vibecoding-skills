@@ -2,6 +2,8 @@
 
 Not the idealised version. The actual loop, as it runs on a normal day.
 
+*Visual summary: [`INFOGRAPHICS.md`](../INFOGRAPHICS.md), page 3.*
+
 ---
 
 ## The shape of the day

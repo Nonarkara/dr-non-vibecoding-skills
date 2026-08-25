@@ -6,6 +6,7 @@
   <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-7-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
+  <img alt="Infographics" src="https://img.shields.io/badge/infographics-19%20pages-e8002d.svg">
 </p>
 
 > Six months. 1,691 commits. 110 always-on services running off one MacBook. 24 live public hostnames — all hanging off **one** domain, because subdomains are free and DNS doesn't care how ambitious you are.
@@ -28,6 +29,7 @@
 - [To do what, exactly?](#to-do-what-exactly)
 - [How much money are we talking about?](#how-much-money-are-we-talking-about)
 - [Are you a genius, or a crazy genius, Dr Non?](#are-you-a-genius-or-a-crazy-genius-dr-non)
+- [The infographics](#the-infographics)
 - [The fourteen skills](#the-fourteen-skills)
 - [The seven playbooks](#the-seven-playbooks)
 - [The blueprint — set up a project like I do](#the-blueprint--set-up-a-project-like-i-do)
@@ -182,6 +184,22 @@ The closest thing to a secret in this whole repo:
 > **Move the taste out of your head and into something an agent can execute identically, every single time, without you in the room.** Then the only thing left to be fast about is the two or three decisions that are genuinely new to *this* project — everything else is a lookup.
 
 So: not a genius. A guy who got tired of explaining himself and wrote it all down instead. You can do that too — that's the entire premise of this repo. Pick it up with a bit of logical thinking, follow the [blueprint](#the-blueprint--set-up-a-project-like-i-do), and you're running the same pipeline. It was never magic; it was homework, done once, that keeps paying out.
+
+---
+
+## The infographics
+
+Everything above, again, in one page per idea — Vignelli/NYCTA visual language, the same lineage [`axiom-design-core`](skills/axiom-design-core/SKILL.md) describes. 19 pages, each citing the exact skill or playbook it's drawn from.
+
+<p align="center">
+  <img src="infographics/pages/page-01.png" width="410" alt="Cover — Dr Non's Vibecoding System">
+  <img src="infographics/pages/page-11.png" width="410" alt="Ship 10 — localhost is never a deliverable">
+  <br>
+  <img src="infographics/pages/page-08.png" width="410" alt="Design 07 — taste becomes executable when reasons become constraints">
+  <img src="infographics/pages/page-19.png" width="410" alt="System 18 — speed is a consequence of cheap mistakes plus decisions made once">
+</p>
+
+**[→ See all 19 pages](INFOGRAPHICS.md)**, or grab the source: [`.pdf`](infographics/dr_non_vibecoding_infographics.pdf) (349 KB, view anywhere) · [`.pptx`](infographics/dr_non_vibecoding_infographics.pptx) (786 KB, editable — fork the deck along with the repo).
 
 ---
 

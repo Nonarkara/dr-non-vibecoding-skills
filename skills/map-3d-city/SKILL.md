@@ -14,6 +14,8 @@ license: MIT
 
 Building-populated 3D city maps are the signature front-end of this whole practice — flood dashboards, transit dashboards, heritage dashboards, all map-first, most now 3D by default.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 16.*
+
 ---
 
 ## Tier 1 — the deep twin, via Arnis

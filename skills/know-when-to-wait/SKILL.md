@@ -11,6 +11,8 @@ license: MIT
 
 > Most advice assumes the blocker is skill or time. Sometimes the blocker is that the technology hasn't reached the maturity the idea needs yet, and no additional effort fixes that. `risk-posture` says kill fast when a project has no value. This is the companion rule for when the value case is real and the tooling just isn't there.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 18.*
+
 ---
 
 ## The standard underneath this: Technology Readiness Level

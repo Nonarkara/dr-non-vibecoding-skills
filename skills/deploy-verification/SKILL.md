@@ -13,6 +13,8 @@ license: MIT
 
 This skill exists because a patched XSS fix sat un-served in production while every dashboard said green. The full incident is in [war stories](../../playbooks/06-war-stories.md#the-poisoned-edge-2026-08-09). What follows is the technique that came out of it.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 12.*
+
 ---
 
 ## The failure mode, precisely

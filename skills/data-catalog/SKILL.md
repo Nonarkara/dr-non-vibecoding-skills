@@ -13,6 +13,8 @@ license: MIT
 
 The fourth time you write an Open-Meteo client, you write a subtly different one, with a different cache TTL and a different failure behaviour. Then a feed changes shape and you fix it in one project out of four.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 10.*
+
 ---
 
 ## The artifact

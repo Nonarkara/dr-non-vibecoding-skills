@@ -14,6 +14,8 @@ license: MIT
 
 Named for Axiom, the practice this grew out of. `design-dna` is the contract — tokens, forbidden combinations, named regressions. This is the reasoning underneath the contract, for the moment an agent hits a decision the contract didn't anticipate.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), pages 8–9.*
+
 ---
 
 ## The stack of reasons

@@ -13,6 +13,8 @@ license: MIT
 
 Left alone, generated UI converges on the same thing: Inter, `border-radius: 8px`, a purple-blue gradient, four shades of grey, and six font sizes. It is competent and it is nobody's. The fix is not more taste in the prompt — it's a written contract with **named violations**.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), pages 8–9.*
+
 ---
 
 ## 1. Declare a lineage, not a preference

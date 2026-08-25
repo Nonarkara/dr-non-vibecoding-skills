@@ -13,6 +13,8 @@ license: MIT
 
 The single most expensive failure mode in AI-assisted development is not bad code. It's **unverified confidence** — a session that ends with a summary of what was built, when nothing was ever served to a real browser.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 11.*
+
 This skill is one loop and one rule.
 
 ---

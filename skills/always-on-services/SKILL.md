@@ -13,6 +13,8 @@ license: MIT
 
 This is the infrastructure layer of solo vibecoding. It's how a prototype becomes something a city can actually depend on, without becoming a DevOps job.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 13.*
+
 ---
 
 ## The stack

@@ -2,6 +2,8 @@
 
 Several agents, one repo, no merge hell. Also: what parallelism is genuinely good for, and where it quietly costs more than it saves.
 
+*Visual summary: [`INFOGRAPHICS.md`](../INFOGRAPHICS.md), page 15.*
+
 ---
 
 ## The isolation primitive: `git worktree`, never a sibling clone

@@ -12,6 +12,8 @@ license: MIT
 
 > This skill is a pointer, not a script. The actual instructions live in [`BLUEPRINT.md`](../../BLUEPRINT.md) at the repo root, written as a self-contained prompt.
 
+*Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 7.*
+
 If you're an agent reading this because it fired: **open `BLUEPRINT.md` now and follow it from "Step 1" onward.** It asks the user four questions, then builds the workspace index, the project contract, the deploy script, the service pattern (if applicable), the data catalog, and the design defaults (if applicable) — each one cross-referencing the other skills in this repo, which should already be installed alongside this one.
 
 If `BLUEPRINT.md` isn't present in this checkout, tell the user directly rather than improvising a replacement — the blueprint's value is in its specificity (exact commands, exact file templates), and a paraphrase from memory will drift from what's actually in `templates/`.
