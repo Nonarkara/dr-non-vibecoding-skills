@@ -13,6 +13,22 @@ license: MIT
 
 Three tiers. Each answers a different question, and putting content at the wrong tier is why most `CLAUDE.md` files stop being read.
 
+```mermaid
+flowchart TD
+    T0["Tier 0 — The vault\n~1,300 notes, agents read AND write\n'why does this whole practice work this way'"]
+    T1["Tier 1 — Workspace index\n~/Projects/CLAUDE.md\n'where does anything live, what's running'"]
+    T2["Tier 2 — Project contract\n&lt;project&gt;/CLAUDE.md\n'how do I work here without breaking it'"]
+    T3["Tier 3 — Lesson docs\ndocs/lessons/YYYY-MM-DD-*.md\n'why is it like this, what did we try'"]
+
+    T0 --> T1 --> T2 --> T3
+    T3 -.->|"the hard-won ones\nget promoted"| T2
+    T2 -.->|"cross-project patterns\nget promoted"| T1
+
+    style T2 fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
+```
+
+Read top-down at session start (broadest context first); write bottom-up as you learn things (specific lessons promote to general rules once they prove out across more than one session).
+
 ---
 
 ## Tier 1 — Workspace index (`~/Projects/CLAUDE.md`)

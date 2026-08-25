@@ -29,6 +29,27 @@ Production is now running new HTML against old JS. Your version check passes. Yo
 
 **Corollary that matters most:** *curling the custom domain too early is what poisons it.* Verification, done naively, causes the bug.
 
+```mermaid
+sequenceDiagram
+    participant D as Deploy tool
+    participant O as Origin
+    participant E as Edge node
+    participant V as Naive verifier
+    participant U as Real user
+
+    D->>O: upload v1.2.1
+    O-->>D: "success" ✅
+    Note over E: HTML and each asset are<br/>SEPARATE cache entries
+    V->>E: curl custom-domain /index.html
+    E-->>V: new HTML (v1.2.1) — looks great!
+    V->>E: curl custom-domain /app.js?v=1.2.1
+    Note right of E: edge still holds STALE app.js —<br/>this request just CACHED it<br/>under the new key
+    E-->>V: stale bytes, now pinned to v1.2.1 forever
+    U->>E: loads the site
+    E-->>U: new HTML + OLD JavaScript
+    Note over U: broken app, and every check said green
+```
+
 ---
 
 ## The four rules
@@ -54,6 +75,29 @@ A stale response can only poison `probe=7`, a key no human will ever request. Th
 ### 4. Require a streak, not a single success
 
 Edge nodes are plural. One good response might be one good node. Require **3 consecutive matching probes** before declaring convergence.
+
+```mermaid
+sequenceDiagram
+    participant D as Deploy tool
+    participant O as Origin
+    participant E as Edge node
+    participant P as Probe-first verifier
+    participant U as Real user
+
+    D->>O: upload v1.2.1
+    O-->>D: "success"
+    P->>E: curl CANONICAL alias first (not custom domain)
+    E-->>P: converged ✅
+    loop until 3 consecutive matches
+        P->>E: curl custom-domain /app.js?v=1.2.1&probe=N
+        Note right of E: a stale response only<br/>poisons "probe=N" —<br/>nobody will ever request that key
+        E-->>P: md5 compared to local file
+    end
+    P->>P: 3/3 streak — edge is genuinely converged
+    U->>E: loads the site, requests the REAL key for the first time
+    E-->>U: correct HTML + correct JS
+    Note over U: the real key was never<br/>touched until it was safe
+```
 
 ---
 

@@ -33,6 +33,18 @@ If you cannot verify, report **"unverified"**. Never report "done". Reporting un
 
 Every meaningful change runs this to completion. Write the trace into the commit or the lesson doc — it is the proof of work.
 
+```mermaid
+flowchart LR
+    C["C · Commit\ngit commit -m\n'&lt;type&gt;(&lt;scope&gt;): sentence'"] --> P["P · Push\ngit push origin main"]
+    P --> D["D · Deploy\nthe ONE scripted command\n— never remembered"]
+    D --> T["T · Test\ncurl the live URL,\ngrep for the new thing"]
+    T -->|fails| C
+    T -->|passes| Done(("Actually done"))
+
+    style T fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
+    style Done fill:#0d2a1c,stroke:#00c896,color:#e8e8e8
+```
+
 ```
 C — Commit    git add -A && git commit -m "<type>(<scope>): <what changed, in a sentence>"
 P — Push      git push origin main

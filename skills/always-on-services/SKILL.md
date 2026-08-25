@@ -29,6 +29,21 @@ This is the infrastructure layer of solo vibecoding. It's how a prototype become
 
 If the laptop sleeps, the site still loads; only live data goes stale. That degradation is graceful, and it's why the frontend never lives on the laptop.
 
+```mermaid
+flowchart LR
+    U(("Real user")) --> CDN["Cloudflare Pages\nstatic frontend\n— up even if the Mac sleeps"]
+    CDN --> FN["Pages Function\n/api/* catch-all proxy\n— no route list to forget"]
+    FN --> TUN["Named Cloudflare Tunnel\nown --config file"]
+    TUN --> SVC["localhost:PORT\non the MacBook"]
+    SVC --> DB[("SQLite, WAL mode")]
+
+    WD["watchdog"] -.->|"polls /api/health"| SVC
+    WD -.->|"restart, then escalate"| HUMAN(("you, if it's still down"))
+
+    style CDN fill:#0d2a1c,stroke:#00c896,color:#e8e8e8
+    style SVC fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
+```
+
 ---
 
 ## The service pattern
@@ -42,6 +57,22 @@ Every service gets **three** launchd jobs, not one:
 | Watchdog | `com.myapp.watchdog` | Periodically curls the health endpoint; restarts and escalates on failure |
 
 Plus a nightly `com.myapp.backup`. Four small jobs beat one clever one.
+
+```mermaid
+flowchart TD
+    S["com.myapp.server\nKeepAlive: true"]
+    T["com.myapp.tunnel\nown cloudflared config"]
+    W["com.myapp.watchdog\ncurls /api/health"]
+    B["com.myapp.backup\nnightly, separate from server"]
+
+    W -->|"restart on failure,\nthen escalate"| S
+    T --> S
+    B -.->|independent schedule,\nnever blocked by server state| S
+
+    style W fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
+```
+
+One job trying to be all four is the version that silently stops restarting, stops backing up, and stops telling you, all at once, the day it needed to do all three.
 
 Template: [`templates/service.plist.template`](../../templates/service.plist.template).
 
