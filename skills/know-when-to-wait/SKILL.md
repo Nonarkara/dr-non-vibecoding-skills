@@ -46,3 +46,9 @@ A local knowledge-graph memory system — ChromaDB + ONNX embeddings, indexing f
 ## The test
 
 Can you name the specific resource, API-stability, or ecosystem gap that has to close before this becomes buildable — and would you actually recognise it closing if it did? If yes: TRL-blocked. Write it down, ship the fallback, move on. If you can't name the gap, it's probably not a maturity problem — and waiting won't fix a scope or skill problem.
+
+## Where this sits against the existing principles
+
+Not a contradiction of [`dr-non-golden-rules`](../dr-non-golden-rules/SKILL.md) Rule 8 ("kill what doesn't work") — a companion for the opposite failure mode. Rule 8 kills things with no value. This skill waits on things with real value and no ready tooling; conflating the two either keeps a dead thing on life support or abandons a good idea six months too early. And it's Rule 3 and Rule 13 in the moment of the wait itself — "use what you already have" and "steal everything, understand it, rewrite it your way" is exactly what shipping the TRL-9 fallback *is*: not giving up, just building today's version out of today's proven parts instead of tomorrow's unproven one.
+
+Worth naming the convergence: this repo's `ETHOS.md`-equivalent in a sibling gstack repo independently arrived at the same instinct from a different direction — its "Search Before Building" layer model (check what's already solved, at increasing depth, before writing anything new) is the *upstream* half of what this skill covers; this skill is the downstream half, for the specific case where the search comes back with "solved, but not solid enough yet." Two solo practices, different tooling, same conclusion — which is itself a small piece of evidence the conclusion is right.

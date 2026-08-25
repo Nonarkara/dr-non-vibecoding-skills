@@ -68,6 +68,10 @@ Run this across the whole workspace first. It's cheap, and it's the difference b
 
 Re-run the Rule 0 liveness check and confirm every service that was up before the pass is still up after. A cleanup that silently kills a bot isn't a cleanup — it's an incident with a delay on it.
 
+## Where this sits against the existing principles
+
+This is [`dr-non-golden-rules`](../dr-non-golden-rules/SKILL.md) Rule 8 ("kill what doesn't work — not archive, not pivot, delete") applied to disk instead of features, with the two gates as the missing "how do you kill it safely" half that rule never specified. It's also [`karpathy-guidelines`](../karpathy-guidelines/SKILL.md)'s Surgical Changes principle at workspace scale: touch only what you've proven is safe to touch, verify before and after, don't let "cleanup" become its own uncontrolled change.
+
 ## The one-line version
 
 > Map what's alive first, gate every removal on remote-containment AND path-location, never force, then verify the services you started with are the services you end with.

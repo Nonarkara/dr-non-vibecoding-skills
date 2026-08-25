@@ -41,7 +41,7 @@ The recipe:
 
 ## The mistake that costs the most time
 
-Reimplementing this per project. The paint spec, the height-fallback logic, and the footprint baker are the same problem every time — extract them into one shared module (`_shared` in this repo's own [`data-catalog`](../data-catalog/SKILL.md) sense) the first time a second project needs buildings, not the fourth.
+Reimplementing this per project. The paint spec, the height-fallback logic, and the footprint baker are the same problem every time — extract them into one shared module (`_shared` in this repo's own [`data-catalog`](../data-catalog/SKILL.md) sense) the first time a second project needs buildings, not the fourth. This is [`dr-non-golden-rules`](../dr-non-golden-rules/SKILL.md) Rule 3 ("use what you already have") and Rule 5 ("reuse templates, not code") applied to a specific asset class — the rule already existed, this is just naming where it was quietly being broken.
 
 ## Scar-earned rules
 
