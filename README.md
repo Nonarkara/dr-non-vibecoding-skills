@@ -2,7 +2,7 @@
 
 <p>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-00c896.svg">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-11-ffd000.svg">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-14-ffd000.svg">
   <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-7-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
@@ -180,7 +180,7 @@ So: not a genius. A guy who got tired of explaining himself and wrote it all dow
 
 ---
 
-## The eleven skills
+## The fourteen skills
 
 | Skill | What it fixes |
 |---|---|
@@ -195,6 +195,11 @@ So: not a genius. A guy who got tired of explaining himself and wrote it all dow
 | [`agent-memory`](skills/agent-memory/SKILL.md) | Re-explaining your project every session. The CLAUDE.md ladder + lesson docs + a vault. |
 | [`risk-posture`](skills/risk-posture/SKILL.md) | How to take risk like I do — and the specific places it has bitten me. |
 | [`full-stack-bootstrap`](skills/full-stack-bootstrap/SKILL.md) | Setting all of the above up by hand, project after project. Points at [`BLUEPRINT.md`](BLUEPRINT.md), which does it in one pass. |
+| [`map-3d-city`](skills/map-3d-city/SKILL.md) | Populating a city map with real 3D buildings fast — and why deck.gl overlays glitch on occlusion where MapLibre-native extrusion doesn't. *(contributed by a sibling practice, see below)* |
+| [`workspace-lean`](skills/workspace-lean/SKILL.md) | Ninety accumulated git worktrees and no safe way to clear them without risking a live service or a real project sharing a `.git` dir. *(contributed by a sibling practice)* |
+| [`know-when-to-wait`](skills/know-when-to-wait/SKILL.md) | The dependency that keeps needing "one more patch" — TRL-framed, so you can tell a maturity problem from a skill problem. *(contributed by a sibling practice)* |
+
+**On the three "contributed" skills:** written by another instance of this same practice — a solo AI-urbanist running a parallel setup on a different machine, who read this whole repo, forked ideas back and forth, and sent three skills covering ground this repo didn't have yet (a 3D-map building pattern, a worktree-safe cleanup method, and a maturity-readiness heuristic for "is this technology actually ready or am I forcing it"). `security-hygiene`'s tool stack section was extended the same way. Same author, same values, different infrastructure — exactly the kind of fork this repo's license was written to invite.
 
 ---
 

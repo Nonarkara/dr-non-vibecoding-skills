@@ -82,6 +82,21 @@ From my own audits, in rough order of hit rate:
 
 ---
 
+## The actual free stack, not just the practices above
+
+Four layers, each catching what the others structurally can't — no single scanner covers everything:
+
+| Layer | Tool | Runs | Catches |
+|---|---|---|---|
+| Secrets | Gitleaks or TruffleHog | pre-commit + CI | Hardcoded credentials — the single highest hit-rate finding above |
+| Static analysis (SAST) | Semgrep | every PR | Injection, unsafe eval, missing auth checks — supports custom rules for house anti-patterns |
+| Dependencies / containers / IaC | Trivy | CI | Known-CVE packages, Dockerfile misconfig |
+| Runtime exploit verification | (a DAST/pentest tool of choice) | scheduled + CI diff-mode | Whether a found pattern is *actually* exploitable — the layer static scanners can't answer alone |
+
+Rollout order that respects a real backlog: secrets scanning first (cheapest, highest hit rate, one hook covers every future commit), SAST second on the default ruleset before writing custom rules, dependency scanning third on anything with a Dockerfile. Named standards to cite if a client asks: **OWASP Top 10** for the vulnerability classes themselves, **CIS Controls IG1** ("essential cyber hygiene," Center for Internet Security's own recommended floor for a resource-limited team — IG2/IG3 assume security staff a solo operator doesn't have).
+
+---
+
 ## Before any public repo
 
 ```bash
