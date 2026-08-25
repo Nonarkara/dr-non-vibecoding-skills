@@ -28,7 +28,7 @@
 - [To do what, exactly?](#to-do-what-exactly)
 - [How much money are we talking about?](#how-much-money-are-we-talking-about)
 - [Are you a genius, or a crazy genius, Dr Non?](#are-you-a-genius-or-a-crazy-genius-dr-non)
-- [The eleven skills](#the-eleven-skills)
+- [The fourteen skills](#the-fourteen-skills)
 - [The seven playbooks](#the-seven-playbooks)
 - [The blueprint — set up a project like I do](#the-blueprint--set-up-a-project-like-i-do)
 - [Reference, templates, license](#reference--templates)
@@ -43,7 +43,7 @@ It comes in four shapes:
 
 ```mermaid
 flowchart LR
-    S["11 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
+    S["14 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
     P["7 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
     R["4 Reference docs\nAPIs, stack picks, commit style, security"]
     T["5 Templates\ndrop-in files — deploy script,\nCLAUDE.md, launchd, tunnel config"]
@@ -73,6 +73,8 @@ Because right now, probably, one of these is quietly true for you:
 | Your agent quietly regresses your design every third session | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) + [`design-dna`](skills/design-dna/SKILL.md) — taste as an enforceable contract |
 | You rebuild the same API adapter in every new project | [`data-catalog`](skills/data-catalog/SKILL.md) — catalogue once, port forever |
 | You genuinely don't know how much risk is "too much" to take solo | [`risk-posture`](skills/risk-posture/SKILL.md) — the actual calculus, with the four hard lines |
+| Your 3D city map has glitchy overlapping buildings | [`map-3d-city`](skills/map-3d-city/SKILL.md) — deck.gl-on-top-of-a-map is the bug; MapLibre-native extrusion isn't |
+| Your workspace has 90 git worktrees and you're afraid to delete any of them | [`workspace-lean`](skills/workspace-lean/SKILL.md) — the two-gate check that tells disposable from load-bearing |
 | You want all of the above, on a blank folder, in one shot | [`BLUEPRINT.md`](BLUEPRINT.md) — hand it to a fresh agent session |
 
 If none of those are you yet — they will be, the day your project has a second session, a second user, or a first incident. Better to have the answer written down before you need it.
@@ -106,6 +108,7 @@ flowchart TD
         direction LR
         ADC["axiom-design-core\nwhy the design works"]
         DNA["design-dna\nthe enforceable contract"]
+        M3D["map-3d-city\nbuildings without the glitches"]
     end
     subgraph App["APPLICATION"]
         direction LR
@@ -124,11 +127,13 @@ flowchart TD
     subgraph Infra["INFRASTRUCTURE"]
         direction LR
         AOS["always-on-services\nlaunchd + tunnels, no VPS"]
+        WL["workspace-lean\nsafe cleanup, never a live service"]
     end
     subgraph Memory["MEMORY & RISK"]
         direction LR
         AM["agent-memory\nthe CLAUDE.md ladder"]
         RP["risk-posture\nwhere to move fast, where not to"]
+        KWW["know-when-to-wait\ntooling maturity vs. skill"]
     end
 
     Front --> App --> Data --> Ship --> Infra

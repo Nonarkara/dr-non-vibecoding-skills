@@ -121,3 +121,9 @@ The test: can you explain the last thing you built to a ten-year-old? If yes, yo
 ## The one-line version
 
 > Take large risks with things that are cheap to undo. Take no risks at all with things that shout at people, hold their data, or can't be restored.
+
+---
+
+## The companion case: when the blocker isn't your risk tolerance at all
+
+Everything above assumes the technology under you is ready and the only question is how boldly to use it. Sometimes that's false — the idea is sound, the value case is real, and the *tooling* just hasn't caught up yet. Killing that project (Rule 8, above) is the wrong move; so is grinding against it as if one more patch will fix it. See [`know-when-to-wait`](../know-when-to-wait/SKILL.md) for how to tell the two apart, and what to build in the meantime instead of either forcing it or giving up on it.

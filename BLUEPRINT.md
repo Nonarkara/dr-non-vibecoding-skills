@@ -146,7 +146,7 @@ flowchart TD
         CM[CLAUDE.md — Tier 1 index]
         AM[AGENTS.md — mirror]
         DC["_shared/data-catalog/\nCATALOG.md"]
-        SK["~/.claude/skills/\n9-11 skills installed"]
+        SK["~/.claude/skills/\nthe whole practice, installed"]
     end
     subgraph Project["your-project/"]
         PCM["CLAUDE.md — Tier 2 contract\nanti-regression + exact commands"]

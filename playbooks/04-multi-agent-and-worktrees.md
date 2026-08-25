@@ -25,6 +25,8 @@ Why this and not `cp -r`:
 
 Housekeeping that matters: prune merged worktrees. Stale worktree metadata after a repo move leaves `git` pointing at paths that no longer exist, and the error messages are unhelpful.
 
+`prune` only clears registrations whose directory is already gone — it does nothing for the ninety worktrees still sitting on disk from finished work. For that pass, see [`workspace-lean`](../skills/workspace-lean/SKILL.md): map what's actually alive first, then gate every removal on two independent checks (is it already on a remote, and is it really disposable scratch space rather than a second project sharing a `.git` dir) before anything gets deleted.
+
 ---
 
 ## What to parallelise
