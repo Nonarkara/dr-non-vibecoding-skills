@@ -2,8 +2,8 @@
 
 <p>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-00c896.svg">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-14-ffd000.svg">
-  <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-7-ffd000.svg">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-18-ffd000.svg">
+  <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-8-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
   <img alt="Infographics" src="https://img.shields.io/badge/infographics-19%20pages-e8002d.svg">
@@ -30,8 +30,9 @@
 - [How much money are we talking about?](#how-much-money-are-we-talking-about)
 - [Are you a genius, or a crazy genius, Dr Non?](#are-you-a-genius-or-a-crazy-genius-dr-non)
 - [The infographics](#the-infographics)
-- [The fourteen skills](#the-fourteen-skills)
-- [The seven playbooks](#the-seven-playbooks)
+- [The eighteen skills](#the-eighteen-skills)
+- [The eight playbooks](#the-eight-playbooks)
+- [A note for non-Claude agents](#a-note-for-non-claude-agents)
 - [The blueprint — set up a project like I do](#the-blueprint--set-up-a-project-like-i-do)
 - [Reference, templates, license](#reference--templates)
 
@@ -203,7 +204,7 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 
 ---
 
-## The fourteen skills
+## The eighteen skills
 
 | Skill | What it fixes |
 |---|---|
@@ -221,12 +222,16 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | Populating a city map with real 3D buildings fast — and why deck.gl overlays glitch on occlusion where MapLibre-native extrusion doesn't. *(contributed by a sibling practice, see below)* |
 | [`workspace-lean`](skills/workspace-lean/SKILL.md) | Ninety accumulated git worktrees and no safe way to clear them without risking a live service or a real project sharing a `.git` dir. *(contributed by a sibling practice)* |
 | [`know-when-to-wait`](skills/know-when-to-wait/SKILL.md) | The dependency that keeps needing "one more patch" — TRL-framed, so you can tell a maturity problem from a skill problem. *(contributed by a sibling practice)* |
+| [`subagent-routing`](skills/subagent-routing/SKILL.md) | Deciding when to dispatch a child agent (Claude Code / MiniMax Code) and how to brief it in six fields. *(Mavis-side extension)* |
+| [`mcp-cli-first`](skills/mcp-cli-first/SKILL.md) | If a tool can do it, do it. The MCP → CLI → API → GUI tier list, with the "no dashboard description" red-flag list. *(Mavis-side extension)* |
+| [`context-economy`](skills/context-economy/SKILL.md) | Five response shapes, the anti-pattern list, the M5 Max hardware rule. Tokens spent on warm-ups are tokens not spent on the work. *(Mavis-side extension)* |
+| [`result-honesty`](skills/result-honesty/SKILL.md) | Succeeded / failed / skipped / unverified — four buckets, every report. The replacement vocabulary for "done". *(Mavis-side extension)* |
 
 **On the three "contributed" skills:** written by another instance of this same practice — a solo AI-urbanist running a parallel setup on a different machine, who read this whole repo, forked ideas back and forth, and sent three skills covering ground this repo didn't have yet (a 3D-map building pattern, a worktree-safe cleanup method, and a maturity-readiness heuristic for "is this technology actually ready or am I forcing it"). `security-hygiene`'s tool stack section was extended the same way. Same author, same values, different infrastructure — exactly the kind of fork this repo's license was written to invite.
 
 ---
 
-## The seven playbooks
+## The eight playbooks
 
 Longer-form, narrative. Read these once; the skills are the daily reference.
 
@@ -237,6 +242,22 @@ Longer-form, narrative. Read these once; the skills are the daily reference.
 5. **[Taking risk like Dr Non](playbooks/05-taking-risk-like-dr-non.md)** — the actual risk calculus
 6. **[War stories](playbooks/06-war-stories.md)** — every incident that changed how I work, with the cost
 7. **[Design at the speed of light](playbooks/07-design-at-the-speed-of-light.md)** — how a coherent visual system ships in one sitting, alone
+8. **[The Mavis side](playbooks/08-the-mavis-side.md)** *(Mavis-side extension)* — how a Claude-based agent extends the system, the portability layer for non-Claude readers, and the patterns the other playbooks don't cover
+
+---
+
+## A note for non-Claude agents
+
+The repo is Claude-first by design — Mavis (running inside MiniMax Code) is the primary agent. **Four of the eighteen skills and one of the eight playbooks are Mavis/Claude-specific extensions** that don't apply directly to Codex, Cursor, Gemini CLI, or other readers:
+
+- `subagent-routing` — the `task` / `explore` / `worker` / `verifier` dispatch API is a Claude-Code primitive.
+- `mcp-cli-first` — most useful to Claude Code (MCP is most deeply integrated there), but the principle generalises.
+- `context-economy` — universal in principle; the M5 Max hardware rule is Claude-specific.
+- `result-honesty` — universal; every agent benefits from the four-bucket status format.
+
+The other fourteen skills and seven playbooks are deliberately agent-agnostic — plain markdown, no runtime, no Claude-specific frontmatter. They will load in any agent that reads files.
+
+**For a non-Claude agent landing here cold**, [`AGENTS.md`](AGENTS.md) is the entry point — it mirrors the canonical entry path and skips the Claude-specific surface. The `playbooks/08-the-mavis-side.md` playbook also has a section on mirroring `CLAUDE.md` to `AGENTS.md` / `GEMINI.md` / `.cursorrules` for projects where Mavis is the primary agent and others are readers.
 
 ---
 
