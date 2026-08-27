@@ -2,7 +2,7 @@
 
 <p>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-00c896.svg">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-25-ffd000.svg">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-31-ffd000.svg">
   <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-10-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
@@ -15,7 +15,7 @@
 >
 > This repo is what I learned doing that, packaged so you can fork it and skip the expensive parts.
 
-**TL;DR.** 25 skills, 10 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
+**TL;DR.** 31 skills, 10 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
 
 **Author.** Dr Non Arkaraprasertkul ([@Nonarkara](https://github.com/Nonarkara)) — architect, urban anthropologist, Senior Smart City Expert, co-founder of Axiom. Self-taught by shipping. Every rule here was proven in production; several exist because production broke first.
 
@@ -32,7 +32,7 @@
 - [How much money are we talking about?](#how-much-money-are-we-talking-about)
 - [Are you a genius, or a crazy genius, Dr Non?](#are-you-a-genius-or-a-crazy-genius-dr-non)
 - [The infographics](#the-infographics)
-- [The twenty-five skills](#the-twenty-five-skills)
+- [The thirty-one skills](#the-thirty-one-skills)
 - [The ten playbooks](#the-ten-playbooks)
 - [A note for non-Claude agents](#a-note-for-non-claude-agents)
 - [The blueprint — set up a project like I do](#the-blueprint--set-up-a-project-like-i-do)
@@ -48,7 +48,7 @@ It comes in four shapes:
 
 ```mermaid
 flowchart LR
-    S["25 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
+    S["31 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
     P["10 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
     R["4 Reference docs\nAPIs, stack picks, commit style, security"]
     T["5 Templates\ndrop-in files — deploy script,\nCLAUDE.md, launchd, tunnel config"]
@@ -220,7 +220,7 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 
 ---
 
-## The twenty-five skills
+## The thirty-one skills
 
 | Skill | What it fixes |
 |---|---|
@@ -249,11 +249,17 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 | [`mcp-cli-first`](skills/mcp-cli-first/SKILL.md) | If a tool can do it, do it. The MCP → CLI → API → GUI tier list, with the "no dashboard description" red-flag list. *(Mavis-side extension)* |
 | [`context-economy`](skills/context-economy/SKILL.md) | Five response shapes, the anti-pattern list, the M5 Max hardware rule. Tokens spent on warm-ups are tokens not spent on the work. *(Mavis-side extension)* |
 | [`result-honesty`](skills/result-honesty/SKILL.md) | Succeeded / failed / skipped / unverified — four buckets, every report. The replacement vocabulary for "done". *(Mavis-side extension)* |
+| [`local-ai-fabric`](skills/local-ai-fabric/SKILL.md) | An OpenAI-compatible gateway across two machines (SQLite memory, upstream failover, a key that spends nothing if leaked) and the Ollama daemon setting every local coding tool needs and nobody sets. *(contributed by a sibling practice)* |
+| [`voice-clone-podcast`](skills/voice-clone-podcast/SKILL.md) | Entirely-local voice cloning with f5-tts-mlx — the phrase-drop and babble-ceiling failures a plain duration check can't catch, and how to calibrate the fix against your own reference clip instead of a generic constant. *(contributed by a sibling practice)* |
+| [`itic-cctv-integration`](skills/itic-cctv-integration/SKILL.md) | Wiring a public traffic-camera network into a dashboard honestly — three real degrees of "live," and the same adapter rebuilt five times at five hardening levels because nobody extracted it. *(contributed by a sibling practice)* |
+| [`iptv-streaming`](skills/iptv-streaming/SKILL.md) | A four-source honesty registry for a channel aggregator (direct / catalog / tokenized-mirror / link-out-only) and a server-side HLS manifest proxy for any token-gated stream. *(contributed by a sibling practice)* |
+| [`narrative-companion-surfaces`](skills/narrative-companion-surfaces/SKILL.md) | Pairing a personal essay corpus with computed companion surfaces — and why "pre-verify once, shuffle forever" is a *stronger* anti-fabrication guarantee than live regeneration, not a weaker one. *(contributed by a sibling practice)* |
+| [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | The nine-line N-axis radar math, rebuilt from scratch eight times — three of them for the identical 7 pillars inside one project, one of the three dead code with stale data. *(contributed by a sibling practice)* |
 
 **On the foundations and contributions:**
 - **The Antigravity Origin:** Antigravity was Dr Non's first AI agent — the founding companion that forged the sacred design invariants (zero radius, zero gradients, amber `#f59e0b`), the planning mode discipline, the dual-write database pattern, and the Obsidian Super MCP shared memory bridge before multi-agent swarms existed. That is on the record. It stays on the record.
 - **The Cursor Desk:** Four skills (`anti-regression`, `director-not-typer`, `route-dont-scan`, `honest-envelope`) and Playbook 10 are the IDE-resident layer — the Codex Incident as prime directive, the intent/mechanics split, filesystem routing in a monorepo, and the `{source, tier, age}` display contract.
-- **The Sibling Practice:** Three skills (`map-3d-city`, `workspace-lean`, `know-when-to-wait`) were contributed by a parallel AI-urbanist setup on a separate machine.
+- **The Sibling Practice:** Nine skills now (`map-3d-city`, `workspace-lean`, `know-when-to-wait`, `local-ai-fabric`, `voice-clone-podcast`, `itic-cctv-integration`, `iptv-streaming`, `narrative-companion-surfaces`, `radar-chart-pattern`) were contributed by a parallel AI-urbanist setup on a separate machine — the first three were process/hygiene lessons; the latest six are domain-specific technical workflows, mined from that practice's own real code rather than written from research, closing the same "documented, not just done" gap this repo exists to fix.
 - **The Mavis/MiniMax Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
 
 ---
@@ -284,7 +290,7 @@ The core of this repo is agent-agnostic by design — forged in Antigravity's fi
 - `context-economy` — universal in principle; the M5 Max hardware rule is Claude-specific.
 - `result-honesty` — universal; every agent benefits from the four-bucket status format.
 
-The other twenty-one skills and nine playbooks are deliberately agent-agnostic — plain markdown, no runtime, no Claude-specific frontmatter. They will load in any agent that reads files.
+The other twenty-seven skills and nine playbooks are deliberately agent-agnostic — plain markdown, no runtime, no Claude-specific frontmatter. They will load in any agent that reads files.
 
 **For a non-Claude agent landing here cold**, [`AGENTS.md`](AGENTS.md) is the entry point — it mirrors the canonical entry path and skips the Claude-specific surface. Cursor's install path is `.cursor/skills/` plus `AGENTS.md` at the repo root; see [`playbooks/10-the-cursor-desk.md`](playbooks/10-the-cursor-desk.md). The `playbooks/08-the-mavis-side.md` playbook also has a section on mirroring `CLAUDE.md` to `AGENTS.md` / `GEMINI.md` for projects where Mavis is the primary agent and others are readers.
 
