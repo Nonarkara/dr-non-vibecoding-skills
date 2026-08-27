@@ -1,6 +1,6 @@
 # The Mavis Side
 
-How Mavis (the Claude-based coding agent running inside MiniMax Code) extends this system. The portability layer that lets the same `CLAUDE.md` work for `AGENTS.md`, `GEMINI.md`, and `.cursorrules` readers. The routing primitives that Codex and Cursor don't have, named in one place. The reason a Claude-first repo can still be useful to a Claude-second agent.
+How Mavis (the Claude-based coding agent running inside MiniMax Code) extends this system. The portability layer that lets the same `CLAUDE.md` work for `AGENTS.md` and `GEMINI.md` readers (Cursor reads `AGENTS.md` plus `.cursor/skills/` — `.cursorrules` is legacy). The routing primitives that Codex and Cursor don't have, named in one place. The reason a Claude-first repo can still be useful to a Claude-second agent.
 
 The other playbooks in this folder describe Dr Non's system from his side. This one describes it from the agent's side — specifically the agent that wrote this playbook. Useful if you are a Claude-based agent reading this repo, or if you are Dr Non setting up a project and want to know what Mavis brings on top of the load-bearing bones.
 
@@ -8,7 +8,7 @@ The other playbooks in this folder describe Dr Non's system from his side. This 
 
 ## What the existing system already gives me
 
-Dr Non's fourteen skills (now eighteen, with this upgrade) are deliberately agent-agnostic. They are plain markdown, with no Claude-specific frontmatter, no Claude-specific runtime. The `CLAUDE.md` ladder works the same whether the agent is Claude Code, Codex, Cursor, or a Gemini CLI. The CPDT loop is a `git` + `curl` + `wrangler` loop, not a Claude loop. The deploy verification pattern is about CDN behaviour, not about which model wrote the deploy script.
+Dr Non's skills are deliberately agent-agnostic. They are plain markdown, with no Claude-specific frontmatter, no Claude-specific runtime. The `CLAUDE.md` ladder works the same whether the agent is Claude Code, Codex, Cursor, or a Gemini CLI. The CPDT loop is a `git` + `curl` + `wrangler` loop, not a Claude loop. The deploy verification pattern is about CDN behaviour, not about which model wrote the deploy script.
 
 That is the right design. Mavis is grateful. Everything I do well, I do well because the *project* was set up this way — memory ladder, design lineage, deploy discipline, anti-regression section — and the agent layer could be swapped underneath without the bones moving.
 
@@ -66,7 +66,7 @@ The CPDT trace format is the deploy-and-verify report: not "deployed and verifie
 
 ## The portability layer — making one `CLAUDE.md` work for every agent
 
-The repo's own `playbooks/02-the-claude-md-ladder.md` mentions in passing that `CLAUDE.md` mirrors to `AGENTS.md`, `GEMINI.md`, and `.cursorrules`. The Codex-recommended v2 upgrade is to make this an explicit first-class artifact, not a footnote. Here is the recipe.
+The repo's own `playbooks/02-the-claude-md-ladder.md` mentions in passing that `CLAUDE.md` mirrors to `AGENTS.md` and `GEMINI.md`. The Codex-recommended v2 upgrade is to make this an explicit first-class artifact, not a footnote. Cursor reads `AGENTS.md` plus `.cursor/skills/` — `.cursorrules` is legacy. Here is the recipe.
 
 ### Step 1 — write the canonical once
 
@@ -90,12 +90,11 @@ sed -e '/^## Mavis-only/d' \
     -e 's/CLAUDE\.md/AGENTS.md/g' \
     CLAUDE.md > GEMINI.md
 
-# Cursor (reads .cursorrules, flat, not markdown)
-# Keep it short — only the load-bearing rules
-grep -E '^- |^## |^# ' CLAUDE.md | head -40 > .cursorrules   # then curate by hand
+# Cursor — AGENTS.md (this file) + project skills. .cursorrules is legacy.
+# mkdir -p .cursor/skills && cp -r skills/* .cursor/skills/
 ```
 
-`AGENTS.md` at the repo root is the one that matters most. The OpenCode / Codex / Aider / Devin / Gemini CLI family all read it. Cursor reads `.cursorrules` (a flat rules file, not markdown) — keep it short, only the load-bearing rules.
+`AGENTS.md` at the repo root is the one that matters most. The OpenCode / Codex / Aider / Devin / Gemini CLI family all read it. Cursor reads `AGENTS.md` plus `.cursor/skills/` — do not generate `.cursorrules`.
 
 ### Step 4 — keep the mirrors honest
 

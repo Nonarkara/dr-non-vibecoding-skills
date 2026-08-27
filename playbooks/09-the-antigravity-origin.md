@@ -96,4 +96,4 @@ flowchart TD
     style Hub fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
 ```
 
-Antigravity proved that one person directing an AI agent could outpace an entire engineering team. Everything that followed — the 18 skills, the 8 playbooks, the Mavis extensions, the multi-agent worktrees — was built upon this bedrock.
+Antigravity proved that one person directing an AI agent could outpace an entire engineering team. Everything that followed — the later skills, the Mavis extensions, the Cursor desk, the multi-agent worktrees — was built upon this bedrock.

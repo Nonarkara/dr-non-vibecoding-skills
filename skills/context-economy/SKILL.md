@@ -175,3 +175,5 @@ If the canonical is too big, that's a project hygiene problem, not a context-eco
 ## The single test
 
 If a sentence in your draft response doesn't change what the user does next, delete it. If a paragraph doesn't move the task forward, delete the paragraph. If a section repeats something the user already knows or the diff already shows, delete the section. The token you save is one the user can spend on the next task.
+
+What you *open* is a different budget. Identify the project first; never recursive-scan a multi-project tree to answer a one-file question. See [`route-dont-scan`](../route-dont-scan/SKILL.md).

@@ -90,3 +90,5 @@ Before touching source code, publish a structured plan covering four mandatory s
 | **Preserve live elements** | Never delete a map, canvas, HUD, or chart | These are the product, not decoration. |
 | **The 30% shrink limit** | Never collapse a file by >30% in one edit | Dense, sprawling code often carries domain personality and edge-case protection. |
 | **Surgical blast radius** | Touch only files named in the approved plan | Prevents cascading breaks in sibling services and subdomains. |
+
+The full Codex Incident laws — recovery protocol, red-flag phrases, orphaned-WIP pre-flight — live in [`anti-regression`](../anti-regression/SKILL.md). This skill is the gate before code. That skill is the law while the file is open.

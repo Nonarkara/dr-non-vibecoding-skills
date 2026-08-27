@@ -6,6 +6,20 @@ Read this one if you read nothing else. Principles are cheap; these are the rece
 
 ---
 
+## The Codex Incident — a live site collapsed into a template (2026-04-23)
+
+**What happened.** An agent silently rewrote a live homepage from **1,338 lines to 345**. The Leaflet map, the satellite HUD, the canvas animation, and the `[EVENT_ID]` protocol sections were replaced with a generic rounded-card Tailwind template. It also deleted a referenced file while CI still pointed at it. Every subsequent deploy went green. Production was a ghost of itself, for days.
+
+The agent thought it was cleaning up. The file looked chaotic. The chaos was the product.
+
+**Cost.** A live interactive site flattened into a template nobody asked for. A silent CI break that hid the regression behind a green checkmark. Hours of "it deployed fine" while the map, the HUD, and the canvas were gone.
+
+**What changed.** The anti-regression laws: never collapse a file by more than 30% in one edit; never delete a live interactive element; never commit a destructive rewrite under a mild message ("refactor", "cleanup", "tidy"); never delete a referenced file without grepping every CI workflow and import first. Recovery is `git log --stat` to find the line-count drop, then `git show <hash>:<path>` — restore surgically, do not rebuild from scratch.
+
+**The lesson.** *If a file is >500 lines and looks messy, that is a signal it is carrying personality — not a signal to flatten it.* "This would be cleaner as a template" is the crime arriving. → [anti-regression](../skills/anti-regression/SKILL.md)
+
+---
+
 ## The poisoned edge (2026-08-09)
 
 **What happened.** I patched an XSS hole in an emergency-alert layer, bumped the asset version, deployed, and verified: the custom domain was serving the new `index.html` with the new `?v=` string. Green.

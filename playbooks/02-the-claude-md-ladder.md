@@ -133,4 +133,4 @@ Written after any session that was hard. Full structure in [`templates/lesson.md
 
 **Say what you don't know.** *"Several dashboards haven't been cross-referenced into this index yet — do it next time either project is touched."* An honest gap is useful. A silent one is a trap.
 
-**Mirror for other agents.** Codex reads `AGENTS.md`, Cursor reads `.cursorrules`, Gemini reads `GEMINI.md`. Same content, different filename. Keep one canonical and copy — but check the copies: mine drifted, and one still refers to a folder by an old name.
+**Mirror for other agents.** Codex reads `AGENTS.md`, Cursor reads `AGENTS.md` plus `.cursor/skills/` (`.cursorrules` is legacy), Gemini reads `GEMINI.md`. Same content, different filename. Keep one canonical and copy — but check the copies: mine drifted, and one still refers to a folder by an old name.

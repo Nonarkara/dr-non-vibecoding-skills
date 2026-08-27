@@ -36,8 +36,12 @@ up" unless you've said it's deliberate.>
 1. `<the load-bearing thing>` — <why it exists>. It is load-bearing.
 2. `<the constrained ladder>` — e.g. three font sizes only; do not introduce a fourth.
 3. `<the fallback>` — e.g. mock data in `src/lib/api/mock.ts`; the app must render
-   fully with no API keys. Never remove mock fallbacks.
+   fully with no API keys. Never remove mock fallbacks. Label fallback numbers with
+   `{source, tier, age}` — a fake live figure is worse than an error.
 4. `<the disclaimer / legal text>` — do not remove.
+5. Never collapse this file (or any earned UI file) by more than 30% in one edit.
+   If a live map / canvas / HUD / ticker is in the file, it stays. "Cleanup" is not
+   a licence. See `anti-regression`.
 
 ## Architecture
 

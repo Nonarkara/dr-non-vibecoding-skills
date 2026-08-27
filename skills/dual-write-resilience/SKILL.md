@@ -110,3 +110,5 @@ Every displayed metric in the UI carries `{source, tier, age}`:
 - [ ] Mirror writes are wrapped in non-blocking try/catch blocks (mirror failure never aborts primary transaction).
 - [ ] Read adapter enforces ≤1.5s timeout on primary before falling back.
 - [ ] UI displays subtle data tier badge (`Live` vs `Mirror`).
+
+The display contract — `{source, tier, age}` on every visible number, mock labeled as mock — lives in [`honest-envelope`](../honest-envelope/SKILL.md). This skill is how failover is stored. That skill is how failover is shown.

@@ -11,7 +11,16 @@ git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cp -r dr-non-vibecoding-skills/skills/* ~/.claude/skills/
 ```
 
-Not on Claude Code? The `SKILL.md` files are plain markdown — concatenate the ones you want into `AGENTS.md`, `.cursorrules`, or `GEMINI.md`. There is no runtime dependency.
+Not on Claude Code? The `SKILL.md` files are plain markdown.
+
+```bash
+# Cursor
+mkdir -p .cursor/skills
+cp -r dr-non-vibecoding-skills/skills/* .cursor/skills/
+cp dr-non-vibecoding-skills/AGENTS.md ./AGENTS.md
+```
+
+Codex / Gemini: concatenate the ones you want into `AGENTS.md` or `GEMINI.md`. `.cursorrules` is legacy. There is no runtime dependency.
 
 ---
 
@@ -70,6 +79,7 @@ Six months from now that folder is worth more than the code. Mine is the reason 
 
 - If you're building something new → [`skills/dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md)
 - If your agent overcomplicates → [`skills/karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md)
+- If your agent keeps flattening distinctive UI → [`skills/anti-regression`](skills/anti-regression/SKILL.md)
 - If you want the daily rhythm → [playbook 01](playbooks/01-how-i-actually-code.md)
 - If you want to know how far to push → [playbook 05](playbooks/05-taking-risk-like-dr-non.md)
 - If you want your UI to stop looking generic → [`skills/axiom-design-core`](skills/axiom-design-core/SKILL.md)

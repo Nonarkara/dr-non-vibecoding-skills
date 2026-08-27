@@ -80,6 +80,8 @@ I run more than one model family, deliberately. The useful pattern isn't "the be
 
 And a practical note: keep a **local fallback** (Ollama or similar) wired up. Not because it matches a frontier model, but because a working offline path means an outage or a plane doesn't stop the day.
 
+The production-doctrine refinement — decorrelate, review blind, frame adversarially, prefer an executing test, stop when a round yields zero confirmed findings — lives in [`playbooks/10-the-cursor-desk.md`](10-the-cursor-desk.md). Same chair, tighter rules.
+
 ---
 
 ## Verification scales worse than generation

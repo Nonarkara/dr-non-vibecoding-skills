@@ -12,8 +12,8 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **21 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **9 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **25 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **10 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 reference docs** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **5 templates** in `templates/` — drop-in files (`CLAUDE.md`, deploy script, launchd plist, tunnel config, lesson doc).
 
@@ -25,7 +25,7 @@ There is nothing to compile, nothing to configure, and nothing that can go out o
 
 ### 1. Read the spine first
 
-Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists all 21 skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
+Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists all 25 skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
 
 ### 2. Install the skills
 
@@ -35,7 +35,10 @@ The `SKILL.md` files are plain markdown. The install is a copy:
 # Claude Code / MiniMax Code
 cp -r skills/* ~/.claude/skills/
 
-# Cursor — copy individual skill content into .cursorrules (keep it short)
+# Cursor — same SKILL.md files, project-level Agent Skills + AGENTS.md
+#   mkdir -p .cursor/skills && cp -r skills/* .cursor/skills/
+#   cp AGENTS.md /path/to/your-project/AGENTS.md
+#   (.cursorrules is legacy — do not generate it)
 # Gemini CLI — concatenate the skills you want into GEMINI.md
 # Codex / Aider / OpenCode / Devin — concatenate into AGENTS.md
 ```
@@ -60,6 +63,10 @@ Pick the skill that matches your problem:
 |---|---|
 | Agent keeps re-explaining the project | `skills/agent-memory/SKILL.md` |
 | Agent makes cowboy edits without a plan | `skills/planning-discipline/SKILL.md` |
+| Agent "cleans up" a live map into a template | `skills/anti-regression/SKILL.md` |
+| About to ask the human to pick a library | `skills/director-not-typer/SKILL.md` |
+| Dashboard number has no source / age | `skills/honest-envelope/SKILL.md` |
+| Impulse is `ls -R` on a multi-project tree | `skills/route-dont-scan/SKILL.md` |
 | Public dashboard or bot 500s when DB hiccups | `skills/dual-write-resilience/SKILL.md` |
 | Agents in fleet repeat each other's mistakes | `skills/shared-memory-hub/SKILL.md` |
 | Agent says "done" without verifying | `skills/ship-discipline/SKILL.md` |
@@ -99,6 +106,7 @@ The skills are reference material. The contract is the *executable* part. Withou
 
 This repo spans the full lifecycle of Dr Non's practice:
 - **The Antigravity Origin:** The foundational layer (`planning-discipline`, `dual-write-resilience`, `shared-memory-hub`, design invariants) forged with Dr Non's first AI agent, designed to be universal across all agents.
+- **The Cursor Desk:** Four skills (`anti-regression`, `director-not-typer`, `route-dont-scan`, `honest-envelope`) and Playbook 10 — the IDE-resident layer. Codex Incident as prime directive, intent/mechanics split, monorepo routing, honest numbers.
 - **The Mavis/Claude Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
 
 Four skills are Mavis/Claude-specific extensions that don't apply directly to non-Claude agents:
@@ -108,7 +116,7 @@ Four skills are Mavis/Claude-specific extensions that don't apply directly to no
 - `context-economy` — the five response shapes, the anti-pattern list, the four-bucket status report. **Universal.** The M5 Max hardware rule is Claude-specific, but the principle — "don't downsize based on assumptions about the machine" — applies anywhere.
 - `result-honesty` — succeeded / failed / skipped / unverified reporting. **Universal.** Every agent benefits from the four-bucket format; it is a vocabulary upgrade, not an agent primitive.
 
-`playbooks/08-the-mavis-side.md` and `playbooks/09-the-antigravity-origin.md` walk through the agent-side perspectives end to end.
+`playbooks/08-the-mavis-side.md`, `playbooks/09-the-antigravity-origin.md`, and `playbooks/10-the-cursor-desk.md` walk through the agent-side perspectives end to end.
 
 ---
 
@@ -128,8 +136,8 @@ sed -e '/^## Mavis-only/d' \
     -e 's/CLAUDE\.md/AGENTS.md/g' \
     CLAUDE.md > GEMINI.md
 
-# Cursor (flat .cursorrules, not markdown — keep short)
-grep -E '^- |^## ' CLAUDE.md | head -40 > .cursorrules   # then curate by hand
+# Cursor — project skills + AGENTS.md (preferred). .cursorrules is legacy.
+# mkdir -p .cursor/skills && cp -r skills/* .cursor/skills/
 ```
 
 `diff` the mirrors against the canonical every quarter. Path renames are the single biggest drift source — one project's mirror said `demos/` for six months after the canonical moved to `examples/`.

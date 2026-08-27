@@ -107,7 +107,15 @@ Two commits, same version, same session. The feature ships; the changelog record
 
 ## Attribution
 
-Turn off automatic "Generated with…" trailers. Not out of pride — because your commit history should read as **decisions you own**. You chose to ship it, you reviewed the diff, you're responsible for it. The trailer adds nothing and blurs that.
+Turn off automatic "Generated with…" vendor trailers. Not out of pride — because your commit history should read as **decisions you own**. You chose to ship it, you reviewed the diff, you're responsible for it. Marketing trailers add nothing and blur that.
+
+Name the *agent* so the rest of the fleet can see who wrote what, and stop silently overwriting each other:
+
+```
+Co-Authored-By: Cursor <cursoragent@cursor.com>
+```
+
+or the short form used across this practice: `Agent: cursor` / `Agent: antigravity` / `Agent: glm-2.5`. Never strip another agent's trailer. The brain that reads history cannot see ghosts.
 
 ---
 

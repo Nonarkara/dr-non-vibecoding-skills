@@ -81,6 +81,7 @@ Minimum viable T, by project type:
 | API / service | `curl -sS https://host/api/health \| python3 -m json.tool` |
 | Anything behind a CDN | Content-level probe, not just HTML. See the `deploy-verification` skill. |
 | Anything with a service worker | Headless browser with `serviceWorkers: 'block'` — a SW will happily serve you last week. |
+| UI / layout / routing / client state | Exercise the flow in a real browser — click, type, submit, navigate. A screenshot is not T. Then hunt surrounding routes for what broke. |
 
 ---
 
