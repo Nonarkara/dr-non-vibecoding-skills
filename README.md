@@ -15,7 +15,9 @@
 >
 > This repo is what I learned doing that, packaged so you can fork it and skip the expensive parts.
 
-**Author:** Dr Non Arkaraprasertkul ([@Nonarkara](https://github.com/Nonarkara)) — architect, urban anthropologist, Senior Smart City Expert, co-founder of Axiom. I learned to code by shipping, not by studying. Everything here was proven in production, and several of these rules exist because production broke first.
+**TL;DR.** 18 skills, 8 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
+
+**Author.** Dr Non Arkaraprasertkul ([@Nonarkara](https://github.com/Nonarkara)) — architect, urban anthropologist, Senior Smart City Expert, co-founder of Axiom. Self-taught by shipping. Every rule here was proven in production; several exist because production broke first.
 
 **Inspired by** [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) — whose `karpathy-guidelines` I use daily and have vendored here with credit. That repo tells your agent how to *think*. This one tells it how to *ship, deploy, run, and design* — the whole stack, front to back.
 
@@ -46,8 +48,8 @@ It comes in four shapes:
 
 ```mermaid
 flowchart LR
-    S["14 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
-    P["7 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
+    S["18 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
+    P["8 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
     R["4 Reference docs\nAPIs, stack picks, commit style, security"]
     T["5 Templates\ndrop-in files — deploy script,\nCLAUDE.md, launchd, tunnel config"]
 

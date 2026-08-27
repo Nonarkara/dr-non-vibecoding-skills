@@ -1,10 +1,11 @@
 ---
 name: mcp-cli-first
 description: >-
-  If a task can be done via a connected MCP tool or CLI, do it that way — never describe
-  GUI steps. Use when the user mentions a cloud service, a settings page, an API key, a
-  deployment, DNS, a database, or any operation that has a tool/CLI path. Also use when
-  you are about to write "Go to the dashboard and..." or "Navigate to Settings → ...".
+  The tier list for any setup action — connected MCP tool, then CLI, then API, then GUI
+  as the last resort. If a tool can do it, do it; never describe a dashboard. Use when the
+  user mentions a cloud service, a settings page, an API key, a deployment, DNS, a
+  database, or any operation that has a tool/CLI path. Also use when you are about to
+  write "Go to the dashboard and..." or "Navigate to Settings → ...".
 license: MIT
 ---
 

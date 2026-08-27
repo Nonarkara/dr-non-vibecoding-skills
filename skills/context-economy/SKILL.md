@@ -1,10 +1,11 @@
 ---
 name: context-economy
 description: >-
-  Token economy rules for AI-assisted work. Lead with the answer, no warm-up, no recap.
-  Match response shape to task type. Use when you are about to write a long preamble,
-  when a code question is about to get buried in prose, when the same content is about
-  to be repeated in three places, or when the response is getting long without earning it.
+  Match response shape to task shape — code returns code, explanations lead with the
+  answer, status reports have four buckets. The M5 Max rule: don't downsize based on
+  assumptions about the machine. Use when you are about to write a long preamble, when a
+  code question is about to get buried in prose, when the same content is about to be
+  repeated in three places, or when the response is getting long without earning it.
 license: MIT
 ---
 
