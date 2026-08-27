@@ -12,8 +12,8 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **18 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **8 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **21 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **9 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 reference docs** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **5 templates** in `templates/` — drop-in files (`CLAUDE.md`, deploy script, launchd plist, tunnel config, lesson doc).
 
@@ -25,7 +25,7 @@ There is nothing to compile, nothing to configure, and nothing that can go out o
 
 ### 1. Read the spine first
 
-Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists all 18 skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
+Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists all 21 skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
 
 ### 2. Install the skills
 
@@ -59,6 +59,9 @@ Pick the skill that matches your problem:
 | If the problem is… | Read |
 |---|---|
 | Agent keeps re-explaining the project | `skills/agent-memory/SKILL.md` |
+| Agent makes cowboy edits without a plan | `skills/planning-discipline/SKILL.md` |
+| Public dashboard or bot 500s when DB hiccups | `skills/dual-write-resilience/SKILL.md` |
+| Agents in fleet repeat each other's mistakes | `skills/shared-memory-hub/SKILL.md` |
 | Agent says "done" without verifying | `skills/ship-discipline/SKILL.md` |
 | Deploy "succeeded" but old version is served | `skills/deploy-verification/SKILL.md` |
 | Side project dies when the laptop closes | `skills/always-on-services/SKILL.md` |
@@ -92,16 +95,20 @@ The skills are reference material. The contract is the *executable* part. Withou
 
 ---
 
-## The Claude-specific extension layer
+## The multi-agent ecosystem & extension layers
 
-This repo is Claude-first by design — Mavis is the primary agent. Four skills are Mavis/Claude-specific extensions that don't apply directly to non-Claude agents:
+This repo spans the full lifecycle of Dr Non's practice:
+- **The Antigravity Origin:** The foundational layer (`planning-discipline`, `dual-write-resilience`, `shared-memory-hub`, design invariants) forged with Dr Non's first AI agent, designed to be universal across all agents.
+- **The Mavis/Claude Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
+
+Four skills are Mavis/Claude-specific extensions that don't apply directly to non-Claude agents:
 
 - `subagent-routing` — the `task` / `explore` / `worker` / `verifier` dispatch API. **Claude Code / MiniMax Code specific.** Codex and Aider have no equivalent primitive; for them, this skill reduces to "delegate to a sub-session if your runtime supports it, otherwise do it yourself."
 - `mcp-cli-first` — the MCP / CLI / API / GUI tier list. **Most useful to Claude Code, but the principle generalises** to any agent with connected tools. The "after setup, write to `context.md`" rule is universal.
 - `context-economy` — the five response shapes, the anti-pattern list, the four-bucket status report. **Universal.** The M5 Max hardware rule is Claude-specific, but the principle — "don't downsize based on assumptions about the machine" — applies anywhere.
 - `result-honesty` — succeeded / failed / skipped / unverified reporting. **Universal.** Every agent benefits from the four-bucket format; it is a vocabulary upgrade, not an agent primitive.
 
-`playbooks/08-the-mavis-side.md` walks through the Mavis-side perspective end to end. Read it if you are a Claude-based agent setting up a new project with this system, or if you are Dr Non wanting to know what Mavis brings on top.
+`playbooks/08-the-mavis-side.md` and `playbooks/09-the-antigravity-origin.md` walk through the agent-side perspectives end to end.
 
 ---
 

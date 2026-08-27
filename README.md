@@ -2,8 +2,8 @@
 
 <p>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-00c896.svg">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-18-ffd000.svg">
-  <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-8-ffd000.svg">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-21-ffd000.svg">
+  <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-9-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
   <img alt="Infographics" src="https://img.shields.io/badge/infographics-19%20pages-e8002d.svg">
@@ -15,7 +15,7 @@
 >
 > This repo is what I learned doing that, packaged so you can fork it and skip the expensive parts.
 
-**TL;DR.** 18 skills, 8 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
+**TL;DR.** 21 skills, 9 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
 
 **Author.** Dr Non Arkaraprasertkul ([@Nonarkara](https://github.com/Nonarkara)) — architect, urban anthropologist, Senior Smart City Expert, co-founder of Axiom. Self-taught by shipping. Every rule here was proven in production; several exist because production broke first.
 
@@ -32,8 +32,8 @@
 - [How much money are we talking about?](#how-much-money-are-we-talking-about)
 - [Are you a genius, or a crazy genius, Dr Non?](#are-you-a-genius-or-a-crazy-genius-dr-non)
 - [The infographics](#the-infographics)
-- [The eighteen skills](#the-eighteen-skills)
-- [The eight playbooks](#the-eight-playbooks)
+- [The twenty-one skills](#the-twenty-one-skills)
+- [The nine playbooks](#the-nine-playbooks)
 - [A note for non-Claude agents](#a-note-for-non-claude-agents)
 - [The blueprint — set up a project like I do](#the-blueprint--set-up-a-project-like-i-do)
 - [Reference, templates, license](#reference--templates)
@@ -48,8 +48,8 @@ It comes in four shapes:
 
 ```mermaid
 flowchart LR
-    S["18 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
-    P["8 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
+    S["21 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
+    P["9 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
     R["4 Reference docs\nAPIs, stack picks, commit style, security"]
     T["5 Templates\ndrop-in files — deploy script,\nCLAUDE.md, launchd, tunnel config"]
 
@@ -72,6 +72,9 @@ Because right now, probably, one of these is quietly true for you:
 | If this sounds familiar... | ...this repo's answer is |
 |---|---|
 | Your agent says "done!" and then it isn't, when you actually check | [`ship-discipline`](skills/ship-discipline/SKILL.md) — localhost is never a deliverable |
+| An unconstrained agent makes cowboy edits across 10 files | [`planning-discipline`](skills/planning-discipline/SKILL.md) — spec-first execution & blast radius checks |
+| A cloud DB goes down and your public dashboard 500s | [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) — primary SQL + zero-ops fallback mirror |
+| Multiple agents keep repeating each other's mistakes | [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) — Obsidian Super MCP shared across the whole fleet |
 | A deploy "succeeded" but users still see the old version | [`deploy-verification`](skills/deploy-verification/SKILL.md) — CDNs lie; here's how to catch it |
 | Every new session, you re-explain the same project from scratch | [`agent-memory`](skills/agent-memory/SKILL.md) — the three-tier CLAUDE.md ladder |
 | Your side project dies the moment you close your laptop | [`always-on-services`](skills/always-on-services/SKILL.md) — real infrastructure, zero VPS bill |
@@ -115,14 +118,16 @@ flowchart TD
         DNA["design-dna\nthe enforceable contract"]
         M3D["map-3d-city\nbuildings without the glitches"]
     end
-    subgraph App["APPLICATION"]
+    subgraph App["APPLICATION & PLANNING"]
         direction LR
+        PD["planning-discipline\nspec-first, zero cowboy edits"]
         KG["karpathy-guidelines\nsurgical, unbloated code"]
         DNG["dr-non-golden-rules\nwhat to build, what to kill"]
     end
-    subgraph Data["DATA"]
+    subgraph Data["DATA & RESILIENCE"]
         direction LR
         DC["data-catalog\ncatalogue once, port forever"]
+        DWR["dual-write-resilience\nprimary SQL + fallback mirror"]
     end
     subgraph Ship["SHIP"]
         direction LR
@@ -134,8 +139,9 @@ flowchart TD
         AOS["always-on-services\nlaunchd + tunnels, no VPS"]
         WL["workspace-lean\nsafe cleanup, never a live service"]
     end
-    subgraph Memory["MEMORY & RISK"]
+    subgraph Memory["MEMORY & FLEET"]
         direction LR
+        SMH["shared-memory-hub\nObsidian Super MCP"]
         AM["agent-memory\nthe CLAUDE.md ladder"]
         RP["risk-posture\nwhere to move fast, where not to"]
         KWW["know-when-to-wait\ntooling maturity vs. skill"]
@@ -206,7 +212,7 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 
 ---
 
-## The eighteen skills
+## The twenty-one skills
 
 | Skill | What it fixes |
 |---|---|
@@ -214,6 +220,9 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 | [`design-dna`](skills/design-dna/SKILL.md) | Agents quietly regressing your design system. The enforcement layer: tokens, named violations, a grep-able contract. |
 | [`dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md) | The 14 principles I actually decide by. Ship first. Use what you have. Kill what doesn't work. |
 | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | LLM overcomplication, non-surgical diffs, hidden assumptions. *(vendored, MIT, credit upstream)* |
+| [`planning-discipline`](skills/planning-discipline/SKILL.md) | Spec-first execution loop — research without modifying, blast-radius & sacred item checks, alignment gates. *(Antigravity origin)* |
+| [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Civic dashboards & bots 500-ing at 2 AM. Primary SQL + zero-dependency Google Sheets fallback. *(Antigravity origin)* |
+| [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Multi-agent fleet amnesia. Obsidian Second Brain as Super MCP shared memory. *(Antigravity origin)* |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | Rebuilding the same API adapter in the fourth project. Catalogue, then port. |
 | [`ship-discipline`](skills/ship-discipline/SKILL.md) | Agents that say "done" without ever hitting the live URL. The CPDT loop. |
 | [`deploy-verification`](skills/deploy-verification/SKILL.md) | The edge cache silently serving old JS under a new version key. This one cost me a live XSS fix. |
@@ -221,7 +230,7 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 | [`agent-memory`](skills/agent-memory/SKILL.md) | Re-explaining your project every session. The CLAUDE.md ladder + lesson docs + a vault. |
 | [`risk-posture`](skills/risk-posture/SKILL.md) | How to take risk like I do — and the specific places it has bitten me. |
 | [`full-stack-bootstrap`](skills/full-stack-bootstrap/SKILL.md) | Setting all of the above up by hand, project after project. Points at [`BLUEPRINT.md`](BLUEPRINT.md), which does it in one pass. |
-| [`map-3d-city`](skills/map-3d-city/SKILL.md) | Populating a city map with real 3D buildings fast — and why deck.gl overlays glitch on occlusion where MapLibre-native extrusion doesn't. *(contributed by a sibling practice, see below)* |
+| [`map-3d-city`](skills/map-3d-city/SKILL.md) | Populating a city map with real 3D buildings fast — and why deck.gl overlays glitch on occlusion where MapLibre-native extrusion doesn't. *(contributed by a sibling practice)* |
 | [`workspace-lean`](skills/workspace-lean/SKILL.md) | Ninety accumulated git worktrees and no safe way to clear them without risking a live service or a real project sharing a `.git` dir. *(contributed by a sibling practice)* |
 | [`know-when-to-wait`](skills/know-when-to-wait/SKILL.md) | The dependency that keeps needing "one more patch" — TRL-framed, so you can tell a maturity problem from a skill problem. *(contributed by a sibling practice)* |
 | [`subagent-routing`](skills/subagent-routing/SKILL.md) | Deciding when to dispatch a child agent (Claude Code / MiniMax Code) and how to brief it in six fields. *(Mavis-side extension)* |
@@ -229,11 +238,14 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 | [`context-economy`](skills/context-economy/SKILL.md) | Five response shapes, the anti-pattern list, the M5 Max hardware rule. Tokens spent on warm-ups are tokens not spent on the work. *(Mavis-side extension)* |
 | [`result-honesty`](skills/result-honesty/SKILL.md) | Succeeded / failed / skipped / unverified — four buckets, every report. The replacement vocabulary for "done". *(Mavis-side extension)* |
 
-**On the three "contributed" skills:** written by another instance of this same practice — a solo AI-urbanist running a parallel setup on a different machine, who read this whole repo, forked ideas back and forth, and sent three skills covering ground this repo didn't have yet (a 3D-map building pattern, a worktree-safe cleanup method, and a maturity-readiness heuristic for "is this technology actually ready or am I forcing it"). `security-hygiene`'s tool stack section was extended the same way. Same author, same values, different infrastructure — exactly the kind of fork this repo's license was written to invite.
+**On the foundations and contributions:**
+- **The Antigravity Origin:** Antigravity was Dr Non's first AI agent — the founding companion that forged the sacred design invariants (zero radius, zero gradients, amber `#f59e0b`), the planning mode discipline, the dual-write database pattern, and the Obsidian Super MCP shared memory bridge before multi-agent swarms existed.
+- **The Sibling Practice:** Three skills (`map-3d-city`, `workspace-lean`, `know-when-to-wait`) were contributed by a parallel AI-urbanist setup on a separate machine.
+- **The Mavis/MiniMax Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
 
 ---
 
-## The eight playbooks
+## The nine playbooks
 
 Longer-form, narrative. Read these once; the skills are the daily reference.
 
@@ -245,12 +257,13 @@ Longer-form, narrative. Read these once; the skills are the daily reference.
 6. **[War stories](playbooks/06-war-stories.md)** — every incident that changed how I work, with the cost
 7. **[Design at the speed of light](playbooks/07-design-at-the-speed-of-light.md)** — how a coherent visual system ships in one sitting, alone
 8. **[The Mavis side](playbooks/08-the-mavis-side.md)** *(Mavis-side extension)* — how a Claude-based agent extends the system, the portability layer for non-Claude readers, and the patterns the other playbooks don't cover
+9. **[The Antigravity origin](playbooks/09-the-antigravity-origin.md)** *(Antigravity origin)* — the story of the first AI agent, the birth of the sacred design DNA, planning mode discipline, dual-write reliability, and the shared-memory hub
 
 ---
 
 ## A note for non-Claude agents
 
-The repo is Claude-first by design — Mavis (running inside MiniMax Code) is the primary agent. **Four of the eighteen skills and one of the eight playbooks are Mavis/Claude-specific extensions** that don't apply directly to Codex, Cursor, Gemini CLI, or other readers:
+The core of this repo is agent-agnostic by design — forged in Antigravity's first solo sessions and proven across hundreds of commits with Claude Code, Codex, Cursor, Gemini CLI, and MiniMax Code. **Four of the twenty-one skills and one of the nine playbooks are Mavis/Claude-specific extensions** that don't apply directly to Codex, Cursor, Gemini CLI, or other readers:
 
 - `subagent-routing` — the `task` / `explore` / `worker` / `verifier` dispatch API is a Claude-Code primitive.
 - `mcp-cli-first` — most useful to Claude Code (MCP is most deeply integrated there), but the principle generalises.
