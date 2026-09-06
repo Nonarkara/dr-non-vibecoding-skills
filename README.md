@@ -2,7 +2,7 @@
 
 <p>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-00c896.svg">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-31-ffd000.svg">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-32-ffd000.svg">
   <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-10-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
@@ -15,11 +15,13 @@
 >
 > This repo is what I learned doing that, packaged so you can fork it and skip the expensive parts.
 
-**TL;DR.** 31 skills, 10 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
+**TL;DR.** 32 skills, 10 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
 
 **Author.** Dr Non Arkaraprasertkul ([@Nonarkara](https://github.com/Nonarkara)) — architect, urban anthropologist, Senior Smart City Expert, co-founder of Axiom. Self-taught by shipping. Every rule here was proven in production; several exist because production broke first.
 
 **Inspired by** [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) — whose `karpathy-guidelines` I use daily and have vendored here with credit. That repo tells your agent how to *think*. This one tells it how to *ship, deploy, run, and design* — the whole stack, front to back.
+
+**Also indebted to** [affaan-m/ecc](https://github.com/affaan-m/ecc) — an agent-harness optimisation system whose central claim, *"optimise the context window, persist everything else,"* is the reason [`harness-hardening`](skills/harness-hardening/SKILL.md) exists. Auditing my own machine against it is how I discovered that fourteen agents my rules referenced had never been installed, and five quality hooks had been sitting on disk unwired for months. That skill is the audit, not the download.
 
 ---
 
@@ -32,7 +34,7 @@
 - [How much money are we talking about?](#how-much-money-are-we-talking-about)
 - [Are you a genius, or a crazy genius, Dr Non?](#are-you-a-genius-or-a-crazy-genius-dr-non)
 - [The infographics](#the-infographics)
-- [The thirty-one skills](#the-thirty-one-skills)
+- [The thirty-two skills](#the-thirty-two-skills)
 - [The ten playbooks](#the-ten-playbooks)
 - [A note for non-Claude agents](#a-note-for-non-claude-agents)
 - [The blueprint — set up a project like I do](#the-blueprint--set-up-a-project-like-i-do)
@@ -48,7 +50,7 @@ It comes in four shapes:
 
 ```mermaid
 flowchart LR
-    S["31 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
+    S["32 Skills\nmarkdown + YAML frontmatter\nreference-style, load into an agent"]
     P["10 Playbooks\nnarrative, read once\nthe reasoning behind the skills"]
     R["4 Reference docs\nAPIs, stack picks, commit style, security"]
     T["5 Templates\ndrop-in files — deploy script,\nCLAUDE.md, launchd, tunnel config"]
@@ -220,10 +222,11 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 
 ---
 
-## The thirty-one skills
+## The thirty-two skills
 
 | Skill | What it fixes |
 |---|---|
+| [`harness-hardening`](skills/harness-hardening/SKILL.md) | Rules your agent can't actually enforce. I found 14 agents my rules named that were never installed, and 5 hooks on disk that had never once fired. |
 | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) | Generic-looking UI. The *why* behind every design decision — lineage, psychology, constraint — not just the rules. |
 | [`design-dna`](skills/design-dna/SKILL.md) | Agents quietly regressing your design system. The enforcement layer: tokens, named violations, a grep-able contract. |
 | [`dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md) | The 14 principles I actually decide by. Ship first. Use what you have. Kill what doesn't work. |
