@@ -119,7 +119,15 @@ A beautiful typographic hierarchy that only serves a fluent, sighted, young read
 
 ## Layer 6 — Motion and voice are part of the system too
 
-**Motion:** every animation answers a real state change — a sheet rising because a modal opened, a dot dimming because data went stale, a number ticking because it changed. No motion "for delight" with no state behind it. iOS-style easing (`cubic-bezier(0.2, 0.8, 0.2, 1)`) reads as native; linear easing reads as a website.
+**Motion:** every animation answers a real state change — a sheet rising because a modal opened, a dot dimming because data went stale, a number ticking because it changed. No motion "for delight" with no state behind it. Motion is a system property, not a folder (from [emilkowalski/skills](https://github.com/emilkowalski/skills) and [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills)):
+
+- **Easing is semantic.** Enter → `ease-out` (decelerate into place); exit → `ease-in` (accelerate out); in-between → `ease-in-out`. `ease-in` on enter feels dated; linear reads as a website. iOS-native `cubic-bezier(0.2, 0.8, 0.2, 1)` / `spring` reads as platform, not web.
+- **Duration is hierarchy.** Micro-interactions 120–200ms; transitions 250–350ms; page/section reveals 400–600ms. Longer is not more premium — it is slower.
+- **Properties are physical.** Animate `transform` and `opacity` only (GPU, 60fps). Never animate `width/height/top/left` or box-shadow directly — use scale + opacity + shadow tint tied to `transform`.
+- **Shadows over borders.** A semi-transparent shadow (`rgba(0,0,0,0.08)`) reads as elevation; a solid border reads as a wireframe. Prefer shadow for cards that float, border for dividers that sit.
+- **Find animation opportunities, then say no.** Check empty→loading→content, hover→focus, stale→fresh, number tick, sheet/overlay. Most surfaces need 2–3 places, not 20. Every extra motion is a tax — `prefers-reduced-motion` respected, `transform`/`opacity` only, under 300ms for ordinary UI.
+
+Influences: [emilkowalski/skills](https://github.com/emilkowalski/skills) (`animate` · `review-animations` · `find-animation-opportunities` · `animation-vocabulary`), [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills) (GSAP/SVG/Lottie/60fps/a11y).
 
 **Voice:** terse, no padding, no "Welcome to my portfolio." A quiet strip of copy near the bottom of a personal surface that explains *how the system works*, not what it wants you to feel — mundane fact leading into a small philosophical turn, no forced conclusion, dry humour permitted. That register is itself a design decision, held to the same "would this fit the lineage" test as a border-radius.
 
@@ -138,6 +146,20 @@ The actual test, every time:
 If a component passes all five, it belongs. If an agent generated it without being asked these five questions, review it before it ships — this is exactly the gap `design-dna`'s named-regression list exists to catch.
 
 ---
+
+## The product vs marketing split (from kuras3)
+
+Marketing UI optimizes for an unforgettable artifact; product UI (dashboards, SaaS, tables, forms, settings) optimizes for **restraint that looks shipped**. The disciplines diverge:
+
+|  | Marketing ceiling | Product floor |
+|---|---|---|
+| **Goal** | Distinctive, memorable, brand-forward | Correct, fast, restrained, no slop |
+| **Failure mode** | Sterile template | Grain/glow/mesh + custom cursor leaking into a dashboard |
+| **Rule** | See `no-design-tells` §4 liveliness + §6 Hard Gates | Same gates, but ENERGY/RHYTHM low; floor is correctness before character |
+
+Observe before invent (kuras3): anchor values to measured real products (Linear, shadcn, Apple settings) — not "modern and clean." Run the output-time hard-check + `scan-tells.py` mental grep on every shipped surface. Most dashboards need the product floor; marketing ceilings belong only where the brief is explicitly expressive.
+
+Influences: [kuras3/product-ui-design](https://github.com/kuras3/product-ui-design) (floor/ceiling + observe + hard-checks), [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (`PRODUCT.md` + 61 detectors + `audit`/`polish`/`bolder`/`quieter` verbs).
 
 ## See also
 

@@ -51,18 +51,22 @@ Starting dials are not themes. Move them when the brief gives evidence, then sta
 
 A project may break an invariant only when the exception is named, load-bearing, and written into its contract.
 
+## Product vs marketing — floor before ceiling
+
+A dashboard and a landing page do not share a liveliness target. From [kuras3/product-ui-design](https://github.com/kuras3/product-ui-design): **product floor** (dashboards, SaaS, tables, settings, admin) = restraint, correctness, no AI tells — observe real shipped products (Linear, shadcn, Apple settings) and pass the hard-checks; **marketing ceiling** (campaign, brand) = distinctive artifact, grain/glow only with purpose and a Design Read. Never let ceiling techniques leak into the floor. Our Civic/Console registers *are* the product register; Index is the audit register. When in doubt, ship the floor — add ceiling only with a named reason (see `no-design-tells` §4–§6).
+
 ## Redesign: audit before touching
 
-Taste-skill gets this exactly right. Record the current surface before proposing changes:
+Taste-skill and [pbakaus/impeccable](https://github.com/pbakaus/impeccable) get this exactly right. Use impeccable's verbs: `audit` → `critique` → `polish` / `bolder` / `quieter` / `distill`. Before proposing changes, record the current surface:
 
 - brand tokens and type;
 - information architecture and routes;
 - copy voice and real content;
 - signature interactions and live elements;
 - accessibility, analytics events, IDs, and SEO that must survive;
-- current variance, motion, and density.
+- current variance, motion, and density (from dials above).
 
-Modernize in the lowest-risk order: typography, spacing, color calibration, feedback motion, then composition. Full block replacement comes last and requires explicit scope.
+Modernize in the lowest-risk order: typography, spacing, color calibration, feedback motion, then composition. Full block replacement comes last and requires explicit scope. `PRODUCT.md` (durable product truth: audience/purpose/context, per impeccable) lives in Tier 1/2 memory — see [`agent-memory`](../agent-memory/SKILL.md); `DESIGN.md` is per surface.
 
 ## Complete states, not a perfect screenshot
 
