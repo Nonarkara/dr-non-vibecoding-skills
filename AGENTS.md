@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **42 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **43 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 reference docs** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **6 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, deploy script, launchd plist, tunnel config, lesson doc).
@@ -92,6 +92,7 @@ Pick the skill that matches your problem:
 | Watchdog/CI/deploy said OK and it wasn't | `skills/wrong-green/SKILL.md` |
 | Rebuild from prior art by scraping the live app | `skills/ux-archaeology/SKILL.md` |
 | Tempted to vendor a 100-skill pack | `skills/skill-writing/SKILL.md` |
+| Starting a new project and don't know the approach | `skills/design-thinking-vibecoding/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 
