@@ -17,7 +17,7 @@ Every page cites its source file at the bottom. If a page says something that is
 ## System
 
 ### The repo is a working operating system *(page 2)*
-4 artifact types → 25 skills → one agent practice.
+4 artifact types → skills in `skills/` → one agent practice. (This slide was drawn when the tree had 25 skills; the count in `README.md` is the live number.)
 
 <img src="infographics/pages/page-02.png" width="820" alt="System 01 — the repo is a working operating system">
 
