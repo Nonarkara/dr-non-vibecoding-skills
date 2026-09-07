@@ -16,6 +16,18 @@ Influences: [`subagent-routing`](../subagent-routing/SKILL.md) (dispatch + six-f
 
 ---
 
+## Staff are you, amplified (why this works)
+
+The staff is not a metaphor for parallelism. It is the user, multiplied: *"things I myself could do, or could have hired someone to do — but AI does faster and more accurately."* A job that would take months of laborious fieldwork collapses to an afternoon on fast hardware. That speed advantage is the whole premise — never apologize for using it, never waste it on work no human would have commissioned.
+
+Two consequences follow, and both are load-bearing:
+
+**Solve it the human way.** Products are delivered to humans, so human sensibility is part of the product. Think about how a human would solve it — the researcher who reads before writing, the field worker who checks the ground truth, the orchestrator who cuts with taste — and the solution comes out humane: it works *with* humans rather than *at* them. That is the difference between a designer and a mechanical engineer who understands the machine but not the human the machine must serve. A swarm that optimizes only for machine efficiency produces machine-shaped answers.
+
+**Reciprocity, not symbiosis.** Symbiosis is coexistence; this practice demands mutual return. The human brings intent, taste, and the willingness to experience the result first-hand. The staff brings speed, tirelessness, and fearless drafting. Each side does what the other cannot — and the orchestrator's assembly is where the two meet. A swarm where the human only watches is outsourcing; a swarm where agents only type is dictation. This skill is neither.
+
+---
+
 ## The rule
 
 One orchestrator owns the answer. Researchers and field agents own evidence. Nobody merges their own work unwitnessed.
@@ -28,7 +40,7 @@ One orchestrator owns the answer. Researchers and field agents own evidence. Nob
 
 | Role | Does | Never does |
 |---|---|---|
-| **Researcher** (×1–3, parallel) | Finds data: docs, APIs, feeds, prior art — returns links + excerpts + source names | Judges, assembles, or writes the final doc |
+| **Researcher** (×1–3, parallel) | Finds data: docs, APIs, feeds, prior art — returns links + excerpts + source names. **Searches GitHub first**: before anything is invented, finds repos to reverse-engineer or steal ways from, so invention spends only where no wheel exists | Judges, assembles, or writes the final doc |
 | **Field** (×1–2) | Goes to the field: runs probes, scrapes the permitted endpoint, screenshots the flow, records the quirk | Decides what the data means |
 | **Orchestrator** (×1, the parent) | Assembles: resolves conflicts, cuts what does not earn its place, writes the result with citations | Collects — the moment the orchestrator fetches, there is no reviewer left |
 

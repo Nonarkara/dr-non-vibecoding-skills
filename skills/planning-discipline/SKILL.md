@@ -34,6 +34,10 @@ flowchart TD
 
 ## The 5-Step Protocol
 
+### 0. Steal First (before scoping, before researching)
+
+Before doing anything else, search GitHub for repos already doing the thing — to reverse-engineer or steal their ways, not their code. One researcher pass (see [`staff-swarm`](../staff-swarm/SKILL.md)): what exists, which method is worth stealing, what genuinely needs inventing. The plan then scopes *only the invention*. A plan written before this search scopes reinvented wheels with confidence.
+
 ### 1. Research (Read-Only)
 - **Zero code changes** during research.
 - Inspect targeted files, caller functions, and configuration points.

@@ -192,6 +192,20 @@ Don't optimize the bus tracker before knowing if anyone will use it. Build the d
 
 ---
 
+## 15. Experience First, Standards Later
+
+Not knowing much about programming is bliss — no standards to defend, no debates that outlive the problem. Agencies argue about which standard will survive while shipping nothing, afraid the standard they learned will be surpassed. Don't join them. **Do it first, learn the standards later.**
+
+The order is fixed: people experience it first → if it has marketability and commercializability, then add what the system needs (standards, compliance, polish). Standards never sit at the top of the list. A standard nobody can touch is a rumor; a shipped thing nobody standardized yet is an asset.
+
+- **Break strategically, never burn bridges.** Break things you know you can break *in order to learn something* — a spike, a probe, a reversible experiment. That is not startup recklessness. Never destroy trust, data, or relationships for an idea; bridges are harder to rebuild than code.
+- **Never invest just to confirm what you assume.** An experiment designed so every outcome confirms the assumption is theatre. If the result cannot change your mind, do not spend the tokens.
+- **Steal and improve; never reinvent or repeat.** Search GitHub for repos doing the thing, reverse-engineer their ways, steal the method — then spend invention only where no wheel exists. Repeating solved work is the purest waste there is.
+
+**The test:** Could a human experience this today? If yes, ship it and standardize what survives. If the plan starts with "first we align on standards," it is procrastination with a committee.
+
+---
+
 ## The Golden Rule
 
 **The best stack is the one that ships.** Not the one that scales. Not the one that's elegant. Not the one that impresses peers. The one that ships.
