@@ -22,7 +22,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SKILLS_SRC="$ROOT/skills"
 DRY_RUN=0
 WANT_ALL=1
-WANT_CLAUDE=0; WANT_CODEX=0; WANT_CURSOR=0; WANT_HERMES=0; WANT_OPENCODE=0
+WANT_CLAUDE=0; WANT_CODEX=0; WANT_CURSOR=0; WANT_HERMES=0; WANT_OPENCODE=0; WANT_GEMINI=0; WANT_ANTIGRAVITY=0
 
 for arg in "$@"; do
   case "$arg" in
@@ -32,8 +32,9 @@ for arg in "$@"; do
     --cursor) WANT_CURSOR=1; WANT_ALL=0 ;;
     --hermes) WANT_HERMES=1; WANT_ALL=0 ;;
     --opencode) WANT_OPENCODE=1; WANT_ALL=0 ;;
+    --gemini|--antigravity) WANT_GEMINI=1; WANT_ANTIGRAVITY=1; WANT_ALL=0 ;;
     --all) WANT_ALL=1 ;;
-    --help|-h) echo "Usage: $0 [--claude] [--codex] [--cursor] [--hermes] [--opencode] [--all] [--dry-run]"; exit 0 ;;
+    --help|-h) echo "Usage: $0 [--claude] [--codex] [--cursor] [--gemini] [--antigravity] [--hermes] [--opencode] [--all] [--dry-run]"; exit 0 ;;
     *) echo "unknown flag: $arg (try --help)" >&2; exit 1 ;;
   esac
 done
@@ -67,7 +68,10 @@ do_all() {
   # Only install to cursor/.agents if we're inside a project or the dir already exists
   install_host "claude"   "$HOME/.claude/skills"
   install_host "codex"    "$HOME/.agents/skills"
-  # Antigravity reads the same path as Codex; no second copy needed.
+  # Antigravity reads ~/.agents/skills (Codex path) plus ~/.gemini/antigravity/skills if present
+  if [[ -d "$HOME/.gemini" ]] || [[ $WANT_ANTIGRAVITY -eq 1 ]]; then
+    install_host "antigravity" "$HOME/.gemini/antigravity/skills"
+  fi
   if [[ -d "$HOME/.hermes" ]] || [[ $WANT_HERMES -eq 1 ]]; then
     install_host "hermes" "$HOME/.hermes/skills"
   fi
@@ -88,6 +92,7 @@ if [[ $WANT_ALL -eq 1 ]]; then
 else
   [[ $WANT_CLAUDE -eq 1 ]] && install_host "claude" "$HOME/.claude/skills"
   [[ $WANT_CODEX -eq 1 ]] && install_host "codex" "$HOME/.agents/skills"
+  [[ $WANT_ANTIGRAVITY -eq 1 || $WANT_GEMINI -eq 1 ]] && install_host "antigravity" "$HOME/.gemini/antigravity/skills"
   [[ $WANT_CURSOR -eq 1 ]] && install_host "cursor" ".cursor/skills"
   [[ $WANT_HERMES -eq 1 ]] && install_host "hermes" "$HOME/.hermes/skills"
   [[ $WANT_OPENCODE -eq 1 ]] && install_host "opencode" "$HOME/.config/opencode/skills"

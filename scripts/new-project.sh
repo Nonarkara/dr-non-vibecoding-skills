@@ -96,6 +96,10 @@ for f in "$PROJECT_ABS/CLAUDE.md" "$PROJECT_ABS/AGENTS.md"; do
   fi
 done
 
+# — GEMINI.md (Mirror for Gemini CLI and Google AI agents) —
+cp "$PROJECT_ABS/AGENTS.md" "$PROJECT_ABS/GEMINI.md"
+echo "wrote $PROJECT_ABS/GEMINI.md (Gemini CLI mirror)"
+
 # — .gitignore & .env.example —
 copy_template "$TEMPLATES/gitignore.template" "$PROJECT_ABS/.gitignore"
 copy_template "$TEMPLATES/env.example.template" "$PROJECT_ABS/.env.example"

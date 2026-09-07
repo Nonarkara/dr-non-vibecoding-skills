@@ -265,6 +265,15 @@ bootstrap_project() {
   fi
 
   # ----------------------------------------------------------------------------
+  # 2.2b GEMINI.md (Dedicated Tier-2 Mirror for Gemini CLI & Google AI agents)
+  # ----------------------------------------------------------------------------
+  local gemini_target="$target_dir/GEMINI.md"
+  if [[ ! -f "$gemini_target" ]]; then
+    cp "$agents_target" "$gemini_target"
+    created_files+=("GEMINI.md (Dedicated Tier-2 contract mirror for Gemini CLI & Google agents)")
+  fi
+
+  # ----------------------------------------------------------------------------
   # 2.3 docs/lessons/ & Starter Lesson
   # ----------------------------------------------------------------------------
   mkdir -p "$target_dir/docs/lessons"
@@ -616,6 +625,12 @@ audit_project() {
   else
     echo -e "  ${RED}✗${NC} Missing AGENTS.md"
     ((warnings++))
+  fi
+
+  # Check GEMINI.md
+  if [[ -f "$target_dir/GEMINI.md" ]]; then
+    echo -e "  ${GREEN}✓${NC} GEMINI.md present (Gemini CLI / Google agents mirror)"
+    ((passed++))
   fi
 
   # Check docs/lessons/

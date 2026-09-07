@@ -53,7 +53,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
 # the rules file that host actually reads; do not load all 67 on every task.
-# Hermes: ~/.hermes/skills/ · Antigravity: .agents/skills/
+# Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
 There is no runtime dependency on Claude Code. The skills will load in any agent that reads files.

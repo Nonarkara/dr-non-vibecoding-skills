@@ -77,8 +77,6 @@ brew install gitleaks
 gitleaks protect --staged --redact --no-banner
 ```
 
-GitHub Actions safety net (in addition to the local hook — pre-commit hooks are bypassed by `--no-verify`):
-
 ```yaml
 # .github/workflows/secrets.yml
 name: secrets
@@ -91,6 +89,16 @@ jobs:
         with: { fetch-depth: 0 }
       - uses: gitleaks/gitleaks-action@v2
         env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+```
+
+Keyless cloud deployment safety net (ban exported service account JSON keys in CI):
+
+```yaml
+# Workload Identity Federation (Google Cloud / GitHub OIDC — zero stored private keys)
+- uses: google-github-actions/auth@v2
+  with:
+    workload_identity_provider: 'projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+    service_account: 'ci-deployer@PROJECT_ID.iam.gserviceaccount.com'
 ```
 
 ### 2. Semgrep on every PR

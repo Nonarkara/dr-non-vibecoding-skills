@@ -10,6 +10,8 @@ Where to put it so it survives localhost. One solo builder, four hosts, no stagi
 |---|---|---|---|---|
 | Static site / dashboard frontend | **Cloudflare Pages** (default) | `npx wrangler pages deploy <dir> --project-name <name>` | Generous free | Edge converges per-asset — use `templates/deploy-pages.sh` probe-first verification, never trust the success message |
 | Serverless API + preview envs | **Vercel** | `npx vercel deploy` / `vercel --prod` | Hobby free | Edge runtime ≠ Node — smoke-test on the deployed URL, not localhost (see `result-honesty`'s Vercel edge warning) |
+| Containerized API / bot / microservice | **Google Cloud Run** (Google ecosystem) | `gcloud run deploy <name> --source . --region <reg>` | Free 2M reqs/mo, 180k vCPU-s, 360k GiB-s | Stateless scale-to-zero ($0 idle bill); fast cold starts (<2s); no Render-style 30s sleeping death; supports websockets |
+| Next.js / full-stack SSR on Google edge | **Firebase App Hosting** | `firebase deploy` / GitHub auto-deploy | Generous spark tier | Native Cloud Build + Cloud Run under the hood; CDN edge caching with zero-config SSR |
 | Long-running bot / service / worker | **Railway** | `railway up` (or GitHub-connected deploys) | Trial credit, then paid | Costs real money past trial — set spend alerts day one; stateless restarts wipe local disk |
 | Long-running service with blueprint-as-code | **Render** | Push → auto-deploy from `render.yaml` | Free web services **sleep** when idle | Cold starts of 30s+ — fine for cron, wrong for a chat webhook; paid tier if latency matters |
 
@@ -49,6 +51,26 @@ builder = "nixpacks"
 [deploy]
 startCommand = "npm start"
 restartPolicyType = "on-failure"
+```
+
+```yaml
+# cloudrun.yaml (or direct command: gcloud run deploy myapp --source . --region asia-southeast1 --allow-unauthenticated)
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: myapp-api
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "10"
+    spec:
+      containers:
+        - image: gcr.io/my-project/myapp:latest
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
 ```
 
 If you can't build it on $25/month, you're overcomplicating it (`stack-decisions.md`). Start on free, pay when latency or uptime — not fashion — demands it.

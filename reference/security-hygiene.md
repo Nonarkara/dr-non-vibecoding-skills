@@ -41,6 +41,10 @@ FRED_API_KEY=       # https://fred.stlouisfed.org/docs/api
 MAPBOX_TOKEN=       # https://www.mapbox.com
 ```
 
+### Cloud credential hygiene: Workload Identity over exported keys
+
+In Google Cloud (GCP) and modern cloud providers, exporting service account private key JSON files (`credentials.json`) creates un-expiring bearer tokens that inevitably leak into shell history, git repos, or agent prompts. Use **Workload Identity Federation** with GitHub Actions (`google-github-actions/auth`) to exchange short-lived OIDC tokens. Stored private keys: zero. Rotation chores: zero. For runtime secrets on Cloud Run, inject directly from **Google Secret Manager** instead of baking `.env` files into containers.
+
 ### Watch your shell config
 
 This is the one that catches everyone, including me. `~/.zshrc` and `~/.bashrc` accumulate `export SOMETHING_API_KEY=...` lines over months — added by installers, by tutorials, by you at 2am. They are plaintext, they're read by every process you launch, and they show up in any screen recording of your terminal.

@@ -20,19 +20,21 @@ This skill is the **Spec-First Execution Protocol** pioneered by Antigravity —
 
 ```mermaid
 flowchart TD
-    R["1. Research\nread-only inspection,\nmap invariants & dependencies"] --> P["2. Implementation Plan\nblast radius, sacred items,\nsurgical proposed diffs"]
+    S["0. Steal First\nGitHub prior art & reverse-engineering\nscope only invention"] --> R["1. Research\nread-only inspection,\nmap invariants & dependencies"]
+    R --> P["2. Implementation Plan\nblast radius, sacred items,\nsurgical proposed diffs"]
     P --> G{"3. Alignment Gate\nDirector reviews & approves\n(Stop before code edits)"}
     G -->|Approved| E["4. Surgical Execution\nparallel reads, targeted writes,\nstrict anti-regression"]
     G -->|Feedback| P
     E --> V["5. Verify & Walkthrough\nlive proof, CPDT trace,\nwalkthrough summary"]
 
+    style S fill:#141414,stroke:#f59e0b,color:#e8e8e8
     style G fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
     style V fill:#0d2a1c,stroke:#00c896,color:#e8e8e8
 ```
 
 ---
 
-## The 5-Step Protocol
+## The 6-Step Protocol (Steps 0–5)
 
 ### 0. Steal First (before scoping, before researching)
 

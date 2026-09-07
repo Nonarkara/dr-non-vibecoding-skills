@@ -48,11 +48,11 @@ Brief each agent with [`subagent-routing`](../subagent-routing/SKILL.md)'s six f
 
 ### 2. Token tiers (economy is the point)
 
-| Tier | Model class | Jobs |
+| Tier | Model class (Google / Anthropic / Local) | Jobs |
 |---|---|---|
-| Cheap / free | Local Ollama, haiku-class | Translation, paraphrase, rearrange, dedupe, first-pass summaries |
-| Mid | Sonnet-class | Collection with judgment, adapter code, review passes |
-| Frontier | Opus-class | Architecture, security judgment, final assembly of contested evidence |
+| Cheap / free | Gemini 1.5/2.0 Flash, Flash-Lite, Haiku-class, Local Ollama | Translation, paraphrase, rearrange, dedupe, first-pass bulk summaries |
+| Mid | Gemini 1.5/2.5 Pro, Gemini 3.8 Flash, Sonnet-class, GPT-4o-mini | Collection with judgment, multimodal audit, adapter code, review passes |
+| Frontier | Gemini 2.5/3.8 Pro, Claude Opus, GPT-4o | Architecture, security boundaries, final assembly of contested evidence |
 
 Rule: a job that a cheaper tier can verify moves down a tier next time. Translation and paraphrase never leave the cheap tier — that is the token-economy win the user named. The orchestrator is the only role allowed to spend frontier tokens without asking, and only on assembly.
 
