@@ -523,7 +523,23 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.9 Git Initialization & Initial Commit
+  # 2.9 Workspace Tier-1 index (one table of every project — only if needed)
+  # ----------------------------------------------------------------------------
+  local ws_root
+  ws_root="$(dirname "$target_dir")"
+  if [[ -f "$TEMPLATES_DIR/workspace-CLAUDE.md.template" && ! -f "$ws_root/CLAUDE.md" ]]; then
+    # Create workspace index only when the parent looks like a fresh workspace
+    # (no existing CLAUDE.md/AGENTS.md) — safe to run even on first project.
+    cp "$TEMPLATES_DIR/workspace-CLAUDE.md.template" "$ws_root/CLAUDE.md"
+    created_files+=("$ws_root/CLAUDE.md (Workspace Tier-1 index — fill the project table)")
+  fi
+  if [[ -f "$TEMPLATES_DIR/workspace-AGENTS.md.template" && ! -f "$ws_root/AGENTS.md" ]]; then
+    cp "$TEMPLATES_DIR/workspace-AGENTS.md.template" "$ws_root/AGENTS.md"
+    created_files+=("$ws_root/AGENTS.md (Workspace Tier-1 mirror for non-Claude agents)")
+  fi
+
+  # ----------------------------------------------------------------------------
+  # 2.10 Git Initialization & Initial Commit
   # ----------------------------------------------------------------------------
   local git_committed="false"
   if [[ ! -d "$target_dir/.git" ]]; then

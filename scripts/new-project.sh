@@ -45,6 +45,7 @@ while [[ $# -gt 0 ]]; do
     --stack) STACK="${2:-}"; shift 2 ;;
     --workspace) WORKSPACE=1; shift ;;
     --force) FORCE=1; shift ;;
+    --yes|-y) FORCE=1; shift ;; # compat with setup.sh --yes
     --help|-h) usage; exit 0 ;;
     --*) echo "unknown flag: $1" >&2; usage >&2; exit 1 ;;
     *) if [[ -z "$PROJECT" ]]; then PROJECT="$1"; shift; else echo "unexpected arg: $1" >&2; usage >&2; exit 1; fi ;;
@@ -123,6 +124,29 @@ if [[ -f "$PROJECT_ABS/scripts/deploy.sh" ]]; then
   || sed -i "s|PROJECT=\"myapp\"|PROJECT=\"${SAFE_LABEL}\"|; s|myapp\.pages\.dev|${SAFE_LABEL}.pages.dev|; s|myapp\.example\.org|${HOST_EXAMPLE}|" "$PROJECT_ABS/scripts/deploy.sh"
 fi
 
+# — verify gate (matches setup.sh) —
+mkdir -p "$PROJECT_ABS/scripts"
+if [[ ! -f "$PROJECT_ABS/scripts/verify.sh" ]]; then
+  cat > "$PROJECT_ABS/scripts/verify.sh" <<'VERIFY'
+#!/usr/bin/env bash
+set -euo pipefail
+echo "▶ Running Dr Non pre-flight check..."
+ERRS=0
+for f in CLAUDE.md AGENTS.md; do
+  [[ -f "$f" ]] && echo "✓ $f" || { echo "✗ missing $f"; ERRS=$((ERRS+1)); }
+done
+if command -v git >/dev/null 2>&1 && [[ -d .git ]]; then
+  if git diff --cached --name-only | grep -qE '(\.env|\.pem|\.key|id_rsa)'; then
+    echo "✗ secret file staged!"; ERRS=$((ERRS+1))
+  else echo "✓ no secret staged"; fi
+fi
+if (( ERRS > 0 )); then echo "✗ $ERRS error(s)"; exit 1; fi
+echo "✓ invariants clean"
+VERIFY
+  chmod +x "$PROJECT_ABS/scripts/verify.sh"
+  echo "wrote $PROJECT_ABS/scripts/verify.sh"
+fi
+
 # — minimal project README if none exists —
 if [[ ! -f "$PROJECT_ABS/README.md" ]]; then
   cat > "$PROJECT_ABS/README.md" <<README
@@ -183,7 +207,7 @@ Next:
   1. Fill in $PROJECT_ABS/CLAUDE.md (and AGENTS.md) — one sentence + anti-regression list.
   2. Copy $PROJECT_ABS/.env.example → .env and fill secrets (never commit .env).
   3. Scaffold the app for --stack $STACK, then wire exact commands into CLAUDE.md per skills/agent-memory.
-  4. Verify install:  ls ~/.claude/skills | wc -l   (expect $(ls -1 "$SKILLS_SRC" 2>/dev/null | wc -l | tr -d ' '))
+  4. Verify install:  ls ~/.claude/skills | wc -l   (expect $(ls -1 "$ROOT/skills" 2>/dev/null | wc -l | tr -d ' '))
      Or:  scripts/install-skills.sh --dry-run
 
 NEXT
