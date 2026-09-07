@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Forty-nine focused skills, grouped by the decision they change. Start with one problem;
+Fifty-one focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -24,6 +24,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`planning-discipline`](skills/planning-discipline/SKILL.md) | A multi-file, ambiguous, or risky change needs scope and acceptance evidence |
 | [`route-dont-scan`](skills/route-dont-scan/SKILL.md) | Work starts inside a monorepo or multi-project directory |
 | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Code needs explicit assumptions, simplicity, surgical edits, and a verifiable goal |
+| [`ninja-innovation`](skills/ninja-innovation/SKILL.md) | An "improve X / fix Y / build Z" request needs the simplest path — reframe, subtract, reuse, asymmetric leverage |
 | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) | Something is broken and the first plausible patch is tempting |
 | [`anti-regression`](skills/anti-regression/SKILL.md) | Existing behavior or a distinctive interface could be erased by cleanup |
 | [`adversarial-review`](skills/adversarial-review/SKILL.md) | A fresh, flaw-seeking review should challenge the author's story |
@@ -69,6 +70,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`design-dna`](skills/design-dna/SKILL.md) | Visual decisions need enforceable tokens and regression language |
 | [`design-registers`](skills/design-registers/SKILL.md) | Shared design DNA is making every product look like the same control room |
 | [`no-design-tells`](skills/no-design-tells/SKILL.md) | A surface must not be identifiable as agent-built — fonts, palette, provenance, layout reflexes |
+| [`no-ai-tells`](skills/no-ai-tells/SKILL.md) | Generated text must not read as machine-written — kill the tells, then write plainly |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Navigation or a dashboard needs paths, edges, districts, nodes, and a landmark |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Public prior art or a DESIGN.md file needs pattern extraction inside your design contract |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | City buildings need fast, legible 3D extrusion without geometry glitches |

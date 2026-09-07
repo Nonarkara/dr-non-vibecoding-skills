@@ -7,12 +7,12 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 **Forkable agent skills for shipping civic software alone — plain markdown, no runtime.**
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 49](https://img.shields.io/badge/skills-49-F59E0B)](skills/)
+[![Skills: 51](https://img.shields.io/badge/skills-51-F59E0B)](skills/)
 [![Playbooks: 12](https://img.shields.io/badge/playbooks-12-1A1A1A)](playbooks/)
 [![Templates: 6](https://img.shields.io/badge/templates-6-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**49 skills** · **12 playbooks** · **4 references** · **6 templates**
+**51 skills** · **12 playbooks** · **4 references** · **6 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -30,7 +30,7 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 
 | Shape | Count in this repo | What it is |
 |---|---|---|
-| [`skills/`](skills/) | 49 `SKILL.md` files | Standing instructions an agent can load |
+| [`skills/`](skills/) | 51 `SKILL.md` files | Standing instructions an agent can load |
 | [`playbooks/`](playbooks/) | 12 narratives | Why those rules exist — read once |
 | [`reference/`](reference/) | 4 docs | APIs, stack picks, commit style, security hygiene |
 | [`templates/`](templates/) | 6 drop-ins | Project contracts, deploy script, launchd plist, tunnel config, lesson doc |
@@ -60,7 +60,7 @@ those parts too, but connects them to the production failures that made the rule
 |---|---|---|
 | Karpathy's explicit assumptions, simplicity, surgical edits, and goal-driven loops | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Kept as the compact coding baseline, with upstream credit |
 | gstack's think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic; use only the stage the task earns |
-| Focused, triggerable Agent Skills | All 49 folders under [`skills/`](skills/) | Descriptions are budgeted and CI-checked so the collection remains discoverable |
+| Focused, triggerable Agent Skills | All 51 folders under [`skills/`](skills/) | Descriptions are budgeted and CI-checked so the collection remains discoverable |
 | Durable project memory | [`agent-memory`](skills/agent-memory/SKILL.md) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Lessons move from a project contract into a cross-agent Obsidian memory |
 | Production proof | [`result-honesty`](skills/result-honesty/SKILL.md) + [`wrong-green`](skills/wrong-green/SKILL.md) + [`deploy-verification`](skills/deploy-verification/SKILL.md) | A green badge is rejected when it measures the wrong thing |
 | Civic and public-data discipline | [`honest-envelope`](skills/honest-envelope/SKILL.md) + [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Every number shows source, fallback tier, and age; public surfaces degrade visibly |
@@ -222,7 +222,7 @@ Short labels so GitHub Mermaid does not clip.
 
 ```mermaid
 flowchart TB
-  S["49 skills"] --> A["Your agent"]
+  S["51 skills"] --> A["Your agent"]
   P["12 playbooks"] --> A
   R["4 refs"] --> A
   T["6 templates"] --> A

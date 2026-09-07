@@ -72,4 +72,4 @@ This is the **clarity** layer — writing *to* someone. It is not a voice guide,
 □ Does the error message say what to do next?
 ```
 
-Pairs with `no-ai-tells` (run first), `result-honesty`, `honest-envelope`, `documentation-and-adrs`.
+Pairs with `no-ai-tells` (run first), `result-honesty`, `honest-envelope`, `shared-memory-hub` (write the lesson distinctly and durably).
