@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Fifty-four focused skills, grouped by the decision they change. Start with one problem;
+Fifty-nine focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path

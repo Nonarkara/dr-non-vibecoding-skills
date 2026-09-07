@@ -131,6 +131,11 @@ Pick the skill that matches your problem:
 | Always-on background services via launchd | `skills/always-on-services/SKILL.md` |
 | Free 7-layer AppSec pipeline (secrets, SAST, SCA, SBOM, auto-update, DAST, exploit verify) | `skills/appsec-stack/SKILL.md` |
 | Trunk-based dev, path-scoped CODEOWNERS, branch naming, selective CI for multi-package repos | `skills/stack-repo-topology/SKILL.md` |
+| The link gets opened on a phone — design for portrait + one thumb first | `skills/phone-first/SKILL.md` |
+| Type in Thai, CJK, Arabic, or any script you do not read | `skills/multilingual-type/SKILL.md` |
+| A palette and type scale need choosing, not just enforcing | `skills/colour-and-type/SKILL.md` |
+| Charts, tables, and numbers that do not lie or decorate | `skills/data-display/SKILL.md` |
+| Decks, PDFs, documents, social cards — the non-app surfaces a design system must also govern | `skills/beyond-the-screen/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 
