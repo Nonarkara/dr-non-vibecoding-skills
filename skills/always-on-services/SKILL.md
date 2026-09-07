@@ -1,9 +1,8 @@
 ---
 name: always-on-services
 description: >-
-  Run production services from a laptop with launchd (macOS) and Cloudflare Tunnels.
-  Use when a project needs to stay running, when setting up background jobs, cron-like
-  schedules, watchdogs, public URLs without a VPS, or when a service keeps dying.
+  Run Mac-hosted services with launchd and Cloudflare Tunnels. Use for background
+  jobs, public local services, watchdogs, and restart failures.
 license: MIT
 ---
 

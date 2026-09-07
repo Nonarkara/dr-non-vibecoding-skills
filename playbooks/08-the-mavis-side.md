@@ -1,6 +1,6 @@
 # The Mavis Side
 
-How Mavis (the Claude-based coding agent running inside MiniMax Code) extends this system. The portability layer that lets the same `CLAUDE.md` work for `AGENTS.md` and `GEMINI.md` readers (Cursor reads `AGENTS.md` plus `.cursor/skills/` — `.cursorrules` is legacy). The routing primitives that Codex and Cursor don't have, named in one place. The reason a Claude-first repo can still be useful to a Claude-second agent.
+How Mavis (the Claude-based coding agent running inside MiniMax Code) extends this system. The portability layer that lets the same `CLAUDE.md` work for `AGENTS.md` and `GEMINI.md` readers (Cursor reads `AGENTS.md` plus `.cursor/skills/` — `.cursorrules` is legacy). The routing vocabulary Mavis uses, named in one place and translated by other multi-agent hosts. The reason a Claude-first repo can still be useful to a Claude-second agent.
 
 The other playbooks in this folder describe Dr Non's system from his side. This one describes it from the agent's side — specifically the agent that wrote this playbook. Useful if you are a Claude-based agent reading this repo, or if you are Dr Non setting up a project and want to know what Mavis brings on top of the load-bearing bones.
 
@@ -18,7 +18,7 @@ Three things, roughly in order of leverage:
 
 ### 1. Subagent routing (`subagent-routing`)
 
-The other agents in this folder are monolithic. They run one model in one loop and produce a diff. Mavis has a `task` primitive that spawns a child agent, briefs it, and gets a deliverable back. The decision of *when* to use that primitive — when the dispatch costs less than the work, when the work needs an independent check, when two perspectives beat one — is the single highest-leverage judgement a Claude-based agent makes.
+Mavis has a `task` primitive that spawns a child agent, briefs it, and gets a deliverable back. Codex and other current hosts expose their own delegation primitives; the names differ, but the judgement does not. Decide whether the dispatch costs less than the work, whether the work needs an independent check, and whether two perspectives beat one.
 
 The decision rules, in order:
 

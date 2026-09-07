@@ -1,0 +1,20 @@
+{
+  "name": "dr-non-vibecoding-skills",
+  "version": "1.1.0",
+  "description": "Dr Non's field-tested system for directing AI agents, preserving earned work, and shipping verified software.",
+  "author": {
+    "name": "Dr Non Arkaraprasertkul",
+    "url": "https://github.com/Nonarkara"
+  },
+  "homepage": "https://github.com/Nonarkara/dr-non-vibecoding-skills",
+  "repository": "https://github.com/Nonarkara/dr-non-vibecoding-skills",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "vibecoding",
+    "anti-regression",
+    "production",
+    "design"
+  ],
+  "skills": "./skills/"
+}

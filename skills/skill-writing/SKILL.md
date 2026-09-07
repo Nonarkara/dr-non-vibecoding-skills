@@ -1,14 +1,9 @@
 ---
 name: skill-writing
 description: >-
-  How to add a skill to this practice — and when not to. Use when writing a new
-  SKILL.md, expanding this repo, or tempted to install a 100-skill pack because
-  it is trending. The description field is the trigger; a skill that does not
-  change behaviour is an essay wearing YAML.
+  Create behavior-changing, triggerable skills and reject prompt-pack sprawl. Use
+  when adding or revising a SKILL.md in this practice.
 license: MIT
-inspired-by:
-  - https://github.com/anthropics/skills
-  - https://github.com/obra/superpowers
 ---
 
 # Skill Writing
@@ -16,6 +11,9 @@ inspired-by:
 > Awesome lists give an agent more knowledge. Good skills give the agent better behaviour.
 
 Anthropic's Agent Skills format is the reference: a folder, a `SKILL.md`, YAML `name` + `description`, instructions below. Superpowers adds the missing law: **the skill must fire on context and change what the agent does next**, not sit in a catalogue.
+
+Influences: [Anthropic's skills](https://github.com/anthropics/skills) and
+[Superpowers](https://github.com/obra/superpowers).
 
 This repo is a curated synthesis, not a marketplace. A new skill has to earn its folder.
 

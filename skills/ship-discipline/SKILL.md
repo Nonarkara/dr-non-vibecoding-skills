@@ -1,9 +1,8 @@
 ---
 name: ship-discipline
 description: >-
-  The CPDT loop — Commit, Push, Deploy, Test — and the rule that localhost is never
-  a deliverable. Use at the end of every work session, when an agent reports work as
-  "done", when deciding whether a change is finished, or when the user asks "is it live?".
+  Run Commit, Push, Deploy, Test; localhost is not a deliverable. Use when closing
+  work, checking whether a change is live, or making a completion claim.
 license: MIT
 ---
 
@@ -16,6 +15,14 @@ The single most expensive failure mode in AI-assisted development is not bad cod
 *Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 11.*
 
 This skill is one loop and one rule.
+
+---
+
+## Authority boundary
+
+CPDT does not create permission to push or deploy. Run the steps the user or project contract
+authorizes; report the rest as skipped or unverified. Never turn a local code request into an
+external release merely because this skill loaded.
 
 ---
 

@@ -1,10 +1,8 @@
 ---
 name: codex-workbench
 description: >-
-  Route a repeated Codex behavior to the smallest correct surface: prompt, AGENTS.md,
-  skill, plugin, MCP/app, automation, hook, or subagent. Use when setting up Codex for a
-  project, porting another agent's workflow, packaging several skills, or deciding where
-  an instruction or integration belongs.
+  Place repeated Codex behavior in the right surface: prompt, AGENTS.md, skill,
+  plugin, app, automation, hook, or subagent. Use for Codex setup or workflow ports.
 license: MIT
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: local-ai-fabric
-description: The M5↔M3 local-LLM serving fabric — an OpenAI-compatible gateway with SQLite memory, upstream failover, and rate limiting, plus the Ollama daemon config every agentic tool needs. Use when wiring a bot or dashboard to a local model, when setting up a second machine as an always-on inference target, or when a local model truncates/hallucinates for no visible reason.
+description: Run an Apple-Silicon local-LLM fabric with gateway, memory, failover, and rate limits. Use for multi-Mac inference or unexplained local-model truncation.
 license: MIT
 ---
 

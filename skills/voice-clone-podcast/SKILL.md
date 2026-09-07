@@ -1,6 +1,6 @@
 ---
 name: voice-clone-podcast
-description: An entirely-local, zero-shot voice-cloned podcast pipeline (f5-tts-mlx on Apple Silicon) — script generation per-segment to avoid voice drift, and the two non-obvious quality gates that catch what duration checks can't. Use when building any local TTS pipeline, when a cloned voice drops words or babbles at chunk boundaries, or when scripting long-form audio with a local LLM.
+description: Build a local zero-shot voice-cloned podcast pipeline on Apple Silicon. Use when long-form TTS drops words, drifts, or babbles at chunk boundaries.
 license: MIT
 ---
 

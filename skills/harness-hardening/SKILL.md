@@ -1,9 +1,8 @@
 ---
 name: harness-hardening
 description: >-
-  Make your agent harness enforce things instead of asking for them. Use when setting up
-  CLAUDE.md rules, installing agents or skills, wiring hooks, auditing an AI coding setup,
-  or when an agent keeps ignoring a rule you are certain you wrote down.
+  Audit whether agent rules, specialists, and hooks actually exist and fire. Use
+  when setting up or debugging an AI coding harness.
 license: MIT
 ---
 

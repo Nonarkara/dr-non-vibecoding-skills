@@ -1,9 +1,8 @@
 ---
 name: know-when-to-wait
 description: >-
-  Recognise when a build is blocked by immature tooling, not insufficient effort — and
-  when to stop, write it down, and come back later instead of forcing it. Use before
-  adopting a new local-AI or infra tool, or when a "simple" feature keeps fighting back.
+  Distinguish immature tooling from fixable implementation problems. Use when a
+  dependency needs repeated patches or adoption risk outweighs progress.
 license: MIT
 ---
 

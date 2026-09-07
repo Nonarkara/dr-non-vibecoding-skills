@@ -1,9 +1,8 @@
 ---
 name: risk-posture
 description: >-
-  How to take risk when shipping solo with AI. Use when deciding whether to ship without
-  staging, whether to test in production, how much to automate, when to kill a project,
-  or when weighing speed against safety on a user-facing system.
+  Calibrate solo shipping speed against blast radius. Use when deciding on staging,
+  production tests, automation, release risk, or project shutdown.
 license: MIT
 ---
 
@@ -16,6 +15,14 @@ That's the actual operating condition. It sounds reckless. It's survivable — a
 *Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 14.*
 
 This skill is the calculus.
+
+---
+
+## Authority boundary
+
+This skill changes risk analysis, not permission. Do not deploy, spend, publish, contact people,
+change persistent services, or delete a project unless the user or project contract authorized that
+exact class of action. "Kill it" means recommend or plan removal until that authority exists.
 
 ---
 

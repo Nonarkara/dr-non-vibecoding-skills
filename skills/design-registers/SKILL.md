@@ -1,10 +1,8 @@
 ---
 name: design-registers
 description: >-
-  Choose Console, Index, Civic, Editorial, or Institutional before styling a Dr Non
-  surface, then set variance, motion, and density for its real audience. Use when starting
-  or redesigning a UI, dashboard, report, deck, or public service so the shared design DNA
-  does not make every product look like the same dark control room.
+  Choose a Console, Index, Civic, Editorial, or Institutional register before
+  styling. Use when a shared design system makes products feel identical.
 license: MIT
 ---
 

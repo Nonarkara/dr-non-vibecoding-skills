@@ -1,9 +1,8 @@
 ---
 name: data-catalog
 description: >-
-  Catalogue data sources once, port the known-good adapter forever. Use before wiring any
-  new API, feed, or data source into a project; when the same integration appears in a
-  second project; or when an upstream feed changes shape and breaks something.
+  Record reusable data-source contracts and known-good adapters. Use before adding
+  an API or feed, reusing an integration, or responding to upstream drift.
 license: MIT
 ---
 

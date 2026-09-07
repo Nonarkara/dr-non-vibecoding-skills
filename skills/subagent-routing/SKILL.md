@@ -1,12 +1,8 @@
 ---
 name: subagent-routing
 description: >-
-  The decision rule for when to spawn a subagent (task / explore / worker / verifier) and
-  when to do the work yourself — and the six-field brief that makes a child's output
-  actually usable. Use when starting a multi-step task, when a child process would save
-  context, when two agents would be faster than one, when you need an independent check on
-  something you just produced, or whenever a brief is about to be sent to a fresh child
-  agent.
+  Decide whether to delegate and write a six-field brief. Use when a bounded
+  subtask, independent review, or parallel work could justify a fresh agent.
 license: MIT
 ---
 

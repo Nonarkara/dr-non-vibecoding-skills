@@ -1,15 +1,9 @@
 ---
 name: adversarial-review
 description: >-
-  Second pass that assumes a flaw. Use before merging or declaring a civic
-  surface done, after a security-sensitive change, or when the same model that
-  wrote the code is about to rubber-stamp it. Not a substitute for
-  ship-discipline T.
+  Run a flaw-seeking second pass with executable evidence. Use before merge,
+  after risky changes, or when the author would otherwise review their own work.
 license: MIT
-inspired-by:
-  - https://github.com/addyosmani/agent-skills
-  - https://github.com/garrytan/gstack
-  - https://github.com/trailofbits/skills
 ---
 
 # Adversarial Review
@@ -17,6 +11,10 @@ inspired-by:
 > A same-model photocopy is not a review. Assume a flaw; stop when you cannot confirm a new one.
 
 Playbook 10 calls this heterogeneous review. Addy Osmani's engineering skills put a QA gate before ship. gstack's `/review` is a specialist who looks for production bugs. Trail of Bits' marketplace is the serious end of this — differential review, false-positive gates, a *second opinion* on another CLI — and it is CC-BY-SA, so **this file is original procedure**, not their text.
+
+Influences: [Addy Osmani's agent skills](https://github.com/addyosmani/agent-skills),
+[gstack](https://github.com/garrytan/gstack), and
+[Trail of Bits skills](https://github.com/trailofbits/skills).
 
 Do not install a 40-plugin audit suite on a flood dashboard. Steal the *stance*.
 

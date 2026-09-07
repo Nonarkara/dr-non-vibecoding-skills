@@ -1,10 +1,9 @@
 ---
 name: dr-non-golden-rules
 description: >-
-  Dr. Non's proven engineering principles, extracted from real 45-minute dashboard builds,
-  open-source deployments, and city-scale deployments across ASEAN. Use when making
-  architecture decisions, choosing tools, deciding what to build first, or evaluating
-  whether to keep or kill a feature or project.
+  Choose the smallest path that ships and earns its keep. Use for architecture,
+  tool selection, build order, and keep-or-kill decisions.
+license: MIT
 ---
 
 # Dr Non's Golden Rules
@@ -12,6 +11,14 @@ description: >-
 *Not theoretical best practices. Principles proven in production: real dashboards, real cities, real mayors.*
 
 *Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 4.*
+
+---
+
+## Authority boundary
+
+These rules choose a path inside the user's authorized scope. They do not authorize spending,
+publishing, messaging other people, changing persistent infrastructure, or deleting user data.
+"Kill" means recommend or plan removal until the user authorizes the exact destructive action.
 
 ---
 
@@ -191,6 +198,6 @@ Don't optimize the bus tracker before knowing if anyone will use it. Build the d
 
 A second-hand laptop, $25 cloud bill, and 45 minutes are not limitations. They're advantages. They force you to stay practical, focused, and fast.
 
-Don't add a tool unless you've already felt the pain of not having it. Don't keep a tool that's not earning its keep. Never wait for permission.
+Don't add a tool unless you've already felt the pain of not having it. Don't keep a tool that's not earning its keep. Move without ceremony on reversible, in-scope work; ask before crossing the authority boundary above.
 
 **The test:** Is this helping you ship? If yes, keep it. If no, kill it.

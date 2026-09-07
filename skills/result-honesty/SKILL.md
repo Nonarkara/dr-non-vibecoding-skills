@@ -1,10 +1,8 @@
 ---
 name: result-honesty
 description: >-
-  The four-bucket status report — succeeded, failed, skipped, unverified — and the
-  replacement vocabulary for "done". Use at the end of every work session, when an agent
-  reports work as "done", when handing off a task, when the user asks "did it work", or
-  when a deploy + verification cycle is closing.
+  Report succeeded, failed, skipped, and unverified with evidence. Use at session
+  end, handoff, deploy closeout, or whenever asked whether it worked.
 license: MIT
 ---
 

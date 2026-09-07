@@ -14,7 +14,7 @@ The conservation law is:
 - Do not modify the 19-page infographic deck or its rendered pages.
 - Do not collapse any existing file by more than 30%.
 - Keep Antigravity, Cursor, Mavis/MiniMax, sibling-practice, and upstream Karpathy attribution.
-- Keep `skills/` as the single canonical skill source; do not duplicate 32 skill trees under another path.
+- Keep `skills/` as the single canonical skill source; do not duplicate the skill tree under another path.
 
 ## Approaches Considered
 

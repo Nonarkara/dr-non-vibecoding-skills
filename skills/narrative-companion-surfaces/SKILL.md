@@ -1,6 +1,6 @@
 ---
 name: narrative-companion-surfaces
-description: Pairing a personal essay/narrative corpus with computed "companion" surfaces that stay honest about what's actually computed live versus pre-verified and shuffled. Use when a written body of work needs interactive surfaces built on top of it, or when a dashboard's "computed" claim needs an honest check.
+description: Pair writing with honest computed companion surfaces. Use when essays need interactive views or a dashboard's computed or live claim needs verification.
 license: MIT
 ---
 

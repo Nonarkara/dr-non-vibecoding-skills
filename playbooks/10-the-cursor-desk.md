@@ -30,7 +30,7 @@ Antigravity proved one person directing an agent could outpace a team. Everythin
 
 ## What the existing system already gives me
 
-The twenty-one skills that were here before this playbook are agent-agnostic by design. The `CLAUDE.md` ladder, the CPDT loop (workspace shorthand: **CDPT** — same four steps, letters not sequential), the design DNA, the dual-write pattern, the vault. Cursor reads those files the same way Mavis does.
+The foundational skills that predate this playbook are agent-agnostic by design. The `CLAUDE.md` ladder, the CPDT loop (workspace shorthand: **CDPT** — same four steps, letters not sequential), the design DNA, the dual-write pattern, the vault. Cursor reads those files the same way Mavis does.
 
 That is the right design. The desk is grateful. What I do well, I do well because the *project* was set up this way.
 

@@ -6,7 +6,13 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **Forkable agent skills for shipping civic software alone — plain markdown, no runtime.**
 
+[![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
+[![Skills: 43](https://img.shields.io/badge/skills-43-F59E0B)](skills/)
+[![Playbooks: 12](https://img.shields.io/badge/playbooks-12-1A1A1A)](playbooks/)
+[![Templates: 6](https://img.shields.io/badge/templates-6-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
+
+**43 skills** · **12 playbooks** · **4 references** · **6 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -24,10 +30,10 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 
 | Shape | Count in this repo | What it is |
 |---|---|---|
-| [`skills/`](skills/) | 39 `SKILL.md` files | Standing instructions an agent can load |
-| [`playbooks/`](playbooks/) | 11 narratives | Why those rules exist — read once |
+| [`skills/`](skills/) | 43 `SKILL.md` files | Standing instructions an agent can load |
+| [`playbooks/`](playbooks/) | 12 narratives | Why those rules exist — read once |
 | [`reference/`](reference/) | 4 docs | APIs, stack picks, commit style, security hygiene |
-| [`templates/`](templates/) | 5 drop-ins | Project contract, deploy script, launchd plist, tunnel config, lesson doc |
+| [`templates/`](templates/) | 6 drop-ins | Project contracts, deploy script, launchd plist, tunnel config, lesson doc |
 
 Plus [`BLUEPRINT.md`](BLUEPRINT.md) (one-pass setup), [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes), and a 19-page deck in [`INFOGRAPHICS.md`](INFOGRAPHICS.md).
 
@@ -44,6 +50,40 @@ Inspired by [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/an
 Also indebted to [affaan-m/ecc](https://github.com/affaan-m/ecc) — an agent-harness system whose claim, *"optimise the context window, persist everything else,"* is why [`harness-hardening`](skills/harness-hardening/SKILL.md) exists. That skill is the audit (does the hook actually fire?), not a download of ECC.
 
 The 2026 behavioural layer (debug, browser T, lesson close-out, adversarial review, wrong-green, UX archaeology, skill-writing) is a **curated steal** from Superpowers, Compound Engineering, gstack, Addy Osmani, Vercel, and Anthropic's skill format — methods, not packs. Receipts and refusals: [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
+
+## What it has
+
+The popular repositories each make one part of agent work memorable. This practice has
+those parts too, but connects them to the production failures that made the rules necessary.
+
+| Proven pattern | Here | What is different here |
+|---|---|---|
+| Karpathy's explicit assumptions, simplicity, surgical edits, and goal-driven loops | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Kept as the compact coding baseline, with upstream credit |
+| gstack's think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic; use only the stage the task earns |
+| Focused, triggerable Agent Skills | All 43 folders under [`skills/`](skills/) | Descriptions are budgeted and CI-checked so the collection remains discoverable |
+| Durable project memory | [`agent-memory`](skills/agent-memory/SKILL.md) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Lessons move from a project contract into a cross-agent Obsidian memory |
+| Production proof | [`result-honesty`](skills/result-honesty/SKILL.md) + [`wrong-green`](skills/wrong-green/SKILL.md) + [`deploy-verification`](skills/deploy-verification/SKILL.md) | A green badge is rejected when it measures the wrong thing |
+| Civic and public-data discipline | [`honest-envelope`](skills/honest-envelope/SKILL.md) + [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Every number shows source, fallback tier, and age; public surfaces degrade visibly |
+| A design system agents can extend without flattening | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) + [`design-dna`](skills/design-dna/SKILL.md) + [`design-registers`](skills/design-registers/SKILL.md) | Visual lineage, token roles, and named regressions live in the same contract |
+
+This is not gstack with different command names, and it is not a giant prompt pack. It is the
+field manual for the part that remains after the model, IDE, and fashionable tool change.
+
+See the complete grouped inventory in [`CATALOG.md`](CATALOG.md).
+
+## Receipts, not vibes
+
+| Failure that actually happened | Rule extracted from it |
+|---|---|
+| A live map was replaced by a clean template | [`anti-regression`](skills/anti-regression/SKILL.md) |
+| New HTML shipped while an edge served old JavaScript | [`deploy-verification`](skills/deploy-verification/SKILL.md) |
+| Two tunnels silently shared the wrong ingress config | [`always-on-services`](skills/always-on-services/SKILL.md) |
+| Health checks stayed green while useful data stopped | [`wrong-green`](skills/wrong-green/SKILL.md) + [`honest-envelope`](skills/honest-envelope/SKILL.md) |
+| Rules named agents and hooks that had never been installed | [`harness-hardening`](skills/harness-hardening/SKILL.md) |
+
+The incident narratives and what was refused are in
+[`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and
+[`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
 ---
 
@@ -93,59 +133,71 @@ If you are unsure whether a string is a secret, it is — leave it out. See [`re
 
 ---
 
-## How to use / learn
+## Install
 
-Two minutes, no runtime, any agent that reads markdown:
+No runtime is required. Install the collection as a plugin, or copy only the skills you want.
+
+### Codex and ChatGPT desktop
+
+```bash
+codex plugin marketplace add Nonarkara/dr-non-vibecoding-skills
+codex plugin add dr-non-vibecoding-skills@dr-non
+```
+
+This uses the repository marketplace in [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json).
+Codex also discovers manually copied user skills from `$HOME/.agents/skills` and repository
+skills from `.agents/skills`.
+
+### Claude Code
+
+```text
+/plugin marketplace add Nonarkara/dr-non-vibecoding-skills
+/plugin install dr-non-vibecoding-skills@dr-non
+```
+
+### Manual / Cursor / any Agent Skills reader
 
 ```bash
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
-cp -r dr-non-vibecoding-skills/skills/* ~/.claude/skills/
+
+# Codex user skills
+mkdir -p "$HOME/.agents/skills"
+cp -R dr-non-vibecoding-skills/skills/* "$HOME/.agents/skills/"
+
+# Claude Code user skills
+mkdir -p "$HOME/.claude/skills"
+cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
+
+# Cursor project skills
+mkdir -p .cursor/skills
+cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/
 ```
 
-Cursor copies the same folders into `.cursor/skills/` and reads [`AGENTS.md`](AGENTS.md) at the repo root (`.cursorrules` is legacy — do not generate it). Codex / Gemini get `AGENTS.md` / `GEMINI.md` fragments.
+`AGENTS.md` is the durable project contract; `SKILL.md` is the reusable workflow. Do not
+concatenate the whole collection into `AGENTS.md`. Gemini and other agents that do not discover
+Agent Skills can selectively copy the few relevant instructions into their native rules file.
+
+## Run one complete session
+
+After installation, give the agent this sequence on a real change:
+
+```text
+Use $planning-discipline to define the scope and proof.
+Implement with $karpathy-guidelines and preserve earned work with $anti-regression.
+If the change is visible, verify it with $browser-as-t.
+Before closing, run $adversarial-review, then report with $result-honesty.
+If this repository has a live surface, finish the $ship-discipline loop.
+```
+
+The skills are independent. A typo does not need the whole ceremony; a public data dashboard does.
 
 | If you want… | Open |
 |---|---|
-| Five concrete things, fifteen minutes | [`QUICKSTART.md`](QUICKSTART.md) |
-| The whole scaffold on a new folder, one paste | [`BLUEPRINT.md`](BLUEPRINT.md) |
-| The non-Claude entry path | [`AGENTS.md`](AGENTS.md) |
-| The pictures | [`INFOGRAPHICS.md`](INFOGRAPHICS.md) |
-
-Pick the skill that matches the problem:
-
-| If the problem is… | Read |
-|---|---|
-| A rule the agent ignores, or a named agent that was never installed | [`harness-hardening`](skills/harness-hardening/SKILL.md) |
-| Agent keeps re-explaining the project | [`agent-memory`](skills/agent-memory/SKILL.md) |
-| Cowboy edits without a plan | [`planning-discipline`](skills/planning-discipline/SKILL.md) |
-| Agent "cleans up" a live map into a template | [`anti-regression`](skills/anti-regression/SKILL.md) |
-| About to menu the human on a library | [`director-not-typer`](skills/director-not-typer/SKILL.md) |
-| Dashboard number has no source / age | [`honest-envelope`](skills/honest-envelope/SKILL.md) |
-| Impulse is `ls -R` on a multi-project tree | [`route-dont-scan`](skills/route-dont-scan/SKILL.md) |
-| Public dashboard 500s when the DB hiccups | [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) |
-| Agents repeat each other's mistakes | [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) |
-| Agent says "done" without verifying | [`ship-discipline`](skills/ship-discipline/SKILL.md) |
-| Deploy "succeeded" but old bytes are served | [`deploy-verification`](skills/deploy-verification/SKILL.md) |
-| Side project dies when the laptop closes | [`always-on-services`](skills/always-on-services/SKILL.md) |
-| Design keeps regressing | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) + [`design-dna`](skills/design-dna/SKILL.md) |
-| Rebuilding the same API adapter | [`data-catalog`](skills/data-catalog/SKILL.md) |
-| Don't know how much risk is "too much" | [`risk-posture`](skills/risk-posture/SKILL.md) |
-| Code is bloated / over-abstracted | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) |
-| 90 worktrees and fear of deleting | [`workspace-lean`](skills/workspace-lean/SKILL.md) |
-| 3D city map with overlapping buildings | [`map-3d-city`](skills/map-3d-city/SKILL.md) |
-| Dep keeps needing "one more patch" | [`know-when-to-wait`](skills/know-when-to-wait/SKILL.md) |
-| Build first, or wait? | [`dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md) |
-| Response is long without earning it | [`context-economy`](skills/context-economy/SKILL.md) |
-| Reporting work as "done" | [`result-honesty`](skills/result-honesty/SKILL.md) |
-| Impulse to patch the first plausible line | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) |
-| UI "verified" with a screenshot | [`browser-as-t`](skills/browser-as-t/SKILL.md) |
-| Painful session, no lesson written | [`lesson-residue`](skills/lesson-residue/SKILL.md) |
-| Same model about to LGTM its own diff | [`adversarial-review`](skills/adversarial-review/SKILL.md) |
-| Watchdog/CI/deploy said OK and it wasn't | [`wrong-green`](skills/wrong-green/SKILL.md) |
-| Rebuild from prior art by scraping the live app | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) |
-| Tempted to add the 40th skill from a trending pack | [`skill-writing`](skills/skill-writing/SKILL.md) |
-
-The other skills — `full-stack-bootstrap`, `subagent-routing`, `mcp-cli-first`, and the sibling-practice set (`local-ai-fabric`, `voice-clone-podcast`, `itic-cctv-integration`, `iptv-streaming`, `narrative-companion-surfaces`, `radar-chart-pattern`) — are in [`skills/`](skills/). Four of the thirty-nine (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) are Mavis/Claude-oriented; the rest are agent-agnostic markdown.
+| Five concrete improvements in fifteen minutes | [`QUICKSTART.md`](QUICKSTART.md) |
+| The full scaffold for a new project | [`BLUEPRINT.md`](BLUEPRINT.md) |
+| Every skill, grouped by job | [`CATALOG.md`](CATALOG.md) |
+| Instructions for agents entering this repository | [`AGENTS.md`](AGENTS.md) |
+| The 19-page visual explanation | [`INFOGRAPHICS.md`](INFOGRAPHICS.md) |
 
 Playbooks, numbered, read once:
 
@@ -160,6 +212,7 @@ Playbooks, numbered, read once:
 9. [The Antigravity origin](playbooks/09-the-antigravity-origin.md)
 10. [The Cursor desk](playbooks/10-the-cursor-desk.md)
 11. [The 2026 steal map](playbooks/11-the-2026-steal-map.md) — what we took from Superpowers / Compound / gstack / Osmani / Vercel / Anthropic, and what we refused
+12. [The Codex workbench](playbooks/12-the-codex-workbench.md)
 
 ---
 
@@ -169,10 +222,10 @@ Short labels so GitHub Mermaid does not clip.
 
 ```mermaid
 flowchart TB
-  S["39 skills"] --> A["Your agent"]
-  P["11 playbooks"] --> A
+  S["43 skills"] --> A["Your agent"]
+  P["12 playbooks"] --> A
   R["4 refs"] --> A
-  T["5 templates"] --> A
+  T["6 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]
@@ -198,7 +251,8 @@ This repository is licensed under the [MIT License](LICENSE). Copyright © 2026 
 
 Reuse the skills, playbooks, templates, and prose with attribution. `karpathy-guidelines` keeps its upstream MIT credit — see [NOTICE.md](NOTICE.md). MIT here does not relicense upstream data, municipal identities, or private implementations named as examples.
 
-**Contributing.** Open a pull request against `main`.
+**Contributing.** Open a pull request against `main`. The full quality gate and skill shape
+are in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 - Add a skill when it has already shipped somewhere, not when it sounds wise. See [`skill-writing`](skills/skill-writing/SKILL.md) — do not vendor a 100-skill pack.
 - Pair every rule with a *why*. Agents tidy oddities; they need the reason it is load-bearing.

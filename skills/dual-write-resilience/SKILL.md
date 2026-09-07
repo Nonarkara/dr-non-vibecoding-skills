@@ -1,9 +1,8 @@
 ---
 name: dual-write-resilience
 description: >-
-  Primary SQL database paired with a silent zero-dependency fallback mirror (Google Sheets / local JSON).
-  Use when designing data persistence for civic dashboards, public monitors, or bots that must
-  never go dark when cloud databases hit quotas, rotate keys, or experience downtime.
+  Pair a primary database with a silent fallback mirror. Use when civic dashboards,
+  monitors, or bots must survive database outages and quotas.
 license: MIT
 ---
 

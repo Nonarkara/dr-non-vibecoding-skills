@@ -1,9 +1,8 @@
 ---
 name: wrong-green
 description: >-
-  Distrust a success metric that answers the wrong question. Use when a
-  watchdog, health check, deploy log, CI, or curl says OK and you are about to
-  believe it. The manufactured-confidence failure mode from the war stories.
+  Test the failure users care about, not a nearby success metric. Use when CI,
+  deploy logs, health checks, watchdogs, or curl say OK too easily.
 license: MIT
 ---
 

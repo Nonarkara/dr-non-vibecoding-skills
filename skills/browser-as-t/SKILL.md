@@ -1,14 +1,9 @@
 ---
 name: browser-as-t
 description: >-
-  For UI, layout, routing, and client state, verification is exercising the
-  flow in a real browser — click, type, submit, navigate — not a screenshot
-  and not curl of the HTML shell. Use when the change is user-visible.
-  Skip for pure docs, license, or server-only diffs with no rendered surface.
+  Verify user-visible changes by exercising real browser flows. Use for UI,
+  routing, forms, or client state; skip docs-only and server-only work.
 license: MIT
-inspired-by:
-  - https://github.com/garrytan/gstack
-  - https://github.com/vercel-labs/agent-skills
 ---
 
 # Browser as T
@@ -16,6 +11,9 @@ inspired-by:
 > A screenshot is appearance. T is behaviour.
 
 Playbook 10 made this a desk law. gstack's `/qa` opens a real browser. Vercel's web-design skill reminds you that keyboard, focus, and touch exist. This skill is the civic-studio compression: **if a human uses it with a pointer or a thumb, curl is not enough.**
+
+Influences: [gstack](https://github.com/garrytan/gstack) and
+[Vercel's agent skills](https://github.com/vercel-labs/agent-skills).
 
 [`ship-discipline`](../ship-discipline/SKILL.md) still owns CPDT. This skill is the T when the deliverable is a screen.
 

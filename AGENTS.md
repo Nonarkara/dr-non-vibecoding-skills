@@ -14,7 +14,7 @@ Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
 - **43 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
-- **4 reference docs** in `reference/` — APIs, stack picks, commit style, security hygiene.
+- **4 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **6 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, deploy script, launchd plist, tunnel config, lesson doc).
 
 There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
@@ -29,18 +29,28 @@ Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup)
 
 ### 2. Install the skills
 
-The `SKILL.md` files are plain markdown. The install is a copy:
+The `SKILL.md` files are plain markdown. Prefer the plugin for the complete bundle,
+or copy skills into the native discovery path for the agent that will use them:
 
 ```bash
+# Codex / ChatGPT desktop plugin
+codex plugin marketplace add Nonarkara/dr-non-vibecoding-skills
+codex plugin add dr-non-vibecoding-skills@dr-non
+
+# Codex user skills
+mkdir -p "$HOME/.agents/skills"
+cp -R skills/* "$HOME/.agents/skills/"
+
 # Claude Code / MiniMax Code
-cp -r skills/* ~/.claude/skills/
+mkdir -p "$HOME/.claude/skills"
+cp -R skills/* "$HOME/.claude/skills/"
 
 # Cursor — same SKILL.md files, project-level Agent Skills + AGENTS.md
 #   mkdir -p .cursor/skills && cp -r skills/* .cursor/skills/
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
-# Gemini CLI — concatenate the skills you want into GEMINI.md
-# Codex / Aider / OpenCode / Devin — concatenate into AGENTS.md
+# Gemini / Aider / OpenCode / Devin — copy only relevant instructions into
+# the rules file that host actually reads; do not load all 43 on every task.
 ```
 
 There is no runtime dependency on Claude Code. The skills will load in any agent that reads files.
@@ -119,9 +129,10 @@ This repo spans the full lifecycle of Dr Non's practice:
 - **The Mavis/Claude Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
 - **The 2026 steal map:** Seven behavioural skills (`systematic-debugging`, `browser-as-t`, `lesson-residue`, `adversarial-review`, `wrong-green`, `ux-archaeology`, `skill-writing`) and Playbook 11 — methods stolen from Superpowers, Compound, gstack, Osmani, Vercel, Anthropic format; packs refused.
 
-Four skills are Mavis/Claude-specific extensions that don't apply directly to non-Claude agents:
+Four skills emerged from the Mavis/Claude layer. Their principles generalise, while
+their exact tool vocabulary may need translation for another host:
 
-- `subagent-routing` — the `task` / `explore` / `worker` / `verifier` dispatch API. **Claude Code / MiniMax Code specific.** Codex and Aider have no equivalent primitive; for them, this skill reduces to "delegate to a sub-session if your runtime supports it, otherwise do it yourself."
+- `subagent-routing` — the `task` / `explore` / `worker` / `verifier` vocabulary is host-specific. Claude, Codex, and other multi-agent runtimes expose different primitives; the cost test and six-field brief are universal.
 - `mcp-cli-first` — the MCP / CLI / API / GUI tier list. **Most useful to Claude Code, but the principle generalises** to any agent with connected tools. The "after setup, write to `context.md`" rule is universal.
 - `context-economy` — the five response shapes, the anti-pattern list, the four-bucket status report. **Universal.** The M5 Max hardware rule is Claude-specific, but the principle — "don't downsize based on assumptions about the machine" — applies anywhere.
 - `result-honesty` — succeeded / failed / skipped / unverified reporting. **Universal.** Every agent benefits from the four-bucket format; it is a vocabulary upgrade, not an agent primitive.

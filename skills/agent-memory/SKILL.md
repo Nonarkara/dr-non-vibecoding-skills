@@ -1,9 +1,8 @@
 ---
 name: agent-memory
 description: >-
-  Make agents start every session already knowing your project. Use when setting up a new
-  repo, when you find yourself re-explaining context, when an agent breaks something it
-  should have known was load-bearing, or when writing CLAUDE.md / AGENTS.md files.
+  Write project context that survives sessions. Use when creating AGENTS.md or
+  CLAUDE.md, recording gotchas, or repeatedly re-explaining a repository.
 license: MIT
 ---
 

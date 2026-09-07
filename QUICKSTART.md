@@ -8,25 +8,43 @@ Do these five things in order. Each is independently useful; together they compo
 
 ```bash
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
-cp -r dr-non-vibecoding-skills/skills/* ~/.claude/skills/
 ```
 
-Not on Claude Code? The `SKILL.md` files are plain markdown.
+Install the bundle as a plugin in Codex:
 
 ```bash
+codex plugin marketplace add Nonarkara/dr-non-vibecoding-skills
+codex plugin add dr-non-vibecoding-skills@dr-non
+```
+
+Or copy the plain `SKILL.md` folders into the host's discovery path:
+
+```bash
+# Codex user skills
+mkdir -p "$HOME/.agents/skills"
+cp -R dr-non-vibecoding-skills/skills/* "$HOME/.agents/skills/"
+
+# Claude Code user skills
+mkdir -p "$HOME/.claude/skills"
+cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
+
 # Cursor
 mkdir -p .cursor/skills
-cp -r dr-non-vibecoding-skills/skills/* .cursor/skills/
+cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/
 cp dr-non-vibecoding-skills/AGENTS.md ./AGENTS.md
 ```
 
-Codex / Gemini: concatenate the ones you want into `AGENTS.md` or `GEMINI.md`. `.cursorrules` is legacy. There is no runtime dependency.
+`AGENTS.md` is project memory; skills are reusable workflows. Keep those roles separate.
+For Gemini or another rules-only host, copy only the relevant skill instructions into its
+native rules file. `.cursorrules` is legacy. There is no runtime dependency.
 
 ---
 
-## 2. Write one `CLAUDE.md` for your most-active project (5 min)
+## 2. Write one project contract for your most-active repository (5 min)
 
-Copy [`templates/CLAUDE.md.template`](templates/CLAUDE.md.template) into the repo root and fill it in. Do not write an essay. The five things that pay for themselves immediately:
+Copy [`templates/AGENTS.md.template`](templates/AGENTS.md.template) to `AGENTS.md`, or
+[`templates/CLAUDE.md.template`](templates/CLAUDE.md.template) to `CLAUDE.md`, and fill it in.
+Do not write an essay. The five things that pay for themselves immediately:
 
 ```markdown
 # <Project> — one sentence about what it is
@@ -47,7 +65,7 @@ That "anti-regression" section is the highest-leverage paragraph in this whole r
 
 ## 3. Make "done" mean the live URL (1 min)
 
-Add this line to your `CLAUDE.md` — verbatim:
+Add this line to the project contract — verbatim:
 
 > Localhost is never a deliverable. Work is done when the deployed URL serves it and a `curl` proves it. If you cannot verify, say "unverified" — do not say "done".
 

@@ -1,13 +1,9 @@
 ---
 name: systematic-debugging
 description: >-
-  Four-phase debugging: reproduce, collect, isolate, verify. Use when something
-  is broken and the impulse is to patch the first plausible line. Do not use for
-  greenfield features — that is planning-discipline.
+  Debug by reproducing, collecting, isolating, and verifying. Use when something
+  is broken and the first plausible patch is tempting; skip greenfield work.
 license: MIT
-inspired-by:
-  - https://github.com/obra/superpowers
-  - https://github.com/EveryInc/compound-engineering-plugin
 ---
 
 # Systematic Debugging
@@ -15,6 +11,9 @@ inspired-by:
 > The failure is almost never where the alarm is pointing.
 
 Superpowers calls this four phases. Compound Engineering has `/ce-debug`. The civic-studio version is the same shape, calibrated to a laptop fleet: **do not shotgun a live dashboard.** Guess-and-patch on FloodDash or AirDash is how you ship a lying green.
+
+Influences: [Superpowers](https://github.com/obra/superpowers) and
+[Every's Compound Engineering plugin](https://github.com/EveryInc/compound-engineering-plugin).
 
 ---
 

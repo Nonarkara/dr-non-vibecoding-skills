@@ -1,10 +1,8 @@
 ---
 name: production-spine
 description: >-
-  Gate software that touches real users, money, or data with tests, protected paid-key
-  endpoints, honest source labels, secret rotation, and boundary validation. Use before
-  calling a system production-ready, shipping a public endpoint, or reviewing a release
-  whose failure would affect people outside the builder.
+  Gate software affecting users, money, or data with evidence for tests, auth,
+  sources, secrets, and boundaries. Use before production-ready claims.
 license: MIT
 ---
 

@@ -1,10 +1,8 @@
 ---
 name: axiom-design-core
 description: >-
-  The front-end philosophy underneath every Dr Non surface — why the design decisions
-  work, not just what they are. Use when starting any new UI, when a design "feels
-  generic," when deciding typography/color/motion/layout defaults, or before generating
-  any visual code. Pairs with design-dna, which is the enforcement layer for this philosophy.
+  Apply Dr Non's reasoned frontend design system. Use when starting or reviewing
+  UI typography, color, motion, layout, and interaction.
 license: MIT
 ---
 

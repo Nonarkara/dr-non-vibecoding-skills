@@ -1,6 +1,6 @@
 ---
 name: iptv-streaming
-description: Aggregating real broadcast channels into one player — the four-source registry pattern (direct CDN, public catalog, tokenized third-party mirror, official-link-only) and the server-side HLS proxy that solves CORS/token-gating without faking a stream. Use when building a channel aggregator, or wiring any third-party HLS source that gates on session tokens or origin checks.
+description: Build a resilient HLS registry and server-side proxy without faking streams. Use for IPTV aggregators or token-gated and origin-gated HLS sources.
 license: MIT
 ---
 

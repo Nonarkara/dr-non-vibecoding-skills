@@ -1,12 +1,9 @@
 ---
 name: lesson-residue
 description: >-
-  A hard session is not finished until the lesson is written. Use at the end of
-  a painful, surprising, or expensive pass — before you say done, before you
-  context-compact, before you walk away. Do not use after a typo fix.
+  Capture verified residue from a painful or surprising session. Use before
+  closing expensive work; skip routine edits.
 license: MIT
-inspired-by:
-  - https://github.com/EveryInc/compound-engineering-plugin
 ---
 
 # Lesson Residue
@@ -14,6 +11,8 @@ inspired-by:
 > Each unit of work should make the next unit easier — not harder.
 
 Compound Engineering's whole pitch is the return arrow: `/ce-compound` writes what you learned so the next `/ce-plan` can read it. This practice already had the artifact — `docs/lessons/YYYY-MM-DD-<slug>.md` and a dated gotcha in the project contract. The hole was **behaviour**: playbook 01 says the step always feels optional, so agents skip it.
+
+Influence: [Every's Compound Engineering plugin](https://github.com/EveryInc/compound-engineering-plugin).
 
 This skill makes it a close-out, not a nice-to-have.
 

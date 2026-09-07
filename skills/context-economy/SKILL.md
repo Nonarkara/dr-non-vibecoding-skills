@@ -1,11 +1,8 @@
 ---
 name: context-economy
 description: >-
-  Match response shape to task shape — code returns code, explanations lead with the
-  answer, status reports have four buckets. The M5 Max rule: don't downsize based on
-  assumptions about the machine. Use when you are about to write a long preamble, when a
-  code question is about to get buried in prose, when the same content is about to be
-  repeated in three places, or when the response is getting long without earning it.
+  Match response length and shape to the task. Use when prose crowds out results,
+  context repeats, or status needs a concise evidence-backed form.
 license: MIT
 ---
 

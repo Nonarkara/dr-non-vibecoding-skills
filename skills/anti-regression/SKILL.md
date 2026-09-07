@@ -1,10 +1,8 @@
 ---
 name: anti-regression
 description: >-
-  The eight prohibitions that exist because an agent once collapsed a live site into a
-  template. Use when editing any file an earlier session earned, when a refactor looks
-  cleaner, when a map/canvas/HUD looks like decoration, when a file is >500 lines and
-  "messy", or when you catch yourself thinking "this would be cleaner as a template."
+  Protect earned behavior and distinctive UI from destructive cleanup. Use before
+  large rewrites or edits to maps, canvases, HUDs, and mature files.
 license: MIT
 ---
 

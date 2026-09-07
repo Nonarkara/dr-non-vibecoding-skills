@@ -1,6 +1,6 @@
 {
   "name": "dr-non-vibecoding-skills",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Dr Non's field-tested system for directing AI agents, preserving earned work, and shipping verified software.",
   "author": {
     "name": "Dr Non Arkaraprasertkul",
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Dr Non's Vibecoding Skills",
-    "shortDescription": "Ship fast without erasing what made the work good.",
-    "longDescription": "Field-tested skills for directing coding agents, choosing what to build, preserving live systems, designing for real audiences, and proving production changes reached users.",
+    "shortDescription": "Field-tested discipline for building and shipping with agents.",
+    "longDescription": "Forty-three focused skills for directing coding agents, preserving earned systems, designing for real audiences, operating resilient civic software, and proving production changes reached users.",
     "developerName": "Dr Non Arkaraprasertkul",
     "category": "Coding",
     "capabilities": [
@@ -32,9 +32,9 @@
     "websiteURL": "https://github.com/Nonarkara/dr-non-vibecoding-skills",
     "brandColor": "#F59E0B",
     "defaultPrompt": [
-      "Use anti-regression before changing this existing project.",
-      "Use production-spine to decide whether this is ready to ship.",
-      "Use codex-workbench to put this workflow on the right surface."
+      "Audit this project without erasing earned behavior.",
+      "Plan, review, test, and ship this change with evidence.",
+      "Choose the smallest workflow that solves this problem."
     ]
   }
 }

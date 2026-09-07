@@ -1,10 +1,8 @@
 ---
 name: map-3d-city
 description: >-
-  Populate a city map with 3D buildings fast, without literal Minecraft blocks in the
-  browser. Use when starting any city dashboard or digital twin, when generated-UI map
-  extrusion looks wrong (occlusion glitches, duplicated faces), or when deciding between
-  deck.gl and MapLibre for buildings.
+  Render fast 3D city buildings without blocky or overlapping geometry. Use when
+  choosing MapLibre or deck.gl, or repairing city-map extrusion.
 license: MIT
 ---
 

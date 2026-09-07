@@ -1,6 +1,6 @@
 ---
 name: itic-cctv-integration
-description: Wiring Thailand's public Longdo/iTIC traffic-camera and incident feeds into a city dashboard — the fetch/cache/fallback shape, the three degrees of "live" a camera can actually offer, and where the current best implementation lives. Use when adding real-time traffic cameras to any Thai city dashboard.
+description: Integrate Thailand's Longdo/iTIC camera and incident feeds honestly. Use when adding Thai traffic cameras or separating snapshot, stream, and stale modes.
 license: MIT
 ---
 

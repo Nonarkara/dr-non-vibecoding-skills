@@ -1,13 +1,8 @@
 ---
 name: design-thinking-vibecoding
 description: >-
-  The full design-thinking-to-ship methodology: reverse-engineer problems from daily pain
-  (not from client briefs), dump context for AI pattern-finding, set goals with
-  Dieter-Rams-grade frontend discipline, ship MVP from commit one, orchestrate multiple
-  AIs as triangulating collaborators, and run token economy across cheap and frontier
-  models. Use at the start of any new project, when the approach to a problem is unclear,
-  when orchestrating multiple AI agents, or when deciding which model to use for which
-  task.
+  Turn lived problems into scoped, agent-built products. Use when framing a new
+  project, finding the narrow MVP, or assigning work across models.
 license: MIT
 ---
 

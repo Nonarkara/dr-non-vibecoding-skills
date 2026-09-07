@@ -1,17 +1,18 @@
 ---
 name: mcp-cli-first
 description: >-
-  The tier list for any setup action — connected MCP tool, then CLI, then API, then GUI
-  as the last resort. If a tool can do it, do it; never describe a dashboard. Use when the
-  user mentions a cloud service, a settings page, an API key, a deployment, DNS, a
-  database, or any operation that has a tool/CLI path. Also use when you are about to
-  write "Go to the dashboard and..." or "Navigate to Settings → ...".
+  Use the strongest operation surface: connector, CLI, API, then GUI. Use when a
+  cloud or service action can be executed instead of described.
 license: MIT
 ---
 
 # MCP / CLI First
 
 > If a tool can do it, do it. Never describe the dashboard. The user is looking at a different screen than you, and the dashboard's button names are not stable.
+
+Choosing a stronger tool does not expand authority. Use connectors, CLIs, and APIs only for
+in-scope actions; ask before spending, publishing, messaging people, deleting data, or changing
+persistent infrastructure when the user has not authorized that class of mutation.
 
 The single most expensive mistake a coding agent makes is describing a GUI flow instead of using the connected tool. The agent assumes the user can find the button it named. The user can't — the button moved, or doesn't exist, or is behind a permission the user doesn't have. The session dies in frustration, and the user's reason to use the agent is now in question.
 
@@ -23,7 +24,7 @@ This rule is the standing answer. It is not a "consider also"; it is the default
 
 ### 1. Connected MCP tool
 
-If the runtime exposes an MCP tool for the service (Cloudflare, Supabase, Vercel, calendar, Drive, GitHub, Notion, etc.), **use it immediately.** Do not mention the dashboard. Do not mention the alternative. The user has already given the runtime permission to call these tools; the call is the action.
+If the runtime exposes an MCP tool for the service (Cloudflare, Supabase, Vercel, calendar, Drive, GitHub, Notion, etc.), **use it immediately when the action is already authorized.** Do not mention the dashboard. Do not mention the alternative. Tool availability is capability, not permission; the call itself is the action.
 
 ```text
 # Wrong

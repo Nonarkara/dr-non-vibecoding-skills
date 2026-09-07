@@ -1,9 +1,8 @@
 ---
 name: workspace-lean
 description: >-
-  Safely shrink a multi-repo workspace that has accumulated git worktrees and dependency
-  weight — without deleting a production service or a top-level project by mistake. Use
-  for cleanup passes, disk pressure, or before a migration.
+  Safely reduce worktrees and dependency weight without deleting live services or
+  unique commits. Use for cleanup, disk pressure, and migrations.
 license: MIT
 ---
 

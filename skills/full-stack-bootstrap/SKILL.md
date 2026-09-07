@@ -1,10 +1,8 @@
 ---
 name: full-stack-bootstrap
 description: >-
-  Set up a new workspace or project the way Dr Non does it — memory ladder, deploy
-  discipline, service pattern, and design contract, in one pass. Use when starting
-  a brand new project folder, when asked to "set this workspace up properly," or
-  when the user references "the blueprint."
+  Bootstrap a project with memory, deploy, service, data, and design contracts. Use
+  for a new workspace, a new project, or the Blueprint.
 license: MIT
 ---
 

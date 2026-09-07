@@ -1,10 +1,8 @@
 ---
 name: planning-discipline
 description: >-
-  The Spec-First execution protocol — research without modifying, publish an Implementation Plan
-  with blast radius and sacred item checks, obtain explicit user alignment, and execute
-  surgically in parallel. Use before non-trivial features, refactors, multi-file edits, or whenever
-  ambiguous requirements could cause unintended architectural drift.
+  Research and publish a scoped implementation plan before editing. Use for
+  nontrivial, ambiguous, risky, or multi-file changes.
 license: MIT
 ---
 

@@ -1,10 +1,8 @@
 ---
 name: route-dont-scan
 description: >-
-  Identify the target project first; never recursive-scan a multi-project workspace.
-  Use at the start of any task in a monorepo, when the impulse is ls -R or grep **,
-  when one clarifying question would beat a wrong scan, or when a 65-repo tree is
-  sitting in the working directory.
+  Identify the target project before scanning. Use at the start of work in a
+  monorepo or multi-project workspace.
 license: MIT
 ---
 

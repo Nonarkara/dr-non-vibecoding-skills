@@ -1,13 +1,9 @@
 ---
 name: ux-archaeology
 description: >-
-  Steal patterns from public products, not pixels and not running internals.
-  Use when rebuilding a dashboard, map, or civic surface from prior art the
-  human named. Do not scrape a live private app, copy tokens, or "inspect
-  production" as a substitute for a spec.
+  Borrow public product patterns and DESIGN.md files without copying pixels or secrets.
+  Use when rebuilding from prior art or evaluating external design systems.
 license: MIT
-inspired-by:
-  - https://github.com/vercel-labs/agent-skills
 ---
 
 # UX Archaeology
@@ -18,6 +14,8 @@ The director names a source — "learn from that flood map," "that index's hones
 
 This skill is the allowed reverse-engineering: **public behaviour → named pattern → your DNA**.
 
+Influence: [Vercel's agent skills](https://github.com/vercel-labs/agent-skills).
+
 ---
 
 ## Allowed
@@ -27,6 +25,39 @@ This skill is the allowed reverse-engineering: **public behaviour → named patt
 - One row in the lesson doc: Source → Pattern → Where it landed (see [`templates/lesson.md.template`](../../templates/lesson.md.template))
 
 Vercel `web-design-guidelines` is a catalogue of *jobs* (focus, forms, URL reflects state, i18n). Use it as a reminder of jobs, not as a restyle-to-Vercel order. Your surface still obeys [`axiom-design-core`](../axiom-design-core/SKILL.md) and [`design-dna`](../design-dna/SKILL.md).
+
+---
+
+## Ingesting external DESIGN.md files
+
+[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a standard format (introduced by Google Stitch) for describing a brand's visual design system as plain markdown that agents read. [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) collects 73 analysed examples — Claude, Stripe, Vercel, Nike, Apple, Linear, and others — each as a drop-in `DESIGN.md` plus preview HTML.
+
+These are reference material, not source-of-truth. They describe *what a brand looks like*, not *what your project should do*. The extraction procedure:
+
+1. **Read the DESIGN.md for patterns, not tokens.** What jobs do the color roles do? How is typography hierarchy structured? What does the component states section reveal about interaction design? Extract the *reasoning*, not the hex values.
+2. **Name the pattern without the brand.** "Apple's progressive disclosure through layered navigation" is a pattern. "Use Apple's colors" is a template.
+3. **Filter through Dr Non's invariants.** Every extracted pattern must pass:
+   - Zero `border-radius` (except true circles) — Apple's rounded corners, Stripe's pills, Linear's soft edges are refusals here.
+   - One accent: amber `#f59e0b` — Figma's multi-color, Spotify's green, Vercel's blue are refusals.
+   - Banned fonts: Inter, Roboto, Poppins — these appear in most DESIGN.md files. Your default pair (Josefin Sans + Source Sans 3 + JetBrains Mono) wins.
+   - Max 3 text sizes per page, mobile-first at 390px.
+   - Motion as feedback, not decoration — under 300ms, `transform`/`opacity` only.
+4. **Adapt inside the register.** A Civic surface reading a Console-oriented DESIGN.md extracts *data density patterns*, not dark themes. An Editorial surface reading an e-commerce DESIGN.md extracts *progressive disclosure*, not product-card grids.
+5. **Record Source / Pattern / Refused / Landed** — same format as any archaeology row.
+
+What to extract from specific DESIGN.md sections:
+
+| DESIGN.md section | Extract | Refuse |
+|---|---|---|
+| Color Palette & Roles | How semantic roles map to visual weight | Specific hex values, multi-accent palettes |
+| Typography Rules | Hierarchy logic (display/body/micro mapping) | Font family choices that hit the banned list |
+| Component Stylings | State coverage (loading/empty/error), interaction patterns | Rounded corners, gradient fills, decorative shadows |
+| Layout Principles | Spacing rhythm, grid philosophy, whitespace density | Any layout that requires >3 screen widths to scroll |
+| Depth & Elevation | Surface hierarchy logic (what gets visual prominence) | Drop-shadow systems beyond inset hairlines |
+| Do's and Don'ts | Anti-patterns worth adopting (often the best section) | Do's that conflict with Dr Non's invariants |
+| Responsive Behavior | Breakpoint strategy, touch-target sizing | Desktop-first collapsing patterns |
+
+The DESIGN.md format is useful precisely because it is structured. Treat it like a public design audit — extract the decision logic, discard the aesthetic choices that conflict with your contract.
 
 ---
 

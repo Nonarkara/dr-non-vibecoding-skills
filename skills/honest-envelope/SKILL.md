@@ -1,10 +1,8 @@
 ---
 name: honest-envelope
 description: >-
-  Every displayed number carries {source, tier, age}. A fake number shown as live is
-  worse than an error. Use when rendering metrics, wiring fallback data, labeling a
-  cache, when a dashboard would look more certain than it is, or when an upstream
-  outage is about to be papered over with last week's value.
+  Label every displayed number with source, tier, and age. Use for metrics, caches,
+  fallback data, outages, and any live-looking dashboard value.
 license: MIT
 ---
 

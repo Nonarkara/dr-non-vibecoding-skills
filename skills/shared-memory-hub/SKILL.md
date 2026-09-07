@@ -1,10 +1,8 @@
 ---
 name: shared-memory-hub
 description: >-
-  The Obsidian-as-Super-MCP shared memory protocol across multi-agent fleets.
-  Use when capturing lessons, decisions, and system context so that insights learned
-  in one agent session (Claude, Antigravity, MiniMax, Codex, Cursor) persist into the durable
-  Second Brain vault rather than vanishing at session close.
+  Persist verified lessons across agents in an Obsidian-backed memory hub. Use when
+  capturing cross-session decisions, failures, and project context.
 license: MIT
 ---
 

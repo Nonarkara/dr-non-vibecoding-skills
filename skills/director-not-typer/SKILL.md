@@ -1,10 +1,8 @@
 ---
 name: director-not-typer
 description: >-
-  The intent/mechanics split — the human holds taste, users, money, and names; the agent
-  holds libraries, file layout, and boot behavior. Use when you are about to ask the user
-  to pick between two technical options, when a non-programmer is directing, when a typo
-  looks like a new word, or when a menu of implementation choices would stall the session.
+  Keep human intent and taste separate from agent implementation mechanics. Use when
+  technical choice menus, ambiguous names, or nontechnical direction would stall work.
 license: MIT
 ---
 

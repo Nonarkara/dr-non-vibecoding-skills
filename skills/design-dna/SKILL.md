@@ -1,9 +1,8 @@
 ---
 name: design-dna
 description: >-
-  Encode a design system as an enforceable contract agents cannot quietly regress. Use when
-  starting a UI, defining tokens/typography/colour, reviewing generated visual code, or when
-  a design keeps drifting back toward generic AI defaults.
+  Encode visual decisions as enforceable tokens and regression rules. Use when
+  starting or reviewing a UI whose design keeps drifting.
 license: MIT
 ---
 

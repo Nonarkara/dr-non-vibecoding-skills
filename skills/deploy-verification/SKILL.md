@@ -1,9 +1,8 @@
 ---
 name: deploy-verification
 description: >-
-  Poison-proof CDN deploys. Use when deploying static assets to Cloudflare Pages, Netlify,
-  Vercel, S3+CloudFront, or any edge cache; when a shipped change "isn't showing up"; when
-  a version bump doesn't take effect; or when debugging stale JavaScript in production.
+  Prove new static bytes reached edge users without poisoning cache keys. Use for
+  CDN deploys, stale assets, and changes that are not appearing live.
 license: MIT
 ---
 

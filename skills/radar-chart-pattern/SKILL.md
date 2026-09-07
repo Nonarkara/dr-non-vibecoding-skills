@@ -1,6 +1,6 @@
 ---
 name: radar-chart-pattern
-description: The N-axis radar/spiderweb chart math (data-driven, no chart library needed) and why every existing implementation across the estate reimplements it from scratch, including three separate copies inside one project. Use when scoring or comparing something across multiple weighted dimensions, or before writing another hand-rolled polar-coordinate block.
+description: Build or audit dependency-free N-axis radar charts. Use when comparing weighted dimensions or before duplicating polar-coordinate implementations.
 license: MIT
 ---
 
