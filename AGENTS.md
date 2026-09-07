@@ -12,8 +12,8 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **25 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **10 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **39 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **11 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 reference docs** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **5 templates** in `templates/` — drop-in files (`CLAUDE.md`, deploy script, launchd plist, tunnel config, lesson doc).
 
@@ -25,7 +25,7 @@ There is nothing to compile, nothing to configure, and nothing that can go out o
 
 ### 1. Read the spine first
 
-Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists all 25 skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
+Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists the skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
 
 ### 2. Install the skills
 
@@ -62,6 +62,7 @@ Pick the skill that matches your problem:
 | If the problem is… | Read |
 |---|---|
 | Agent keeps re-explaining the project | `skills/agent-memory/SKILL.md` |
+| A rule the agent ignores, or a named agent that was never installed | `skills/harness-hardening/SKILL.md` |
 | Agent makes cowboy edits without a plan | `skills/planning-discipline/SKILL.md` |
 | Agent "cleans up" a live map into a template | `skills/anti-regression/SKILL.md` |
 | About to ask the human to pick a library | `skills/director-not-typer/SKILL.md` |
@@ -84,6 +85,13 @@ Pick the skill that matches your problem:
 | (Claude agents) about to describe a dashboard | `skills/mcp-cli-first/SKILL.md` |
 | (All agents) response is getting long without earning it | `skills/context-economy/SKILL.md` |
 | (All agents) reporting work as "done" | `skills/result-honesty/SKILL.md` |
+| Impulse to patch the first plausible line | `skills/systematic-debugging/SKILL.md` |
+| UI "verified" with a screenshot | `skills/browser-as-t/SKILL.md` |
+| Painful session, no lesson written | `skills/lesson-residue/SKILL.md` |
+| Same model about to LGTM its own diff | `skills/adversarial-review/SKILL.md` |
+| Watchdog/CI/deploy said OK and it wasn't | `skills/wrong-green/SKILL.md` |
+| Rebuild from prior art by scraping the live app | `skills/ux-archaeology/SKILL.md` |
+| Tempted to vendor a 100-skill pack | `skills/skill-writing/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 
@@ -108,6 +116,7 @@ This repo spans the full lifecycle of Dr Non's practice:
 - **The Antigravity Origin:** The foundational layer (`planning-discipline`, `dual-write-resilience`, `shared-memory-hub`, design invariants) forged with Dr Non's first AI agent, designed to be universal across all agents.
 - **The Cursor Desk:** Four skills (`anti-regression`, `director-not-typer`, `route-dont-scan`, `honest-envelope`) and Playbook 10 — the IDE-resident layer. Codex Incident as prime directive, intent/mechanics split, monorepo routing, honest numbers.
 - **The Mavis/Claude Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
+- **The 2026 steal map:** Seven behavioural skills (`systematic-debugging`, `browser-as-t`, `lesson-residue`, `adversarial-review`, `wrong-green`, `ux-archaeology`, `skill-writing`) and Playbook 11 — methods stolen from Superpowers, Compound, gstack, Osmani, Vercel, Anthropic format; packs refused.
 
 Four skills are Mavis/Claude-specific extensions that don't apply directly to non-Claude agents:
 

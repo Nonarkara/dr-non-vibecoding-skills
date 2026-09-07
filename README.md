@@ -24,8 +24,8 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 
 | Shape | Count in this repo | What it is |
 |---|---|---|
-| [`skills/`](skills/) | 32 `SKILL.md` files | Standing instructions an agent can load |
-| [`playbooks/`](playbooks/) | 10 narratives | Why those rules exist — read once |
+| [`skills/`](skills/) | 39 `SKILL.md` files | Standing instructions an agent can load |
+| [`playbooks/`](playbooks/) | 11 narratives | Why those rules exist — read once |
 | [`reference/`](reference/) | 4 docs | APIs, stack picks, commit style, security hygiene |
 | [`templates/`](templates/) | 5 drop-ins | Project contract, deploy script, launchd plist, tunnel config, lesson doc |
 
@@ -42,6 +42,8 @@ Related public work: [FloodDash Blueprint](https://github.com/Nonarkara/FloodDas
 Inspired by [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) — whose `karpathy-guidelines` is vendored here with credit. That repo tells an agent how to *think*. This one tells it how to *ship, deploy, run, and design*.
 
 Also indebted to [affaan-m/ecc](https://github.com/affaan-m/ecc) — an agent-harness system whose claim, *"optimise the context window, persist everything else,"* is why [`harness-hardening`](skills/harness-hardening/SKILL.md) exists. That skill is the audit (does the hook actually fire?), not a download of ECC.
+
+The 2026 behavioural layer (debug, browser T, lesson close-out, adversarial review, wrong-green, UX archaeology, skill-writing) is a **curated steal** from Superpowers, Compound Engineering, gstack, Addy Osmani, Vercel, and Anthropic's skill format — methods, not packs. Receipts and refusals: [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
 ---
 
@@ -135,8 +137,15 @@ Pick the skill that matches the problem:
 | Build first, or wait? | [`dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md) |
 | Response is long without earning it | [`context-economy`](skills/context-economy/SKILL.md) |
 | Reporting work as "done" | [`result-honesty`](skills/result-honesty/SKILL.md) |
+| Impulse to patch the first plausible line | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) |
+| UI "verified" with a screenshot | [`browser-as-t`](skills/browser-as-t/SKILL.md) |
+| Painful session, no lesson written | [`lesson-residue`](skills/lesson-residue/SKILL.md) |
+| Same model about to LGTM its own diff | [`adversarial-review`](skills/adversarial-review/SKILL.md) |
+| Watchdog/CI/deploy said OK and it wasn't | [`wrong-green`](skills/wrong-green/SKILL.md) |
+| Rebuild from prior art by scraping the live app | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) |
+| Tempted to add the 40th skill from a trending pack | [`skill-writing`](skills/skill-writing/SKILL.md) |
 
-The other skills — `full-stack-bootstrap`, `subagent-routing`, `mcp-cli-first`, and the sibling-practice set (`local-ai-fabric`, `voice-clone-podcast`, `itic-cctv-integration`, `iptv-streaming`, `narrative-companion-surfaces`, `radar-chart-pattern`) — are in [`skills/`](skills/). Four of the thirty-two (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) are Mavis/Claude-oriented; the rest are agent-agnostic markdown.
+The other skills — `full-stack-bootstrap`, `subagent-routing`, `mcp-cli-first`, and the sibling-practice set (`local-ai-fabric`, `voice-clone-podcast`, `itic-cctv-integration`, `iptv-streaming`, `narrative-companion-surfaces`, `radar-chart-pattern`) — are in [`skills/`](skills/). Four of the thirty-nine (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) are Mavis/Claude-oriented; the rest are agent-agnostic markdown.
 
 Playbooks, numbered, read once:
 
@@ -150,6 +159,7 @@ Playbooks, numbered, read once:
 8. [The Mavis side](playbooks/08-the-mavis-side.md)
 9. [The Antigravity origin](playbooks/09-the-antigravity-origin.md)
 10. [The Cursor desk](playbooks/10-the-cursor-desk.md)
+11. [The 2026 steal map](playbooks/11-the-2026-steal-map.md) — what we took from Superpowers / Compound / gstack / Osmani / Vercel / Anthropic, and what we refused
 
 ---
 
@@ -159,8 +169,8 @@ Short labels so GitHub Mermaid does not clip.
 
 ```mermaid
 flowchart TB
-  S["32 skills"] --> A["Your agent"]
-  P["10 playbooks"] --> A
+  S["39 skills"] --> A["Your agent"]
+  P["11 playbooks"] --> A
   R["4 refs"] --> A
   T["5 templates"] --> A
   A --> W["Project contract"]
@@ -190,7 +200,7 @@ Reuse the skills, playbooks, templates, and prose with attribution. `karpathy-gu
 
 **Contributing.** Open a pull request against `main`.
 
-- Add a skill when it has already shipped somewhere, not when it sounds wise.
+- Add a skill when it has already shipped somewhere, not when it sounds wise. See [`skill-writing`](skills/skill-writing/SKILL.md) — do not vendor a 100-skill pack.
 - Pair every rule with a *why*. Agents tidy oddities; they need the reason it is load-bearing.
 - No secrets, live tokens, private hosts, or invented metrics.
 - Keep the voice: production, not theory; civic, not vendor pitch.
