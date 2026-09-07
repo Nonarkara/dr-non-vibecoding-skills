@@ -12,10 +12,12 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **52 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **54 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **6 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, deploy script, launchd plist, tunnel config, lesson doc).
+
+*Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
 There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
 
@@ -123,6 +125,8 @@ Pick the skill that matches your problem:
 | IPTV channel aggregation | `skills/iptv-streaming/SKILL.md` |
 | Thai traffic camera integration | `skills/itic-cctv-integration/SKILL.md` |
 | Always-on background services via launchd | `skills/always-on-services/SKILL.md` |
+| Free 7-layer AppSec pipeline (secrets, SAST, SCA, SBOM, auto-update, DAST, exploit verify) | `skills/appsec-stack/SKILL.md` |
+| Trunk-based dev, path-scoped CODEOWNERS, branch naming, selective CI for multi-package repos | `skills/stack-repo-topology/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 
