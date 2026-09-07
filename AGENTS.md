@@ -12,9 +12,9 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **54 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **59 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
-- **4 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
+- **5 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **10 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy script, gitignore, env, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*

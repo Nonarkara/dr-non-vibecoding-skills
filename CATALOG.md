@@ -73,6 +73,11 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`design-registers`](skills/design-registers/SKILL.md) | Shared design DNA is making every product look like the same control room |
 | [`no-design-tells`](skills/no-design-tells/SKILL.md) | A surface must not be identifiable as agent-built — fonts, palette, provenance, layout reflexes |
 | [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md) | Product UI, tables, forms, or admin — where the landing-page taste skills explicitly do not apply |
+| [`colour-and-type`](skills/colour-and-type/SKILL.md) | A palette and type scale need choosing, not just enforcing |
+| [`data-display`](skills/data-display/SKILL.md) | Any chart, table, or number is about to be rendered |
+| [`phone-first`](skills/phone-first/SKILL.md) | A surface will be shared as a link and opened on a phone |
+| [`beyond-the-screen`](skills/beyond-the-screen/SKILL.md) | A deck, PDF, document, social card, or infographic is the deliverable |
+| [`multilingual-type`](skills/multilingual-type/SKILL.md) | Type is set in Thai, CJK, Arabic, or any script you do not read |
 | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) | Generated text must not read as machine-written — kill the tells, then write plainly |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Navigation or a dashboard needs paths, edges, districts, nodes, and a landmark |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Public prior art or a DESIGN.md file needs pattern extraction inside your design contract |
