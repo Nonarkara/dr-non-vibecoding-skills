@@ -1,0 +1,28 @@
+# Workspace — <one line: where this folder lives and what it's for>
+
+> Tier 1 of the memory ladder for non-Claude agents. Mirror of `CLAUDE.md` at the workspace root.
+> Answers: *where does anything live, what's running, what must not move?*
+
+## Project index
+
+| Project | Stack | Status | Live URL | One-line purpose |
+|---|---|---|---|---|
+| `<name>` | `Next.js+TS` | active | `https://<host>` | `<what it does>` |
+| `<name>` | `Vite+React` | dormant | — | `<parked>` |
+
+> Dormant = parked. Don't install deps to answer a question. Trust this table over scaffold-copied READMEs.
+
+## Layout conventions
+
+- One directory per project directly under this folder.
+- `_shared/` holds cross-project adapters catalogued in `_shared/data-catalog/CATALOG.md`.
+
+## Deliberately outside this folder — do not move
+
+- `<path>` — reason (`launchd plist` / `virtualenv` / `tunnel config` with absolute path)
+
+## How to add a project
+
+1. `scripts/new-project.sh <name> --stack next|vite|python`
+2. Fill in `<project>/AGENTS.md` from `templates/AGENTS.md.template`.
+3. Add one row above.

@@ -1,0 +1,58 @@
+# Copy to <project>/.gitignore — then trim what you don't need.
+# Covers Node + Python + env + logs + OS + IDE + deploy + data.
+
+# — secrets & env —
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# — dependencies —
+node_modules/
+.pnp/
+.pnp.js
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# — build & deploy —
+.next/
+dist/
+build/
+out/
+.turbo/
+.vite/
+.open-next/
+.netlify/
+coverage/
+*.tsbuildinfo
+
+# — logs & local data —
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+.data/
+*.db
+*.sqlite
+*.sqlite-*
+.dump.rdb
+
+# — OS & IDE —
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# — cloudflare / wrangler —
+.wrangler/
+.dev.vars

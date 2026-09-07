@@ -22,6 +22,8 @@ cd ~/Projects   # or wherever your work lives — new or existing, both fine
 claude
 ```
 
+> **Prefer an automated script instead of chat?** Run `./setup.sh --init-project ~/Projects/my-app` (or `scripts/new-project.sh ~/Projects/my-app`) for an instant scaffold without pasting into an agent chat.
+
 Then paste the whole block below into the chat. That's it — everything past this line is written *to the agent*, not to you.
 
 ---
@@ -48,28 +50,34 @@ Then proceed using my answers. Don't ask anything else — infer sensible defaul
 
 ### Step 2 — Install the skills
 
+Preferred — one command from the cloned repo (works without this blueprint):
+
+```bash
+<path-to-cloned-repo>/setup.sh --install-skills   # or: make -C <path> install-skills
+# alt: <path>/scripts/install-skills.sh  (supports --claude/--codex/--cursor/--hermes/--opencode/--dry-run)
+```
+
+Manual fallback:
+
 ```bash
 mkdir -p ~/.claude/skills
 cp -r <path-to-cloned-repo>/skills/* ~/.claude/skills/
+mkdir -p ~/.agents/skills
+cp -r <path-to-cloned-repo>/skills/* ~/.agents/skills/   # Codex / ChatGPT desktop / Antigravity
+# Cursor: mkdir -p .cursor/skills && cp -r <path>/skills/* .cursor/skills/
+# Hermes: ~/.hermes/skills/  ·  OpenCode: ~/.config/opencode/skills/
 ```
 
-If the reader is Cursor, also:
-
-```bash
-mkdir -p .cursor/skills
-cp -r <path-to-cloned-repo>/skills/* .cursor/skills/
-```
-
-Confirm they're readable. These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`.
+Confirm they're readable (`ls ~/.claude/skills | wc -l` → 54). These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`.
 
 ### Step 3 — Workspace index (only if I said "many projects" in Step 1)
 
-Create `CLAUDE.md` at the workspace root following the Tier-1 pattern from
-`skills/agent-memory/SKILL.md`: a table of projects (empty for now, one row per
-project as they're created), a "layout conventions" section, and a "deliberately
-outside this folder — do not move" section (empty, to be filled as it becomes true).
+Create `CLAUDE.md` at the workspace root from `templates/workspace-CLAUDE.md.template`
+(one table of projects, layout conventions, "deliberately outside this folder" list).
+Empty for now — one row per project as they're created. See `skills/agent-memory/SKILL.md` Tier 1.
 
-Mirror it to `AGENTS.md` for non-Claude agents.
+Mirror it to `AGENTS.md` from `templates/workspace-AGENTS.md.template` for non-Claude agents.
+Non-agent shortcut: `setup.sh --init-project <workspace> --yes` or `scripts/new-project.sh <dir> --workspace` does this copy for you.
 
 ### Step 4 — Project scaffold
 
@@ -77,13 +85,18 @@ For the project I'm about to build (ask its name if I haven't said), create:
 
 - The actual app scaffold for the stack chosen in Step 1 (`npx create-next-app`,
   `npm create vite`, etc. — real working code, not a stub).
-- `<project>/CLAUDE.md` from `templates/CLAUDE.md.template` — filled in, not left
-  with placeholder brackets. Include a real (even if short) Anti-Regression section;
-  don't leave it empty — put at least "nothing yet, add here as decisions get made."
+- `<project>/CLAUDE.md` from `templates/CLAUDE.md.template` and `<project>/AGENTS.md`
+  from `templates/AGENTS.md.template` — filled in, not left with placeholder brackets.
+  Include a real (even if short) Anti-Regression section; don't leave it empty — put
+  at least "nothing yet, add here as decisions get made."
+- `<project>/.gitignore` from `templates/gitignore.template` and
+  `<project>/.env.example` from `templates/env.example.template` — trim what you don't need.
 - `<project>/docs/lessons/` — empty directory, `.gitkeep`, ready for the first
   lesson doc per `templates/lesson.md.template`.
 - Git repo initialized, first commit made following the conventions in
   `reference/commit-conventions.md` (`<type>(<scope>): <sentence>` format).
+
+Non-agent shortcut: `scripts/new-project.sh <project> --stack next` does the five bullets above without an agent.
 
 ### Step 5 — Deploy discipline
 

@@ -15,7 +15,7 @@ Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 - **54 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
-- **6 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, deploy script, launchd plist, tunnel config, lesson doc).
+- **10 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy script, gitignore, env, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
@@ -64,7 +64,11 @@ The `templates/` folder has drop-in files for the load-bearing pieces:
 
 - `AGENTS.md.template` — the Tier 2 project contract for non-Claude agents. Fill in, save as `<project>/AGENTS.md`.
 - `CLAUDE.md.template` — the Tier 2 project contract for Claude agents. Fill in, save as `<project>/CLAUDE.md`.
+- `workspace-AGENTS.md.template` — the Tier 1 multi-project workspace index for non-Claude agents.
+- `workspace-CLAUDE.md.template` — the Tier 1 multi-project workspace index for Claude agents.
 - `deploy-pages.sh` — the poison-proof CDN deploy script. Copy to `<project>/scripts/deploy.sh`.
+- `gitignore.template` — agent-hardened gitignore for secrets, OS metadata, and AI scratch artifacts.
+- `env.example.template` — safe environment variables template with secret hygiene rules.
 - `service.plist.template` — the launchd plist for a Mac supervised service. Three jobs (server / tunnel / watchdog).
 - `tunnel.yml.template` — the Cloudflare Tunnel config, with the deliberately-inert shared fallback.
 - `lesson.md.template` — the structure for a post-session lesson doc.

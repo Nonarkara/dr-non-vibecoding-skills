@@ -11,10 +11,10 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
 [![Skills: 54](https://img.shields.io/badge/skills-54-F59E0B)](skills/)
 [![Playbooks: 12](https://img.shields.io/badge/playbooks-12-1A1A1A)](playbooks/)
-[![Templates: 6](https://img.shields.io/badge/templates-6-0F766E)](templates/)
+[![Templates: 10](https://img.shields.io/badge/templates-10-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**54 skills** · **12 playbooks** · **4 references** · **6 templates**
+**54 skills** · **12 playbooks** · **4 references** · **10 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -35,7 +35,7 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 | [`skills/`](skills/) | 54 `SKILL.md` files | Standing instructions an agent can load |
 | [`playbooks/`](playbooks/) | 12 narratives | Why those rules exist — read once |
 | [`reference/`](reference/) | 4 docs | APIs, stack picks, commit style, security hygiene |
-| [`templates/`](templates/) | 6 drop-ins | Project contracts, deploy script, launchd plist, tunnel config, lesson doc |
+| [`templates/`](templates/) | 10 drop-ins | Project contracts (Tier 1 & 2), deploy script, gitignore, env, launchd plist, tunnel, lesson doc |
 
 Plus [`BLUEPRINT.md`](BLUEPRINT.md) (one-pass setup), [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes), and a 19-page deck in [`INFOGRAPHICS.md`](INFOGRAPHICS.md).
 
@@ -161,6 +161,20 @@ skills from `.agents/skills`.
 /plugin install dr-non-vibecoding-skills@dr-non
 ```
 
+### One-command setup (clone → skills + project scaffold)
+
+```bash
+git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+cd dr-non-vibecoding-skills
+
+./setup.sh --install-skills          # installs 54 skills to Claude Code, Codex, Cursor, Hermes, OpenCode
+./setup.sh --init-project ~/Projects/my-app --yes   # scaffolds CLAUDE.md + AGENTS.md + .gitignore + .env.example + docs/lessons + scripts/deploy.sh
+# or: make install-skills  |  make init-project
+# non-interactive alt: scripts/install-skills.sh && scripts/new-project.sh ~/Projects/my-app --stack next
+```
+
+`setup.sh` is the same scaffolder the agent-driven [`BLUEPRINT.md`](BLUEPRINT.md) uses — it copies from [`templates/`](templates/) so manual and agent paths stay identical. Verify with `scripts/validate_repo.py` or `make validate`.
+
 ### Manual / Cursor / any Agent Skills reader
 
 ```bash
@@ -248,7 +262,7 @@ flowchart TB
   S["54 skills"] --> A["Your agent"]
   P["12 playbooks"] --> A
   R["4 refs"] --> A
-  T["6 templates"] --> A
+  T["10 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

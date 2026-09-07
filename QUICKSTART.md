@@ -8,35 +8,28 @@ Do these five things in order. Each is independently useful; together they compo
 
 ```bash
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+cd dr-non-vibecoding-skills
+./setup.sh --install-skills   # or: make install-skills  |  scripts/install-skills.sh
+# verify: ls ~/.claude/skills | wc -l  # expect 54
 ```
 
-Install the bundle as a plugin in Codex:
+Or install as a plugin (Codex) or copy manually — same result, pick one path:
 
 ```bash
+# Codex plugin
 codex plugin marketplace add Nonarkara/dr-non-vibecoding-skills
 codex plugin add dr-non-vibecoding-skills@dr-non
-```
 
-Or copy the plain `SKILL.md` folders into the host's discovery path:
-
-```bash
-# Codex user skills
-mkdir -p "$HOME/.agents/skills"
-cp -R dr-non-vibecoding-skills/skills/* "$HOME/.agents/skills/"
-
-# Claude Code user skills
-mkdir -p "$HOME/.claude/skills"
-cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
-
-# Cursor
-mkdir -p .cursor/skills
-cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/
-cp dr-non-vibecoding-skills/AGENTS.md ./AGENTS.md
+# Manual — Codex / Claude Code / Cursor
+mkdir -p "$HOME/.agents/skills" && cp -R skills/* "$HOME/.agents/skills/"   # Codex
+mkdir -p "$HOME/.claude/skills"  && cp -R skills/* "$HOME/.claude/skills/"  # Claude Code
+mkdir -p .cursor/skills && cp -R skills/* .cursor/skills/                    # Cursor (project-local)
+# Hermes: ~/.hermes/skills/  ·  OpenCode: ~/.config/opencode/skills/  ·  Antigravity: .agents/skills/
+# Gemini / Aider / other rules-only hosts: copy only relevant skill bodies into the host's native rules file
 ```
 
 `AGENTS.md` is project memory; skills are reusable workflows. Keep those roles separate.
-For Gemini or another rules-only host, copy only the relevant skill instructions into its
-native rules file. `.cursorrules` is legacy. There is no runtime dependency.
+`.cursorrules` is legacy. There is no runtime dependency.
 
 ---
 

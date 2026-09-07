@@ -1,0 +1,32 @@
+# Workspace — <one line: where this folder lives and what it's for>
+
+> Tier 1 of the memory ladder. Answers: *where does anything live, what's running, what must not move?*
+> This file lives at the **workspace root** (e.g. `~/Projects/CLAUDE.md`), not inside a project.
+> See `skills/agent-memory/SKILL.md` for the ladder. Mirrored to `AGENTS.md` for non-Claude agents.
+
+## Project index
+
+| Project | Stack | Status | Live URL | One-line purpose |
+|---|---|---|---|---|
+| `<name>` | `Next.js+TS` | active | `https://<host>` | `<what it does>` |
+| `<name>` | `Vite+React` | dormant | — | `<parked — how to resurrect>` |
+
+> Dormant = intentionally parked. Don't `npm install` it to answer a question.
+> Several dashboard READMEs still carry scaffold-copied titles. Trust this table, not those READMEs.
+
+## Layout conventions
+
+- Projects live directly under this folder, one directory per project.
+- `_shared/` holds cross-project adapters catalogued in `_shared/data-catalog/CATALOG.md`.
+- `docs/lessons/` is per-project; workspace-wide learnings that repeat across projects get promoted here.
+
+## Deliberately outside this folder — do not move
+
+- `<path>` — reason (`launchd plist` / `virtualenv` / `tunnel config` wired to absolute path)
+- `~/.cloudflared/<tunnel>.json` — Cloudflare Tunnel credentials (one file per tunnel)
+
+## How to add a project
+
+1. `scripts/new-project.sh <name> --stack next|vite|python` (or let `BLUEPRINT.md` do it via an agent).
+2. Fill in `<project>/CLAUDE.md` from `templates/CLAUDE.md.template`.
+3. Add one row above. Keep it honest — `dormant` saves the next agent twenty minutes.
