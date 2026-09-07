@@ -41,7 +41,7 @@ flowchart TD
 - Identify the system conservation law and any project sacred items before writing a single proposal.
 
 ### 2. Implementation Plan
-Before touching source code, publish a structured plan covering four mandatory sections:
+Before touching source code, publish a structured plan covering four mandatory sections. For larger features, use the **PRP (Product Requirements Prompt)** shape from [coleam00/context-engineering-intro](https://github.com/coleam00/context-engineering-intro) — `INITIAL.md` → PRP → execute — where the Implementation Plan *is* the PRP: context, examples, docs, gotchas, and validation in one file the agent can execute end-to-end.
 
 ```markdown
 # [Feature / Bugfix Name]
@@ -62,6 +62,12 @@ Before touching source code, publish a structured plan covering four mandatory s
 ## Verification Plan
 - Automated test command / curl endpoint verification
 - Live URL inspection step
+
+## Context & Examples (PRP supplement for larger features)
+- Examples: path/to/examples/* — patterns the agent must mimic (critical!)
+- Docs: links to API docs, MCP resources, schema
+- Gotchas: auth, rate limits, quotas, known pitfalls
+- Validation: how the agent self-corrects before reporting done
 ```
 
 ### 3. The Alignment Gate (Hard Stop)
@@ -88,5 +94,7 @@ Before touching source code, publish a structured plan covering four mandatory s
 | **Preserve live elements** | Never delete a map, canvas, HUD, or chart | These are the product, not decoration. |
 | **The 30% shrink limit** | Never collapse a file by >30% in one edit | Dense, sprawling code often carries domain personality and edge-case protection. |
 | **Surgical blast radius** | Touch only files named in the approved plan | Prevents cascading breaks in sibling services and subdomains. |
+
+PRPs scale this loop for complex work: a PRP is a PRD written for the agent, generated from `INITIAL.md` plus codebase research and `examples/`. This repo already has the pieces — `BLUEPRINT.md` for workspace bootstrapping, `agent-memory` for the contract, `examples/` as the pattern corpus. Context failures are model failures: most agent failures are missing context, not missing capability.
 
 The full Codex Incident laws — recovery protocol, red-flag phrases, orphaned-WIP pre-flight — live in [`anti-regression`](../anti-regression/SKILL.md). This skill is the gate before code. That skill is the law while the file is open.

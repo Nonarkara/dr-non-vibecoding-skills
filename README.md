@@ -171,6 +171,10 @@ cp -R dr-non-vibecoding-skills/skills/* "$HOME/.agents/skills/"
 mkdir -p "$HOME/.claude/skills"
 cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
 
+# Antigravity / OpenCode / Hermes
+mkdir -p .agents/skills && cp -R dr-non-vibecoding-skills/skills/* .agents/skills/
+# Hermes: ~/.hermes/skills/  — Antigravity also reads .agents/skills/
+
 # Cursor project skills
 mkdir -p .cursor/skills
 cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/

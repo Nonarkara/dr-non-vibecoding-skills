@@ -18,25 +18,25 @@ Before code, write one sentence:
 
 > Reading this as: **[surface]** for **[primary reader]**, used under **[conditions]**, in the **[register]** register.
 
-Then set three dials from 0–5:
+Then set three dials 1–10 (from [taste-skill](https://github.com/Leonxlnx/taste-skill) v2, also the numeric handle in [`no-design-tells`](../no-design-tells/SKILL.md) §4.0):
 
-- **Variance** — strict grid to deliberate asymmetry.
-- **Motion** — static to choreographed.
-- **Density** — single decision to operator cockpit.
+- **DESIGN_VARIANCE 1–10** — 1 = perfect symmetry · 10 = artsy chaos.
+- **MOTION_INTENSITY 1–10** — 1 = static · 10 = cinematic / physics.
+- **VISUAL_DENSITY 1–10** — 1 = airy / gallery · 10 = cockpit / packed.
 
-These dials are a compact adaptation of [taste-skill](https://github.com/leonxlnx/taste-skill). They prevent the model from reaching for its last successful layout. They do not override the project's own design contract.
+These dials prevent the model from reaching for its last successful layout. They do not override the project's own design contract. Baseline for a general landing is `8 / 6 / 4`; registers below override from audience, not taste.
 
 ## The five registers
 
-| Register | Reader and conditions | Ground | Starting dials: variance / motion / density |
+| Register | Reader and conditions | Ground | Starting dials: VARIANCE / MOTION / DENSITY (1–10) |
 |---|---|---|---|
-| **Console** | Operator at 2am, repeated use, many simultaneous signals | Dark, dense, high contrast | `2 / 2 / 5` |
-| **Index** | Analyst comparing ranks, scores, or methods | Light or dark, table-first, audit-friendly | `2 / 1 / 4` |
-| **Civic** | Citizen on a phone, often outside or under stress | Light, low density, large targets | `1 / 0 / 2` |
-| **Editorial** | Reader following an argument or narrative | Reading ground; serif allowed when earned | `3 / 1 / 2` |
-| **Institutional** | Mayor, board, ministry, deck, or print reader | Calm, formal, near-zero motion | `1 / 0 / 2` |
+| **Console** | Operator at 2am, repeated use, many simultaneous signals | Dark, dense, high contrast | `6–7 / 5–6 / 6–7` |
+| **Index** | Analyst comparing ranks, scores, or methods | Light or dark, table-first, audit-friendly | `5–6 / 3–4 / 6–7` |
+| **Civic** | Citizen on a phone, often outside or under stress | Light, low density, large targets | `3–4 / 2–3 / 4–5` |
+| **Editorial** | Reader following an argument or narrative | Reading ground; serif allowed when earned | `6–7 / 4–5 / 2–3` |
+| **Institutional** | Mayor, board, ministry, deck, or print reader | Calm, formal, near-zero motion | `4–5 / 1–2 / 5–6` |
 
-Starting dials are not themes. Move them when the brief gives evidence, then state why.
+Starting dials are not themes. Move them when the brief gives evidence, then state why. The dials are the numeric handle; the register is the named audience — both must be written down before the first line of CSS (see `no-design-tells` Delivery Gate Block 2).
 
 ## Invariants across every register
 

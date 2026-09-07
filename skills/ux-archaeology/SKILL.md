@@ -14,7 +14,7 @@ The director names a source — "learn from that flood map," "that index's hones
 
 This skill is the allowed reverse-engineering: **public behaviour → named pattern → your DNA**.
 
-Influence: [Vercel's agent skills](https://github.com/vercel-labs/agent-skills).
+Influence: [Vercel's agent skills](https://github.com/vercel-labs/agent-skills) + [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (73 DESIGN.md) + [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) (67 SKILL.md + DESIGN.md pairs).
 
 ---
 
@@ -30,9 +30,12 @@ Vercel `web-design-guidelines` is a catalogue of *jobs* (focus, forms, URL refle
 
 ## Ingesting external DESIGN.md files
 
-[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a standard format (introduced by Google Stitch) for describing a brand's visual design system as plain markdown that agents read. [awesome-design-md](https://github.com/VoltAgent/awesome-design-md) collects 73 analysed examples — Claude, Stripe, Vercel, Nike, Apple, Linear, and others — each as a drop-in `DESIGN.md` plus preview HTML.
+[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a standard format (introduced by Google Stitch) for describing a brand's visual design system as plain markdown that agents read. Two public corpora make this practical:
 
-These are reference material, not source-of-truth. They describe *what a brand looks like*, not *what your project should do*. The extraction procedure:
+- [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) — 73 analysed examples (Claude, Stripe, Vercel, Nike, Apple, Linear…) each as a drop-in `DESIGN.md` plus preview HTML.
+- [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) — 67 SKILL.md + DESIGN.md pairs (agentic/bento/brutalism/editorial/clean…), pullable via `npx typeui.sh pull <name>` and previewed at [typeui.sh/design-skills](https://typeui.sh/design-skills). Each skill ships human DESIGN.md + agent SKILL.md together.
+
+Both are reference material, not source-of-truth. They describe *what a brand looks like*, not *what your project should do*. Pull one, then extract with this procedure:
 
 1. **Read the DESIGN.md for patterns, not tokens.** What jobs do the color roles do? How is typography hierarchy structured? What does the component states section reveal about interaction design? Extract the *reasoning*, not the hex values.
 2. **Name the pattern without the brand.** "Apple's progressive disclosure through layered navigation" is a pattern. "Use Apple's colors" is a template.
