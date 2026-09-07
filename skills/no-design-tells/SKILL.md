@@ -59,8 +59,30 @@ Three identical cards in a row · centred everything · equal-weight grids where
 
 **And the dashboard-specific one:** every screen a slight variation of the same card grid instead of a purpose-built flow. Multi-screen sameness is the tell a portfolio of dashboards is most exposed to. (Quality Lock.)
 
+### Product UI — the tells the landing-page skills never cover (Hard Gate / Purpose-Gate)
+
+`taste-skill` states its own scope: *"Landing pages, portfolios, and redesigns. Not dashboards, not data tables, not multi-step product UI."* Most of this practice is exactly what it excludes, so these are the tells nobody else's list carries. From `kuras3/product-ui-design`, `LeoStehlik/no-slop-ui`, `Vanszs/Anti-AI-UI`, `nutlope/hallmark`, `Krishna-Modi12/frontend-design-pro`.
+
+- **The glowing status dot.** A `●` carrying a `box-shadow` glow to mean "live." Named by `product-ui-design` as *the single most common product-UI tell*. A live indicator is a dot and, at most, an opacity pulse. (Hard Gate — the glow is a shadow, already banned.)
+- **Monospace used as a label voice.** The most-violated rule here. **Monospace is a data voice** — numbers, codes, timestamps, anything needing character-cell alignment. Tracked uppercase mono on every section header and field label is scaffolding wearing a lab coat: it reads "technical" without being technical. Use mono where columns must align; use the sans face for labels. (Purpose-Gate: each mono label needs a stated alignment reason.)
+- **A hero, or any marketing rhythm, behind the login.** An operator who has authenticated does not need to be sold to. (Hard Gate.)
+- **The metric-card-grid as the default top row.** Four equal cells because that is what dashboards look like. If the four metrics are not genuine peers, the grid is lying about their relationship — rank them or nest them. Same failure at smaller scale: unequal stat strips. (Hard Gate when not peers.)
+- **Rainbow status badges on every row.** Colour on every row means colour signals nothing. Colour marks the exception. (Hard Gate.)
+- **Non-semantic data markup.** A grid of `<div>`s pretending to be a table. Use `<table>` for tabular data, `<dl>` for key–value pairs, plus `<nav>`, `<dialog>`, `<button>`, `<a>`. Fails keyboard, screen readers and copy-paste — and reliably marks generated markup. (Hard Gate.)
+- **Fake loading.** A `setTimeout` standing in for real async. It always looks right in the demo and lies about system state in production. (Hard Gate — this is `honest-envelope` in motion.)
+- **Missing states.** Generated product UI ships the happy path only. Every interactive component covers eight — default · hover · `:focus-visible` · `:active` · disabled · loading · error · success. Every data surface covers four — loading · empty · error · success. The empty state is where the curse of knowledge does most damage: the author has never seen it. (Hard Gate.)
+- **Interactive elements wired to nothing.** Worse than a missing control — it teaches the operator the surface is decorative. (Hard Gate.)
+
 ### Copy
 Defer to `no-ai-tells` for the full taxonomy. Worst offenders: *seamless, cutting-edge, transform your, unlock the power, elevate your, revolutionise, supercharge, delve, tapestry.* (Hard Gate.)
+
+---
+
+**Two faster versions of the same question**, when the full audit is too slow:
+
+> **Swap the logo for a competitor's. Would anyone notice?** If not, it is slop. (`Anti-AI-UI`)
+>
+> **Do any two screens differ only in their card contents?** Then one of them was not designed.
 
 ---
 
@@ -167,6 +189,8 @@ These are mechanical checks. Run them before the Delivery Gate; a fail blocks sh
 - **Navigation:** single line on desktop (≥1024px), height ≤80px (default 64–72px). Every nav item has a real destination; links to nowhere are Hard Gate FAIL.
 - **Section repetition:** a layout family (3-col card grid, split-text-image, full-bleed quote, bento) may appear **at most once** per page. Alternating left-image/right-text zigzag max 2 in a row; third consecutive is FAIL. Bento cell count must equal content count (no empty cells).
 - **Accessibility (anti-slop R-25 / R-03):** text contrast ≥4.5:1 (large ≥3:1), tap targets ≥44px, no horizontal overflow, no keyboard trap. FAIL on any violation.
+- **Product UI states:** every interactive component covers all eight states, every data surface all four. Any loading state driven by `setTimeout` rather than real async → FAIL. Any interactive element with no behaviour → FAIL.
+- **Semantic data markup:** tabular data in `<table>`, key–value in `<dl>`. A `<div>` grid standing in for either → FAIL.
 - **No empty-proof publishing:** no fake stats (`10k+` without source), no AI avatars as testimonials, no links to nowhere. Empty is better than deceptive.
 
 ---

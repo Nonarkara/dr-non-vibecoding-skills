@@ -83,9 +83,9 @@ Marketing anti-slop was solved. The next gap was **product UI and motion** — d
 
 ---
 
-## What we added — both harvests
+## What we added — three harvests
 
-Original prose, ideas credited. First harvest shipped 7; second harvest added 6 + 2 ported siblings:
+Original prose, ideas credited. First harvest shipped 7; second harvest added 6 + 2 ported siblings; third harvest upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders — the gains landed in `axiom-design-core`, `design-registers`, `no-design-tells`, `playbooks/11`, and cross-reference wiring).
 
 | Skill | Stolen idea | Calibration for this bible |
 |---|---|---|
@@ -104,6 +104,24 @@ Original prose, ideas credited. First harvest shipped 7; second harvest added 6 
 | [`design-method`](../skills/design-method/SKILL.md) | Rowe · Kelley · Maeda | Diverge 3, prototype rough, subtract until break |
 | [`make-it-stick`](../skills/make-it-stick/SKILL.md) | Heath · Pinker | Concrete + story + testable credibility, not adjectives |
 | [`written-principles`](../skills/written-principles/SKILL.md) | Dalio · Smith | Recurring judgment → written principle + split across agents |
+| [`dashboard-discipline`](../skills/dashboard-discipline/SKILL.md) — **Third Harvest** | kuras3 + no-slop-ui + Anti-AI-UI + hallmark — dashboard-specific tells the marketing-oriented skills explicitly skip | Glowing status dot, monospace on labels, hero behind login, metric-card-grid, equal stat strips, rainbow badges, one-card-reskinned screens; all 10 litmus tests |
+
+---
+
+### Third Harvest contributions (2026-09)
+
+Upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders for these — the gains landed inside `axiom-design-core`, `design-registers`, `no-design-tells`):
+
+| Skill | Added from | What changed |
+
+| Skill | Added from | What changed |
+|---|---|---|
+| [`axiom-design-core`](../skills/axiom-design-core/SKILL.md) | impeccable 66k★ (`PRODUCT.md`/61 detectors/`audit`·`polish`·`bolder`), emil 36k★ (`animate`/`find-animation-opportunities`), kuras3 | Layer 6 motion upgraded (easing semantic, duration hierarchy, `transform`/`opacity` only, shadow-over-border, find-then-say-no); product vs marketing split added |
+| [`design-registers`](../skills/design-registers/SKILL.md) | kuras3 floor/ceiling, impeccable verbs | Dials harmonized 0-5→1-10; product floor/ceiling section; `See also` cross-refs to axiom-core + no-design-tells + design-dna |
+| [`no-design-tells`](../skills/no-design-tells/SKILL.md) | kuras3 ceiling-leak tells | Product UI hard gates now explicit; ceiling techniques that leak into dashboards named |
+| [`playbooks/11`](../playbooks/11-the-2026-steal-map.md) | All Third Harvest sources | Product UI is a different register than marketing; motion is a system property, not a folder; observe before invent |
+
+**Third Harvest principle:** Product UI and animation are not optional extras — they are registers with their own discipline. The floor/ceiling and motion-craft patterns live inside the existing skills rather than spawning new folders, which keeps the skill count stable while deepening each skill's surface.
 
 ---
 

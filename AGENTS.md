@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **51 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **52 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
 - **6 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, deploy script, launchd plist, tunnel config, lesson doc).
@@ -50,7 +50,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 51 on every task.
+# the rules file that host actually reads; do not load all 52 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: .agents/skills/
 ```
 
@@ -86,7 +86,7 @@ Pick the skill that matches your problem:
 | Deploy "succeeded" but old version is served | `skills/deploy-verification/SKILL.md` |
 | Side project dies when the laptop closes | `skills/always-on-services/SKILL.md` |
 | Design keeps regressing | `skills/axiom-design-core/SKILL.md` + `skills/design-dna/SKILL.md` |
-| UI looks agent-built | `skills/no-design-tells/SKILL.md` + `skills/no-ai-tells/SKILL.md` |
+| UI looks agent-built | `skills/no-design-tells/SKILL.md` + `skills/no-ai-tells/SKILL.md` + `skills/dashboard-discipline/SKILL.md` |
 | Copy reads like AI | `skills/no-ai-tells/SKILL.md` + `skills/make-it-stick/SKILL.md` |
 | Rebuilding the same API adapter | `skills/data-catalog/SKILL.md` |
 | Don't know how much risk is "too much" | `skills/risk-posture/SKILL.md` |
