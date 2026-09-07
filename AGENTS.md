@@ -112,6 +112,17 @@ Pick the skill that matches your problem:
 | Rebuild from prior art by scraping the live app | `skills/ux-archaeology/SKILL.md` |
 | Tempted to vendor a 100-skill pack | `skills/skill-writing/SKILL.md` |
 | Starting a new project and don't know the approach | `skills/design-thinking-vibecoding/SKILL.md` |
+| Picking a visual register before writing CSS | `skills/design-registers/SKILL.md` |
+| Building a full project scaffold in one paste | `skills/full-stack-bootstrap/SKILL.md` |
+| Codex-specific skill orchestration | `skills/codex-workbench/SKILL.md` |
+| Local LLM gateway and memory fabric | `skills/local-ai-fabric/SKILL.md` |
+| Radar/spiderweb chart math without a library | `skills/radar-chart-pattern/SKILL.md` |
+| Voice-cloned podcast pipeline | `skills/voice-clone-podcast/SKILL.md` |
+| Companion surfaces for narrative portfolios | `skills/narrative-companion-surfaces/SKILL.md` |
+| Production spine for public-facing data | `skills/production-spine/SKILL.md` |
+| IPTV channel aggregation | `skills/iptv-streaming/SKILL.md` |
+| Thai traffic camera integration | `skills/itic-cctv-integration/SKILL.md` |
+| Always-on background services via launchd | `skills/always-on-services/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 
@@ -123,7 +134,7 @@ Every skill in this repo assumes the same project-level discipline:
 
 1. **A Tier 2 project contract at the project root** (`CLAUDE.md` for Claude agents, `AGENTS.md` for everyone else) with the anti-regression list, the exact commands, and the gotchas-with-dates. See `templates/CLAUDE.md.template`.
 2. **A deploy script that proves the bytes arrived** — see `templates/deploy-pages.sh` and `skills/deploy-verification/SKILL.md`.
-3. **A design lineage** if the project has a UI — see `skills/axiom-design-core/SKILL.md` and `skills/design-dna/SKILL.md`.
+3. **A design lineage** if the project has a UI — see `skills/axiom-design-core/SKILL.md`, `skills/design-dna/SKILL.md`, and `skills/design-registers/SKILL.md`. Gate the output with `npx axiom-audit . --strict` (and against `dist`). The gate is deterministic and ships with both design cores.
 4. **A `docs/lessons/` folder** for post-session hard-won knowledge — see `templates/lesson.md.template`.
 
 The skills are reference material. The contract is the *executable* part. Without the contract, the skills are essays. With the contract, they are decisions that only had to be made once.

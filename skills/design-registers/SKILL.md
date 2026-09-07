@@ -94,3 +94,9 @@ Attribution matters because borrowing a decision is different from copying a sty
 ## The test
 
 Hide the logo. Does the surface still look designed for its actual reader and conditions? If all five registers would produce the same page, the register was never chosen.
+
+## See also
+
+- [`axiom-design-core`](../axiom-design-core/SKILL.md) — the design philosophy; Layer 6 motion craft and the product vs marketing split
+- [`no-design-tells`](../no-design-tells/SKILL.md) — the hard gates (§6) and liveliness floor that every register must clear; floor/ceiling discipline lives here
+- [`design-dna`](../design-dna/SKILL.md) — the token contract the registers assign values to

@@ -105,4 +105,5 @@ Six months from now that folder is worth more than the code. Mine is the reason 
 - If you want the daily rhythm → [playbook 01](playbooks/01-how-i-actually-code.md)
 - If you want to know how far to push → [playbook 05](playbooks/05-taking-risk-like-dr-non.md)
 - If you want your UI to stop looking generic → [`skills/axiom-design-core`](skills/axiom-design-core/SKILL.md)
+- If you want a product dashboard that looks shipped, not templated → [`skills/no-design-tells`](skills/no-design-tells/SKILL.md) (§6 Hard Gates) + [`skills/design-registers`](skills/design-registers/SKILL.md) (floor before ceiling)
 - If you want all five steps above done for you, on a blank folder → [`BLUEPRINT.md`](BLUEPRINT.md)
