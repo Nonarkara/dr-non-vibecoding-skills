@@ -83,9 +83,9 @@ Marketing anti-slop was solved. The next gap was **product UI and motion** — d
 
 ---
 
-## What we added — three harvests
+## What we added — four harvests
 
-Original prose, ideas credited. First harvest shipped 7; second harvest added 6 + 2 ported siblings; third harvest upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders — the gains landed in `axiom-design-core`, `design-registers`, `no-design-tells`, `playbooks/11`, and cross-reference wiring).
+Original prose, ideas credited. First harvest shipped 7; second harvest added 6 + 2 ported siblings; third harvest upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders — the gains landed in `axiom-design-core`, `design-registers`, `no-design-tells`, `playbooks/11`, and cross-reference wiring); fourth harvest added 4 self-sustenance skills (RAG, Ollama, MCP forge, improvement radar) so the fork stays excellent on day 100, not just day one.
 
 | Skill | Stolen idea | Calibration for this bible |
 |---|---|---|
@@ -105,14 +105,16 @@ Original prose, ideas credited. First harvest shipped 7; second harvest added 6 
 | [`make-it-stick`](../skills/make-it-stick/SKILL.md) | Heath · Pinker | Concrete + story + testable credibility, not adjectives |
 | [`written-principles`](../skills/written-principles/SKILL.md) | Dalio · Smith | Recurring judgment → written principle + split across agents |
 | [`dashboard-discipline`](../skills/dashboard-discipline/SKILL.md) — **Third Harvest** | kuras3 + no-slop-ui + Anti-AI-UI + hallmark — dashboard-specific tells the marketing-oriented skills explicitly skip | Glowing status dot, monospace on labels, hero behind login, metric-card-grid, equal stat strips, rainbow badges, one-card-reskinned screens; all 10 litmus tests |
+| [`simple-rag`](../skills/simple-rag/SKILL.md) — **Fourth Harvest** | Vault FTS5 reality + ChromaDTV removal receipt | SQLite FTS5 first, 800-char cited chunks, embeddings only after a 20-question gate |
+| [`local-llm-ollama`](../skills/local-llm-ollama/SKILL.md) — **Fourth Harvest** | `local-ai-fabric` daemon context lesson, surfaced | Single-machine Ollama: install → fix `OLLAMA_CONTEXT_LENGTH` → 3 models → curl proof |
+| [`obsidian-mcp-forge`](../skills/obsidian-mcp-forge/SKILL.md) — **Fourth Harvest** | `shared-memory-hub` ritual + `mcp-cli-first` + `always-on-services` | Own recall/capture/inbox MCP over Markdown; secret + evidence refusal; nightly rebuild |
+| [`improvement-radar`](../skills/improvement-radar/SKILL.md) — **Fourth Harvest** | This playbook's verdict format, automated | Weekly watchdog, 4 sources, Steal / Feedstock / Refuse, one promotion a month |
 
 ---
 
 ### Third Harvest contributions (2026-09)
 
 Upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders for these — the gains landed inside `axiom-design-core`, `design-registers`, `no-design-tells`):
-
-| Skill | Added from | What changed |
 
 | Skill | Added from | What changed |
 |---|---|---|
@@ -122,6 +124,21 @@ Upgraded existing skills with product UI, motion craft, and audit vocabulary (no
 | [`playbooks/11`](../playbooks/11-the-2026-steal-map.md) | All Third Harvest sources | Product UI is a different register than marketing; motion is a system property, not a folder; observe before invent |
 
 **Third Harvest principle:** Product UI and animation are not optional extras — they are registers with their own discipline. The floor/ceiling and motion-craft patterns live inside the existing skills rather than spawning new folders, which keeps the skill count stable while deepening each skill's surface.
+
+---
+
+## What we studied — Fourth Harvest (2026-09): local AI, retrieval, and the self-improving fork
+
+The first three harvests made the fork excellent on day one. The gap they left: **day 100**. A fork that cannot answer from its own docs offline, cannot remember across agents without a SaaS, and cannot watch the ecosystem for the next steal rots — no matter how good the starting skills are.
+
+| Source | What it actually is | Verdict for this bible |
+|---|---|---|
+| The ChromaDTV removal in [`know-when-to-wait`](../skills/know-when-to-wait/SKILL.md) (~2TB for zero recall gain) + the vault's FTS5 reality | Proof that vectors-first is the wrong default on small corpora | **New skill [`simple-rag`](../skills/simple-rag/SKILL.md).** SQLite FTS5 first, 800-char chunks with citations, embeddings only after a written 20-question gate passes. The `.db` is a build artifact; the corpus is the source. |
+| [`local-ai-fabric`](../skills/local-ai-fabric/SKILL.md)'s daemon context lesson (4096 regardless of model card) | The single most expensive local-LLM footgun, buried inside a two-machine skill | **New skill [`local-llm-ollama`](../skills/local-llm-ollama/SKILL.md).** Single-machine companion: install → fix `OLLAMA_CONTEXT_LENGTH` at the daemon → three models max → curl proof → wire one caller. Graduate to the fabric only when one machine stops being enough. |
+| [`shared-memory-hub`](../skills/shared-memory-hub/SKILL.md) + `obsidian-bridge` + [`mcp-cli-first`](../skills/mcp-cli-first/SKILL.md) | The ritual (recall → capture, max 3, verified-only) without a build guide for the server itself | **New skill [`obsidian-mcp-forge`](../skills/obsidian-mcp-forge/SKILL.md).** Three tools earn the server (`recall_lessons`, `capture_lesson` with secret + evidence refusal, `list_inbox`); vault layout; `.mcp.json` wiring per host; nightly FTS5 rebuild + monthly promotion so it does not rot. |
+| This playbook itself (three harvests, every verdict with a reason) | A ledger with no watchdog — excellent on the day it is written, stale the month after | **New skill [`improvement-radar`](../skills/improvement-radar/SKILL.md).** Weekly 30-minute job over four fixed sources, one-line behaviour-change scoring, Steal / Feedstock / Refuse verdicts into the forge inbox, at most one promotion a month. That is Dr Non in the loop: watching, scoring, shepherding toward excellent via result. |
+
+**Fourth Harvest principle:** a perfect fork is self-sustaining, not just well-stocked. Retrieval answers from local docs with citations, memory survives agents via a vault-backed MCP the fork owns, and a watchdog files the next steal-map verdict before anyone asks. Day-one excellence is the three harvests; day-100 excellence is these four skills running on a schedule.
 
 ---
 

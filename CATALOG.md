@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Fifty-nine focused skills, grouped by the decision they change. Start with one problem;
+Sixty-three focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -108,6 +108,17 @@ These are narrow on purpose. They carry implementation scars that would be noise
 | [`iptv-streaming`](skills/iptv-streaming/SKILL.md) | HLS channels need a resilient registry and token/origin-aware proxy |
 | [`local-ai-fabric`](skills/local-ai-fabric/SKILL.md) | Apple-Silicon machines should serve local models through one durable gateway |
 | [`voice-clone-podcast`](skills/voice-clone-podcast/SKILL.md) | Long-form local voice cloning drops words, drifts, or babbles between chunks |
+
+## Local AI, retrieval, and self-improvement
+
+Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, three MCP tools before twenty, one promotion a month before a pack.
+
+| Skill | Load it when… |
+|---|---|
+| [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) | Single-machine Ollama is needed for offline inference, drafts, or embeddings — graduate to `local-ai-fabric` only when one machine stops being enough |
+| [`simple-rag`](skills/simple-rag/SKILL.md) | Docs, notes, or a corpus must be searchable locally with citations — SQLite FTS5 first, embeddings only after the gate passes |
+| [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) | Agents need their own self-sustaining memory MCP — recall, capture, inbox over an Obsidian vault, no hosted backend |
+| [`improvement-radar`](skills/improvement-radar/SKILL.md) | The stack must stay excellent via a weekly watchdog — scrape cloneable systems, file Steal / Feedstock / Refuse verdicts, promote at most one a month |
 
 ## Read once, then work from skills
 

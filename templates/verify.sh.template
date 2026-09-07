@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Dr Non Pre-Flight Invariant & Integrity Verification Gate
+# Runs before commit, deploy, or completion report.
+# Copy to <project>/scripts/verify.sh and chmod +x. No dependencies beyond git.
+# ==============================================================================
+set -euo pipefail
+
+echo "▶ Running Dr Non Vibe Coding Stack verification..."
+ERRORS=0
+
+# 1. Verify Contracts Exist
+for f in CLAUDE.md AGENTS.md; do
+  if [[ ! -f "$f" ]]; then
+    echo "❌ Missing required contract: $f"
+    ERRORS=$((ERRORS + 1))
+  else
+    echo "✓ Contract present: $f"
+  fi
+done
+
+# 2. Check for Leaked Secrets in Staging
+if command -v git >/dev/null 2>&1 && [[ -d .git ]]; then
+  if git diff --cached --name-only | grep -E '(\.env|\.pem|\.key|id_rsa)' >/dev/null 2>&1; then
+    echo "❌ Secret or environment file staged in git! Aborting."
+    ERRORS=$((ERRORS + 1))
+  else
+    echo "✓ No secret files staged in git."
+  fi
+fi
+
+# 3. Check for Anti-Regression 30% Collapse Rule
+if command -v git >/dev/null 2>&1 && [[ -d .git ]]; then
+  # Verify staged files didn't shrink by more than 30% without notice
+  for file in $(git diff --cached --name-only); do
+    if [[ -f "$file" ]] && git cat-file -e "HEAD:$file" 2>/dev/null; then
+      old_lines=$(git show "HEAD:$file" | wc -l | tr -d ' ')
+      new_lines=$(wc -l < "$file" | tr -d ' ')
+      if (( old_lines > 20 && new_lines < (old_lines * 70 / 100) )); then
+        echo "⚠️  WARNING: $file shrank by >30% ($old_lines -> $new_lines lines). Verify with human."
+      fi
+    fi
+  done
+fi
+
+# 4. Run Build / Type Check if available
+if [[ -f "package.json" ]]; then
+  if grep -q '"type-check"' package.json; then
+    echo "▶ Running npm run type-check..."
+    npm run type-check || ERRORS=$((ERRORS + 1))
+  fi
+elif [[ -f "pyproject.toml" ]] || [[ -f "requirements.txt" ]]; then
+  if command -v pytest >/dev/null 2>&1 && [[ -d "tests" ]]; then
+    echo "▶ Running pytest..."
+    pytest || ERRORS=$((ERRORS + 1))
+  fi
+fi
+
+if (( ERRORS > 0 )); then
+  echo "❌ Verification failed with $ERRORS error(s)."
+  exit 1
+fi
+
+echo "✓ All Dr Non invariants verified clean."
+exit 0

@@ -1,0 +1,51 @@
+/**
+ * Axiom Design Core — Rams/Braun Lineage Tokens
+ * Strict geometric invariants: 0 radius, hairlines, one amber accent.
+ * Copy to <project>/design/tokens.css. Single source: this template.
+ */
+:root {
+  /* Geometry — Sacred Invariant */
+  --radius-base: 0px;
+  --radius-circle: 50%;
+
+  /* Color Palette — Functional, high-contrast */
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-surface-hover: #1c1c1c;
+  --color-border: #262626;
+  --color-border-subtle: #1f1f1f;
+  --color-text: #ededed;
+  --color-text-muted: #a1a1aa;
+  --color-text-dim: #71717a;
+
+  /* Single Amber Accent (#f59e0b) — Never generic SaaS purple or blue */
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-alpha: rgba(245, 158, 11, 0.12);
+
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+
+  /* Typography — Maximum 3 text sizes per screen */
+  --font-size-sm: 0.8125rem;  /* 13px: secondary, metadata, timestamps */
+  --font-size-base: 0.9375rem; /* 15px: body, controls, inputs */
+  --font-size-lg: 1.25rem;     /* 20px: headers, hero stats */
+
+  /* Monospace for numbers and coordinates */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Shadows — Zero gratuitous drop shadows; hairlines only */
+  --shadow-none: none;
+  --border-hairline: 1px solid var(--color-border);
+}
+
+/* Don Norman Affordances */
+button, a, input, select {
+  border-radius: var(--radius-base);
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}

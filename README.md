@@ -9,12 +9,12 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 59](https://img.shields.io/badge/skills-59-F59E0B)](skills/)
+[![Skills: 59](https://img.shields.io/badge/skills-63-F59E0B)](skills/)
 [![Playbooks: 12](https://img.shields.io/badge/playbooks-12-1A1A1A)](playbooks/)
-[![Templates: 10](https://img.shields.io/badge/templates-10-0F766E)](templates/)
+[![Templates: 10](https://img.shields.io/badge/templates-12-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**59 skills** · **12 playbooks** · **5 references** · **10 templates**
+**63 skills** · **12 playbooks** · **5 references** · **12 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -32,10 +32,10 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 
 | Shape | Count in this repo | What it is |
 |---|---|---|
-| [`skills/`](skills/) | 59 `SKILL.md` files | Standing instructions an agent can load |
+| [`skills/`](skills/) | 63 `SKILL.md` files | Standing instructions an agent can load |
 | [`playbooks/`](playbooks/) | 12 narratives | Why those rules exist — read once |
-| [`reference/`](reference/) | 4 docs | APIs, stack picks, commit style, security hygiene |
-| [`templates/`](templates/) | 10 drop-ins | Project contracts (Tier 1 & 2), deploy script, gitignore, env, launchd plist, tunnel, lesson doc |
+| [`reference/`](reference/) | 5 docs | APIs, stack picks, named references, commit style, security hygiene |
+| [`templates/`](templates/) | 12 drop-ins | Project contracts (Tier 1 & 2), deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel, lesson doc |
 
 Plus [`BLUEPRINT.md`](BLUEPRINT.md) (one-pass setup), [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes), and a 19-page deck in [`INFOGRAPHICS.md`](INFOGRAPHICS.md).
 
@@ -62,7 +62,7 @@ those parts too, but connects them to the production failures that made the rule
 |---|---|---|
 | Karpathy's explicit assumptions, simplicity, surgical edits, and goal-driven loops | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Kept as the compact coding baseline, with upstream credit |
 | gstack's think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic; use only the stage the task earns |
-| Focused, triggerable Agent Skills | All 59 folders under [`skills/`](skills/) | Descriptions are budgeted and CI-checked so the collection remains discoverable |
+| Focused, triggerable Agent Skills | All 63 folders under [`skills/`](skills/) | Descriptions are budgeted and CI-checked so the collection remains discoverable |
 | Durable project memory | [`agent-memory`](skills/agent-memory/SKILL.md) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Lessons move from a project contract into a cross-agent Obsidian memory |
 | Production proof | [`result-honesty`](skills/result-honesty/SKILL.md) + [`wrong-green`](skills/wrong-green/SKILL.md) + [`deploy-verification`](skills/deploy-verification/SKILL.md) | A green badge is rejected when it measures the wrong thing |
 | Civic and public-data discipline | [`honest-envelope`](skills/honest-envelope/SKILL.md) + [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Every number shows source, fallback tier, and age; public surfaces degrade visibly |
@@ -71,6 +71,7 @@ those parts too, but connects them to the production failures that made the rule
 | A free AppSec pipeline for solo builders | [`appsec-stack`](skills/appsec-stack/SKILL.md) | Seven free layers (secrets, SAST, SCA, SBOM, auto-update, DAST, exploit verify) with concrete configs and the OWASP Top 10 / CIS IG1 mapping |
 | Stack-repo architecture for multi-package trees | [`stack-repo-topology`](skills/stack-repo-topology/SKILL.md) | Trunk-based dev, path-scoped CODEOWNERS, branch-naming convention, selective CI, and shared resource patterns — pairs with `route-dont-scan` and `workspace-lean` |
 | Human writing and simplest-path engineering | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) + [`no-design-tells`](skills/no-design-tells/SKILL.md) + [`ninja-innovation`](skills/ninja-innovation/SKILL.md) + [`cognition-first`](skills/cognition-first/SKILL.md) | Kill the tells that mark text and UI as machine-made; find the 5-line move that lands like 500 |
+| Local AI, retrieval, and a watchdog that keeps you excellent | [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) + [`simple-rag`](skills/simple-rag/SKILL.md) + [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) + [`improvement-radar`](skills/improvement-radar/SKILL.md) | One-machine Ollama, FTS5-first RAG with citations, a self-sustaining Obsidian MCP (recall/capture/inbox), and a weekly clone radar that files Steal / Feedstock / Refuse — Dr Non shepherding via results |
 
 This is not gstack with different command names, and it is not a giant prompt pack. It is the
 field manual for the part that remains after the model, IDE, and fashionable tool change.
@@ -167,7 +168,7 @@ skills from `.agents/skills`.
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills
 
-./setup.sh --install-skills          # installs 59 skills to Claude Code, Codex, Cursor, Hermes, OpenCode
+./setup.sh --install-skills          # installs 63 skills to Claude Code, Codex, Cursor, Hermes, OpenCode
 ./setup.sh --init-project ~/Projects/my-app --yes   # scaffolds CLAUDE.md + AGENTS.md + .gitignore + .env.example + docs/lessons + scripts/deploy.sh
 # or: make install-skills  |  make init-project
 # non-interactive alt: scripts/install-skills.sh && scripts/new-project.sh ~/Projects/my-app --stack next
@@ -259,10 +260,10 @@ Short labels so GitHub Mermaid does not clip.
 
 ```mermaid
 flowchart TB
-  S["59 skills"] --> A["Your agent"]
+  S["63 skills"] --> A["Your agent"]
   P["12 playbooks"] --> A
-  R["4 refs"] --> A
-  T["10 templates"] --> A
+  R["5 refs"] --> A
+  T["12 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

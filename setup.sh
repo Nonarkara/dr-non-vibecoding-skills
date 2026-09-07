@@ -126,7 +126,9 @@ install_skills() {
   fi
 
   echo -e "\n${GREEN}${BOLD}✓ Skills installation complete across ${installed_count} agent environments.${NC}"
-  echo -e "  All 54 skills are active and ready for automatic discovery."
+  local total_skills
+  total_skills=$(ls -1 "$SKILLS_DIR" 2>/dev/null | wc -l | tr -d ' ')
+  echo -e "  All ${total_skills} skills are active and ready for automatic discovery."
 }
 
 # ------------------------------------------------------------------------------
@@ -308,6 +310,9 @@ EOF
   # ----------------------------------------------------------------------------
   local verify_target="$target_dir/scripts/verify.sh"
   if [[ ! -f "$verify_target" ]]; then
+    if [[ -f "$TEMPLATES_DIR/verify.sh.template" ]]; then
+      cp "$TEMPLATES_DIR/verify.sh.template" "$verify_target"
+    else
     cat <<'EOF' > "$verify_target"
 #!/usr/bin/env bash
 # ==============================================================================
@@ -374,6 +379,7 @@ fi
 echo "✓ All Dr Non invariants verified clean."
 exit 0
 EOF
+    fi
     chmod +x "$verify_target"
     created_files+=("scripts/verify.sh (Pre-flight invariant verification gate)")
   fi
@@ -441,6 +447,9 @@ EOF
     mkdir -p "$target_dir/design"
     local tokens_target="$target_dir/design/tokens.css"
     if [[ ! -f "$tokens_target" ]]; then
+      if [[ -f "$TEMPLATES_DIR/design-tokens.css.template" ]]; then
+        cp "$TEMPLATES_DIR/design-tokens.css.template" "$tokens_target"
+      else
       cat <<'EOF' > "$tokens_target"
 /**
  * Axiom Design Core — Rams/Braun Lineage Tokens
@@ -493,6 +502,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   outline-offset: 1px;
 }
 EOF
+      fi
       created_files+=("design/tokens.css (Axiom Design Core Rams/Braun tokens)")
     fi
   fi

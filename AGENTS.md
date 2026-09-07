@@ -12,10 +12,10 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **59 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **63 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **5 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
-- **10 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy script, gitignore, env, launchd plist, tunnel config, lesson doc).
+- **12 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
@@ -52,7 +52,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 52 on every task.
+# the rules file that host actually reads; do not load all 63 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: .agents/skills/
 ```
 
@@ -67,8 +67,10 @@ The `templates/` folder has drop-in files for the load-bearing pieces:
 - `workspace-AGENTS.md.template` — the Tier 1 multi-project workspace index for non-Claude agents.
 - `workspace-CLAUDE.md.template` — the Tier 1 multi-project workspace index for Claude agents.
 - `deploy-pages.sh` — the poison-proof CDN deploy script. Copy to `<project>/scripts/deploy.sh`.
+- `verify.sh.template` — the pre-flight invariant gate (contracts exist, no staged secrets, 30% anti-regression check). Copy to `<project>/scripts/verify.sh`.
 - `gitignore.template` — agent-hardened gitignore for secrets, OS metadata, and AI scratch artifacts.
 - `env.example.template` — safe environment variables template with secret hygiene rules.
+- `design-tokens.css.template` — Axiom Rams/Braun tokens (0 radius, hairlines, one amber accent). Copy to `<project>/design/tokens.css`.
 - `service.plist.template` — the launchd plist for a Mac supervised service. Three jobs (server / tunnel / watchdog).
 - `tunnel.yml.template` — the Cloudflare Tunnel config, with the deliberately-inert shared fallback.
 - `lesson.md.template` — the structure for a post-session lesson doc.
@@ -136,6 +138,10 @@ Pick the skill that matches your problem:
 | A palette and type scale need choosing, not just enforcing | `skills/colour-and-type/SKILL.md` |
 | Charts, tables, and numbers that do not lie or decorate | `skills/data-display/SKILL.md` |
 | Decks, PDFs, documents, social cards — the non-app surfaces a design system must also govern | `skills/beyond-the-screen/SKILL.md` |
+| Docs or notes must be searchable locally with citations, no vector-DB ops | `skills/simple-rag/SKILL.md` |
+| Single-machine local inference, offline work, or local embeddings and drafts | `skills/local-llm-ollama/SKILL.md` |
+| Agents need shared recall, capture, and feed tools without a hosted backend | `skills/obsidian-mcp-forge/SKILL.md` |
+| Keep the stack excellent with a weekly watchdog for cloneable improvements | `skills/improvement-radar/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 

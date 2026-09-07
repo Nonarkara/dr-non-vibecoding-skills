@@ -124,25 +124,10 @@ if [[ -f "$PROJECT_ABS/scripts/deploy.sh" ]]; then
   || sed -i "s|PROJECT=\"myapp\"|PROJECT=\"${SAFE_LABEL}\"|; s|myapp\.pages\.dev|${SAFE_LABEL}.pages.dev|; s|myapp\.example\.org|${HOST_EXAMPLE}|" "$PROJECT_ABS/scripts/deploy.sh"
 fi
 
-# — verify gate (matches setup.sh) —
+# — verify gate (single source: templates/verify.sh.template) —
 mkdir -p "$PROJECT_ABS/scripts"
 if [[ ! -f "$PROJECT_ABS/scripts/verify.sh" ]]; then
-  cat > "$PROJECT_ABS/scripts/verify.sh" <<'VERIFY'
-#!/usr/bin/env bash
-set -euo pipefail
-echo "▶ Running Dr Non pre-flight check..."
-ERRS=0
-for f in CLAUDE.md AGENTS.md; do
-  [[ -f "$f" ]] && echo "✓ $f" || { echo "✗ missing $f"; ERRS=$((ERRS+1)); }
-done
-if command -v git >/dev/null 2>&1 && [[ -d .git ]]; then
-  if git diff --cached --name-only | grep -qE '(\.env|\.pem|\.key|id_rsa)'; then
-    echo "✗ secret file staged!"; ERRS=$((ERRS+1))
-  else echo "✓ no secret staged"; fi
-fi
-if (( ERRS > 0 )); then echo "✗ $ERRS error(s)"; exit 1; fi
-echo "✓ invariants clean"
-VERIFY
+  cp "$TEMPLATES/verify.sh.template" "$PROJECT_ABS/scripts/verify.sh"
   chmod +x "$PROJECT_ABS/scripts/verify.sh"
   echo "wrote $PROJECT_ABS/scripts/verify.sh"
 fi

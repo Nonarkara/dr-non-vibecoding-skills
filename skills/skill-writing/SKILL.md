@@ -55,7 +55,6 @@ license: MIT
 - `name`: lowercase, hyphens, matches the folder.
 - `description`: the trigger. Agents load skills from this field. Vague descriptions never fire; encyclopedic ones fire on everything and burn context.
 - Body: procedure, not theory. Commands the agent can run. A test the human can use to see if the skill worked.
-- Body: procedure, not theory. Commands the agent can run. A test the human can use to see if the skill worked.
 - Body `Influences:` section crediting upstream ideas (URLs only, no pasted text). Especially no CC-BY-SA or source-available document skills pasted verbatim.
 
 ---

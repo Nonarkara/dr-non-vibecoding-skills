@@ -68,7 +68,7 @@ cp -r <path-to-cloned-repo>/skills/* ~/.agents/skills/   # Codex / ChatGPT deskt
 # Hermes: ~/.hermes/skills/  ·  OpenCode: ~/.config/opencode/skills/
 ```
 
-Confirm they're readable (`ls ~/.claude/skills | wc -l` → 54). These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`.
+Confirm they're readable (`ls ~/.claude/skills | wc -l` → 63). These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`, `local-llm-ollama`, `simple-rag`, `obsidian-mcp-forge`, `improvement-radar`.
 
 ### Step 3 — Workspace index (only if I said "many projects" in Step 1)
 

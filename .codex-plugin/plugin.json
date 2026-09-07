@@ -1,6 +1,6 @@
 {
   "name": "dr-non-vibecoding-skills",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Dr Non's field-tested stack for directing AI agents, preserving earned work, and shipping verified software.",
   "author": {
     "name": "Dr Non Arkaraprasertkul",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Dr Non's Vibe Coding Stack",
     "shortDescription": "Field-tested discipline for building and shipping with agents.",
-    "longDescription": "Fifty-nine focused skills for directing coding agents, preserving earned systems, designing for real audiences, operating resilient civic software, and proving production changes reached users.",
+    "longDescription": "Sixty-three focused skills for directing coding agents, preserving earned systems, designing for real audiences, operating resilient civic software, and proving production changes reached users.",
     "developerName": "Dr Non Arkaraprasertkul",
     "category": "Coding",
     "capabilities": [
