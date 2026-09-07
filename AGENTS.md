@@ -59,7 +59,8 @@ There is no runtime dependency on Claude Code. The skills will load in any agent
 
 The `templates/` folder has drop-in files for the load-bearing pieces:
 
-- `CLAUDE.md.template` — the Tier 2 project contract. Fill in, save as `<project>/CLAUDE.md` (or `<project>/AGENTS.md` if the reader is non-Claude).
+- `AGENTS.md.template` — the Tier 2 project contract for non-Claude agents. Fill in, save as `<project>/AGENTS.md`.
+- `CLAUDE.md.template` — the Tier 2 project contract for Claude agents. Fill in, save as `<project>/CLAUDE.md`.
 - `deploy-pages.sh` — the poison-proof CDN deploy script. Copy to `<project>/scripts/deploy.sh`.
 - `service.plist.template` — the launchd plist for a Mac supervised service. Three jobs (server / tunnel / watchdog).
 - `tunnel.yml.template` — the Cloudflare Tunnel config, with the deliberately-inert shared fallback.
