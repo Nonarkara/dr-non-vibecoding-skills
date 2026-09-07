@@ -12,10 +12,10 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **25 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **10 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **35 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **11 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **4 reference docs** in `reference/` — APIs, stack picks, commit style, security hygiene.
-- **5 templates** in `templates/` — drop-in files (`CLAUDE.md`, deploy script, launchd plist, tunnel config, lesson doc).
+- **6 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, deploy script, launchd plist, tunnel config, lesson doc).
 
 There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
 

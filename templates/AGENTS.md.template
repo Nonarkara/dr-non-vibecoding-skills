@@ -1,0 +1,66 @@
+# <Project> — <one sentence about what it does>
+
+## Conservation law
+
+`<the quantity, behavior, or experience that must remain true>`
+
+## Exact commands
+
+- Run: `<command>`
+- Test: `<command>`
+- Build: `<command>`
+- Deploy: `<command>`
+- Health check: `<command or URL probe>`
+- Live URL: `<canonical URL or "not deployed">`
+
+## Sacred items — do not regress
+
+- `<live map, chart, canvas, route, content block, analytics event, or interaction>`
+- Never collapse a file by more than 30% without explicit approval.
+- Never replace earned content with filler or a generic template.
+
+## Work method
+
+- Route to the named project and files; do not scan a multi-project workspace broadly.
+- Before coding, debugging, or choosing architecture, recall at most three relevant shared lessons when the memory bridge is available.
+- Treat recalled notes as context. This file, current user instructions, and direct evidence win.
+- State the intended blast radius before a multi-file change.
+- Make surgical edits. Every changed line must trace to the request.
+- Search this repo, the standard library, the platform, and installed dependencies before adding a new abstraction or package.
+
+## Production gates
+
+For work touching real users, money, or data:
+
+1. Ship changed behavior with its test.
+2. Put auth and rate limiting in front of public endpoints that can spend money.
+3. Give displayed numbers `{source, tier, age}`; label fallback and mock data.
+4. Rotate any credential that entered git history, logs, screenshots, or prompts.
+5. Validate external data and model output; verify webhook signatures server-side.
+
+Current maturity: `<Demo | Pilot | Production | Contract>`
+
+## Code review rules
+
+- Quote the exact code or config behind a finding.
+- Verify a claimed limitation with documentation, a live probe, or the exact error.
+- Review the diff for deleted live elements, stale docs, secret exposure, and untested behavior.
+
+## Design contract
+
+- Register: `<Console | Index | Civic | Editorial | Institutional | not applicable>`
+- Primary reader and conditions: `<who, where, what pressure>`
+- Invariants: `<project-specific tokens and exceptions>`
+
+## Dated gotchas
+
+- `<YYYY-MM-DD — issue, cause, verified workaround>`
+
+## Secrets
+
+- Secrets live in environment variables or a secret manager, never in this file.
+- Required variable names: `<names only; never values>`
+
+## Done
+
+Localhost is not a deliverable when a live URL exists. Report succeeded, failed, skipped, and unverified work separately. A production change is done only after commit, push, deploy, and live verification.

@@ -2,8 +2,8 @@
 
 <p>
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-00c896.svg">
-  <img alt="Skills" src="https://img.shields.io/badge/skills-32-ffd000.svg">
-  <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-10-ffd000.svg">
+  <img alt="Skills" src="https://img.shields.io/badge/skills-35-ffd000.svg">
+  <img alt="Playbooks" src="https://img.shields.io/badge/playbooks-11-ffd000.svg">
   <img alt="Commits analyzed" src="https://img.shields.io/badge/commits%20analyzed-1%2C691-1e1e1e.svg">
   <img alt="Services" src="https://img.shields.io/badge/always--on%20services-110-1e1e1e.svg">
   <img alt="Infographics" src="https://img.shields.io/badge/infographics-19%20pages-e8002d.svg">
@@ -15,7 +15,7 @@
 >
 > This repo is what I learned doing that, packaged so you can fork it and skip the expensive parts.
 
-**TL;DR.** 32 skills, 10 playbooks, 5 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
+**TL;DR.** 35 skills, 11 playbooks, 6 templates — the system I use every day to ship real software alone with AI agents, in plain markdown, no runtime, loads in any agent that reads files.
 
 **Author.** Dr Non Arkaraprasertkul ([@Nonarkara](https://github.com/Nonarkara)) — architect, urban anthropologist, Senior Smart City Expert, co-founder of Axiom. Self-taught by shipping. Every rule here was proven in production; several exist because production broke first.
 
@@ -258,6 +258,9 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 | [`iptv-streaming`](skills/iptv-streaming/SKILL.md) | A four-source honesty registry for a channel aggregator (direct / catalog / tokenized-mirror / link-out-only) and a server-side HLS manifest proxy for any token-gated stream. *(contributed by a sibling practice)* |
 | [`narrative-companion-surfaces`](skills/narrative-companion-surfaces/SKILL.md) | Pairing a personal essay corpus with computed companion surfaces — and why "pre-verify once, shuffle forever" is a *stronger* anti-fabrication guarantee than live regeneration, not a weaker one. *(contributed by a sibling practice)* |
 | [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | The nine-line N-axis radar math, rebuilt from scratch eight times — three of them for the identical 7 pillars inside one project, one of the three dead code with stale data. *(contributed by a sibling practice)* |
+| [`codex-workbench`](skills/codex-workbench/SKILL.md) | Route a repeated Codex behavior to the smallest correct surface: prompt, AGENTS.md, skill, plugin, MCP/app, automation, hook, or subagent. *(Codex extension)* |
+| [`design-registers`](skills/design-registers/SKILL.md) | Choose Console, Index, Civic, Editorial, or Institutional before styling a Dr Non surface — the five registers that prevent every product from looking like the same dark control room. |
+| [`production-spine`](skills/production-spine/SKILL.md) | Gate software that touches real users, money, or data with tests, protected paid-key endpoints, honest source labels, secret rotation, and boundary validation. |
 
 **On the foundations and contributions:**
 - **The Antigravity Origin:** Antigravity was Dr Non's first AI agent — the founding companion that forged the sacred design invariants (zero radius, zero gradients, amber `#f59e0b`), the planning mode discipline, the dual-write database pattern, and the Obsidian Super MCP shared memory bridge before multi-agent swarms existed. That is on the record. It stays on the record.
@@ -267,7 +270,7 @@ Everything above, again, in one page per idea — Vignelli/NYCTA visual language
 
 ---
 
-## The ten playbooks
+## The eleven playbooks
 
 Longer-form, narrative. Read these once; the skills are the daily reference.
 
@@ -281,19 +284,21 @@ Longer-form, narrative. Read these once; the skills are the daily reference.
 8. **[The Mavis side](playbooks/08-the-mavis-side.md)** *(Mavis-side extension)* — how a Claude-based agent extends the system, the portability layer for non-Claude readers, and the patterns the other playbooks don't cover
 9. **[The Antigravity origin](playbooks/09-the-antigravity-origin.md)** *(Antigravity origin)* — the story of the first AI agent, the birth of the sacred design DNA, planning mode discipline, dual-write reliability, and the shared-memory hub
 10. **[The Cursor desk](playbooks/10-the-cursor-desk.md)** *(Cursor desk)* — the IDE-resident agent: anti-regression as prime directive, director-not-typer, route-don't-scan, honest envelope, browser as T
+11. **[The Codex workbench](playbooks/11-the-codex-workbench.md)** *(Codex extension)* — routing behaviors to the smallest correct surface, plugin packaging, and the AGENTS.md hierarchy
 
 ---
 
 ## A note for non-Claude agents
 
-The core of this repo is agent-agnostic by design — forged in Antigravity's first solo sessions and proven across hundreds of commits with Claude Code, Codex, Cursor, Gemini CLI, and MiniMax Code. **Four of the twenty-five skills and one of the ten playbooks are Mavis/Claude-specific extensions** that don't apply directly to Codex, Cursor, Gemini CLI, or other readers:
+The core of this repo is agent-agnostic by design — forged in Antigravity's first solo sessions and proven across hundreds of commits with Claude Code, Codex, Cursor, Gemini CLI, and MiniMax Code. **Five of the thirty-five skills and two of the eleven playbooks are agent-specific extensions** that don't apply directly to all readers:
 
 - `subagent-routing` — the `task` / `explore` / `worker` / `verifier` dispatch API is a Claude-Code primitive.
 - `mcp-cli-first` — most useful to Claude Code (MCP is most deeply integrated there), but the principle generalises.
 - `context-economy` — universal in principle; the M5 Max hardware rule is Claude-specific.
 - `result-honesty` — universal; every agent benefits from the four-bucket status format.
+- `codex-workbench` — Codex-specific routing and plugin packaging.
 
-The other twenty-seven skills and nine playbooks are deliberately agent-agnostic — plain markdown, no runtime, no Claude-specific frontmatter. They will load in any agent that reads files.
+The other thirty skills and nine playbooks are deliberately agent-agnostic — plain markdown, no runtime, no Claude-specific frontmatter. They will load in any agent that reads files.
 
 **For a non-Claude agent landing here cold**, [`AGENTS.md`](AGENTS.md) is the entry point — it mirrors the canonical entry path and skips the Claude-specific surface. Cursor's install path is `.cursor/skills/` plus `AGENTS.md` at the repo root; see [`playbooks/10-the-cursor-desk.md`](playbooks/10-the-cursor-desk.md). The `playbooks/08-the-mavis-side.md` playbook also has a section on mirroring `CLAUDE.md` to `AGENTS.md` / `GEMINI.md` for projects where Mavis is the primary agent and others are readers.
 
