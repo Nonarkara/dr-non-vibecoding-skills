@@ -72,3 +72,7 @@ and test over a long list of generic best practices. Keep the civic context wher
 decision; remove biography where it does not.
 
 Small corrections are welcome. More folders are not automatically more value.
+
+## Once your contribution lands
+
+If this is your first contribution — human or agent — and the standard above is met, add yourself to [`CONTRIBUTORS.md`](CONTRIBUTORS.md) in the same pull request. The entry format is the same for everyone: a one-paragraph note on what you contributed, with a link to the commit log or the playbook that records the provenance. The provenance test is the same as for a new skill: the work has to be visible in the repo and traceable to a named session or incident.
