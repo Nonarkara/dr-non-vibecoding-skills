@@ -12,9 +12,9 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **63 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **12 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
-- **5 references** in `reference/` — APIs, stack picks, commit style, security hygiene.
+- **67 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **13 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **7 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene.
 - **12 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
@@ -52,7 +52,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 63 on every task.
+# the rules file that host actually reads; do not load all 67 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: .agents/skills/
 ```
 
@@ -142,6 +142,10 @@ Pick the skill that matches your problem:
 | Single-machine local inference, offline work, or local embeddings and drafts | `skills/local-llm-ollama/SKILL.md` |
 | Agents need shared recall, capture, and feed tools without a hosted backend | `skills/obsidian-mcp-forge/SKILL.md` |
 | Keep the stack excellent with a weekly watchdog for cloneable improvements | `skills/improvement-radar/SKILL.md` |
+| Answers must reach a phone via chat instead of a dashboard | `skills/messaging-gateway/SKILL.md` |
+| Wire RTSP/ONVIF home cameras into one honest grid | `skills/home-cctv-grid/SKILL.md` |
+| Monitor land, flood, fire, or coast from satellite time-stacks | `skills/satellite-change-watch/SKILL.md` |
+| A job needs parallel collection plus one mind assembling | `skills/staff-swarm/SKILL.md` |
 
 The full list and the reasoning are in `README.md`.
 

@@ -9,12 +9,12 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 59](https://img.shields.io/badge/skills-63-F59E0B)](skills/)
-[![Playbooks: 12](https://img.shields.io/badge/playbooks-12-1A1A1A)](playbooks/)
+[![Skills: 59](https://img.shields.io/badge/skills-67-F59E0B)](skills/)
+[![Playbooks: 12](https://img.shields.io/badge/playbooks-13-1A1A1A)](playbooks/)
 [![Templates: 10](https://img.shields.io/badge/templates-12-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**63 skills** · **12 playbooks** · **5 references** · **12 templates**
+**67 skills** · **13 playbooks** · **7 references** · **12 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -32,8 +32,8 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 
 | Shape | Count in this repo | What it is |
 |---|---|---|
-| [`skills/`](skills/) | 63 `SKILL.md` files | Standing instructions an agent can load |
-| [`playbooks/`](playbooks/) | 12 narratives | Why those rules exist — read once |
+| [`skills/`](skills/) | 67 `SKILL.md` files | Standing instructions an agent can load |
+| [`playbooks/`](playbooks/) | 13 narratives | Why those rules exist — read once |
 | [`reference/`](reference/) | 5 docs | APIs, stack picks, named references, commit style, security hygiene |
 | [`templates/`](templates/) | 12 drop-ins | Project contracts (Tier 1 & 2), deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel, lesson doc |
 
@@ -72,6 +72,7 @@ those parts too, but connects them to the production failures that made the rule
 | Stack-repo architecture for multi-package trees | [`stack-repo-topology`](skills/stack-repo-topology/SKILL.md) | Trunk-based dev, path-scoped CODEOWNERS, branch-naming convention, selective CI, and shared resource patterns — pairs with `route-dont-scan` and `workspace-lean` |
 | Human writing and simplest-path engineering | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) + [`no-design-tells`](skills/no-design-tells/SKILL.md) + [`ninja-innovation`](skills/ninja-innovation/SKILL.md) + [`cognition-first`](skills/cognition-first/SKILL.md) | Kill the tells that mark text and UI as machine-made; find the 5-line move that lands like 500 |
 | Local AI, retrieval, and a watchdog that keeps you excellent | [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) + [`simple-rag`](skills/simple-rag/SKILL.md) + [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) + [`improvement-radar`](skills/improvement-radar/SKILL.md) | One-machine Ollama, FTS5-first RAG with citations, a self-sustaining Obsidian MCP (recall/capture/inbox), and a weekly clone radar that files Steal / Feedstock / Refuse — Dr Non shepherding via results |
+| Assistants on the phone, eyes on the house and the planet, staff that swarms | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) + [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) + [`staff-swarm`](skills/staff-swarm/SKILL.md) | Telegram/Line/WhatsApp behind RAG with citations; honest camera grids with local storage; dated satellite time-stacks; researcher/field/orchestrator roles with token tiers — the entrepreneur's whole stack |
 
 This is not gstack with different command names, and it is not a giant prompt pack. It is the
 field manual for the part that remains after the model, IDE, and fashionable tool change.
@@ -168,7 +169,7 @@ skills from `.agents/skills`.
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills
 
-./setup.sh --install-skills          # installs 63 skills to Claude Code, Codex, Cursor, Hermes, OpenCode
+./setup.sh --install-skills          # installs 67 skills to Claude Code, Codex, Cursor, Hermes, OpenCode
 ./setup.sh --init-project ~/Projects/my-app --yes   # scaffolds CLAUDE.md + AGENTS.md + .gitignore + .env.example + docs/lessons + scripts/deploy.sh
 # or: make install-skills  |  make init-project
 # non-interactive alt: scripts/install-skills.sh && scripts/new-project.sh ~/Projects/my-app --stack next
@@ -251,6 +252,7 @@ Playbooks, numbered, read once:
 10. [The Cursor desk](playbooks/10-the-cursor-desk.md)
 11. [The 2026 steal map](playbooks/11-the-2026-steal-map.md) — what we took from Superpowers / Compound / gstack / Osmani / Vercel / Anthropic, and what we refused
 12. [The Codex workbench](playbooks/12-the-codex-workbench.md)
+13. [The digital twin](playbooks/13-the-digital-twin.md) — how satellites, cameras, feeds, 3D, security, and staff compose into one usable system
 
 ---
 
@@ -260,8 +262,8 @@ Short labels so GitHub Mermaid does not clip.
 
 ```mermaid
 flowchart TB
-  S["63 skills"] --> A["Your agent"]
-  P["12 playbooks"] --> A
+  S["67 skills"] --> A["Your agent"]
+  P["13 playbooks"] --> A
   R["5 refs"] --> A
   T["12 templates"] --> A
   A --> W["Project contract"]

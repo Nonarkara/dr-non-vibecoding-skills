@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Field-tested agent skills for shipping verified civic software.",
-    "version": "1.6.0"
+    "version": "1.7.0"
   },
   "plugins": [
     {
       "name": "dr-non-vibecoding-skills",
       "source": "./",
-      "description": "Sixty-three focused skills for planning, preserving, reviewing, operating, and shipping agent-built software.",
-      "version": "1.6.0",
+      "description": "Sixty-seven focused skills for planning, preserving, reviewing, operating, and shipping agent-built software.",
+      "version": "1.7.0",
       "author": {
         "name": "Dr Non Arkaraprasertkul"
       },

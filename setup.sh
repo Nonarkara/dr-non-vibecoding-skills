@@ -647,6 +647,22 @@ audit_project() {
     ((warnings++))
   fi
 
+  # Check hygiene files (secrets protection + env names)
+  if [[ -f "$target_dir/.gitignore" ]]; then
+    echo -e "  ${GREEN}✓${NC} .gitignore present"
+    ((passed++))
+  else
+    echo -e "  ${RED}✗${NC} Missing .gitignore (templates/gitignore.template)"
+    ((warnings++))
+  fi
+  if [[ -f "$target_dir/.env.example" ]]; then
+    echo -e "  ${GREEN}✓${NC} .env.example present"
+    ((passed++))
+  else
+    echo -e "  ${RED}✗${NC} Missing .env.example (templates/env.example.template)"
+    ((warnings++))
+  fi
+
   echo -e "\n${AMBER}${BOLD}Audit summary:${NC} ${passed} passed, ${warnings} warning(s)."
   if (( warnings > 0 )); then
     echo -e "Run ${CYAN}./setup.sh --init-project \"${target_dir}\"${NC} to fill in missing contracts."

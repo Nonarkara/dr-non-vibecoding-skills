@@ -83,9 +83,9 @@ Marketing anti-slop was solved. The next gap was **product UI and motion** — d
 
 ---
 
-## What we added — four harvests
+## What we added — five harvests
 
-Original prose, ideas credited. First harvest shipped 7; second harvest added 6 + 2 ported siblings; third harvest upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders — the gains landed in `axiom-design-core`, `design-registers`, `no-design-tells`, `playbooks/11`, and cross-reference wiring); fourth harvest added 4 self-sustenance skills (RAG, Ollama, MCP forge, improvement radar) so the fork stays excellent on day 100, not just day one.
+Original prose, ideas credited. First harvest shipped 7; second harvest added 6 + 2 ported siblings; third harvest upgraded existing skills with product UI, motion craft, and audit vocabulary (no new folders — the gains landed in `axiom-design-core`, `design-registers`, `no-design-tells`, `playbooks/11`, and cross-reference wiring); fourth harvest added 4 self-sustenance skills (RAG, Ollama, MCP forge, improvement radar) so the fork stays excellent on day 100, not just day one; fifth harvest closed the entrepreneur's whole stack (messaging gateway, home CCTV, satellite watch, staff swarm, hosting/payments references, digital-twin playbook).
 
 | Skill | Stolen idea | Calibration for this bible |
 |---|---|---|
@@ -109,6 +109,10 @@ Original prose, ideas credited. First harvest shipped 7; second harvest added 6 
 | [`local-llm-ollama`](../skills/local-llm-ollama/SKILL.md) — **Fourth Harvest** | `local-ai-fabric` daemon context lesson, surfaced | Single-machine Ollama: install → fix `OLLAMA_CONTEXT_LENGTH` → 3 models → curl proof |
 | [`obsidian-mcp-forge`](../skills/obsidian-mcp-forge/SKILL.md) — **Fourth Harvest** | `shared-memory-hub` ritual + `mcp-cli-first` + `always-on-services` | Own recall/capture/inbox MCP over Markdown; secret + evidence refusal; nightly rebuild |
 | [`improvement-radar`](../skills/improvement-radar/SKILL.md) — **Fourth Harvest** | This playbook's verdict format, automated | Weekly watchdog, 4 sources, Steal / Feedstock / Refuse, one promotion a month |
+| [`messaging-gateway`](../skills/messaging-gateway/SKILL.md) — **Fifth Harvest** | User scenario: RAG answers must reach phones | Telegram polling first, Line for Thailand, WhatsApp last; citations in every reply |
+| [`home-cctv-grid`](../skills/home-cctv-grid/SKILL.md) — **Fifth Harvest** | User scenario + `itic-cctv-integration` tiers | Same stream/snapshot/pin honesty for RTSP/ONVIF; go2rtc; local disk |
+| [`satellite-change-watch`](../skills/satellite-change-watch/SKILL.md) — **Fifth Harvest** | User scenario + `free-apis.md` FIRMS/EONET | Dated time-stacks; slider before CV; honest latency |
+| [`staff-swarm`](../skills/staff-swarm/SKILL.md) — **Fifth Harvest** | User's staff imagination, made procedure | Researcher/field/orchestrator; token tiers; gates before merge |
 
 ---
 
@@ -139,6 +143,23 @@ The first three harvests made the fork excellent on day one. The gap they left: 
 | This playbook itself (three harvests, every verdict with a reason) | A ledger with no watchdog — excellent on the day it is written, stale the month after | **New skill [`improvement-radar`](../skills/improvement-radar/SKILL.md).** Weekly 30-minute job over four fixed sources, one-line behaviour-change scoring, Steal / Feedstock / Refuse verdicts into the forge inbox, at most one promotion a month. That is Dr Non in the loop: watching, scoring, shepherding toward excellent via result. |
 
 **Fourth Harvest principle:** a perfect fork is self-sustaining, not just well-stocked. Retrieval answers from local docs with citations, memory survives agents via a vault-backed MCP the fork owns, and a watchdog files the next steal-map verdict before anyone asks. Day-one excellence is the three harvests; day-100 excellence is these four skills running on a schedule.
+
+---
+
+## What we studied — Fifth Harvest (2026-09): the entrepreneur's whole stack
+
+The fork was self-sustaining but not yet whole. The user's own scenarios named the missing surface: RAG answers stuck on dashboards instead of phones, home cameras and satellite stacks with no honest pattern, hosting/payments/voice as tribal knowledge, and the staff-swarm imagination (researcher, field, orchestrator) with no procedure behind it.
+
+| Scenario | Already covered | New, with receipt |
+|---|---|---|
+| RAG assistant on Telegram / Line / WhatsApp | `simple-rag` retrieval, `local-ai-fabric` Telegram memory | **New skill [`messaging-gateway`](../skills/messaging-gateway/SKILL.md).** One loop for all three apps; Telegram polling first, Line second for Thailand, WhatsApp last; citations in every reply; dual-write硬化 write path. |
+| Home CCTV into one platform | `itic-cctv-integration` honesty tiers (public cameras) | **New skill [`home-cctv-grid`](../skills/home-cctv-grid/SKILL.md).** Same three degrees (stream/snapshot/pin) for RTSP/ONVIF via go2rtc; local disk; calm offline tiles. |
+| Satellite change over time from NASA | `free-apis.md` FIRMS/EONET rows, `data-catalog` adapter rule | **New skill [`satellite-change-watch`](../skills/satellite-change-watch/SKILL.md).** Dated time-stacks, slider before CV, honest latency on every view. |
+| Hosting / payments / voice for a solo business | `deploy-pages.sh` (Cloudflare), `voice-clone-podcast` (local TTS) | **New references [`hosting-matrix.md`](../reference/hosting-matrix.md)** (Pages vs Vercel vs Railway vs Render + minimal configs) and **[`payments-voice.md`](../reference/payments-voice.md)** (Stripe Checkout rules, ElevenLabs-vs-local decision). |
+| Staff that swarms + token economy | `subagent-routing` briefs, `context-economy` shapes, `local-llm-ollama` cheap tier | **New skill [`staff-swarm`](../skills/staff-swarm/SKILL.md).** Fixed researcher/field/orchestrator roles, token tiers (cheap for paraphrase, frontier for assembly), gates before merge. |
+| Complicated digital twin, front to backend to security | `map-3d-city`, `appsec-stack`, `always-on-services` in parts | **New playbook [13-the-digital-twin](13-the-digital-twin.md).** The composition: layers, build order, why it stays usable, the stranger-on-a-phone test. |
+
+**Fifth Harvest principle:** the whole stack is a composition of proven parts, not a new platform. Every scenario above resolves to skills that already exist plus one small honest procedure where the gap was real. If a scenario needs a sixth new skill, the scenario is probably two scenarios.
 
 ---
 
