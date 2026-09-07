@@ -85,13 +85,20 @@ Pick the skill that matches your problem:
 | Deploy "succeeded" but old version is served | `skills/deploy-verification/SKILL.md` |
 | Side project dies when the laptop closes | `skills/always-on-services/SKILL.md` |
 | Design keeps regressing | `skills/axiom-design-core/SKILL.md` + `skills/design-dna/SKILL.md` |
+| UI looks agent-built | `skills/no-design-tells/SKILL.md` + `skills/no-ai-tells/SKILL.md` |
+| Copy reads like AI | `skills/no-ai-tells/SKILL.md` + `skills/make-it-stick/SKILL.md` |
 | Rebuilding the same API adapter | `skills/data-catalog/SKILL.md` |
 | Don't know how much risk is "too much" | `skills/risk-posture/SKILL.md` |
 | Code is bloated / over-abstracted | `skills/karpathy-guidelines/SKILL.md` |
+| Asked to "improve X" with no spec | `skills/ninja-innovation/SKILL.md` |
 | Workspace has 90 worktrees and you're afraid to delete | `skills/workspace-lean/SKILL.md` |
 | 3D city map has glitchy overlapping buildings | `skills/map-3d-city/SKILL.md` |
+| Navigation feels like a maze | `skills/legible-systems/SKILL.md` |
 | Dep keeps needing "one more patch" | `skills/know-when-to-wait/SKILL.md` |
 | Don't know whether to build first or wait | `skills/dr-non-golden-rules/SKILL.md` |
+| Approach is unclear, first idea stuck | `skills/design-method/SKILL.md` |
+| Default/copy/incentive feels wrong | `skills/cognition-first/SKILL.md` |
+| Same decision keeps recurring | `skills/written-principles/SKILL.md` |
 | (Claude agents) deciding whether to dispatch a child | `skills/subagent-routing/SKILL.md` |
 | (Claude agents) about to describe a dashboard | `skills/mcp-cli-first/SKILL.md` |
 | (All agents) response is getting long without earning it | `skills/context-economy/SKILL.md` |

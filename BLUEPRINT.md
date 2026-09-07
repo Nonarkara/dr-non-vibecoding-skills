@@ -60,7 +60,7 @@ mkdir -p .cursor/skills
 cp -r <path-to-cloned-repo>/skills/* .cursor/skills/
 ```
 
-Confirm they're readable. These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`.
+Confirm they're readable. These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`.
 
 ### Step 3 — Workspace index (only if I said "many projects" in Step 1)
 

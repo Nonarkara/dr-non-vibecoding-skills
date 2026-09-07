@@ -97,7 +97,11 @@ Six months from now that folder is worth more than the code. Mine is the reason 
 
 - If you're building something new → [`skills/dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md)
 - If your agent overcomplicates → [`skills/karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md)
+- If "improve X" has no spec → [`skills/ninja-innovation`](skills/ninja-innovation/SKILL.md) (simplest path, not cleanest refactor)
+- If your UI or copy looks agent-built → [`skills/no-design-tells`](skills/no-design-tells/SKILL.md) + [`skills/no-ai-tells`](skills/no-ai-tells/SKILL.md)
 - If your agent keeps flattening distinctive UI → [`skills/anti-regression`](skills/anti-regression/SKILL.md)
+- If defaults/copy/incentives feel wrong → [`skills/cognition-first`](skills/cognition-first/SKILL.md)
+- If you want durable memory across agents → [`skills/shared-memory-hub`](skills/shared-memory-hub/SKILL.md) (Obsidian second brain via `obsidian-bridge` MCP + `brain` CLI)
 - If you want the daily rhythm → [playbook 01](playbooks/01-how-i-actually-code.md)
 - If you want to know how far to push → [playbook 05](playbooks/05-taking-risk-like-dr-non.md)
 - If you want your UI to stop looking generic → [`skills/axiom-design-core`](skills/axiom-design-core/SKILL.md)

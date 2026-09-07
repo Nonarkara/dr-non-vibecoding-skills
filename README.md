@@ -4,7 +4,9 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 # Dr Non's Vibecoding Skills
 
-**Forkable agent skills for shipping civic software alone — plain markdown, no runtime.**
+**Forkable agent skills for shipping software with AI agents — plain markdown, no runtime. Proven on civic dashboards, useful for any codebase: planning, anti-regression, design, writing, deploy proof, and durable memory.**
+
+Civic is the proof, not the prerequisite.
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
 [![Skills: 51](https://img.shields.io/badge/skills-51-F59E0B)](skills/)
@@ -65,6 +67,7 @@ those parts too, but connects them to the production failures that made the rule
 | Production proof | [`result-honesty`](skills/result-honesty/SKILL.md) + [`wrong-green`](skills/wrong-green/SKILL.md) + [`deploy-verification`](skills/deploy-verification/SKILL.md) | A green badge is rejected when it measures the wrong thing |
 | Civic and public-data discipline | [`honest-envelope`](skills/honest-envelope/SKILL.md) + [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Every number shows source, fallback tier, and age; public surfaces degrade visibly |
 | A design system agents can extend without flattening | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) + [`design-dna`](skills/design-dna/SKILL.md) + [`design-registers`](skills/design-registers/SKILL.md) | Visual lineage, token roles, and named regressions live in the same contract |
+| Human writing and simplest-path engineering | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) + [`no-design-tells`](skills/no-design-tells/SKILL.md) + [`ninja-innovation`](skills/ninja-innovation/SKILL.md) + [`cognition-first`](skills/cognition-first/SKILL.md) | Kill the tells that mark text and UI as machine-made; find the 5-line move that lands like 500 |
 
 This is not gstack with different command names, and it is not a giant prompt pack. It is the
 field manual for the part that remains after the model, IDE, and fashionable tool change.
@@ -172,6 +175,19 @@ cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
 mkdir -p .cursor/skills
 cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/
 ```
+
+### Obsidian second brain (optional, recommended)
+
+[`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) connects every agent to one durable memory — an Obsidian vault at `~/Documents/SecondBrain` via the [`obsidian-bridge`](https://github.com/yoring/obsidian-bridge) MCP server (or the `brain` CLI fallback). Install once per machine:
+
+```bash
+# Claude Code — add obsidian-bridge MCP (filesystem + search over ~/Documents/SecondBrain)
+claude mcp add obsidian-bridge -- npx -y obsidian-bridge --vault ~/Documents/SecondBrain
+# Verify: recall_lessons should return vault hits, not generic boilerplate
+# No vault yet? The skill also works vault-less — project `AGENTS.md` + `docs/lessons/` is the fallback
+```
+
+See the vault topology and two-step ritual (`recall_lessons` → `capture_lesson`) in [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md). Without it every session re-derives the project from source; with it a five-week-dormant project is productive in ten minutes.
 
 `AGENTS.md` is the durable project contract; `SKILL.md` is the reusable workflow. Do not
 concatenate the whole collection into `AGENTS.md`. Gemini and other agents that do not discover
