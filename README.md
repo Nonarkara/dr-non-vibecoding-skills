@@ -274,7 +274,7 @@ This repository is licensed under the [MIT License](LICENSE). Copyright © 2026 
 
 Reuse the skills, playbooks, templates, and prose with attribution. `karpathy-guidelines` keeps its upstream MIT credit — see [NOTICE.md](NOTICE.md). MIT here does not relicense upstream data, municipal identities, or private implementations named as examples.
 
-**Contributors.** The human author and the AI collaborators that have meaningfully contributed (Mavis, Cursor, Antigravity, the 2026 steal map, Codex) are listed in [`CONTRIBUTORS.md`](CONTRIBUTORS.md), with the provenance of each contribution traced to the playbook that records the reasoning.
+**Contributors.** The human author and the AI collaborators that have meaningfully contributed (Antigravity, Cursor, Mavis, the 2026 steal map, Codex) are listed in [`CONTRIBUTORS.md`](CONTRIBUTORS.md), with the provenance of each contribution traced to the playbook that records the reasoning.
 
 **Contributing.** Open a pull request against `main`. The full quality gate and skill shape
 are in [`CONTRIBUTING.md`](CONTRIBUTING.md).

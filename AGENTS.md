@@ -152,6 +152,7 @@ This repo spans the full lifecycle of Dr Non's practice:
 - **The Cursor Desk:** Four skills (`anti-regression`, `director-not-typer`, `route-dont-scan`, `honest-envelope`) and Playbook 10 — the IDE-resident layer. Codex Incident as prime directive, intent/mechanics split, monorepo routing, honest numbers.
 - **The Mavis/Claude Extension:** Four skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and Playbook 08 cover child agent routing, tool-first execution, and result honesty.
 - **The 2026 steal map:** Seven behavioural skills (`systematic-debugging`, `browser-as-t`, `lesson-residue`, `adversarial-review`, `wrong-green`, `ux-archaeology`, `skill-writing`) and Playbook 11 — methods stolen from Superpowers, Compound, gstack, Osmani, Vercel, Anthropic format; packs refused.
+- **The Codex Workbench:** `codex-workbench` and Playbook 12 — surface separation, native `.agents/skills/` packaging, and cross-runtime portability.
 
 Four skills emerged from the Mavis/Claude layer. Their principles generalise, while
 their exact tool vocabulary may need translation for another host:
@@ -161,7 +162,7 @@ their exact tool vocabulary may need translation for another host:
 - `context-economy` — the five response shapes, the anti-pattern list, the four-bucket status report. **Universal.** The M5 Max hardware rule is Claude-specific, but the principle — "don't downsize based on assumptions about the machine" — applies anywhere.
 - `result-honesty` — succeeded / failed / skipped / unverified reporting. **Universal.** Every agent benefits from the four-bucket format; it is a vocabulary upgrade, not an agent primitive.
 
-`playbooks/08-the-mavis-side.md`, `playbooks/09-the-antigravity-origin.md`, and `playbooks/10-the-cursor-desk.md` walk through the agent-side perspectives end to end.
+`playbooks/08-the-mavis-side.md`, `playbooks/09-the-antigravity-origin.md`, `playbooks/10-the-cursor-desk.md`, `playbooks/11-the-2026-steal-map.md`, and `playbooks/12-the-codex-workbench.md` walk through the agent-side perspectives end to end.
 
 ---
 

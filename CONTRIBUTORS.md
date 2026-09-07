@@ -25,14 +25,14 @@ Author, editor, operator, and the named owner of every opinion in the skills and
 
 These are the agents that have meaningfully contributed to the repo's skills, playbooks, infrastructure, or coherence passes. Each entry cites the playbook that records the provenance.
 
-### Mavis (Mavis Code) — current contributing agent
-Drafting, restructuring, coherence passes, and the Codex portability layer. The Mavis-flavoured skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and the principles they generalise are documented in [playbooks/08-the-mavis-side.md](playbooks/08-the-mavis-side.md). Recent contributions include `appsec-stack` and `stack-repo-topology` (added September 2026) and the rename of the collection from "Vibecoding Skills" to "Vibe Coding Stack."
+### Antigravity — the foundational layer
+The pioneer AI coding agent Dr Non built this practice with. Forged the core operating rituals: planning mode discipline (`planning-discipline`), dual-write failover (`dual-write-resilience`), the shared memory hub (`shared-memory-hub`), and the sacred design invariants (`axiom-design-core`, `design-dna`). Documented in [playbooks/09-the-antigravity-origin.md](playbooks/09-the-antigravity-origin.md). Antigravity continues to anchor pair programming architectural boundaries, system conservation laws, and multi-agent coherence across the fleet.
 
 ### Cursor — the IDE-resident layer
 Four skills (`anti-regression`, `director-not-typer`, `route-dont-scan`, `honest-envelope`) and the intent/mechanics split that became the discipline. See [playbooks/10-the-cursor-desk.md](playbooks/10-the-cursor-desk.md).
 
-### Antigravity — the foundational layer
-The first AI agent Dr Non built this practice with. The four Antigravity-origin skills (`planning-discipline`, `dual-write-resilience`, `shared-memory-hub`, and the design invariants) are documented in [playbooks/09-the-antigravity-origin.md](playbooks/09-the-antigravity-origin.md). Designed to be universal across agents, not just the one that produced them.
+### Mavis (Claude Code / MiniMax Code) — the scale engine
+Drafting, restructuring, coherence passes, and child agent orchestration. The Mavis/Claude-flavoured skills (`subagent-routing`, `mcp-cli-first`, `context-economy`, `result-honesty`) and the principles they generalise are documented in [playbooks/08-the-mavis-side.md](playbooks/08-the-mavis-side.md). Major contributions include `appsec-stack` and `stack-repo-topology` (added September 2026) and the rename of the collection from "Vibecoding Skills" to "Vibe Coding Stack."
 
 ### The 2026 steal map — curated methods, refused packs
 Seven behavioural skills (`systematic-debugging`, `browser-as-t`, `lesson-residue`, `adversarial-review`, `wrong-green`, `ux-archaeology`, `skill-writing`) are methods distilled from Superpowers, Compound Engineering, gstack, Addy Osmani's agent-skills work, Vercel's agent-skills, and Anthropic's skill format. The 100-skill packs were refused. Receipts and refusals in [playbooks/11-the-2026-steal-map.md](playbooks/11-the-2026-steal-map.md).
