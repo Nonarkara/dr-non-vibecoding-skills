@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Forty-three focused skills, grouped by the decision they change. Start with one problem;
+Forty-nine focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -68,10 +68,25 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) | Typography, color, motion, layout, and interaction need a reasoned starting point |
 | [`design-dna`](skills/design-dna/SKILL.md) | Visual decisions need enforceable tokens and regression language |
 | [`design-registers`](skills/design-registers/SKILL.md) | Shared design DNA is making every product look like the same control room |
+| [`no-design-tells`](skills/no-design-tells/SKILL.md) | A surface must not be identifiable as agent-built — fonts, palette, provenance, layout reflexes |
+| [`legible-systems`](skills/legible-systems/SKILL.md) | Navigation or a dashboard needs paths, edges, districts, nodes, and a landmark |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Public prior art or a DESIGN.md file needs pattern extraction inside your design contract |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | City buildings need fast, legible 3D extrusion without geometry glitches |
 | [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | Weighted dimensions need a dependency-free radar chart |
 | [`narrative-companion-surfaces`](skills/narrative-companion-surfaces/SKILL.md) | Writing needs an interactive companion without pretending shuffled data is live computation |
+
+## Judgment from the reading
+
+Twelve books this practice keeps returning to, grouped by the decision each one changes.
+Sources are named inside every file; these are operational skills, not book summaries.
+
+| Skill | Load it when… | From |
+|---|---|---|
+| [`cognition-first`](skills/cognition-first/SKILL.md) | A UX, copy, default, or incentive decision needs the human who actually shows up | Kahneman · Pink |
+| [`legible-systems`](skills/legible-systems/SKILL.md) | An interface needs a mental model, or a component needs to become a real pattern | Lynch · Alexander |
+| [`design-method`](skills/design-method/SKILL.md) | An approach is unclear, or the first idea is about to become the only idea | Rowe · Kelley · Kelley & Kelley · Maeda |
+| [`written-principles`](skills/written-principles/SKILL.md) | The same judgment call keeps recurring, or work needs splitting across agents | Dalio · Smith |
+| [`make-it-stick`](skills/make-it-stick/SKILL.md) | Any user-facing text, error message, README, or technical explanation | Heath & Heath · Pinker |
 
 ## Specialized field kits
 

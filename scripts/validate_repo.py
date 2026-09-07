@@ -18,7 +18,10 @@ PLUGIN = ROOT / ".codex-plugin" / "plugin.json"
 CODEX_MARKETPLACE = ROOT / ".agents" / "plugins" / "marketplace.json"
 CLAUDE_PLUGIN = ROOT / ".claude-plugin" / "plugin.json"
 CLAUDE_MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
-DESCRIPTION_BUDGET = 6500
+# Discovery budget scales with the collection. The intent is "descriptions stay
+# scannable per skill", not a fixed ceiling — a constant sized for 43 skills goes
+# silently stale the next time one is added.
+DESCRIPTION_BUDGET_PER_SKILL = 151
 MAX_DESCRIPTION_LENGTH = 180
 
 
@@ -107,11 +110,13 @@ def validate_skills(errors: list[str]) -> tuple[list[Path], int]:
                 f"{skill_file.relative_to(ROOT)}: unfinished frontmatter placeholder",
             )
 
-    if description_chars > DESCRIPTION_BUDGET:
+    budget = DESCRIPTION_BUDGET_PER_SKILL * len(skill_dirs)
+    if description_chars > budget:
         fail(
             errors,
             f"skill descriptions: {description_chars} description characters exceed "
-            f"the {DESCRIPTION_BUDGET}-character discovery budget",
+            f"the {budget}-character discovery budget "
+            f"({DESCRIPTION_BUDGET_PER_SKILL} x {len(skill_dirs)} skills)",
         )
 
     return skill_dirs, description_chars
@@ -397,7 +402,7 @@ def main() -> int:
         return 1
 
     print(
-        f"OK: {len(skill_dirs)} skills ({description_chars}/{DESCRIPTION_BUDGET} description chars), "
+        f"OK: {len(skill_dirs)} skills ({description_chars}/{DESCRIPTION_BUDGET_PER_SKILL * len(skill_dirs)} description chars), "
         f"{playbook_count} playbooks, {reference_count} references, {template_count} templates, "
         f"{checked_links} local links, plugin packaging, repository hygiene, AGENTS.md budget"
     )
