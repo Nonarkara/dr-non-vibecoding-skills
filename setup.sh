@@ -896,10 +896,10 @@ main() {
 
   case "$action" in
     become)
-      become_builder "${SKILLS_ARGS[@]}"
+      become_builder ${SKILLS_ARGS[@]+"${SKILLS_ARGS[@]}"}
       ;;
     skills)
-      install_skills "${SKILLS_ARGS[@]}"
+      install_skills ${SKILLS_ARGS[@]+"${SKILLS_ARGS[@]}"}
       ;;
     init)
       bootstrap_project "$target"
