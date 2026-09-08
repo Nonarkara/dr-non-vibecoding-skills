@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **67 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **69 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **13 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **7 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene.
 - **12 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
@@ -138,6 +138,8 @@ Pick the skill that matches your problem:
 | A palette and type scale need choosing, not just enforcing | `skills/colour-and-type/SKILL.md` |
 | Charts, tables, and numbers that do not lie or decorate | `skills/data-display/SKILL.md` |
 | Decks, PDFs, documents, social cards — the non-app surfaces a design system must also govern | `skills/beyond-the-screen/SKILL.md` |
+| Data-driven retrospective: collect every signal, analyze statistically, reconstruct the system from what works | `skills/power-of-hindsight/SKILL.md` |
+| Multi-persona user test (first-time, second-time, extreme user) via real browser — produces a blueprint and roadmap | `skills/human-walkthrough/SKILL.md` |
 | Docs or notes must be searchable locally with citations, no vector-DB ops | `skills/simple-rag/SKILL.md` |
 | Single-machine local inference, offline work, or local embeddings and drafts | `skills/local-llm-ollama/SKILL.md` |
 | Agents need shared recall, capture, and feed tools without a hosted backend | `skills/obsidian-mcp-forge/SKILL.md` |
