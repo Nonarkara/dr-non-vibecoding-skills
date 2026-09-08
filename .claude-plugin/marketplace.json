@@ -4,14 +4,14 @@
     "name": "Dr Non Arkaraprasertkul"
   },
   "metadata": {
-    "description": "Field-tested agent skills for shipping verified civic software.",
+    "description": "Become Dr Non the Builder. Field-tested agent skills for shipping verified civic software.",
     "version": "1.7.0"
   },
   "plugins": [
     {
       "name": "dr-non-vibecoding-skills",
       "source": "./",
-      "description": "Sixty-nine focused skills for planning, preserving, reviewing, operating, and shipping agent-built software.",
+      "description": "Sixty-nine focused skills. One command: become Dr Non the Builder — plan, preserve, walk through, reconstruct, and ship.",
       "version": "1.7.0",
       "author": {
         "name": "Dr Non Arkaraprasertkul"

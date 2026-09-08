@@ -10,8 +10,8 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
 [![Skills: 69](https://img.shields.io/badge/skills-69-F59E0B)](skills/)
-[![Playbooks: 12](https://img.shields.io/badge/playbooks-13-1A1A1A)](playbooks/)
-[![Templates: 10](https://img.shields.io/badge/templates-12-0F766E)](templates/)
+[![Playbooks: 13](https://img.shields.io/badge/playbooks-13-1A1A1A)](playbooks/)
+[![Templates: 12](https://img.shields.io/badge/templates-12-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
 **69 skills** · **13 playbooks** · **7 references** · **12 templates**
@@ -21,6 +21,34 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
 
 ชุดทักษะสำหรับส่งซอฟต์แวร์สาธารณะคนเดียว — มาร์กดาวน์ล้วน ไม่มีรันไทม์ ผู้อ่านเป้าหมายคือคนไทยและคนอังกฤษด้วยกัน
+
+---
+
+## Become Dr Non the Builder
+
+หนึ่งคำสั่ง — ทักษะทุกเอเจนต์ — พร้อมส่งของ.
+
+```bash
+git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+cd dr-non-vibecoding-skills && ./setup.sh --become-builder
+```
+
+That is the whole product. The script installs the skills on every agent this machine has, then prints **You are Dr Non the Builder** and the next three moves: a project contract, a multi-persona walkthrough, a hindsight reconstruct. No remote pipe. Plain markdown, same ethos as the rest of the repo.
+
+```mermaid
+flowchart LR
+  A["Skills"] --> B["Ship"]
+  B --> C["Walkthrough"]
+  C --> D["Hindsight"]
+  D --> E["Reconstruct"]
+  E --> A
+```
+
+Install → build → ship → [`human-walkthrough`](skills/human-walkthrough/SKILL.md) → [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) reconstruct. Same loop every project.
+
+Optional, after the one-liner: `./setup.sh --init-project ~/Projects/my-app --yes` scaffolds the contract, deploy script, and `docs/lessons/`. Prove this clone is coherent with `make validate`.
+
+Plugin install, the [`BLUEPRINT.md`](BLUEPRINT.md) paste, [`QUICKSTART.md`](QUICKSTART.md), and `make install-skills` are **alternates** — same skills, not a second product. See [Other ways to install](#other-ways-to-install).
 
 ---
 
@@ -37,7 +65,7 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 | [`reference/`](reference/) | 7 docs | APIs, stack picks, named references, commit style, security hygiene, hosting, payments/voice |
 | [`templates/`](templates/) | 12 drop-ins | Project contracts (Tier 1 & 2), deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel, lesson doc |
 
-Plus [`BLUEPRINT.md`](BLUEPRINT.md) (one-pass setup), [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes), and a 19-page deck in [`INFOGRAPHICS.md`](INFOGRAPHICS.md).
+Plus [`BLUEPRINT.md`](BLUEPRINT.md) (agent-driven project paste) and [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes after the one-liner) as **alternates** to `--become-builder`. Visual deck: [`INFOGRAPHICS.md`](INFOGRAPHICS.md).
 
 **This repo is not**
 
@@ -61,7 +89,7 @@ those parts too, but connects them to the production failures that made the rule
 | Proven pattern | Here | What is different here |
 |---|---|---|
 | Karpathy's explicit assumptions, simplicity, surgical edits, and goal-driven loops | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Kept as the compact coding baseline, with upstream credit |
-| gstack's think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic; use only the stage the task earns |
+| gstack's think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic; use only the stage the task earns. After ship: [`human-walkthrough`](skills/human-walkthrough/SKILL.md) (three personas) then [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) (reconstruct) |
 | Focused, triggerable Agent Skills | All 69 folders under [`skills/`](skills/) | Descriptions are budgeted and CI-checked so the collection remains discoverable |
 | Durable project memory | [`agent-memory`](skills/agent-memory/SKILL.md) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Lessons move from a project contract into a cross-agent Obsidian memory |
 | Production proof | [`result-honesty`](skills/result-honesty/SKILL.md) + [`wrong-green`](skills/wrong-green/SKILL.md) + [`deploy-verification`](skills/deploy-verification/SKILL.md) | A green badge is rejected when it measures the wrong thing |
@@ -73,6 +101,8 @@ those parts too, but connects them to the production failures that made the rule
 | Human writing and simplest-path engineering | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) + [`no-design-tells`](skills/no-design-tells/SKILL.md) + [`ninja-innovation`](skills/ninja-innovation/SKILL.md) + [`cognition-first`](skills/cognition-first/SKILL.md) | Kill the tells that mark text and UI as machine-made; find the 5-line move that lands like 500 |
 | Local AI, retrieval, and a watchdog that keeps you excellent | [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) + [`simple-rag`](skills/simple-rag/SKILL.md) + [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) + [`improvement-radar`](skills/improvement-radar/SKILL.md) | One-machine Ollama, FTS5-first RAG with citations, a self-sustaining Obsidian MCP (recall/capture/inbox), and a weekly clone radar that files Steal / Feedstock / Refuse — Dr Non shepherding via results |
 | Assistants on the phone, eyes on the house and the planet, staff that swarms | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) + [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) + [`staff-swarm`](skills/staff-swarm/SKILL.md) | Telegram/Line/WhatsApp behind RAG with citations; honest camera grids with local storage; dated satellite time-stacks; researcher/field/orchestrator roles with token tiers — the entrepreneur's whole stack |
+| A change that "looked fine" in one screenshot | [`human-walkthrough`](skills/human-walkthrough/SKILL.md) | Closes the gap [`browser-as-t`](skills/browser-as-t/SKILL.md) and [`ux-archaeology`](skills/ux-archaeology/SKILL.md) leave: three personas × a real browser, producing a blueprint and a Now/Next/Later/**Never** roadmap |
+| A year of patches that became Frankenstein | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) | Closes the gap [`lesson-residue`](skills/lesson-residue/SKILL.md), [`result-honesty`](skills/result-honesty/SKILL.md), and [`systematic-debugging`](skills/systematic-debugging/SKILL.md) leave: Collect → Analyze → Reconstruct from the system's own data |
 
 This is not gstack with different command names, and it is not a giant prompt pack. It is the
 field manual for the part that remains after the model, IDE, and fashionable tool change.
@@ -141,9 +171,9 @@ If you are unsure whether a string is a secret, it is — leave it out. See [`re
 
 ---
 
-## Install
+## Other ways to install
 
-No runtime is required. Install the collection as a plugin, or copy only the skills you want.
+`--become-builder` is the path. These are the same skills, for hosts that prefer a plugin or a copy.
 
 ### Codex and ChatGPT desktop
 
@@ -163,19 +193,17 @@ skills from `.agents/skills`.
 /plugin install dr-non-vibecoding-skills@dr-non
 ```
 
-### One-command setup (clone → skills + project scaffold)
+### Makefile / scripts (same installer)
 
 ```bash
-git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
-cd dr-non-vibecoding-skills
-
-./setup.sh --install-skills          # installs 69 skills to Claude Code, Codex, Cursor, Hermes, OpenCode
-./setup.sh --init-project ~/Projects/my-app --yes   # scaffolds CLAUDE.md + AGENTS.md + .gitignore + .env.example + docs/lessons + scripts/deploy.sh
-# or: make install-skills  |  make init-project
-# non-interactive alt: scripts/install-skills.sh && scripts/new-project.sh ~/Projects/my-app --stack next
+make become-builder          # == ./setup.sh --become-builder
+make install-skills          # skills only, no identity print
+./setup.sh --init-project ~/Projects/my-app --yes
+make validate
+# host-scoped alt: scripts/install-skills.sh --claude --codex --dry-run
 ```
 
-`setup.sh` is the same scaffolder the agent-driven [`BLUEPRINT.md`](BLUEPRINT.md) uses — it copies from [`templates/`](templates/) so manual and agent paths stay identical. Verify with `scripts/validate_repo.py` or `make validate`.
+`setup.sh` copies from [`templates/`](templates/), so the Makefile, the BLUEPRINT paste, and `--init-project` stay identical. Verify with `make validate`.
 
 ### Manual / Cursor / any Agent Skills reader
 
@@ -226,14 +254,17 @@ Implement with $karpathy-guidelines and preserve earned work with $anti-regressi
 If the change is visible, verify it with $browser-as-t.
 Before closing, run $adversarial-review, then report with $result-honesty.
 If this repository has a live surface, finish the $ship-discipline loop.
+Before a major release, walk it as three personas with $human-walkthrough.
+When the year of patches needs an end, reconstruct with $power-of-hindsight.
 ```
 
 The skills are independent. A typo does not need the whole ceremony; a public data dashboard does.
 
 | If you want… | Open |
 |---|---|
-| Five concrete improvements in fifteen minutes | [`QUICKSTART.md`](QUICKSTART.md) |
-| The full scaffold for a new project | [`BLUEPRINT.md`](BLUEPRINT.md) |
+| The one-liner (you are already here) | `./setup.sh --become-builder` |
+| Five concrete improvements after install | [`QUICKSTART.md`](QUICKSTART.md) |
+| An agent-driven project scaffold | [`BLUEPRINT.md`](BLUEPRINT.md) |
 | Every skill, grouped by job | [`CATALOG.md`](CATALOG.md) |
 | Instructions for agents entering this repository | [`AGENTS.md`](AGENTS.md) |
 | The 19-page visual explanation | [`INFOGRAPHICS.md`](INFOGRAPHICS.md) |
@@ -258,18 +289,19 @@ Playbooks, numbered, read once:
 
 ## System diagram
 
-Short labels so GitHub Mermaid does not clip.
+Short labels so GitHub Mermaid does not clip. The Builder loop is the operating system; CPDT is how a change ships.
 
 ```mermaid
 flowchart TB
   S["69 skills"] --> A["Your agent"]
   P["13 playbooks"] --> A
-  R["5 refs"] --> A
+  R["7 refs"] --> A
   T["12 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]
-  V --> L["Lesson doc"]
+  V --> H["Walkthrough"]
+  H --> L["Hindsight reconstruct"]
 ```
 
 The contract is the executable part. Without it, the skills are essays. With it, they are decisions that only had to be made once.

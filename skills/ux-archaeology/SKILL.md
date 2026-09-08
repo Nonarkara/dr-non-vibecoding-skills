@@ -84,7 +84,7 @@ Official agencies' **open data** is fair (with attribution). Their **ops console
 2. Name the pattern without the brand ("honest empty vs lying zero").
 3. Implement inside **this** project's contract: tokens, map-first-or-not, bilingual toggle, envelope on numbers.
 4. Record Source / Pattern / Landed — and **Refused** if you looked at something that did not fit.
-5. Verify with [`browser-as-t`](../browser-as-t/SKILL.md), not by overlaying screenshots until the pixels match.
+5. Verify with [`browser-as-t`](../browser-as-t/SKILL.md), not by overlaying screenshots until the pixels match. Walking *this* system as three users is [`human-walkthrough`](../human-walkthrough/SKILL.md) — archaeology extracts a pattern; the walkthrough tests whether *your* surface still has it.
 
 ---
 

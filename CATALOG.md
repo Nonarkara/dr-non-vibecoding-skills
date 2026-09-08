@@ -13,6 +13,8 @@ load one matching skill. The collection is a routing system, not a checklist.
 | Diagnosing a failure | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) |
 | Changing a user-visible flow | [`browser-as-t`](skills/browser-as-t/SKILL.md) |
 | Closing the work | [`adversarial-review`](skills/adversarial-review/SKILL.md) + [`result-honesty`](skills/result-honesty/SKILL.md) + [`ship-discipline`](skills/ship-discipline/SKILL.md) |
+| Before a major release | [`human-walkthrough`](skills/human-walkthrough/SKILL.md) |
+| After a year of patches | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) |
 
 ## Think, build, review, ship
 
@@ -35,6 +37,15 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`lesson-residue`](skills/lesson-residue/SKILL.md) | A painful or surprising session produced a verified lesson worth preserving |
 | [`context-economy`](skills/context-economy/SKILL.md) | Prose, repetition, or reporting overhead is crowding out useful work |
 | [`skill-writing`](skills/skill-writing/SKILL.md) | A new or revised skill must earn its folder and trigger reliably |
+
+## Close the loop
+
+Ship is not the end. A screenshot is not a walkthrough. A lesson from one session is not a year of data.
+
+| Skill | Load it when… |
+|---|---|
+| [`human-walkthrough`](skills/human-walkthrough/SKILL.md) | A system needs the multi-persona user test before a major release — first-time, second-time, and extreme user, walked through a real browser, producing a blueprint and a Now/Next/Later/**Never** roadmap. Closes the exploratory gap [`browser-as-t`](skills/browser-as-t/SKILL.md) and [`ux-archaeology`](skills/ux-archaeology/SKILL.md) leave |
+| [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) | A system has been patching for months and the Frankenstein phase needs an end — collect every signal, analyze statistically, reconstruct the parts that carry weight from first principles. Closes the long-arc gap [`lesson-residue`](skills/lesson-residue/SKILL.md), [`result-honesty`](skills/result-honesty/SKILL.md), and [`systematic-debugging`](skills/systematic-debugging/SKILL.md) leave |
 
 ## Memory, harness, and agent surfaces
 
@@ -63,8 +74,6 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`full-stack-bootstrap`](skills/full-stack-bootstrap/SKILL.md) | A new project needs memory, deploy, service, data, and design contracts in one pass |
 | [`appsec-stack`](skills/appsec-stack/SKILL.md) | A public deploy needs the seven-layer AppSec pipeline — secrets, SAST, SCA, SBOM, auto-update, DAST, exploit verify — with OWASP Top 10 / CIS IG1 mapping |
 | [`stack-repo-topology`](skills/stack-repo-topology/SKILL.md) | A repo holds many packages, or a monorepo is starting to drift — needs trunk-based dev, path-scoped CODEOWNERS, branch naming, selective CI, and shared resource patterns |
-| [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) | A system has been patching for months and the Frankenstein phase needs an end — collect every signal, analyze statistically, reconstruct the parts that carry weight from first principles |
-| [`human-walkthrough`](skills/human-walkthrough/SKILL.md) | A system needs the multi-persona user test before a major release — first-time, second-time, and extreme user, walked through a real browser, producing a blueprint and roadmap |
 
 ## Design and visual systems
 
@@ -128,8 +137,9 @@ Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, thre
 
 ## Read once, then work from skills
 
-- [`QUICKSTART.md`](QUICKSTART.md) changes five things in fifteen minutes.
-- [`BLUEPRINT.md`](BLUEPRINT.md) bootstraps the whole practice into a new project.
+- [`README.md`](README.md) — `./setup.sh --become-builder` is the one-liner. You are Dr Non the Builder.
+- [`QUICKSTART.md`](QUICKSTART.md) is the fifteen minutes *after* that.
+- [`BLUEPRINT.md`](BLUEPRINT.md) bootstraps a new *project* (agent paste or `--init-project`).
 - [`playbooks/`](playbooks/) explains the incidents and reasoning behind the standing instructions.
 - [`reference/`](reference/) carries stable implementation details that should not crowd every skill.
 - [`templates/`](templates/) contains the files meant to be copied and adapted.

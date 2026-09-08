@@ -344,6 +344,15 @@ def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]
         if badge not in readme:
             fail(errors, f"README.md: expected badge fragment '{badge}'")
 
+    expected_alts = (
+        f"[![Skills: {skill_count}]",
+        f"[![Playbooks: {playbook_count}]",
+        f"[![Templates: {template_count}]",
+    )
+    for alt in expected_alts:
+        if alt not in readme:
+            fail(errors, f"README.md: expected badge alt '{alt}'")
+
     expected_counts = (
         (skill_count, "skills"),
         (playbook_count, "playbooks"),
@@ -356,6 +365,28 @@ def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]
             fail(errors, f"README.md: expected current count phrase '{phrase}'")
         if phrase not in agents:
             fail(errors, f"AGENTS.md: expected current count phrase '{phrase}'")
+
+    mermaid_refs = f'R["{reference_count} refs"]'
+    if mermaid_refs not in readme:
+        fail(errors, f"README.md: expected mermaid count '{mermaid_refs}'")
+
+    quickstart = (ROOT / "QUICKSTART.md").read_text(encoding="utf-8")
+    expect_match = re.search(r"expect\s+(\d+)", quickstart)
+    if expect_match and int(expect_match.group(1)) != skill_count:
+        fail(
+            errors,
+            f"QUICKSTART.md: expected 'expect {skill_count}', "
+            f"found 'expect {expect_match.group(1)}'",
+        )
+
+    blueprint = (ROOT / "BLUEPRINT.md").read_text(encoding="utf-8")
+    wc_match = re.search(r"wc -l[`\s)]*.*?→\s*(\d+)", blueprint)
+    if wc_match and int(wc_match.group(1)) != skill_count:
+        fail(
+            errors,
+            f"BLUEPRINT.md: expected skill count {skill_count} after wc -l, "
+            f"found {wc_match.group(1)}",
+        )
 
     return playbook_count, reference_count, template_count
 

@@ -61,3 +61,5 @@ If it will happen again on this project, also add a **dated gotcha** to the Tier
 ## The test
 
 A cold agent, next month, can read the one line and not repeat the same failure. If the file does not change a future decision, it is a diary entry — rewrite the last line.
+
+One session, one lesson. For the year-long Collect → Analyze → Reconstruct loop, use [`power-of-hindsight`](../power-of-hindsight/SKILL.md).

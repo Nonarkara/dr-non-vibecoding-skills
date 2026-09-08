@@ -7,8 +7,9 @@
 # Dr Non's complete scaffolding, contracts, deploy discipline, and invariants.
 #
 # Usage:
-#   ./setup.sh                       # Interactive menu
-#   ./setup.sh --install-skills      # Install skills to all detected agents
+#   ./setup.sh --become-builder      # THE one-liner: skills on every detected agent
+#   ./setup.sh                       # Interactive menu (TTY) or --become-builder (pipe)
+#   ./setup.sh --install-skills      # Install skills only (no identity print)
 #   ./setup.sh --init-project <path> # Scaffold project codebase structure
 #   ./setup.sh --audit [path]        # Audit existing project against invariants
 #   ./setup.sh --help                # Show usage
@@ -42,9 +43,17 @@ usage() {
   banner
   cat <<EOF
 Usage:
+  ./setup.sh --become-builder          # Become Dr Non the Builder (canonical)
   ./setup.sh [OPTIONS]
 
+The primary path. Clone, then one command — skills on every agent this machine
+has, then the next three moves (contract, walkthrough, hindsight):
+
+  git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+  cd dr-non-vibecoding-skills && ./setup.sh --become-builder
+
 Options:
+  -b, --become-builder           Install skills everywhere + print Builder next steps
   -s, --install-skills           Install skills to all detected agent paths
   -i, --init-project [DIR]       Bootstrap a project codebase with contracts
   -a, --audit [DIR]              Audit an existing project for Dr Non invariants
@@ -64,8 +73,9 @@ Project Bootstrapper Options (non-interactive):
   -y, --yes                      Accept defaults without prompting
 
 Examples:
-  ./setup.sh                                   # Interactive walkthrough
-  ./setup.sh --install-skills                  # Install skills to ~/.claude, ~/.agents, etc.
+  ./setup.sh --become-builder                  # You are Dr Non the Builder
+  ./setup.sh                                   # Interactive menu (TTY) / become-builder (pipe)
+  ./setup.sh --install-skills                  # Skills only, no identity print
   ./setup.sh --init-project ~/Projects/my-app  # Scaffold ~/Projects/my-app
 EOF
 }
@@ -129,6 +139,56 @@ install_skills() {
   local total_skills
   total_skills=$(ls -1 "$SKILLS_DIR" 2>/dev/null | wc -l | tr -d ' ')
   echo -e "  All ${total_skills} skills are active and ready for automatic discovery."
+}
+
+# ------------------------------------------------------------------------------
+# 1b. Become Dr Non the Builder — canonical one-command path
+# ------------------------------------------------------------------------------
+print_builder_identity() {
+  local total_skills
+  total_skills=$(ls -1 "$SKILLS_DIR" 2>/dev/null | wc -l | tr -d ' ')
+  cat <<EOF
+
+${AMBER}${BOLD}You are Dr Non the Builder.${NC}
+${DIM}กลายเป็น Dr Non the Builder แล้ว — ทักษะทุกเอเจนต์บนเครื่องนี้ พร้อมส่งของ${NC}
+
+${BOLD}${total_skills} skills${NC} on every agent this machine has.
+One product: install → build → ship → walkthrough → hindsight reconstruct.
+
+${AMBER}${BOLD}Next — the three moves that make the skills executable${NC}
+
+  1. ${BOLD}Contract${NC}      copy templates/AGENTS.md.template (or CLAUDE.md.template)
+                     into the project you will ship. Anti-regression first.
+  2. ${BOLD}Walkthrough${NC}   skills/human-walkthrough  — 3 personas × a real browser
+                     before a major release. Output: blueprint + Now/Next/Later/Never.
+  3. ${BOLD}Hindsight${NC}     skills/power-of-hindsight — Collect → Analyze → Reconstruct
+                     when the Frankenstein year needs an end.
+
+${DIM}Optional — scaffold a blank project with the same templates:${NC}
+  ./setup.sh --init-project ~/Projects/my-app --yes
+
+${DIM}Prove this clone is coherent:${NC}
+  make validate
+
+${DIM}Alternates (same skills, not a second product):${NC}
+  plugin install  ·  BLUEPRINT.md paste  ·  QUICKSTART.md  ·  make install-skills
+
+Fork the method, not the secrets.
+EOF
+}
+
+become_builder() {
+  banner
+  echo -e "${AMBER}${BOLD}▶ Becoming Dr Non the Builder${NC}"
+  echo -e "${DIM}Installing ${NC}${BOLD}$(ls -1 "$SKILLS_DIR" | wc -l | tr -d ' ')${NC}${DIM} skills to every detected agent…${NC}\n"
+  install_skills "$@"
+  for arg in "$@"; do
+    if [[ "$arg" == "--dry-run" ]]; then
+      echo -e "${DIM}(dry-run — no files changed. Drop --dry-run to actually become the Builder.)${NC}"
+      return
+    fi
+  done
+  print_builder_identity
 }
 
 # ------------------------------------------------------------------------------
@@ -703,6 +763,10 @@ main() {
 
   while [[ $# -gt 0 ]]; do
     case "$1" in
+      -b|--become-builder)
+        action="become"
+        shift
+        ;;
       -s|--install-skills)
         action="skills"
         shift
@@ -788,23 +852,27 @@ main() {
     esac
   done
 
-  # Default to interactive menu if no action specified
+  # No flag: pipe/script → become-builder. TTY → menu with Builder as default.
   if [[ -z "$action" ]]; then
+    if [[ ! -t 0 ]]; then
+      become_builder "${SKILLS_ARGS[@]}"
+      exit 0
+    fi
     banner
-    echo -e "Select what you want to do:\n"
-    echo -e "  [1] Install skills to all detected coding agents (~/.claude, ~/.agents, Cursor)"
-    echo -e "  [2] Bootstrap a project codebase structure & contracts (CLAUDE.md, AGENTS.md, etc.)"
-    echo -e "  [3] Complete Setup: Install skills + Bootstrap a project"
-    echo -e "  [4] Audit existing project against Dr Non invariants"
-    echo -e "  [5] Run stack validation suite (scripts/validate_repo.py)"
+    echo -e "${AMBER}${BOLD}Become Dr Non the Builder${NC} — one product, one command.\n"
+    echo -e "  ${BOLD}[1]${NC} Become Dr Non the Builder  ${DIM}(install skills everywhere + next steps)${NC}"
+    echo -e "  [2] Bootstrap a project codebase  ${DIM}(CLAUDE.md, AGENTS.md, deploy, lessons)${NC}"
+    echo -e "  [3] Builder + project scaffold"
+    echo -e "  [4] Audit an existing project against Dr Non invariants"
+    echo -e "  [5] Validate this stack repo  ${DIM}(scripts/validate_repo.py)${NC}"
     echo -e "  [q] Quit\n"
 
-    read -rp "Choice [1-5]: " choice
-    case "$choice" in
-      1) install_skills ;;
+    read -rp "Choice [1]: " choice
+    case "${choice:-1}" in
+      1) become_builder ;;
       2) bootstrap_project ;;
       3)
-        install_skills
+        become_builder
         bootstrap_project
         ;;
       4)
@@ -827,6 +895,9 @@ main() {
   fi
 
   case "$action" in
+    become)
+      become_builder "${SKILLS_ARGS[@]}"
+      ;;
     skills)
       install_skills "${SKILLS_ARGS[@]}"
       ;;

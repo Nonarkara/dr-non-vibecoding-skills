@@ -54,7 +54,7 @@ For deploys: content probes through throwaway keys — [`deploy-verification`](.
 
 For services: last successful ingest per source, disk on the volume that can fill, tunnel `--config` required.
 
-For UI: [`browser-as-t`](../browser-as-t/SKILL.md), not a PNG of the loading state.
+For UI: [`browser-as-t`](../browser-as-t/SKILL.md), not a PNG of the loading state. A screenshot that looks fine is still a wrong green until [`human-walkthrough`](../human-walkthrough/SKILL.md) walks it as three users. A green check that measured the wrong thing for months is the dataset [`power-of-hindsight`](../power-of-hindsight/SKILL.md) analyzes.
 
 ---
 

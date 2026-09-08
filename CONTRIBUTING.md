@@ -53,7 +53,7 @@ The validator checks:
 - concise trigger descriptions within the repository discovery budget;
 - local Markdown links outside fenced examples;
 - sequential, unique playbook numbering;
-- README and AGENTS count claims;
+- README and AGENTS count claims, including badge alts and QUICKSTART/BLUEPRINT expect counts;
 - Codex and Claude plugin packaging;
 - OS metadata and unfinished placeholders.
 

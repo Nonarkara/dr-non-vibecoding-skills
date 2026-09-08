@@ -1,31 +1,23 @@
-# Quickstart — 15 minutes to a better setup
+# Quickstart — after you are the Builder
 
-Do these five things in order. Each is independently useful; together they compound.
-
----
-
-## 1. Install the skills (2 min)
+The one-liner is in the README:
 
 ```bash
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
-cd dr-non-vibecoding-skills
-./setup.sh --install-skills   # or: make install-skills  |  scripts/install-skills.sh
-# verify: ls ~/.claude/skills | wc -l  # expect 54
+cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-Or install as a plugin (Codex) or copy manually — same result, pick one path:
+That installs every skill on every agent this machine has and prints **You are Dr Non the Builder**. The four steps below are what to do *next*, on a real project. Each is independently useful; together they compound.
+
+Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.md#other-ways-to-install). Agent-driven project scaffold: [`BLUEPRINT.md`](BLUEPRINT.md).
+
+---
+
+## 1. Confirm the skills landed (30 sec)
 
 ```bash
-# Codex plugin
-codex plugin marketplace add Nonarkara/dr-non-vibecoding-skills
-codex plugin add dr-non-vibecoding-skills@dr-non
-
-# Manual — Codex / Claude Code / Cursor
-mkdir -p "$HOME/.agents/skills" && cp -R skills/* "$HOME/.agents/skills/"   # Codex
-mkdir -p "$HOME/.claude/skills"  && cp -R skills/* "$HOME/.claude/skills/"  # Claude Code
-mkdir -p .cursor/skills && cp -R skills/* .cursor/skills/                    # Cursor (project-local)
-# Hermes: ~/.hermes/skills/  ·  OpenCode: ~/.config/opencode/skills/  ·  Antigravity: .agents/skills/
-# Gemini / Aider / other rules-only hosts: copy only relevant skill bodies into the host's native rules file
+ls ~/.claude/skills | wc -l   # expect 69
+# also: ls ~/.agents/skills | wc -l
 ```
 
 `AGENTS.md` is project memory; skills are reusable workflows. Keep those roles separate.
@@ -54,6 +46,8 @@ Do not write an essay. The five things that pay for themselves immediately:
 
 That "anti-regression" section is the highest-leverage paragraph in this whole repo. Agents don't break things you documented as load-bearing; they break things that *looked* like tidy-up opportunities.
 
+Shortcut: `./setup.sh --init-project ~/Projects/my-app --yes` writes the contract, deploy script, and `docs/lessons/` from the same templates.
+
 ---
 
 ## 3. Make "done" mean the live URL (1 min)
@@ -74,13 +68,18 @@ The version of this script that only checked the HTML version string let a patch
 
 ---
 
-## 5. Start a lessons folder (2 min)
+## 5. Start a lessons folder — then close the loop (2 min)
 
 ```bash
 mkdir -p docs/lessons
 ```
 
-After any session that took more than an hour or hurt, write one file: `docs/lessons/YYYY-MM-DD-what-this-was.md`, using [`templates/lesson.md.template`](templates/lesson.md.template). End it with **one line for the next agent**.
+After any session that took more than an hour or hurt, write one file: `docs/lessons/YYYY-MM-DD-what-this-was.md`, using [`templates/lesson.md.template`](templates/lesson.md.template). End it with **one line for the next agent**. That is [`lesson-residue`](skills/lesson-residue/SKILL.md).
+
+Two more skills close the year, not the hour:
+
+- Before a major release, walk the live URL as three personas — [`human-walkthrough`](skills/human-walkthrough/SKILL.md) — and file a Now/Next/Later/**Never** roadmap.
+- When the patches have become Frankenstein, Collect → Analyze → Reconstruct — [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md).
 
 Six months from now that folder is worth more than the code. Mine is the reason I can pick up a project I haven't touched in five weeks and be productive in ten minutes.
 
@@ -99,9 +98,11 @@ Six months from now that folder is worth more than the code. Mine is the reason 
 - If you want to know how far to push → [playbook 05](playbooks/05-taking-risk-like-dr-non.md)
 - If you want your UI to stop looking generic → [`skills/axiom-design-core`](skills/axiom-design-core/SKILL.md)
 - If you want a product dashboard that looks shipped, not templated → [`skills/dashboard-discipline`](skills/dashboard-discipline/SKILL.md) (glowing status dot, monospace on labels, metric-card-grid, all 10 litmus tests) + [`skills/no-design-tells`](skills/no-design-tells/SKILL.md) (§6 Hard Gates) + [`skills/design-registers`](skills/design-registers/SKILL.md) (floor before ceiling)
+- If a screenshot is the only "test" → [`skills/browser-as-t`](skills/browser-as-t/SKILL.md); before a major release, [`skills/human-walkthrough`](skills/human-walkthrough/SKILL.md)
+- If the year of patches needs an end → [`skills/power-of-hindsight`](skills/power-of-hindsight/SKILL.md)
 - If you want local answers with citations and no vector-DB ops → [`skills/simple-rag`](skills/simple-rag/SKILL.md) (SQLite FTS5 first, embeddings only after the gate) backed by [`skills/local-llm-ollama`](skills/local-llm-ollama/SKILL.md) (one-machine Ollama, context fixed at the daemon)
 - If you want shared memory plus a watchdog that keeps you excellent → [`skills/obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) (your own recall/capture/inbox MCP over Obsidian) + [`skills/improvement-radar`](skills/improvement-radar/SKILL.md) (weekly Steal / Feedstock / Refuse verdicts, one promotion a month)
 - If answers must reach a phone → [`skills/messaging-gateway`](skills/messaging-gateway/SKILL.md) (Telegram first, Line for Thailand, WhatsApp last — RAG with citations)
 - If cameras or satellites are the product → [`skills/home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`skills/satellite-change-watch`](skills/satellite-change-watch/SKILL.md) + [playbook 13](playbooks/13-the-digital-twin.md) (the whole twin, front to backend to security)
 - If one job needs many hands → [`skills/staff-swarm`](skills/staff-swarm/SKILL.md) (researcher + field + orchestrator; cheap models for paraphrase, frontier for assembly)
-- If you want all five steps above done for you, on a blank folder → [`BLUEPRINT.md`](BLUEPRINT.md)
+- If you want an agent to ask four questions and scaffold the rest → [`BLUEPRINT.md`](BLUEPRINT.md)
