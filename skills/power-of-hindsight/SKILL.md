@@ -151,6 +151,9 @@ The reconstruction log is the artefact that prevents the next Frankenstein phase
 | Phase 3 (reconstruct) | [`anti-regression`](../anti-regression/SKILL.md) | The reconstruction is the most aggressive form of cleanup; it needs the rationale preserved |
 | Phase 3 (reconstruct) | [`lesson-residue`](../lesson-residue/SKILL.md) | Each reconstruction doc is a `lesson-residue` that ties data to a decision |
 | All phases | [`shared-memory-hub`](../shared-memory-hub/SKILL.md) | The reconstruction log lives longer than any project; cross-agent memory is how it survives a five-year break |
+| The walkthrough that feeds the data | [`human-walkthrough`](../human-walkthrough/SKILL.md) | Three-persona findings are a signal source for Collect; reconstruction is what you do with them |
+| One bug vs the year | [`systematic-debugging`](../systematic-debugging/SKILL.md) | One bug, one trace. This skill is the longitudinal version — the same honesty, a year of traces |
+| One handoff vs the year | [`result-honesty`](../result-honesty/SKILL.md) | Four buckets close a session; this skill closes a Frankenstein phase |
 
 ---
 

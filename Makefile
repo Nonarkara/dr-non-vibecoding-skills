@@ -1,8 +1,11 @@
 # Dr Non's Vibe Coding Stack — Makefile
-.PHONY: help install-skills init-project audit validate test
+.PHONY: help become-builder install-skills init-project audit validate test
 
 help:
 	@./setup.sh --help
+
+become-builder:
+	@./setup.sh --become-builder
 
 install-skills:
 	@./setup.sh --install-skills

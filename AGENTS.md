@@ -27,12 +27,17 @@ There is nothing to compile, nothing to configure, and nothing that can go out o
 
 ### 1. Read the spine first
 
-Start with `README.md` (the public face) and `BLUEPRINT.md` (the one-pass setup). The README lists the skills and links to each. The blueprint is the four-question bootstrap that sets up a new project with the full scaffolding in one paste.
+Start with `README.md` (the public face). The one-liner is `./setup.sh --become-builder` — skills on every detected agent, then contract / walkthrough / hindsight. `BLUEPRINT.md` is the *project* paste after that. The README lists the skills and links to each.
 
 ### 2. Install the skills
 
-The `SKILL.md` files are plain markdown. Prefer the plugin for the complete bundle,
-or copy skills into the native discovery path for the agent that will use them:
+The `SKILL.md` files are plain markdown. Canonical path from a clone of this repo:
+
+```bash
+./setup.sh --become-builder
+```
+
+That installs skills on every detected agent and prints the Builder next steps. Plugin and copy-by-hand are alternates:
 
 ```bash
 # Codex / ChatGPT desktop plugin
@@ -52,7 +57,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 67 on every task.
+# the rules file that host actually reads; do not load all 69 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 

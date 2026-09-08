@@ -72,3 +72,5 @@ Then check the nearby path you did not intend to touch. The Codex Incident was a
 ## The test
 
 You can replay the bug on the old commit and show it gone on the new one, with the same command. If the only proof is "I read the diff and it looks right," you are still in phase 2.
+
+One bug, one trace. For the longitudinal reconstruct — Collect → Analyze → Reconstruct when the patches have become Frankenstein — use [`power-of-hindsight`](../power-of-hindsight/SKILL.md).

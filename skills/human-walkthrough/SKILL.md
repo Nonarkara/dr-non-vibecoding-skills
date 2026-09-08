@@ -184,6 +184,8 @@ The "Never" section is important. The walkthrough surfaces more findings than an
 | The roadmap | [`planning-discipline`](../planning-discipline/SKILL.md) | The roadmap is a `planning-discipline` artefact with a defined scope, evidence, and acceptance |
 | The recurring schedule | [`full-stack-bootstrap`](../full-stack-bootstrap/SKILL.md) | The walkthrough can be a step in the bootstrap flow for a brand-new project |
 | The "what the persona saw" | [`ux-archaeology`](../ux-archaeology/SKILL.md) | When the walkthrough surfaces a known pattern, `ux-archaeology` finds the source |
+| After the year of patches | [`power-of-hindsight`](../power-of-hindsight/SKILL.md) | Walkthrough findings are a Collect signal; hindsight is when the patches become a reconstruct |
+| Closing the session | [`result-honesty`](../result-honesty/SKILL.md) + [`lesson-residue`](../lesson-residue/SKILL.md) | Four buckets and one lesson for *this* walk; hindsight is the year of them |
 
 ---
 

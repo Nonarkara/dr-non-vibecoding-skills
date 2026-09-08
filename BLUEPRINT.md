@@ -1,8 +1,15 @@
 # The Blueprint
 
-**What it is:** one document you hand to a fresh Claude Code session, in an empty (or existing) projects folder, that sets everything up the way I set it up — the memory ladder, the deploy discipline, the service pattern, the design contract — so you start coding with the same scaffolding it took me six months to grow.
+**What it is:** the *project* paste. Skills are already installed by the one-liner in the README:
 
-**How to use it:** three steps, five minutes of your time, then Claude does the rest.
+```bash
+git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+cd dr-non-vibecoding-skills && ./setup.sh --become-builder
+```
+
+This document is what you hand a fresh Claude Code session, in an empty (or existing) projects folder, so it grows the memory ladder, deploy discipline, service pattern, and design contract — the scaffolding it took six months to grow by hand.
+
+**How to use it:** one-liner first (if you have not), then three steps, five minutes of your time, then Claude does the rest.
 
 *Visual summary: [`INFOGRAPHICS.md`](INFOGRAPHICS.md), page 7.*
 
@@ -22,7 +29,7 @@ cd ~/Projects   # or wherever your work lives — new or existing, both fine
 claude
 ```
 
-> **Prefer an automated script instead of chat?** Run `./setup.sh --init-project ~/Projects/my-app` (or `scripts/new-project.sh ~/Projects/my-app`) for an instant scaffold without pasting into an agent chat.
+> **Prefer a script instead of chat?** You already ran `./setup.sh --become-builder`. For the project folder: `./setup.sh --init-project ~/Projects/my-app` (or `scripts/new-project.sh ~/Projects/my-app`). Same templates either way.
 
 Then paste the whole block below into the chat. That's it — everything past this line is written *to the agent*, not to you.
 
@@ -50,11 +57,12 @@ Then proceed using my answers. Don't ask anything else — infer sensible defaul
 
 ### Step 2 — Install the skills
 
-Preferred — one command from the cloned repo (works without this blueprint):
+Preferred — the same one-liner as the README (works without this blueprint):
 
 ```bash
-<path-to-cloned-repo>/setup.sh --install-skills   # or: make -C <path> install-skills
-# alt: <path>/scripts/install-skills.sh  (supports --claude/--codex/--cursor/--hermes/--opencode/--dry-run)
+<path-to-cloned-repo>/setup.sh --become-builder
+# skills-only alt: <path>/setup.sh --install-skills   # or: make -C <path> install-skills
+# host-scoped alt: <path>/scripts/install-skills.sh --claude --codex --dry-run
 ```
 
 Manual fallback:
@@ -68,7 +76,7 @@ cp -r <path-to-cloned-repo>/skills/* ~/.agents/skills/   # Codex / ChatGPT deskt
 # Hermes: ~/.hermes/skills/  ·  OpenCode: ~/.config/opencode/skills/
 ```
 
-Confirm they're readable (`ls ~/.claude/skills | wc -l` → 63). These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`, `local-llm-ollama`, `simple-rag`, `obsidian-mcp-forge`, `improvement-radar`, `messaging-gateway`, `home-cctv-grid`, `satellite-change-watch`, `staff-swarm`.
+Confirm they're readable (`ls ~/.claude/skills | wc -l` → 69). These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`, `human-walkthrough` (3 personas before a major release), `power-of-hindsight` (Collect → Analyze → Reconstruct), `local-llm-ollama`, `simple-rag`, `obsidian-mcp-forge`, `improvement-radar`, `messaging-gateway`, `home-cctv-grid`, `satellite-change-watch`, `staff-swarm`.
 
 ### Step 3 — Workspace index (only if I said "many projects" in Step 1)
 

@@ -1,15 +1,14 @@
 ---
 name: full-stack-bootstrap
 description: >-
-  One command from clone to operational project. Use setup.sh to install
-  every skill into every agent, scaffold a new project, or audit an
-  existing one. Pairs with the Blueprint.
+  One command from clone to Builder. Use --become-builder to install
+  every skill into every agent, then scaffold or audit a project.
 license: MIT
 ---
 
 # Full-Stack Bootstrap
 
-> One command turns a clone into a project. The setup script is the entry point; the Blueprint is the spec; the four questions are the only friction.
+> One command turns a clone into a Builder. `--become-builder` is the entry point; the Blueprint is the *project* paste; the four questions are the only friction.
 
 This is the canonical "one click to vibecode like a pro" entry point for the whole stack. If an agent loads exactly one skill to get a project off the ground, this should be it. It is intentionally self-contained — an agent that has only this skill loaded (plus the files in `templates/`) can complete the bootstrap without also loading `BLUEPRINT.md` or the underlying scripts.
 
@@ -20,28 +19,29 @@ If `setup.sh` and `BLUEPRINT.md` are not present in this checkout, tell the user
 ## The one command
 
 ```bash
-# From the repo root, with no arguments: an interactive menu
-./setup.sh
+git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-That is the canonical "one click." The script detects which agents are installed, offers to install the skills, offers to scaffold a new project, and offers to audit an existing one. For non-interactive use, the four subcommands are the actual one-clicks:
+That is the canonical one-liner. Skills land on every detected agent; the script prints **You are Dr Non the Builder** and the next three moves (contract, walkthrough, hindsight). No arguments on a TTY still opens the menu, with Builder as the default. For non-interactive use:
 
 ```bash
-./setup.sh --install-skills                  # install every skill to every detected host
+./setup.sh --become-builder                  # THE path: skills everywhere + Builder identity
+./setup.sh --install-skills                  # skills only, no identity print
 ./setup.sh --init-project ~/Projects/my-app  # scaffold a brand-new project
 ./setup.sh --audit ~/Projects/my-app         # audit an existing project against the stack invariants
 ./setup.sh --validate                        # run the repo validator (scripts/validate_repo.py)
 ```
 
-The `Makefile` at the repo root is the developer-muscle-memory wrapper — `make install-skills`, `make init-project`, `make audit`, `make validate`, `make test`.
+The `Makefile` at the repo root is the developer-muscle-memory wrapper — `make become-builder`, `make install-skills`, `make init-project`, `make audit`, `make validate`, `make test`.
 
 ---
 
 ## The four setup.sh modes
 
-### 1. `--install-skills` — install the stack into every agent
+### 1. `--become-builder` / `--install-skills` — install the stack into every agent
 
-Idempotent. Detects which agent hosts exist on this machine and rsyncs the 59 `SKILL.md` folders into each host's discovery path:
+Idempotent. Detects which agent hosts exist on this machine and rsyncs every `SKILL.md` folder into each host's discovery path. `--become-builder` does the same install, then prints the Builder identity and next steps. Count is live (currently **69**); do not hardcode it in a new wrapper — read `ls skills | wc -l`.
 
 | Agent | Target | Notes |
 |---|---|---|
@@ -55,15 +55,13 @@ Idempotent. Detects which agent hosts exist on this machine and rsyncs the 59 `S
 Always run with `--dry-run` first to see the host list and the count.
 
 ```bash
-./setup.sh --install-skills --dry-run
-# would install 59 skills → /Users/<you>/.claude/skills  (claude)
-# would install 59 skills → /Users/<you>/.agents/skills  (codex)
-# would install 59 skills → /Users/<you>/.hermes/skills  (hermes)
-# would install 59 skills → /Users/<you>/.config/opencode/skills  (opencode)
-# dry-run: no files changed (expected 59 skills)
+./setup.sh --become-builder --dry-run
+# would install 69 skills → /Users/<you>/.claude/skills  (claude)
+# would install 69 skills → /Users/<you>/.agents/skills  (codex)
+# dry-run: no files changed (expected 69 skills)
 ```
 
-Post-install, the count is verified: if the destination does not contain 59 `SKILL.md` files, the script exits non-zero. The check is the safeguard against a partial rsync.
+Post-install, the count is verified: if the destination does not contain the expected number of skill folders, the script warns. The check is the safeguard against a partial rsync.
 
 ### 2. `--init-project <path>` — scaffold a new project
 
@@ -107,7 +105,7 @@ Useful after pulling an old project out of storage, or when an agent session dri
 
 ### 4. `--validate` — run the repo validator
 
-`scripts/validate_repo.py` — the same gate GitHub Actions runs. Checks skill frontmatter (name, description ≤180, MIT, "Use" trigger), playbook numbering, the 59/12/5/10 count claims in README and AGENTS, the CODEOWNERS template, plugin packaging, broken local links, OS metadata in the tree, and the AGENTS.md 32 KiB Codex budget.
+`scripts/validate_repo.py` — the same gate GitHub Actions runs. Checks skill frontmatter (name, description ≤180, MIT, "Use" trigger), playbook numbering, the live count claims in README and AGENTS (currently 69/13/7/12), badge alts, QUICKSTART/BLUEPRINT expect counts, plugin packaging, broken local links, OS metadata in the tree, and the AGENTS.md 32 KiB Codex budget.
 
 The validator is fast (sub-second on a warm checkout). Run it after any change to a skill, a playbook, or the count badges.
 
@@ -168,7 +166,7 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 - **The Makefile wraps `setup.sh` for muscle memory** (`make install-skills`, `make validate`, `make test`). The Makefile does not duplicate the logic; if a flag changes in `setup.sh`, the Makefile picks it up automatically.
 - **`scripts/new-project.sh` is a sibling of `--init-project`.** They produce the same output; the flag is preferred for new work. `new-project.sh` remains the path-mode entry for shells that don't like long flags.
 - **The 4-question pre-flight is the only friction by design.** Adding a fifth question is a breaking change for any script that wraps the bootstrap. State an assumption and move on.
-- **The validator's `description_chars` budget is 151 per skill × 59 skills = 8,909.** Adding a new skill pushes the budget up automatically. Adding a skill with a description that exceeds 180 characters fails the gate outright.
+- **The validator's `description_chars` budget is 151 per skill × N skills.** Adding a new skill pushes the budget up automatically. Adding a skill with a description that exceeds 180 characters fails the gate outright.
 - **The AGENTS.md mirror must stay under 32 KiB** (Codex's default budget). The validator enforces it. If a routing table grows past it, split the table into a per-domain file.
 
 ---
@@ -176,9 +174,9 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 ## The check
 
 ```
-□ ./setup.sh --install-skills --dry-run shows 59 skills to 4+ hosts
-□ ./setup.sh --install-skills (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc.
-□ ./setup.sh --validate passes (OK 59/12/5/10, no errors)
+□ ./setup.sh --become-builder --dry-run shows 69 skills to the detected hosts
+□ ./setup.sh --become-builder (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc. and prints "You are Dr Non the Builder"
+□ ./setup.sh --validate passes (OK 69/13/7/12, no errors)
 □ ./setup.sh --init-project <test-path> generates a project with no unfilled placeholder brackets
 □ ./setup.sh --audit <test-path> reports the same invariants the new-project generator created
 □ The project's CLAUDE.md has an Anti-Regression section that is not empty

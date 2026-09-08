@@ -60,3 +60,5 @@ Do not "fix" the design system to match Tailwind defaults while you are in here.
 ## The test
 
 You performed the user path after the deploy, on the URL a human would open, at at least one desktop and one mobile width, and you can name what you clicked. If you only looked at a PNG, T did not run.
+
+A change-level T is not a system-level walkthrough. For three personas before a major release — first-time, second-time, extreme — use [`human-walkthrough`](../human-walkthrough/SKILL.md).
