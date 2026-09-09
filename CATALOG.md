@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Seventy-nine focused skills, grouped by the decision they change. Start with one problem;
+Eighty-eight focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -11,10 +11,12 @@ load one matching skill. The collection is a routing system, not a checklist.
 | Entering an existing repository | [`agent-memory`](skills/agent-memory/SKILL.md) + [`anti-regression`](skills/anti-regression/SKILL.md) |
 | Scoping a nontrivial change | [`planning-discipline`](skills/planning-discipline/SKILL.md) + [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) |
 | Diagnosing a failure | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) |
-| Changing a user-visible flow | [`browser-as-t`](skills/browser-as-t/SKILL.md) |
+| Changing a user-visible flow | [`browser-as-t`](skills/browser-as-t/SKILL.md) + [`accessible-by-default`](skills/accessible-by-default/SKILL.md) |
 | Closing the work | [`adversarial-review`](skills/adversarial-review/SKILL.md) + [`result-honesty`](skills/result-honesty/SKILL.md) + [`ship-discipline`](skills/ship-discipline/SKILL.md) |
 | Before a major release | [`human-walkthrough`](skills/human-walkthrough/SKILL.md) |
 | After a year of patches | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) |
+| Picking up another agent's commits | [`agent-relay`](skills/agent-relay/SKILL.md) |
+| Reading a terse or compound brief | [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) |
 
 ## Think, build, review, ship
 
@@ -56,6 +58,8 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`harness-hardening`](skills/harness-hardening/SKILL.md) | Named agents, hooks, and rules need proof that they exist and fire |
 | [`mcp-cli-first`](skills/mcp-cli-first/SKILL.md) | A connector, CLI, or API can perform an action that would otherwise be described |
 | [`subagent-routing`](skills/subagent-routing/SKILL.md) | A bounded task may justify a fresh agent, independent review, or parallel work |
+| [`agent-relay`](skills/agent-relay/SKILL.md) | Another agent's commits are being picked up — a baton, a ledger, and a verdict on the previous leg before anything is added |
+| [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) | A brief is terse, compound, unconventional, or names a person as the specification — decode the shape before building |
 | [`codex-workbench`](skills/codex-workbench/SKILL.md) | Repeated Codex behavior needs the right home: rules, skill, plugin, app, hook, or automation |
 
 ## Production and resilience
@@ -65,6 +69,10 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`production-spine`](skills/production-spine/SKILL.md) | Software touching users, money, or data is about to be called production-ready |
 | [`google-cloud-run`](skills/google-cloud-run/SKILL.md) | A containerized or source-built web service needs $0 idle scale-to-zero hosting, custom domain SSL, Secret Manager, and WIF |
 | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) | An app needs subscriptions or one-time payments with hosted Stripe Checkout, Customer Portal, and signature-verified webhooks |
+| [`auth-entitlement`](skills/auth-entitlement/SKILL.md) | Login, paid tiers, or gated routes need identity joined to billing, with access derived server-side from webhooks rather than the client |
+| [`observability-budget`](skills/observability-budget/SKILL.md) | A live service needs monitoring — the wake list written first, one channel, and unactionable alerts deleted rather than tuned |
+| [`restore-drill`](skills/restore-drill/SKILL.md) | A service holds data you cannot recreate and no restore has ever been performed and dated |
+| [`data-protection-pdpa`](skills/data-protection-pdpa/SKILL.md) | Cameras, bots, logins, or sensor feeds touch personal data — Thai PDPA and GDPR minimums, and the architecture that avoids them |
 | [`risk-posture`](skills/risk-posture/SKILL.md) | A solo builder must balance release speed against real blast radius |
 | [`deploy-verification`](skills/deploy-verification/SKILL.md) | A CDN deploy must prove the actual static bytes reached users |
 | [`always-on-services`](skills/always-on-services/SKILL.md) | A Mac-hosted service needs supervision, a public tunnel, and restart discipline |
@@ -79,6 +87,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`learn`](skills/learn/SKILL.md) | A problem is about to be solved — search the accumulated lessons for "didn't we fix this before?" before solving it again |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | A displayed number needs source, fallback tier, and age |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | An API/feed adapter should be recorded once and reused |
+| [`deep-scraping`](skills/deep-scraping/SKILL.md) | A needed feed exists only as a web page — store raw before parsed, crawl politely, fail loudly on zero rows |
 | [`workspace-lean`](skills/workspace-lean/SKILL.md) | Worktrees or dependencies consume disk without risking live services or unique commits |
 | [`know-when-to-wait`](skills/know-when-to-wait/SKILL.md) | Immature tooling may be the blocker, not insufficient effort |
 | [`full-stack-bootstrap`](skills/full-stack-bootstrap/SKILL.md) | A new project needs memory, deploy, service, data, and design contracts in one pass |
@@ -97,12 +106,14 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`colour-and-type`](skills/colour-and-type/SKILL.md) | A palette and type scale need choosing, not just enforcing |
 | [`data-display`](skills/data-display/SKILL.md) | Any chart, table, or number is about to be rendered |
 | [`phone-first`](skills/phone-first/SKILL.md) | A surface will be shared as a link and opened on a phone |
+| [`accessible-by-default`](skills/accessible-by-default/SKILL.md) | A surface must be operable by keyboard, screen reader, and low vision — not just look right |
 | [`beyond-the-screen`](skills/beyond-the-screen/SKILL.md) | A deck, PDF, document, social card, or infographic is the deliverable |
 | [`multilingual-type`](skills/multilingual-type/SKILL.md) | Type is set in Thai, CJK, Arabic, or any script you do not read |
 | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) | Generated text must not read as machine-written — kill the tells, then write plainly |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Navigation or a dashboard needs paths, edges, districts, nodes, and a landmark |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Public prior art or a DESIGN.md file needs pattern extraction inside your design contract |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | City buildings need fast, legible 3D extrusion without geometry glitches |
+| [`geospatial-core`](skills/geospatial-core/SKILL.md) | Boundaries, routes, points, or basemaps are being sourced, simplified, projected, or served |
 | [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | Weighted dimensions need a dependency-free radar chart |
 | [`narrative-companion-surfaces`](skills/narrative-companion-surfaces/SKILL.md) | Writing needs an interactive companion without pretending shuffled data is live computation |
 

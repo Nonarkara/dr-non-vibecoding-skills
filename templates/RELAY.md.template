@@ -1,0 +1,32 @@
+# Relay ledger — <project>
+
+Append-only. One leg per agent turn. A leg may not open until the previous one
+has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.sh`.
+
+**Standing constraints — every leg reads this block before its first edit.**
+These are the things that die at a handoff unless they are written down.
+
+- Design owner for this chain: <name> — no other leg changes tokens, spacing, or type.
+- Never touch: <paths that are load-bearing and out of scope>
+- Decided and closed: <decisions that are not to be re-litigated, with the date>
+- Deploy: one leg deploys, at the end. Never two.
+
+---
+
+## Leg 01 · <agent-id> · <UTC timestamp> · OPEN
+- Scope: <paths this leg owns writes on>
+- Verdict on leg 00: <confirm|correct|reject> — <note with file:line> (omit on the first leg)
+- Landed: <a fact a stranger can verify, with file:line or a command>
+- Open: <a question with no preferred answer>
+- Closed: <UTC timestamp>
+
+<!--
+LANDED is facts, not claims. "Fixed the figures" is a claim; "skills/x/SKILL.md:12
+now reads 180k vCPU-s, matching the vendor free-tier page" is a fact.
+
+OPEN carries no preferred answer. Writing "should probably be X" hands the next
+agent your conclusion and spends the cold read you were relying on them for.
+
+Nothing else belongs in a leg. Reasoning, alternatives considered, and the
+argument for a choice go in docs/lessons/ — see skills/lesson-residue/SKILL.md.
+-->

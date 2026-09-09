@@ -117,6 +117,33 @@ Co-Authored-By: Cursor <cursoragent@cursor.com>
 
 or the short form used across this practice: `Agent: cursor` / `Agent: antigravity` / `Agent: glm-2.5`. Never strip another agent's trailer. The brain that reads history cannot see ghosts.
 
+**The address has to be real.** `Co-Authored-By: Antigravity <antigravity@google.com>` looks like attribution and is a fabricated one — nobody owns that mailbox, and git will carry it forever in a history you cannot rewrite once it is pushed. Use the vendor's documented agent address, a `noreply` address you can point at, or the short `Agent:` form above, which claims no mailbox at all. When in doubt, the short form.
+
+### Relay trailers
+
+When more than one agent works a repo in sequence, three extra trailer keys make the chain reconstructable from `git log` alone, with no ledger file present. `scripts/relay.sh handoff` prints them. See [`agent-relay`](../skills/agent-relay/SKILL.md).
+
+```
+Relay-Leg: 07
+Relay-Agent: claude
+Relay-Reviewed: 06 — 2 corrected, 1 confirmed
+Relay-Open: cold-start latency claim unmeasured
+```
+
+`Relay-Reviewed` is the load-bearing one: it is the record that this leg ruled on the previous leg rather than simply adding to it. A relay commit without it is a second author, not a second reader.
+
+```bash
+git log --format='%(trailers:key=Relay-Reviewed,valueonly)' | grep -c .   # legs that actually ruled
+```
+
+**All trailers go in one final block, with no blank line between them.** Git's
+trailer parser only reads the *last* paragraph of the message. Split the relay
+trailers from the `Co-Authored-By` block with a blank line and the relay ones stop
+being trailers — they become ordinary body text, and every `%(trailers:key=…)`
+query above silently returns nothing. This is easy to get wrong and produces no
+error; the check is `git log -1 --format='%(trailers)'` on the commit you just
+made.
+
 ---
 
 ## Why any of this matters
