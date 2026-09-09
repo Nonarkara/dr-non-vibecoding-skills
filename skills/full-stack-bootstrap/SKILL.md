@@ -41,24 +41,25 @@ The `Makefile` at the repo root is the developer-muscle-memory wrapper — `make
 
 ### 1. `--become-builder` / `--install-skills` — install the stack into every agent
 
-Idempotent. Detects which agent hosts exist on this machine and rsyncs every `SKILL.md` folder into each host's discovery path. `--become-builder` does the same install, then prints the Builder identity and next steps. Count is live (currently **69**); do not hardcode it in a new wrapper — read `ls skills | wc -l`.
+Idempotent. Detects which agent hosts exist on this machine and rsyncs every `SKILL.md` folder into each host's discovery path. `--become-builder` does the same install, then prints the Builder identity and next steps. Count is live (currently **71**); do not hardcode it in a new wrapper — read `ls skills | wc -l`.
 
 | Agent | Target | Notes |
 |---|---|---|
 | **Claude Code** | `~/.claude/skills/` | Also `Mavis Code` (Mavis Code runs in the same discovery path) |
 | **Codex / ChatGPT Desktop** | `~/.agents/skills/` | Codex also accepts a plugin install — see README |
+| **Antigravity / Gemini CLI** | `~/.gemini/antigravity/skills/` & `~/.agents/skills/` | Native AGY discovery + shared agent fabric |
 | **Cursor** | `~/.cursor/skills/` | Project-level is `.cursor/skills/`; this is the global drop |
 | **Hermes** | `~/.hermes/skills/` | Detected only if `~/.hermes` exists |
 | **OpenCode** | `~/.config/opencode/skills/` | Detected only if `~/.config/opencode` exists |
-| **Antigravity / Gemini CLI** | shares `~/.agents/skills/` | The same fabric as Codex |
 
 Always run with `--dry-run` first to see the host list and the count.
 
 ```bash
 ./setup.sh --become-builder --dry-run
-# would install 69 skills → /Users/<you>/.claude/skills  (claude)
-# would install 69 skills → /Users/<you>/.agents/skills  (codex)
-# dry-run: no files changed (expected 69 skills)
+# would install 71 skills → /Users/<you>/.claude/skills  (claude)
+# would install 71 skills → /Users/<you>/.agents/skills  (codex)
+# would install 71 skills → /Users/<you>/.gemini/antigravity/skills  (antigravity)
+# dry-run: no files changed (expected 71 skills)
 ```
 
 Post-install, the count is verified: if the destination does not contain the expected number of skill folders, the script warns. The check is the safeguard against a partial rsync.
@@ -174,9 +175,9 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 ## The check
 
 ```
-□ ./setup.sh --become-builder --dry-run shows 69 skills to the detected hosts
+□ ./setup.sh --become-builder --dry-run shows 71 skills to the detected hosts
 □ ./setup.sh --become-builder (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc. and prints "You are Dr Non the Builder"
-□ ./setup.sh --validate passes (OK 69/13/7/12, no errors)
+□ ./setup.sh --validate passes (OK 71/13/7/12, no errors)
 □ ./setup.sh --init-project <test-path> generates a project with no unfilled placeholder brackets
 □ ./setup.sh --audit <test-path> reports the same invariants the new-project generator created
 □ The project's CLAUDE.md has an Anti-Regression section that is not empty

@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Sixty-nine focused skills, grouped by the decision they change. Start with one problem;
+Seventy-one focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -63,6 +63,8 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | Skill | Load it when… |
 |---|---|
 | [`production-spine`](skills/production-spine/SKILL.md) | Software touching users, money, or data is about to be called production-ready |
+| [`google-cloud-run`](skills/google-cloud-run/SKILL.md) | A containerized or source-built web service needs $0 idle scale-to-zero hosting, custom domain SSL, Secret Manager, and WIF |
+| [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) | An app needs subscriptions or one-time payments with hosted Stripe Checkout, Customer Portal, and signature-verified webhooks |
 | [`risk-posture`](skills/risk-posture/SKILL.md) | A solo builder must balance release speed against real blast radius |
 | [`deploy-verification`](skills/deploy-verification/SKILL.md) | A CDN deploy must prove the actual static bytes reached users |
 | [`always-on-services`](skills/always-on-services/SKILL.md) | A Mac-hosted service needs supervision, a public tunnel, and restart discipline |

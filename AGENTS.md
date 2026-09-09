@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **69 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **71 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **13 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **7 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene.
 - **12 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
@@ -57,7 +57,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 69 on every task.
+# the rules file that host actually reads; do not load all 71 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -133,6 +133,8 @@ Pick the skill that matches your problem:
 | Voice-cloned podcast pipeline | `skills/voice-clone-podcast/SKILL.md` |
 | Companion surfaces for narrative portfolios | `skills/narrative-companion-surfaces/SKILL.md` |
 | Production spine for public-facing data | `skills/production-spine/SKILL.md` |
+| Scale-to-zero serverless web service on Google Cloud Run with custom domain SSL and WIF | `skills/google-cloud-run/SKILL.md` |
+| Subscriptions or payments via Stripe Checkout, Customer Portal, and verified webhooks | `skills/stripe-checkout-billing/SKILL.md` |
 | IPTV channel aggregation | `skills/iptv-streaming/SKILL.md` |
 | Thai traffic camera integration | `skills/itic-cctv-integration/SKILL.md` |
 | Always-on background services via launchd | `skills/always-on-services/SKILL.md` |
