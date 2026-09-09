@@ -104,11 +104,16 @@ install_skills() {
   # 3. Cursor global skills (~/.cursor/skills)
   targets+=("$HOME/.cursor/skills:Cursor (Global)")
 
-  # 4. Hermes (~/.hermes/skills)
+  # 4. Antigravity (~/.gemini/antigravity/skills)
+  if [[ -d "$HOME/.gemini" ]]; then
+    targets+=("$HOME/.gemini/antigravity/skills:Antigravity")
+  fi
+
+  # 5. Hermes (~/.hermes/skills)
   if [[ -d "$HOME/.hermes" ]]; then
     targets+=("$HOME/.hermes/skills:Hermes")
   fi
-  # 5. OpenCode (~/.config/opencode/skills) — only if present
+  # 6. OpenCode (~/.config/opencode/skills) — only if present
   if [[ -d "$HOME/.config/opencode" ]]; then
     targets+=("$HOME/.config/opencode/skills:OpenCode")
   fi
@@ -835,7 +840,7 @@ main() {
         ARG_SERVICES="false"
         shift
         ;;
-      --dry-run|--claude|--codex|--cursor|--hermes|--opencode|--all)
+      --dry-run|--claude|--codex|--cursor|--gemini|--antigravity|--hermes|--opencode|--all)
         SKILLS_ARGS+=("$1")
         if [[ -z "$action" ]]; then action="skills"; fi
         shift
@@ -855,7 +860,7 @@ main() {
   # No flag: pipe/script → become-builder. TTY → menu with Builder as default.
   if [[ -z "$action" ]]; then
     if [[ ! -t 0 ]]; then
-      become_builder "${SKILLS_ARGS[@]}"
+      become_builder ${SKILLS_ARGS[@]+"${SKILLS_ARGS[@]}"}
       exit 0
     fi
     banner
