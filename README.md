@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 71 skills, 13 playbooks, 7 references, and 12 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 79 skills, 13 playbooks, 7 references, and 12 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 71](https://img.shields.io/badge/skills-71-F59E0B)](skills/)
+[![Skills: 79](https://img.shields.io/badge/skills-79-F59E0B)](skills/)
 [![Playbooks: 13](https://img.shields.io/badge/playbooks-13-1A1A1A)](playbooks/)
 [![Templates: 12](https://img.shields.io/badge/templates-12-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**71 skills** · **13 playbooks** · **7 references** · **12 templates**
+**79 skills** · **13 playbooks** · **7 references** · **12 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -136,7 +136,7 @@ dr-non-vibecoding-skills/
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 71 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 79 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -308,7 +308,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["71 skills"] --> A["Your agent"]
+  S["79 skills"] --> A["Your agent"]
   P["13 playbooks"] --> A
   R["7 refs"] --> A
   T["12 templates"] --> A
