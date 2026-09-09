@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 71 skills, 13 playbooks, 7 references, and 12 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 75 skills, 14 playbooks, 7 references, and 12 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 71](https://img.shields.io/badge/skills-71-F59E0B)](skills/)
-[![Playbooks: 13](https://img.shields.io/badge/playbooks-13-1A1A1A)](playbooks/)
-[![Templates: 12](https://img.shields.io/badge/templates-12-0F766E)](templates/)
+[![Skills: 75](https://img.shields.io/badge/skills-75-F59E0B)](skills/)
+[![Playbooks: 14](https://img.shields.io/badge/playbooks-14-1A1A1A)](playbooks/)
+[![Templates: 13](https://img.shields.io/badge/templates-13-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**71 skills** · **13 playbooks** · **7 references** · **12 templates**
+**75 skills** · **14 playbooks** · **7 references** · **13 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -28,7 +28,9 @@ Independent. Written for a **Thai–English** audience. Not an official depa, AS
 
 ## The Manifesto: The Passion & Why We Build
 
-In the age of generative AI, anyone can type a prompt and receive five hundred lines of code in seconds. Yet 99% of vibe-coded projects evaporate within a week — crippled by agent amnesia, bloated dependencies, unverified claims, generic template aesthetics, and zero economic viability.
+In the age of generative AI, anyone can type a prompt and receive five hundred lines of code in seconds. Getting to five hundred lines was never the hard part. Keeping them alive is: the projects that die die of agent amnesia, dependencies nobody chose, claims nobody checked, a design that looks like every other generated app, and no way to charge for any of it.
+
+We have no survey number for how often that happens and will not invent one. The evidence in this repository is narrower and better: named incidents, in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md), each one paid for.
 
 ### Why build anything at all?
 
@@ -128,15 +130,15 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 71 modular agent capabilities (plain markdown with YAML frontmatter)
+├── skills/           # 75 modular agent capabilities (plain markdown with YAML frontmatter)
 ├── playbooks/        # 13 narrative war stories & architectural deep-dives
 ├── reference/        # 7 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs)
 ├── templates/        # 12 drop-in production scaffolding files
-├── scripts/          # Zero-dependency bash & python tools (setup, install, validator)
+├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 71 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 75 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -145,8 +147,8 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 71 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
-| [`playbooks/`](playbooks/) | 13 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`skills/`](skills/) | 75 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`playbooks/`](playbooks/) | 14 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
 | [`reference/`](reference/) | 7 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
 | [`templates/`](templates/) | 12 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
 
@@ -162,6 +164,9 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | The think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic. Closes with [`human-walkthrough`](skills/human-walkthrough/SKILL.md) (3 personas) and [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) (reconstruct). |
 | Google Cloud serverless spine | [`google-cloud-run`](skills/google-cloud-run/SKILL.md) | $0 idle bill, scale-to-zero, 2M free requests/mo, Google Secret Manager, and keyless Workload Identity Federation (WIF). |
 | Real-world monetization | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) | Hosted Stripe Checkout, Customer Portal, and signature-verified webhook idempotency (avoiding the raw body parsing trap). |
+| Identity joined to money | [`auth-entitlement`](skills/auth-entitlement/SKILL.md) | Entitlement is a server row fed only by verified webhooks. The checkout redirect is a hint; anyone can type that URL. |
+| Knowing it broke, at 3 AM | [`observability-budget`](skills/observability-budget/SKILL.md) | The wake list is written before any tool is installed. One channel, runbook line in every alert, unactionable rules deleted rather than tuned. |
+| Data you can actually get back | [`restore-drill`](skills/restore-drill/SKILL.md) | A dated restore from the oldest acceptable backup, with RTO measured and what broke recorded. A green backup job is not evidence. |
 | Durable project memory across agents | [`agent-memory`](skills/agent-memory/SKILL.md) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Lessons migrate from project contracts into a cross-agent Obsidian Second Brain via `obsidian-bridge` MCP. |
 | Production proof & honesty | [`result-honesty`](skills/result-honesty/SKILL.md) + [`wrong-green`](skills/wrong-green/SKILL.md) + [`deploy-verification`](skills/deploy-verification/SKILL.md) | Succeeded / Failed / Skipped / Unverified reporting. Rejects green badges that measure the wrong invariant. |
 | Civic and public-data discipline | [`honest-envelope`](skills/honest-envelope/SKILL.md) + [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Every metric displays `{source, tier, age}`. Public surfaces gracefully degrade to static mirrors during outages. |
@@ -170,6 +175,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Free 7-layer AppSec pipeline | [`appsec-stack`](skills/appsec-stack/SKILL.md) | Gitleaks, Semgrep SAST, Dependabot SCA, Syft SBOM, auto-updates, DAST, and exploit verification with zero license costs. |
 | Mac-hosted 24/7 background services | [`always-on-services`](skills/always-on-services/SKILL.md) | Supervised launchd jobs (server / tunnel / watchdog) that survive laptop lid sleep with Cloudflare Tunnel ingress. |
 | Multi-agent parallel coordination | [`staff-swarm`](skills/staff-swarm/SKILL.md) + [`subagent-routing`](skills/subagent-routing/SKILL.md) | Token tiers (Gemini Flash for bulk, Gemini Pro / Sonnet for adapters, Opus for architecture) with bounded briefs. |
+| Agents handing work to each other across sessions and vendors | [`agent-relay`](skills/agent-relay/SKILL.md) + [`scripts/relay.sh`](scripts/relay.sh) | A baton, an append-only ledger, `Relay-*` commit trailers, and a mandatory verdict on the previous leg. Read the diff before the summary; stop after two clean legs. |
 | Real-world sensory perception | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) + [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) | Telegram/Line bots with cited RAG; RTSP/ONVIF local camera grids; dated satellite time-stacks for flood/fire awareness. |
 
 See the complete grouped inventory in [`CATALOG.md`](CATALOG.md).
@@ -188,6 +194,7 @@ Every rule in this repository was paid for by a real production incident:
 | A health check stayed green while useful data ingestion died | [`wrong-green`](skills/wrong-green/SKILL.md) + [`honest-envelope`](skills/honest-envelope/SKILL.md) |
 | Rules in an agent prompt named CLI hooks that were never installed | [`harness-hardening`](skills/harness-hardening/SKILL.md) |
 | Express middleware parsed JSON before Stripe webhook signature check | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) |
+| Two files in this repo quoted the same free-tier figures in opposite order, written weeks apart | [`agent-relay`](skills/agent-relay/SKILL.md) |
 
 The complete incident narratives are preserved in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
@@ -278,13 +285,14 @@ Before closing, run $adversarial-review, then report with $result-honesty.
 Finish with the $ship-discipline loop: Commit, Push, Deploy, Test on the live URL.
 Before a major milestone, walk it as three distinct personas with $human-walkthrough.
 When a year of incremental patches needs structural clarity, reconstruct with $power-of-hindsight.
+If you are picking up another agent's commits, run $agent-relay first: rule on the last leg before adding your own.
 ```
 
 ---
 
 ## Playbooks: Read Once, Internalize Forever
 
-The 13 numbered playbooks record the lived field experience behind the rules:
+The 14 numbered playbooks record the lived field experience behind the rules:
 
 1. [How I actually code](playbooks/01-how-i-actually-code.md) — The daily solo-builder rhythm.
 2. [The CLAUDE.md ladder](playbooks/02-the-claude-md-ladder.md) — Three tiers of persistent project contracts.
@@ -299,6 +307,7 @@ The 13 numbered playbooks record the lived field experience behind the rules:
 11. [The 2026 steal map](playbooks/11-the-2026-steal-map.md) — Curated techniques stolen from top engineering practices (and packs refused).
 12. [The Codex workbench](playbooks/12-the-codex-workbench.md) — Cross-runtime portability and packaging.
 13. [The digital twin](playbooks/13-the-digital-twin.md) — Composing satellites, cameras, sensor feeds, and staff swarms.
+14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 
 ---
 
@@ -308,10 +317,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["71 skills"] --> A["Your agent"]
-  P["13 playbooks"] --> A
+  S["75 skills"] --> A["Your agent"]
+  P["14 playbooks"] --> A
   R["7 refs"] --> A
-  T["12 templates"] --> A
+  T["13 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

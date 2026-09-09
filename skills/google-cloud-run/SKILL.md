@@ -8,8 +8,8 @@ license: MIT
 
 Google Cloud Run is the premier hosting target for the Thinker-to-Doer practice:
 - **$0 Idle Bill:** Scales to true zero instances when there is no traffic.
-- **No Cold Sleep Penalties:** Unlike free tiers that sleep for 30–60 seconds, Cloud Run containers wake in milliseconds.
-- **Generous Free Tier:** 2 million requests, 360,000 vCPU-seconds, and 180,000 GiB-seconds per month free every month.
+- **No Cold Sleep Penalties:** Unlike free tiers that sleep for 30–60 seconds, a scaled-to-zero Cloud Run container cold-starts in under two seconds for a small Node or Python image. Measure your own image before quoting a number.
+- **Generous Free Tier:** 2 million requests, 180,000 vCPU-seconds, and 360,000 GiB-seconds per month. Check the current vendor page before repeating these — free-tier figures move, and quoting a stale one is the same error as inventing one.
 - **Zero Ingress Hassle:** Instant Google-managed SSL certificates for custom domains.
 
 ---

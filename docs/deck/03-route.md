@@ -2,7 +2,7 @@
 
 > **The catalog is a router.** Start with the moment you are in. Load the smallest useful skill set. Do not scan all 71.
 
-A router collapses 71 skills to 8. If you know the moment, you know the route. The page is a cheat sheet for the 8 moments a working day actually contains.
+A router collapses 75 skills to 8. If you know the moment, you know the route. The page is a cheat sheet for the 8 moments a working day actually contains.
 
 ![ROUTE — the smallest useful path](../../infographics/pages/page-03.png)
 
@@ -23,15 +23,15 @@ A router collapses 71 skills to 8. If you know the moment, you know the route. T
 
 The 8 moments are not exhaustive. They are the moments that **recur**. Anything one-shot — a typo, a one-line color change — does not need a route; it needs a `fix:` commit.
 
-## Why "load one for the decision" instead of "load all 71"
+## Why "load one for the decision" instead of "load all 75"
 
 Three reasons, in order of cost.
 
-**Context cost.** Loading 71 skill descriptions into the agent's context window on every change is not free. Most of the skill body is not relevant to the current decision. The router pattern keeps the loaded context small (typically 1-2 skills) by loading the *one* skill that matches the *current* moment.
+**Context cost.** Loading 75 skill descriptions into the agent's context window on every change is not free. Most of the skill body is not relevant to the current decision. The router pattern keeps the loaded context small (typically 1-2 skills) by loading the *one* skill that matches the *current* moment.
 
 **Decision cost.** A skill loaded for the wrong reason is worse than no skill. If `agent-memory` is loaded during a deploy, the agent is going to spend the next paragraph re-deriving the project. The route makes the loaded skill match the decision.
 
-**Discovery cost.** A new contributor cannot memorise 71 skills. They can memorise 8 moments. The route is the entry point; the skill is the deep dive.
+**Discovery cost.** A new contributor cannot memorise 75 skills. They can memorise 8 moments. The route is the entry point; the skill is the deep dive.
 
 The system rule at the bottom of the page is the discipline: **Route. Don't scan.** Scanning is the verb a new contributor does when the catalog is too big to navigate. Routing is the verb an experienced one does when they know which skill owns the moment.
 

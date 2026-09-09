@@ -16,7 +16,7 @@ Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 71
+ls ~/.claude/skills | wc -l   # expect 75
 # also: ls ~/.agents/skills | wc -l
 ```
 
@@ -105,4 +105,5 @@ Six months from now that folder is worth more than the code. Mine is the reason 
 - If answers must reach a phone → [`skills/messaging-gateway`](skills/messaging-gateway/SKILL.md) (Telegram first, Line for Thailand, WhatsApp last — RAG with citations)
 - If cameras or satellites are the product → [`skills/home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`skills/satellite-change-watch`](skills/satellite-change-watch/SKILL.md) + [playbook 13](playbooks/13-the-digital-twin.md) (the whole twin, front to backend to security)
 - If one job needs many hands → [`skills/staff-swarm`](skills/staff-swarm/SKILL.md) (researcher + field + orchestrator; cheap models for paraphrase, frontier for assembly)
+- If you are picking up commits another agent left behind → [`skills/agent-relay`](skills/agent-relay/SKILL.md) (baton, ledger, a verdict on the last leg before you add anything) + [playbook 14](playbooks/14-the-relay.md); tooling is `scripts/relay.sh`
 - If you want an agent to ask four questions and scaffold the rest → [`BLUEPRINT.md`](BLUEPRINT.md)

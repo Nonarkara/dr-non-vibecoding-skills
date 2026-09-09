@@ -666,31 +666,31 @@ audit_project() {
   # Check CLAUDE.md
   if [[ -f "$target_dir/CLAUDE.md" ]]; then
     echo -e "  ${GREEN}✓${NC} CLAUDE.md present"
-    ((passed++))
+    passed=$((passed + 1))
     if grep -q "Anti-regression" "$target_dir/CLAUDE.md"; then
       echo -e "    ${GREEN}✓${NC} Anti-regression section defined"
     else
       echo -e "    ${RED}✗${NC} Missing Anti-regression section in CLAUDE.md"
-      ((warnings++))
+      warnings=$((warnings + 1))
     fi
   else
     echo -e "  ${RED}✗${NC} Missing CLAUDE.md (Tier-2 project contract)"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
 
   # Check AGENTS.md
   if [[ -f "$target_dir/AGENTS.md" ]]; then
     echo -e "  ${GREEN}✓${NC} AGENTS.md present (universal agent mirror)"
-    ((passed++))
+    passed=$((passed + 1))
   else
     echo -e "  ${RED}✗${NC} Missing AGENTS.md"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
 
   # Check GEMINI.md
   if [[ -f "$target_dir/GEMINI.md" ]]; then
     echo -e "  ${GREEN}✓${NC} GEMINI.md present (Gemini CLI / Google agents mirror)"
-    ((passed++))
+    passed=$((passed + 1))
   fi
 
   # Check docs/lessons/
@@ -698,44 +698,44 @@ audit_project() {
     local count
     count=$(find "$target_dir/docs/lessons" -name "*.md" | wc -l | tr -d ' ')
     echo -e "  ${GREEN}✓${NC} docs/lessons/ directory present (${count} lesson docs)"
-    ((passed++))
+    passed=$((passed + 1))
   else
     echo -e "  ${RED}✗${NC} Missing docs/lessons/ institutional memory folder"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
 
   # Check deploy script
   if [[ -f "$target_dir/scripts/deploy.sh" ]]; then
     echo -e "  ${GREEN}✓${NC} scripts/deploy.sh present"
-    ((passed++))
+    passed=$((passed + 1))
   else
     echo -e "  ${RED}✗${NC} Missing scripts/deploy.sh"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
 
   # Check verification script
   if [[ -f "$target_dir/scripts/verify.sh" ]]; then
     echo -e "  ${GREEN}✓${NC} scripts/verify.sh present"
-    ((passed++))
+    passed=$((passed + 1))
   else
     echo -e "  ${RED}✗${NC} Missing scripts/verify.sh"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
 
   # Check hygiene files (secrets protection + env names)
   if [[ -f "$target_dir/.gitignore" ]]; then
     echo -e "  ${GREEN}✓${NC} .gitignore present"
-    ((passed++))
+    passed=$((passed + 1))
   else
     echo -e "  ${RED}✗${NC} Missing .gitignore (templates/gitignore.template)"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
   if [[ -f "$target_dir/.env.example" ]]; then
     echo -e "  ${GREEN}✓${NC} .env.example present"
-    ((passed++))
+    passed=$((passed + 1))
   else
     echo -e "  ${RED}✗${NC} Missing .env.example (templates/env.example.template)"
-    ((warnings++))
+    warnings=$((warnings + 1))
   fi
 
   echo -e "\n${AMBER}${BOLD}Audit summary:${NC} ${passed} passed, ${warnings} warning(s)."

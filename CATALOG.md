@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Seventy-one focused skills, grouped by the decision they change. Start with one problem;
+Seventy-five focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -15,6 +15,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | Closing the work | [`adversarial-review`](skills/adversarial-review/SKILL.md) + [`result-honesty`](skills/result-honesty/SKILL.md) + [`ship-discipline`](skills/ship-discipline/SKILL.md) |
 | Before a major release | [`human-walkthrough`](skills/human-walkthrough/SKILL.md) |
 | After a year of patches | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) |
+| Picking up another agent's commits | [`agent-relay`](skills/agent-relay/SKILL.md) |
 
 ## Think, build, review, ship
 
@@ -56,6 +57,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`harness-hardening`](skills/harness-hardening/SKILL.md) | Named agents, hooks, and rules need proof that they exist and fire |
 | [`mcp-cli-first`](skills/mcp-cli-first/SKILL.md) | A connector, CLI, or API can perform an action that would otherwise be described |
 | [`subagent-routing`](skills/subagent-routing/SKILL.md) | A bounded task may justify a fresh agent, independent review, or parallel work |
+| [`agent-relay`](skills/agent-relay/SKILL.md) | Another agent's commits are being picked up — a baton, a ledger, and a verdict on the previous leg before anything is added |
 | [`codex-workbench`](skills/codex-workbench/SKILL.md) | Repeated Codex behavior needs the right home: rules, skill, plugin, app, hook, or automation |
 
 ## Production and resilience
@@ -65,6 +67,9 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`production-spine`](skills/production-spine/SKILL.md) | Software touching users, money, or data is about to be called production-ready |
 | [`google-cloud-run`](skills/google-cloud-run/SKILL.md) | A containerized or source-built web service needs $0 idle scale-to-zero hosting, custom domain SSL, Secret Manager, and WIF |
 | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) | An app needs subscriptions or one-time payments with hosted Stripe Checkout, Customer Portal, and signature-verified webhooks |
+| [`auth-entitlement`](skills/auth-entitlement/SKILL.md) | Login, paid tiers, or gated routes need identity joined to billing, with access derived server-side from webhooks rather than the client |
+| [`observability-budget`](skills/observability-budget/SKILL.md) | A live service needs monitoring — the wake list written first, one channel, and unactionable alerts deleted rather than tuned |
+| [`restore-drill`](skills/restore-drill/SKILL.md) | A service holds data you cannot recreate and no restore has ever been performed and dated |
 | [`risk-posture`](skills/risk-posture/SKILL.md) | A solo builder must balance release speed against real blast radius |
 | [`deploy-verification`](skills/deploy-verification/SKILL.md) | A CDN deploy must prove the actual static bytes reached users |
 | [`always-on-services`](skills/always-on-services/SKILL.md) | A Mac-hosted service needs supervision, a public tunnel, and restart discipline |

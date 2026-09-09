@@ -12,10 +12,10 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **71 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **13 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **75 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **14 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **7 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene.
-- **12 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
+- **13 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
@@ -57,7 +57,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 71 on every task.
+# the rules file that host actually reads; do not load all 75 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -80,7 +80,26 @@ The `templates/` folder has drop-in files for the load-bearing pieces:
 - `tunnel.yml.template` — the Cloudflare Tunnel config, with the deliberately-inert shared fallback.
 - `lesson.md.template` — the structure for a post-session lesson doc.
 
-### 4. Apply the practice
+### 4. If another agent worked here before you
+
+Check first, in this order — the answer changes what you are allowed to do:
+
+```bash
+git log --oneline -10 | grep -i relay   # or: scripts/relay.sh status
+```
+
+If a relay is running, you are a **leg**, not a fresh author. Read
+`skills/agent-relay/SKILL.md` before your first edit. The short form:
+
+1. Read the **diff** of the previous leg before reading its summary. That ordering is the protocol — read the summary first and you inherit its frame, then confirm it.
+2. Rule on the previous leg — `confirm`, `correct`, or `reject`, with a file:line reference — before adding anything of your own. Silence is not confirmation.
+3. Hand off in facts (LANDED) and questions with no preferred answer (OPEN). Not in arguments for your choices.
+4. Two consecutive legs with zero corrections and the chain is done. Stop.
+
+`playbooks/14-the-relay.md` is why. `scripts/relay.sh` is the tooling; the ledger
+lives at `docs/relay/RELAY.md` and `templates/RELAY.md.template` is its shape.
+
+### 5. Apply the practice
 
 Pick the skill that matches your problem:
 
@@ -114,6 +133,7 @@ Pick the skill that matches your problem:
 | Default/copy/incentive feels wrong | `skills/cognition-first/SKILL.md` |
 | Same decision keeps recurring | `skills/written-principles/SKILL.md` |
 | (Claude agents) deciding whether to dispatch a child | `skills/subagent-routing/SKILL.md` |
+| Picking up commits another agent left behind, across sessions or vendors | `skills/agent-relay/SKILL.md` |
 | (Claude agents) about to describe a dashboard | `skills/mcp-cli-first/SKILL.md` |
 | (All agents) response is getting long without earning it | `skills/context-economy/SKILL.md` |
 | (All agents) reporting work as "done" | `skills/result-honesty/SKILL.md` |
@@ -135,6 +155,9 @@ Pick the skill that matches your problem:
 | Production spine for public-facing data | `skills/production-spine/SKILL.md` |
 | Scale-to-zero serverless web service on Google Cloud Run with custom domain SSL and WIF | `skills/google-cloud-run/SKILL.md` |
 | Subscriptions or payments via Stripe Checkout, Customer Portal, and verified webhooks | `skills/stripe-checkout-billing/SKILL.md` |
+| Login, paid tiers, or gated routes — identity joined to billing, entitlement derived from webhooks | `skills/auth-entitlement/SKILL.md` |
+| A live service with no monitoring, or an alert channel nobody reads any more | `skills/observability-budget/SKILL.md` |
+| Backups exist but no restore has ever been performed and dated | `skills/restore-drill/SKILL.md` |
 | IPTV channel aggregation | `skills/iptv-streaming/SKILL.md` |
 | Thai traffic camera integration | `skills/itic-cctv-integration/SKILL.md` |
 | Always-on background services via launchd | `skills/always-on-services/SKILL.md` |
@@ -188,9 +211,10 @@ their exact tool vocabulary may need translation for another host:
 - `subagent-routing` — the `task` / `explore` / `worker` / `verifier` vocabulary is host-specific. Claude, Codex, and other multi-agent runtimes expose different primitives; the cost test and six-field brief are universal.
 - `mcp-cli-first` — the MCP / CLI / API / GUI tier list. **Most useful to Claude Code, but the principle generalises** to any agent with connected tools. The "after setup, write to `context.md`" rule is universal.
 - `context-economy` — the five response shapes, the anti-pattern list, the four-bucket status report. **Universal.** The M5 Max hardware rule is Claude-specific, but the principle — "don't downsize based on assumptions about the machine" — applies anywhere.
+- `agent-relay` — the baton, the ledger, the mandatory verdict on the previous leg. **Universal, and written for you**: it is the protocol for cross-vendor handoffs, so it assumes nothing about your host's subagent primitives.
 - `result-honesty` — succeeded / failed / skipped / unverified reporting. **Universal.** Every agent benefits from the four-bucket format; it is a vocabulary upgrade, not an agent primitive.
 
-`playbooks/08-the-mavis-side.md`, `playbooks/09-the-antigravity-origin.md`, `playbooks/10-the-cursor-desk.md`, `playbooks/11-the-2026-steal-map.md`, and `playbooks/12-the-codex-workbench.md` walk through the agent-side perspectives end to end.
+`playbooks/08-the-mavis-side.md`, `playbooks/09-the-antigravity-origin.md`, `playbooks/10-the-cursor-desk.md`, `playbooks/11-the-2026-steal-map.md`, `playbooks/12-the-codex-workbench.md`, and `playbooks/14-the-relay.md` walk through the agent-side perspectives end to end.
 
 ---
 
