@@ -92,23 +92,34 @@ mapfile -t PROTECTED < <(
     | sed 's|.*/||' | sed 's|\.md$||' | sort -u
 )
 
+# Values arrive from the command line and go into a sed replacement, where `&`
+# expands to the whole match, `|` is our delimiter, and `\` escapes. A name like
+# "Ben & Jerry" or a practice like "A|B Studio" is ordinary, not hostile.
+esc() { printf '%s' "$1" | sed -e 's/[\\|&]/\\&/g'; }
+
 apply_subs() {
   local sedargs=() i=0 tok
+  local e_name e_practice e_short e_slug e_handle e_handle_lc e_accent e_repo
+  e_name="$(esc "$NAME")";         e_practice="$(esc "$PRACTICE")"
+  e_short="$(esc "$SHORT")";       e_slug="$(esc "$SLUG")"
+  e_handle="$(esc "$HANDLE")";     e_accent="$(esc "$ACCENT")"
+  e_repo="$(esc "$REPO")"
+  e_handle_lc="$(esc "$(printf '%s' "$HANDLE" | tr '[:upper:]' '[:lower:]')")"
   # 1. Mask protected tokens so the slug rewrite cannot touch them.
   for tok in "${PROTECTED[@]}"; do
     sedargs+=(-e "s|${tok}|\x01P${i}\x01|g"); i=$((i + 1))
   done
   # 2. Repo name first, so it is not half-rewritten by the slug rule.
-  sedargs+=(-e "s|${UP_SLUG}-vibecoding-skills|${REPO}|g")
+  sedargs+=(-e "s|${UP_SLUG}-vibecoding-skills|${e_repo}|g")
   # 3. Identity, longest match first.
   sedargs+=(
-    -e "s|${UP_FULL}|${NAME}|g"
-    -e "s|${UP_PRACTICE}|${PRACTICE}|g"
-    -e "s|${UP_SHORT}|${SHORT}|g"
-    -e "s|${UP_SLUG}|${SLUG}|g"
-    -e "s|${UP_HANDLE}|${HANDLE}|g"
-    -e "s|$(printf '%s' "$UP_HANDLE" | tr '[:upper:]' '[:lower:]')|$(printf '%s' "$HANDLE" | tr '[:upper:]' '[:lower:]')|g"
-    -e "s|${UP_ACCENT}|${ACCENT}|gI"
+    -e "s|${UP_FULL}|${e_name}|g"
+    -e "s|${UP_PRACTICE}|${e_practice}|g"
+    -e "s|${UP_SHORT}|${e_short}|g"
+    -e "s|${UP_SLUG}|${e_slug}|g"
+    -e "s|${UP_HANDLE}|${e_handle}|g"
+    -e "s|$(printf '%s' "$UP_HANDLE" | tr '[:upper:]' '[:lower:]')|${e_handle_lc}|g"
+    -e "s|${UP_ACCENT}|${e_accent}|gI"
   )
   # 4. Unmask.
   i=0

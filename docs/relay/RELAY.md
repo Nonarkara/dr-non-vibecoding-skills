@@ -67,3 +67,12 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: counts recomputed to the true post-merge numbers: 88 skills, 15 playbooks, 7 references, 13 templates; make validate green with 964 local links
 - Open: cso (main) and appsec-stack (existing) both own 'audit this codebase for security'; learn (main) overlaps lesson-residue and power-of-hindsight. CATALOG's own rule calls a shared decision a catalog bug — not resolved here, because collapsing another leg's skills is churn
 - Closed: 2026-09-09T17:52:29Z
+
+## Leg 06 · claude · 2026-09-09T17:55:18Z · CLOSED
+- Scope: scripts/make-it-mine.sh input escaping
+- Note: same agent as leg 05 — self-review, decorrelation lost
+- Verdict on leg 05: correct — make-it-mine.sh passed user input straight into sed: a '|' in --name/--practice/--repo hit the delimiter and aborted the run, and '&' is a replacement metacharacter that expands to the whole match (scripts/make-it-mine.sh apply_subs)
+- Landed: scripts/make-it-mine.sh escapes sed metacharacters in every user-supplied value; verified with --practice 'A|B Studio' and --name 'Ben & Jerry', both forks validate green at 88 skills
+- Landed: make-it-mine re-tested against the merged 88-skill tree: file count unchanged 185→185, all 8 of main's new skills intact with valid frontmatter, attribution intact
+- Open: origin/main is still at a824b49 (79 skills, 13 playbooks); the 89-skill Founder Tier reported by the next agent is unpushed local work, so the count conflict it warns about does not exist on the remote yet
+- Closed: 2026-09-09T17:55:43Z
