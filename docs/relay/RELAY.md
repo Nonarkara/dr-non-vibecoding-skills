@@ -48,3 +48,13 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Open: non-scrape and 97 other repos were not opened; deep-scraping was written from doctrine, not from that code, and should be corrected against it
 - Open: every virality claim in this leg is reasoning with no receipts — nothing here has gone viral
 - Closed: 2026-09-09T17:25:34Z
+
+## Leg 04 · claude · 2026-09-09T17:44:04Z · CLOSED
+- Scope: scripts/make-it-mine.sh, FORK.md, setup.sh, Makefile, README.md
+- Note: same agent as leg 03 — self-review, decorrelation lost
+- Verdict on leg 03: confirm — leg 03's artifacts all validate and the ledger is intact; make test green (docs/relay/RELAY.md)
+- Landed: scripts/make-it-mine.sh — three-tier fork tool, dry-run by default; tested on a throwaway copy where the fork validates green (80 skills, 842 links, attribution intact)
+- Landed: FORK.md + setup.sh --make-it-mine + make make-it-mine; README carries the fork path next to the install path
+- Landed: four bugs found by testing on a copy: the script rewrote itself mid-run (bash re-reads a running script), the tier-3 banner broke YAML frontmatter, slug rewriting broke links to dr-non-named paths, and a blind rename handed the forker Dr Non's biography
+- Open: no third party has actually forked this; make-it-mine is verified against a synthetic Jane Doe run, not a real fork
+- Closed: 2026-09-09T17:48:58Z

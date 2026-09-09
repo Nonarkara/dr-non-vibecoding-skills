@@ -57,6 +57,7 @@ Options:
   -s, --install-skills           Install skills to all detected agent paths
   -i, --init-project [DIR]       Bootstrap a project codebase with contracts
   -a, --audit [DIR]              Audit an existing project for Dr Non invariants
+  -m, --make-it-mine [ARGS]      Fork this stack under your own name (see FORK.md)
   -v, --validate                 Run repository validator (scripts/validate_repo.py)
   -h, --help                     Show this help message
 
@@ -780,6 +781,10 @@ main() {
           target="."
           shift
         fi
+        ;;
+      -m|--make-it-mine)
+        shift
+        exec "$ROOT_DIR/scripts/make-it-mine.sh" "$@"
         ;;
       -a|--audit)
         action="audit"

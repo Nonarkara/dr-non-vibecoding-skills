@@ -140,6 +140,25 @@ This drops the project contract, CDN deploy script, environment template, and `d
 
 ---
 
+## Make It Yours (Fork Without Stealing the Credit)
+
+```bash
+scripts/make-it-mine.sh --name "Jane Doe" --handle janedoe \
+  --practice "Studio Rain" --accent "#3b82f6" --repo my-vibe-stack --apply
+```
+
+Sorts every file into three tiers and treats them differently: **yours** (identity,
+tokens, contracts — rewritten), **attribution** (`LICENSE`, `NOTICE.md`,
+`CONTRIBUTORS.md` — never touched, and verified intact afterward), and **inherited**
+(playbooks, lessons, named-opinion skills — kept verbatim with a banner saying whose
+incidents these are).
+
+The author line is blanked rather than renamed, because *"architect, urban
+anthropologist, Bangkok"* is a claim and not a field. Full reasoning in
+[`FORK.md`](FORK.md).
+
+---
+
 ## Tour of the Codebase (What's in the Box)
 
 If you fork or clone this repository, here is the complete map of how the system is organized:
@@ -153,6 +172,7 @@ dr-non-vibecoding-skills/
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── HANDSHAKE.md      # One paste. Works in any agent, with no install
+├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
 ├── CATALOG.md        # The complete categorized routing inventory of all 80 skills
