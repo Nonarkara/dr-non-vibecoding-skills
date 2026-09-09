@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **80 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **88 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - **15 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **7 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene.
 - **13 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
@@ -63,7 +63,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 80 on every task.
+# the rules file that host actually reads; do not load all 88 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -181,6 +181,14 @@ Pick the skill that matches your problem:
 | Decks, PDFs, documents, social cards — the non-app surfaces a design system must also govern | `skills/beyond-the-screen/SKILL.md` |
 | Data-driven retrospective: collect every signal, analyze statistically, reconstruct the system from what works | `skills/power-of-hindsight/SKILL.md` |
 | Multi-persona user test (first-time, second-time, extreme user) via real browser — produces a blueprint and roadmap | `skills/human-walkthrough/SKILL.md` |
+| Security audit mode: secrets archaeology, supply chain, STRIDE, OWASP Top 10 — daily and comprehensive modes | `skills/cso/SKILL.md` |
+| Post-deploy monitoring: watch the live app for console errors, perf regressions, and page failures vs a pre-deploy baseline | `skills/canary/SKILL.md` |
+| Code quality dashboard: weighted 0-10 composite from type, lint, test, dead-code, shell-lint, with trend tracking | `skills/health/SKILL.md` |
+| Live developer-experience audit: navigate docs, time the onboarding flow, screenshot error messages, score the CLI | `skills/devex-review/SKILL.md` |
+| Pre-tool guardrail: warn before rm -rf, DROP TABLE, force-push, and similar destructive commands | `skills/careful/SKILL.md` |
+| Capture git state, decisions, and remaining work as a checkpoint any future session can resume | `skills/context-save/SKILL.md` |
+| Resume work from a previous session's checkpoint, restoring git state, decisions, and remaining work | `skills/context-restore/SKILL.md` |
+| Search, show, prune, and export the project's accumulated learnings across sessions | `skills/learn/SKILL.md` |
 | Docs or notes must be searchable locally with citations, no vector-DB ops | `skills/simple-rag/SKILL.md` |
 | Single-machine local inference, offline work, or local embeddings and drafts | `skills/local-llm-ollama/SKILL.md` |
 | Agents need shared recall, capture, and feed tools without a hosted backend | `skills/obsidian-mcp-forge/SKILL.md` |

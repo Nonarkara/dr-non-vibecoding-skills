@@ -58,3 +58,12 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: four bugs found by testing on a copy: the script rewrote itself mid-run (bash re-reads a running script), the tier-3 banner broke YAML frontmatter, slug rewriting broke links to dr-non-named paths, and a blind rename handed the forker Dr Non's biography
 - Open: no third party has actually forked this; make-it-mine is verified against a synthetic Jane Doe run, not a real fork
 - Closed: 2026-09-09T17:48:58Z
+
+## Leg 05 · claude · 2026-09-09T17:51:28Z · CLOSED
+- Scope: merge origin/main, count surfaces
+- Note: same agent as leg 04 — self-review, decorrelation lost
+- Verdict on leg 04: confirm — leg 04 shipped green: GitHub Actions run 38 job validate succeeded on 9e6bcbe, and FORK.md was read back from the remote at that SHA
+- Landed: merged origin/main (a824b49) into the PR branch; 5 conflicts, all count surfaces, resolved to this branch's structure
+- Landed: counts recomputed to the true post-merge numbers: 88 skills, 15 playbooks, 7 references, 13 templates; make validate green with 964 local links
+- Open: cso (main) and appsec-stack (existing) both own 'audit this codebase for security'; learn (main) overlaps lesson-residue and power-of-hindsight. CATALOG's own rule calls a shared decision a catalog bug — not resolved here, because collapsing another leg's skills is churn
+- Closed: 2026-09-09T17:52:29Z

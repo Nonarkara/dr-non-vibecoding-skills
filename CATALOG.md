@@ -1,6 +1,6 @@
 # Skill Catalog
 
-Eighty focused skills, grouped by the decision they change. Start with one problem;
+Eighty-eight focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -77,6 +77,14 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`deploy-verification`](skills/deploy-verification/SKILL.md) | A CDN deploy must prove the actual static bytes reached users |
 | [`always-on-services`](skills/always-on-services/SKILL.md) | A Mac-hosted service needs supervision, a public tunnel, and restart discipline |
 | [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | A public service must survive database downtime or quota failure |
+| [`cso`](skills/cso/SKILL.md) | A codebase needs a security audit in one command — secrets archaeology, supply chain, STRIDE, OWASP Top 10, with daily and comprehensive modes |
+| [`canary`](skills/canary/SKILL.md) | A deploy is about to be called done — watch the live app for console errors, perf regressions, and page failures vs a pre-deploy baseline |
+| [`health`](skills/health/SKILL.md) | "How good is this code" — a 0-10 weighted score from type, lint, test, dead-code, shell-lint, with trend tracking across commits |
+| [`devex-review`](skills/devex-review/SKILL.md) | A developer-facing feature is shipping — measure TTHW, walk the docs as a first-time persona, score the CLI, file failure points with severity and fix |
+| [`careful`](skills/careful/SKILL.md) | Touching prod, debugging live systems, or working in a shared environment — a PreToolUse hook that warns before rm -rf, DROP TABLE, force-push, and similar destructive commands |
+| [`context-save`](skills/context-save/SKILL.md) | A session is ending, a risky change is about to start, or context is about to overflow — capture git state, decisions, and remaining work as a checkpoint |
+| [`context-restore`](skills/context-restore/SKILL.md) | A new session is starting — read the most recent checkpoint, verify the git state, confirm with the operator before continuing |
+| [`learn`](skills/learn/SKILL.md) | A problem is about to be solved — search the accumulated lessons for "didn't we fix this before?" before solving it again |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | A displayed number needs source, fallback tier, and age |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | An API/feed adapter should be recorded once and reused |
 | [`deep-scraping`](skills/deep-scraping/SKILL.md) | A needed feed exists only as a web page — store raw before parsed, crawl politely, fail loudly on zero rows |

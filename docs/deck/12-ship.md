@@ -26,7 +26,7 @@ The five are the **survival set**. A practice that loses one of them is a practi
 
 The line at the top of the page is the most important line in the deck. It is also the most counter-intuitive.
 
-The model is the loudest variable in the system. Every six months a new model ships, and the practice's apparent relevance is questioned. **The model is not the system.** The system is the four shapes wired into one routing loop, with the 80 skills carrying the load-bearing judgments and the 13 templates carrying the load-bearing files.
+The model is the loudest variable in the system. Every six months a new model ships, and the practice's apparent relevance is questioned. **The model is not the system.** The system is the four shapes wired into one routing loop, with the 88 skills carrying the load-bearing judgments and the 13 templates carrying the load-bearing files.
 
 A new model arrives. The practice does not change. The skills are still the skills. The contracts are still the contracts. The deploy is still the deploy. The model's contribution is **the speed at which the practice can execute** — not the practice itself.
 
@@ -39,7 +39,7 @@ The second line is the second-most important line. It is the **operating instruc
 - **Decide once.** Every decision in this collection was made because a real incident or a real constraint forced the decision. The skill body carries the decision; the playbook carries the incident; the reference carries the stable details. A new contributor does not re-derive the decision. They look it up.
 - **Look up forever.** The skills are static markdown. The model can be queried against them indefinitely. The cost of a lookup is one description match; the cost of re-deriving the decision is one hour of confused reading. The practice is biased toward lookups, every time.
 
-The 80 skills are the lookups. The 15 playbooks are the receipts for the lookups. The 7 references are the stable implementation details. The 13 templates are the drop-in files. The whole collection is the **decision ledger** that compounds.
+The 88 skills are the lookups. The 15 playbooks are the receipts for the lookups. The 7 references are the stable implementation details. The 13 templates are the drop-in files. The whole collection is the **decision ledger** that compounds.
 
 ## The golden rule
 

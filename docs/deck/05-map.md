@@ -1,6 +1,6 @@
 # 05 — MAP
 
-> **A decision map, not a toolbox.** 80 skills, grouped by the decision they change. Eight categories. One skill per category is the daily ceiling; everything else is a lookup.
+> **A decision map, not a toolbox.** 88 skills, grouped by the decision they change. Eight categories. One skill per category is the daily ceiling; everything else is a lookup.
 
 The map is the whole-system view at a glance. The route (page 03) is the moment-by-moment index. The map is what the route draws from.
 
