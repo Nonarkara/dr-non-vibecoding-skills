@@ -6,6 +6,8 @@ Every page cites its source file at the bottom. If a page says something that is
 
 **Get the source files:** [`infographics/dr_non_vibecoding_infographics.pdf`](infographics/dr_non_vibecoding_infographics.pdf) (349 KB) · [`infographics/dr_non_vibecoding_infographics.pptx`](infographics/dr_non_vibecoding_infographics.pptx) (786 KB, editable — fork it, reskin it, present it)
 
+**The expanded text companion.** Each of the seven load-bearing pages (01, 03, 05, 07, 08, 11, 12) has a full prose version in [`docs/deck/`](docs/deck/README.md) — the text behind the pixels, linkable to the actual skills. Read the deck as a tour: [01 STACK](docs/deck/01-stack.md) → [03 ROUTE](docs/deck/03-route.md) → [05 MAP](docs/deck/05-map.md) → [07 PROOF](docs/deck/07-proof.md) → [08 DESIGN DNA](docs/deck/08-dna.md) → [11 CLOSE THE LOOP](docs/deck/11-close.md) → [12 SHIP](docs/deck/12-ship.md).
+
 ---
 
 ## Cover

@@ -65,7 +65,7 @@ It is **reference material**, not a deployed app. There is nothing to compile. F
 | [`reference/`](reference/) | 7 docs | APIs, stack picks, named references, commit style, security hygiene, hosting, payments/voice |
 | [`templates/`](templates/) | 12 drop-ins | Project contracts (Tier 1 & 2), deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel, lesson doc |
 
-Plus [`BLUEPRINT.md`](BLUEPRINT.md) (agent-driven project paste) and [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes after the one-liner) as **alternates** to `--become-builder`. Visual deck: [`INFOGRAPHICS.md`](INFOGRAPHICS.md).
+Plus [`BLUEPRINT.md`](BLUEPRINT.md) (agent-driven project paste) and [`QUICKSTART.md`](QUICKSTART.md) (fifteen minutes after the one-liner) as **alternates** to `--become-builder`. Visual deck: [`INFOGRAPHICS.md`](INFOGRAPHICS.md) — 19 PNGs, or read the expanded text behind the 7 load-bearing pages in [`docs/deck/`](docs/deck/README.md).
 
 **This repo is not**
 
@@ -267,7 +267,7 @@ The skills are independent. A typo does not need the whole ceremony; a public da
 | An agent-driven project scaffold | [`BLUEPRINT.md`](BLUEPRINT.md) |
 | Every skill, grouped by job | [`CATALOG.md`](CATALOG.md) |
 | Instructions for agents entering this repository | [`AGENTS.md`](AGENTS.md) |
-| The 19-page visual explanation | [`INFOGRAPHICS.md`](INFOGRAPHICS.md) |
+| The 19-page visual explanation | [`INFOGRAPHICS.md`](INFOGRAPHICS.md) — or the [expanded text behind the 7 load-bearing pages](docs/deck/README.md) |
 
 Playbooks, numbered, read once:
 
