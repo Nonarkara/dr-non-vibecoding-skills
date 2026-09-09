@@ -16,7 +16,7 @@ Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 75
+ls ~/.claude/skills | wc -l   # expect 80
 # also: ls ~/.agents/skills | wc -l
 ```
 
@@ -105,5 +105,11 @@ Six months from now that folder is worth more than the code. Mine is the reason 
 - If answers must reach a phone → [`skills/messaging-gateway`](skills/messaging-gateway/SKILL.md) (Telegram first, Line for Thailand, WhatsApp last — RAG with citations)
 - If cameras or satellites are the product → [`skills/home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`skills/satellite-change-watch`](skills/satellite-change-watch/SKILL.md) + [playbook 13](playbooks/13-the-digital-twin.md) (the whole twin, front to backend to security)
 - If one job needs many hands → [`skills/staff-swarm`](skills/staff-swarm/SKILL.md) (researcher + field + orchestrator; cheap models for paraphrase, frontier for assembly)
+- If you want the whole method in one paste, for an agent with no repo → [`HANDSHAKE.md`](HANDSHAKE.md)
+- If a brief is terse, compound, or names a person as the spec → [`skills/prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) + [playbook 15](playbooks/15-how-dr-non-prompts.md)
+- If the surface is public and must be operable by everyone → [`skills/accessible-by-default`](skills/accessible-by-default/SKILL.md) (unplug the mouse; 200% zoom)
+- If a map layer is too big, in the wrong projection, or has no recorded source → [`skills/geospatial-core`](skills/geospatial-core/SKILL.md)
+- If the data only exists as a web page → [`skills/deep-scraping`](skills/deep-scraping/SKILL.md) (store raw, parse from raw)
+- If cameras, bots, logins, or sensors touch personal data → [`skills/data-protection-pdpa`](skills/data-protection-pdpa/SKILL.md) (Thai PDPA + GDPR)
 - If you are picking up commits another agent left behind → [`skills/agent-relay`](skills/agent-relay/SKILL.md) (baton, ledger, a verdict on the last leg before you add anything) + [playbook 14](playbooks/14-the-relay.md); tooling is `scripts/relay.sh`
 - If you want an agent to ask four questions and scaffold the rest → [`BLUEPRINT.md`](BLUEPRINT.md)

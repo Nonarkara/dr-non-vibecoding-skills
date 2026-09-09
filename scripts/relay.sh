@@ -82,6 +82,14 @@ cmd_open() {
   fi
   printf '\n## Leg %02d · %s · %s · OPEN\n' "$next" "$agent" "$(now)" >> "$LEDGER"
   append_line "- Scope: $scope"
+  # Decorrelation: the value of a leg is that it arrives cold. The same agent
+  # twice in a row is a relay with the coldness taken out — warn, do not block,
+  # because sometimes it is the only agent in the room.
+  if [ -n "$prev" ] && [ "$(echo "$info" | awk '{print $2}')" = "$agent" ]; then
+    append_line "- Note: same agent as leg $prev — self-review, decorrelation lost"
+    printf 'relay: WARNING — leg %s was also %s. A verdict on your own leg is self-grading;\n' "$prev" "$agent" >&2
+    printf '       treat it as unverified and hand to a different model family when you can.\n' >&2
+  fi
   printf 'relay: leg %02d open · %s · scope: %s\n\n' "$next" "$agent" "$scope"
   if [ -n "$prev" ]; then
     cat <<COLD

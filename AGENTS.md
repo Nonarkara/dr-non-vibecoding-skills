@@ -12,8 +12,8 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **75 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **14 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **80 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **15 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **7 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene.
 - **13 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
@@ -24,6 +24,12 @@ There is nothing to compile, nothing to configure, and nothing that can go out o
 ---
 
 ## How to use this repo
+
+### 0. If you have no repo, just the paste
+
+`HANDSHAKE.md` is the whole working relationship in one paste — authority boundary,
+how to read a compressed brief, and the eight non-negotiables. It is self-contained
+and needs no install. If that is all you were given, that is enough to start.
 
 ### 1. Read the spine first
 
@@ -57,7 +63,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 75 on every task.
+# the rules file that host actually reads; do not load all 80 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -134,6 +140,7 @@ Pick the skill that matches your problem:
 | Same decision keeps recurring | `skills/written-principles/SKILL.md` |
 | (Claude agents) deciding whether to dispatch a child | `skills/subagent-routing/SKILL.md` |
 | Picking up commits another agent left behind, across sessions or vendors | `skills/agent-relay/SKILL.md` |
+| The brief is terse, compound, or names a person as the specification | `skills/prompt-like-dr-non/SKILL.md` |
 | (Claude agents) about to describe a dashboard | `skills/mcp-cli-first/SKILL.md` |
 | (All agents) response is getting long without earning it | `skills/context-economy/SKILL.md` |
 | (All agents) reporting work as "done" | `skills/result-honesty/SKILL.md` |
@@ -158,6 +165,10 @@ Pick the skill that matches your problem:
 | Login, paid tiers, or gated routes — identity joined to billing, entitlement derived from webhooks | `skills/auth-entitlement/SKILL.md` |
 | A live service with no monitoring, or an alert channel nobody reads any more | `skills/observability-budget/SKILL.md` |
 | Backups exist but no restore has ever been performed and dated | `skills/restore-drill/SKILL.md` |
+| Cameras, bots, logins, or sensor feeds touch personal data (Thai PDPA / GDPR) | `skills/data-protection-pdpa/SKILL.md` |
+| A surface must be operable by keyboard, screen reader, or at 200% zoom | `skills/accessible-by-default/SKILL.md` |
+| Boundaries, routes, or basemaps need sourcing, simplifying, projecting, serving | `skills/geospatial-core/SKILL.md` |
+| The data exists only as a web page and there is no API | `skills/deep-scraping/SKILL.md` |
 | IPTV channel aggregation | `skills/iptv-streaming/SKILL.md` |
 | Thai traffic camera integration | `skills/itic-cctv-integration/SKILL.md` |
 | Always-on background services via launchd | `skills/always-on-services/SKILL.md` |

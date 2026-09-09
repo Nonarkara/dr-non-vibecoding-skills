@@ -1,7 +1,7 @@
 {
   "name": "dr-non-vibecoding-skills",
   "version": "1.7.0",
-  "description": "Become Dr Non the Builder — field-tested stack for directing AI agents, preserving earned work, and shipping verified software.",
+  "description": "Become Dr Non the Builder \u2014 field-tested stack for directing AI agents, preserving earned work, and shipping verified software.",
   "author": {
     "name": "Dr Non Arkaraprasertkul",
     "url": "https://github.com/Nonarkara"
@@ -14,7 +14,16 @@
     "vibecoding",
     "anti-regression",
     "production",
-    "design"
+    "design",
+    "prompt-engineering",
+    "multi-agent",
+    "accessibility",
+    "pdpa",
+    "civic-tech",
+    "claude-code",
+    "cursor",
+    "codex",
+    "gemini"
   ],
   "skills": "./skills/"
 }

@@ -34,3 +34,17 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Open: no restore drill has ever been run against any project in this practice — restore-drill has no receipt behind it yet
 - Open: agent-relay ships without a war story of its own beyond this leg; it needs a second chain before it earns the playbook's confidence
 - Closed: 2026-09-09T12:29:48Z
+
+## Leg 03 · claude · 2026-09-09T17:15:11Z · CLOSED
+- Scope: skills/, playbooks/, HANDSHAKE.md, docs/lessons/
+- Note: same agent as leg 02 — self-review, decorrelation lost
+- Verdict on leg 02: confirm — relay protocol and tooling behaved as written when re-entered from a cold prompt; scripts/relay.sh status/check both correct (docs/relay/RELAY.md)
+- Verdict on leg 02: correct — relay.sh accepted a same-agent consecutive leg with no warning — decorrelation is the skill's load-bearing rule and the tool did not enforce it (scripts/relay.sh cmd_open)
+- Landed: HANDSHAKE.md — one paste, no install, works in any agent; the most portable artifact in the repo
+- Landed: skills/prompt-like-dr-non + playbooks/15-how-dr-non-prompts.md — nine prompt patterns distilled from the record, with the failure mode of misreading each
+- Landed: skills/accessible-by-default, data-protection-pdpa, geospatial-core, deep-scraping — four zero-coverage gaps confirmed by grep (WCAG, PDPA, EPSG, robots.txt all returned 0 hits across 75 skills)
+- Landed: scripts/relay.sh now warns on a same-agent consecutive leg; docs/lessons/2026-09-09-the-gap-audit.md carries the ranked unbuilt list
+- Open: the city-instance contract (5 control towers, Yala work living inside the NST repo) needs a director decision on where spine ends and instance begins — not an agent's call
+- Open: non-scrape and 97 other repos were not opened; deep-scraping was written from doctrine, not from that code, and should be corrected against it
+- Open: every virality claim in this leg is reasoning with no receipts — nothing here has gone viral
+- Closed: 2026-09-09T17:25:34Z
