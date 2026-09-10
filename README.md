@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 100 skills, 15 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 100 skills, 16 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
 [![Skills: 100](https://img.shields.io/badge/skills-100-F59E0B)](skills/)
-[![Playbooks: 15](https://img.shields.io/badge/playbooks-15-1A1A1A)](playbooks/)
+[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 13](https://img.shields.io/badge/templates-13-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**100 skills** · **15 playbooks** · **11 references** · **13 templates**
+**100 skills** · **16 playbooks** · **11 references** · **13 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -185,7 +185,7 @@ dr-non-vibecoding-skills/
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
 | [`skills/`](skills/) | 88 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
-| [`playbooks/`](playbooks/) | 15 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
 | [`reference/`](reference/) | 7 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
 | [`templates/`](templates/) | 12 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
 
@@ -344,7 +344,7 @@ If the brief is terse or compound, decode it with $prompt-like-dr-non before sta
 
 ## Playbooks: Read Once, Internalize Forever
 
-The 15 numbered playbooks record the lived field experience behind the rules:
+The 16 numbered playbooks record the lived field experience behind the rules:
 
 1. [How I actually code](playbooks/01-how-i-actually-code.md) — The daily solo-builder rhythm.
 2. [The CLAUDE.md ladder](playbooks/02-the-claude-md-ladder.md) — Three tiers of persistent project contracts.
@@ -361,6 +361,7 @@ The 15 numbered playbooks record the lived field experience behind the rules:
 13. [The digital twin](playbooks/13-the-digital-twin.md) — Composing satellites, cameras, sensor feeds, and staff swarms.
 14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 15. [How Dr Non prompts](playbooks/15-how-dr-non-prompts.md) — Eleven seconds of typing that produces three hours of work, and the four things you must already have for it to.
+16. [The philosophical spine](playbooks/16-the-philosophical-spine.md) — Ontology, virtue ethics, and why pure utilitarian AI optimization breaks without human grounding.
 
 ---
 
@@ -371,7 +372,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 ```mermaid
 flowchart TB
   S["100 skills"] --> A["Your agent"]
-  P["15 playbooks"] --> A
+  P["16 playbooks"] --> A
   R["11 refs"] --> A
   T["13 templates"] --> A
   A --> W["Project contract"]
