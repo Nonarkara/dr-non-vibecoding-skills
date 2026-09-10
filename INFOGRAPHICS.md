@@ -202,4 +202,17 @@ Memory (context survives), Design (taste survives), Catalog (integration survive
 - **Fork the visual language** for your own fork of this repo — the grammar (enclosed = identity, bare = signal, one accent color per section, hairline rules, Helvetica-class type) is documented on page 8–9 and in [`axiom-design-core`](skills/axiom-design-core/SKILL.md).
 - **Cite a single page** when you only need one idea — each one is a self-contained argument, not a fragment of a narrative you have to have seen the rest of.
 
+---
+
+## Stack — single-page summary
+
+### The 5 things that survive *(page 20)*
+A 16:9 single page distilled from the whole deck: Memory (context survives), Design (taste survives), Catalog (integration survives), Ship (proof survives), Risk (mistakes stay cheap). MoMA-rules + Axiom Design Core style — bold typographic poster, hairline rules, one amber accent, no decoration. The whole argument in one image.
+
+<img src="infographics/pages/page-20-stack-5-things.png" width="820" alt="The Stack — 5 things that survive">
+
+> THE BEST STACK IS THE ONE THAT SHIPS.
+
+*Synthesis: [`docs/deck/12-ship.md`](docs/deck/12-ship.md) + [`reference/stack-ecosystem.md`](reference/stack-ecosystem.md). Visual language: NYCTA + MoMA rules + Axiom Design Core.*
+
 [← Back to the README](README.md)
