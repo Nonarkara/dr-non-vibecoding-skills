@@ -85,6 +85,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`context-save`](skills/context-save/SKILL.md) | A session is ending, a risky change is about to start, or context is about to overflow — capture git state, decisions, and remaining work as a checkpoint |
 | [`context-restore`](skills/context-restore/SKILL.md) | A new session is starting — read the most recent checkpoint, verify the git state, confirm with the operator before continuing |
 | [`learn`](skills/learn/SKILL.md) | A problem is about to be solved — search the accumulated lessons for "didn't we fix this before?" before solving it again |
+| [`design-extract`](skills/design-extract/SKILL.md) | A public design needs studying for inspiration — orchestrate dembrandt, design-extract, or firecrawl, then read the output through ux-archaeology |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | A displayed number needs source, fallback tier, and age |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | An API/feed adapter should be recorded once and reused |
 | [`deep-scraping`](skills/deep-scraping/SKILL.md) | A needed feed exists only as a web page — store raw before parsed, crawl politely, fail loudly on zero rows |

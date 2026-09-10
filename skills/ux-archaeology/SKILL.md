@@ -14,7 +14,9 @@ The director names a source — "learn from that flood map," "that index's hones
 
 This skill is the allowed reverse-engineering: **public behaviour → named pattern → your DNA**.
 
-Influence: [Vercel's agent skills](https://github.com/vercel-labs/agent-skills) + [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (73 DESIGN.md) + [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) (67 SKILL.md + DESIGN.md pairs).
+For the *operational step* of getting tokens and structure from a public URL, use [`design-extract`](../design-extract/SKILL.md) (the orchestrator) and the catalog at [`reference/design-extractors.md`](../../reference/design-extractors.md) (dembrandt, design-extract/designlang, firecrawl, and the rest). This skill is the discipline; `design-extract` is the workflow.
+
+Influence: [Vercel's agent skills](https://github.com/vercel-labs/agent-skills) + [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) (73 DESIGN.md) + [bergside/awesome-design-skills](https://github.com/bergside/awesome-design-skills) (67 SKILL.md + DESIGN.md pairs) + [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (design anti-patterns).
 
 ---
 
