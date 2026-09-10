@@ -155,7 +155,7 @@ Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, thre
 |---|---|
 | [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) | Single-machine Ollama is needed for offline inference, drafts, or embeddings — graduate to `local-ai-fabric` only when one machine stops being enough |
 | [`simple-rag`](skills/simple-rag/SKILL.md) | Docs, notes, or a corpus must be searchable locally with citations — SQLite FTS5 first, embeddings only after the gate passes |
-| [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) | Agents need their own self-sustaining memory MCP — recall, capture, inbox over an Obsidian vault, no hosted backend |
+| [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) | Agents need the A+ Obsidian coding brain — filesystem forge, disposable recall index, cull/smoke/eval hygiene |
 | [`improvement-radar`](skills/improvement-radar/SKILL.md) | The stack must stay excellent via a weekly watchdog — scrape cloneable systems, file Steal / Feedstock / Refuse verdicts, promote at most one a month |
 | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) | Answers must reach a phone via Telegram, Line, or WhatsApp — RAG behind chat with citations |
 | [`staff-swarm`](skills/staff-swarm/SKILL.md) | A job needs researcher + field + orchestrator roles with token-tier routing (cheap models for paraphrase, frontier for assembly) |

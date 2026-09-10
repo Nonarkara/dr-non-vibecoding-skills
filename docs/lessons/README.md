@@ -14,3 +14,4 @@ leg wants to explain — the reasoning, the alternatives, the argument for a cho
 goes here, where the next leg can read it *after* forming its own view rather than
 before. That ordering is the whole point of
 [`skills/agent-relay`](../../skills/agent-relay/SKILL.md).
+- [2026-09-11 — Obsidian MCP A+](2026-09-11-obsidian-mcp-a-plus.md)

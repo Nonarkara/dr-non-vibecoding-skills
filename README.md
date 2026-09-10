@@ -304,14 +304,23 @@ mkdir -p .cursor/skills && cp -R dr-non-vibecoding-skills/skills/* .cursor/skill
 
 ### Obsidian Second Brain (Recommended Memory Hub)
 
-Connect all your agents to a shared, persistent memory hub at `~/Documents/SecondBrain` via the [`obsidian-bridge`](https://github.com/yoring/obsidian-bridge) MCP server:
+Shared, local-first memory for every coding agent: Markdown vault + **filesystem** `obsidian-bridge` MCP + disposable SQLite recall index. This is the A+ path Dr Non actually runs — not a random `npx` package, and not “REST plugin only.”
+
+- Skill: [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) (machine) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) (ritual)
+- Method repo: [`second-brain-os`](https://github.com/Nonarkara/second-brain-os)
 
 ```bash
-# Add obsidian-bridge MCP to Claude Code or Antigravity
-claude mcp add obsidian-bridge -- npx -y obsidian-bridge --vault ~/Documents/SecondBrain
+# Point Cursor/Claude/Codex at YOUR vault forge (stdio). Example:
+# ~/.cursor/mcp.json → command: node, args: ["/path/to/SecondBrain/.mcp/obsidian-bridge/index.js"]
+# env: OBSIDIAN_VAULT=/path/to/SecondBrain
+#
+# Prove it:
+#   bash Reflexes/Scripts/cull-orphan-mcp-bridges.sh
+#   python3 .mcp/obsidian-memory/brain.py eval --json    # target 20/20
+#   cd .mcp/obsidian-bridge && node smoke-test.mjs       # must pass
 ```
 
-When active, agents run `recall_lessons` before architecting solutions and `capture_lesson` after verifying novel bug fixes. A dormant project wakes up in minutes with full historical context.
+When active, agents `recall_lessons` before architecting and `capture_lesson` after verifying novel fixes. Cull orphan bridge processes; retarget eval fixtures when scars multiply. Secrets never enter the vault.
 
 ---
 

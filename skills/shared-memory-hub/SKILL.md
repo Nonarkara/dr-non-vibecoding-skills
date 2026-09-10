@@ -14,6 +14,8 @@ In a multi-agent practice where Claude Code, Codex, Antigravity, Cursor, and Min
 
 This skill defines the **Vault-Centric Memory Architecture** — connecting all agents to a local-first Obsidian Second Brain (`~/Documents/SecondBrain`) via the `obsidian-bridge` MCP server or shell CLI (`brain recall`).
 
+For the **A+ machine** (filesystem forge, cull orphans, smoke + eval, disposable index, fixture-drift discipline), load [`obsidian-mcp-forge`](../obsidian-mcp-forge/SKILL.md). Official Local REST API MCP is optional when Obsidian is open — it does not replace the forge for coding agents.
+
 ---
 
 ## Memory Topology
