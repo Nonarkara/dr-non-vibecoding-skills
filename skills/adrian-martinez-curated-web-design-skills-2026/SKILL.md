@@ -1,12 +1,14 @@
 ---
-name: why-it-works
-description: Use when writing design descriptions, portfolio copy, or case studies. Forces perceptual language over feature lists. Pairs with axiom-design-core, no-ai-tells, make-it-stick.
+name: adrian-martinez-curated-web-design-skills-2026
+description: Use when writing design descriptions, portfolio copy, or case studies. Source: Adrian Martinez's 55 Award-Winning Websites (2026) — the 5-axis 'Why it works' form + 14 tells.
 license: MIT
 ---
 
-# Why It Works
+# Adrian Martinez Curated Web Design Skills for 2026
 
 > The description of a design is part of the design. The words on the page are the same surface the user touches; treat them with the same craft as the pixels.
+>
+> Source: [Adrian Martinez, *55 Award-Winning Websites and Why They Work (2026)*](https://hireadrian.com/award-winning-websites/). The two-part "Why it works + Business lesson" form, distilled from 55 examples.
 
 This skill is the discipline of writing *about* design with the same rigour you bring to designing. The trigger is any time an agent is asked to describe a site, screen, feature, or interaction in a way that is more than a feature list. The form comes from one observation: the best design portfolios, award write-ups, and case studies pair every example with a **"why it works"** paragraph — a short, dense, sensory description of what the design *does* in human perception — followed by a **"business lesson"** line that the operator can take into their own work.
 

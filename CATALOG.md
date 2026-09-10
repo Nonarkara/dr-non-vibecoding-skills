@@ -113,7 +113,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`beyond-the-screen`](skills/beyond-the-screen/SKILL.md) | A deck, PDF, document, social card, or infographic is the deliverable |
 | [`multilingual-type`](skills/multilingual-type/SKILL.md) | Type is set in Thai, CJK, Arabic, or any script you do not read |
 | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) | Generated text must not read as machine-written — kill the tells, then write plainly |
-| [`why-it-works`](skills/why-it-works/SKILL.md) | A design, portfolio entry, or case study needs a description that names what the design *does*, not what it *is* |
+| [`adrian-martinez-curated-web-design-skills-2026`](skills/adrian-martinez-curated-web-design-skills-2026/SKILL.md) | A design, portfolio entry, or case study needs a description that names what the design *does*, not what it *is* — the 5-axis "Why it works" form |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Navigation or a dashboard needs paths, edges, districts, nodes, and a landmark |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Public prior art or a DESIGN.md file needs pattern extraction inside your design contract |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | City buildings need fast, legible 3D extrusion without geometry glitches |
