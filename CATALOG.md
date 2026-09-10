@@ -87,6 +87,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`learn`](skills/learn/SKILL.md) | A problem is about to be solved — search the accumulated lessons for "didn't we fix this before?" before solving it again |
 | [`design-extract`](skills/design-extract/SKILL.md) | A public design needs studying for inspiration — orchestrate dembrandt, design-extract, or firecrawl, then read the output through ux-archaeology |
 | [`ponytail`](skills/ponytail/SKILL.md) | About to write code — climb the YAGNI ladder first: does it need to exist, is it in the codebase, does stdlib do it, can it be one line, then the minimum |
+| [`caveman`](skills/caveman/SKILL.md) | Agent output is bloated — talk shorter; code, errors, and file paths stay byte-exact |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | A displayed number needs source, fallback tier, and age |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | An API/feed adapter should be recorded once and reused |
 | [`deep-scraping`](skills/deep-scraping/SKILL.md) | A needed feed exists only as a web page — store raw before parsed, crawl politely, fail loudly on zero rows |
