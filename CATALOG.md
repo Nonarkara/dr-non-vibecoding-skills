@@ -28,6 +28,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`planning-discipline`](skills/planning-discipline/SKILL.md) | A multi-file, ambiguous, or risky change needs scope and acceptance evidence |
 | [`route-dont-scan`](skills/route-dont-scan/SKILL.md) | Work starts inside a monorepo or multi-project directory |
 | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Code needs explicit assumptions, simplicity, surgical edits, and a verifiable goal |
+| [`argument-construction`](skills/argument-construction/SKILL.md) | A claim, a review, a contested brief, or an evaluation of someone else's claim — the 8 rules of a good argument + 6 named fallacies to refuse |
 | [`ninja-innovation`](skills/ninja-innovation/SKILL.md) | An "improve X / fix Y / build Z" request needs the simplest path — reframe, subtract, reuse, asymmetric leverage |
 | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) | Something is broken and the first plausible patch is tempting |
 | [`anti-regression`](skills/anti-regression/SKILL.md) | Existing behavior or a distinctive interface could be erased by cleanup |
@@ -105,6 +106,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`design-dna`](skills/design-dna/SKILL.md) | Visual decisions need enforceable tokens and regression language |
 | [`design-registers`](skills/design-registers/SKILL.md) | Shared design DNA is making every product look like the same control room |
 | [`no-design-tells`](skills/no-design-tells/SKILL.md) | A surface must not be identifiable as agent-built — fonts, palette, provenance, layout reflexes |
+| [`aesthetics-and-economy`](skills/aesthetics-and-economy/SKILL.md) | A choice is aesthetic *and* economic at once — looks vs cost, beauty vs durability, polish vs speed. The economy of words, the aphorism craft, the minimalist manifesto, the Kodawari of constraint |
 | [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md) | Product UI, tables, forms, or admin — where the landing-page taste skills explicitly do not apply |
 | [`colour-and-type`](skills/colour-and-type/SKILL.md) | A palette and type scale need choosing, not just enforcing |
 | [`data-display`](skills/data-display/SKILL.md) | Any chart, table, or number is about to be rendered |
@@ -130,6 +132,7 @@ Sources are named inside every file; these are operational skills, not book summ
 | Skill | Load it when… | From |
 |---|---|---|
 | [`cognition-first`](skills/cognition-first/SKILL.md) | A UX, copy, default, or incentive decision needs the human who actually shows up | Kahneman · Pink |
+| [`moral-reasoning`](skills/moral-reasoning/SKILL.md) | A decision has no right answer, plural stakeholders, or irreversible cost — the 4 moves (name values, name stakeholders, name trade-off, name 10-year defense) + 7 corollary disciplines |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | An interface needs a mental model, or a component needs to become a real pattern | Lynch · Alexander |
 | [`design-method`](skills/design-method/SKILL.md) | An approach is unclear, or the first idea is about to become the only idea | Rowe · Kelley · Kelley & Kelley · Maeda |
 | [`written-principles`](skills/written-principles/SKILL.md) | The same judgment call keeps recurring, or work needs splitting across agents | Dalio · Smith |
