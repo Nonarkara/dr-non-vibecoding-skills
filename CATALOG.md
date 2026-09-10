@@ -32,6 +32,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`ninja-innovation`](skills/ninja-innovation/SKILL.md) | An "improve X / fix Y / build Z" request needs the simplest path — reframe, subtract, reuse, asymmetric leverage |
 | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) | Something is broken and the first plausible patch is tempting |
 | [`anti-regression`](skills/anti-regression/SKILL.md) | Existing behavior or a distinctive interface could be erased by cleanup |
+| [`systems-thinking`](skills/systems-thinking/SKILL.md) | A problem is a feedback loop, a short-term fix has a long-term cost, or one part of a system is being optimized at the expense of another — the 6 moves (feedback loop, time horizon, anti-fragility, flow, canon, failure modes) |
 | [`adversarial-review`](skills/adversarial-review/SKILL.md) | A fresh, flaw-seeking review should challenge the author's story |
 | [`browser-as-t`](skills/browser-as-t/SKILL.md) | UI, routing, forms, layout, or client state changed |
 | [`result-honesty`](skills/result-honesty/SKILL.md) | A session, handoff, or release needs evidence and explicit unknowns |
@@ -133,6 +134,7 @@ Sources are named inside every file; these are operational skills, not book summ
 |---|---|---|
 | [`cognition-first`](skills/cognition-first/SKILL.md) | A UX, copy, default, or incentive decision needs the human who actually shows up | Kahneman · Pink |
 | [`moral-reasoning`](skills/moral-reasoning/SKILL.md) | A decision has no right answer, plural stakeholders, or irreversible cost — the 4 moves (name values, name stakeholders, name trade-off, name 10-year defense) + 7 corollary disciplines |
+| [`qualitative-reasoning`](skills/qualitative-reasoning/SKILL.md) | The data is fuzzy, the metric is misleading, or the answer cannot be derived from the numbers — the 6 moves (uncanny, falliblist, I-should test, tradition audit, synthetic a priori, counter-example) |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | An interface needs a mental model, or a component needs to become a real pattern | Lynch · Alexander |
 | [`design-method`](skills/design-method/SKILL.md) | An approach is unclear, or the first idea is about to become the only idea | Rowe · Kelley · Kelley & Kelley · Maeda |
 | [`written-principles`](skills/written-principles/SKILL.md) | The same judgment call keeps recurring, or work needs splitting across agents | Dalio · Smith |
@@ -145,6 +147,7 @@ These are narrow on purpose. They carry implementation scars that would be noise
 | Skill | Load it when… |
 |---|---|
 | [`itic-cctv-integration`](skills/itic-cctv-integration/SKILL.md) | A Thai city surface needs Longdo/iTIC cameras or incidents with honest live modes |
+| [`design-anthropology`](skills/design-anthropology/SKILL.md) | A design or product decision assumes a universal human constant, or the same solution keeps failing across different users — the 6 moves (counter-example, cultural variation, personal-as-laboratory, bad-faith detection, biopower check, writing degree zero) |
 | [`iptv-streaming`](skills/iptv-streaming/SKILL.md) | HLS channels need a resilient registry and token/origin-aware proxy |
 | [`local-ai-fabric`](skills/local-ai-fabric/SKILL.md) | Apple-Silicon machines should serve local models through one durable gateway |
 | [`voice-clone-podcast`](skills/voice-clone-podcast/SKILL.md) | Long-form local voice cloning drops words, drifts, or babbles between chunks |
