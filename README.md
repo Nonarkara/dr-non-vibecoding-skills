@@ -6,7 +6,7 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 91 skills, 15 playbooks, 9 references, and 12 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 91 skills, 15 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
@@ -16,7 +16,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 13](https://img.shields.io/badge/templates-13-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**91 skills** · **15 playbooks** · **9 references** · **13 templates**
+**91 skills** · **15 playbooks** · **11 references** · **13 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -363,7 +363,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 flowchart TB
   S["91 skills"] --> A["Your agent"]
   P["15 playbooks"] --> A
-  R["9 refs"] --> A
+  R["11 refs"] --> A
   T["13 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
