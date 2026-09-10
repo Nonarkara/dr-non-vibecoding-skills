@@ -10,16 +10,35 @@ Free tiers aren't a compromise, they're scope discipline: if you can't build it 
 
 ## AI & Summarization
 
-| Service | Free Tier | Key? | Signup |
-|---------|-----------|------|--------|
-| **Groq** | 14,400 req/day | Yes | https://console.groq.com |
-| **OpenRouter** | 50 req/day (fallback) | Yes | https://openrouter.ai |
-| **Ollama** | Unlimited (local) | No | https://ollama.ai |
-| **Transformers.js** | Unlimited (browser-side ML: embeddings, sentiment, NER, summarization) | No | https://huggingface.co/docs/transformers.js |
+| Service | Free Tier | Key? | Best for | Signup |
+|---------|-----------|------|----------|--------|
+| **Groq** | 14,400 req/day | Yes | Fast chat, OpenAI-compatible | https://console.groq.com |
+| **Google AI Studio (Gemini)** | 5–30 RPM, 15–1,500 RPD (1M-token context on Flash) | Yes | Long-context summarization, embeddings, TTS | https://ai.google.dev |
+| **Cerebras** | 1M tokens/day (resets UTC 00:00) | Yes | Long dev sessions burning daily quota | https://cloud.cerebras.ai |
+| **OpenRouter** | 50 RPD free; 1,000 RPD with $10 lifetime credit | Yes | Model variety (one key, 200+ models) | https://openrouter.ai |
+| **Cloudflare Workers AI** | 10,000 Neurons/day | Yes | Inside a Cloudflare Worker, no new auth | https://dash.cloudflare.com |
+| **AI Horde** | Crowdsourced, key is `0000000000` | No | Throwaway tests, anonymous | https://stablehorde.net |
+| **LLM7.io** | No key required for base tier | No | Zero-friction tier (lowest limits) | https://llm7.io |
+| **Puter.js** | 400+ models, no key, client-side | No | Static sites, prototypes | https://developer.puter.com |
+| **Cohere** | 1,000 API calls/month | Yes | Embeddings, classification (eval/non-commercial) | https://cohere.com |
+| **Mistral La Plateforme** | Free tier, no card | Yes | First-party Mistral models | https://console.mistral.ai |
+| **NVIDIA NIM** | Free models | Yes | Llama Nemotron, Mistral on NVIDIA | https://build.nvidia.com |
+| **Hugging Face Inference** | Free for select models | Yes | Long tail, niche models, fine-tunes | https://huggingface.co |
+| **SambaNova** | $5 free credits + persistent tier | Yes | Llama / DeepSeek / Qwen on RDU chips | https://cloud.sambanova.ai |
+| **Ollama** | Unlimited (local) | No | Embeddings, drafts, offline survival | https://ollama.ai |
+| **Transformers.js** | Unlimited (browser-side ML: embeddings, sentiment, NER, summarization) | No | Static-site / no-backend inference | https://huggingface.co/docs/transformers.js |
+
+The discipline is the [`skills/free-api-keys`](../skills/free-api-keys/SKILL.md) skill: pick by *what the call is for* (speed → Groq, long context → Google, daily volume → Cerebras, variety → OpenRouter, no signup → AI Horde, embeddings → Cohere), never let one provider become the only path, and rotate on 429.
 
 ```env
 GROQ_API_KEY=
+GOOGLE_AI_API_KEY=
+CEREBRAS_API_KEY=
 OPENROUTER_API_KEY=
+CLOUDFLARE_API_TOKEN=
+COHERE_API_KEY=
+MISTRAL_API_KEY=
+HUGGINGFACE_TOKEN=
 ```
 
 ---

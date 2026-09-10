@@ -1,9 +1,6 @@
 ---
 name: obsidian-mcp-forge
-description: >-
-  Run the A+ Obsidian coding-MCP brain: filesystem bridge + disposable local
-  recall index. Use when agents need cheap shared memory across Cursor, Claude,
-  Codex, and Antigravity — without SaaS, without burning tokens re-learning scars.
+description: Use when agents need cheap shared memory across Cursor, Claude, Codex, and Antigravity without SaaS. The A+ Obsidian coding brain — filesystem bridge + disposable recall.
 license: MIT
 ---
 

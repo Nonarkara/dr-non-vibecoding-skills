@@ -160,6 +160,7 @@ Killing tells isn't enough — replace them with an actual discipline, not silen
 10. **Plain words — no dictionary required.** The reader should never have to stop and look up a word to follow a complex idea. Complexity belongs to the idea, never to the vocabulary carrying it.
 11. **Jargon-free, with one exception.** Skip jargon by default. When a term is unavoidable, or worth the reader recognizing on sight elsewhere, keep it and explain it inline, right where it appears — not in a glossary or a footnote.
 12. **Register-appropriate — a story is not mandatory.** Rule 6's short sentences are the UI/docs default, not a universal law; a technical instruction stays a technical instruction, correctly followed is the only goal. Match the form to what the content actually is.
+13. **Censor the audience, not your own ideas.** The agent-default failure mode is the opposite of the "rule of three" or the "hedging address" — it is **over-softening**. The model pre-hedges, adds disclaimers, pads with audience-apologetic openers ("I understand this is complex, but…"), and self-censors a sharp claim because it imagines a hostile reader. The fix is the writer's rule: the audience is *imagined*; the idea is *real*. Write the idea, then cut only the parts that don't carry it. If the sharp claim is wrong, the fix is to *be wrong precisely* — say the wrong thing in plain words, not to soften it into a non-claim. "Censor your own ideas" is a writer's disease; the cure is the discipline, not the softening.
 
 ---
 

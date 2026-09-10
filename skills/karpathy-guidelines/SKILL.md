@@ -34,6 +34,20 @@ Before implementing:
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
+## 1a. Reflexivity — the observer is in the observation
+
+When you describe a system, a user, a bug, or a field, you are also describing yourself — your model of it, your bias, your stake. From the 100-day writing practice:
+
+> "Your description of the world is always a description of yourself."
+
+**Apply this before any framing claim:**
+
+- When you write "the user wants X," the question is not just *is that true of the user* but *is that what I would notice if it were false*. A claim that survives only the test "I have not been contradicted" is a reflexivity artifact, not a finding.
+- When you write "the field is moving toward Y," name the data and the date. The observer is in the observation; the only defense is the source.
+- When you write "this is the obvious choice," stop. The word "obvious" is almost always the writer (or the model) avoiding a trade-off, not a property of the world.
+
+This is not a soft rule. It is a discipline against a bias that cannot be introspected away — the same way `make-it-stick`'s curse of knowledge cannot be introspected away. The fix is mechanical: name the source, name the stake, name what would change your mind.
+
 ## 3. Surgical Changes
 
 **Touch only what you must. Clean up only your own mess.**

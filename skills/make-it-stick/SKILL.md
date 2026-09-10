@@ -73,3 +73,21 @@ This is the **clarity** layer — writing *to* someone. It is not a voice guide,
 ```
 
 Pairs with `no-ai-tells` (run first), `result-honesty`, `honest-envelope`, `shared-memory-hub` (write the lesson distinctly and durably).
+
+---
+
+## 7. From the daily-writing practice — two rules that travel
+
+Two cheatsheet lines from a 100-day writing practice earn their place in the discipline. They are not theory; they are the kind of index-card sentence a writer pastes above the monitor.
+
+### 7.1 "If you don't know what to write, write to find out."
+
+The action of writing produces the thought, not the other way around. The agent equivalent: when the brief is ambiguous, the first move is to write a *draft of the question* — restate the request in your own words, list what you actually know, list what you do not. The clarification falls out of the act. **Sitting in the ambiguity is the failure mode; drafting is the fix.**
+
+This is the same discipline as [`karpathy-guidelines` §1 "Think Before Coding"](../karpathy-guidelines/SKILL.md) — surface the confusion in writing instead of hiding it in a vague plan. The two skills say the same thing from two directions.
+
+### 7.2 "Look at the floor of the tunnel, not just the walls."
+
+The tunnel metaphor: a long project is a tunnel you walk through. The walls are the *destination* (the goal, the spec, the spec doc); the floor is the *next step* (today's commit, this afternoon's call). A writer who stares only at the walls loses the floor; the project becomes paralysis. A writer who stares only at the floor loses the walls; the project becomes a random walk.
+
+**The discipline:** the weekly review asks "are the walls still where I left them?" The daily work asks "is the floor under my feet?" Never confuse the two. The agent equivalent: a long migration is not 200 tickets, it is 200 days of "the next small commit is green" — and the *weekly* check is "the destination is still correct, not just that we're moving."

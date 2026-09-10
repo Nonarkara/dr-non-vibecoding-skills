@@ -114,6 +114,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`multilingual-type`](skills/multilingual-type/SKILL.md) | Type is set in Thai, CJK, Arabic, or any script you do not read |
 | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) | Generated text must not read as machine-written — kill the tells, then write plainly |
 | [`adrian-martinez-curated-web-design-skills-2026`](skills/adrian-martinez-curated-web-design-skills-2026/SKILL.md) | A design, portfolio entry, or case study needs a description that names what the design *does*, not what it *is* — the 5-axis "Why it works" form |
+| [`design-by-writing-100-day-reflection-engine`](skills/design-by-writing-100-day-reflection-engine/SKILL.md) | A design effort has stalled, the user story is a fiction the team is telling itself, or the iterations have stopped teaching — the writing-as-thinking practice distilled to 5 moves and 7 patterns |
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Navigation or a dashboard needs paths, edges, districts, nodes, and a landmark |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Public prior art or a DESIGN.md file needs pattern extraction inside your design contract |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | City buildings need fast, legible 3D extrusion without geometry glitches |
@@ -154,6 +155,7 @@ Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, thre
 | Skill | Load it when… |
 |---|---|
 | [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) | Single-machine Ollama is needed for offline inference, drafts, or embeddings — graduate to `local-ai-fabric` only when one machine stops being enough |
+| [`free-api-keys`](skills/free-api-keys/SKILL.md) | A new project needs LLM calls without a credit card — thirteen $0/month providers (Groq, Google AI Studio, Cerebras, OpenRouter, Cloudflare Workers AI, AI Horde, LLM7.io, Puter.js, Cohere, Mistral, NVIDIA NIM, Hugging Face, SambaNova) ranked by use case |
 | [`simple-rag`](skills/simple-rag/SKILL.md) | Docs, notes, or a corpus must be searchable locally with citations — SQLite FTS5 first, embeddings only after the gate passes |
 | [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) | Agents need the A+ Obsidian coding brain — filesystem forge, disposable recall index, cull/smoke/eval hygiene |
 | [`improvement-radar`](skills/improvement-radar/SKILL.md) | The stack must stay excellent via a weekly watchdog — scrape cloneable systems, file Steal / Feedstock / Refuse verdicts, promote at most one a month |
