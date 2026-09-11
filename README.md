@@ -66,6 +66,19 @@ You do not need a twenty-person venture-backed engineering department. If you ar
 
 From first principles to paid customers: from the philosophical "why" all the way to scale-to-zero Google Cloud Run deployment and Stripe checkout.
 
+### The Shift: From Stick-Shift Driving to the Autonomous Tesla
+
+If traditional programming is like driving a manual stick-shift car — constantly managing the clutch, shifting gears, monitoring engine RPM, and wrestling with low-level boilerplate — this stack puts you into an **autonomous, self-driving Tesla**:
+
+- **The AI Agent (Claude Code, Antigravity, Cursor, Codex)** is in the driver's seat. It manages the pedals, handles steering, executes tool calls, runs terminal commands, and edits code surgically.
+- **You are the Passenger-Director.** You don't manage the clutch; you set the high-level intent:
+  1. *Destination:* Where do you want to go? (The problem, the vision, the human need).
+  2. *Speed & Velocity:* How fast do you want to travel? (Calibrating risk posture and blast radius).
+  3. *Superchargers & Pit Stops:* Where do you want to fill energy? (Local-first Ollama models on your laptop, free API tiers, or scale-to-zero Google Cloud Run).
+  4. *In-Cabin Experience:* How should the ride feel? (Minimalist Rams/MoMA aesthetics, 0-radius hairlines, honest telemetry, and zero unverified claims).
+
+Anyone who clones this repository immediately gets a road-tested vehicle. One command (`./setup.sh --become-builder` or `./setup.sh --init-project`) scaffolds a complete, production-ready project folder that Claude Code or any agent can latch onto and drive immediately.
+
 ---
 
 ## Visual Mental Model: The Thinker ➔ Doer Journey
@@ -184,10 +197,10 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 88 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`skills/`](skills/) | 103 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
 | [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 7 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 12 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
+| [`reference/`](reference/) | 11 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`templates/`](templates/) | 13 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
 
 ---
 
