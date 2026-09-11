@@ -37,6 +37,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`browser-as-t`](skills/browser-as-t/SKILL.md) | UI, routing, forms, layout, or client state changed |
 | [`browser-use`](skills/browser-use/SKILL.md) | An agent must drive a real browser to fill a form, navigate a flow, or complete a multi-step user journey — the *interaction* layer, pairs with `browser-as-t` (the *verification* layer) |
 | [`result-honesty`](skills/result-honesty/SKILL.md) | A session, handoff, or release needs evidence and explicit unknowns |
+| [`build-journal`](skills/build-journal/SKILL.md) | A meaningful change to a project must be recorded — the 5-line flight-recorder discipline. Pairs with `ABOUT.md` (who + why) and the project's history |
 | [`ship-discipline`](skills/ship-discipline/SKILL.md) | A completion claim requires Commit, Push, Deploy, Test |
 | [`wrong-green`](skills/wrong-green/SKILL.md) | CI, a health check, a watchdog, or a deploy log may answer the wrong question |
 | [`lesson-residue`](skills/lesson-residue/SKILL.md) | A painful or surprising session produced a verified lesson worth preserving |

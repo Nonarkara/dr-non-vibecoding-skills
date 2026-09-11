@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 103 skills, 16 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 104 skills, 16 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 103](https://img.shields.io/badge/skills-103-F59E0B)](skills/)
+[![Skills: 104](https://img.shields.io/badge/skills-104-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 13](https://img.shields.io/badge/templates-13-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**103 skills** · **16 playbooks** · **11 references** · **13 templates**
+**104 skills** · **16 playbooks** · **11 references** · **13 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -66,18 +66,24 @@ You do not need a twenty-person venture-backed engineering department. If you ar
 
 From first principles to paid customers: from the philosophical "why" all the way to scale-to-zero Google Cloud Run deployment and Stripe checkout.
 
-### The Shift: From Stick-Shift Driving to the Autonomous Tesla
+### The Shift: From Manual Programming to Agentic Engineering
 
-If traditional programming is like driving a manual stick-shift car — constantly managing the clutch, shifting gears, monitoring engine RPM, and wrestling with low-level boilerplate — this stack puts you into an **autonomous, self-driving Tesla**:
+This stack assumes the same role split the rest of the industry is converging on, but stripped of the marketing:
 
-- **The AI Agent (Claude Code, Antigravity, Cursor, Codex)** is in the driver's seat. It manages the pedals, handles steering, executes tool calls, runs terminal commands, and edits code surgically.
-- **You are the Passenger-Director.** You don't manage the clutch; you set the high-level intent:
-  1. *Destination:* Where do you want to go? (The problem, the vision, the human need).
-  2. *Speed & Velocity:* How fast do you want to travel? (Calibrating risk posture and blast radius).
-  3. *Superchargers & Pit Stops:* Where do you want to fill energy? (Local-first Ollama models on your laptop, free API tiers, or scale-to-zero Google Cloud Run).
-  4. *In-Cabin Experience:* How should the ride feel? (Minimalist Rams/MoMA aesthetics, 0-radius hairlines, honest telemetry, and zero unverified claims).
+- **The agent** (Claude Code, Antigravity, Cursor, Codex, Gemini CLI) does the typing, the tool calls, the terminal runs, the surgical diffs.
+- **You** set the destination, the speed, the energy source, and the look-and-feel. The four decisions you actually make are:
+  1. *Destination:* what problem, what human need, what you're building toward.
+  2. *Speed & velocity:* how fast you ship, how much blast radius you accept ([`risk-posture`](skills/risk-posture/SKILL.md)).
+  3. *Energy source:* local Ollama on your laptop, free cloud API tiers ([`free-api-keys`](skills/free-api-keys/SKILL.md)), or scale-to-zero Google Cloud Run ([`google-cloud-run`](skills/google-cloud-run/SKILL.md)).
+  4. *Look & feel:* the design law ([`axiom-design-core`](skills/axiom-design-core/SKILL.md)), the honest-envelope for displayed numbers, the zero-unverified-claims rule.
 
-Anyone who clones this repository immediately gets a road-tested vehicle. One command (`./setup.sh --become-builder` or `./setup.sh --init-project`) scaffolds a complete, production-ready project folder that Claude Code or any agent can latch onto and drive immediately.
+The clone-and-bootstrap path is one command: `./setup.sh --become-builder`. The agent does the rest. The stack is the *operating system* that turns the agent into a *Doer* and the human into the *Thinker*.
+
+### Read next
+
+- **[`ABOUT.md`](ABOUT.md)** — the author, the 10-year writing practice at [nonharvard.wordpress.com](https://nonharvard.wordpress.com) that this stack was distilled from, and the 7 core components that became the skills.
+- **[`JOURNAL.md`](JOURNAL.md)** — the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, and the *tags*. A new builder can read the journal to understand the project in 5 minutes.
+- **[`playbooks/16-the-philosophical-spine.md`](playbooks/16-the-philosophical-spine.md)** — the *why* of the 100 skills, in one document. The 5 layers, the 5 moves, the 8 cyber-hygiene rules, the 6 off-grid rules.
 
 ---
 
@@ -188,7 +194,7 @@ dr-non-vibecoding-skills/
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 103 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 104 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -384,7 +390,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["103 skills"] --> A["Your agent"]
+  S["104 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
   R["11 refs"] --> A
   T["13 templates"] --> A

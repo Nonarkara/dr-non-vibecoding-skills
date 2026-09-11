@@ -13,14 +13,12 @@ Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.
 
 ---
 
-## 0. The 60-Second Autonomous Tesla Bootstrap (Zero to Vibe Coding)
+## 0. The 60-Second Bootstrap (Zero to Vibe Coding)
 
-If you don't know how to code, this stack turns programming into an **autonomous Tesla ride**: the agent handles the steering, pedals, and mechanics; you are the Passenger-Director setting the destination, speed, and stops.
-
-To scaffold a complete, turnkey project folder with all contracts, deploy scripts, and anti-regression boundaries:
+If you have never written code before, this stack gets you from clone to first commit in 60 seconds. The agent does the typing; you set the destination, the speed, the energy source, and the look-and-feel.
 
 ```bash
-# 1. Bootstrap the project directory
+# 1. Bootstrap a complete, turnkey project folder
 ./setup.sh --init-project ~/Projects/my-app --yes
 
 # 2. Step in and launch Claude Code (or Cursor, Codex, Gemini CLI)
@@ -28,14 +26,16 @@ cd ~/Projects/my-app
 claude
 ```
 
-From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and sacred invariants, loads the 103 installed skills, and begins building your product while preserving your domain intent.
+From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 103 installed skills, and begins building your product while preserving your domain intent.
+
+If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you want to know the trajectory of the project, read [`JOURNAL.md`](JOURNAL.md).
 
 ---
 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 103
+ls ~/.claude/skills | wc -l   # expect 104
 # also: ls ~/.agents/skills | wc -l
 ```
 

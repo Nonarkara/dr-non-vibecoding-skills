@@ -12,7 +12,9 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **103 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **104 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
+- [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **11 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree.
 - **13 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
