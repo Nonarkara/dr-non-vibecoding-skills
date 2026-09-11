@@ -1,7 +1,7 @@
 {
   "collection": "anthropology-from-ebooks",
   "intro": "Books in the user's `anthropology ebooks` folder, distilled into skills for AI agents that need to reason about human cultures, fieldwork, interpretation, and the social meaning of rules and rituals.",
-  "count": 10,
+  "count": 11,
   "skills": [
     {
       "id": "culture-and-communication-the-logic-of-symbols-109gk9m",
@@ -24,6 +24,12 @@
     {
       "id": "kinship-in-bali-a-system-of-meanings-17ki8bq",
       "title": "Kinship in Bali: A System of Meanings",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "measurement-foundations-for-human-studies-lhoitu",
+      "title": "Measurement Foundations for Human Studies",
       "summary": "",
       "source": ""
     },
