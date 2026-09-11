@@ -1,9 +1,4 @@
----
-name: behavioral-economics-predicting-real-human-choices-1cfeaeg
-description: Use when me: behavioral-economics-predicting-real-human-choices-1cfeaeg
-license: MIT
----
-
+<!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Behavioral Economics: Predicting Real Human Choices
 
@@ -59,8 +54,234 @@ This skill distills the core insights from Misbehaving, showing how human decisi
 - **ch09 — Bounded Rationality and the Econs-Humans Distinction** — Econs are the perfectly rational, self-interested agents of traditional economics. Humans are actual people with limits on computation, willpower, and emotional stability. Good models must reflect this middle ground. (load: `chapters/ch09.md`)
 - **ch10 — Applying Behavioral Economics: A Checklist for AI** — When designing systems or predicting behavior, use this checklist to ensure real human psychology is accounted for. It integrates the major domains into actionable steps. (load: `chapters/ch10.md`)
 
-## Quick reference
+## Glossary
 
-For vocabulary: see `glossary.md` (terms, chapter-anchored).
-For reusable moves: see `patterns.md` (steps, chapter-anchored).
-For decision rules: see `cheatsheet.md` (imperative sentences by category).
+# Glossary
+
+Terms and named ideas from the source, anchored to the chapter that explains them.
+
+| Term | Definition | Chapter |
+| --- | --- | --- |
+| **heuristic** | A simple rule of thumb used to make judgments or decisions quickly. | ch01 |
+| **bias** | A systematic error in judgment that repeats across people and situations. | ch01 |
+| **availability heuristic** | Judging frequency or probability by how easily examples come to mind. | ch01 |
+| **anchoring** | The tendency for estimates to be influenced by an initial value, even if arbitrary. | ch01 |
+| **prospect theory** | A descriptive model of decision under risk that uses changes in wealth and an S-shaped value function. | ch02 |
+| **value function** | The S-shaped curve in prospect theory showing diminishing sensitivity to gains and losses and loss aversion. | ch02 |
+| **loss aversion** | The tendency for losses to feel about twice as bad as equivalent gains feel good. | ch02 |
+| **endowment effect** | People demand more to give up an object than they would pay to acquire it. | ch02 |
+| **reference dependence** | The idea that outcomes are evaluated as gains or losses relative to a reference point. | ch02 |
+| **mental accounting** | The set of cognitive operations used to organize, evaluate, and track financial activities. | ch03 |
+| **acquisition utility** | The intrinsic value of a good minus its opportunity cost, equivalent to consumer surplus. | ch03 |
+| **transaction utility** | The pleasure or pain derived from the quality of a deal, based on the difference between price paid and reference price. | ch03 |
+| **planner-doer model** | A metaphor for the conflict between long-term planning and short-term impulses. | ch04 |
+| **self-control problem** | A situation where present desires undermine long-term goals. | ch04 |
+| **fairness** | A preference for equitable outcomes that can override pure economic incentives. | ch05 |
+| **anomaly** | A persistent, repeatable deviation from rational-model predictions that signals real behavior. | ch06 |
+| **libertarian paternalism** | Designing choices so the default or easiest option is beneficial while preserving freedom to choose. | ch08 |
+| **choice architecture** | The way options are presented to people, including defaults, order, and framing. | ch08 |
+| **bounded rationality** | The idea that people make the best decisions they can given limited cognitive resources. | ch09 |
+| **Econs** | The perfectly rational, self-interested agents of traditional economic models. | ch09 |
+| **Humans** | Actual people with limits on computation, willpower, and emotional stability. | ch09 |
+
+## Patterns
+
+# Patterns
+
+Reusable moves extracted from the source. Each is a recipe — context, then steps, then the chapter to read for the full argument.
+
+## Use Defaults to Steer Behavior
+
+**When to use:** When a decision is complex, infrequent, or involves inertia, and one option is clearly better for most people.
+
+**Recipe:**
+
+1. Identify the beneficial option.
+2. Make that option the default or automatic choice.
+3. Ensure opting out is simple but requires an explicit action.
+4. Monitor uptake and adjust if needed.
+
+**Chapter:** ch08
+
+---
+
+## Frame Outcomes as Gains or Losses
+
+**When to use:** When presenting a choice that involves risk, delay, or trade-offs, and the reference point can be shaped.
+
+**Recipe:**
+
+1. Determine the user's current reference point (status quo or expectation).
+2. Describe the alternative in terms of change from that point.
+3. Emphasize gains if seeking risk aversion, losses if seeking risk seeking.
+4. Test which frame yields the desired choice.
+
+**Chapter:** ch02
+
+---
+
+## Label Money to Influence Mental Accounting
+
+**When to use:** When designing savings, spending, or incentive programs where fungibility leads to suboptimal use.
+
+**Recipe:**
+
+1. Decide the desired use of funds (e.g., retirement, emergency).
+2. Create a distinct label or account for that purpose (e.g., 'Holiday Fund').
+3. Communicate the label clearly when funds are received or allocated.
+4. Optionally restrict transfers to reinforce the label.
+
+**Chapter:** ch03
+
+---
+
+## Add a Small Immediate Cost to Delay Gratification
+
+**When to use:** When self-control problems cause overconsumption or undersaving due to present bias.
+
+**Recipe:**
+
+1. Identify the tempting behavior (e.g., snacking, impulse purchase).
+2. Introduce a small, immediate barrier (e.g., wait ten minutes, walk to another room).
+3. Keep the barrier trivial enough not to block the behavior entirely but noticeable.
+4. Measure whether the barrier reduces frequency without causing backlash.
+
+**Chapter:** ch04
+
+---
+
+## Test Fairness Before Changing Prices or Wages
+
+**When to use:** When considering a price increase, wage cut, or benefit change that could be seen as exploitative.
+
+**Recipe:**
+
+1. Ask users how they would feel about the change if they knew the rationale.
+2. If fairness concerns arise, explain cost increases or share gains.
+3. Consider phased implementation or compensation for affected groups.
+4. Monitor morale, turnover, or purchase intent after the change.
+
+**Chapter:** ch05
+
+---
+
+## Exploit Stable Anomalies for Profit or Social Good
+
+**When to use:** When a behavior repeatedly deviates from model predictions in a predictable direction.
+
+**Recipe:**
+
+1. Document the anomaly and measure its size and stability.
+2. Identify the psychological bias driving it (e.g., loss aversion, status quo).
+3. Design an intervention that either corrects the bias or harvests the pattern.
+4. Pilot the intervention and verify it shifts behavior as expected.
+5. Scale if effective.
+
+**Chapter:** ch06
+
+---
+
+## Run a Small-Scale Experiment Before Scaling
+
+**When to use:** When proposing a change to choice architecture, incentives, or messaging.
+
+**Recipe:**
+
+1. Define the desired outcome and the hypothesis.
+2. Create a control group and a treatment group with only the proposed change.
+3. Run the test long enough to observe stable behavior (days to weeks).
+4. Analyze results using simple statistics (e.g., difference in means).
+5. If significant, consider scaling; if not, refine or abandon.
+
+**Chapter:** ch07
+
+---
+
+## Simplify Complex Choices with a Curated Set
+
+**When to use:** When users face many similar options and may delay or choose poorly due to overload.
+
+**Recipe:**
+
+1. Identify the key dimensions that matter to users (e.g., risk, return, fees).
+2. Eliminate dominated or redundant options.
+3. Present a small set (e.g., three to five) of well-described alternatives.
+4. Label each with a clear recommendation based on user profile.
+5. Track selection rates and satisfaction.
+
+**Chapter:** ch08
+
+---
+
+## Use Social Norms to Influence Behavior
+
+**When to use:** When people look to others for cues on what is appropriate or common.
+
+**Recipe:**
+
+1. Measure the actual prevalent behavior in the target population.
+2. Communicate that norm clearly (e.g., '9 out of 10 peers enroll in the plan').
+3. Ensure the norm is positive and desirable.
+4. Re-measure behavior after the message to see if it shifted.
+
+**Chapter:** ch05
+
+---
+
+## Commitment Device for Future Actions
+
+**When to use:** When users intend to act in the future but often fail to follow through due to present bias.
+
+**Recipe:**
+
+1. Ask users to make a binding choice now about a future action (e.g., schedule a workout, pledge a donation).
+2. Increase the cost of backing out (e.g., non-refundable deposit, social accountability).
+3. Make the commitment easy to enter but costly to exit.
+4. Follow up to ensure compliance and adjust difficulty if needed.
+
+**Chapter:** ch04
+
+---
+
+## Cheatsheet
+
+# Cheatsheet
+
+Imperative decision rules from the source, grouped by category. Each is the kind of sentence you would write on an index card.
+
+## design
+
+- If a decision feels overwhelming, reduce the number of options to three or fewer.
+- Make the beneficial choice the default; require an action to opt out.
+- Frame a price increase as a loss avoided later rather than a gain now.
+- Label windfalls or bonuses as 'saved' or 'invested' to reduce spontaneous spending.
+- Check whether users will perceive a change as fair before implementing it.
+- Use a reference price (e.g., MSRP) to make a discount feel like a bargain.
+- Give immediate feedback on long‑term actions (e.g., show savings growth after each deposit).
+- Simplify enrollment forms to one page; ask for only essential information.
+- When users must choose a risk level, describe outcomes as chances to avoid loss rather than to gain.
+- Leverage social proof by showing what similar people actually do.
+- If a choice involves a trade‑off now vs later, make the later option the default.
+- When presenting probabilities, use frequencies (e.g., 1 in 10) rather than percentages.
+- If users ignore a feature, make it the default or remove the need to enable it.
+- Test whether a change in wording (gain vs loss) alters choice before finalizing.
+
+## life
+
+- Add a ten‑minute delay before indulging in a temptation to test if the urge passes.
+- Use a commitment device: ask users to pledge now and impose a small penalty for non‑compliance.
+
+## general
+
+- When predicting choices, start from rational incentives then subtract loss aversion bias.
+- If a behavior repeats the same mistake across contexts, treat it as a signal, not noise.
+- Check whether the reference point has shifted; if so, re‑evaluate the gain/loss frame.
+
+## process
+
+- Run a small test with real stakes before rolling out a policy change.
+
+## How to use this skill
+
+This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
+

@@ -1,9 +1,4 @@
----
-name: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz
-description: Use when me: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz
-license: MIT
----
-
+<!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Rich Dad Poor Dad: The Financial Literacy Mindset
 
@@ -54,8 +49,142 @@ This skill provides a mental framework for distinguishing between working for mo
 - **ch07 — Overcoming the Five Obstacles** — Identifies the psychological barriers to financial success. (load: `chapters/ch07.md`)
 - **ch08 — The Importance of Cash Flow** — Explains why cash flow is more important than net worth or paper gains. (load: `chapters/ch08.md`)
 
-## Quick reference
+## Glossary
 
-For vocabulary: see `glossary.md` (terms, chapter-anchored).
-For reusable moves: see `patterns.md` (steps, chapter-anchored).
-For decision rules: see `cheatsheet.md` (imperative sentences by category).
+# Glossary
+
+Terms and named ideas from the source, anchored to the chapter that explains them.
+
+| Term | Definition | Chapter |
+| --- | --- | --- |
+| **Asset** | Anything that puts money into your pocket through cash flow or appreciation. | ch02 |
+| **Liability** | Anything that takes money out of your pocket through expenses or debt payments. | ch02 |
+| **Rat Race** | The endless cycle of working for a paycheck to pay for increasing expenses and debt. | ch01 |
+| **Financial Literacy** | The ability to read and understand financial statements and the story the numbers tell. | ch02 |
+| **Income Statement** | A financial document showing income and expenses over a period of time. | ch02 |
+| **Balance Sheet** | A financial document showing the relationship between assets and liabilities. | ch02 |
+| **Cash Flow** | The net amount of cash being transferred into and out of a business or personal account. | ch08 |
+| **Passive Income** | Income generated from assets that does not require active work to maintain. | ch03 |
+| **Capital Gains** | The profit made from the sale of an asset that has increased in value. | ch05 |
+| **Corporation** | A legal entity used to own assets and run businesses, providing tax advantages and liability protection. | ch04 |
+| **Earned Income** | Money received in exchange for active labor or a paycheck. | ch06 |
+| **Wealth** | A measure of how long a person can survive without working. | ch01 |
+| **The Briar Patch** | The place of fear and greed that most people avoid but where financial lessons are learned. | ch01 |
+| **Bean Counter** | A person who focuses strictly on numbers and cost-cutting, often missing the bigger business picture. | ch07 |
+| **Financial Intelligence** | The mental capacity to solve financial problems and create wealth through four main areas: accounting, investing, markets, and law. | ch04 |
+
+## Patterns
+
+# Patterns
+
+Reusable moves extracted from the source. Each is a recipe — context, then steps, then the chapter to read for the full argument.
+
+## The Asset-First Purchase
+
+**When to use:** When you want to buy a luxury item or a non-essential liability.
+
+**Recipe:**
+
+1. Identify the cost of the desired luxury item.
+2. Determine how much capital is needed to buy an asset that generates enough cash flow to cover the item's cost.
+3. Purchase the asset first.
+4. Use only the generated cash flow from that asset to pay for the luxury item.
+
+**Chapter:** ch02
+
+---
+
+## The 'How Can I Afford It?' Shift
+
+**When to use:** When faced with an expense that seems beyond current means.
+
+**Recipe:**
+
+1. Ban the phrase 'I can't afford it' from your vocabulary.
+2. Ask the question: 'How can I afford it?'
+3. Brainstorm potential income streams or asset acquisitions to meet the cost.
+4. Execute the plan to expand your financial means rather than shrinking your dreams.
+
+**Chapter:** ch01
+
+---
+
+## The Corporate Tax Shield
+
+**When to use:** When earning significant income and looking to minimize tax expenses.
+
+**Recipe:**
+
+1. Form a legal corporate entity to hold business assets.
+2. Route income through the corporation.
+3. Pay for all valid business expenses (travel, equipment, education) using pre-tax corporate funds.
+4. Pay personal taxes only on the remaining profit distributed from the corporation.
+
+**Chapter:** ch04
+
+---
+
+## The Skill-Stacking Career Move
+
+**When to use:** When evaluating a new job offer or career path.
+
+**Recipe:**
+
+1. List the technical skills the job requires.
+2. Identify the business skills the job offers (sales, management, accounting).
+3. Prioritize the job that offers the most valuable business skills over the one that offers the highest immediate salary.
+4. Stay in the role only until the skill is mastered, then move to the next learning opportunity.
+
+**Chapter:** ch06
+
+---
+
+## Cheatsheet
+
+# Cheatsheet
+
+Imperative decision rules from the source, grouped by category. Each is the kind of sentence you would write on an index card.
+
+## general
+
+- An asset puts money in your pocket; a liability takes it out.
+- Financial intelligence is the ability to see opportunities that others miss.
+- Risk is always present; learn to manage it instead of avoiding it.
+- Great opportunities are not seen with your eyes; they are seen with your mind.
+- The most powerful asset you have is your mind.
+- Don't be a slave to money; make money your slave.
+
+## process
+
+- Don't say 'I can't afford it'; ask 'How can I afford it?'
+- Pay yourself first every month, before paying any bills.
+- Taxes are your biggest expense; use corporations to pay them last.
+- Keep your expenses low and your liabilities at a minimum.
+
+## life
+
+- Work to learn, not to earn.
+- Failure inspires winners and defeats losers.
+- Seek out teachers who have actually done what you want to do.
+
+## design
+
+- The rich buy assets; the poor only have expenses; the middle class buys liabilities they think are assets.
+
+## product
+
+- Mind your own business by building your asset column while working your day job.
+- Avoid the 'Rat Race' by focusing on cash flow over salary.
+
+## writing
+
+- If you want to be rich, you must be able to read numbers.
+
+## argument
+
+- The lack of money is the root of all evil.
+
+## How to use this skill
+
+This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
+

@@ -1,9 +1,4 @@
----
-name: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
-description: Use when me: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
-license: MIT
----
-
+<!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Urban Inhabitation: The Anthropology of Precarity and Space
 
@@ -45,8 +40,144 @@ This skill provides a framework for understanding how humans navigate and reshap
 - **ch09 — Informal Labor and Urban Insertion** — How marginalized groups use informal work to claim their right to the city. (load: `chapters/ch09.md`)
 - **ch10 — Inequality and Symbolic Boundaries** — The role of invisible social borders in maintaining urban segregation and inequality. (load: `chapters/ch10.md`)
 
-## Quick reference
+## Glossary
 
-For vocabulary: see `glossary.md` (terms, chapter-anchored).
-For reusable moves: see `patterns.md` (steps, chapter-anchored).
-For decision rules: see `cheatsheet.md` (imperative sentences by category).
+# Glossary
+
+Terms and named ideas from the source, anchored to the chapter that explains them.
+
+| Term | Definition | Chapter |
+| --- | --- | --- |
+| **Sociospatial** | A framework that views space as a product of social, economic, and political interactions. | ch01 |
+| **Precarity** | A state of persistent instability and uncertainty in work and life, often used as a tool of control. | ch02 |
+| **Crafting** | The practice of piecing together different skills and identities to navigate urban opportunities. | ch03 |
+| **Harvesting** | The act of gathering and repurposing 'waste' materials or social gaps for survival. | ch05 |
+| **Detachment** | A tactical move to avoid institutional scrutiny by remaining mobile and uncommitted. | ch06 |
+| **Logistics** | The system of standardized movement for goods and bodies across urban territories. | ch07 |
+| **Urban Order** | The set of formal and informal rules that govern behavior and belonging in a city. | ch08 |
+| **Moral Space** | An area where social values and rules are contested and negotiated through daily use. | ch08 |
+| **Cartoneros** | Informal waste pickers who collect and sell recyclable materials, common in Buenos Aires. | ch09 |
+| **Urban Insertion** | The process by which marginalized groups claim space and legitimacy within the city. | ch09 |
+| **Symbolic Boundaries** | Invisible social lines that define who belongs in specific urban areas. | ch10 |
+| **Floating Population** | Youth and workers who circulate through various jobs and neighborhoods without settling. | ch06 |
+| **Warung** | A small, multifunctional shop in Indonesia that serves as a social and economic hub. | ch01 |
+| **Bustee** | A housing tenement or slum area, specifically in the context of South Asian cities. | ch05 |
+| **KPI** | Key Performance Indicators; software used to measure and control worker efficiency in logistics. | ch07 |
+| **Cabe-cabean** | A slang term for youth in Jakarta who use motorbikes to circulate and perform social transgressions. | ch06 |
+| **Right to the City** | The claim that all inhabitants should have the power to shape and inhabit urban space. | ch10 |
+| **Resilience** | A term often used by planners to describe the ability of the poor to survive systemic shocks. | ch02 |
+| **Social Construction** | The way people transform physical space through their daily experiences and meanings. | ch01 |
+| **Fallow Space** | Underused or 'wasted' urban areas that can be harvested for informal use. | ch05 |
+
+## Patterns
+
+# Patterns
+
+Reusable moves extracted from the source. Each is a recipe — context, then steps, then the chapter to read for the full argument.
+
+## Harvesting the Fallow
+
+**When to use:** When an agent identifies underused urban space or discarded resources.
+
+**Recipe:**
+
+1. Identify 'waste' or gaps in the formal urban grid.
+2. Map the informal actors who already have access to these gaps.
+3. Bundle these resources into a new circuit of exchange or sociality.
+4. Maintain a low profile to avoid formal regulation.
+
+**Chapter:** ch05
+
+---
+
+## Tactical Detachment
+
+**When to use:** When an agent needs to avoid surveillance or institutional capture.
+
+**Recipe:**
+
+1. Pluralize sources of income and social affiliations.
+2. Use 'floating' housing or temporary workspaces.
+3. Adopt a highly visible but 'standard' identity as a cover for movement.
+4. Continuously exit a situation before it becomes a fixed obligation.
+
+**Chapter:** ch06
+
+---
+
+## The Hinge Maneuver
+
+**When to use:** When an inhabitant needs to move between different social classes or zones.
+
+**Recipe:**
+
+1. Identify a 'hinge' location (like a transit hub or a specific service job).
+2. Craft a performance that fits the expectations of that location.
+3. Use the location to gather information about other parts of the city.
+4. Pivot to a new opportunity as soon as the current one stabilizes too much.
+
+**Chapter:** ch03
+
+---
+
+## Reading the Moral Arena
+
+**When to use:** When analyzing a conflict over the use of public space.
+
+**Recipe:**
+
+1. Identify the formal rules (laws) and the informal rules (habits).
+2. Determine which group is making a 'moral claim' to the space.
+3. Look for the 'rupture'—the moment a rule is broken and sanctioned.
+4. Map how the conflict reshapes the symbolic boundaries of the city.
+
+**Chapter:** ch08
+
+---
+
+## Cheatsheet
+
+# Cheatsheet
+
+Imperative decision rules from the source, grouped by category. Each is the kind of sentence you would write on an index card.
+
+## process
+
+- Treat space as a resource to be used, not just a place to be.
+- Strategic waiting is a form of action; position yourself where the future is headed.
+- Never assume a logistical system is friction-free; find the hidden labor.
+- Recuperate what the city wastes to build your own economy.
+
+## life
+
+- If a system demands 'resilience,' it is likely trying to shift a burden onto you.
+- Stability is often a trap; prioritize the ability to circulate.
+
+## general
+
+- Use performance to attract the right attention and deflect the wrong attention.
+- Avoid being 'pinned down' by a single identity or destination.
+
+## design
+
+- Look for the alleys behind the main traffic; that is where the real city moves.
+- Symbolic boundaries are as real as physical walls; map them carefully.
+- The 'planner's view' is always incomplete; seek the 'inhabitant's view.'
+
+## argument
+
+- A conflict in public space is a map of a city's true power structure.
+- Trespassing a symbolic boundary is the first step to changing an urban order.
+
+## product
+
+- Informal work is a claim to the city; treat it as a political act.
+
+## code
+
+- Standardization is a tool for control; use 'illicit' knowledge to bypass it.
+
+## How to use this skill
+
+This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
+

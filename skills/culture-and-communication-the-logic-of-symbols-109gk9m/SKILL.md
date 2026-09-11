@@ -1,9 +1,4 @@
----
-name: culture-and-communication-the-logic-of-symbols-109gk9m
-description: Use when me: culture-and-communication-the-logic-of-symbols-109gk9m
-license: MIT
----
-
+<!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Culture and Communication: The Logic of Symbols
 
@@ -45,8 +40,165 @@ This skill provides a framework for decoding how human culture uses objects, act
 - **ch09 — The Grammar of Non-Verbal Acts** — How clothing, food, and layout function as a language. (load: `chapters/ch09.md`)
 - **ch10 — Decoding Cultural Systems** — The method for interpreting complex symbolic behavior. (load: `chapters/ch10.md`)
 
-## Quick reference
+## Glossary
 
-For vocabulary: see `glossary.md` (terms, chapter-anchored).
-For reusable moves: see `patterns.md` (steps, chapter-anchored).
-For decision rules: see `cheatsheet.md` (imperative sentences by category).
+# Glossary
+
+Terms and named ideas from the source, anchored to the chapter that explains them.
+
+| Term | Definition | Chapter |
+| --- | --- | --- |
+| **Communication Event** | A dyadic occurrence involving a sender, a receiver, and a message-bearing entity. | ch01 |
+| **Signal** | A trigger that causes an automatic, mechanical response. | ch02 |
+| **Index** | A signifier that indicates the existence of a message without a cause-effect link. | ch02 |
+| **Signum** | An index that stands for something else as a result of arbitrary human choice. | ch02 |
+| **Sign** | A signum where the relationship between the object and the message is intrinsic and contiguous. | ch02 |
+| **Symbol** | A signum where the relationship is arbitrary and based on similarity across different contexts. | ch02 |
+| **Metonymy** | A logic of association where a part stands for the whole. | ch03 |
+| **Metaphor** | A logic of association where one thing is asserted to be like another from a different context. | ch03 |
+| **Syntagmatic Chain** | A linear sequence of message-bearing elements, like a sentence or a melody. | ch03 |
+| **Paradigmatic Set** | A group of items that are associated by similarity and can be substituted for one another. | ch03 |
+| **Sense-image** | The internal mental representation of a physical object or sound. | ch04 |
+| **Concept** | The abstract idea in the mind that is indissolubly linked to a sense-image. | ch04 |
+| **Homonymy** | When two different concepts share the same sense-image, often used in puns. | ch04 |
+| **Synonymy** | When one concept is represented by two different sense-images. | ch04 |
+| **Magic** | The practice of treating expressive symbols as if they were technical signals. | ch05 |
+| **Contagious Magic** | Magic based on the 'law of contact,' which is a misuse of metonymy. | ch05 |
+| **Homoeopathic Magic** | Magic based on the 'law of similarity,' which is a misuse of metaphor. | ch05 |
+| **Boundary** | An artificial interruption in a natural continuum used to create social categories. | ch06 |
+| **Taboo** | A social prohibition placed on ambiguous boundary zones to prevent category confusion. | ch06 |
+| **Liminality** | The state of being 'on the threshold' during a ritual, neither in the old status nor the new. | ch07 |
+| **Ritual Condensation** | The process of mapping multiple abstract meanings onto a single material object. | ch08 |
+| **Totemism** | A system of social classification using animal species as metaphors for human groups. | ch08 |
+| **Transformation** | The process of moving a message from one mode (e.g., speech) to another (e.g., dance). | ch10 |
+
+## Patterns
+
+# Patterns
+
+Reusable moves extracted from the source. Each is a recipe — context, then steps, then the chapter to read for the full argument.
+
+## Designing a Contrastive Set
+
+**When to use:** When you need to create a clear system of meaning for a user or a social group.
+
+**Recipe:**
+
+1. Identify the continuous field you want to organize (e.g., status, time, or space).
+2. Select at least two items that are physically distinct (e.g., Red and Green).
+3. Assign opposite meanings to these items (e.g., Stop and Go).
+4. Place them in a specific, consistent context where they will be encountered.
+
+**Chapter:** ch06
+
+---
+
+## Creating a Ritual Threshold
+
+**When to use:** When moving a person or object from one state to another (e.g., onboarding a user).
+
+**Recipe:**
+
+1. Define the starting state and the ending state clearly.
+2. Create a 'timeless' interval where the normal rules of the system are suspended.
+3. Use symbolic objects or actions to mark the transition.
+4. Re-introduce the person to the system with a new set of labels or permissions.
+
+**Chapter:** ch07
+
+---
+
+## Metonymic Branding
+
+**When to use:** When you want a single element to represent an entire complex system.
+
+**Recipe:**
+
+1. Identify a physical part of the system that is easily recognizable.
+2. Ensure this part is always contiguous with the whole in the user's experience.
+3. Use this part as a sign for the entire system (e.g., a 'crown' for 'royalty').
+4. Maintain the context so the sign does not become an arbitrary symbol.
+
+**Chapter:** ch02
+
+---
+
+## Symbolic Condensation
+
+**When to use:** When an abstract concept is too complex for users to grasp directly.
+
+**Recipe:**
+
+1. Identify the core abstract idea (the mentifact).
+2. Select a material object that can act as an iconic or arbitrary representation.
+3. Link the object to the idea through repeated ritual or narrative use.
+4. Treat the object with the same 'sanctity' or importance as the idea itself.
+
+**Chapter:** ch08
+
+---
+
+## Decoding a Cultural Palimpsest
+
+**When to use:** When trying to understand a complex, confusing set of social behaviors.
+
+**Recipe:**
+
+1. Break the behavior into individual episodes or events.
+2. Assume each episode is a partial metaphor for the others.
+3. Look for the abstract pattern or 'structure' common to all episodes.
+4. Read this derived pattern as the true message of the system.
+
+**Chapter:** ch10
+
+---
+
+## Cheatsheet
+
+# Cheatsheet
+
+Imperative decision rules from the source, grouped by category. Each is the kind of sentence you would write on an index card.
+
+## design
+
+- Meaning is not in the thing; it is in the difference between things.
+- To make a boundary clear, mark it with something that feels 'out of place.'
+- Ambiguity at the edges of a category causes anxiety; use ritual to soothe it.
+- Clothing is a grammar; every outfit is a sentence about identity.
+
+## general
+
+- If you change the context, you change the meaning of the sign.
+- A gift is always a message about the status of the giver and receiver.
+- If a symbol is private, it isn't communication; it's just a dream.
+- Names create things; until it has a label, it is part of the background.
+- The 'sacred' is usually just a marker for a social boundary.
+
+## writing
+
+- A sign is part of the thing; a symbol is just like the thing.
+- Non-verbal codes are simpler than speech; stick to familiar conventions.
+
+## process
+
+- Don't mistake a symbolic instruction for a physical cause.
+- Look for the 'score' behind the 'performance' to find the real rules.
+- Magic is the attempt to use expressive acts to do technical work.
+
+## life
+
+- Rituals happen in 'no-man's-time' where normal rules don't apply.
+
+## product
+
+- Use material objects to anchor abstract ideas that are hard to remember.
+
+## argument
+
+- Metaphor links different worlds; metonymy links parts of the same world.
+- To understand a myth, look for the structure, not the plot.
+
+## How to use this skill
+
+This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
+

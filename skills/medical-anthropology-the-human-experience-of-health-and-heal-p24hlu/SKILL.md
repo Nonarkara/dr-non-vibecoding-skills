@@ -1,9 +1,4 @@
----
-name: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu
-description: Use when me: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu
-license: MIT
----
-
+<!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Medical Anthropology: The Human Experience of Health and Healing
 
@@ -45,8 +40,167 @@ This skill provides a framework for understanding health beyond biological patho
 - **ch09 — Chronicity and Social Determinants** — Living with long-term conditions in a world of inequality. (load: `chapters/ch09.md`)
 - **ch10 — Health in the Anthropocene** — The impact of environmental destruction and climate change on human wellbeing. (load: `chapters/ch10.md`)
 
-## Quick reference
+## Glossary
 
-For vocabulary: see `glossary.md` (terms, chapter-anchored).
-For reusable moves: see `patterns.md` (steps, chapter-anchored).
-For decision rules: see `cheatsheet.md` (imperative sentences by category).
+# Glossary
+
+Terms and named ideas from the source, anchored to the chapter that explains them.
+
+| Term | Definition | Chapter |
+| --- | --- | --- |
+| **Illness** | The subjective, lived experience of being unwell, including social and emotional meanings. | ch02 |
+| **Disease** | The objective biological pathology or malfunction as defined by medical science. | ch02 |
+| **Biopower** | The practice of modern states and medical institutions to regulate subjects through the administration of life and health. | ch05 |
+| **Biosociality** | Social identities and groups formed around a shared biological diagnosis or genetic risk. | ch06 |
+| **Idioms of Distress** | Culturally specific ways of expressing and experiencing social and psychological suffering. | ch03 |
+| **Tinkering** | The creative, practical adjustments patients make to medical protocols to fit them into daily life. | ch04 |
+| **Medicalization** | The process by which human conditions and problems come to be defined and treated as medical conditions. | ch07 |
+| **Syndemic** | The aggregation of two or more concurrent or sequential epidemics in a population with biological interactions. | ch10 |
+| **Local Biologies** | The idea that biological processes are not universal but are shaped by different environments and social histories. | ch08 |
+| **Anthropocene** | The current geological period characterized by significant human impact on Earth's ecosystems. | ch10 |
+| **Nervios** | A Latin American idiom of distress used to describe a state of vulnerability to stressful life events. | ch03 |
+| **Pusing** | An Indonesian term for dizziness or being overwhelmed, often used as an idiom of distress. | ch03 |
+| **Quest for Therapy** | The process by which individuals and families seek out various healing traditions and practitioners. | ch09 |
+| **Chronicity** | The state of living with a long-term, often permanent, health condition. | ch09 |
+| **Explanatory Model** | A patient's personal interpretation of the cause, nature, and treatment of their illness. | ch02 |
+| **Hierarchy of Resort** | The sequence in which people seek different types of healthcare, from home remedies to specialists. | ch01 |
+| **Stigma** | A mark of disgrace associated with a particular circumstance, quality, or person, often impacting health access. | ch05 |
+| **Biopolitics** | The intersection of biological life and politics, specifically how the state manages the health of the population. | ch05 |
+| **Social Determinants** | The economic and social conditions that influence individual and group differences in health status. | ch09 |
+| **Arthur Kleinman** | A key figure in medical anthropology who developed the distinction between illness and disease. | ch02 |
+
+## Patterns
+
+# Patterns
+
+Reusable moves extracted from the source. Each is a recipe — context, then steps, then the chapter to read for the full argument.
+
+## The Clinical Trialogue
+
+**When to use:** When treating a child or dependent patient.
+
+**Recipe:**
+
+1. Acknowledge the child as a social actor with their own perspective.
+2. Listen to the parent's representation of symptoms.
+3. Observe the non-verbal interactions between parent and child.
+4. Create space for the child to speak without the parent's filter.
+
+**Chapter:** ch01
+
+---
+
+## Idiom Mapping
+
+**When to use:** When a patient uses non-medical terms to describe distress.
+
+**Recipe:**
+
+1. Identify the local term used (e.g., 'nervios').
+2. Ask the patient what social or economic events triggered the feeling.
+3. Validate the feeling as a logical response to their environment.
+4. Integrate social support or lifestyle changes alongside clinical treatment.
+
+**Chapter:** ch03
+
+---
+
+## Identifying Silent Resistance
+
+**When to use:** When a patient is not following a prescribed protocol.
+
+**Recipe:**
+
+1. Look for non-verbal cues like slouching, silence, or 'forgetting' devices.
+2. Avoid labeling the patient as 'non-compliant.'
+3. Ask about the 'work' the protocol requires in their daily life.
+4. Negotiate a protocol that fits their social and economic reality.
+
+**Chapter:** ch05
+
+---
+
+## Care Tinkering Analysis
+
+**When to use:** When designing a health product or intervention.
+
+**Recipe:**
+
+1. Observe how users actually use the device in their home environment.
+2. Identify where they 'break' the rules to maintain social flow.
+3. Redesign the product to accommodate these practical workarounds.
+4. Prioritize the user's sense of 'normalcy' over perfect clinical data.
+
+**Chapter:** ch04
+
+---
+
+## Biosocial Community Engagement
+
+**When to use:** When trying to improve health outcomes for a specific condition.
+
+**Recipe:**
+
+1. Identify existing patient-led groups or social identities.
+2. Partner with these groups to understand their shared priorities.
+3. Use their language and metaphors to communicate medical information.
+4. Support the group's advocacy efforts to build trust.
+
+**Chapter:** ch06
+
+---
+
+## Cheatsheet
+
+# Cheatsheet
+
+Imperative decision rules from the source, grouped by category. Each is the kind of sentence you would write on an index card.
+
+## process
+
+- If a patient is 'non-compliant,' look for the social logic behind their choice.
+- Chronic illness management is a process of constant tinkering, not rigid adherence.
+- Always ask: 'What does this illness mean to you?'
+
+## general
+
+- Treat children as social actors, not just passive subjects of care.
+- A diagnosis is a social event that changes a person's identity and community.
+- Poverty is the most significant 'comorbidity' in chronic disease.
+- A 'good patient' is often just one who has the resources to follow the rules.
+
+## design
+
+- Distinguish between the biological 'cure' and the social 'healing.'
+- Health interventions must account for 'local biologies' and environments.
+- Global health protocols often fail because they ignore local infrastructure.
+
+## writing
+
+- Use local metaphors carefully; they can be patronizing if not understood in context.
+
+## product
+
+- Remember that 'work' for a patient includes the mental load of monitoring.
+- Informal medicine markets are often more 'logical' to patients than formal clinics.
+- Technology in health is only as effective as the human relationships it supports.
+
+## argument
+
+- Symptoms are often a body's way of protesting social or economic injustice.
+- The body is a site of resistance; self-harm or refusal of care can be political acts.
+
+## life
+
+- Secrecy about a diagnosis can be an act of compassion, not just shame.
+- Environmental destruction is a direct threat to human biological health.
+- Children often protect their parents from the reality of their own illness.
+
+## code
+
+- Genetic risk information can create 'biosocial' groups that challenge doctors.
+
+## How to use this skill
+
+This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
+
