@@ -1,3 +1,10 @@
+---
+name: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu
+description: Use when me: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu
+license: MIT
+---
+
+
 # The Ethnography of Malinowski: Participant Observation and Fieldwork
 
 > This skill provides a framework for deep user research and ethnographic study based on the foundational methods of Bronislaw Malinowski. It focuses on long-term immersion, the distinction between what people say and what they do, and the systematic recording of the 'imponderabilia of actual life.' An agent should load this when it needs to design research protocols for natural settings, understand complex social hierarchies, or move beyond surface-level interviews to uncover the underlying logic of a community or user group.

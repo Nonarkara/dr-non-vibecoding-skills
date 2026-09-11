@@ -1,3 +1,10 @@
+---
+name: 100-days-of-writing-reasoning-argument-logic-na6pzg
+description: Use when me: 100-days-of-writing-reasoning-argument-logic-na6pzg
+license: MIT
+---
+
+
 # 100 Days of Writing: Reasoning, Argument & Logic
 
 > A toolkit for intellectual honesty and clear thinking. This skill teaches how to dismantle social stigmas, use constraints to find clarity in writing, and navigate existential loneliness through pragmatic action and the recognition of personal bias.

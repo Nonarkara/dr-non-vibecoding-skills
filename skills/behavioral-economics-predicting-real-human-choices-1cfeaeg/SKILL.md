@@ -1,3 +1,10 @@
+---
+name: behavioral-economics-predicting-real-human-choices-1cfeaeg
+description: Use when me: behavioral-economics-predicting-real-human-choices-1cfeaeg
+license: MIT
+---
+
+
 # Behavioral Economics: Predicting Real Human Choices
 
 > This skill distills the core insights from Misbehaving, showing how human decisions deviate from the rational-actor model in predictable ways. It equips an AI to anticipate actual behavior, design systems that work with real people, and identify exploitable market anomalies. The focus is on practical tools: heuristics, prospect theory, mental accounting, self-control, fairness, and choice architecture.

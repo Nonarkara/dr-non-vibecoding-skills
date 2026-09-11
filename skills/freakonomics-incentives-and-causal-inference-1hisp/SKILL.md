@@ -1,3 +1,10 @@
+---
+name: freakonomics-incentives-and-causal-inference-1hisp
+description: Use when me: freakonomics-incentives-and-causal-inference-1hisp
+license: MIT
+---
+
+
 # Freakonomics: Incentives and Causal Inference
 
 > This skill provides a framework for identifying the hidden drivers of human behavior by looking past moral claims and conventional wisdom. It uses data analysis and economic tools to reveal how people respond to incentives, how experts exploit information gaps, and how to distinguish between correlation and actual cause. An agent should load this when it needs to audit a system for cheating, predict how a new rule will change behavior, or challenge a widely held but unproven belief.

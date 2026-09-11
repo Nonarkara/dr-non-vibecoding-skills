@@ -1,3 +1,10 @@
+---
+name: choice-architecture-nudging-decisions-without-coercion-1vgrrkp
+description: Use when me: choice-architecture-nudging-decisions-without-coercion-1vgrrkp
+license: MIT
+---
+
+
 # Choice Architecture: Nudging Decisions Without Coercion
 
 > A practical skill set for AI agents that need to design any user interaction where a choice is presented. It teaches how to map defaults, options, and frictions, run the iNUDGE checklist, apply SLIM messaging, and respect ethical limits while leveraging human cognitive biases.

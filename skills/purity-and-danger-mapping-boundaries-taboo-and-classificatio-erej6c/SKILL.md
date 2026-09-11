@@ -1,3 +1,10 @@
+---
+name: purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c
+description: Use when me: purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c
+license: MIT
+---
+
+
 # Purity and Danger: Mapping Boundaries, Taboo, and Classification
 
 > A practical guide for agents that need to decode rules about purity, pollution, and taboo. It shows how every rule is first a statement about a boundary – what belongs inside, what must stay out – and then explains how to spot the underlying social order the rule protects. The skill lets an AI ask “what system of order does this rule defend?” before asking “why does the rule exist?” and supplies concrete patterns for turning anthropological insight into product‑design decisions.

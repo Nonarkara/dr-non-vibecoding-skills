@@ -1,3 +1,10 @@
+---
+name: fieldwork-mastery-the-french-ethnographic-tradition-18gonb7
+description: Use when me: fieldwork-mastery-the-french-ethnographic-tradition-18gonb7
+license: MIT
+---
+
+
 # Fieldwork Mastery: The French Ethnographic Tradition
 
 > This skill module distills the transition from armchair theorizing to rigorous field-based observation. It provides a framework for designing research that prioritizes raw data over abstract theory, emphasizing the discipline of 'being there' to uncover social truths that are invisible from a distance. It is designed for agents who need to ground their reasoning in concrete human behavior and material reality.

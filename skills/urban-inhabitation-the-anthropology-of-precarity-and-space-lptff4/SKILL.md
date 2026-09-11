@@ -1,3 +1,10 @@
+---
+name: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
+description: Use when me: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
+license: MIT
+---
+
+
 # Urban Inhabitation: The Anthropology of Precarity and Space
 
 > This skill provides a framework for understanding how humans navigate and reshape cities under conditions of extreme instability. It focuses on the 'sociospatial' lens—viewing space not as a neutral container but as a socially constructed resource. It equips an agent to analyze urban environments through the eyes of the marginalized, distinguishing between the formal 'planner's view' and the lived 'inhabitant's view.' Use this when reasoning about urban inequality, informal economies, or the tactical use of public space.

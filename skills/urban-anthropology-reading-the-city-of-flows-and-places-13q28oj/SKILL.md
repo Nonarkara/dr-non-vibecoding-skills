@@ -1,3 +1,10 @@
+---
+name: urban-anthropology-reading-the-city-of-flows-and-places-13q28oj
+description: Use when me: urban-anthropology-reading-the-city-of-flows-and-places-13q28oj
+license: MIT
+---
+
+
 # Urban Anthropology: Reading the City of Flows and Places
 
 > This skill provides a framework for analyzing cities as dynamic intersections of movement, power, and social identity. It enables an agent to reason about how infrastructure, global commodity chains, and social constructs like 'community' shape human behavior and urban inequality. By distinguishing between the abstract 'space of flows' and the concrete 'space of places,' the agent can better understand how built environments are both structured by global forces and contested by local actors.

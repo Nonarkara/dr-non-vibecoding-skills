@@ -1,3 +1,10 @@
+---
+name: pattern-language-design-toolkit-1pms7oa
+description: Use when me: pattern-language-design-toolkit-1pms7oa
+license: MIT
+---
+
+
 # Pattern Language Design Toolkit
 
 > A practical guide for agents that need to design towns, buildings, or any complex system using Alexander's pattern language. It teaches how to read, combine, and adapt patterns, explains the hierarchy of patterns, the meaning of asterisks, and how to evolve a personal pattern language while staying grounded in the original catalogue.

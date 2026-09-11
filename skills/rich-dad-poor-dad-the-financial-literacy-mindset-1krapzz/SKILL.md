@@ -1,3 +1,10 @@
+---
+name: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz
+description: Use when me: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz
+license: MIT
+---
+
+
 # Rich Dad Poor Dad: The Financial Literacy Mindset
 
 > This skill provides a mental framework for distinguishing between working for money and having money work for you. It focuses on the conceptual difference between assets and liabilities, the mechanics of cash flow, and the use of financial education to escape the cycle of earned-income dependency. An agent should load this when it needs to evaluate financial plans, critique investment logic, or reason about long-term wealth building versus short-term income gains.

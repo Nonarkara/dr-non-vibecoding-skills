@@ -1,3 +1,10 @@
+---
+name: kinship-in-bali-a-system-of-meanings-17ki8bq
+description: Use when me: kinship-in-bali-a-system-of-meanings-17ki8bq
+license: MIT
+---
+
+
 # Kinship in Bali: A System of Meanings
 
 > This skill provides a framework for analyzing social structures as overlapping networks of meaning rather than rigid hierarchies. It focuses on the Balinese model where kinship, residence, and irrigation are handled by distinct, autonomous groups, teaching agents how to analyze complex societies without projecting Western assumptions of unified community or biological kinship.

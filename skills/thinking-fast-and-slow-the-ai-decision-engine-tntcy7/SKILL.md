@@ -1,3 +1,10 @@
+---
+name: thinking-fast-and-slow-the-ai-decision-engine-tntcy7
+description: Use when me: thinking-fast-and-slow-the-ai-decision-engine-tntcy7
+license: MIT
+---
+
+
 # Thinking, Fast and Slow: The AI Decision Engine
 
 > This skill provides a technical framework for AI agents to navigate human cognitive architecture. It enables the agent to identify when a human is relying on flawed intuition, how to communicate to ensure information is actually retained, and how to apply rigorous decision hygiene to its own outputs to avoid common logical traps like the planning fallacy and base-rate neglect.

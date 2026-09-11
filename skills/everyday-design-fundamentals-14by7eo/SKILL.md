@@ -1,3 +1,10 @@
+---
+name: everyday-design-fundamentals-14by7eo
+description: Use when me: everyday-design-fundamentals-14by7eo
+license: MIT
+---
+
+
 # Everyday Design Fundamentals
 
 > A compact guide for agents that need to create or evaluate products used by people. It contains the essential concepts from Don Norman’s work—affordances, signifiers, mapping, feedback, constraints, conceptual models, error types, and the seven‑stage action cycle—organized into self‑contained chapters that can be loaded individually.

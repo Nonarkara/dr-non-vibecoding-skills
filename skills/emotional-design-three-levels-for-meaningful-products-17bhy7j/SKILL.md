@@ -1,3 +1,10 @@
+---
+name: emotional-design-three-levels-for-meaningful-products-17bhy7j
+description: Use when me: emotional-design-three-levels-for-meaningful-products-17bhy7j
+license: MIT
+---
+
+
 # Emotional Design: Three Levels for Meaningful Products
 
 > This skill teaches how to shape products so they engage users at the visceral (appearance), behavioral (use), and reflective (meaning) levels. By aligning aesthetics, usability, and personal significance, designers can create objects that attract, are easy to use, and foster lasting emotional bonds.

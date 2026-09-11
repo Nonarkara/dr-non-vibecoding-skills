@@ -1,3 +1,10 @@
+---
+name: non-writing-the-editor-brain-skill-ri1czx
+description: Use when me: non-writing-the-editor-brain-skill-ri1czx
+license: MIT
+---
+
+
 # Non-Writing: The Editor Brain Skill
 
 > A compact guide that teaches an AI editor how to rewrite any prose in Dr. Non Arkaraprasertkul’s distinctive voice. It captures his blunt openings, reflective middle, quiet aphoristic closings, signature transitions, rhythm, and recurring techniques such as short quotes, embedded dialogue, before‑after contrasts, and thinker‑load phrases. The guide also lists concrete do‑and‑don’t rules, reusable patterns, and index‑card style cheatsheet items so the editor can apply the style on demand, one chapter at a time.

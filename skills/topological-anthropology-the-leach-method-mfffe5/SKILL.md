@@ -1,3 +1,10 @@
+---
+name: topological-anthropology-the-leach-method-mfffe5
+description: Use when me: topological-anthropology-the-leach-method-mfffe5
+license: MIT
+---
+
+
 # Topological Anthropology: The Leach Method
 
 > A structural framework for analyzing social systems as sets of variables rather than fixed objects. This skill enables an agent to strip away cultural labels and biological assumptions to uncover the underlying mathematical patterns of kinship, power, and ritual influence.

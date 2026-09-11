@@ -35,7 +35,7 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 104
+ls ~/.claude/skills | wc -l   # expect 140
 # also: ls ~/.agents/skills | wc -l
 ```
 

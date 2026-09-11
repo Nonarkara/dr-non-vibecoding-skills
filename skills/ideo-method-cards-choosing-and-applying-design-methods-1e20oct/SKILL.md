@@ -1,3 +1,10 @@
+---
+name: ideo-method-cards-choosing-and-applying-design-methods-1e20oct
+description: Use when me: ideo-method-cards-choosing-and-applying-design-methods-1e20oct
+license: MIT
+---
+
+
 # IDEO Method Cards: Choosing and Applying Design Methods
 
 > A practical guide for an AI agent to recommend, sequence, and run IDEO’s 51 design methods. It explains how to match methods to project phases, adapt them to constraints, respect participants, and avoid over‑engineering. Load a chapter when the agent needs detailed guidance on a specific aspect of method selection or execution.

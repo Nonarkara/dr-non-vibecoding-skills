@@ -1,3 +1,10 @@
+---
+name: human-centered-design-process-elf9h4
+description: Use when me: human-centered-design-process-elf9h4
+license: MIT
+---
+
+
 # Human-Centered Design Process
 
 > A practical skill set for AI agents that need to run a full human‑centered design (HCD) cycle: discover people, frame the problem, generate ideas, prototype, test, and iterate while embodying the five core mindsets. Load this skill whenever a design project, discovery phase, or method selection is required.

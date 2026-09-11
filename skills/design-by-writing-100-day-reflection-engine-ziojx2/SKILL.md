@@ -1,3 +1,10 @@
+---
+name: design-by-writing-100-day-reflection-engine-ziojx2
+description: Use when me: design-by-writing-100-day-reflection-engine-ziojx2
+license: MIT
+---
+
+
 # Design by Writing: 100‑Day Reflection Engine
 
 > A practical skill set that turns daily writing habits into a design thinking toolkit. Load a chapter when you need a concrete move—whether you are sketching a user story, breaking a problem into iterations, or avoiding common failure modes. The skill teaches you to treat writing, reflection, and physical routines as reusable design actions.

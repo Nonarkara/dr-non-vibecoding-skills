@@ -1,3 +1,10 @@
+---
+name: culture-and-communication-the-logic-of-symbols-109gk9m
+description: Use when me: culture-and-communication-the-logic-of-symbols-109gk9m
+license: MIT
+---
+
+
 # Culture and Communication: The Logic of Symbols
 
 > This skill provides a framework for decoding how human culture uses objects, actions, and rituals to transmit meaning. It moves beyond literal language to explain how non-verbal codes—like clothing, architecture, and gift-giving—operate as a 'social grammar.' By understanding the distinctions between signals, signs, and symbols, an agent can design interfaces, brands, or social systems that align with the deep logic of human categorization and boundary-making.

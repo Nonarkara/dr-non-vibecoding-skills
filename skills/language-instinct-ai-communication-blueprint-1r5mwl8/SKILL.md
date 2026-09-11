@@ -1,3 +1,10 @@
+---
+name: language-instinct-ai-communication-blueprint-1r5mwl8
+description: Use when me: language-instinct-ai-communication-blueprint-1r5mwl8
+license: MIT
+---
+
+
 # Language Instinct: AI Communication Blueprint
 
 > A practical skill set that teaches an AI how human language works, why people accept or reject messages, and which concrete moves guarantee clear, persuasive, and bias‑resistant communication. Load a chapter when you need the underlying cognitive facts, a reusable pattern, or a quick decision rule.

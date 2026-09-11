@@ -1,3 +1,10 @@
+---
+name: self-managed-project-mastery-100-days-of-writing-1e5bhwu
+description: Use when me: self-managed-project-mastery-100-days-of-writing-1e5bhwu
+license: MIT
+---
+
+
 # Self‑Managed Project Mastery: 100 Days of Writing
 
 > A practical guide for knowledge workers who want to turn daily writing into a disciplined project‑management system. It shows how to shape habits, choose environments, evaluate big decisions like a PhD, and apply concrete patterns that keep you productive over weeks and months.

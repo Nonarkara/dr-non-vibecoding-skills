@@ -1,3 +1,10 @@
+---
+name: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q
+description: Use when me: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q
+license: MIT
+---
+
+
 # Interaction Design Craft: From Participatory Prototyping to Desktop Metaphors
 
 > This skill distills the core practices of interaction design as shown in the early histories of the mouse, desktop, and personal computer: involve users early, prototype to think, use clear spatial metaphors, reduce modes, and let constraints drive simplicity. An agent loads it when it needs to design a flow, screen, or conversation and wants concrete, battle‑tested moves rather than theory.

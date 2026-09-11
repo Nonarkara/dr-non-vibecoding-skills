@@ -1,3 +1,10 @@
+---
+name: innovation-personas-the-ten-faces-of-ideo-bklfgc
+description: Use when me: innovation-personas-the-ten-faces-of-ideo-bklfgc
+license: MIT
+---
+
+
 # Innovation Personas: The Ten Faces of IDEO
 
 > This skill provides a taxonomy of ten distinct roles necessary for driving innovation within an organization. It moves beyond the 'Devil's Advocate' mindset—which often kills new ideas—by offering constructive personas categorized into Learning, Organizing, and Building. An agent should load this skill to diagnose why a team is stalling, identify missing perspectives, or assign specific innovation tasks to the right psychological profile.

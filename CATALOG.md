@@ -183,3 +183,47 @@ Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, thre
 
 If two skills appear to own the same decision, that is a catalog bug. Open an issue or merge the
 overlap; do not make the agent choose between synonyms.
+
+
+## Books-to-skill pipeline (auto-extracted, under review)
+
+These skills were added by a parallel agent via the Non-Scrape books-to-skill pipeline on 2026-09-11. Each is a distillation of a single source book. The discipline, the format, and the value of each is under review. Some are load-bearing references in their fields (Kahneman, Thaler, Turner, Geertz, Malinowski, Geertz); some are personal-philosophy cheatsheet cards that may be stripped. The validator is the gate; the journal is the audit trail.
+
+| Skill | What it is |
+|---|---|
+| [`100-days-of-writing-reasoning-argument-logic-na6pzg`](skills/100-days-of-writing-reasoning-argument-logic-na6pzg/SKILL.md) | Use when me: 100-days-of-writing-reasoning-argument-logic-na6pzg |
+| [`100-days-of-writing-storytelling-the-writing-craft-1fc5btj`](skills/100-days-of-writing-storytelling-the-writing-craft-1fc5btj/SKILL.md) | Use when me: 100-days-of-writing-storytelling-the-writing-craft-1fc5btj |
+| [`behavioral-economics-predicting-real-human-choices-1cfeaeg`](skills/behavioral-economics-predicting-real-human-choices-1cfeaeg/SKILL.md) | Use when me: behavioral-economics-predicting-real-human-choices-1cfeaeg |
+| [`business-model-generation-mastering-the-canvas-k519i1`](skills/business-model-generation-mastering-the-canvas-k519i1/SKILL.md) | Use when me: business-model-generation-mastering-the-canvas-k519i1 |
+| [`choice-architecture-nudging-decisions-without-coercion-1vgrrkp`](skills/choice-architecture-nudging-decisions-without-coercion-1vgrrkp/SKILL.md) | Use when me: choice-architecture-nudging-decisions-without-coercion-1vgrrkp |
+| [`culture-and-communication-the-logic-of-symbols-109gk9m`](skills/culture-and-communication-the-logic-of-symbols-109gk9m/SKILL.md) | Use when me: culture-and-communication-the-logic-of-symbols-109gk9m |
+| [`design-by-writing-100-day-reflection-engine-ziojx2`](skills/design-by-writing-100-day-reflection-engine-ziojx2/SKILL.md) | Use when me: design-by-writing-100-day-reflection-engine-ziojx2 |
+| [`disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs`](skills/disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs/SKILL.md) | Use when me: disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs |
+| [`emotional-design-three-levels-for-meaningful-products-17bhy7j`](skills/emotional-design-three-levels-for-meaningful-products-17bhy7j/SKILL.md) | Use when me: emotional-design-three-levels-for-meaningful-products-17bhy7j |
+| [`everyday-design-fundamentals-14by7eo`](skills/everyday-design-fundamentals-14by7eo/SKILL.md) | Use when me: everyday-design-fundamentals-14by7eo |
+| [`fieldwork-mastery-the-french-ethnographic-tradition-18gonb7`](skills/fieldwork-mastery-the-french-ethnographic-tradition-18gonb7/SKILL.md) | Use when me: fieldwork-mastery-the-french-ethnographic-tradition-18gonb7 |
+| [`freakonomics-incentives-and-causal-inference-1hisp`](skills/freakonomics-incentives-and-causal-inference-1hisp/SKILL.md) | Use when me: freakonomics-incentives-and-causal-inference-1hisp |
+| [`human-centered-design-process-elf9h4`](skills/human-centered-design-process-elf9h4/SKILL.md) | Use when me: human-centered-design-process-elf9h4 |
+| [`ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax`](skills/ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax/SKILL.md) | Use when me: ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax |
+| [`ideo-method-cards-choosing-and-applying-design-methods-1e20oct`](skills/ideo-method-cards-choosing-and-applying-design-methods-1e20oct/SKILL.md) | Use when me: ideo-method-cards-choosing-and-applying-design-methods-1e20oct |
+| [`innovation-personas-the-ten-faces-of-ideo-bklfgc`](skills/innovation-personas-the-ten-faces-of-ideo-bklfgc/SKILL.md) | Use when me: innovation-personas-the-ten-faces-of-ideo-bklfgc |
+| [`interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q`](skills/interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q/SKILL.md) | Use when me: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q |
+| [`interpretive-anthropology-reading-culture-thickly-14r8fgq`](skills/interpretive-anthropology-reading-culture-thickly-14r8fgq/SKILL.md) | Use when me: interpretive-anthropology-reading-culture-thickly-14r8fgq |
+| [`kinship-in-bali-a-system-of-meanings-17ki8bq`](skills/kinship-in-bali-a-system-of-meanings-17ki8bq/SKILL.md) | Use when me: kinship-in-bali-a-system-of-meanings-17ki8bq |
+| [`language-instinct-ai-communication-blueprint-1r5mwl8`](skills/language-instinct-ai-communication-blueprint-1r5mwl8/SKILL.md) | Use when me: language-instinct-ai-communication-blueprint-1r5mwl8 |
+| [`measurement-foundations-for-human-studies-lhoitu`](skills/measurement-foundations-for-human-studies-lhoitu/SKILL.md) | Use when me: measurement-foundations-for-human-studies-lhoitu |
+| [`medical-anthropology-the-human-experience-of-health-and-heal-p24hlu`](skills/medical-anthropology-the-human-experience-of-health-and-heal-p24hlu/SKILL.md) | Use when me: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu |
+| [`non-writing-the-editor-brain-skill-ri1czx`](skills/non-writing-the-editor-brain-skill-ri1czx/SKILL.md) | Use when me: non-writing-the-editor-brain-skill-ri1czx |
+| [`pattern-language-design-toolkit-1pms7oa`](skills/pattern-language-design-toolkit-1pms7oa/SKILL.md) | Use when me: pattern-language-design-toolkit-1pms7oa |
+| [`purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c`](skills/purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c/SKILL.md) | Use when me: purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c |
+| [`rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz`](skills/rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz/SKILL.md) | Use when me: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz |
+| [`self-managed-project-mastery-100-days-of-writing-1e5bhwu`](skills/self-managed-project-mastery-100-days-of-writing-1e5bhwu/SKILL.md) | Use when me: self-managed-project-mastery-100-days-of-writing-1e5bhwu |
+| [`simplicity-moves-ten-laws-for-clearer-design-rii9k6`](skills/simplicity-moves-ten-laws-for-clearer-design-rii9k6/SKILL.md) | Use when me: simplicity-moves-ten-laws-for-clearer-design-rii9k6 |
+| [`solo-scribble-the-discipline-of-unedited-drafting-egka8o`](skills/solo-scribble-the-discipline-of-unedited-drafting-egka8o/SKILL.md) | Use when me: solo-scribble-the-discipline-of-unedited-drafting-egka8o |
+| [`the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu`](skills/the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu/SKILL.md) | Use when me: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu |
+| [`thinking-fast-and-slow-the-ai-decision-engine-tntcy7`](skills/thinking-fast-and-slow-the-ai-decision-engine-tntcy7/SKILL.md) | Use when me: thinking-fast-and-slow-the-ai-decision-engine-tntcy7 |
+| [`topological-anthropology-the-leach-method-mfffe5`](skills/topological-anthropology-the-leach-method-mfffe5/SKILL.md) | Use when me: topological-anthropology-the-leach-method-mfffe5 |
+| [`urban-anthropology-reading-the-city-of-flows-and-places-13q28oj`](skills/urban-anthropology-reading-the-city-of-flows-and-places-13q28oj/SKILL.md) | Use when me: urban-anthropology-reading-the-city-of-flows-and-places-13q28oj |
+| [`urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4`](skills/urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4/SKILL.md) | Use when me: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4 |
+| [`validated-learning-the-build-measure-learn-loop-1i6p1f5`](skills/validated-learning-the-build-measure-learn-loop-1i6p1f5/SKILL.md) | Use when me: validated-learning-the-build-measure-learn-loop-1i6p1f5 |
+| [`value-investing-graham-s-core-discipline-j4ppt3`](skills/value-investing-graham-s-core-discipline-j4ppt3/SKILL.md) | Use when me: value-investing-graham-s-core-discipline-j4ppt3 |

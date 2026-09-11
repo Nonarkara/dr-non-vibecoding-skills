@@ -1,3 +1,10 @@
+---
+name: disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs
+description: Use when me: disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs
+license: MIT
+---
+
+
 # Disruptive Innovation Playbook: Navigating the Innovator's Dilemma
 
 > A practical guide for managers and strategists who must anticipate, evaluate, and respond to disruptive technologies that threaten their core business. Load a single chapter when you need to understand a specific aspect—resource allocation, market uncertainty, organizational capability, or execution tactics—without reading the whole book.

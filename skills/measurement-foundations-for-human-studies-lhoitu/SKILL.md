@@ -1,3 +1,10 @@
+---
+name: measurement-foundations-for-human-studies-lhoitu
+description: Use when me: measurement-foundations-for-human-studies-lhoitu
+license: MIT
+---
+
+
 # Measurement Foundations for Human Studies
 
 > This skill equips an AI to evaluate claims about human phenomena by grounding them in measurement theory. It clarifies what counts as evidence, how scales of measurement are justified, the role of interpretation versus data, and the limits of explanation when studying humans. The AI learns to distinguish fundamental from derived measurement, assess whether numerical assignments reflect empirical structure or convention, and apply axiomatic and operational criteria to social‑science constructs.

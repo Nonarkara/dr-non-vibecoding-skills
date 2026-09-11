@@ -1,3 +1,10 @@
+---
+name: business-model-generation-mastering-the-canvas-k519i1
+description: Use when me: business-model-generation-mastering-the-canvas-k519i1
+license: MIT
+---
+
+
 # Business Model Generation: Mastering the Canvas
 
 > This skill teaches how to use the Business Model Canvas as a practical tool for designing, testing, and critiquing business models. It explains each of the nine building blocks, shows how they interconnect, and provides patterns and rules of thumb for turning ideas into viable models. An agent loads this when it needs to sketch a new model, diagnose weaknesses in an existing one, or compare alternative designs.

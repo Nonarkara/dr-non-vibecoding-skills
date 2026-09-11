@@ -1,3 +1,10 @@
+---
+name: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu
+description: Use when me: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu
+license: MIT
+---
+
+
 # Medical Anthropology: The Human Experience of Health and Healing
 
 > This skill provides a framework for understanding health beyond biological pathology. It focuses on the social, cultural, and political dimensions of illness, treating patients as active agents rather than passive recipients of care. It is essential for designing health products and systems that respect local contexts, recognize silent resistance, and address the social determinants of wellbeing.

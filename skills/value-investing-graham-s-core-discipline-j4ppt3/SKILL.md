@@ -1,3 +1,10 @@
+---
+name: value-investing-graham-s-core-discipline-j4ppt3
+description: Use when me: value-investing-graham-s-core-discipline-j4ppt3
+license: MIT
+---
+
+
 # Value Investing: Graham's Core Discipline
 
 > This skill equips an AI agent to reason about investments using Benjamin Graham's timeless principles: distinguishing price from intrinsic value, demanding a margin of safety, treating market offers as optional, separating investing from speculation, mastering temperament, focusing on long-term compounding, and recognizing the limits of early‑era tactics. Each chapter isolates a theme so the agent can load only what it needs for a given decision.

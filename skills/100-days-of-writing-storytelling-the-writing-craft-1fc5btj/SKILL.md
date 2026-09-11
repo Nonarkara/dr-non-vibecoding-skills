@@ -1,3 +1,10 @@
+---
+name: 100-days-of-writing-storytelling-the-writing-craft-1fc5btj
+description: Use when me: 100-days-of-writing-storytelling-the-writing-craft-1fc5btj
+license: MIT
+---
+
+
 # 100 Days of Writing: Storytelling & the Writing Craft
 
 > A guide to using writing as a tool for thinking and learning. This skill helps writers bridge the gap between raw personal experience and abstract philosophical inquiry, emphasizing the importance of daily reflection, physical movement as a mental catalyst, and the courage to write for oneself before writing for an audience.

@@ -1,3 +1,10 @@
+---
+name: ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax
+description: Use when me: ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax
+license: MIT
+---
+
+
 # IDEO Design Process: Observe, Brainstorm, Prototype, Iterate
 
 > This skill captures IDEO’s end‑to‑end design process as described in The Art of Innovation. It teaches how to ground ideas in real‑world observation, run disciplined brainstorming sessions, build low‑fidelity prototypes that answer specific questions, iterate quickly with user feedback, and use constraints as creative fuel. An AI can load this skill to plan a design sprint, run a brainstorm, prototype a concept, or reason about any stage of product development.

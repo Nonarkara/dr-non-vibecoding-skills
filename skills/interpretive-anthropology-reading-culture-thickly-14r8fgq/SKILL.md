@@ -1,3 +1,10 @@
+---
+name: interpretive-anthropology-reading-culture-thickly-14r8fgq
+description: Use when me: interpretive-anthropology-reading-culture-thickly-14r8fgq
+license: MIT
+---
+
+
 # Interpretive Anthropology: Reading Culture Thickly
 
 > A practical guide for AI agents that need to make sense of human cultures. It teaches how to treat culture as a web of significance, use thick description, respect emic viewpoints, and avoid collapsing complex societies into single patterns.

@@ -1,3 +1,10 @@
+---
+name: validated-learning-the-build-measure-learn-loop-1i6p1f5
+description: Use when me: validated-learning-the-build-measure-learn-loop-1i6p1f5
+license: MIT
+---
+
+
 # Validated Learning: The Build-Measure-Learn Loop
 
 > This skill guides teams through the core process of validated learning – the build-measure-learn loop – to minimize risk and maximize the chances of creating a successful product. It’s for situations where a team is stuck between perfecting a solution and launching something that might fail.

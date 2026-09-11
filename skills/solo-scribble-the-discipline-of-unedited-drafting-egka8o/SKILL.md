@@ -1,3 +1,10 @@
+---
+name: solo-scribble-the-discipline-of-unedited-drafting-egka8o
+description: Use when me: solo-scribble-the-discipline-of-unedited-drafting-egka8o
+license: MIT
+---
+
+
 # Solo Scribble: The Discipline of Unedited Drafting
 
 > A practical guide for writers who want to capture raw ideas without self‑censorship. It teaches how to write alone in a continuous flow, recognize the natural pause, and defer any editing until the next day. Load this skill when you need a reliable routine for first drafts that preserves creative momentum.
