@@ -1,12 +1,16 @@
 # Skill Catalog
 
-Eighty-eight focused skills, grouped by the decision they change. Start with one problem;
+One hundred one focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
 
 | Moment | Load |
 |---|---|
+| Never coded / first clone | [`START_HERE.md`](START_HERE.md) then [`projects/`](projects/README.md) |
+| Framing Fast/Ambitious/Autonomous/Fun/Optionality before code | [`vibe-coding-faafo`](skills/vibe-coding-faafo/SKILL.md) then [`planning-discipline`](skills/planning-discipline/SKILL.md) |
+| Kim/Yegge vocabulary map | [`playbooks/17-kim-yegge-faafo-bridge.md`](playbooks/17-kim-yegge-faafo-bridge.md) |
+| Failure patterns (tests wiped, haunted tree, blind accept) | [`reference/vibe-coding-failure-patterns.md`](reference/vibe-coding-failure-patterns.md) |
 | Choosing what to build | [`dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md) + [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) |
 | Entering an existing repository | [`agent-memory`](skills/agent-memory/SKILL.md) + [`anti-regression`](skills/anti-regression/SKILL.md) |
 | Scoping a nontrivial change | [`planning-discipline`](skills/planning-discipline/SKILL.md) + [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) |

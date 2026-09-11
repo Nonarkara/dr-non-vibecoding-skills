@@ -76,6 +76,22 @@ Before touching source code, publish a structured plan covering four mandatory s
 - Validation: how the agent self-corrects before reporting done
 ```
 
+
+### FAAFO frame (before ambitious / vibe builds)
+
+When the work is Fast/Ambitious/Autonomous/Fun/Optionality-shaped — or the brief is "just vibe it" — fill these **five fields** before the Implementation Plan diffs. Full skill: [`vibe-coding-faafo`](../vibe-coding-faafo/SKILL.md). Vocabulary map: [`playbooks/17-kim-yegge-faafo-bridge.md`](../../playbooks/17-kim-yegge-faafo-bridge.md).
+
+```markdown
+## FAAFO
+- **Faster:** what feedback loop must be minutes, not days?
+- **Ambitious:** what becomes worth building only because agents exist?
+- **Autonomous:** what can one director + agents finish without a committee?
+- **Fun:** what keeps the human in flow (not rubber-stamping diffs)?
+- **Optionality:** which 2 paths stay open until evidence picks one?
+```
+
+Skip for one-line typos and already-scoped mechanical follow-ups.
+
 ### 3. The Alignment Gate (Hard Stop)
 - Present the plan clearly. Highlight trade-offs and open questions.
 - **Stop and wait for director approval.**
