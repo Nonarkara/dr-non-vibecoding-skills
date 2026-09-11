@@ -1,0 +1,103 @@
+{
+  "collection": "books-from-ebooks-to-turn-to-skills",
+  "intro": "Books in the user's `ebooks to turn to skills` folder — economics, design, finance, psychology, innovation. One books-to-skill extraction per book, biased toward AI use cases.",
+  "count": 16,
+  "skills": [
+    {
+      "id": "behavioral-economics-predicting-real-human-choices-1cfeaeg",
+      "title": "Behavioral Economics: Predicting Real Human Choices",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "business-model-generation-mastering-the-canvas-k519i1",
+      "title": "Business Model Generation: Mastering the Canvas",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "choice-architecture-nudging-decisions-without-coercion-1vgrrkp",
+      "title": "Choice Architecture: Nudging Decisions Without Coercion",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs",
+      "title": "Disruptive Innovation Playbook: Navigating the Innovator's Dilemma",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "emotional-design-three-levels-for-meaningful-products-17bhy7j",
+      "title": "Emotional Design: Three Levels for Meaningful Products",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "everyday-design-fundamentals-14by7eo",
+      "title": "Everyday Design Fundamentals",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "freakonomics-incentives-and-causal-inference-1hisp",
+      "title": "Freakonomics: Incentives and Causal Inference",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax",
+      "title": "IDEO Design Process: Observe, Brainstorm, Prototype, Iterate",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "ideo-method-cards-choosing-and-applying-design-methods-1e20oct",
+      "title": "IDEO Method Cards: Choosing and Applying Design Methods",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "innovation-personas-the-ten-faces-of-ideo-bklfgc",
+      "title": "Innovation Personas: The Ten Faces of IDEO",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q",
+      "title": "Interaction Design Craft: From Participatory Prototyping to Desktop Metaphors",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "pattern-language-design-toolkit-1pms7oa",
+      "title": "Pattern Language Design Toolkit",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz",
+      "title": "Rich Dad Poor Dad: The Financial Literacy Mindset",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "simplicity-moves-ten-laws-for-clearer-design-rii9k6",
+      "title": "Simplicity Moves: Ten Laws for Clearer Design",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "solo-scribble-the-discipline-of-unedited-drafting-egka8o",
+      "title": "Solo Scribble: The Discipline of Unedited Drafting",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "validated-learning-the-build-measure-learn-loop-1i6p1f5",
+      "title": "Validated Learning: The Build-Measure-Learn Loop",
+      "summary": "",
+      "source": ""
+    }
+  ]
+}

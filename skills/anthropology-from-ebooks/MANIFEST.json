@@ -1,0 +1,67 @@
+{
+  "collection": "anthropology-from-ebooks",
+  "intro": "Books in the user's `anthropology ebooks` folder, distilled into skills for AI agents that need to reason about human cultures, fieldwork, interpretation, and the social meaning of rules and rituals.",
+  "count": 10,
+  "skills": [
+    {
+      "id": "culture-and-communication-the-logic-of-symbols-109gk9m",
+      "title": "Culture and Communication: The Logic of Symbols",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "fieldwork-mastery-the-french-ethnographic-tradition-18gonb7",
+      "title": "Fieldwork Mastery: The French Ethnographic Tradition",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "interpretive-anthropology-reading-culture-thickly-14r8fgq",
+      "title": "Interpretive Anthropology: Reading Culture Thickly",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "kinship-in-bali-a-system-of-meanings-17ki8bq",
+      "title": "Kinship in Bali: A System of Meanings",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "medical-anthropology-the-human-experience-of-health-and-heal-p24hlu",
+      "title": "Medical Anthropology: The Human Experience of Health and Healing",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c",
+      "title": "Purity and Danger: Mapping Boundaries, Taboo, and Classification",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu",
+      "title": "The Ethnography of Malinowski: Participant Observation and Fieldwork",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "topological-anthropology-the-leach-method-mfffe5",
+      "title": "Topological Anthropology: The Leach Method",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "urban-anthropology-reading-the-city-of-flows-and-places-13q28oj",
+      "title": "Urban Anthropology: Reading the City of Flows and Places",
+      "summary": "",
+      "source": ""
+    },
+    {
+      "id": "urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4",
+      "title": "Urban Inhabitation: The Anthropology of Precarity and Space",
+      "summary": "",
+      "source": ""
+    }
+  ]
+}
