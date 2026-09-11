@@ -35,6 +35,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`systems-thinking`](skills/systems-thinking/SKILL.md) | A problem is a feedback loop, a short-term fix has a long-term cost, or one part of a system is being optimized at the expense of another — the 6 moves (feedback loop, time horizon, anti-fragility, flow, canon, failure modes) |
 | [`adversarial-review`](skills/adversarial-review/SKILL.md) | A fresh, flaw-seeking review should challenge the author's story |
 | [`browser-as-t`](skills/browser-as-t/SKILL.md) | UI, routing, forms, layout, or client state changed |
+| [`browser-use`](skills/browser-use/SKILL.md) | An agent must drive a real browser to fill a form, navigate a flow, or complete a multi-step user journey — the *interaction* layer, pairs with `browser-as-t` (the *verification* layer) |
 | [`result-honesty`](skills/result-honesty/SKILL.md) | A session, handoff, or release needs evidence and explicit unknowns |
 | [`ship-discipline`](skills/ship-discipline/SKILL.md) | A completion claim requires Commit, Push, Deploy, Test |
 | [`wrong-green`](skills/wrong-green/SKILL.md) | CI, a health check, a watchdog, or a deploy log may answer the wrong question |
@@ -92,6 +93,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`caveman`](skills/caveman/SKILL.md) | Agent output is bloated — talk shorter; code, errors, and file paths stay byte-exact |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | A displayed number needs source, fallback tier, and age |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | An API/feed adapter should be recorded once and reused |
+| [`research-methodology`](skills/research-methodology/SKILL.md) | A research project — gather, evaluate, synthesize, cite. The 7 moves for research that survives the test of time. Pairs with `data-catalog` (data side), `qualitative-reasoning` (judgment side), `power-of-hindsight` (retrospective side) |
 | [`deep-scraping`](skills/deep-scraping/SKILL.md) | A needed feed exists only as a web page — store raw before parsed, crawl politely, fail loudly on zero rows |
 | [`workspace-lean`](skills/workspace-lean/SKILL.md) | Worktrees or dependencies consume disk without risking live services or unique commits |
 | [`know-when-to-wait`](skills/know-when-to-wait/SKILL.md) | Immature tooling may be the blocker, not insufficient effort |
@@ -123,6 +125,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | City buildings need fast, legible 3D extrusion without geometry glitches |
 | [`geospatial-core`](skills/geospatial-core/SKILL.md) | Boundaries, routes, points, or basemaps are being sourced, simplified, projected, or served |
 | [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | Weighted dimensions need a dependency-free radar chart |
+| [`diagram-design`](skills/diagram-design/SKILL.md) | A diagram must be made (architecture, flow, sequence, state, comparison) — the 7 rules for diagrams that survive being looked at. Pairs with `radar-chart-pattern` (one chart type), `beyond-the-screen` (deliverables), `narrative-companion-surfaces` (companion views) |
 | [`narrative-companion-surfaces`](skills/narrative-companion-surfaces/SKILL.md) | Writing needs an interactive companion without pretending shuffled data is live computation |
 
 ## Judgment from the reading

@@ -16,7 +16,7 @@ Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 100
+ls ~/.claude/skills | wc -l   # expect 103
 # also: ls ~/.agents/skills | wc -l
 ```
 
