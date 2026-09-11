@@ -12,14 +12,16 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **100 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
-- **11 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree.
+- **101 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **12 references** in `reference/` — APIs, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, vibe-coding failure patterns.
 - **13 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
 There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
+
+**Never coded?** Start at [`START_HERE.md`](START_HERE.md), then scaffold under [`projects/`](projects/README.md). FAAFO before code: [`skills/vibe-coding-faafo/SKILL.md`](skills/vibe-coding-faafo/SKILL.md).
 
 ---
 
@@ -63,7 +65,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 88 on every task.
+# the rules file that host actually reads; do not load all 101 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 

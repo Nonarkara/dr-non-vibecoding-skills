@@ -6,17 +6,19 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 100 skills, 16 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 101 skills, 17 playbooks, 12 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 100](https://img.shields.io/badge/skills-100-F59E0B)](skills/)
-[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
+[![Skills: 101](https://img.shields.io/badge/skills-101-F59E0B)](skills/)
+[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
 [![Templates: 13](https://img.shields.io/badge/templates-13-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**100 skills** · **16 playbooks** · **11 references** · **13 templates**
+**101 skills** · **17 playbooks** · **12 references** · **13 templates**
+
+**Never coded?** Start at [`START_HERE.md`](START_HERE.md) — clone, handshake or become-builder, then scaffold under [`projects/`](projects/README.md). FAAFO frame: [`skills/vibe-coding-faafo`](skills/vibe-coding-faafo/SKILL.md) · [`playbooks/17-kim-yegge-faafo-bridge.md`](playbooks/17-kim-yegge-faafo-bridge.md).
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -165,17 +167,17 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 88 modular agent capabilities (plain markdown with YAML frontmatter)
-├── playbooks/        # 13 narrative war stories & architectural deep-dives
-├── reference/        # 7 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs)
-├── templates/        # 12 drop-in production scaffolding files
+├── skills/           # 101 modular agent capabilities (plain markdown with YAML frontmatter)
+├── playbooks/        # 17 narrative war stories & architectural deep-dives
+├── reference/        # 12 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs)
+├── templates/        # 13 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── HANDSHAKE.md      # One paste. Works in any agent, with no install
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 100 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 101 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -184,10 +186,10 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 88 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
-| [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 7 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 12 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
+| [`skills/`](skills/) | 101 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`playbooks/`](playbooks/) | 17 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`reference/`](reference/) | 12 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`templates/`](templates/) | 13 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
 
 ---
 
@@ -362,6 +364,7 @@ The 16 numbered playbooks record the lived field experience behind the rules:
 14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 15. [How Dr Non prompts](playbooks/15-how-dr-non-prompts.md) — Eleven seconds of typing that produces three hours of work, and the four things you must already have for it to.
 16. [The philosophical spine](playbooks/16-the-philosophical-spine.md) — Ontology, virtue ethics, and why pure utilitarian AI optimization breaks without human grounding.
+17. [Kim / Yegge FAAFO bridge](playbooks/17-kim-yegge-faafo-bridge.md) — Public vibe-coding / FAAFO vocabulary mapped onto this stack.
 
 ---
 
@@ -371,9 +374,9 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["100 skills"] --> A["Your agent"]
-  P["16 playbooks"] --> A
-  R["11 refs"] --> A
+  S["101 skills"] --> A["Your agent"]
+  P["17 playbooks"] --> A
+  R["12 refs"] --> A
   T["13 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
