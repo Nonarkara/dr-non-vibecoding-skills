@@ -111,6 +111,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`design-dna`](skills/design-dna/SKILL.md) | Visual decisions need enforceable tokens and regression language |
 | [`design-registers`](skills/design-registers/SKILL.md) | Shared design DNA is making every product look like the same control room |
 | [`no-design-tells`](skills/no-design-tells/SKILL.md) | A surface must not be identifiable as agent-built — fonts, palette, provenance, layout reflexes |
+| [`slop-detect`](skills/slop-detect/SKILL.md) | An agent must score a landing page against AI-design-slop tells before shipping, or the operator is tired of AI design slop — the bridge between the qualitative discipline (`no-design-tells`) and the quantitative tool (`ravidsrk/slop-detect`) |
 | [`aesthetics-and-economy`](skills/aesthetics-and-economy/SKILL.md) | A choice is aesthetic *and* economic at once — looks vs cost, beauty vs durability, polish vs speed. The economy of words, the aphorism craft, the minimalist manifesto, the Kodawari of constraint |
 | [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md) | Product UI, tables, forms, or admin — where the landing-page taste skills explicitly do not apply |
 | [`colour-and-type`](skills/colour-and-type/SKILL.md) | A palette and type scale need choosing, not just enforcing |

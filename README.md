@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 145 skills, 16 playbooks, 12 references, and 14 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 146 skills, 16 playbooks, 12 references, and 14 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 145](https://img.shields.io/badge/skills-145-F59E0B)](skills/)
+[![Skills: 146](https://img.shields.io/badge/skills-146-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 14](https://img.shields.io/badge/templates-14-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**145 skills** · **16 playbooks** · **12 references** · **14 templates**
+**146 skills** · **16 playbooks** · **12 references** · **14 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -419,7 +419,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["145 skills"] --> A["Your agent"]
+  S["146 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
   R["12 refs"] --> A
   T["14 templates"] --> A
