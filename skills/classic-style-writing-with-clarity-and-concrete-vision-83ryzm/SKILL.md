@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: classic-style-writing-with-clarity-and-concrete-vision-83ryzm
+description: Master Steven Pinker classic style for clear, vivid, and unpretentious prose. Use when writing long-form essays, documentation, or explanatory articles.
+license: MIT
+---
 
 # Classic Style: Writing with Clarity and Concrete Vision
 

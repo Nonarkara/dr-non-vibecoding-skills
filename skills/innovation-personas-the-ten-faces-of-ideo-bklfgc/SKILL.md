@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: innovation-personas-the-ten-faces-of-ideo-bklfgc
+description: Use when me: innovation-personas-the-ten-faces-of-ideo-bklfgc
+license: MIT
+---
 
 # Innovation Personas: The Ten Faces of IDEO
 

@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: culture-and-communication-the-logic-of-symbols-109gk9m
+description: Use when me: culture-and-communication-the-logic-of-symbols-109gk9m
+license: MIT
+---
 
 # Culture and Communication: The Logic of Symbols
 

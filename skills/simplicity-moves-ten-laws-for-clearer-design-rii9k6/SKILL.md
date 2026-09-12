@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: simplicity-moves-ten-laws-for-clearer-design-rii9k6
+description: Use when me: simplicity-moves-ten-laws-for-clearer-design-rii9k6
+license: MIT
+---
 
 # Simplicity Moves: Ten Laws for Clearer Design
 

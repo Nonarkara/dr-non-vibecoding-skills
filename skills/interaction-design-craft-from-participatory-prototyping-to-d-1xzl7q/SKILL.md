@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q
+description: Use when me: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q
+license: MIT
+---
 
 # Interaction Design Craft: From Participatory Prototyping to Desktop Metaphors
 

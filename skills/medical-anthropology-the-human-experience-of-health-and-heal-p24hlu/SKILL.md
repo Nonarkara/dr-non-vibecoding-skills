@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu
+description: Use when me: medical-anthropology-the-human-experience-of-health-and-heal-p24hlu
+license: MIT
+---
 
 # Medical Anthropology: The Human Experience of Health and Healing
 

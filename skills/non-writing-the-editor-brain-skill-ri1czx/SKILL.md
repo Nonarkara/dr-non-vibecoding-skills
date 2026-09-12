@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: non-writing-the-editor-brain-skill-ri1czx
+description: Use when me: non-writing-the-editor-brain-skill-ri1czx
+license: MIT
+---
 
 # Non-Writing: The Editor Brain Skill
 

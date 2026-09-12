@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><Project> — Live Operations Dashboard</title>
+  <style>
+    /* Axiom Design Core — Rams/Braun Lineage: 0px radius, hairlines, single amber accent */
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-hover: #1a1a1a;
+      --border: #262626;
+      --border-subtle: #1f1f1f;
+      --text: #ededed;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #f59e0b; /* Amber */
+      --accent-dim: rgba(245, 158, 11, 0.12);
+      --success: #10b981;
+      --danger: #ef4444;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 24px;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .header-left h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-left p {
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+      margin-top: 4px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background-color: var(--success);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px;
+      position: relative;
+    }
+    .card:hover {
+      border-color: #333333;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+    .stat-hero {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .stat-detail {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--border-subtle);
+      padding-bottom: 2px;
+    }
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+    .stat-val {
+      font-family: var(--font-mono);
+      color: var(--text);
+    }
+
+    /* Instructions callout for AI pairing */
+    .agent-box {
+      border: 1px dashed var(--border);
+      background: rgba(20, 20, 20, 0.6);
+      padding: 16px;
+      margin-top: 32px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+    .agent-box strong {
+      color: var(--accent);
+    }
+    .code-pill {
+      font-family: var(--font-mono);
+      background: #1f1f1f;
+      padding: 2px 6px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <h1><span>▲</span> <Project></h1>
+        <p><one sentence: what it is and who it's for></p>
+      </div>
+      <div class="header-right">
+        <div class="status-badge" id="system-status">
+          <div class="status-dot"></div>
+          <span id="status-text">INITIALIZING</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- LIVE TELEMETRY CARDS -->
+    <div class="grid">
+      <!-- Card 1: Live Weather (Open-Meteo, zero-auth) -->
+      <div class="card" id="card-weather">
+        <div class="card-header">
+          <span class="card-title">Atmospheric Conditions</span>
+          <span class="card-meta" id="weather-meta">OPEN-METEO</span>
+        </div>
+        <div class="stat-hero" id="weather-temp">--°C</div>
+        <div class="stat-detail">
+          <div class="stat-row">
+            <span>Wind Speed</span>
+            <span class="stat-val" id="weather-wind">-- km/h</span>
+          </div>
+          <div class="stat-row">
+            <span>Wind Direction</span>
+            <span class="stat-val" id="weather-dir">--°</span>
+          </div>
+          <div class="stat-row">
+            <span>Coordinates</span>
+            <span class="stat-val">13.75°N, 100.51°E</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Seismic Monitor (USGS Earthquakes, zero-auth) -->
+      <div class="card" id="card-seismic">
+        <div class="card-header">
+          <span class="card-title">Recent Seismic Event</span>
+          <span class="card-meta" id="quake-meta">USGS M4.5+</span>
+        </div>
+        <div class="stat-hero" id="quake-mag">M --</div>
+        <div class="stat-detail">
+          <div class="stat-row">
+            <span>Location</span>
+            <span class="stat-val" id="quake-place">Polling live feed...</span>
+          </div>
+          <div class="stat-row">
+            <span>Recorded Time</span>
+            <span class="stat-val" id="quake-time">--</span>
+          </div>
+          <div class="stat-row">
+            <span>Depth</span>
+            <span class="stat-val" id="quake-depth">-- km</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Currency Rates (Frankfurter ECB, zero-auth) -->
+      <div class="card" id="card-fx">
+        <div class="card-header">
+          <span class="card-title">Foreign Exchange</span>
+          <span class="card-meta">ECB / FRANKFURTER</span>
+        </div>
+        <div class="stat-hero" id="fx-rate">-- THB</div>
+        <div class="stat-detail">
+          <div class="stat-row">
+            <span>1 USD → EUR</span>
+            <span class="stat-val" id="fx-eur">--</span>
+          </div>
+          <div class="stat-row">
+            <span>1 USD → JPY</span>
+            <span class="stat-val" id="fx-jpy">--</span>
+          </div>
+          <div class="stat-row">
+            <span>Base Benchmark</span>
+            <span class="stat-val">USD (1.00)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI AGENT & BUILDER HANDSHAKE -->
+    <div class="agent-box">
+      <strong>Vibe Coder Guidance:</strong> This starter dashboard runs 100% in your browser without backend setup.
+      To customize, open this folder in <strong>Claude Code</strong>, <strong>Cursor</strong>, or <strong>Antigravity</strong> and say:
+      <br><br>
+      <em>"Modify index.html to show a live crypto price ticker using CoinGecko and switch the weather coordinates to Tokyo."</em>
+      <br><br>
+      Contracts and invariants are maintained in <span class="code-pill">CLAUDE.md</span> and <span class="code-pill">AGENTS.md</span>.
+    </div>
+  </div>
+
+  <script>
+    // Resilient client-side fetcher with error fallback
+    async function safeFetch(url) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return await res.json();
+      } catch (err) {
+        console.warn('Live fetch failed, using degraded fallback:', err);
+        return null;
+      }
+    }
+
+    async function loadDashboard() {
+      const statusText = document.getElementById('status-text');
+      const startTime = performance.now();
+
+      // 1. Fetch Weather (Open-Meteo Bangkok coordinates: 13.75, 100.51)
+      const weatherData = await safeFetch('https://api.open-meteo.com/v1/forecast?latitude=13.75&longitude=100.51&current_weather=true');
+      if (weatherData && weatherData.current_weather) {
+        const w = weatherData.current_weather;
+        document.getElementById('weather-temp').textContent = `${w.temperature}°C`;
+        document.getElementById('weather-wind').textContent = `${w.windspeed} km/h`;
+        document.getElementById('weather-dir').textContent = `${w.winddirection}°`;
+      }
+
+      // 2. Fetch Latest M4.5+ Earthquake (USGS)
+      const quakeData = await safeFetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4.5&limit=1');
+      if (quakeData && quakeData.features && quakeData.features.length > 0) {
+        const q = quakeData.features[0];
+        document.getElementById('quake-mag').textContent = `M ${q.properties.mag.toFixed(1)}`;
+        document.getElementById('quake-place').textContent = q.properties.place || 'Unknown';
+        document.getElementById('quake-depth').textContent = `${q.geometry.coordinates[2]} km`;
+        const timeStr = new Date(q.properties.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        document.getElementById('quake-time').textContent = timeStr;
+      }
+
+      // 3. Fetch FX Rates (Frankfurter ECB USD to THB, EUR, JPY)
+      const fxData = await safeFetch('https://api.frankfurter.app/latest?from=USD&to=THB,EUR,JPY');
+      if (fxData && fxData.rates) {
+        document.getElementById('fx-rate').textContent = `${fxData.rates.THB.toFixed(2)} THB`;
+        document.getElementById('fx-eur').textContent = fxData.rates.EUR.toFixed(4);
+        document.getElementById('fx-jpy').textContent = fxData.rates.JPY.toFixed(2);
+      }
+
+      const elapsed = Math.round(performance.now() - startTime);
+      statusText.textContent = `LIVE (${elapsed}ms)`;
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', loadDashboard);
+  </script>
+</body>
+</html>

@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: business-model-generation-mastering-the-canvas-k519i1
+description: Use when me: business-model-generation-mastering-the-canvas-k519i1
+license: MIT
+---
 
 # Business Model Generation: Mastering the Canvas
 

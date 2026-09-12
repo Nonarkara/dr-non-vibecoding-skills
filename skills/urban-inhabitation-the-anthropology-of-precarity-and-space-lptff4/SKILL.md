@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
+description: Use when me: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
+license: MIT
+---
 
 # Urban Inhabitation: The Anthropology of Precarity and Space
 

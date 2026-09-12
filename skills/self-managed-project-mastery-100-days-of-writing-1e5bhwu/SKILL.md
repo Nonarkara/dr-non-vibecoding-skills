@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: self-managed-project-mastery-100-days-of-writing-1e5bhwu
+description: Use when me: self-managed-project-mastery-100-days-of-writing-1e5bhwu
+license: MIT
+---
 
 # Self‑Managed Project Mastery: 100 Days of Writing
 

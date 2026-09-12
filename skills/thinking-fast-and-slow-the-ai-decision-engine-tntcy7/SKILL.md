@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: thinking-fast-and-slow-the-ai-decision-engine-tntcy7
+description: Use when me: thinking-fast-and-slow-the-ai-decision-engine-tntcy7
+license: MIT
+---
 
 # Thinking, Fast and Slow: The AI Decision Engine
 

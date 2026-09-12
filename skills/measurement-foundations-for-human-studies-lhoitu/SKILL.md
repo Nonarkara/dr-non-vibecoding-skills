@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: measurement-foundations-for-human-studies-lhoitu
+description: Use when me: measurement-foundations-for-human-studies-lhoitu
+license: MIT
+---
 
 # Measurement Foundations for Human Studies
 

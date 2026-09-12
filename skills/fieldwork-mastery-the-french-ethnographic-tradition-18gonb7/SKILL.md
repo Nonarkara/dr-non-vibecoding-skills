@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: fieldwork-mastery-the-french-ethnographic-tradition-18gonb7
+description: Use when me: fieldwork-mastery-the-french-ethnographic-tradition-18gonb7
+license: MIT
+---
 
 # Fieldwork Mastery: The French Ethnographic Tradition
 

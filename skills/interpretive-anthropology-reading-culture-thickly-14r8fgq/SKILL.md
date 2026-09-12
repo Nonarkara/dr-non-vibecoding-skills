@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: interpretive-anthropology-reading-culture-thickly-14r8fgq
+description: Use when me: interpretive-anthropology-reading-culture-thickly-14r8fgq
+license: MIT
+---
 
 # Interpretive Anthropology: Reading Culture Thickly
 

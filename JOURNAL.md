@@ -146,3 +146,14 @@ This is the *black box* of the stack. It is always on.
 The iPhone-unboxing principle: the new builder should not need to ask the author for any step. The About is the device; the Journal is the full battery; the QUICKSTART is the first boot.
 **Diff:** `ABOUT.md`, `JOURNAL.md`, `skills/build-journal/SKILL.md`, `README.md` (trim Tesla), `QUICKSTART.md` (trim metaphor)
 **Tags:** `about · journal · iPhone-unboxing · user-experience`
+
+---
+
+## 2026-09-12 — Zero-code starter dashboard & public datasets / APIs infrastructure
+
+**Date:** 2026-09-12
+**What:** (1) `reference/public-datasets.md` curated from `awesome-public-datasets` (Earth observation, climate, economics, demographics, mobility, ML commons). (2) `reference/free-apis.md` expanded with zero-auth open knowledge & dev APIs (Wikimedia, HN Algolia, REST Countries) and Operational Safety Protocol. (3) `skills/public-api-integration/SKILL.md` for SWR cache, CORS handling, and circuit breaking. (4) `templates/starter-dashboard.html.template` and `setup.sh` update: `./setup.sh --init-project` now instantiates an instant `index.html` that runs in browser with live telemetry without build tools or keys. (5) Full synchronization of count surfaces (145 skills, 16 playbooks, 12 references, 14 templates) incorporating 4 book skills (Pinker, Heath, Dobelli, Osterwalder) and restoring all YAML frontmatters.
+**Why:** Provide a turn-key vibecoding infrastructure where a complete non-programmer clones the repo, runs one command, opens a live, beautiful dashboard in their browser, and immediately directs AI agents as a "Passenger-Director" in an autonomous vehicle.
+**Diff:** `reference/public-datasets.md`, `reference/free-apis.md`, `skills/public-api-integration/SKILL.md`, `templates/starter-dashboard.html.template`, `setup.sh`, `README.md`, `AGENTS.md`, `QUICKSTART.md`, `BLUEPRINT.md`, `CATALOG.md`
+**Tags:** `public-apis · public-datasets · starter-dashboard · zero-code · 145-skills`
+

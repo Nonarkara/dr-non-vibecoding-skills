@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: success-making-ideas-stick-1to2c2n
+description: Apply the SUCCESs framework from Chip and Dan Heath to make ideas stick. Use when crafting memorable pitches, mission statements, or persuasive narratives.
+license: MIT
+---
 
 # SUCCESs: Making Ideas Stick
 

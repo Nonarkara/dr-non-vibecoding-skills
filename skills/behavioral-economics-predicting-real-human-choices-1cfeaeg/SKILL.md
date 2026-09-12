@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: behavioral-economics-predicting-real-human-choices-1cfeaeg
+description: Use when me: behavioral-economics-predicting-real-human-choices-1cfeaeg
+license: MIT
+---
 
 # Behavioral Economics: Predicting Real Human Choices
 

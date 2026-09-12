@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: everyday-design-fundamentals-14by7eo
+description: Use when me: everyday-design-fundamentals-14by7eo
+license: MIT
+---
 
 # Everyday Design Fundamentals
 

@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: 100-days-of-writing-reasoning-argument-logic-na6pzg
+description: Use when me: 100-days-of-writing-reasoning-argument-logic-na6pzg
+license: MIT
+---
 
 # 100 Days of Writing: Reasoning, Argument & Logic
 

@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: kinship-in-bali-a-system-of-meanings-17ki8bq
+description: Use when me: kinship-in-bali-a-system-of-meanings-17ki8bq
+license: MIT
+---
 
 # Kinship in Bali: A System of Meanings
 

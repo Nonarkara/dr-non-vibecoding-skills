@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: design-by-writing-100-day-reflection-engine-ziojx2
+description: Use when me: design-by-writing-100-day-reflection-engine-ziojx2
+license: MIT
+---
 
 # Design by Writing: 100‑Day Reflection Engine
 

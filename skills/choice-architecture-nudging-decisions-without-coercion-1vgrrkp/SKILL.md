@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: choice-architecture-nudging-decisions-without-coercion-1vgrrkp
+description: Use when me: choice-architecture-nudging-decisions-without-coercion-1vgrrkp
+license: MIT
+---
 
 # Choice Architecture: Nudging Decisions Without Coercion
 

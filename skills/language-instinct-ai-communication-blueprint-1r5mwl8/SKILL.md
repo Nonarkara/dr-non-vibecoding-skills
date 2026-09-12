@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: language-instinct-ai-communication-blueprint-1r5mwl8
+description: Use when me: language-instinct-ai-communication-blueprint-1r5mwl8
+license: MIT
+---
 
 # Language Instinct: AI Communication Blueprint
 

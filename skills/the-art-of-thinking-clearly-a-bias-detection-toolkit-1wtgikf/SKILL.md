@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: the-art-of-thinking-clearly-a-bias-detection-toolkit-1wtgikf
+description: Identify and counter 99 cognitive biases from Rolf Dobelli toolkit. Use when making strategic decisions, auditing assumptions, or evaluating risk.
+license: MIT
+---
 
 # The Art of Thinking Clearly: A Bias-Detection Toolkit
 

@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: ideo-method-cards-choosing-and-applying-design-methods-1e20oct
+description: Use when me: ideo-method-cards-choosing-and-applying-design-methods-1e20oct
+license: MIT
+---
 
 # IDEO Method Cards: Choosing and Applying Design Methods
 

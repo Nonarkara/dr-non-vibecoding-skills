@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: freakonomics-incentives-and-causal-inference-1hisp
+description: Use when me: freakonomics-incentives-and-causal-inference-1hisp
+license: MIT
+---
 
 # Freakonomics: Incentives and Causal Inference
 

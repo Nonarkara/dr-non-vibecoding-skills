@@ -608,6 +608,18 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
+  # 2.8b Starter Dashboard (Zero-Code Live Web Entry Point)
+  # ----------------------------------------------------------------------------
+  local index_target="$target_dir/index.html"
+  if [[ ! -f "$index_target" && -f "$TEMPLATES_DIR/starter-dashboard.html.template" ]]; then
+    sed \
+      -e "s|<Project>|${proj_name}|g" \
+      -e "s|<one sentence: what it is and who it's for>|${proj_desc}|g" \
+      "$TEMPLATES_DIR/starter-dashboard.html.template" > "$index_target"
+    created_files+=("index.html (Instant runnable live dashboard with real-time public data)")
+  fi
+
+  # ----------------------------------------------------------------------------
   # 2.9 Workspace Tier-1 index (one table of every project — only if needed)
   # ----------------------------------------------------------------------------
   local ws_root
@@ -639,7 +651,7 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.10 Summary & Next Actions Report
+  # 2.11 Summary & Next Actions Report
   # ----------------------------------------------------------------------------
   echo -e "\n${GREEN}${BOLD}✓ Project successfully bootstrapped!${NC}"
   echo -e "\n${AMBER}${BOLD}What was generated:${NC}"
@@ -647,10 +659,11 @@ EOF
     echo -e "  ${GREEN}✓${NC} ${item}"
   done
 
-  echo -e "\n${AMBER}${BOLD}Immediate Next Steps:${NC}"
-  echo -e "  1. ${CYAN}cd \"${target_dir}\"${NC}"
-  echo -e "  2. Review and refine ${BOLD}CLAUDE.md${NC} and ${BOLD}AGENTS.md${NC} exact commands"
-  echo -e "  3. Run pre-flight verification: ${CYAN}./scripts/verify.sh${NC}"
+  echo -e "\n${AMBER}${BOLD}Immediate Next Steps for Non-Programmers & Vibe Coders:${NC}"
+  echo -e "  1. ${CYAN}open \"${target_dir}/index.html\"${NC} (or double-click to view live dashboard in browser)"
+  echo -e "  2. Direct your agent in ${CYAN}${target_dir}${NC} with Claude Code, Cursor, or Antigravity:"
+  echo -e "     ${DIM}\"Update index.html to add a crypto ticker and change weather location to Tokyo\"${NC}"
+  echo -e "  3. Review contracts in ${BOLD}CLAUDE.md${NC} and run pre-flight check: ${CYAN}./scripts/verify.sh${NC}"
   if [[ "$use_services" == "true" ]]; then
     echo -e "  4. To install launchd service: ${CYAN}launchctl bootstrap gui/\$(id -u) services/com.${proj_name}.server.plist${NC}"
   fi

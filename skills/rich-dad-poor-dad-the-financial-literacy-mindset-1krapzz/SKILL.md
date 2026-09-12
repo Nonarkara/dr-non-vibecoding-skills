@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz
+description: Use when me: rich-dad-poor-dad-the-financial-literacy-mindset-1krapzz
+license: MIT
+---
 
 # Rich Dad Poor Dad: The Financial Literacy Mindset
 

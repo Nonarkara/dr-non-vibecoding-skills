@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: topological-anthropology-the-leach-method-mfffe5
+description: Use when me: topological-anthropology-the-leach-method-mfffe5
+license: MIT
+---
 
 # Topological Anthropology: The Leach Method
 

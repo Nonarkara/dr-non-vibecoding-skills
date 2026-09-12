@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: value-proposition-design-1mtu6jn
+description: Design compelling value propositions using the Osterwalder canvas. Use when mapping customer pains, gains, and jobs-to-be-done to product features.
+license: MIT
+---
 
 # Value Proposition Design
 

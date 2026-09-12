@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs
+description: Use when me: disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs
+license: MIT
+---
 
 # Disruptive Innovation Playbook: Navigating the Innovator's Dilemma
 

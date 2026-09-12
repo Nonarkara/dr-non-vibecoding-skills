@@ -94,6 +94,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`caveman`](skills/caveman/SKILL.md) | Agent output is bloated — talk shorter; code, errors, and file paths stay byte-exact |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | A displayed number needs source, fallback tier, and age |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | An API/feed adapter should be recorded once and reused |
+| [`public-api-integration`](skills/public-api-integration/SKILL.md) | A dashboard or app needs live external data without backend server or SaaS cost — select, probe, proxy, and integrate free public APIs and open datasets with SWR cache |
 | [`research-methodology`](skills/research-methodology/SKILL.md) | A research project — gather, evaluate, synthesize, cite. The 7 moves for research that survives the test of time. Pairs with `data-catalog` (data side), `qualitative-reasoning` (judgment side), `power-of-hindsight` (retrospective side) |
 | [`deep-scraping`](skills/deep-scraping/SKILL.md) | A needed feed exists only as a web page — store raw before parsed, crawl politely, fail loudly on zero rows |
 | [`workspace-lean`](skills/workspace-lean/SKILL.md) | Worktrees or dependencies consume disk without risking live services or unique commits |
@@ -227,3 +228,7 @@ These skills were added by a parallel agent via the Non-Scrape books-to-skill pi
 | [`urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4`](skills/urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4/SKILL.md) | Use when me: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4 |
 | [`validated-learning-the-build-measure-learn-loop-1i6p1f5`](skills/validated-learning-the-build-measure-learn-loop-1i6p1f5/SKILL.md) | Use when me: validated-learning-the-build-measure-learn-loop-1i6p1f5 |
 | [`value-investing-graham-s-core-discipline-j4ppt3`](skills/value-investing-graham-s-core-discipline-j4ppt3/SKILL.md) | Use when me: value-investing-graham-s-core-discipline-j4ppt3 |
+| [`classic-style-writing-with-clarity-and-concrete-vision-83ryzm`](skills/classic-style-writing-with-clarity-and-concrete-vision-83ryzm/SKILL.md) | Steven Pinker's classic style for clear, vivid, unpretentious prose |
+| [`success-making-ideas-stick-1to2c2n`](skills/success-making-ideas-stick-1to2c2n/SKILL.md) | Chip and Dan Heath's SUCCESs framework for memorable messages |
+| [`the-art-of-thinking-clearly-a-bias-detection-toolkit-1wtgikf`](skills/the-art-of-thinking-clearly-a-bias-detection-toolkit-1wtgikf/SKILL.md) | Rolf Dobelli's cognitive bias detection toolkit |
+| [`value-proposition-design-1mtu6jn`](skills/value-proposition-design-1mtu6jn/SKILL.md) | Osterwalder's Value Proposition Canvas for mapping pains, gains, and jobs-to-be-done |

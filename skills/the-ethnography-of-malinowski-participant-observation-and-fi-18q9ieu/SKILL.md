@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu
+description: Use when me: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu
+license: MIT
+---
 
 # The Ethnography of Malinowski: Participant Observation and Fieldwork
 

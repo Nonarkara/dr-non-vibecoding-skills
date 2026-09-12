@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 140 skills, 16 playbooks, 11 references, and 13 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 145 skills, 16 playbooks, 12 references, and 14 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 140](https://img.shields.io/badge/skills-140-F59E0B)](skills/)
+[![Skills: 145](https://img.shields.io/badge/skills-145-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 13](https://img.shields.io/badge/templates-13-0F766E)](templates/)
+[![Templates: 14](https://img.shields.io/badge/templates-14-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**140 skills** · **16 playbooks** · **11 references** · **13 templates**
+**145 skills** · **16 playbooks** · **12 references** · **14 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -39,6 +39,34 @@ No install, no plugin, no repo. If it changes how your agent behaves, the rest o
 this repository is the durable version of the same thing.
 
 วางไฟล์เดียว ใช้ได้กับเอเจนต์ทุกตัว ไม่ต้องติดตั้งอะไรเลย
+
+---
+
+## Non-Programmer Quickstart: The Automatic Tesla Paradigm
+
+> If manual coding is like driving a stick-shift car — managing the clutch of syntax, package managers, and compile errors — this stack puts you in the driver's seat of an **autonomous vehicle**. The AI agent handles the mechanics; you decide where to go, how fast to go, and which landmarks to explore.
+
+If you have never written a line of code in your life, you can spin up a running, live-data dashboard in **three minutes**:
+
+```bash
+# 1. Clone this repository
+git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
+cd dr-non-vibecoding-skills
+
+# 2. Bootstrap your new project (replaces all manual scaffolding)
+./setup.sh --init-project ~/Projects/my-app --name "Civic Pulse" --desc "Real-time municipal telemetry" -y
+
+# 3. View your live dashboard immediately in your browser
+open ~/Projects/my-app/index.html
+```
+
+Your browser instantly opens a running, dark-mode dashboard connected to live public data feeds (weather, earthquakes, currency exchange) with zero API keys, zero dependencies, and zero backend configuration.
+
+**Now, direct your AI:**
+1. Open `~/Projects/my-app` in **Claude Code**, **Cursor**, or **Antigravity**.
+2. Direct the agent as the **Director, not the Typer**:
+   > *"Update index.html: replace the currency card with a live Bitcoin price ticker from CoinGecko, and change the weather location to Bangkok."*
+3. Refresh your browser. Your software updates immediately while maintaining professional design invariants, anti-regression memory, and deploy verification scripts behind the scenes.
 
 ---
 
@@ -184,17 +212,17 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 88 modular agent capabilities (plain markdown with YAML frontmatter)
-├── playbooks/        # 13 narrative war stories & architectural deep-dives
-├── reference/        # 7 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs)
-├── templates/        # 12 drop-in production scaffolding files
+├── skills/           # 145 modular agent capabilities (plain markdown with YAML frontmatter)
+├── playbooks/        # 16 narrative war stories & architectural deep-dives
+├── reference/        # 12 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
+├── templates/        # 14 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── HANDSHAKE.md      # One paste. Works in any agent, with no install
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 140 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 145 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -203,10 +231,10 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 103 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`skills/`](skills/) | 145 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
 | [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 11 docs | Concrete recipes: Google Cloud, Stripe, free APIs, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 13 drop-ins | Production contracts, deploy scripts, launchd plists, tokens | Copy directly into your new project repository |
+| [`reference/`](reference/) | 12 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`templates/`](templates/) | 14 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens | Copy directly into your new project repository |
 
 ---
 
@@ -238,6 +266,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Map layers that fit on a phone | [`geospatial-core`](skills/geospatial-core/SKILL.md) | Source, CRS, simplification tolerance and precision in a manifest beside every layer. Static GeoJSON on a CDN until it hurts; `[lon, lat]`, never `[lat, lon]`. |
 | Data that exists only as a web page | [`deep-scraping`](skills/deep-scraping/SKILL.md) | Store raw, then parse from raw — a selector change costs seconds, not a re-crawl. A scraper returning zero rows fails loudly instead of quietly emptying the dashboard. |
 | Real-world sensory perception | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) + [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) | Telegram/Line bots with cited RAG; RTSP/ONVIF local camera grids; dated satellite time-stacks for flood/fire awareness. |
+| Zero-cost public APIs & datasets | [`public-api-integration`](skills/public-api-integration/SKILL.md) + [`reference/free-apis.md`](reference/free-apis.md) + [`reference/public-datasets.md`](reference/public-datasets.md) | Direct browser-to-data integration without keys, paid tiers, or backend overhead. SWR cache & CORS safety. |
 
 See the complete grouped inventory in [`CATALOG.md`](CATALOG.md).
 
@@ -390,10 +419,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["140 skills"] --> A["Your agent"]
+  S["145 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
-  R["11 refs"] --> A
-  T["13 templates"] --> A
+  R["12 refs"] --> A
+  T["14 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

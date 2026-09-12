@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: value-investing-graham-s-core-discipline-j4ppt3
+description: Use when me: value-investing-graham-s-core-discipline-j4ppt3
+license: MIT
+---
 
 # Value Investing: Graham's Core Discipline
 

@@ -261,6 +261,54 @@ https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/til
 
 ---
 
+## Open Knowledge, Web & Developer Utilities (Zero-Auth)
+
+Vetted from [`public-apis/public-apis`](https://github.com/public-apis/public-apis) for zero-auth, instant-browser access.
+
+| Service | What It Provides | Free Tier | Key? | Endpoint / Probe |
+|---|---|---|---|---|
+| **Wikimedia REST** | Daily featured articles, Wikipedia summaries, pageviews | Unlimited | No | `https://api.wikimedia.org/feed/v1/wikipedia/en/featured/today` |
+| **HN Algolia** | Search Hacker News items, comments, user points, stories | 10,000/hr | No | `https://hn.algolia.com/api/v1/search?tags=front_page` |
+| **REST Countries** | 250 countries: currencies, languages, flags, borders | Unlimited | No | `https://restcountries.com/v3.1/name/thailand` |
+| **Open Library** | 20M+ book editions, authors, ISBNs, covers | Unlimited | No | `https://openlibrary.org/search.json?q=design` |
+| **IP-API** | IP geolocation, ISP, country, lat/lon | 45 req/min | No | `http://ip-api.com/json/` (Note: use HTTPS via proxy or IPGeolocation) |
+| **GitHub REST** | Public repository commits, releases, metadata, zen | 60 req/hr (unauth) | No | `https://api.github.com/zen` |
+
+```bash
+# Wikimedia featured today:
+curl -s "https://api.wikimedia.org/feed/v1/wikipedia/en/featured/today" | jq '.tfa.title'
+
+# Hacker News front page top stories:
+curl -s "https://hn.algolia.com/api/v1/search?tags=front_page" | jq '.hits[:3][].title'
+
+# REST Countries currency query:
+curl -s "https://restcountries.com/v3.1/alpha/tha" | jq '.[0].currencies'
+```
+
+---
+
+## Operational Safety & Protocol Checklist
+
+When integrating public APIs into client-side vibecoding projects, enforce these four invariants:
+
+1. **Enforce HTTPS Exclusively**:
+   - Never call an unencrypted `http://` endpoint from modern browsers. Browsers block mixed content and trigger security warnings.
+2. **Verify CORS Availability Before Writing Code**:
+   - In browser-based client apps, the endpoint must serve `Access-Control-Allow-Origin: *`.
+   - Probe before coding:
+     ```bash
+     curl -s -I "https://api.example.com/data" | grep -i "access-control-allow-origin"
+     ```
+   - If CORS is missing, route through a 5-line Cloudflare Worker or edge proxy rather than rewriting frontend code.
+3. **Zero Billed Secrets in Browser Bundles**:
+   - Any API key that incurs cost or has write permissions must NEVER appear in client-side HTML, CSS, or JS.
+   - Use public no-key APIs for client prototypes. When authenticated APIs are required, terminate the key on a backend server or serverless proxy.
+4. **Resilient Local Caching (SWR & Circuit Breaking)**:
+   - Always wrap public fetch calls with `try / catch` and a fallback UI state.
+   - Store responses in `localStorage` with a timestamp TTL (`timestamp + 300000`). If the public API returns HTTP 429 or 500, render the cached data with an "Offline (Cached)" badge rather than breaking the screen.
+
+---
+
 ## Quick Copy: .env.example Block
 
 ```env
@@ -307,4 +355,7 @@ HERE_API_KEY=                    # https://developer.here.com
 # UN Data:      https://population.un.org/dataportalapi
 # UNHCR:        https://api.unhcr.org
 # IMF:          https://www.imf.org/external/datamapper/api
+# Wikimedia:    https://api.wikimedia.org
+# HN Algolia:   https://hn.algolia.com
+# RESTCountry:  https://restcountries.com
 ```

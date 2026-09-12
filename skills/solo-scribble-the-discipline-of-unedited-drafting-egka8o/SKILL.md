@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: solo-scribble-the-discipline-of-unedited-drafting-egka8o
+description: Use when me: solo-scribble-the-discipline-of-unedited-drafting-egka8o
+license: MIT
+---
 
 # Solo Scribble: The Discipline of Unedited Drafting
 

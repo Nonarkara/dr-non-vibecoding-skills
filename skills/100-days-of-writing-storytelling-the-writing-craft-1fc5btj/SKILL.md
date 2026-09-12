@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: 100-days-of-writing-storytelling-the-writing-craft-1fc5btj
+description: Use when me: 100-days-of-writing-storytelling-the-writing-craft-1fc5btj
+license: MIT
+---
 
 # 100 Days of Writing: Storytelling & the Writing Craft
 

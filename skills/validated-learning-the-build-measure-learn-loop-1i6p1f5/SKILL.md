@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: validated-learning-the-build-measure-learn-loop-1i6p1f5
+description: Use when me: validated-learning-the-build-measure-learn-loop-1i6p1f5
+license: MIT
+---
 
 # Validated Learning: The Build-Measure-Learn Loop
 

@@ -21,12 +21,15 @@ If you have never written code before, this stack gets you from clone to first c
 # 1. Bootstrap a complete, turnkey project folder
 ./setup.sh --init-project ~/Projects/my-app --yes
 
-# 2. Step in and launch Claude Code (or Cursor, Codex, Gemini CLI)
+# 2. View your live dashboard immediately (zero setup, zero server needed)
+open ~/Projects/my-app/index.html
+
+# 3. Step in and launch Claude Code (or Cursor, Codex, Gemini CLI)
 cd ~/Projects/my-app
 claude
 ```
 
-From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 103 installed skills, and begins building your product while preserving your domain intent.
+From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 145 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
 
 If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you want to know the trajectory of the project, read [`JOURNAL.md`](JOURNAL.md).
 
@@ -35,7 +38,7 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 140
+ls ~/.claude/skills | wc -l   # expect 145
 # also: ls ~/.agents/skills | wc -l
 ```
 

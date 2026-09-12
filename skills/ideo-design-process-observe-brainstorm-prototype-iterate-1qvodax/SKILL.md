@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax
+description: Use when me: ideo-design-process-observe-brainstorm-prototype-iterate-1qvodax
+license: MIT
+---
 
 # IDEO Design Process: Observe, Brainstorm, Prototype, Iterate
 

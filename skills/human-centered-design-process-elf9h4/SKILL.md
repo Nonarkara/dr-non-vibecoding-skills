@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: human-centered-design-process-elf9h4
+description: Use when me: human-centered-design-process-elf9h4
+license: MIT
+---
 
 # Human-Centered Design Process
 

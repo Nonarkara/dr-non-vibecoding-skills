@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: pattern-language-design-toolkit-1pms7oa
+description: Use when me: pattern-language-design-toolkit-1pms7oa
+license: MIT
+---
 
 # Pattern Language Design Toolkit
 

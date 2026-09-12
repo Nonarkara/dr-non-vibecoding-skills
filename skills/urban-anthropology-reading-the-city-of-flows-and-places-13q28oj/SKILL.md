@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: urban-anthropology-reading-the-city-of-flows-and-places-13q28oj
+description: Use when me: urban-anthropology-reading-the-city-of-flows-and-places-13q28oj
+license: MIT
+---
 
 # Urban Anthropology: Reading the City of Flows and Places
 

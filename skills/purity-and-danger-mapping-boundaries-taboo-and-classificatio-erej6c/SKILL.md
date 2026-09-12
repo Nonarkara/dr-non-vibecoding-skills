@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c
+description: Use when me: purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c
+license: MIT
+---
 
 # Purity and Danger: Mapping Boundaries, Taboo, and Classification
 

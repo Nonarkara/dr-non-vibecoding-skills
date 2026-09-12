@@ -1,4 +1,8 @@
-<!-- consolidated by data/scrape/consolidate_skills.py -->
+---
+name: emotional-design-three-levels-for-meaningful-products-17bhy7j
+description: Use when me: emotional-design-three-levels-for-meaningful-products-17bhy7j
+license: MIT
+---
 
 # Emotional Design: Three Levels for Meaningful Products
 
