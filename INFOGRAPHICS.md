@@ -215,4 +215,19 @@ A 16:9 single page distilled from the whole deck: Memory (context survives), Des
 
 *Synthesis: [`docs/deck/12-ship.md`](docs/deck/12-ship.md) + [`reference/stack-ecosystem.md`](reference/stack-ecosystem.md). Visual language: NYCTA + MoMA rules + Axiom Design Core.*
 
+---
+
+## Library illustrations — the 6 hero images
+
+Six AI-generated illustrations in [`assets/illustrations/`](assets/illustrations/) — same Vignelli/Rams visual language as the deck above. Use them as hero images for the book-derived skill cluster, the design lineage, the security stack, the backend surface, the threat model, and the book-to-skill pipeline.
+
+| File | Hero for |
+|---|---|
+| `library-of-human-wisdom-cover.jpg` | The library cluster as a whole; the 35+ book-derived skills |
+| `book-to-skill-pipeline.jpg` | `library-of-human-wisdom` itself — book → essence flow |
+| `design-lineage-rams-braun.jpg` | `axiom-design-core`, `design-dna`, and any design-skill hero |
+| `security-threat-model.jpg` | `appsec-stack`, `secrets-management` — the fortress as a metaphor |
+| `security-stack-four-layers.jpg` | `appsec-stack` — the seven-layer scanner stack |
+| `backend-architecture.jpg` | `api-design`, `caching-layers`, `webhooks-reliable`, `rate-limiting`, `db-migrations`, `observability-budget` — the backend surface |
+
 [← Back to the README](README.md)

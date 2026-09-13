@@ -154,6 +154,15 @@ Pick the skill that matches your problem:
 | Rebuild from prior art by scraping the live app | `skills/ux-archaeology/SKILL.md` |
 | Tempted to vendor a 100-skill pack | `skills/skill-writing/SKILL.md` |
 | Starting a new project and don't know the approach | `skills/design-thinking-vibecoding/SKILL.md` |
+| Designing an API, choosing idempotency or pagination | `skills/api-design/SKILL.md` |
+| Setting up a multi-layer cache (edge / memory / Redis) | `skills/caching-layers/SKILL.md` |
+| Receiving webhooks from a third party | `skills/webhooks-reliable/SKILL.md` |
+| Adding rate limiting to a public endpoint | `skills/rate-limiting/SKILL.md` |
+| Shipping a database schema change | `skills/db-migrations/SKILL.md` |
+| Wiring logs / metrics / traces for a service | `skills/observability-budget/SKILL.md` |
+| Storing API keys, tokens, or passwords | `skills/secrets-management/SKILL.md` |
+| Touching auth, user input, or DB queries | `skills/appsec-stack/SKILL.md` + `skills/secrets-management/SKILL.md` + `skills/auth-entitlement/SKILL.md` |
+| Designing/writing/deciding for humans, picking the right book | `skills/library-of-human-wisdom/SKILL.md` |
 | Picking a visual register before writing CSS | `skills/design-registers/SKILL.md` |
 | Building a full project scaffold in one paste | `skills/full-stack-bootstrap/SKILL.md` |
 | Codex-specific skill orchestration | `skills/codex-workbench/SKILL.md` |
