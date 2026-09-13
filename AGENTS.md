@@ -163,6 +163,9 @@ Pick the skill that matches your problem:
 | Storing API keys, tokens, or passwords | `skills/secrets-management/SKILL.md` |
 | Touching auth, user input, or DB queries | `skills/appsec-stack/SKILL.md` + `skills/secrets-management/SKILL.md` + `skills/auth-entitlement/SKILL.md` |
 | Designing/writing/deciding for humans, picking the right book | `skills/library-of-human-wisdom/SKILL.md` |
+| About to ship AI-generated code | `skills/code-slop-patterns/SKILL.md` |
+| About to open or review an AI-assisted PR | `skills/pr-slop-patterns/SKILL.md` |
+| Setting up the four-layer anti-slop pipeline (code, PR, prose, UI) | `skills/slop-detect-stack/SKILL.md` |
 | Picking a visual register before writing CSS | `skills/design-registers/SKILL.md` |
 | Building a full project scaffold in one paste | `skills/full-stack-bootstrap/SKILL.md` |
 | Codex-specific skill orchestration | `skills/codex-workbench/SKILL.md` |

@@ -215,3 +215,17 @@ A "slop-detect" check is *ready* to ship when:
 - The score is part of the *commit history* (the audit trail).
 - The customer can verify the score (the operator hands the score to the customer as *evidence*).
 - The operator's judgment is *consistent* with the score (the tool and the operator agree; if not, the operator escalates with a *named* reason).
+
+---
+
+## The four-layer stack — where this skill sits
+
+This is the **UI/landing-page layer** (Layer 4) of the four-layer anti-slop stack. The other layers:
+
+- **Layer 1 — Code:** [`code-slop-patterns`](../code-slop-patterns/SKILL.md) — deterministic rules for AI-generated code (`as any`, swallowed exceptions, oversized functions)
+- **Layer 2 — PR:** [`pr-slop-patterns`](../pr-slop-patterns/SKILL.md) — PR metadata checks (title, description, commits, diff size)
+- **Layer 3 — Prose:** [`no-ai-tells`](../no-ai-tells/SKILL.md) — Wikipedia's mechanical-AI-writing taxonomy
+- **Layer 4 — UI:** this skill + [`no-design-tells`](../no-design-tells/SKILL.md) — landing-page design slop
+- **Orchestrator:** [`slop-detect-stack`](../slop-detect-stack/SKILL.md) — loads the right layer for the right surface
+
+Run all four deterministic layers before human review. The orchestrator names which to load when.
