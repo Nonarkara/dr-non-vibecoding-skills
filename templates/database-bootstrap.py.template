@@ -1,0 +1,229 @@
+#!/usr/bin/env python3
+# ==============================================================================
+# Dr Non Database Bootstrap — "Always Build a Database"
+#
+# Diamond rule: if you are producing data and could analyze it later, build the
+# database NOW. Don't let data go to waste. SQLite is zero-config, zero-SaaS,
+# zero-port. Copy to <project>/scripts/database.py and run.
+#
+# Usage:
+#   python scripts/database.py init             # create schema at ./data/events.db
+#   python scripts/database.py log <table> <key> <value>   # insert one row
+#   python scripts/database.py query <table> [--limit 20]
+#   python scripts/database.py stats            # row counts + last-N timestamps
+#   python scripts/database.py export <table>   # JSON dump to stdout
+#
+# Schema is opinionated and append-only — schema versioning lives in this file.
+# No external deps (stdlib only). Python 3.9+.
+# ==============================================================================
+from __future__ import annotations
+
+import argparse
+import json
+import sqlite3
+import sys
+import time
+from contextlib import contextmanager
+from pathlib import Path
+
+DB_PATH = Path("data/events.db")
+DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+# ---------------------------------------------------------------------------
+# Schema (append-only; bump SCHEMA_VERSION when you ALTER TABLE)
+# ---------------------------------------------------------------------------
+SCHEMA_VERSION = 1
+SCHEMA = [
+    """
+    CREATE TABLE IF NOT EXISTS _meta (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL,
+        updated_at INTEGER NOT NULL
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS events (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts INTEGER NOT NULL,            -- unix epoch ms
+        source TEXT,                    -- e.g. 'scrape', 'webhook', 'cron'
+        kind TEXT,                      -- e.g. 'observation', 'error', 'metric'
+        key TEXT,                       -- the dimension, e.g. 'bangkok.pm25'
+        value REAL,                     -- numeric payload (NULL for events)
+        payload TEXT,                   -- JSON blob for arbitrary data
+        tags TEXT                       -- comma-separated for cheap filtering
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS idx_events_ts ON events(ts DESC)",
+    "CREATE INDEX IF NOT EXISTS idx_events_key ON events(key)",
+    """
+    CREATE TABLE IF NOT EXISTS runs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts INTEGER NOT NULL,
+        command TEXT NOT NULL,
+        exit_code INTEGER NOT NULL,
+        duration_ms INTEGER,
+        notes TEXT
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS observations (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts INTEGER NOT NULL,
+        who TEXT,
+        what TEXT NOT NULL,
+        where_ TEXT,                    -- 'where' is reserved in some SQLs
+        how TEXT,
+        why TEXT
+    )
+    """,
+]
+
+
+@contextmanager
+def connect():
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    try:
+        yield con
+        con.commit()
+    finally:
+        con.close()
+
+
+# ---------------------------------------------------------------------------
+# Commands
+# ---------------------------------------------------------------------------
+def cmd_init(_args) -> int:
+    with connect() as con:
+        for stmt in SCHEMA:
+            con.execute(stmt)
+        con.execute(
+            "INSERT OR REPLACE INTO _meta(key, value, updated_at) VALUES(?,?,?)",
+            ("schema_version", str(SCHEMA_VERSION), int(time.time() * 1000)),
+        )
+    print(f"✓ Initialized {DB_PATH} (schema v{SCHEMA_VERSION})")
+    return 0
+
+
+def cmd_log(args) -> int:
+    table = args.table
+    if table not in {"events", "runs", "observations"}:
+        print(f"❌ Unknown table '{table}'. Allowed: events, runs, observations", file=sys.stderr)
+        return 1
+    now = int(time.time() * 1000)
+    payload: dict = {"events": {}, "runs": {}, "observations": {}}
+    if table == "events":
+        payload["events"] = {
+            "ts": now,
+            "source": args.source or "manual",
+            "kind": args.kind or "observation",
+            "key": args.key or "",
+            "value": float(args.value) if args.value is not None else None,
+            "payload": args.payload or "",
+            "tags": args.tags or "",
+        }
+    elif table == "runs":
+        payload["runs"] = {
+            "ts": now,
+            "command": args.key or "",  # use --key for command
+            "exit_code": int(args.value) if args.value is not None else 0,
+            "duration_ms": None,
+            "notes": args.payload or "",
+        }
+    elif table == "observations":
+        # Free-form observation
+        payload["observations"] = {
+            "ts": now,
+            "who": args.source or "",
+            "what": args.key or "",
+            "where_": args.kind or "",
+            "how": args.value if isinstance(args.value, str) else "",
+            "why": args.payload or "",
+        }
+    cols = list(payload[table].keys())
+    placeholders = ",".join(["?"] * len(cols))
+    with connect() as con:
+        con.execute(
+            f"INSERT INTO {table} ({','.join(cols)}) VALUES({placeholders})",
+            list(payload[table].values()),
+        )
+    print(f"✓ Logged to {table}: {payload[table]}")
+    return 0
+
+
+def cmd_query(args) -> int:
+    table = args.table
+    if table not in {"events", "runs", "observations"}:
+        print(f"❌ Unknown table '{table}'", file=sys.stderr)
+        return 1
+    sql = f"SELECT * FROM {table} ORDER BY id DESC LIMIT ?"
+    with connect() as con:
+        rows = con.execute(sql, (args.limit,)).fetchall()
+    for row in rows:
+        print(dict(row))
+    return 0
+
+
+def cmd_stats(_args) -> int:
+    with connect() as con:
+        for table in ("events", "runs", "observations"):
+            n = con.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+            print(f"  {table}: {n} row(s)")
+            last = con.execute(f"SELECT MAX(ts) FROM {table}").fetchone()[0]
+            if last:
+                from datetime import datetime, timezone
+                dt = datetime.fromtimestamp(last / 1000, tz=timezone.utc).isoformat()
+                print(f"    last: {dt}")
+    return 0
+
+
+def cmd_export(args) -> int:
+    table = args.table
+    if table not in {"events", "runs", "observations"}:
+        print(f"❌ Unknown table '{table}'", file=sys.stderr)
+        return 1
+    with connect() as con:
+        rows = con.execute(f"SELECT * FROM {table} ORDER BY id DESC").fetchall()
+    print(json.dumps([dict(r) for r in rows], indent=2, default=str))
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+def main() -> int:
+    p = argparse.ArgumentParser(description="Dr No-n DB — always build a database.")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    sub.add_parser("init", help="create schema at ./data/events.db")
+
+    p_log = sub.add_parser("log", help="log a row")
+    p_log.add_argument("table", choices=["events", "runs", "observations"])
+    p_log.add_argument("--source", help="source / who")
+    p_log.add_argument("--kind", help="kind / where")
+    p_log.add_argument("--key", help="key / what / command")
+    p_log.add_argument("--value", help="numeric value / exit_code / how")
+    p_log.add_argument("--payload", help="JSON or notes")
+    p_log.add_argument("--tags", help="comma-separated tags")
+
+    p_q = sub.add_parser("query", help="tail a table")
+    p_q.add_argument("table", choices=["events", "runs", "observations"])
+    p_q.add_argument("--limit", type=int, default=20)
+
+    sub.add_parser("stats", help="row counts + last timestamps")
+
+    p_x = sub.add_parser("export", help="JSON dump")
+    p_x.add_argument("table", choices=["events", "runs", "observations"])
+
+    args = p.parse_args()
+    return {
+        "init": cmd_init,
+        "log": cmd_log,
+        "query": cmd_query,
+        "stats": cmd_stats,
+        "export": cmd_export,
+    }[args.cmd](args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

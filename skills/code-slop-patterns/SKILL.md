@@ -1,11 +1,9 @@
 ---
 name: code-slop-patterns
 description: >-
-  Deterministic rules for catching AI-generated code patterns before they ship —
-  dead code, swallowed exceptions, unsafe `as any`, hallucinated imports, TODO
-  stubs, oversized functions, duplicate helpers. Use as a pre-commit/CI quality
-  gate, or when reviewing AI-assisted PRs. Load alongside `slop-detect-stack`
-  for the full pipeline.
+  Catch AI-generated code patterns — dead code, swallowed exceptions, unsafe
+  `as any`, hallucinated imports, TODO stubs. Use as pre-commit/CI gate or when
+  reviewing AI-assisted PRs.
 license: MIT
 source: https://github.com/scanaislop/aislop
 ---

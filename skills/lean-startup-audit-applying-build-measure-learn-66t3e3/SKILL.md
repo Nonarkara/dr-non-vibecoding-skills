@@ -1,3 +1,11 @@
+---
+name: lean-startup-audit-applying-build-measure-learn-66t3e3
+description: >-
+  Turn the Lean Startup method into actionable steps. Use when designing an
+  MVP, setting up metrics, deciding whether to pivot, or tracking progress
+  with innovation accounting.
+license: MIT
+---
 <!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Lean Startup Audit: Applying Build‑Measure‑Learn

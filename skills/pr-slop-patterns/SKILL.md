@@ -1,12 +1,8 @@
 ---
 name: pr-slop-patterns
 description: >-
-  Catch AI-generated pull-request slop before merge — vague titles, missing
-  descriptions, empty commits, single-line diffs masquerading as features,
-  contributor signals that don't match the change. Use as a PR-quality gate
-  in CI, when reviewing AI-assisted PRs, or when auditing repos that accept
-  large volumes of low-quality contributions. Load alongside
-  `code-slop-patterns` for the full code+PR pipeline.
+  Catch AI-generated PR slop before merge — vague titles, missing descriptions,
+  empty commits, single-line diffs as features. Use as PR-quality gate in CI.
 license: MIT
 source: https://github.com/peakoss/anti-slop
 ---
@@ -246,7 +242,7 @@ The 8 categories form a layered gate: cheap metadata checks first, structural di
 - [`../code-slop-patterns/SKILL.md`](../code-slop-patterns/SKILL.md) — the code-side companion (deterministic checks on the diff itself)
 - [`../no-ai-tells/SKILL.md`](../no-ai-tells/SKILL.md) — prose slop (catches AI-tells in the PR description)
 - [`../adversarial-review/SKILL.md`](../adversarial-review/SKILL.md) — for the conceptual review this skill can't do
-- [`../commit-conventions/SKILL.md`](../commit-conventions/SKILL.md) — the commit-message style this skill's category 3 enforces
+- [`../ship-discipline/SKILL.md`](../ship-discipline/SKILL.md) — the commit-message style this skill's category 3 enforces
 
 ---
 

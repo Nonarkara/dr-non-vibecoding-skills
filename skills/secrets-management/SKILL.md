@@ -1,11 +1,9 @@
 ---
 name: secrets-management
 description: >-
-  Keep secrets out of code, out of notes, and out of your shell history —
-  macOS Keychain discipline, .env.example convention, pre-commit gitleaks,
-  the .mcpignore intent-only caveat, and rotation-not-rewrite. Load when
-  adding API keys, storing credentials, deciding where secrets live, or
-  auditing a setup that's been touched by many agents.
+  Keep secrets out of code, notes, shell history — Keychain, .env.example,
+  pre-commit gitleaks, rotation-not-rewrite. Use when adding API keys or
+  auditing agent-touched setups.
 license: MIT
 ---
 

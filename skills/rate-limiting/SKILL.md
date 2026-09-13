@@ -1,11 +1,9 @@
 ---
 name: rate-limiting
 description: >-
-  Add rate limits that protect the service without punishing real users —
-  token bucket or sliding window, keyed by IP / user / API key, returning a
-  graceful 429 with Retry-After, and the 429-vs-403 split that distinguishes
-  retryable overload from permanent abuse. Load when exposing a public
-  endpoint, seeing abuse, deciding between limits, or wiring quota alerts.
+  Add rate limits that protect without punishing — token bucket or sliding
+  window, by IP/user/key, with 429 + Retry-After. Use when exposing public
+  endpoints or seeing abuse.
 license: MIT
 ---
 

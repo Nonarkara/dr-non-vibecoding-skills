@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+  Dr Non Component Library — copy-paste reference.
+  Open in any browser. Each component is self-contained HTML + the shared
+  design-tokens below. Pull from `templates/design-tokens.css.template` for the
+  canonical source.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'">
+  <title><Project> — Component Library</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-hover: #1a1a1a;
+      --border: #262626;
+      --border-subtle: #1f1f1f;
+      --text: #ededed;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --accent-alpha: rgba(245, 158, 11, 0.12);
+      --success: #10b981;
+      --danger: #ef4444;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text); font-family: var(--font-sans);
+      font-size: 14px; line-height: 1.5; padding: 32px 24px; max-width: 1100px; margin: 0 auto;
+    }
+    h1 { font-size: 28px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em; }
+    h2 { font-size: 18px; font-weight: 600; margin: 32px 0 12px; padding-bottom: 8px;
+         border-bottom: 1px solid var(--border); letter-spacing: -0.01em; }
+    p.muted { color: var(--text-muted); margin-bottom: 24px; }
+    section { margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+    /* Card */
+    .card {
+      background: var(--surface); border: 1px solid var(--border); padding: 16px;
+    }
+    .card:hover { background: var(--surface-hover); }
+    .card h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .card p { color: var(--text-muted); font-size: 13px; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 8px 14px; font-size: 13px; font-weight: 500;
+           border: 1px solid var(--border); background: var(--surface); color: var(--text);
+           cursor: pointer; font-family: inherit; }
+    .btn:hover { background: var(--surface-hover); }
+    .btn-primary { background: var(--accent); color: #000; border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+    .btn-danger { color: var(--danger); border-color: var(--danger); }
+
+    /* Badge */
+    .badge { display: inline-block; padding: 2px 8px; font-size: 11px; font-weight: 600;
+             letter-spacing: 0.04em; text-transform: uppercase; border: 1px solid var(--border);
+             color: var(--text-muted); }
+    .badge-amber { color: var(--accent); border-color: var(--accent); background: var(--accent-alpha); }
+    .badge-success { color: var(--success); border-color: var(--success); }
+    .badge-danger { color: var(--danger); border-color: var(--danger); }
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; font-weight: 500; color: var(--text-muted); padding: 8px 12px;
+         border-bottom: 1px solid var(--border); }
+    td { padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); }
+    tr:hover td { background: var(--surface-hover); }
+
+    /* Form */
+    .field { margin-bottom: 12px; }
+    .field label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted);
+                   margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 8px 10px; font-size: 13px; font-family: inherit;
+      background: var(--bg); color: var(--text); border: 1px solid var(--border);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--accent);
+    }
+
+    /* Alert */
+    .alert { padding: 12px 14px; border-left: 3px solid; margin-bottom: 12px; font-size: 13px; }
+    .alert-info { border-color: var(--accent); background: var(--accent-alpha); }
+    .alert-success { border-color: var(--success); }
+    .alert-danger { border-color: var(--danger); }
+
+    /* Metric tile */
+    .metric { background: var(--surface); border: 1px solid var(--border); padding: 16px; }
+    .metric .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+                     letter-spacing: 0.06em; margin-bottom: 8px; }
+    .metric .value { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; font-family: var(--font-mono); }
+    .metric .delta { font-size: 12px; color: var(--success); margin-top: 4px; }
+    .metric .delta.down { color: var(--danger); }
+
+    code { font-family: var(--font-mono); background: var(--surface); padding: 2px 6px;
+           font-size: 12px; color: var(--accent); }
+    pre { background: var(--surface); padding: 12px; overflow-x: auto; margin-top: 8px;
+          border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 12px; }
+  </style>
+</head>
+<body>
+
+<h1>Component Library</h1>
+<p class="muted">Copy-paste HTML building blocks. Pulled from <code>templates/design-tokens.css.template</code>. Open this file in any browser to see every component rendered.</p>
+
+<!-- ======================================================================
+     BUTTONS
+     ====================================================================== -->
+<h2>Buttons</h2>
+<section>
+  <button class="btn">Default</button>
+  <button class="btn btn-primary">Primary</button>
+  <button class="btn btn-danger">Danger</button>
+<pre>&lt;button class="btn"&gt;Default&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;</pre>
+</section>
+
+<!-- ======================================================================
+     BADGES
+     ====================================================================== -->
+<h2>Badges</h2>
+<section>
+  <span class="badge">Default</span>
+  <span class="badge badge-amber">Amber</span>
+  <span class="badge badge-success">Success</span>
+  <span class="badge badge-danger">Danger</span>
+<pre>&lt;span class="badge badge-amber"&gt;Amber&lt;/span&gt;</pre>
+</section>
+
+<!-- ======================================================================
+     CARDS
+     ====================================================================== -->
+<h2>Cards</h2>
+<section class="grid">
+  <div class="card"><h3>Card title</h3><p>One sentence: what this card is for and why it matters.</p></div>
+  <div class="card"><h3>Another card</h3><p>Cards carry the smallest useful chunk of a page. Never use a card without a reason.</p></div>
+  <div class="card"><h3>Third card</h3><p>Three is the right number for a feature row. Four starts to look like a dashboard.</p></div>
+</section>
+
+<!-- ======================================================================
+     METRICS
+     ====================================================================== -->
+<h2>Metric Tiles</h2>
+<section class="grid">
+  <div class="metric"><div class="label">Active users</div><div class="value">1,284</div><div class="delta">↑ 12%</div></div>
+  <div class="metric"><div class="label">Error rate</div><div class="value">0.21%</div><div class="delta down">↓ 0.04%</div></div>
+  <div class="metric"><div class="label">P95 latency</div><div class="value">142<span style="font-size:14px;color:var(--text-muted)">ms</span></div><div class="delta">↑ 8ms</div></div>
+</section>
+
+<!-- ======================================================================
+     ALERTS
+     ====================================================================== -->
+<h2>Alerts</h2>
+<section>
+  <div class="alert alert-info"><strong>Info.</strong> The deploy completed at 14:02 — 142ms p95 latency.</div>
+  <div class="alert alert-success"><strong>OK.</strong> All checks passed.</div>
+  <div class="alert alert-danger"><strong>Failed.</strong> Three endpoints returned 502 within 60s.</div>
+</section>
+
+<!-- ======================================================================
+     TABLES
+     ====================================================================== -->
+<h2>Tables</h2>
+<section>
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Status</th><th>Last seen</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>bkk.pm25</td><td><span class="badge badge-amber">Live</span></td><td>2s ago</td></tr>
+      <tr><td>bkk.flood.gauge</td><td><span class="badge badge-success">OK</span></td><td>14s ago</td></tr>
+      <tr><td>bkk.cctv.snap</td><td><span class="badge badge-danger">Stale</span></td><td>4m ago</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ======================================================================
+     FORM
+     ====================================================================== -->
+<h2>Form</h2>
+<section>
+  <form>
+    <div class="field">
+      <label>Project name</label>
+      <input type="text" placeholder="my-app">
+    </div>
+    <div class="field">
+      <label>Stack</label>
+      <select><option>Next.js</option><option>Vite</option><option>Python</option></select>
+    </div>
+    <div class="field">
+      <label>Notes</label>
+      <textarea rows="3" placeholder="What is this project for?"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Create project</button>
+  </form>
+</section>
+
+</body>
+</html>

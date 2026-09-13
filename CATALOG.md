@@ -102,6 +102,15 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`full-stack-bootstrap`](skills/full-stack-bootstrap/SKILL.md) | A new project needs memory, deploy, service, data, and design contracts in one pass |
 | [`appsec-stack`](skills/appsec-stack/SKILL.md) | A public deploy needs the seven-layer AppSec pipeline — secrets, SAST, SCA, SBOM, auto-update, DAST, exploit verify — with OWASP Top 10 / CIS IG1 mapping |
 | [`stack-repo-topology`](skills/stack-repo-topology/SKILL.md) | A repo holds many packages, or a monorepo is starting to drift — needs trunk-based dev, path-scoped CODEOWNERS, branch naming, selective CI, and shared resource patterns |
+| [`api-design`](skills/api-design/SKILL.md) | A REST endpoint needs designing — nouns not verbs, cursor pagination, idempotency keys, error envelope, REST vs GraphQL choice |
+| [`caching-layers`](skills/caching-layers/SKILL.md) | Latency tightens or a query runs thousands per minute — CDN + in-process + Redis + DB-result caches, cache-aside vs write-through vs SWR |
+| [`rate-limiting`](skills/rate-limiting/SKILL.md) | A public endpoint needs protection — token bucket or sliding window, by IP/user/key, with 429 + Retry-After |
+| [`db-migrations`](skills/db-migrations/SKILL.md) | A schema change is shipping — forward-only, expand-and-contract, schema versioning, never-rename-in-prod |
+| [`webhooks-reliable`](skills/webhooks-reliable/SKILL.md) | A third-party callback (Stripe, LINE, GitHub) needs wiring — always 200 fast, async process, idempotency keys, signature verification, retries |
+| [`secrets-management`](skills/secrets-management/SKILL.md) | API keys, credentials, or shell history need protection — Keychain, .env.example, pre-commit gitleaks, rotation-not-rewrite |
+| [`code-slop-patterns`](skills/code-slop-patterns/SKILL.md) | AI-assisted code is shipping — deterministic checks for dead code, swallowed exceptions, unsafe `as any`, hallucinated imports |
+| [`pr-slop-patterns`](skills/pr-slop-patterns/SKILL.md) | AI-assisted PRs are merging — checks for vague titles, missing descriptions, empty commits, single-line diffs as features |
+| [`slop-detect-stack`](skills/slop-detect-stack/SKILL.md) | An AI-assisted workflow needs pre-commit/CI/PR gates — orchestrates code, PR, prose, and UI anti-slop checks |
 
 ## Design and visual systems
 
@@ -145,6 +154,7 @@ Sources are named inside every file; these are operational skills, not book summ
 | [`design-method`](skills/design-method/SKILL.md) | An approach is unclear, or the first idea is about to become the only idea | Rowe · Kelley · Kelley & Kelley · Maeda |
 | [`written-principles`](skills/written-principles/SKILL.md) | The same judgment call keeps recurring, or work needs splitting across agents | Dalio · Smith |
 | [`make-it-stick`](skills/make-it-stick/SKILL.md) | Any user-facing text, error message, README, or technical explanation | Heath & Heath · Pinker |
+| [`library-of-human-wisdom`](skills/library-of-human-wisdom/SKILL.md) | A decision affects people, prose needs sharpening, or a pre-AI author's wisdom would cut clearer — routes to the right book from 35+ Non-Scrape pipeline books | Multi |
 
 ## Specialized field kits
 
@@ -233,3 +243,7 @@ These skills were added by a parallel agent via the Non-Scrape books-to-skill pi
 | [`success-making-ideas-stick-1to2c2n`](skills/success-making-ideas-stick-1to2c2n/SKILL.md) | Chip and Dan Heath's SUCCESs framework for memorable messages |
 | [`the-art-of-thinking-clearly-a-bias-detection-toolkit-1wtgikf`](skills/the-art-of-thinking-clearly-a-bias-detection-toolkit-1wtgikf/SKILL.md) | Rolf Dobelli's cognitive bias detection toolkit |
 | [`value-proposition-design-1mtu6jn`](skills/value-proposition-design-1mtu6jn/SKILL.md) | Osterwalder's Value Proposition Canvas for mapping pains, gains, and jobs-to-be-done |
+| [`atomic-habits-blueprint-bh9jje`](skills/atomic-habits-blueprint-bh9jje/SKILL.md) | James Clear's habit formation framework — design, track, and reinforce tiny behaviors that compound |
+| [`boilerplate-reduction-turning-repetitive-text-into-clean-con-ocdac6`](skills/boilerplate-reduction-turning-repetitive-text-into-clean-con-ocdac6/SKILL.md) | Spot, analyze, and remove repetitive filler in drafts so documents become concise and production-ready |
+| [`lean-startup-audit-applying-build-measure-learn-66t3e3`](skills/lean-startup-audit-applying-build-measure-learn-66t3e3/SKILL.md) | Eric Ries's Lean Startup method — design MVPs, set up metrics, decide when to pivot, track with innovation accounting |
+| [`repetition-mantra-building-skill-through-simple-repeats-4as3as`](skills/repetition-mantra-building-skill-through-simple-repeats-4as3as/SKILL.md) | Use a short repeated phrase as a mental anchor — break large goals into manageable repetition cycles |

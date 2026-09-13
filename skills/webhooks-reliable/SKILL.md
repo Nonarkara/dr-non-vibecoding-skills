@@ -1,11 +1,9 @@
 ---
 name: webhooks-reliable
 description: >-
-  Receive third-party webhooks that don't lie to you — always 200 fast, then
-  async process, with idempotency keys, signature verification, retries with
-  exponential backoff + jitter, and a dead-letter queue. Load when wiring any
-  third-party callback (Stripe, LINE, GitHub, custom), when retries are causing
-  double-charge, or when a failing webhook can silently lose revenue.
+  Receive third-party webhooks without lies — always 200 fast, async process,
+  idempotency keys, signature verification, retries. Use when wiring
+  Stripe/LINE/GitHub callbacks.
 license: MIT
 ---
 

@@ -1,10 +1,9 @@
 ---
 name: db-migrations
 description: >-
-  Migrate a database without breaking production — forward-only, expand-and-
-  contract, schema versioning, never-rename-in-prod, and the SQLite WAL pragma
-  caveat. Load when shipping a schema change, planning a rename, doing a
-  backfill, or recovering from a migration that locked the DB.
+  Migrate databases without breaking prod — forward-only, expand-and-contract,
+  schema versioning, never-rename-in-prod. Use when shipping schema changes or
+  planning a backfill.
 license: MIT
 ---
 

@@ -1,4 +1,13 @@
+---
+name: atomic-habits-blueprint-bh9jje
+description: >-
+  Design, track, and reinforce tiny behaviors that compound into personal
+  change. Use when teaching habit formation, redesigning environments, or
+  coaching identity-based growth.
+license: MIT
+---
 <!-- consolidated by server/intel/skill.js — every new skill ships this way -->
+
 # Atomic Habits Blueprint
 
 > A practical guide for an AI assistant to design, track, and reinforce tiny behaviors that compound into massive personal change. Load a chapter when you need to teach habit formation, redesign environments, or coach identity‑based growth.

@@ -29,7 +29,31 @@ cd ~/Projects/my-app
 claude
 ```
 
-From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 145 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
+From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 160 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
+
+### What ships in the scaffold (runnable, not just docs)
+
+`scripts/new-project.sh` (and `./setup.sh --init-project`) drop these into every new project by default:
+
+```bash
+<project>/
+├── CLAUDE.md / AGENTS.md       # Tier-2 contract
+├── .gitignore / .env.example   # hygiene
+├── docs/
+│   └── components.html         # templates/component-library.html.template — open in browser
+├── scripts/
+│   ├── deploy.sh               # poison-proof CDN deploy
+│   ├── verify.sh               # pre-flight gate (contracts, secrets, anti-regression, type-check)
+│   ├── secrets-audit.sh        # cyber hygiene — keys, plaintext http://, missing CSP
+│   └── database.py             # SQLite + CLI — always build a database
+└── README.md                   # one-liner + Run + Contract + Deploy
+```
+
+The four diamond rules enforced out of the box:
+- **No secret ships.** `scripts/secrets-audit.sh` before every commit.
+- **Always build a database.** `python scripts/database.py init` then `log` / `query` / `stats`.
+- **The page is the system.** Open `docs/components.html` to see every UI building block.
+- **Verify before commit, not after.** `scripts/verify.sh` before every completion claim.
 
 If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you want to know the trajectory of the project, read [`JOURNAL.md`](JOURNAL.md).
 
@@ -38,7 +62,7 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 146
+ls ~/.claude/skills | wc -l   # expect 160
 # also: ls ~/.agents/skills | wc -l
 ```
 

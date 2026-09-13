@@ -1,12 +1,9 @@
 ---
 name: slop-detect-stack
 description: >-
-  Orchestrator for the four-layer anti-slop stack — code (`code-slop-patterns`),
-  PR (`pr-slop-patterns`), prose (`no-ai-tells`), UI (`no-design-tells` /
-  `slop-detect`). Use before shipping any AI-assisted output, when setting up
-  pre-commit / CI / PR gates for an AI-assisted workflow, or when auditing a
-  codebase built primarily with AI. Picks the right layer for the surface;
-  do NOT load this skill just to read the whole stack.
+  Orchestrator for the four-layer anti-slop stack — code, PR, prose, UI. Use
+  before shipping AI output or when setting up pre-commit/CI/PR gates for
+  AI-assisted work.
 license: MIT
 ---
 

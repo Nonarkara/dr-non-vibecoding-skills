@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 146 skills, 16 playbooks, 12 references, and 14 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 160 skills, 16 playbooks, 12 references, and 14 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 146](https://img.shields.io/badge/skills-146-F59E0B)](skills/)
+[![Skills: 160](https://img.shields.io/badge/skills-160-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 14](https://img.shields.io/badge/templates-14-0F766E)](templates/)
+[![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**146 skills** · **16 playbooks** · **12 references** · **14 templates**
+**160 skills** · **16 playbooks** · **12 references** · **17 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -212,17 +212,17 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 145 modular agent capabilities (plain markdown with YAML frontmatter)
+├── skills/           # 160 modular agent capabilities (plain markdown with YAML frontmatter)
 ├── playbooks/        # 16 narrative war stories & architectural deep-dives
 ├── reference/        # 12 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
-├── templates/        # 14 drop-in production scaffolding files
+├── templates/        # 17 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── HANDSHAKE.md      # One paste. Works in any agent, with no install
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 145 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 160 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -231,10 +231,24 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 145 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`skills/`](skills/) | 160 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
 | [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
 | [`reference/`](reference/) | 12 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 14 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens | Copy directly into your new project repository |
+| [`templates/`](templates/) | 17 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
+
+### Out of the Box, Plug and Play
+
+Beyond the markdown skills, this repo ships **runnable code** that you can use the moment you clone. Every new project via `scripts/new-project.sh` gets these by default:
+
+| Asset | What it is | Diamond rule it enforces |
+|---|---|---|
+| `templates/secrets-audit.sh.template` | Cyber-hygiene scanner — finds AWS / GitHub / Stripe / OpenAI keys, plaintext http://, missing CSP, committed `.env`. Exit codes 0/1/2 by severity. | **No secret ships.** Pre-commit + weekly CI. |
+| `templates/database-bootstrap.py.template` | SQLite + CLI — schema v1 with `events` / `runs` / `observations`, append-only, auto-timestamped, JSON export. Zero deps. | **Always build a database.** If you are producing data, store it. |
+| `templates/component-library.html.template` | Copy-paste UI building blocks — buttons, badges, cards, metrics, alerts, tables, forms. Render with the canonical tokens. | **The page is the system.** Open in any browser, copy what works. |
+| `templates/starter-dashboard.html.template` | Live-data dashboard scaffold (316 lines, dark, 0 radius, one amber accent, zero deps). | **Ship the surface, not a slide.** |
+| `templates/design-tokens.css.template` | Canonical CSS variables (Rams/Braun lineage, single amber accent). | **One source for tokens.** |
+| `templates/verify.sh.template` | Pre-flight gate — contracts exist, no staged secrets, 30% anti-regression collapse rule, type-check, pytest. | **Verify before commit, not after.** |
+| `setup.sh` (939 lines) | One-liner: skills on every detected agent, project scaffold, deploy, verify. | **The four shapes wired into one loop.** |
 
 ---
 
@@ -426,10 +440,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["146 skills"] --> A["Your agent"]
+  S["160 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
   R["12 refs"] --> A
-  T["14 templates"] --> A
+  T["17 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

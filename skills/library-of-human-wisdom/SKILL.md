@@ -1,7 +1,9 @@
 ---
 name: library-of-human-wisdom
 description: >-
-  Router to the book-derived skills on the nonscrape skillhub (mirrored locally as `skills/<book-slug>-<id>/SKILL.md` from the 35+ that came in via the Non-Scrape book-to-skill pipeline). Use when designing a UI for humans, making a decision that affects people, evaluating a claim, writing prose, or doing any work where the wisdom of a pre-AI author would sharpen the output. Maps the problem to the right book; do NOT load this skill just to read every book — pick the one that fits.
+  Router to book-derived skills from 35+ Non-Scrape pipeline books. Use when a
+  decision affects people, prose needs sharpening, or a pre-AI author's wisdom
+  would cut clearer.
 license: MIT
 source: https://nonscrape.nonarkara.org/api/skill/list
 ---

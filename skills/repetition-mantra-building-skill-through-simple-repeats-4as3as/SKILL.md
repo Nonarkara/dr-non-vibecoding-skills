@@ -1,3 +1,10 @@
+---
+name: repetition-mantra-building-skill-through-simple-repeats-4as3as
+description: >-
+  Use a short repeated phrase as a mental anchor — break larger goals into
+  manageable repetition cycles. Use when building fluency through monotony.
+license: MIT
+---
 <!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Repetition Mantra: Building Skill Through Simple Repeats

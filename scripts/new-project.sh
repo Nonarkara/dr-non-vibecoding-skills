@@ -136,6 +136,26 @@ if [[ ! -f "$PROJECT_ABS/scripts/verify.sh" ]]; then
   echo "wrote $PROJECT_ABS/scripts/verify.sh"
 fi
 
+# — OOTBPAP: cyber + DB + UI templates (always copy — they are the diamond rules) —
+# Cyber hygiene scanner
+if [[ ! -f "$PROJECT_ABS/scripts/secrets-audit.sh" ]]; then
+  cp "$TEMPLATES/secrets-audit.sh.template" "$PROJECT_ABS/scripts/secrets-audit.sh"
+  chmod +x "$PROJECT_ABS/scripts/secrets-audit.sh"
+  echo "wrote $PROJECT_ABS/scripts/secrets-audit.sh (cyber hygiene)"
+fi
+# Database bootstrap ("always build a database")
+if [[ ! -f "$PROJECT_ABS/scripts/database.py" ]]; then
+  cp "$TEMPLATES/database-bootstrap.py.template" "$PROJECT_ABS/scripts/database.py"
+  chmod +x "$PROJECT_ABS/scripts/database.py"
+  echo "wrote $PROJECT_ABS/scripts/database.py (SQLite, zero deps)"
+fi
+# UI component library reference
+mkdir -p "$PROJECT_ABS/docs"
+if [[ ! -f "$PROJECT_ABS/docs/components.html" ]]; then
+  cp "$TEMPLATES/component-library.html.template" "$PROJECT_ABS/docs/components.html"
+  echo "wrote $PROJECT_ABS/docs/components.html (open in browser)"
+fi
+
 # — minimal project README if none exists —
 if [[ ! -f "$PROJECT_ABS/README.md" ]]; then
   cat > "$PROJECT_ABS/README.md" <<README

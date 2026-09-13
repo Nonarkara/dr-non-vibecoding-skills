@@ -1,11 +1,9 @@
 ---
 name: api-design
 description: >-
-  Design a REST API that survives clients in the wild — model resources as
-  nouns, use cursor pagination, idempotency keys for mutating calls, a single
-  error envelope, and pick GraphQL only when the read shape is genuinely
-  fan-in. Load when sketching a new endpoint, reviewing a contract, or
-  deciding between REST and GraphQL for a feature.
+  Design REST APIs that survive clients — nouns not verbs, cursor pagination,
+  idempotency keys, error envelope. Use when sketching endpoints or choosing
+  REST vs GraphQL.
 license: MIT
 ---
 

@@ -1,12 +1,9 @@
 ---
 name: caching-layers
 description: >-
-  Stack four caching layers — CDN/edge, in-process memory, Redis (or any
-  shared cache), and DB-result caches — pick the right write strategy
-  (cache-aside vs write-through vs SWR), and avoid the thundering-herd
-  stampede. Load when latency budgets get tight, when the same expensive
-  query runs thousands of times a minute, or before a public deploy where
-  the CDN config is the contract.
+  Stack CDN, in-process, Redis, DB-result caches — cache-aside vs write-through
+  vs SWR, avoid thundering herd. Use when latency tightens or same query runs
+  thousands per minute.
 license: MIT
 ---
 

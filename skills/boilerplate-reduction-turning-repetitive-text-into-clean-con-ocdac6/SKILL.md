@@ -1,3 +1,11 @@
+---
+name: boilerplate-reduction-turning-repetitive-text-into-clean-con-ocdac6
+description: >-
+  Spot, analyze, and remove repetitive filler in drafts so the document
+  becomes concise and production-ready. Use when a text contains many
+  duplicated sentences or placeholder copy.
+license: MIT
+---
 <!-- consolidated by data/scrape/consolidate_skills.py -->
 
 # Boilerplate Reduction: Turning Repetitive Text into Clean Content
