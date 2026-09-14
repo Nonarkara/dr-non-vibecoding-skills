@@ -44,7 +44,7 @@ Read each as a verb a human and an agent do together:
 
 - **SKILLS** — install the standing instructions on the agent (`./setup.sh --become-builder`). The skills are the vocabulary.
 - **SHIP** — write the next change, prove it on the live URL ([`ship-discipline`](../../skills/ship-discipline/SKILL.md) + [`deploy-verification`](../../skills/deploy-verification/SKILL.md)). The skills are inert until something ships.
-- **WALKTHROUGH** — before a major release, run the multi-persona user test ([`human-walkthrough`](../../skills/human-walkthrough/SKILL.md)). Three personas find three different classes of bug.
+- **WALKTHROUGH** — before a major release, pass the real-user Mama Rule, then run the multi-persona test ([`human-walkthrough`](../../skills/human-walkthrough/SKILL.md)). Three personas find three additional classes of bug.
 - **HINDSIGHT** — after a year of patching, collect every signal and reconstruct the parts that carry weight from first principles ([`power-of-hindsight`](../../skills/power-of-hindsight/SKILL.md)). The Frankenstein phase has an end date in writing.
 - **RECONSTRUCT** — back to SKILLS, but with a cleaner version of the system whose rationale is now known.
 

@@ -194,7 +194,7 @@ Pick the skill that matches your problem:
 | Charts, tables, and numbers that do not lie or decorate | `skills/data-display/SKILL.md` |
 | Decks, PDFs, documents, social cards — the non-app surfaces a design system must also govern | `skills/beyond-the-screen/SKILL.md` |
 | Data-driven retrospective: collect every signal, analyze statistically, reconstruct the system from what works | `skills/power-of-hindsight/SKILL.md` |
-| Multi-persona user test (first-time, second-time, extreme user) via real browser — produces a blueprint and roadmap | `skills/human-walkthrough/SKILL.md` |
+| A real older nontechnical user must pass the Mama Rule before the three-persona browser walkthrough | `skills/human-walkthrough/SKILL.md` |
 | YAGNI decision ladder: does it need to exist, is it in the codebase, does stdlib do it, can it be one line, then the minimum | `skills/ponytail/SKILL.md` |
 | Output compression: 65% fewer tokens, byte-exact code and errors — the prose gets terse, the bytes that matter stay exact | `skills/caveman/SKILL.md` |
 | Security audit mode: secrets archaeology, supply chain, STRIDE, OWASP Top 10 — daily and comprehensive modes | `skills/cso/SKILL.md` |

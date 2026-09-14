@@ -124,7 +124,7 @@ After any session that took more than an hour or hurt, write one file: `docs/les
 
 Two more skills close the year, not the hour:
 
-- Before a major release, walk the live URL as three personas — [`human-walkthrough`](skills/human-walkthrough/SKILL.md) — and file a Now/Next/Later/**Never** roadmap.
+- Before a major release, first pass the Mama Rule with a real older nontechnical user; then walk the live URL as three personas — [`human-walkthrough`](skills/human-walkthrough/SKILL.md) — and file a Now/Next/Later/**Never** roadmap.
 - When the patches have become Frankenstein, Collect → Analyze → Reconstruct — [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md).
 
 Six months from now that folder is worth more than the code. Mine is the reason I can pick up a project I haven't touched in five weeks and be productive in ten minutes.

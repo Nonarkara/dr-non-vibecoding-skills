@@ -18,7 +18,7 @@ A router collapses 160 skills to 8. If you know the moment, you know the route. 
 | 04 | Diagnosing a failure | [`systematic-debugging`](../../skills/systematic-debugging/SKILL.md) | Reproduce → collect → isolate → verify. The first plausible patch is the most expensive. |
 | 05 | User-visible flow changed | [`browser-as-t`](../../skills/browser-as-t/SKILL.md) | A screenshot is appearance; T is behaviour. Open a real browser, walk the flow, log the network, capture the console. |
 | 06 | Closing the work | [`adversarial-review`](../../skills/adversarial-review/SKILL.md) + [`result-honesty`](../../skills/result-honesty/SKILL.md) + `ship` | Adversarial review challenges the author's story. `result-honesty` produces the four-bucket status. `ship` is the commit-push-deploy-test loop. |
-| 07 | Before a major release | [`human-walkthrough`](../../skills/human-walkthrough/SKILL.md) | The multi-persona user test via a real browser. Three personas find complementary bugs. Output is a blueprint and a roadmap. |
+| 07 | Before a major release | [`human-walkthrough`](../../skills/human-walkthrough/SKILL.md) | A real older nontechnical user passes the Mama Rule first; three browser personas then find complementary bugs. Output is a blueprint and a roadmap. |
 | 08 | After a year of patches | [`power-of-hindsight`](../../skills/power-of-hindsight/SKILL.md) | The data-driven retrospective. Collect every signal, analyze statistically, reconstruct the parts that carry weight from first principles. The Frankenstein phase has an end date. |
 
 The 8 moments are not exhaustive. They are the moments that **recur**. Anything one-shot — a typo, a one-line color change — does not need a route; it needs a `fix:` commit.

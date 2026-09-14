@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Become Dr Non the Builder. Field-tested agent skills for shipping verified civic software.",
-    "version": "1.7.1"
+    "version": "1.7.2"
   },
   "plugins": [
     {
       "name": "dr-non-vibecoding-skills",
       "source": "./",
       "description": "One command to become Dr Non the Builder — plan, preserve, walk through, reconstruct, and ship with an agent-agnostic stack.",
-      "version": "1.7.1",
+      "version": "1.7.2",
       "author": {
         "name": "Dr Non Arkaraprasertkul"
       },

@@ -50,7 +50,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 
 | Skill | Load it when… |
 |---|---|
-| [`human-walkthrough`](skills/human-walkthrough/SKILL.md) | Multi-persona user test via a real browser — first-time, second-time, and extreme user. Use to find missing links, edge cases, and produce a roadmap for recreating the system. |
+| [`human-walkthrough`](skills/human-walkthrough/SKILL.md) | Test a working system with a real older nontechnical first-time user, then run first-time, returning, and extreme browser walkthroughs. Use before a major release or rebuild. |
 | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) | Data-driven retrospective: collect every signal, analyze statistically, reconstruct from what works. Use to escape the Frankenstein phase and ship a coherent whole. |
 
 ## Memory, harness, and agent surfaces

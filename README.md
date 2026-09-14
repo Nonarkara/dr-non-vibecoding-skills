@@ -165,7 +165,7 @@ cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 
 That is the entire onboarding. The script discovers every agent installed on your machine (Antigravity, Gemini CLI, Claude Code, Codex, Cursor, Hermes, OpenCode), installs the skills into their native discovery directories, and prints **You are Dr Non the Builder** with the three immediate moves:
 1. **Scaffold a project contract** (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`).
-2. **Conduct a multi-persona walkthrough** ([`human-walkthrough`](skills/human-walkthrough/SKILL.md)).
+2. **Pass the Mama Rule with a real older nontechnical user, then conduct the multi-persona walkthrough** ([`human-walkthrough`](skills/human-walkthrough/SKILL.md)).
 3. **Run a data-driven hindsight review** ([`power-of-hindsight`](skills/power-of-hindsight/SKILL.md)).
 
 ```mermaid
@@ -259,7 +259,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Proven Pattern | Where It Lives Here | What Is Different Here |
 |---|---|---|
 | Karpathy's explicit assumptions, simplicity, surgical edits, and goal-driven loops | [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) | Compact coding baseline with upstream MIT credit. |
-| The think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic. Closes with [`human-walkthrough`](skills/human-walkthrough/SKILL.md) (3 personas) and [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) (reconstruct). |
+| The think → plan → review → QA → ship loop | [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) → [`planning-discipline`](skills/planning-discipline/SKILL.md) → [`adversarial-review`](skills/adversarial-review/SKILL.md) → [`browser-as-t`](skills/browser-as-t/SKILL.md) → [`ship-discipline`](skills/ship-discipline/SKILL.md) | Runtime-free and agent-agnostic. Closes with [`human-walkthrough`](skills/human-walkthrough/SKILL.md) (Mama Rule + 3 personas) and [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) (reconstruct). |
 | Google Cloud serverless spine | [`google-cloud-run`](skills/google-cloud-run/SKILL.md) | $0 idle bill, scale-to-zero, 2M free requests/mo, Google Secret Manager, and keyless Workload Identity Federation (WIF). |
 | Real-world monetization | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) | Hosted Stripe Checkout, Customer Portal, and signature-verified webhook idempotency (avoiding the raw body parsing trap). |
 | Identity joined to money | [`auth-entitlement`](skills/auth-entitlement/SKILL.md) | Entitlement is a server row fed only by verified webhooks. The checkout redirect is a hint; anyone can type that URL. |
@@ -403,7 +403,7 @@ Implement with $karpathy-guidelines and preserve earned work with $anti-regressi
 If the change is user-facing, verify it in a real browser with $browser-as-t.
 Before closing, run $adversarial-review, then report with $result-honesty.
 Finish with the $ship-discipline loop: Commit, Push, Deploy, Test on the live URL.
-Before a major milestone, walk it as three distinct personas with $human-walkthrough.
+Before a major milestone, pass the real-user Mama Rule, then walk it as three distinct personas with $human-walkthrough.
 When a year of incremental patches needs structural clarity, reconstruct with $power-of-hindsight.
 If you are picking up another agent's commits, run $agent-relay first: rule on the last leg before adding your own.
 If the brief is terse or compound, decode it with $prompt-like-dr-non before starting.

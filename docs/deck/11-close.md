@@ -2,15 +2,15 @@
 
 > **Ship is not the end. A screenshot is not a user test.** Walk > Learn > Reconstruct. The system has to survive three people with three different goals.
 
-The page is two horizontal flows. The top is the **walk** — three personas run the same scenario through the same four-question protocol. The bottom is the **learn** + **reconstruct** — power of hindsight, in three phases. The two flows meet at the same output: a system that knows what it is.
+The page is two horizontal flows. The top is the **walk** — one real Mama test, then three personas run the same scenario through the same four-question protocol. The bottom is the **learn** + **reconstruct** — power of hindsight, in three phases. The two flows meet at the same output: a system that knows what it is.
 
 ![CLOSE THE LOOP — human walkthrough + power of hindsight](../../infographics/pages/page-11.png)
 
 ---
 
-## The walk — three personas, four questions
+## The walk — one real user, three personas, four questions
 
-The skill [`human-walkthrough`](../../skills/human-walkthrough/SKILL.md) replaces a usability test that has no humans. The agent opens the system through a real browser and walks it as three different users, one after another.
+The skill [`human-walkthrough`](../../skills/human-walkthrough/SKILL.md) begins with the Mama Rule: a real older nontechnical first-time user must complete the critical path without coaching. The agent then opens the system through a real browser and walks it through three analytical personas, one after another.
 
 The three personas are not made up. Each represents a real segment of the user base. The point is to surface different bugs from different expectations, not to roleplay.
 

@@ -71,7 +71,9 @@ These are the aesthetics most often requested and most often done badly. Each is
 - **Background**: Flat. The grid is the only visible structure (and only when you ask for it).
 - **Tells to avoid**: Rounded corners, drop-shadows, soft transitions, decorative type, full-bleed imagery. Swiss is *type-as-image*; the type is the design.
 
-### 6. MoMA (the institutional register, also `axiom-design-core` default)
+### 6. MoMA-inspired (the institutional register, also `axiom-design-core` default)
+
+These are Dr Non's working rules derived from museum and modernist institutional design, not an official Museum of Modern Art brand manual.
 
 - **Palette**: `--bg-primary: #F5F1E8` (cream), `--ink: #0a0a0a`, one accent (`--accent: #F59E0B` amber).
 - **Type**: Display 700 (Spectral or Inter Display), body 400 (IBM Plex Sans). Generous leading. Generous margins.

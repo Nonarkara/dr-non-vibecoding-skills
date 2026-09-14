@@ -166,3 +166,13 @@ The iPhone-unboxing principle: the new builder should not need to ask the author
 **Why:** A fork-and-use stack must preserve a user's Gary Tan, Karpathy, and personal skills, and its advertised skill count must mean every entry actually loads across agents.
 **Diff:** `scripts/install-skills.sh`, `scripts/test-install-skills.sh`, `scripts/validate_repo.py`, `skills/`, `reference/strix-when-to-run.md`, `SECURITY.md`, plugin manifests, catalog and count surfaces
 **Tags:** `fork-safety · cross-agent · local-llm · messaging · podcast · appsec · official-validator`
+
+---
+
+## 2026-09-14 — MoMA correction and the Mama Rule
+
+**Date:** 2026-09-14
+**What:** Corrected the design language to Dr Non's MoMA-inspired rules and added the Mama Rule as a real-human release gate inside `human-walkthrough`: an older, nontechnical first-time user must complete the critical path without coaching.
+**Why:** Visual rigor and ordinary usability are different proofs. MoMA governs the surface; Mama proves that the surface can be understood, completed, and recovered from by the person the builder is most likely to overlook.
+**Diff:** `skills/human-walkthrough/SKILL.md`, `skills/no-design-tells/SKILL.md`, `reference/named-aesthetics.md`, onboarding and routing docs, plugin manifests
+**Tags:** `moma · mama-rule · real-user-test · older-users · usability-gate`

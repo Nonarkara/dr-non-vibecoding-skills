@@ -1,27 +1,46 @@
 ---
 name: human-walkthrough
 description: >-
-  Multi-persona user test via a real browser — first-time, second-time, and
-  extreme user. Use to find missing links, edge cases, and produce a roadmap
-  for recreating the system.
+  Test a working system with a real older nontechnical first-time user, then
+  run first-time, returning, and extreme browser walkthroughs. Use before a
+  major release or rebuild.
 license: MIT
 ---
 
 # Human Walkthrough
 
-> A screenshot is appearance. A test from a single persona is a single point. The system has to survive three people with three different goals, and the gaps between what they find and what was intended are the blueprint for what to rebuild.
+> First pass the Mama Rule with a real ordinary user. Then make the system survive three structured personas. The gaps between what they find and what was intended are the blueprint for what to rebuild.
 
 This is the structured, multi-persona, browser-driven user test. It is the missing layer between [`browser-as-t`](../browser-as-t/SKILL.md) (verification — "did the change ship?") and `ux-archaeology` (pattern extraction — "what did the prior art do?"). It assumes a working build and a real URL, opens the system through a browser tool, walks it as three different users, and produces a **blueprint** for what to rebuild and a **roadmap** for the order to do it in.
 
-It is the human-in-the-loop substitute for a usability test that has no humans. The personas do not exist, but the walkthrough is rigorous: every action passes the four-question cognitive-walkthrough test (Wharton, Rieman, Lewis, Polson), and the gaps are filed by severity.
+It combines one real first-time-user gate with a structured cognitive walkthrough. The three personas are analytical lenses rather than substitute humans: every action passes the four-question cognitive-walkthrough test (Wharton, Rieman, Lewis, Polson), and the gaps are filed by severity.
 
 Influences: Nielsen's heuristic evaluation, Wharton's cognitive walkthrough, Bias's pluralistic walkthrough, Krug's "don't make me think" / rocket surgery, Cooper's personas, the GOV.UK service standard.
 
 ---
 
+## The Mama Rule — a real-human gate
+
+> If your mother cannot use the critical path without coaching, it is not ready for ordinary users.
+
+"Mama" is a role, not a biological requirement: recruit a consenting older, nontechnical person who has never used the system. Give them a goal, not instructions. Put the product on the device and connection they would naturally use, then stay quiet. Do not point, translate labels, take the device, or rescue the flow. Record where they hesitate, misread, mistrust, mistap, ask for help, or give up.
+
+The gate passes only when the person can:
+
+1. State what the system is for after opening it.
+2. Complete its single most important task without coaching.
+3. Recognize that the task succeeded and explain what happens next.
+4. Recover from one ordinary mistake without losing work or becoming afraid to continue.
+
+A failed Mama test blocks the release for that critical path. Fix the smallest failure first, then retest with a fresh first-time user; the original tester has learned the interface and is no longer a clean first-time test. Treat the person with dignity, obtain consent before recording, and never publish personal data. This gate complements accessibility testing and domain-user research; it does not replace either.
+
+**MoMA is not Mama.** Dr Non's MoMA-inspired rules govern visual judgment—hierarchy, line weight, grid, spacing, motion, color, and consistency. The Mama Rule governs human usability. A surface must pass both.
+
+---
+
 ## The three personas
 
-The walkthrough is run **three times in series**, each time as a different persona. The personas are not made up — pick a real segment of your actual user base. The point is to surface different bugs from different expectations, not to roleplay.
+After the real-human gate, the walkthrough is run **three times in series**, each time as a different persona. The personas are not made up — pick a real segment of your actual user base. The point is to surface different bugs from different expectations, not to roleplay.
 
 ### Persona 1 — the first-time user
 
@@ -166,7 +185,7 @@ The "Never" section is important. The walkthrough surfaces more findings than an
 
 ## What this skill is not
 
-**It is not a substitute for real user testing.** The personas are imagined. The findings are real, but the priorities are the team's, not a sample of users'. Run a real test (5 users, 30 minutes each, per the GOV.UK service standard) when the question is "will real users use this."
+**One Mama test is not user research.** The real tester proves that one critical path can work for one ordinary person. The personas are analytical lenses, and the priorities are still the team's rather than a representative sample. Run broader research when the question is "will our actual audience use this."
 
 **It is not a security audit.** The extreme persona finds *some* security issues, but a walkthrough is not adversarial testing. For that, use a real pen test or `appsec-stack`.
 
@@ -193,6 +212,8 @@ The "Never" section is important. The walkthrough surfaces more findings than an
 
 ```
 □ A clean browser profile was used (no logged-in state from prior sessions)
+□ A consenting older, nontechnical first-time user completed the critical path without coaching
+□ The Mama test recorded hesitation and recovery, not just task completion
 □ The network was throttled to a realistic connection profile
 □ The console and the network were captured on every step
 □ Every step passed (or failed) the four cognitive-walkthrough questions

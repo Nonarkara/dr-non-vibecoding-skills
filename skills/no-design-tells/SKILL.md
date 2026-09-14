@@ -140,7 +140,7 @@ If it could describe any other surface you own, it is not specific enough yet. W
 
 ### 2. A named reference. Not "clean and modern" — unenforceable. Name a real artifact: *the Braun ET66*, *the 1972 Vignelli subway diagram*, *moma.org*, *a Linear product page*, *a specific magazine spread*. An agent can reason about a named reference; it cannot reason about an adjective.
 
-### 3. The MoMA layout rules.
+### 3. Dr Non's MoMA-inspired layout rules.
 1. Clean and visually stunning — minimal is the floor, not the goal.
 2. **Lines carry different weights when they play different roles.** A structural divider is not a cell separator is not an emphasis rule. Uniform 1px hairlines everywhere is itself a flatness tell: it says nobody decided which line mattered.
 3. Invisible grid — everything locks in, nothing left hanging, every edge resolves to another edge.
