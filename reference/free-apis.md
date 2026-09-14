@@ -1,10 +1,12 @@
 # Free APIs & Data Sources
 
-Ready-to-use APIs for dashboards, intelligence systems, and smart city projects. Every entry includes the signup URL, free-tier limits, and whether a key is needed — so you never have to go hunting.
+Ready-to-probe APIs for dashboards, intelligence systems, and smart-city projects. Every entry includes a starting URL, a quota snapshot, and whether a key is normally needed.
 
-These are the sources behind live flood, air-quality, market, and city dashboards. Most of the best ones need **no key at all** — government and intergovernmental agencies are legally obligated to publish much of what you'd otherwise pay for.
+These are the sources behind live flood, air-quality, market, and city dashboards. Many strong public and institutional sources need **no key at all**.
 
 Free tiers aren't a compromise, they're scope discipline: if you can't build it on $25/month, you're overcomplicating it. See [`skills/data-catalog`](../skills/data-catalog/SKILL.md) for how to catalogue a source once and port the adapter forever.
+
+**Volatility rule.** Quotas, model names, licenses, commercial-use terms, CORS behavior, and “no card” signup policies change. The figures below are discovery hints, not contracts. Before shipping, open the provider's first-party pricing/usage page, record `checked_at`, probe the endpoint, and store the observed rate-limit headers in the project's data catalog. “Unlimited” below means no published small-user quota was found; it never means permission to ignore a provider's acceptable-use policy. This page was reviewed 2026-09-14.
 
 ---
 
@@ -25,7 +27,7 @@ Free tiers aren't a compromise, they're scope discipline: if you can't build it 
 | **NVIDIA NIM** | Free models | Yes | Llama Nemotron, Mistral on NVIDIA | https://build.nvidia.com |
 | **Hugging Face Inference** | Free for select models | Yes | Long tail, niche models, fine-tunes | https://huggingface.co |
 | **SambaNova** | $5 free credits + persistent tier | Yes | Llama / DeepSeek / Qwen on RDU chips | https://cloud.sambanova.ai |
-| **Ollama** | Unlimited (local) | No | Embeddings, drafts, offline survival | https://ollama.ai |
+| **Ollama** | Local compute; no per-request fee | No (local models) | Embeddings, drafts, offline survival | https://ollama.com |
 | **Transformers.js** | Unlimited (browser-side ML: embeddings, sentiment, NER, summarization) | No | Static-site / no-backend inference | https://huggingface.co/docs/transformers.js |
 
 The discipline is the [`skills/free-api-keys`](../skills/free-api-keys/SKILL.md) skill: pick by *what the call is for* (speed → Groq, long context → Google, daily volume → Cerebras, variety → OpenRouter, no signup → AI Horde, embeddings → Cohere), never let one provider become the only path, and rotate on 429.

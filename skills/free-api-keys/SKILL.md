@@ -6,9 +6,11 @@ license: MIT
 
 # Free API Keys — the $0/month LLM stack
 
-> Get going without a credit card. The thirteen providers below have been verified as of late 2026 to offer permanent or recurring free tiers with no card required. Pick by *what the call is for*, not by alphabetical order.
+> Get going at zero initial spend. The providers below are candidates, not contracts: verify today's quota, card requirement, data use, and commercial terms before building around one.
 
 This skill is the *companion* to [`local-llm-ollama`](../local-llm-ollama/SKILL.md) (offline) and [`reference/free-apis.md`](../../reference/free-apis.md) (the wider free-API catalog). The discipline: **use the right provider for the right job; never pay for what is free; rotate when a free tier is exhausted.**
+
+Provider details were reviewed 2026-09-14. Exact quotas are volatile; record the provider documentation URL and `checked_at` in the project's data catalog. A free signup is not a reliability, privacy, or commercial-use guarantee.
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 name: validated-learning-the-build-measure-learn-loop-1i6p1f5
-description: Use when me: validated-learning-the-build-measure-learn-loop-1i6p1f5
+description: >-
+  Design a build-measure-learn loop around the riskiest assumption. Use when a team is stuck between polishing, launching, pivoting, and persevering.
 license: MIT
 ---
 
@@ -172,4 +173,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-

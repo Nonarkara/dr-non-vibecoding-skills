@@ -1,6 +1,7 @@
 ---
-name: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu
-description: Use when me: the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu
+name: ethnographic-fieldwork-malinowski
+description: >-
+  Design participant observation around immersion, language, everyday action, and field records. Use when interviews alone cannot reveal how a community works.
 license: MIT
 ---
 
@@ -203,4 +204,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-

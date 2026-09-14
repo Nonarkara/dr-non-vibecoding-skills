@@ -8,9 +8,9 @@ license: MIT
 
 # Local LLM via Ollama
 
-> One machine, three models max, context set at the daemon — then stop tuning and start building.
+> One machine, three jobs, a model that fits, and a measured context window — then stop tuning and start building.
 
-This is the single-machine companion to [`local-ai-fabric`](../local-ai-fabric/SKILL.md) (which covers the M5 + M3 gateway). Most projects never need the fabric. They need Ollama installed correctly once, with the context bug fixed and the model list kept short.
+This is the single-machine companion to [`local-ai-fabric`](../local-ai-fabric/SKILL.md) (which covers the M5 + M3 gateway). Most projects never need the fabric. They need Ollama installed correctly once, a context window their hardware can actually hold, and a short model list.
 
 Influences: [`local-ai-fabric`](../local-ai-fabric/SKILL.md) (context lesson, gateway shape), [`voice-clone-podcast`](../voice-clone-podcast/SKILL.md) (Ollama as script backend), [`risk-posture`](../risk-posture/SKILL.md) (cheap-to-undo defaults).
 
@@ -18,7 +18,7 @@ Influences: [`local-ai-fabric`](../local-ai-fabric/SKILL.md) (context lesson, ga
 
 ## The rule
 
-Local models do availability and cost, not capability. Drafts, classification, embeddings, offline fallback — yes. Frontier reasoning — no, route that to cloud.
+Local models buy privacy, availability, and zero marginal token cost. Small models can autocomplete, classify, retrieve, draft, and make bounded code edits. Route work beyond the measured local model's ability to a larger local machine or an online model; “offline” is an operating mode, not a claim of frontier equivalence.
 
 ---
 
@@ -36,34 +36,38 @@ curl -s http://localhost:11434/api/version  # {"version":"..."} = alive
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-### 2. Fix the context default (the bug every setup misses)
+### 2. Set context from measured headroom
 
-**Ollama serves every model at 4096 context unless the daemon says otherwise — client `num_ctx` is ignored by most agentic tools.** From [`local-ai-fabric`](../local-ai-fabric/SKILL.md), verified the hard way:
+Ollama's current default depends on available VRAM: below 24 GiB it starts at 4K, 24–48 GiB at 32K, and 48 GiB or more at 256K. Coding agents often want 64K, but a larger context consumes more memory and can force CPU offload. Set the smallest window that holds the repository slice and tool schemas, then verify the actual allocation with `ollama ps`.
 
 ```bash
-# macOS (persists across reboot, reverts on Ollama reinstall — recheck then)
+# macOS example for a machine with enough measured headroom
 launchctl setenv OLLAMA_CONTEXT_LENGTH 65536
-# quit + relaunch Ollama.app — a running daemon ignores the new env
-launchctl getenv OLLAMA_CONTEXT_LENGTH  # must echo 65536
+# Quit and relaunch Ollama.app; a running daemon will not inherit the new env.
+launchctl getenv OLLAMA_CONTEXT_LENGTH
 
 # Linux systemd
 sudo systemctl edit ollama  # add: [Service] Environment="OLLAMA_CONTEXT_LENGTH=65536"
 sudo systemctl restart ollama
+
+# The proof is the running allocation, not the configured number.
+ollama ps
 ```
 
-Symptom this fixes: local coding assistant truncates mid-file with no error. Check this before blaming the model.
+Per-request `options.num_ctx` can override the daemon default. Check both the client configuration and `ollama ps` when a coding assistant truncates prompts. Source: [Ollama context-length documentation](https://docs.ollama.com/context-length), checked 2026-09-14.
 
 ### 3. Pull three models, no more
 
 | Slot | Pick (2026) | Job |
 |---|---|---|
-| Chat / draft | `qwen3:8b` (or `gemma4:e2b` for small machines) | Summaries, classification, script drafts for human review |
-| Reasoning (128 GB+ machines) | `deepseek-r1:8b` (or `qwen3:8b` for general chat) | Local reasoning when frontier calls are not an option |
+| Chat / bounded coding | `qwen3:4b` or `qwen3:8b` | Summaries, classification, drafts, small code edits |
+| Deliberate reasoning | `deepseek-r1:8b` or a larger Qwen that fits | Local reasoning when an online model is unavailable |
 | Embeddings | `nomic-embed-text` | [`simple-rag`](../simple-rag/SKILL.md) vectors — only after the FTS5 gate passes |
 | Fallback | whatever fits the smallest machine | Offline survival, plane-ride mode |
 
 ```bash
-ollama pull qwen3:8b && ollama pull nomic-embed-text
+ollama pull qwen3:8b
+ollama pull nomic-embed-text
 ollama list  # three rows max — a fourth model is procrastination
 ```
 
@@ -75,13 +79,13 @@ The 2026 model list is a moving target; the *category* is the durable part. Pick
 
 | RAM | Chat / draft | Reasoning (if needed) | Embeddings | Notes |
 |---|---|---|---|---|
-| 8 GB | `gemma4:e2b` (or `qwen3:4b`) | skip — call the cloud | `nomic-embed-text` | Tight; the embeddings model + OS leaves little headroom. |
-| 16 GB | `qwen3:8b` | `deepseek-r1:8b` (slow) | `nomic-embed-text` | The workhorse tier. 32k context. |
-| 32 GB | `qwen3:14b` or `gemma4:e2b` | `deepseek-r1:14b` | `nomic-embed-text` | The comfortable tier. 65k context. |
-| 64 GB | `qwen3:30b` (3-bit) | `deepseek-r1:32b` | `nomic-embed-text` | Approaching frontier quality locally. |
-| 128 GB | `qwen3:8b` (default) + `qwen3:30b` (deep work) | `deepseek-r1:8b` (or route to `qwen3:30b`) | `nomic-embed-text` | Enough RAM to run *and* iterate. Hold two chat models — fast default + slow deep work. |
+| 8 GB | `qwen3:4b` (2.5 GB image) | skip or use the same 4B model | `nomic-embed-text` | Start at 8K context. Close memory-heavy apps. For autocomplete, Continue recommends `qwen2.5-coder:1.5b`. |
+| 16 GB | `qwen3:8b` (5.2 GB) | `deepseek-r1:8b` if latency is acceptable | `nomic-embed-text` | Start at 16K; try 32K only after `ollama ps` shows headroom and no unwanted CPU offload. |
+| 32 GB | `qwen3:14b` (9.3 GB) | `deepseek-r1:14b` | `nomic-embed-text` | 32K–64K is realistic depending on model, quantization, and concurrent apps. Measure. |
+| 64 GB | `qwen3:30b` (19 GB) | `deepseek-r1:32b` | `nomic-embed-text` | Use 64K when the agent needs it; keep a smaller fast model for everyday edits. |
+| 128 GB | `qwen3:8b` fast + `qwen3:30b` deep | `deepseek-r1:32b` or the 30B Qwen | `nomic-embed-text` | Two chat models are enough: fast default and deeper fallback. Increase context only for tasks that earn it. |
 
-**Gemma 4 e2b** is the 2026 pick for the small-machine slot (8–16 GB). It is fast, has a permissive license, and survives on integrated graphics. **DeepSeek-R1** (8B / 14B / 32B) is the 2026 pick for local reasoning when the cloud is not an option — distilled from the R1 line, it keeps the chain-of-thought at usable token counts. **Qwen3** (4B / 8B / 14B / 30B) is the all-rounder: chat, draft, classification.
+Model names and image sizes above are snapshots from the official [Qwen3](https://ollama.com/library/qwen3), [DeepSeek-R1](https://ollama.com/library/deepseek-r1), and [Gemma 4](https://ollama.com/library/gemma4) Ollama pages, checked 2026-09-14. “Fits on disk” is not “runs comfortably”: the OS, KV cache, IDE, and concurrent models need headroom. Licenses and acceptable-use terms belong to each model card; Ollama packaging does not replace them.
 
 **Disk:** a 30B Q4 quant is ~18 GB. A 32B DeepSeek Q4 is ~20 GB. Plan for one chat + one reasoning + embeddings = ~40 GB on the 128 GB machine. The rest is the OS, the project, and headroom.
 
@@ -91,7 +95,7 @@ The 2026 model list is a moving target; the *category* is the durable part. Pick
 # chat (OpenAI-compatible path also exists at /v1/chat/completions)
 curl -s http://localhost:11434/api/generate -d '{"model":"qwen3:8b","prompt":"Say OK","stream":false}' | head -c 200
 # embeddings
-curl -s http://localhost:11434/api/embeddings -d '{"model":"nomic-embed-text","prompt":"hello"}' | head -c 200
+curl -s http://localhost:11434/api/embed -d '{"model":"nomic-embed-text","input":"hello"}' | head -c 200
 # reasoning
 curl -s http://localhost:11434/api/generate -d '{"model":"deepseek-r1:8b","prompt":"What is 17*24?","stream":false}' | head -c 200
 ```
@@ -112,57 +116,21 @@ Point the RAG embedder, the podcast script step, or the bot draft step at `OLLAM
 
 When one machine stops being enough (always-on gateway, two-Mac failover, rate limits), graduate to [`local-ai-fabric`](../local-ai-fabric/SKILL.md). Not before.
 
-### 6. CLI use — opencode + any model, including free ones
+### 6. Choose one interface
 
-`opencode` ([opencode.ai](https://opencode.ai)) is a terminal-first agent that talks to any OpenAI-compatible endpoint, including Ollama and the free cloud providers in [`free-api-keys`](../free-api-keys/SKILL.md). It is the lowest-friction way to use the local + free stack without leaving the terminal.
-
-```bash
-# Install
-brew install opencode   # or: npm i -g opencode-ai
-
-# Point at local Ollama (no key, no rate limit)
-opencode --provider ollama --model qwen3:8b
-opencode --provider ollama --model deepseek-r1:8b
-opencode --provider ollama --model gemma4:e2b
-```
-
-#### Free cloud models through opencode
-
-`opencode` reads the same `.env` keys as any other caller. Point it at the free providers in [`free-api-keys`](../free-api-keys/SKILL.md):
+| Interface | Best for | Local setup |
+|---|---|---|
+| Ollama app / CLI | First proof and simple chat | `ollama run qwen3:4b` |
+| OpenCode | Terminal-first agentic coding | `ollama launch opencode` |
+| Continue | VS Code autocomplete/chat | Configure Ollama; use a small non-thinking autocomplete model |
+| Cline | VS Code agent flow | Select Ollama as the provider; keep approval on for tool calls |
+| Open WebUI | Self-hosted browser chat/RAG | Connect to `http://localhost:11434`; persist its data volume |
 
 ```bash
-# Groq (fastest free inference)
-export GROQ_API_KEY=...
-opencode --provider openai --model llama-3.3-70b-versatile \
-         --base-url https://api.groq.com/openai/v1
-
-# Google AI Studio (long context, 1M tokens)
-export GOOGLE_AI_API_KEY=...
-opencode --provider google --model gemini-2.5-flash
-
-# Cerebras (1M tokens/day)
-export CEREBRAS_API_KEY=...
-opencode --provider openai --model llama-3.3-70b \
-         --base-url https://api.cerebras.ai/v1
-
-# OpenRouter (200+ models, one key)
-export OPENROUTER_API_KEY=...
-opencode --provider openrouter --model meta-llama/llama-3.3-70b-instruct:free
+ollama launch opencode
 ```
 
-#### Muse Spark 1.6 free (the no-card chat model)
-
-[Muse Spark 1.6](https://opencode.ai) is the opencode project's reference chat model — fast, capable, free via the opencode hosted endpoint. No card, no signup beyond the opencode account. For a session that needs *fast chat, not local*, this is the default:
-
-```bash
-# Default to Muse Spark 1.6 free — no model flag needed
-opencode
-
-# Or pin to a specific free model
-opencode --model muse-spark-1.6-free
-```
-
-**The rule of thumb:** local Ollama for *embeddings, drafts, offline*; opencode + Muse Spark 1.6 free for *default chat*; Groq / Google / Cerebras for *reasoning when local is not enough*. Rotate by the task, not by the cost.
+For a truly offline setup, download the model, editor extension or CLI installer, and any embedding/STT models before disconnecting; disable extension telemetry; and test once with the network off. Continue publishes an [offline setup guide](https://docs.continue.dev/guides/running-continue-without-internet). Open WebUI can run offline, but its slim image downloads embedding and speech models on first use unless they are preloaded or RAG is pointed at Ollama.
 
 ---
 
@@ -171,7 +139,7 @@ opencode --model muse-spark-1.6-free
 | Temptation | Refuse because |
 |---|---|
 | Nine models "to compare" | Two get used; seven cost disk and decision fatigue |
-| Setting `num_ctx` in the client only | Daemon serves 4096 anyway — fix `OLLAMA_CONTEXT_LENGTH` at the daemon |
+| Assuming the model-card maximum is allocated | Check `ollama ps`; server defaults and per-request `num_ctx` can differ, and context consumes memory |
 | Local for frontier reasoning | Small models draft and classify; they do not architect — route depth to cloud |
 | Exposing Ollama to the internet | Bind LAN-only; no auth on the daemon — Tailscale if remote, never port-forward |
 | Tuning prompts for a week | Ship the FTS5 + draft loop first; tune against the 20-question eval in [`simple-rag`](../simple-rag/SKILL.md) |
@@ -180,4 +148,4 @@ opencode --model muse-spark-1.6-free
 
 ## The test
 
-`curl /api/version` returns JSON, `curl /api/generate` returns text, `curl /api/embeddings` returns a vector — all on localhost, all with no key. If any fails, nothing downstream is allowed to blame the model.
+`curl /api/version` returns JSON, `curl /api/generate` returns text, `curl /api/embed` returns a vector, and `ollama ps` shows the intended context/processor split — all on localhost, all with no key. Then disconnect the network and repeat the actual editor flow. If that fails, the system is local-capable but not offline-ready.

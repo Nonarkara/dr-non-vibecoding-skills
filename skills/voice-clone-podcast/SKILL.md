@@ -6,7 +6,9 @@ license: MIT
 
 # Voice-Clone Podcast Pipeline
 
-Two shows, one shared engine, entirely local — no cloud TTS key, no cloud LLM key, by explicit design constraint. The interesting part isn't "call a TTS API"; it's the four failure modes that only show up at real chunk lengths and only get caught by checking the right thing.
+Two shows, one shared engine, with generation local by explicit design constraint — no cloud TTS key and no cloud LLM key. Publishing is necessarily online. The interesting part isn't "call a TTS API"; it is the failure modes that appear only at real chunk lengths and only get caught by checking the right thing.
+
+Clone only your own voice or a voice whose speaker gave informed permission for this use. Keep the reference recording local, record consent/provenance beside the project, and label synthetic narration when listeners could reasonably mistake it for a new human recording.
 
 ## The pipeline
 
@@ -39,7 +41,20 @@ uv run --with f5-tts-mlx --with mlx==0.31.2 --with soundfile --with numpy --with
 
 ## Publish
 
-Mastering: `ffmpeg -af dynaudnorm,loudnorm=I=-16:TP=-1.5:LRA=9` → mp3. Upload via `wrangler r2 object put <bucket>/<key> --file <local> --remote`; served behind a normal HTTPS route with an RSS feed alongside the audio. `--script-only` and `--no-publish` flags let you test the writing and the voice independently before spending render time on both together.
+Mastering: `ffmpeg -af dynaudnorm,loudnorm=I=-16:TP=-1.5:LRA=9` → MP3. `--script-only` and `--no-publish` flags let you test writing and voice independently before spending render time on both.
+
+Publish in this order so a feed never points at missing audio:
+
+1. Give the episode an immutable slug and GUID. Never recycle a GUID for corrected audio.
+2. Upload the MP3 first (for example, `wrangler r2 object put <bucket>/<key> --file <local> --remote`) and prove the public HTTPS URL returns the full file with the intended content type and byte length.
+3. Add one RSS `<item>` with title, description, RFC-2822 `pubDate`, immutable `guid`, and an `<enclosure>` whose `url`, `length`, and `type="audio/mpeg"` match the uploaded object.
+4. Publish the feed atomically, fetch it from its public URL, parse it as XML, and probe the enclosure. A locally valid XML file is not a published podcast.
+5. Import or claim the RSS feed in Spotify for Creators, then submit the same feed separately to any other listening platforms you want. Spotify does not distribute a third-party-hosted show everywhere on your behalf.
+6. Store `{episode, script hash, audio hash, feed hash, published URL, published_at}` so retries update intentionally instead of duplicating episodes.
+
+Spotify creates an RSS feed after the first episode for shows hosted there; third-party hosting keeps its own feed. See [Spotify's RSS guide](https://support.spotify.com/creators/article/your-rss-feed/) and [distribution guide](https://support.spotify.com/creators/article/distributing-your-show-to-other-platforms/), checked 2026-09-14.
+
+The release test is end-to-end: the public feed parses, its newest item has a unique GUID, the enclosure byte length matches the public object, and one podcast client can fetch and play it. Generation can be offline; distribution cannot.
 
 ## The one-line version
 

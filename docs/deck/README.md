@@ -14,7 +14,7 @@ The pages are not independent. They build.
 
 | # | Page | The argument it makes | If you skip it |
 |---|---|---|---|
-| [01](01-stack.md) | **STACK** — the package at a glance | 160 skills, 16 playbooks, 12 references, 17 templates is **one product**, not four. Plain markdown, no runtime, agent-agnostic. The routing loop is a habit, not a diagram. | You treat the repo as a skills library instead of a stack. You add skills without knowing the loop they belong to. |
+| [01](01-stack.md) | **STACK** — the package at a glance | 160 skills, 16 playbooks, 13 references, 17 templates is **one product**, not four. Plain markdown, no runtime, agent-agnostic. The routing loop is a habit, not a diagram. | You treat the repo as a skills library instead of a stack. You add skills without knowing the loop they belong to. |
 | [03](03-route.md) | **ROUTE** — the smallest useful path | "The catalog is a router." Eight moments, eight routes. The 160 skills collapse to 8 if you are in a hurry. **Route, don't scan.** | You load all 160 skills into context on every change. You spend the first ten minutes of every session finding where to start. |
 | [05](05-map.md) | **MAP** — a decision map, not a toolbox | Eight categories that each answer a different question. New skills land in exactly one of them. | You write a new skill and cannot decide where it belongs. The categories drift. The catalog becomes a junk drawer. |
 | [07](07-proof.md) | **PROOF** — green ≠ true | Tests prove correctness; the browser/curl proves existence. The four-step proof chain (commit → push → deploy → test live) is non-negotiable. | You ship a green test and a stale user. You say "it works" because the CI is green. |

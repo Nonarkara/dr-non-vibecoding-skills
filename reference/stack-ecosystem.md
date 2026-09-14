@@ -86,7 +86,7 @@ Last reviewed: 2026-09-11. The "missing" column is a backlog, not a TODO. The "n
 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | The `ponytail` skill — YAGNI decision ladder. | Same. | Same. |
 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | The design discipline in `axiom-design-core` / `design-dna` / `no-design-tells`. | An Impeccable-specific integration recipe. | The discipline is the load-bearing part; the recipe is a one-time copy. |
 | [DietrichGebert/retriever](https://github.com/DietrichGebert/retriever) | `messaging-gateway` + `obsidian-mcp-forge` cover the retrieval pattern. | A retriever-vs-bare-RAG decision tree. | The skill collection covers the pattern. |
-| [usestrix/strix](https://github.com/usestrix/strix) | The `cso` skill orchestrates a similar audit; `appsec-stack` is the pipeline. | A `reference/strix-when-to-run.md`. | The discipline is in the skills; the reference is a future addition. |
+| [usestrix/strix](https://github.com/usestrix/strix) | The `cso` skill owns posture review; `appsec-stack` owns recurring gates. | [`strix-when-to-run.md`](strix-when-to-run.md) defines the optional exploit-verification boundary. | Install Strix per authorized project; do not vendor its nine-skill pack into the core stack. |
 | [garrytan/gstack](https://github.com/garrytan/gstack) | The audit cadence in `cso`, `canary`, `devex-review`; the review-lens discipline in `adversarial-review`. | A gstack-style slash-command mapping (Tier 1 of the gstack comparison). | The 8 skills that close the Tier-1 gaps are already in the repo; the slash-command surface is a different layer. |
 
 ## Hosting & infra

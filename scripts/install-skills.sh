@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Install Dr Non's skills to every host you actually use.
-# Idempotent: safe to re-run after a pull. Verifies counts per host.
+# Idempotent and additive: safe to re-run after a pull. Updates this stack's
+# skill folders without deleting skills installed from other repositories.
 #
 # Usage:
 #   scripts/install-skills.sh              # all detected hosts
@@ -20,6 +21,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SKILLS_SRC="$ROOT/skills"
+INSTALL_ROOT="${DR_NON_INSTALL_ROOT:-$HOME}"
 DRY_RUN=0
 WANT_ALL=1
 WANT_CLAUDE=0; WANT_CODEX=0; WANT_CURSOR=0; WANT_HERMES=0; WANT_OPENCODE=0; WANT_GEMINI=0; WANT_ANTIGRAVITY=0
@@ -39,7 +41,7 @@ for arg in "$@"; do
   esac
 done
 
-expected="$(ls -1 "$SKILLS_SRC" | wc -l | tr -d ' ')"
+expected="$(find "$SKILLS_SRC" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l | tr -d ' ')"
 
 install_host() {
   local label="$1" dest="$2"
@@ -48,35 +50,40 @@ install_host() {
     return
   fi
   mkdir -p "$dest"
-  # Use rsync if available (preserves but overwrites), else cp -R
+  # Never mirror with --delete here. These are shared host directories and may
+  # contain Garry Tan, Karpathy, company, or personal skills owned by the user.
   if command -v rsync >/dev/null 2>&1; then
-    rsync -a --delete "$SKILLS_SRC"/ "$dest"/
+    rsync -a "$SKILLS_SRC"/ "$dest"/
   else
-    rm -rf "$dest"/* 2>/dev/null || true
     cp -R "$SKILLS_SRC"/* "$dest"/
   fi
-  local got
-  got="$(ls -1 "$dest" 2>/dev/null | wc -l | tr -d ' ')"
-  if [[ "$got" != "$expected" ]]; then
-    echo "WARN: $label has $got skills after install (expected $expected)" >&2
+  local installed=0 total=0 skill_dir skill_name
+  for skill_dir in "$SKILLS_SRC"/*; do
+    [[ -f "$skill_dir/SKILL.md" ]] || continue
+    skill_name="$(basename "$skill_dir")"
+    [[ -f "$dest/$skill_name/SKILL.md" ]] && installed=$((installed + 1))
+  done
+  total="$(find "$dest" -mindepth 2 -maxdepth 2 -name SKILL.md 2>/dev/null | wc -l | tr -d ' ')"
+  if [[ "$installed" != "$expected" ]]; then
+    echo "WARN: $label has $installed/$expected Dr Non skills after install" >&2
   else
-    echo "OK: $label — $got skills → $dest"
+    echo "OK: $label — $installed Dr Non skills ready ($total total; unrelated skills preserved) → $dest"
   fi
 }
 
 do_all() {
   # Only install to cursor/.agents if we're inside a project or the dir already exists
-  install_host "claude"   "$HOME/.claude/skills"
-  install_host "codex"    "$HOME/.agents/skills"
+  install_host "claude"   "$INSTALL_ROOT/.claude/skills"
+  install_host "codex"    "$INSTALL_ROOT/.agents/skills"
   # Antigravity reads ~/.agents/skills (Codex path) plus ~/.gemini/antigravity/skills if present
-  if [[ -d "$HOME/.gemini" ]] || [[ $WANT_ANTIGRAVITY -eq 1 ]]; then
-    install_host "antigravity" "$HOME/.gemini/antigravity/skills"
+  if [[ -d "$INSTALL_ROOT/.gemini" ]] || [[ $WANT_ANTIGRAVITY -eq 1 ]]; then
+    install_host "antigravity" "$INSTALL_ROOT/.gemini/antigravity/skills"
   fi
-  if [[ -d "$HOME/.hermes" ]] || [[ $WANT_HERMES -eq 1 ]]; then
-    install_host "hermes" "$HOME/.hermes/skills"
+  if [[ -d "$INSTALL_ROOT/.hermes" ]] || [[ $WANT_HERMES -eq 1 ]]; then
+    install_host "hermes" "$INSTALL_ROOT/.hermes/skills"
   fi
-  if [[ -d "$HOME/.config/opencode" ]] || [[ $WANT_OPENCODE -eq 1 ]]; then
-    install_host "opencode" "$HOME/.config/opencode/skills"
+  if [[ -d "$INSTALL_ROOT/.config/opencode" ]] || [[ $WANT_OPENCODE -eq 1 ]]; then
+    install_host "opencode" "$INSTALL_ROOT/.config/opencode/skills"
   fi
   # cursor is project-local; only do it when requested or when .cursor exists / we're in a project with .git
   if [[ $WANT_CURSOR -eq 1 ]] || [[ -d ".cursor" ]] || [[ -d ".git" && -w . ]]; then
@@ -90,12 +97,12 @@ do_all() {
 if [[ $WANT_ALL -eq 1 ]]; then
   do_all
 else
-  [[ $WANT_CLAUDE -eq 1 ]] && install_host "claude" "$HOME/.claude/skills"
-  [[ $WANT_CODEX -eq 1 ]] && install_host "codex" "$HOME/.agents/skills"
-  [[ $WANT_ANTIGRAVITY -eq 1 || $WANT_GEMINI -eq 1 ]] && install_host "antigravity" "$HOME/.gemini/antigravity/skills"
+  [[ $WANT_CLAUDE -eq 1 ]] && install_host "claude" "$INSTALL_ROOT/.claude/skills"
+  [[ $WANT_CODEX -eq 1 ]] && install_host "codex" "$INSTALL_ROOT/.agents/skills"
+  [[ $WANT_ANTIGRAVITY -eq 1 || $WANT_GEMINI -eq 1 ]] && install_host "antigravity" "$INSTALL_ROOT/.gemini/antigravity/skills"
   [[ $WANT_CURSOR -eq 1 ]] && install_host "cursor" ".cursor/skills"
-  [[ $WANT_HERMES -eq 1 ]] && install_host "hermes" "$HOME/.hermes/skills"
-  [[ $WANT_OPENCODE -eq 1 ]] && install_host "opencode" "$HOME/.config/opencode/skills"
+  [[ $WANT_HERMES -eq 1 ]] && install_host "hermes" "$INSTALL_ROOT/.hermes/skills"
+  [[ $WANT_OPENCODE -eq 1 ]] && install_host "opencode" "$INSTALL_ROOT/.config/opencode/skills"
 fi
 
 if [[ $DRY_RUN -eq 1 ]]; then

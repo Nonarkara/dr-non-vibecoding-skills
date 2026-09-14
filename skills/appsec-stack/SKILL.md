@@ -39,7 +39,7 @@ An agent with filesystem access reads your `.env`. An email-ingest pipeline writ
 | 5 | **Auto-update** | [Renovate](https://github.com/renovatebot/renovate) | Auto-PRs for vulnerable or out-of-date deps, with tests | scheduled, on its own cadence |
 | 6 | **DAST** | [OWASP ZAP](https://www.zaproxy.org) (baseline + API scan) | Runtime issues static scanners cannot see — auth bypass, XSS via cookies, CORS | scheduled + PR-diff mode |
 | 6b | DAST templates | [Nuclei](https://github.com/projectdiscovery/nuclei) | Known-vuln patterns at runtime, fast | scheduled |
-| 7 | **Exploit verify** | (a pentest tool of choice — manual or [Nuclei](https://github.com/projectdiscovery/nuclei) with verified templates) | Whether a found pattern is *actually* exploitable | scheduled + on critical changes |
+| 7 | **Exploit verify** | Manual testing, [Nuclei](https://github.com/projectdiscovery/nuclei), or optional [Strix](../../reference/strix-when-to-run.md) | Whether a found pattern is *actually* exploitable | authorized staging + critical changes |
 
 Every layer is free, runs in CI on GitHub Actions runners, and has no per-seat cost.
 
@@ -61,7 +61,7 @@ The temptation is to turn on all seven at once. Don't. Each layer has its own no
 
 **6. DAST (after the first public deploy).** ZAP baseline against a staging URL on a schedule. ZAP API scan against any OpenAPI spec you publish. The baseline scan will not break the build; treat findings as advisory until triaged.
 
-**7. Exploit verify (only on critical changes, or in incident response).** Nuclei with verified templates, or a manual pentest of the surface. This is the layer that answers "static said yes, but is it really exploitable?" — the one every other layer is structurally unable to answer.
+**7. Exploit verify (only on critical changes, or in incident response).** Use Nuclei with verified templates, a manual pentest, or Strix under the explicit scope in [`reference/strix-when-to-run.md`](../../reference/strix-when-to-run.md). This is the layer that answers "static said yes, but is it really exploitable?" — the one every other layer is structurally unable to answer. Active scanners belong on authorized disposable staging, not production by default.
 
 ---
 

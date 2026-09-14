@@ -39,7 +39,7 @@ The second line is the second-most important line. It is the **operating instruc
 - **Decide once.** Every decision in this collection was made because a real incident or a real constraint forced the decision. The skill body carries the decision; the playbook carries the incident; the reference carries the stable details. A new contributor does not re-derive the decision. They look it up.
 - **Look up forever.** The skills are static markdown. The model can be queried against them indefinitely. The cost of a lookup is one description match; the cost of re-deriving the decision is one hour of confused reading. The practice is biased toward lookups, every time.
 
-The 160 skills are the lookups. The 16 playbooks are the receipts for the lookups. The 12 references are the stable implementation details. The 17 templates are the drop-in files. The whole collection is the **decision ledger** that compounds.
+The 160 skills are the lookups. The 16 playbooks are the receipts for the lookups. The 13 references are the stable implementation details. The 17 templates are the drop-in files. The whole collection is the **decision ledger** that compounds.
 
 ## The golden rule
 

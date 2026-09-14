@@ -1,6 +1,7 @@
 ---
-name: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q
-description: Use when me: interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q
+name: interaction-design-craft
+description: >-
+  Prototype interaction, reduce modes, and use clear spatial metaphors. Use when shaping how a person acts through a product rather than how the screen looks.
 license: MIT
 ---
 
@@ -268,4 +269,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-

@@ -97,7 +97,7 @@ The output **never** includes the actual secrets it found. The CSO rotates, then
 
 **It is not a replacement for the [`appsec-stack`](../appsec-stack/SKILL.md) pipeline.** The pipeline is the commit-time gate; the CSO is the audit-time check. A codebase that runs the CSO once a month and the pipeline on every commit has both; a codebase that runs only the CSO is unmonitored.
 
-**It is not a pentest.** The CSO finds the things the static analysis and the threat model can find. A pen test finds the things that require a real attacker. The CSO is a prerequisite for a pen test, not a substitute. The [`appsec-stack`](../appsec-stack/SKILL.md) layer 7 (exploit verification) is the bridge.
+**It is not a pentest.** The CSO finds the things static analysis and threat modeling can find. A pentest finds the things that require active exploitation. The CSO is a prerequisite, not a substitute. The [`appsec-stack`](../appsec-stack/SKILL.md) layer 7 is the bridge; use [`reference/strix-when-to-run.md`](../../reference/strix-when-to-run.md) when an authorized project needs autonomous exploit verification.
 
 **It is not a compliance report.** The CSO produces evidence; a compliance officer maps the evidence to a framework (SOC 2, ISO 27001, PCI-DSS). The CSO's output is the input to that mapping, not the mapping itself. The OWASP and CIS mappings live in [`appsec-stack`](../appsec-stack/SKILL.md).
 

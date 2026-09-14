@@ -1,6 +1,7 @@
 ---
 name: adrian-martinez-curated-web-design-skills-2026
-description: Use when writing design descriptions, portfolio copy, or case studies. Source: Adrian Martinez's 55 Award-Winning Websites (2026) — the 5-axis 'Why it works' form + 14 tells.
+description: >-
+  Describe design through perception, mechanism, intent, contrast, and time. Use when writing portfolio copy, critiques, or case studies.
 license: MIT
 ---
 

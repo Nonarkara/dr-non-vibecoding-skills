@@ -23,11 +23,11 @@ A router collapses 160 skills to 8. If you know the moment, you know the route. 
 
 The 8 moments are not exhaustive. They are the moments that **recur**. Anything one-shot — a typo, a one-line color change — does not need a route; it needs a `fix:` commit.
 
-## Why "load one for the decision" instead of "load all 88"
+## Why "load one for the decision" instead of "load all 160"
 
 Three reasons, in order of cost.
 
-**Context cost.** Loading 88 skill descriptions into the agent's context window on every change is not free. Most of the skill body is not relevant to the current decision. The router pattern keeps the loaded context small (typically 1-2 skills) by loading the *one* skill that matches the *current* moment.
+**Context cost.** Loading 160 skill descriptions into the agent's context window on every change is not free. Most of the skill body is not relevant to the current decision. The router pattern keeps the loaded context small (typically 1-2 skills) by loading the *one* skill that matches the *current* moment.
 
 **Decision cost.** A skill loaded for the wrong reason is worse than no skill. If `agent-memory` is loaded during a deploy, the agent is going to spend the next paragraph re-deriving the project. The route makes the loaded skill match the decision.
 

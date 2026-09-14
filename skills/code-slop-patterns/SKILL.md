@@ -5,7 +5,8 @@ description: >-
   `as any`, hallucinated imports, TODO stubs. Use as pre-commit/CI gate or when
   reviewing AI-assisted PRs.
 license: MIT
-source: https://github.com/scanaislop/aislop
+metadata:
+  source: https://github.com/scanaislop/aislop
 ---
 
 # Code Slop — Patterns

@@ -6,7 +6,7 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 160 skills, 16 playbooks, 12 references, and 14 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 160 skills, 16 playbooks, 13 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
@@ -16,7 +16,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**160 skills** · **16 playbooks** · **12 references** · **17 templates**
+**160 skills** · **16 playbooks** · **13 references** · **17 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -111,7 +111,7 @@ The clone-and-bootstrap path is one command: `./setup.sh --become-builder`. The 
 
 - **[`ABOUT.md`](ABOUT.md)** — the author, the 10-year writing practice at [nonharvard.wordpress.com](https://nonharvard.wordpress.com) that this stack was distilled from, and the 7 core components that became the skills.
 - **[`JOURNAL.md`](JOURNAL.md)** — the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, and the *tags*. A new builder can read the journal to understand the project in 5 minutes.
-- **[`playbooks/16-the-philosophical-spine.md`](playbooks/16-the-philosophical-spine.md)** — the *why* of the 100 skills, in one document. The 5 layers, the 5 moves, the 8 cyber-hygiene rules, the 6 off-grid rules.
+- **[`playbooks/16-the-philosophical-spine.md`](playbooks/16-the-philosophical-spine.md)** — the philosophical *why* beneath the collection. The 5 layers, the 5 moves, the 8 cyber-hygiene rules, the 6 off-grid rules.
 
 ---
 
@@ -214,7 +214,7 @@ If you fork or clone this repository, here is the complete map of how the system
 dr-non-vibecoding-skills/
 ├── skills/           # 160 modular agent capabilities (plain markdown with YAML frontmatter)
 ├── playbooks/        # 16 narrative war stories & architectural deep-dives
-├── reference/        # 12 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
+├── reference/        # 13 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
 ├── templates/        # 17 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
@@ -233,7 +233,7 @@ dr-non-vibecoding-skills/
 |---|---|---|---|
 | [`skills/`](skills/) | 160 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
 | [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 12 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`reference/`](reference/) | 13 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
 | [`templates/`](templates/) | 17 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
 
 ### Out of the Box, Plug and Play
@@ -442,7 +442,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 flowchart TB
   S["160 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
-  R["12 refs"] --> A
+  R["13 refs"] --> A
   T["17 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]

@@ -1,6 +1,7 @@
 ---
 name: qualitative-reasoning
-description: Use when data is fuzzy, the metric is misleading, or the answer cannot be derived from numbers. The 6 moves: uncanny, falliblist, I-should, tradition audit, counter-example.
+description: >-
+  Reason with counterexamples, fallibility, tradition, and lived evidence. Use when data is fuzzy, a metric misleads, or numbers cannot carry the judgment.
 license: MIT
 ---
 

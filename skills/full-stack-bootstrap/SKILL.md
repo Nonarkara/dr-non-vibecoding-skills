@@ -41,7 +41,7 @@ The `Makefile` at the repo root is the developer-muscle-memory wrapper — `make
 
 ### 1. `--become-builder` / `--install-skills` — install the stack into every agent
 
-Idempotent. Detects which agent hosts exist on this machine and rsyncs every `SKILL.md` folder into each host's discovery path. `--become-builder` does the same install, then prints the Builder identity and next steps. Count is live (currently **88**); do not hardcode it in a new wrapper — read `ls skills | wc -l`.
+Idempotent and additive. Detects which agent hosts exist on this machine and updates every Dr Non `SKILL.md` folder in each host's discovery path without deleting skills from other sources. `--become-builder` does the same install, then prints the Builder identity and next steps. Do not hardcode the count in a new wrapper — count directories that actually contain `SKILL.md`.
 
 | Agent | Target | Notes |
 |---|---|---|
@@ -177,7 +177,7 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 ```
 □ ./setup.sh --become-builder --dry-run shows 160 skills to the detected hosts
 □ ./setup.sh --become-builder (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc. and prints "You are Dr Non the Builder"
-□ ./setup.sh --validate passes (OK 88/15/7/13, no errors)
+□ ./setup.sh --validate passes with the current skill/playbook/reference/template counts and no errors
 □ ./setup.sh --init-project <test-path> generates a project with no unfilled placeholder brackets
 □ ./setup.sh --audit <test-path> reports the same invariants the new-project generator created
 □ The project's CLAUDE.md has an Anti-Regression section that is not empty

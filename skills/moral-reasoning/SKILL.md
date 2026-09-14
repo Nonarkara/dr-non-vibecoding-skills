@@ -1,6 +1,7 @@
 ---
 name: moral-reasoning
-description: Use when a decision has no right answer, plural stakeholders, or irreversible cost. The 4-move path: name values, stakeholders, trade-off, 10-year defense.
+description: >-
+  Name values, stakeholders, tradeoffs, and a ten-year defense. Use when a decision has no single right answer or carries irreversible human cost.
 license: MIT
 ---
 

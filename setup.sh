@@ -516,7 +516,24 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.7 Axiom Design Core Tokens (Design DNA)
+  # 2.7 Security audit + local database (zero-dependency production spine)
+  # ----------------------------------------------------------------------------
+  local secrets_audit_target="$target_dir/scripts/secrets-audit.sh"
+  if [[ ! -f "$secrets_audit_target" && -f "$TEMPLATES_DIR/secrets-audit.sh.template" ]]; then
+    cp "$TEMPLATES_DIR/secrets-audit.sh.template" "$secrets_audit_target"
+    chmod +x "$secrets_audit_target"
+    created_files+=("scripts/secrets-audit.sh (Secrets and cyber-hygiene gate)")
+  fi
+
+  local database_target="$target_dir/scripts/database.py"
+  if [[ ! -f "$database_target" && -f "$TEMPLATES_DIR/database-bootstrap.py.template" ]]; then
+    cp "$TEMPLATES_DIR/database-bootstrap.py.template" "$database_target"
+    chmod +x "$database_target"
+    created_files+=("scripts/database.py (SQLite event store and JSON export, zero dependencies)")
+  fi
+
+  # ----------------------------------------------------------------------------
+  # 2.8 Axiom Design Core Tokens (Design DNA)
   # ----------------------------------------------------------------------------
   if [[ "$use_design" == "true" ]]; then
     mkdir -p "$target_dir/design"
@@ -583,7 +600,7 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.8 Services (launchd + tunnel templates if macOS requested)
+  # 2.9 Services (launchd + tunnel templates if macOS requested)
   # ----------------------------------------------------------------------------
   if [[ "$use_services" == "true" ]]; then
     mkdir -p "$target_dir/services"
@@ -608,7 +625,7 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.8b Starter Dashboard (Zero-Code Live Web Entry Point)
+  # 2.10 Starter Dashboard (Zero-Code Live Web Entry Point)
   # ----------------------------------------------------------------------------
   local index_target="$target_dir/index.html"
   if [[ ! -f "$index_target" && -f "$TEMPLATES_DIR/starter-dashboard.html.template" ]]; then
@@ -620,7 +637,7 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.9 Workspace Tier-1 index (one table of every project — only if needed)
+  # 2.11 Workspace Tier-1 index (one table of every project — only if needed)
   # ----------------------------------------------------------------------------
   local ws_root
   ws_root="$(dirname "$target_dir")"
@@ -636,7 +653,7 @@ EOF
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.10 Git Initialization & Initial Commit
+  # 2.12 Git Initialization & Initial Commit
   # ----------------------------------------------------------------------------
   local git_committed="false"
   if [[ ! -d "$target_dir/.git" ]]; then
@@ -644,14 +661,22 @@ EOF
       cd "$target_dir"
       git init -q
       git add .
-      git commit -q -m "chore(init): bootstrap project with Dr Non vibe coding stack scaffolding"
+      if [[ -n "$(git config user.name 2>/dev/null || true)" && -n "$(git config user.email 2>/dev/null || true)" ]]; then
+        # A bootstrap must not wait for a signing key, pinentry, or hardware token.
+        git -c commit.gpgsign=false commit --no-verify -q \
+          -m "chore(init): bootstrap project with Dr Non vibe coding stack scaffolding"
+      fi
     )
-    git_committed="true"
-    created_files+=(".git repository initialized with initial convention commit")
+    if git -C "$target_dir" rev-parse --verify HEAD >/dev/null 2>&1; then
+      git_committed="true"
+      created_files+=(".git repository initialized with initial convention commit")
+    else
+      created_files+=(".git repository initialized; initial commit skipped until git user.name and user.email are configured")
+    fi
   fi
 
   # ----------------------------------------------------------------------------
-  # 2.11 Summary & Next Actions Report
+  # 2.13 Summary & Next Actions Report
   # ----------------------------------------------------------------------------
   echo -e "\n${GREEN}${BOLD}✓ Project successfully bootstrapped!${NC}"
   echo -e "\n${AMBER}${BOLD}What was generated:${NC}"

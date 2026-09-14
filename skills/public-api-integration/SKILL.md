@@ -8,6 +8,8 @@ license: MIT
 
 This skill guides agents and builders in selecting, vetting, probing, and integrating zero-friction public APIs and open datasets. It enables building live, data-dense client applications and dashboards without backend servers or SaaS subscriptions.
 
+Quota labels in [`reference/free-apis.md`](../../reference/free-apis.md) are snapshots. Before implementation, record the first-party docs URL, license/terms, observed CORS headers, rate-limit headers, and `checked_at`. “No key” is authentication posture, not an uptime promise.
+
 ---
 
 ## 1. The Decision Ladder for External Data

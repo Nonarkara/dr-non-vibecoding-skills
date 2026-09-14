@@ -1,6 +1,7 @@
 ---
 name: 100-days-of-writing-reasoning-argument-logic-na6pzg
-description: Use when me: 100-days-of-writing-reasoning-argument-logic-na6pzg
+description: >-
+  Strengthen arguments with explicit assumptions, counterexamples, and honest limits. Use when drafting or reviewing analytical nonfiction.
 license: MIT
 ---
 
@@ -188,4 +189,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-

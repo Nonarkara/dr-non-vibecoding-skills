@@ -1,6 +1,6 @@
 {
   "name": "dr-non-vibecoding-skills",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Become Dr Non the Builder — field-tested stack for directing AI agents, preserving earned work, and shipping verified software.",
   "author": {
     "name": "Dr Non Arkaraprasertkul",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Dr Non's Vibe Coding Stack",
     "shortDescription": "One command: become Dr Non the Builder. Field-tested discipline for shipping with agents.",
-    "longDescription": "Seventy-one focused skills for directing coding agents, preserving earned systems, designing for real audiences, operating resilient civic software, proving production changes reached users, walking a release as three personas, and reconstructing from a year of data.",
+    "longDescription": "A field-tested stack for directing coding agents, preserving earned systems, designing for real audiences, operating resilient software, proving production changes reached users, and learning across projects.",
     "developerName": "Dr Non Arkaraprasertkul",
     "category": "Coding",
     "capabilities": [

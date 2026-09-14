@@ -1,5 +1,5 @@
 ---
-name: boilerplate-reduction-turning-repetitive-text-into-clean-con-ocdac6
+name: boilerplate-reduction
 description: >-
   Spot, analyze, and remove repetitive filler in drafts so the document
   becomes concise and production-ready. Use when a text contains many

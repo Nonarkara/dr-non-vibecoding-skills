@@ -1,6 +1,7 @@
 ---
 name: design-by-writing-100-day-reflection-engine-ziojx2
-description: Use when me: design-by-writing-100-day-reflection-engine-ziojx2
+description: >-
+  Use daily writing as a design and reflection engine. Use when a project needs sharper user stories, iteration questions, or a durable record of thought.
 license: MIT
 ---
 
@@ -254,4 +255,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-

@@ -157,3 +157,12 @@ The iPhone-unboxing principle: the new builder should not need to ask the author
 **Diff:** `reference/public-datasets.md`, `reference/free-apis.md`, `skills/public-api-integration/SKILL.md`, `templates/starter-dashboard.html.template`, `setup.sh`, `README.md`, `AGENTS.md`, `QUICKSTART.md`, `BLUEPRINT.md`, `CATALOG.md`
 **Tags:** `public-apis · public-datasets · starter-dashboard · zero-code · 145-skills`
 
+---
+
+## 2026-09-14 — Fork-safe installer and cross-agent compatibility audit
+
+**Date:** 2026-09-14
+**What:** Made skill installation additive instead of destructive; repaired every skill rejected by the official Codex validator; updated local-LLM, messaging, podcast, public-API, AppSec, and optional Strix guidance; added installer regression coverage and a security policy; made project bootstrap signing-safe and added the promised security, SQLite, and CSP defaults.
+**Why:** A fork-and-use stack must preserve a user's Gary Tan, Karpathy, and personal skills, and its advertised skill count must mean every entry actually loads across agents.
+**Diff:** `scripts/install-skills.sh`, `scripts/test-install-skills.sh`, `scripts/validate_repo.py`, `skills/`, `reference/strix-when-to-run.md`, `SECURITY.md`, plugin manifests, catalog and count surfaces
+**Tags:** `fork-safety · cross-agent · local-llm · messaging · podcast · appsec · official-validator`

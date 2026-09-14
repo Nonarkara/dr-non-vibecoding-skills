@@ -1,6 +1,7 @@
 ---
 name: systems-thinking
-description: Use when a problem is a feedback loop or a short-term fix has a long-term cost. The 6 moves: feedback loop, time horizon, anti-fragility, flow, canon, failure modes.
+description: >-
+  Map feedback loops, flows, time horizons, and leverage points. Use when a problem keeps returning or a local fix creates long-term system cost.
 license: MIT
 ---
 

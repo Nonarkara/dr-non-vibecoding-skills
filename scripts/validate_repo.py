@@ -23,6 +23,8 @@ CLAUDE_MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 # silently stale the next time one is added.
 DESCRIPTION_BUDGET_PER_SKILL = 151
 MAX_DESCRIPTION_LENGTH = 180
+MAX_SKILL_NAME_LENGTH = 64
+ALLOWED_FRONTMATTER_KEYS = {"name", "description", "license", "allowed-tools", "metadata"}
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -63,6 +65,16 @@ def validate_skills(errors: list[str]) -> tuple[list[Path], int]:
             continue
 
         frontmatter = text[4:end]
+        top_level_keys = set(
+            re.findall(r"(?m)^([A-Za-z][A-Za-z0-9-]*):(?:\s|$)", frontmatter)
+        )
+        unexpected_keys = top_level_keys - ALLOWED_FRONTMATTER_KEYS
+        if unexpected_keys:
+            fail(
+                errors,
+                f"{skill_file.relative_to(ROOT)}: unsupported frontmatter keys: "
+                f"{', '.join(sorted(unexpected_keys))}",
+            )
         name_match = re.search(
             r"(?m)^name:\s*['\"]?([a-z0-9-]+)['\"]?\s*$", frontmatter
         )
@@ -75,6 +87,12 @@ def validate_skills(errors: list[str]) -> tuple[list[Path], int]:
             fail(
                 errors,
                 f"{skill_file.relative_to(ROOT)}: name '{name}' does not match folder",
+            )
+        if len(name) > MAX_SKILL_NAME_LENGTH:
+            fail(
+                errors,
+                f"{skill_file.relative_to(ROOT)}: name is {len(name)} characters; "
+                f"maximum is {MAX_SKILL_NAME_LENGTH}",
             )
         if name in names:
             fail(
@@ -97,6 +115,15 @@ def validate_skills(errors: list[str]) -> tuple[list[Path], int]:
                 fail(
                     errors,
                     f"{skill_file.relative_to(ROOT)}: description needs an explicit use trigger",
+                )
+            single_line_description = re.search(
+                r"(?m)^description:\s*([^>|'\"\n][^\n]*)$", frontmatter
+            )
+            if single_line_description and ": " in single_line_description.group(1):
+                fail(
+                    errors,
+                    f"{skill_file.relative_to(ROOT)}: unquoted ': ' makes YAML frontmatter invalid; "
+                    "use a block description",
                 )
 
         if not re.search(r"(?m)^license:\s*MIT\s*$", frontmatter):
@@ -400,6 +427,26 @@ def validate_hygiene(errors: list[str]) -> None:
             )
 
 
+def validate_installer_safety(errors: list[str]) -> None:
+    installer = (ROOT / "scripts" / "install-skills.sh").read_text(encoding="utf-8")
+    destructive_patterns = (
+        r"rsync[^\n]*--delete",
+        r"rm\s+-rf[^\n]*\$dest",
+    )
+    for pattern in destructive_patterns:
+        if re.search(pattern, installer):
+            fail(
+                errors,
+                "scripts/install-skills.sh: global skill installation must preserve unrelated skills",
+            )
+    test_path = ROOT / "scripts" / "test-install-skills.sh"
+    if not test_path.is_file():
+        fail(errors, "scripts/test-install-skills.sh: missing additive-install regression test")
+    bootstrap_test = ROOT / "scripts" / "test-bootstrap.sh"
+    if not bootstrap_test.is_file():
+        fail(errors, "scripts/test-bootstrap.sh: missing first-time-user bootstrap regression test")
+
+
 def validate_catalog(errors: list[str], skill_dirs: list[Path]) -> None:
     catalog = CATALOG.read_text(encoding="utf-8")
     for skill_dir in skill_dirs:
@@ -417,6 +464,7 @@ def main() -> int:
         errors, len(skill_dirs)
     )
     validate_hygiene(errors)
+    validate_installer_safety(errors)
     validate_catalog(errors, skill_dirs)
 
     agents_size = (ROOT / "AGENTS.md").stat().st_size

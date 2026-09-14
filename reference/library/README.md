@@ -32,12 +32,12 @@ This file is the **table of contents**. The router that picks the right book for
 | `innovation-personas-the-ten-faces-of-ideo-bklfgc` | Kelley — *The Ten Faces of Innovation* | Innovation is a team of ten roles; the Devil's Advocate is not on the list. |
 | `ideo-method-cards-choosing-and-applying-design-methods-1e20oct` | Kelley / IDEO — *Method Cards* | 51 methods, matched to project phase, adapted to constraint. |
 | `human-centered-design-process-elf9h4` | IDEO — *HCD Process* | Discover, frame, ideate, prototype, test, iterate — with five mindsets that must hold throughout. |
-| `interaction-design-craft-from-participatory-prototyping-to-d-1xzl7q` | Moggridge / Buxton — *Designing Interactions* | Prototype to think. Use spatial metaphors. Reduce modes. Let constraints drive simplicity. |
+| `interaction-design-craft` | Moggridge / Buxton — *Designing Interactions* | Prototype to think. Use spatial metaphors. Reduce modes. Let constraints drive simplicity. |
 | `classic-style-writing-with-clarity-and-concrete-vision-83ryzm` | Williams — *Style: Lessons in Clarity and Grace* | Classic prose is a conversation with a knowledgeable peer — no hedging, no nominalizations. |
 | `culture-and-communication-the-logic-of-symbols-109gk9m` | Geertz — *The Interpretation of Cultures* | Culture is a web of significance; read it thickly, not thinly. |
 | `interpretive-anthropology-reading-culture-thickly-14r8fgq` | Geertz — *Thick Description* | What people do and what they say they do are different data; honor both. |
 | `kinship-in-bali-a-system-of-meanings-17ki8bq` | Geertz — *Kinship in Bali* | Social systems are overlapping networks of meaning, not unified hierarchies. |
-| `purity-and-danger-mapping-boundaries-taboo-and-classificatio-erej6c` | Douglas — *Purity and Danger* | Every taboo is first a statement about a boundary; find the system of order it defends. |
+| `purity-and-danger` | Douglas — *Purity and Danger* | Every taboo is first a statement about a boundary; find the system of order it defends. |
 
 ### Decision & reasoning
 
@@ -46,7 +46,7 @@ This file is the **table of contents**. The router that picks the right book for
 | `thinking-fast-and-slow-the-ai-decision-engine-tntcy7` | Kahneman — *Thinking, Fast and Slow* | Two systems. One is fast, confident, and wrong in known ways. |
 | `behavioral-economics-predicting-real-human-choices-1cfeaeg` | Thaler — *Misbehaving* | The rational-actor model is a useful fiction; the real model is heuristic + bias + frame. |
 | `choice-architecture-nudging-decisions-without-coercion-1vgrrkp` | Thaler & Sunstein — *Nudge* | Defaults matter more than rules. Design the choice, not the warning. |
-| `disruptive-innovation-playbook-navigating-the-innovator-s-di-1iptvgs` | Christensen — *The Innovator's Dilemma* | Good management is what kills good companies. Capability ≠ survivability. |
+| `disruptive-innovation-playbook` | Christensen — *The Innovator's Dilemma* | Good management is what kills good companies. Capability ≠ survivability. |
 | `lean-startup-audit-applying-build-measure-learn-66t3e3` | Ries — *The Lean Startup* | Build–Measure–Learn, with innovation accounting that survives pivots. |
 | `validated-learning-the-build-measure-learn-loop-1i6p1f5` | Ries — *Validated Learning* | The loop is the deliverable. A team stuck between polish and launch needs this. |
 | `the-art-of-thinking-clearly-a-bias-detection-toolkit-1wtgikf` | Dobelli — *The Art of Thinking Clearly* | 99 cognitive biases with examples. The bias you don't know about is the one that bites. |
@@ -60,7 +60,7 @@ This file is the **table of contents**. The router that picks the right book for
 | Local slug | Book | Essence |
 |---|---|---|
 | `language-instinct-ai-communication-blueprint-1r5mwl8` | Pinker — *The Language Instinct* | Language is an instinct, not an invention. The cognitive facts decide what messages work. |
-| `boilerplate-reduction-turning-repetitive-text-into-clean-con-ocdac6` | (Dr Non — distilled practice) | Spot, analyze, and remove repetitive filler so a document becomes concise. |
+| `boilerplate-reduction` | (Dr Non — distilled practice) | Spot, analyze, and remove repetitive filler so a document becomes concise. |
 | `non-writing-the-editor-brain-skill-ri1czx` | (Dr Non — *Non-Writing*) | Rewrite any prose in Dr Non's voice: blunt openings, quiet closings, before/after contrasts. |
 | `solo-scribble-the-discipline-of-unedited-drafting-egka8o` | (Dr Non — *Solo Scribble*) | Unedited drafting in continuous flow; defer every edit until tomorrow. |
 | `100-days-of-writing-storytelling-the-writing-craft-1fc5btj` | (Dr Non — *100 Days of Writing: Storytelling*) | Use writing as a tool for thinking; bridge raw experience to abstract inquiry. |
@@ -73,12 +73,12 @@ This file is the **table of contents**. The router that picks the right book for
 
 | Local slug | Book | Essence |
 |---|---|---|
-| `the-ethnography-of-malinowski-participant-observation-and-fi-18q9ieu` | Malinowski — *Argonauts of the Western Pacific* | Participant observation beats the armchair; what people *do* trumps what they say. |
+| `ethnographic-fieldwork-malinowski` | Malinowski — *Argonauts of the Western Pacific* | Participant observation beats the armchair; what people *do* trumps what they say. |
 | `fieldwork-mastery-the-french-ethnographic-tradition-18gonb7` | Favret-Saada — *French Ethnographic Tradition* | Be there. The truths invisible from a distance are the ones that matter. |
 | `topological-anthropology-the-leach-method-mfffe5` | Leach — *Structuralist Interpretations* | Strip away the cultural labels; the underlying variables are what matter. |
-| `urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4` | Bayat — *Life as Politics* | Space is socially constructed; the inhabitant's view beats the planner's view. |
+| `urban-inhabitation-precarity` | Bayat — *Life as Politics* | Space is socially constructed; the inhabitant's view beats the planner's view. |
 | `urban-anthropology-reading-the-city-of-flows-and-places-13q28oj` | Augé — *Non-Places* | Cities are intersections of flows and places; both shapes matter. |
-| `medical-anthropology-the-human-experience-of-health-and-heal-p24hlu` | Kleinman — *The Illness Narratives* | Patients are active agents, not passive recipients. Health has social determinants. |
+| `medical-anthropology` | Kleinman — *The Illness Narratives* | Patients are active agents, not passive recipients. Health has social determinants. |
 | `measurement-foundations-for-human-studies-lhoitu` | Lord & Novick — *Statistical Theories of Mental Test Scores* | What counts as evidence, what a scale actually measures, the limits of explanation. |
 
 ### Business & value design

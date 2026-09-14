@@ -4,7 +4,8 @@ description: >-
   Catch AI-generated PR slop before merge — vague titles, missing descriptions,
   empty commits, single-line diffs as features. Use as PR-quality gate in CI.
 license: MIT
-source: https://github.com/peakoss/anti-slop
+metadata:
+  source: https://github.com/peakoss/anti-slop
 ---
 
 # PR Slop — Patterns

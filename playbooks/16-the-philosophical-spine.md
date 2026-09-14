@@ -4,7 +4,7 @@
 
 When frontier AI laboratories hit the limits of pure engineering, they made an unexpected move: they started hiring philosophers. Anthropic brought in Amanda Askell (PhD in philosophy, NYU) to author Claude's Constitution. Google DeepMind created the HEART team led by Iason Gabriel (Oxford moral philosopher). Shannon Vallor (Edinburgh) wrote *Technology and the Virtues* to warn against moral deskilling. They did this not out of academic nostalgia, but because **pure utilitarian optimization breaks when it touches human life**.
 
-This playbook explains the philosophical architecture underneath this repository's 100 skills: why utilitarianism fails as a sole engineering metric, how ontological thinking protects human agency, how the 127-day corpus of Dr Non provides the operational compass, and how the spine is enforced through *cyber-hygiene* and *off-grid operation* so the system stays both safe and durable.
+This playbook explains the philosophical architecture underneath this repository's skills: why utilitarianism fails as a sole engineering metric, how ontological thinking protects human agency, how the 127-day corpus of Dr Non provides the operational compass, and how the spine is enforced through *cyber-hygiene* and *off-grid operation* so the system stays both safe and durable.
 
 ---
 
@@ -151,7 +151,7 @@ To build sustainable systems that people actually trust, the architecture must d
 
 ## 5. How the 100 Skills Map to the Spine
 
-The 100 skills in this repository are not a loose catalog; they are a tiered implementation of this philosophy:
+The skills in this repository are not a loose catalog; they are a tiered implementation of this philosophy:
 
 | Layer | Purpose | Core Skills |
 |---|---|---|
@@ -250,4 +250,4 @@ When you sit down to prompt, code, or architect with an agent:
 5. **Enforce cyber-hygiene:** no secrets, no proprietary code shipped as original, no public API without auth, no backup without a restore drill, no deploy without verification.
 6. **Stay off-grid-able:** plain Markdown is the source of truth, the local LLM is the fallback, the validator is the gate, the operator's memory is local.
 
-The spine is the contract. The 100 skills are the implementation. The 8 rules of cyber-hygiene are the operational discipline. The 6 rules of off-grid operation are the architectural durability. Together, they are what makes the solo builder's stack *fast, secure, and great* — the three things the user named as load-bearing for a Dr Non-style solo entrepreneur.
+The spine is the contract. The skills are the implementation. The 8 rules of cyber-hygiene are the operational discipline. The 6 rules of off-grid operation are the architectural durability. Together, they are what makes the solo builder's stack *fast, secure, and great* — the three things the user named as load-bearing for a Dr Non-style solo entrepreneur.

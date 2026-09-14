@@ -49,15 +49,15 @@ bash _toolkit/axiom-ops/bootstrap-m3.sh
 ```
 Wiring an existing bot or dashboard to it: swap the LLM client's `baseURL` to `http://<m3-host>.local:8484/v1`, set the key, pass a `chat_id`. That's the whole integration — it speaks the OpenAI chat-completions shape.
 
-## The lesson every agentic coding tool on Ollama needs
+## The context lesson every agentic coding tool on Ollama needs
 
-**Ollama defaults every model to 4096 context regardless of what the model card claims — and client-side config cannot override it.** Setting `contextLength` in OpenCode/Continue/Cline's own config asks for more; the daemon serves 4096 anyway. Fix at the daemon:
+Ollama's current default varies with available VRAM (4K below 24 GiB, 32K at 24–48 GiB, 256K at 48 GiB or more). A model card states the ceiling, not necessarily the running allocation. Set a daemon default when callers do not specify one:
 ```bash
 launchctl setenv OLLAMA_CONTEXT_LENGTH 65536
 ```
-Then **quit and relaunch Ollama.app** — a running instance does not pick up the new env. Verify: `launchctl getenv OLLAMA_CONTEXT_LENGTH` should echo `65536`. This is a machine-level setting that silently reverts on Ollama updates or a fresh install — if a local-model coding tool starts truncating or losing context mid-task with no error, check this first before assuming the model regressed.
+Then **quit and relaunch Ollama.app** — a running instance does not pick up the new environment. Verify the configured value with `launchctl getenv OLLAMA_CONTEXT_LENGTH`, then verify the real allocation and processor split with `ollama ps`. Larger context consumes memory; 64K is a coding-agent target, not a safe universal default.
 
-Per-request calls that set their own `options.num_ctx` (like the operator gateway and the podcast pipeline, both at 8192) aren't affected by this — the daemon default only matters for callers that don't specify it themselves, which is most agentic coding tools out of the box.
+Per-request calls that set `options.num_ctx` (like the operator gateway and podcast pipeline, both at 8192) override the daemon default. Debug both ends: inspect the caller's request and `ollama ps` before blaming the model. Source: [Ollama context-length documentation](https://docs.ollama.com/context-length), checked 2026-09-14.
 
 The gateway itself should run under [`always-on-services`](../always-on-services/SKILL.md)'s four-job pattern on the M3 (server/tunnel/watchdog/backup), not as a bare process — a self-issued key that spends nothing if leaked is exactly the kind of low-stakes secret [`risk-posture`](../risk-posture/SKILL.md)'s hard-line-4 doesn't need to apply to as strictly as a paid API key, but the gateway going down silently still needs the same watchdog discipline as anything else that stays up 24/7.
 

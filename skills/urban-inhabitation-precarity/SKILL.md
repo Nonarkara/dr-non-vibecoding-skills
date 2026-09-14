@@ -1,6 +1,7 @@
 ---
-name: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
-description: Use when me: urban-inhabitation-the-anthropology-of-precarity-and-space-lptff4
+name: urban-inhabitation-precarity
+description: >-
+  Compare the planner's view with lived space, precarity, and informal use. Use when urban systems affect who can occupy, move through, or reshape a place.
 license: MIT
 ---
 
@@ -184,4 +185,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-

@@ -15,5 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate skills, links, counts, and plugin
+      - name: Validate cross-agent skills, links, counts, and plugin
         run: python3 scripts/validate_repo.py
+      - name: Check shell syntax
+        run: bash -n setup.sh scripts/*.sh
+      - name: Prove skill installation is additive
+        run: bash scripts/test-install-skills.sh
+      - name: Prove first-time-user bootstrap works offline
+        run: bash scripts/test-bootstrap.sh

@@ -1,6 +1,7 @@
 ---
 name: design-anthropology
-description: Use when a design assumes a universal human constant or the same solution keeps failing across users. The 6 moves: counter-example, cultural variation, bad-faith, biopower check.
+description: >-
+  Test design assumptions with cultural counterexamples and power analysis. Use when a supposedly universal solution keeps failing across people or contexts.
 license: MIT
 ---
 

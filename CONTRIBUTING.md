@@ -50,11 +50,13 @@ python3 scripts/validate_repo.py
 The validator checks:
 
 - folder/name/frontmatter agreement and MIT metadata;
+- cross-agent frontmatter compatibility: names at most 64 characters, supported keys only, and YAML-safe descriptions;
 - concise trigger descriptions within the repository discovery budget;
 - local Markdown links outside fenced examples;
 - sequential, unique playbook numbering;
 - README and AGENTS count claims, including badge alts and QUICKSTART/BLUEPRINT expect counts;
 - Codex and Claude plugin packaging;
+- additive installation that preserves skills from other authors and vendors;
 - OS metadata and unfinished placeholders.
 
 Then review the diff against the repository's conservation rules:

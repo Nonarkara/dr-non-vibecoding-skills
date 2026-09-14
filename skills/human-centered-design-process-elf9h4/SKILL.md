@@ -1,6 +1,7 @@
 ---
 name: human-centered-design-process-elf9h4
-description: Use when me: human-centered-design-process-elf9h4
+description: >-
+  Run discover, frame, ideate, prototype, test, and iterate with people. Use when a project needs a complete human-centered design cycle.
 license: MIT
 ---
 
@@ -280,4 +281,3 @@ Imperative decision rules from the source, grouped by category. Each is the kind
 ## How to use this skill
 
 This single SKILL.md is everything an AI agent needs to act on this book. The core principles are the load-bearing claims; the glossary defines the vocabulary; the patterns are reusable moves; the cheatsheet is the imperative "do this, not that" rules. The chapter files under `chapters/` are deep dives — load a chapter only when a single principle / pattern / rule needs the underlying argument. The chapter index above tells you which one.
-
