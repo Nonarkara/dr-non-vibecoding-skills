@@ -247,3 +247,20 @@ These skills were added by a parallel agent via the Non-Scrape books-to-skill pi
 | [`boilerplate-reduction`](skills/boilerplate-reduction/SKILL.md) | Spot, analyze, and remove repetitive filler in drafts so the document becomes concise and production-ready. Use when a text contains many duplicated sentences or placeholder copy. |
 | [`lean-startup-audit-applying-build-measure-learn-66t3e3`](skills/lean-startup-audit-applying-build-measure-learn-66t3e3/SKILL.md) | Turn the Lean Startup method into actionable steps. Use when designing an MVP, setting up metrics, deciding whether to pivot, or tracking progress with innovation accounting. |
 | [`repetition-mantra-building-skill-through-simple-repeats-4as3as`](skills/repetition-mantra-building-skill-through-simple-repeats-4as3as/SKILL.md) | Use a short repeated phrase as a mental anchor — break larger goals into manageable repetition cycles. Use when building fluency through monotony. |
+
+## Thailand civic dashboards (Godmode)
+
+Composition skills for `thailand-godmode/` — turning a Thai city name into a
+zero-baht, multi-layer operations dashboard. General discipline (CCTV
+honesty, data cataloguing, geospatial precision, design reasoning) lives in
+the skills above; these seven cover only the Thailand-specific delta.
+
+| Skill | Load it when… |
+|---|---|
+| [`godmode-new-city`](skills/godmode-new-city/SKILL.md) | Standing up a new Thai city/province dashboard from `thailand-godmode/`. Use when adding a new city or bootstrapping a Thailand ops dashboard from scratch. |
+| [`godmode-cook-and-couple`](skills/godmode-cook-and-couple/SKILL.md) | Building coupled, comparison-bearing verdicts (flood risk, fire weather, crop demand) instead of showing independent subsystem readings. Use whenever a dashboard is about to show a number without a comparison. |
+| [`godmode-datagoth-harvest`](skills/godmode-datagoth-harvest/SKILL.md) | Harvesting data.go.th for every dataset naming a given city, and turning it into a data analytics page. Use when building a city's `/data` page. |
+| [`godmode-ootbpap-maps`](skills/godmode-ootbpap-maps/SKILL.md) | Wiring maps, satellite imagery, and free basemap APIs for a Thai city out of the box. Use when adding map/satellite layers to a city dashboard. |
+| [`godmode-cctv-wiring`](skills/godmode-cctv-wiring/SKILL.md) | Wiring ITIC/Longdo public traffic cameras honestly. Use when adding camera/incident layers to a Thai city map. |
+| [`godmode-social-listening`](skills/godmode-social-listening/SKILL.md) | Scraping and tagging public mentions of a Thai city via RSS/GDELT. Use when building a social-listening box for a city dashboard. |
+| [`godmode-floodair-dash`](skills/godmode-floodair-dash/SKILL.md) | Wiring FloodDash (RID water classification) and AirDash (AQI banding) for a new city, feeding the coupling layer. Use when adding flood/water or air-quality modules. |

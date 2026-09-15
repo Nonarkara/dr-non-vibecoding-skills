@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://nonarkara.internal/schema/city-config.schema.json",
+  "title": "Thailand Godmode City Config",
+  "description": "The one file that should change when standing up a new city. If shipping a city requires editing packages/core or packages/connectors instead of this file, that's a bug in the toolkit — see CLAUDE.md.",
+  "type": "object",
+  "required": ["slug", "nameTh", "nameEn", "region", "center"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "URL-safe id, e.g. 'lopburi', 'nakhon-ratchasima'" },
+    "nameTh": { "type": "string", "description": "Thai province/city name, e.g. 'ลพบุรี'" },
+    "nameEn": { "type": "string", "description": "English name, e.g. 'Lopburi'" },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Alternate TH/EN spellings and nicknames — used by data.go.th search and social-listening keywords. Transliteration is not stable; list variants."
+    },
+    "region": {
+      "type": "string",
+      "enum": ["north", "northeast", "central", "east", "west", "south"],
+      "description": "Thailand's standard 6-region grouping"
+    },
+    "center": {
+      "type": "object",
+      "required": ["lon", "lat"],
+      "properties": {
+        "lon": { "type": "number" },
+        "lat": { "type": "number" },
+        "zoom": { "type": "number", "default": 10 }
+      }
+    },
+    "isCoastal": { "type": "boolean", "default": false, "description": "Gates whether marine points / tide couplings are offered at all" },
+    "dataGoThQueries": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Search terms re-run against data.go.th's CKAN API at harvest time (TH + EN name + aliases, at minimum)"
+    },
+    "hydrology": {
+      "type": "object",
+      "properties": {
+        "stations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "nameTh", "bankLevelMsl"],
+            "properties": {
+              "id": { "type": "string", "description": "RID/local-authority telemetry station id" },
+              "nameTh": { "type": "string" },
+              "nameEn": { "type": "string" },
+              "lon": { "type": "number" },
+              "lat": { "type": "number" },
+              "bankLevelMsl": { "type": "number", "description": "Bank/critical level in metres MSL; 0 for a rain-gauge-only station" },
+              "expectedIntervalMin": { "type": "number", "default": 60 }
+            }
+          }
+        },
+        "dams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "nameTh"],
+            "properties": {
+              "id": { "type": "string" },
+              "nameTh": { "type": "string" },
+              "nameEn": { "type": "string" },
+              "deadStorageMcm": { "type": "number", "description": "Published dead-storage constant; used as a reference-tier fallback, never as a live value" }
+            }
+          }
+        },
+        "downstream": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["districtTh", "travelTimeHours"],
+            "properties": {
+              "districtTh": { "type": "string" },
+              "districtEn": { "type": "string" },
+              "fromStationId": { "type": "string" },
+              "travelTimeHours": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "airQuality": {
+      "type": "object",
+      "properties": {
+        "stations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "nameTh"],
+            "properties": {
+              "id": { "type": "string", "description": "Air4Thai station id" },
+              "nameTh": { "type": "string" },
+              "nameEn": { "type": "string" },
+              "lon": { "type": "number" },
+              "lat": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "properties": {
+        "corridors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "labelTh", "center"],
+            "properties": {
+              "id": { "type": "string" },
+              "labelTh": { "type": "string" },
+              "labelEn": { "type": "string" },
+              "aliases": { "type": "array", "items": { "type": "string" } },
+              "center": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+              "zoom": { "type": "number", "default": 11 },
+              "defaultActionTh": { "type": "string" }
+            }
+          }
+        },
+        "marinePoints": {
+          "type": "array",
+          "description": "Only meaningful when isCoastal is true",
+          "items": { "type": "object" }
+        }
+      }
+    },
+    "cctv": {
+      "type": "object",
+      "properties": {
+        "bbox": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "[minLon, minLat, maxLon, maxLat] — filters the national ITIC/Longdo camera feed to this province"
+        }
+      }
+    },
+    "socialListening": {
+      "type": "object",
+      "properties": {
+        "keywords": { "type": "array", "items": { "type": "string" } },
+        "rssFeeds": { "type": "array", "items": { "type": "string" }, "description": "Local/regional feeds in addition to the national defaults" }
+      }
+    },
+    "brandPalette": {
+      "type": "object",
+      "description": "Province colors ONLY — see packages/design/palette.ts. Never redefines the status ramp.",
+      "properties": {
+        "cool": { "type": "string", "description": "Primary brand color, e.g. flag blue" },
+        "sun": { "type": "string", "description": "Secondary/seasonal accent, e.g. sunflower yellow" },
+        "streetAccents": { "type": "array", "items": { "type": "string" }, "maxItems": 4 }
+      }
+    }
+  }
+}
