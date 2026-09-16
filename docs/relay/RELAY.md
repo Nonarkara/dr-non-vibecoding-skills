@@ -109,3 +109,13 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: the real gap was discovery, not content: zero of the 7 skills that most naturally fire before a human-judgment moment (design-thinking-vibecoding, dr-non-golden-rules, cognition-first, ninja-innovation, director-not-typer, axiom-design-core, no-ai-tells) cross-linked to the router — it was only reachable via CATALOG/AGENTS/README browsing. Added one precise cross-link to each, at the exact decision point, not a restructure
 - Open: the streak converged at leg 08 per the tool's own stop rule; this leg continued anyway because it was new directed work (an explicit integration request), not another audit pass. Worth noting so the next agent doesn't read 'streak: 2' as permission to keep auditing indefinitely
 - Closed: 2026-09-16T10:37:37Z
+
+## Leg 10 · claude · 2026-09-16T11:33:09Z · CLOSED
+- Scope: book-pipeline skill renames
+- Note: same agent as leg 09 — self-review, decorrelation lost
+- Verdict on leg 09: confirm — leg 09's cross-links (all 7) still validate and hold through this leg's edits
+- Landed: renamed 37 book-pipeline skills to strip leaked auto-generated ID suffixes (e.g. self-managed-project-mastery-100-days-of-writing-1e5bhwu -> self-managed-project-mastery-100-days-of-writing). No collisions among the 37, all under the 64-char limit.
+- Landed: found and fixed a real duplicate the rename surfaced: design-by-writing-100-day-reflection-engine already existed as a clean, deliberately-curated skill (183 lines, explicit provenance note about what was stripped from the raw pipeline output); a raw, unrefined -ziojx2 duplicate (257 lines, auto-generated-metadata style) collided on rename. Kept the curated version, removed the raw duplicate. This is the one case my initial collision check missed — it only checked the 37 renamed slugs against each other, not against the other 131 pre-existing skills.
+- Landed: verified end to end: make test green at 167 skills (168 minus the removed duplicate), zero broken links, zero name/folder mismatches, bootstrap dry-run confirms 167
+- Open: 9 of the 37 renamed skills had frontmatter already saying the clean name while their folder still carried the suffix, predating this session -- root cause not chased down, but the fix (folder now matches frontmatter) resolves it regardless of how it got there
+- Closed: 2026-09-16T11:33:09Z
