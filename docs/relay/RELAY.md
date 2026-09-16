@@ -77,10 +77,15 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Open: origin/main is still at a824b49 (79 skills, 13 playbooks); the 89-skill Founder Tier reported by the next agent is unpushed local work, so the count conflict it warns about does not exist on the remote yet
 - Closed: 2026-09-09T17:55:43Z
 
-## Leg 07 · claude · 2026-09-16T10:10:35Z · OPEN
+## Leg 07 · claude · 2026-09-16T10:10:35Z · CLOSED
 - Scope: CI-red fixes; skills/route-dont-scan; playbooks/11
 - Note: same agent as leg 06 — self-review, decorrelation lost
 - Verdict on leg 06: confirm — leg 06's escaping fix survives byte-identical on current main (diff 79ab932:make-it-mine.sh vs origin/main:make-it-mine.sh is empty); re-tested against the 167-skill tree with --name 'A|B Studio & Co' and a double --apply run, both clean
 - Landed: no relay leg was opened for any of the ~79 skills added on main between leg 06 and today (a824b49..8f44699) — the protocol lapsed for a week of direct pushes; not something this leg corrects, only records
 - Landed: main's CI was red at HEAD (8f44699, run 86): 6 skill descriptions over the 180-char budget and stale count surfaces (160 vs true 167). Fixed mechanically as a prerequisite before adding anything.
 - Open: cso vs appsec-stack and learn vs lesson-residue/power-of-hindsight are still both present and unresolved — CATALOG.md's own rule calls a shared trigger a catalog bug. Not resolved here: collapsing another author's skills is churn, per this skill's own anti-pattern table.
+- Landed: scripts/repo-map.sh — zero-dependency structural map (directory tree, god-files by cross-reference count, grep-pattern symbol index). Tested against this actual repo: 10s, 850 files, 167K output. Two real bugs found and fixed while dogfooding: pipefail+head SIGPIPE aborted the whole script silently, and the god-files basename match degenerated to nonsense on a repo where every skill file is literally named SKILL.md (fixed twice — dirname/basename still collided against a 35-skill books pipeline sharing chapters/ch01.md; full relative path is the actual fix)
+- Landed: skills/route-dont-scan/SKILL.md extended with 'Build the map once' — cites graphify's own worked-example numbers (71.5x/5.4x/~1x by corpus, not the marketing-average 71x), refuses it as a default dependency per this repo's zero-runtime-dependency ethos, names it as an optional CLI upgrade for real call-graph work
+- Landed: playbooks/11-the-2026-steal-map.md gained a Sixth Harvest entry for graphify, and a pre-existing mojibake typo (dual-write硬化) was fixed in passing
+- Open: repo-map.sh's symbol extraction is grep-pattern only, untested against a real non-markdown codebase in this session (this repo is almost entirely .md/.sh) — the .ts/.py/.go patterns are written but not dogfooded against a populated code repo
+- Closed: 2026-09-16T10:16:59Z
