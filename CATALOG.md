@@ -94,6 +94,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`caveman`](skills/caveman/SKILL.md) | Caveman output: 65% fewer tokens, byte-exact code and errors. Use when agent output is bloated. Pairs with ponytail for code brevity. |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | Label every displayed number with source, tier, and age. Use for metrics, caches, fallback data, outages, and any live-looking dashboard value. |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | Record reusable data-source contracts and known-good adapters. Use before adding an API or feed, reusing an integration, or responding to upstream drift. |
+| [`couple-dont-silo`](skills/couple-dont-silo/SKILL.md) | Layer unrelated public datasets against each other for insight, instead of inventing from scratch. Use before building anything from a blank page. |
 | [`public-api-integration`](skills/public-api-integration/SKILL.md) | Select, probe, proxy, and integrate free public APIs and open datasets for zero-friction dashboards. Use when building client-side apps without backend or API costs. |
 | [`research-methodology`](skills/research-methodology/SKILL.md) | Use when a research project must be done — gather, evaluate, synthesize, cite. The 7 moves for research that survives the test of time. Pairs with data-catalog. |
 | [`deep-scraping`](skills/deep-scraping/SKILL.md) | Extract data from sites without an API, politely and repeatably, storing raw before parsed. Use when a needed feed exists only as a web page. |

@@ -29,7 +29,7 @@ cd ~/Projects/my-app
 claude
 ```
 
-From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 167 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
+From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 168 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
 
 ### What ships in the scaffold (runnable, not just docs)
 
@@ -62,7 +62,7 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 167
+ls ~/.claude/skills | wc -l   # expect 168
 # also: ls ~/.agents/skills | wc -l
 ```
 

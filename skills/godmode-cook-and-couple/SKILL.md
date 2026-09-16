@@ -19,6 +19,13 @@ some cards on it." A reservoir gauge next to a rainfall chart next to a
 humidity number is three subsystems. A **coupling** is what happens when you
 read them together and say one sentence a governor can act on.
 
+This is the general rule of [`couple-dont-silo`](../couple-dont-silo/SKILL.md)
+applied to one product line. Read that skill for the rule outside Thailand
+city dashboards — the join-key discipline, and why the unrelated-looking pair
+is usually the one worth trying. This file stays the Thailand-specific engine
+and vocabulary (`cook.ts`, the RID/AQI bands); it does not restate the general
+principle.
+
 ## The rule
 
 **A number without a comparison is not information.** Every cooked value

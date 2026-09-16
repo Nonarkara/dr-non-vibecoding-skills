@@ -89,3 +89,14 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: playbooks/11-the-2026-steal-map.md gained a Sixth Harvest entry for graphify, and a pre-existing mojibake typo (dual-write硬化) was fixed in passing
 - Open: repo-map.sh's symbol extraction is grep-pattern only, untested against a real non-markdown codebase in this session (this repo is almost entirely .md/.sh) — the .ts/.py/.go patterns are written but not dogfooded against a populated code repo
 - Closed: 2026-09-16T10:16:59Z
+
+## Leg 08 · claude · 2026-09-16T10:26:06Z · CLOSED
+- Scope: skills/improvement-radar, skills/couple-dont-silo, skills/godmode-cook-and-couple, catalog overlap audit
+- Note: same agent as leg 07 — self-review, decorrelation lost
+- Verdict on leg 07: confirm — leg 07's repo-map.sh, route-dont-scan extension, and CI-red fixes all still hold — dogfooded again today via make test / ./setup.sh --audit, all green, no regressions from today's edits
+- Landed: skills/couple-dont-silo — new skill, the data-layering-for-insight principle generalized from godmode-cook-and-couple, grounded in the author's own verbatim words
+- Landed: skills/improvement-radar extended with the 'steal and improve' doctrine in the author's own words (three branches: vendor directly, port the idea cross-language, or apply the same discovery instinct to open data)
+- Landed: retracted leg 05's two overlap flags (cso/appsec-stack, learn/lesson-residue+power-of-hindsight) after reading all five skills in full — both pairs are legitimately differentiated, each with an explicit 'what this is not' section already anticipating the confusion. Nothing merged; the flag was wrong.
+- Landed: checked public-api-integration against data-catalog/deep-scraping on suspicion of a third overlap — also a false alarm, genuinely different scope (decision ladder + SWR fetch pattern + endpoint table vs. cataloguing discipline vs. no-API scraping)
+- Open: 44 skills from a books-to-skill pipeline have mixed quality: some well-shaped, some with auto-generated ID suffixes in the folder name (e.g. -1e5bhwu, -lhoitu) and content that reads as a knowledge summary rather than an operational trigger. Not touched — over a quarter of the collection, the author's own deliberate pipeline, disposition is the author's call
+- Closed: 2026-09-16T10:26:18Z
