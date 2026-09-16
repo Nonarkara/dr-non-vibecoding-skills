@@ -76,3 +76,11 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: make-it-mine re-tested against the merged 88-skill tree: file count unchanged 185→185, all 8 of main's new skills intact with valid frontmatter, attribution intact
 - Open: origin/main is still at a824b49 (79 skills, 13 playbooks); the 89-skill Founder Tier reported by the next agent is unpushed local work, so the count conflict it warns about does not exist on the remote yet
 - Closed: 2026-09-09T17:55:43Z
+
+## Leg 07 · claude · 2026-09-16T10:10:35Z · OPEN
+- Scope: CI-red fixes; skills/route-dont-scan; playbooks/11
+- Note: same agent as leg 06 — self-review, decorrelation lost
+- Verdict on leg 06: confirm — leg 06's escaping fix survives byte-identical on current main (diff 79ab932:make-it-mine.sh vs origin/main:make-it-mine.sh is empty); re-tested against the 167-skill tree with --name 'A|B Studio & Co' and a double --apply run, both clean
+- Landed: no relay leg was opened for any of the ~79 skills added on main between leg 06 and today (a824b49..8f44699) — the protocol lapsed for a week of direct pushes; not something this leg corrects, only records
+- Landed: main's CI was red at HEAD (8f44699, run 86): 6 skill descriptions over the 180-char budget and stale count surfaces (160 vs true 167). Fixed mechanically as a prerequisite before adding anything.
+- Open: cso vs appsec-stack and learn vs lesson-residue/power-of-hindsight are still both present and unresolved — CATALOG.md's own rule calls a shared trigger a catalog bug. Not resolved here: collapsing another author's skills is churn, per this skill's own anti-pattern table.
