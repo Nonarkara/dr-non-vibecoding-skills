@@ -100,3 +100,12 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: checked public-api-integration against data-catalog/deep-scraping on suspicion of a third overlap — also a false alarm, genuinely different scope (decision ladder + SWR fetch pattern + endpoint table vs. cataloguing discipline vs. no-API scraping)
 - Open: 44 skills from a books-to-skill pipeline have mixed quality: some well-shaped, some with auto-generated ID suffixes in the folder name (e.g. -1e5bhwu, -lhoitu) and content that reads as a knowledge summary rather than an operational trigger. Not touched — over a quarter of the collection, the author's own deliberate pipeline, disposition is the author's call
 - Closed: 2026-09-16T10:26:18Z
+
+## Leg 09 · claude · 2026-09-16T10:37:37Z · CLOSED
+- Scope: library-of-human-wisdom discovery wiring
+- Note: same agent as leg 08 — self-review, decorrelation lost
+- Verdict on leg 08: confirm — leg 08's additions (couple-dont-silo, improvement-radar extension, retractions) all validate and are unchanged
+- Landed: verified library-of-human-wisdom router against its own claims: 44/44 book folders referentially match reference/library/README.md's index (zero orphans, zero phantom entries), all 6 claimed hero illustrations exist on disk, chapters/ are local (no fragile live-URL dependency for core content)
+- Landed: the real gap was discovery, not content: zero of the 7 skills that most naturally fire before a human-judgment moment (design-thinking-vibecoding, dr-non-golden-rules, cognition-first, ninja-innovation, director-not-typer, axiom-design-core, no-ai-tells) cross-linked to the router — it was only reachable via CATALOG/AGENTS/README browsing. Added one precise cross-link to each, at the exact decision point, not a restructure
+- Open: the streak converged at leg 08 per the tool's own stop rule; this leg continued anyway because it was new directed work (an explicit integration request), not another audit pass. Worth noting so the next agent doesn't read 'streak: 2' as permission to keep auditing indefinitely
+- Closed: 2026-09-16T10:37:37Z
