@@ -196,6 +196,38 @@ what's already been stolen twice and never assembled."
 
 ---
 
+## What we studied — Seventh Harvest (2026-09): SEO/GEO connectors and the citability gap
+
+The user asked to wire in a GSC MCP connector, an "OpenSEO" for keyword
+research, and a "Geo Optimizer" skills repo — by name only, no links, and
+each name turned out to collide with several unrelated projects. Studied all
+nine candidates rather than guessing which one was meant:
+
+| Source | Stars / shape | What it actually is | Verdict for this bible |
+|---|---|---|---|
+| [AminForou/mcp-gsc](https://github.com/AminForou/mcp-gsc) — 1.6k★, MIT | 20-tool Google Search Console MCP server, OAuth + service account, 39 unit tests, Docker | **Reference, not vendor.** No runtime here to install an MCP server into — cited in the new [`reference/seo-geo-connectors.md`](../reference/seo-geo-connectors.md) as the default pick (dual auth, no third-party data custody, mature). |
+| [Suganthan-Mohanadasan/Suganthans-GSC-MCP](https://github.com/Suganthan-Mohanadasan/Suganthans-GSC-MCP) — 130★, Apache-2.0 | 29-tool GSC MCP with pre-built diagnostics (cannibalization, content decay, quick-wins, image SEO) | **Reference, upgrade path.** Cited alongside AminForou's for projects that want diagnosis, not raw analytics pulls. **Refused** ahonn/mcp-server-gsc (1 tool, thin) and AKzar1el's hosted-OAuth variant (routes GSC data through a third-party domain — a custody trade-off, not a default). |
+| [every-app/open-seo](https://github.com/every-app/open-seo) — 19.5k★, MIT | Real SEO SaaS (keyword research, rank/backlink tracking) built entirely on a paid DataForSEO key; hosted at openseo.so with a markup on API calls | **Data instinct, not vendor.** The leverage point is DataForSEO itself, not any of the three thin wrappers sharing the "OpenSEO" name. Cited in `seo-geo-connectors.md`. **Refused** vendoring the app (full product, paid backend, no fit for a no-runtime meta-repo) and both other OpenSEO repos (theshajha/OpenSEO is vaporware — 2 commits, no working code; igorlemes/OpenSEO is a content-writing workspace, not keyword research, and a different scope entirely). Confirmed: three unrelated projects, not forks. |
+| [Auriti-Labs/geo-optimizer-skill](https://github.com/Auriti-Labs/geo-optimizer-skill) — 847★, MIT | Research-backed GEO/AEO audit engine (CLI/Python/MCP/Astro), 8-category/47-method rubric citing external research for its weights | **Port the shape, refuse the pack, don't repeat the numbers.** Its own README calls it an audit engine, not a skill pack — but it ships as an installable skill-shaped artifact competing with this repo's own GEO content, so it stays in the never-vendor lane. Its exact category-weight percentages are not repeated in the new [`geo-citability`](../skills/geo-citability/SKILL.md) skill: this repo already reverted one invented statistic once (leg 02, above) and isn't repeating an unverified one from someone else's README. |
+| [aretenia/geo-skills](https://github.com/aretenia/geo-skills), [onvoyage-ai/gtm-engineer-skills](https://github.com/onvoyage-ai/gtm-engineer-skills), [199-biotechnologies/claude-skill-seo-geo-optimizer](https://github.com/199-biotechnologies/claude-skill-seo-geo-optimizer) | 20+, 13, and single-skill packs respectively — explicit Claude/Codex skill bundles for GEO/AEO scoring and fixes | **Refused as packs, folded into the same port.** onvoyage's audit-then-framework-specific-fix shape and aretenia's category structure informed `geo-citability`'s checklist; 199-biotechnologies' own honest disclaimer about not reproducing its cited 2026 citation-lift numbers set the bar the new skill follows — state the mechanism, verify or omit the percentage. None of their files or directories were imported. |
+
+**What was actually missing** wasn't a wrapper around Google Search Console
+or a fourth "OpenSEO" — it was a checklist for a newer question none of this
+repo's existing skills asked: not "does this rank," but "can a model that
+never executes JavaScript and fetches a page exactly once find anything
+worth quoting on it." New skill:
+[`geo-citability`](../skills/geo-citability/SKILL.md). New reference:
+[`seo-geo-connectors.md`](../reference/seo-geo-connectors.md).
+
+**Seventh Harvest principle:** a request with no links and a name that
+collides with several unrelated projects is not a reason to guess — it's a
+reason to study the field and report the collision back, same as the Sixth
+Harvest's mismatched anchor text. And the never-vendor-a-skill-pack rule
+holds even when the pack's own README insists it's "an engine, not a pack" —
+the test is what it ships as, not what it calls itself.
+
+---
+
 ## Explicit refusals (do not re-propose)
 
 - Wholesale Superpowers / Compound / gstack / Osmani / Vercel / Copilot installs
@@ -211,5 +243,11 @@ what's already been stolen twice and never assembled."
   - Vendoring any single DESIGN.md from bergside/awesome-design-skills (mine the pattern, don't ship the pixels)
   - Adopting PRP's two-command slash flow as second ceremony (PRP is a paragraph in planning-discipline)
   - Chasing weekly trending stars from the landscape as install signal
+- **Seventh Harvest refusals:**
+  - Vendoring any GSC MCP server's code (ahonn's is too thin to be worth it anyway; the mature ones are cited, not installed)
+  - Vendoring every-app/open-seo or any other DataForSEO-key wrapper as a skill
+  - Installing Auriti-Labs/geo-optimizer-skill, aretenia/geo-skills, onvoyage-ai/gtm-engineer-skills, or 199-biotechnologies/claude-skill-seo-geo-optimizer wholesale
+  - Repeating any of the above repos' cited citation-lift percentages as this repo's own verified fact
+  - theshajha/OpenSEO or igorlemes/OpenSEO for keyword research (no real content to steal, wrong scope)
 
 If a future pack looks essential, add **one** behavioural skill with a receipt, or a paragraph on an existing skill. See [`skill-writing`](../skills/skill-writing/SKILL.md).

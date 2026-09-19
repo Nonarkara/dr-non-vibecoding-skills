@@ -171,6 +171,7 @@ These are narrow on purpose. They carry implementation scars that would be noise
 | [`voice-clone-podcast`](skills/voice-clone-podcast/SKILL.md) | Build a local zero-shot voice-cloned podcast pipeline on Apple Silicon. Use when long-form TTS drops words, drifts, or babbles at chunk boundaries. |
 | [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) | Unify home cameras into one honest grid with local storage. Use when wiring RTSP or ONVIF cameras around a house into a single view. |
 | [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) | Collect trusted satellite imagery over time and show what changed. Use when monitoring land, flood, fire, or coast from NASA and open sources. |
+| [`geo-citability`](skills/geo-citability/SKILL.md) | Check whether AI crawlers can reach and cite a page, then fix what blocks them. Use when a site ranks in Google but must also be citable by ChatGPT, Perplexity, or AI Overviews. |
 
 ## Local AI, retrieval, and self-improvement
 
