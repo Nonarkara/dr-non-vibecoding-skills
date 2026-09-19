@@ -1,6 +1,10 @@
 ---
 name: godmode-new-city
-description: Stand up a new Thai city/province God Mode dashboard from this toolkit. Use when asked to add a new city, port the Lopburi build to another province, or bootstrap a Thailand ops dashboard from scratch.
+description: >-
+  Stand up a new Thai city or province God Mode dashboard from this toolkit.
+  Use when asked to add a city, port the Lopburi build elsewhere, or bootstrap a
+  Thailand ops dashboard.
+
 license: MIT
 ---
 

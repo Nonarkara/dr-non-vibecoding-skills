@@ -1,6 +1,10 @@
 ---
 name: godmode-cook-and-couple
-description: Build coupled, comparison-bearing verdicts from raw city data instead of showing independent subsystem readings. Use whenever a dashboard is about to show a number without a comparison, or a new coupling is needed between two factors.
+description: >-
+  Build coupled, comparison-bearing verdicts from raw city data instead of
+  independent readings. Use when a dashboard shows a number with no comparison,
+  or two factors need coupling.
+
 license: MIT
 ---
 

@@ -1,6 +1,10 @@
 ---
 name: godmode-floodair-dash
-description: Wire FloodDash (RID water classification) and AirDash (AQI banding) for a new Thai city, and feed them into the coupling layer. Use when adding flood/water or air-quality modules to a city dashboard.
+description: >-
+  Wire FloodDash (RID water class) and AirDash (AQI banding) for a Thai city
+  into the coupling layer. Use when adding flood, water, or air modules to a
+  city dashboard.
+
 license: MIT
 ---
 

@@ -12,6 +12,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | Scoping a nontrivial change | [`planning-discipline`](skills/planning-discipline/SKILL.md) + [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md) |
 | Diagnosing a failure | [`systematic-debugging`](skills/systematic-debugging/SKILL.md) |
 | Changing a user-visible flow | [`browser-as-t`](skills/browser-as-t/SKILL.md) + [`accessible-by-default`](skills/accessible-by-default/SKILL.md) |
+| A layout/spacing/type/color/motion change is about to ship | [`see-and-revise`](skills/see-and-revise/SKILL.md) |
 | Closing the work | [`adversarial-review`](skills/adversarial-review/SKILL.md) + [`result-honesty`](skills/result-honesty/SKILL.md) + [`ship-discipline`](skills/ship-discipline/SKILL.md) |
 | Before a major release | [`human-walkthrough`](skills/human-walkthrough/SKILL.md) |
 | After a year of patches | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) |
@@ -35,6 +36,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`systems-thinking`](skills/systems-thinking/SKILL.md) | Map feedback loops, flows, time horizons, and leverage points. Use when a problem keeps returning or a local fix creates long-term system cost. |
 | [`adversarial-review`](skills/adversarial-review/SKILL.md) | Run a flaw-seeking second pass with executable evidence. Use before merge, after risky changes, or when the author would otherwise review their own work. |
 | [`browser-as-t`](skills/browser-as-t/SKILL.md) | Verify user-visible changes by exercising real browser flows. Use for UI, routing, forms, or client state; skip docs-only and server-only work. |
+| [`see-and-revise`](skills/see-and-revise/SKILL.md) | Screenshot a real UI change and critique it with vision against the design system, then revise. Use after any layout, spacing, type, color, or motion change. |
 | [`browser-use`](skills/browser-use/SKILL.md) | Use when an agent must drive a real browser to fill a form, navigate a flow, or complete a multi-step user journey. Pairs with browser-as-t. |
 | [`result-honesty`](skills/result-honesty/SKILL.md) | Report succeeded, failed, skipped, and unverified with evidence. Use at session end, handoff, deploy closeout, or whenever asked whether it worked. |
 | [`build-journal`](skills/build-journal/SKILL.md) | Use when a meaningful change to a project must be recorded. The 5-line flight-recorder discipline. The journal is the narrative, not the log. |

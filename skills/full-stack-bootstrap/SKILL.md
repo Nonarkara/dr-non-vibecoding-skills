@@ -56,10 +56,10 @@ Always run with `--dry-run` first to see the host list and the count.
 
 ```bash
 ./setup.sh --become-builder --dry-run
-# would install 160 skills → /Users/<you>/.claude/skills  (claude)
-# would install 160 skills → /Users/<you>/.agents/skills  (codex)
-# would install 160 skills → /Users/<you>/.gemini/antigravity/skills  (antigravity)
-# dry-run: no files changed (expected 160 skills)
+# would install 168 skills → /Users/<you>/.claude/skills  (claude)
+# would install 168 skills → /Users/<you>/.agents/skills  (codex)
+# would install 168 skills → /Users/<you>/.gemini/antigravity/skills  (antigravity)
+# dry-run: no files changed (expected 168 skills)
 ```
 
 Post-install, the count is verified: if the destination does not contain the expected number of skill folders, the script warns. The check is the safeguard against a partial rsync.
@@ -175,7 +175,7 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 ## The check
 
 ```
-□ ./setup.sh --become-builder --dry-run shows 160 skills to the detected hosts
+□ ./setup.sh --become-builder --dry-run shows 168 skills to the detected hosts
 □ ./setup.sh --become-builder (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc. and prints "You are Dr Non the Builder"
 □ ./setup.sh --validate passes with the current skill/playbook/reference/template counts and no errors
 □ ./setup.sh --init-project <test-path> generates a project with no unfilled placeholder brackets

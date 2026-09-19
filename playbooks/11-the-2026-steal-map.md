@@ -163,6 +163,39 @@ The fork was self-sustaining but not yet whole. The user's own scenarios named t
 
 ---
 
+## What we studied — Sixth Harvest (2026-09): closing the loop without the user's eyes
+
+The user asked to wire in a workflow alongside Impeccable, Axiom Core, and the
+rest of the anti-slop stack — with two links, one of which had a copy-paste
+mismatch worth resolving in the open rather than silently guessing:
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| `https://github.com/ahmedkhaleel2004/gitdiagram` (anchor **text**) vs `https://github.com/emilkowalski/skills` (anchor **href**) | The pasted link's display text and its actual target pointed at two unrelated repos. Fetched both to resolve it rather than pick one blind: gitdiagram (MIT) turns a GitHub repo into an AI-generated architecture diagram — codebase comprehension, not design QA. emilkowalski/skills is Sonner/Vaul author's animation-craft skills — already fully harvested in the Third Harvest above (`axiom-design-core` Layer 6 motion rules). | **Flagged, not guessed.** emil's repo is almost certainly what was meant — it fits the design-slop theme and was already mid-integration. gitdiagram is real and well-built but orthogonal to this harvest; noted here rather than silently dropped, in case a future session wants it for `scripts/repo-map.sh` or [`diagram-design`](../skills/diagram-design/SKILL.md). Not adopted this round. |
+| Figma's official **Dev Mode MCP server** | Verified against Figma's own developer docs, not assumed: reads a Figma file's components, variables, and layout data directly into an MCP-connected agent; runs locally at `127.0.0.1:3845/mcp` from the desktop app; free during its current beta; Claude Code is a supported client. | **Wired in.** Cited accurately in [`reference/design-extractors.md`](../reference/design-extractors.md) with the distinction that matters: the existing extractor table studies *sites you don't own*; Figma MCP reads *your own team's spec*. The actual gap it fills: [`see-and-revise`](../skills/see-and-revise/SKILL.md)'s fidelity check, step 3b. |
+
+**What was actually missing** wasn't another tool to study — `pbakaus/impeccable`,
+`emilkowalski/skills`, and `taste-skill` were all already harvested in the Third
+Harvest above, each folded into `axiom-design-core`,
+`design-registers`, or `no-design-tells`. What had no home was the **loop**:
+screenshot a real change, look at it with vision, critique it against the
+vocabulary this repo already adopted from those three sources, revise, repeat —
+without a human's eyes in the middle. `browser-as-t` explicitly disclaims this
+("a single render screenshot... is not this list" — it owns behaviour, on
+purpose). `human-walkthrough` is pre-release and persona-driven, with a real
+human required for its first gate. Neither is the per-change appearance pass.
+New skill: [`see-and-revise`](../skills/see-and-revise/SKILL.md).
+
+**Sixth Harvest principle:** most of what looked like a research task was
+actually a discoverability task — the raw material (Impeccable's verbs, Emil's
+motion rules, taste-skill's scope boundary) was already sitting in three
+different skills, cited correctly, doing real work, and nothing connected them
+into an operational loop an agent would actually run. The steal map's job past a
+certain point in a repo's life is less "find new sources" and more "notice
+what's already been stolen twice and never assembled."
+
+---
+
 ## Explicit refusals (do not re-propose)
 
 - Wholesale Superpowers / Compound / gstack / Osmani / Vercel / Copilot installs
