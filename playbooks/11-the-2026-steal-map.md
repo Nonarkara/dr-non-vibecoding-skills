@@ -178,6 +178,23 @@ number worth remembering is the vendor's own smallest example, not their largest
 
 ---
 
+## What we studied — Seventh Harvest (2026-09): cross-CLI review automation
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| [chaseai-yt/claudex-loop](https://github.com/chaseai-yt/claudex-loop) (MIT) | A real, tested tool, not a pack: four skills sharing one 420-line stdlib-only Python runner that shells out to `claude` and `codex` CLIs for cross-provider plan review, build, and inspection. 23 unit tests against fake CLI processes plus a recorded live run (two real models, a seeded defect, both caught). Every approval is bound to a SHA256 of the plan file — a changed plan invalidates it automatically. Every inspection snapshots the diff (staged, unstaged, untracked, deleted) and re-checks it hasn't moved mid-review. The reviewer leg is *tool-permission sandboxed*, not just instructed: Claude gets `--tools Read,Glob,Grep` with an empty MCP config and no edit/shell access; Codex runs `sandbox_mode="read-only"`. Neither can approve its own code. | **Recommend the tool directly, for project work — steal the two ideas it does better than us, for this repo.** Not vendored here: it needs two full CLI accounts, which is a real runtime dependency this zero-dependency meta-repo doesn't carry, and it is someone else's actively-developed tool with its own release cadence. For the exact workflow it targets — two CLIs, one plan, one build, one inspection, in a single project repo — it is the honest answer to "I've been copy-pasting between agents by hand," and the install is one line: `/plugin marketplace add chaseai-yt/claudex-loop`. What we took for *this* repo: [`agent-relay`](../skills/agent-relay/SKILL.md) gained hash-bound verdicts (a `Relay-Reviewed` trailer citing a diff a leg never actually re-read is now a named anti-pattern with a check) and an explicit recommendation to use real tool-permission sandboxing for the cold-read leg wherever the harness supports it, instead of relying on instruction alone. agent-relay stays the broader tool: any number of agents, any vendor, across session and repo-history boundaries that claudex-loop doesn't address at all — the two are complements, not competitors, and a project that has both CLIs benefits from running claudex-loop's enforced two-party review *inside* one relay leg. |
+
+**Seventh Harvest principle:** the honest comparison is not "which one is better," it
+is "which one has teeth." claudex-loop's approval is a hash comparison a machine
+enforces; agent-relay's verdict is a sentence a leg is trusted to have earned
+honestly. Where the harness can enforce the discipline mechanically — sandboxed
+tools, a hash check — prefer enforcement to trust. Where it can't (a relay leg is
+often a different vendor's agent, launched separately, with no shared runner),
+the ledger and the mandatory verdict are the next best thing, and they are still
+better than nothing.
+
+---
+
 ## Explicit refusals (do not re-propose)
 
 - Wholesale Superpowers / Compound / gstack / Osmani / Vercel / Copilot installs

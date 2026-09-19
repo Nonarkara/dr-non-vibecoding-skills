@@ -119,3 +119,14 @@ has a verdict. Protocol: `skills/agent-relay/SKILL.md`. Tooling: `scripts/relay.
 - Landed: verified end to end: make test green at 167 skills (168 minus the removed duplicate), zero broken links, zero name/folder mismatches, bootstrap dry-run confirms 167
 - Open: 9 of the 37 renamed skills had frontmatter already saying the clean name while their folder still carried the suffix, predating this session -- root cause not chased down, but the fix (folder now matches frontmatter) resolves it regardless of how it got there
 - Closed: 2026-09-16T11:33:09Z
+
+## Leg 11 · claude · 2026-09-19T16:37:34Z · CLOSED
+- Scope: playbooks/11, skills/agent-relay, external-tools recommendation
+- Note: same agent as leg 10 — self-review, decorrelation lost
+- Verdict on leg 10: confirm — leg 10's book-skill renames still hold; make test green
+- Landed: studied chaseai-yt/claudex-loop in full (README, SKILL.md, 420-line runner.py, runtime.md, VALIDATION.md, 23 tests) — real, MIT, tested, rigorous: SHA256 plan/diff hash-binding invalidates stale approvals automatically; reviewer leg is tool-permission sandboxed (Claude: Read/Glob/Grep only, empty MCP config; Codex: read-only sandbox_mode), not just instructed to read cold
+- Landed: playbooks/11 Seventh Harvest entry: recommend the tool directly for project work (one plugin-install line, solves the user's stated manual-copy-paste workflow today) rather than vendoring it into this zero-dependency meta-repo (needs two full CLI accounts — a real runtime dependency this repo doesn't carry, and it's someone else's actively-developed tool)
+- Landed: ported the two ideas that are genuinely superior to agent-relay's honor-system discipline: hash-bound verdicts (a Relay-Reviewed trailer citing a diff a leg never re-read is now a named anti-pattern) and tool-sandboxing recommendation for the cold-read leg where the harness supports it
+- Landed: scripts/relay.sh check now warns (not hard-fails) on any verdict citing a commit hash that is no longer an ancestor of HEAD — tested against a real diverged branch (warns correctly) and a real ancestor (silent, correctly)
+- Open: the hash-staleness check is a warning, not a gate — deliberately, since retrofitting hash citation onto ~40 existing verdict lines in this repo's own ledger was out of scope for this leg and would be pure churn against already-closed legs
+- Closed: 2026-09-19T16:39:20Z
