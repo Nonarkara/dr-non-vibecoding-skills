@@ -12,11 +12,11 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **160 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **169 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
-- **13 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, and the Strix pentest boundary.
+- **14 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, SEO/GEO connectors, and the Strix pentest boundary.
 - **17 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
@@ -65,7 +65,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 160 on every task.
+# the rules file that host actually reads; do not load all 168 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -148,6 +148,8 @@ Pick the skill that matches your problem:
 | (All agents) reporting work as "done" | `skills/result-honesty/SKILL.md` |
 | Impulse to patch the first plausible line | `skills/systematic-debugging/SKILL.md` |
 | UI "verified" with a screenshot | `skills/browser-as-t/SKILL.md` |
+| A layout/spacing/type/color/motion change needs a visual pass, not just a click-test | `skills/see-and-revise/SKILL.md` |
+| A site ranks in Google but needs to be found/cited by ChatGPT, Perplexity, Gemini, or AI Overviews | `skills/geo-citability/SKILL.md` |
 | Painful session, no lesson written | `skills/lesson-residue/SKILL.md` |
 | Same model about to LGTM its own diff | `skills/adversarial-review/SKILL.md` |
 | Watchdog/CI/deploy said OK and it wasn't | `skills/wrong-green/SKILL.md` |

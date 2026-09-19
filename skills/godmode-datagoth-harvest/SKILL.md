@@ -1,6 +1,10 @@
 ---
 name: godmode-datagoth-harvest
-description: Harvest data.go.th (Thailand's CKAN open-data portal) for every dataset naming a given city/province, and turn it into a data analytics page. Use when building a city's /data page or refreshing its data.go.th catalog.
+description: >-
+  Harvest data.go.th (Thailand's CKAN open-data portal) for every dataset
+  naming a city or province. Use when building or refreshing a city's data.go.th
+  data page.
+
 license: MIT
 ---
 

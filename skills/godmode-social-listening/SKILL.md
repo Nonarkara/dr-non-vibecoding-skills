@@ -1,6 +1,10 @@
 ---
 name: godmode-social-listening
-description: Scrape, tag, and display public mentions of a Thai city — news + RSS + GDELT, never authenticated social-platform scraping. Use when building a social-listening box for a city dashboard.
+description: >-
+  Scrape, tag, and display public mentions of a Thai city from news, RSS, and
+  GDELT — never authenticated scraping. Use when building a dashboard's
+  social-listening box.
+
 license: MIT
 ---
 

@@ -31,6 +31,17 @@ These download HTML/CSS/JS/images for offline viewing or as a starting template.
 
 The most useful here is **firecrawl** for AI-friendly structured data extraction; the others are more niche. HTTrack is reliable but old; deepclonewebsite is newer and less proven.
 
+## Figma Dev Mode MCP server — a different thing entirely
+
+Everything above reads a *public site you don't own* to study its patterns. Figma's
+official Dev Mode MCP server does the opposite: it reads *your own team's Figma
+file* — components, variables, layout data — directly into an MCP-connected
+agent, and can generate code from a selected frame. Real, official, runs locally
+at `http://127.0.0.1:3845/mcp` from the Figma desktop app in Dev Mode, free during
+its beta period, supported in Claude Code. Don't route a "study this competitor"
+task here — that's the table above. Route "does my build match our own spec" here
+— see [`see-and-revise`](../skills/see-and-revise/SKILL.md).
+
 ## What none of them do
 
 Tools see what the browser renders: DOM, computed styles, public assets, network calls visible in DevTools. They **cannot** access server-side code, databases, private APIs, authentication logic, or proprietary algorithms. AI-assisted tools (deepclonewebsite and similar) may *infer* possible data models or API shapes from frontend patterns, but these are educated guesses, not accurate reverse-engineering.

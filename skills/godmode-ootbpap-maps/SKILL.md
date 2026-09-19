@@ -1,6 +1,10 @@
 ---
 name: godmode-ootbpap-maps
-description: Wire up maps, satellite imagery, and free basemap APIs for a Thai city out of the box. Use when adding map/satellite layers to a city dashboard or choosing a basemap fallback chain.
+description: >-
+  Wire maps, satellite imagery, and free basemap APIs for a Thai city out of
+  the box. Use when adding map or satellite layers, or choosing a basemap
+  fallback chain.
+
 license: MIT
 ---
 
