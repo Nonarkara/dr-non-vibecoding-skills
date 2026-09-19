@@ -10,6 +10,8 @@ license: MIT
 
 > Don't build what the client asks for. Find the pain people have stopped noticing, and heal it.
 
+Framing a lived problem is exactly the moment [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md)'s people and business clusters are built for — before the MVP is scoped, not after.
+
 This is the full methodology — from "why should this exist?" to "it's live and verified." Every other skill in this repo plugs into this spine.
 
 ---

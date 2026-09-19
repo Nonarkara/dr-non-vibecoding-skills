@@ -152,7 +152,7 @@ The fork was self-sustaining but not yet whole. The user's own scenarios named t
 
 | Scenario | Already covered | New, with receipt |
 |---|---|---|
-| RAG assistant on Telegram / Line / WhatsApp | `simple-rag` retrieval, `local-ai-fabric` Telegram memory | **New skill [`messaging-gateway`](../skills/messaging-gateway/SKILL.md).** One loop for all three apps; Telegram polling first, Line second for Thailand, WhatsApp last; citations in every reply; dual-write硬化 write path. |
+| RAG assistant on Telegram / Line / WhatsApp | `simple-rag` retrieval, `local-ai-fabric` Telegram memory | **New skill [`messaging-gateway`](../skills/messaging-gateway/SKILL.md).** One loop for all three apps; Telegram polling first, Line second for Thailand, WhatsApp last; citations in every reply; hardened dual-write path. |
 | Home CCTV into one platform | `itic-cctv-integration` honesty tiers (public cameras) | **New skill [`home-cctv-grid`](../skills/home-cctv-grid/SKILL.md).** Same three degrees (stream/snapshot/pin) for RTSP/ONVIF via go2rtc; local disk; calm offline tiles. |
 | Satellite change over time from NASA | `free-apis.md` FIRMS/EONET rows, `data-catalog` adapter rule | **New skill [`satellite-change-watch`](../skills/satellite-change-watch/SKILL.md).** Dated time-stacks, slider before CV, honest latency on every view. |
 | Hosting / payments / voice for a solo business | `deploy-pages.sh` (Cloudflare), `voice-clone-podcast` (local TTS) | **New references [`hosting-matrix.md`](../reference/hosting-matrix.md)** (Pages vs Vercel vs Railway vs Render + minimal configs) and **[`payments-voice.md`](../reference/payments-voice.md)** (Stripe Checkout rules, ElevenLabs-vs-local decision). |
@@ -160,6 +160,38 @@ The fork was self-sustaining but not yet whole. The user's own scenarios named t
 | Complicated digital twin, front to backend to security | `map-3d-city`, `appsec-stack`, `always-on-services` in parts | **New playbook [13-the-digital-twin](13-the-digital-twin.md).** The composition: layers, build order, why it stays usable, the stranger-on-a-phone test. |
 
 **Fifth Harvest principle:** the whole stack is a composition of proven parts, not a new platform. Every scenario above resolves to skills that already exist plus one small honest procedure where the gap was real. If a scenario needs a sixth new skill, the scenario is probably two scenarios.
+
+---
+
+## What we studied — Sixth Harvest (2026-09): codebase knowledge graphs
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) (Apache-2.0) | Tree-sitter AST + call-graph parsing, zero LLM tokens for code; Leiden community detection; `GRAPH_REPORT.md` + `graph.json` read before an agent greps. Vendor's own worked examples: 71.5× on a 52-file code+papers+images corpus, 5.4× on 4 mixed files, ~1× on a 6-file plain Python library — not the 71× headline the blog posts repeat as if it were typical. | **The pattern, not the package.** Build a structural map once, route off it, stop re-scanning. Folded into [`route-dont-scan`](../skills/route-dont-scan/SKILL.md) as "Build the map once," backed by a new zero-dependency script, `scripts/repo-map.sh` (grep-pattern extraction, not an AST — the honest cheap version). **Refused** as a default dependency: this practice is plain markdown with zero runtime dependencies, and a third-party PyPI package plus a Claude-vision call for every doc/image/PDF is a real ongoing cost this repo does not need for code-only corpora. Named as the option when the map itself needs to be the deliverable, invoked as a CLI per [`mcp-cli-first`](../skills/mcp-cli-first/SKILL.md), never vendored. |
+
+**Sixth Harvest principle:** the incident that justified this one happened in this
+session, not in a marketing post — reconstructing "what changed, what overlaps"
+across a 167-skill, 850-file tree after a week away took a dozen scan-from-root
+calls that a ten-second, zero-token pre-build would have made unnecessary. The
+number worth remembering is the vendor's own smallest example, not their largest:
+71.5× is real, and it is not what a typical repo gets.
+
+---
+
+## What we studied — Seventh Harvest (2026-09): cross-CLI review automation
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| [chaseai-yt/claudex-loop](https://github.com/chaseai-yt/claudex-loop) (MIT) | A real, tested tool, not a pack: four skills sharing one 420-line stdlib-only Python runner that shells out to `claude` and `codex` CLIs for cross-provider plan review, build, and inspection. 23 unit tests against fake CLI processes plus a recorded live run (two real models, a seeded defect, both caught). Every approval is bound to a SHA256 of the plan file — a changed plan invalidates it automatically. Every inspection snapshots the diff (staged, unstaged, untracked, deleted) and re-checks it hasn't moved mid-review. The reviewer leg is *tool-permission sandboxed*, not just instructed: Claude gets `--tools Read,Glob,Grep` with an empty MCP config and no edit/shell access; Codex runs `sandbox_mode="read-only"`. Neither can approve its own code. | **Recommend the tool directly, for project work — steal the two ideas it does better than us, for this repo.** Not vendored here: it needs two full CLI accounts, which is a real runtime dependency this zero-dependency meta-repo doesn't carry, and it is someone else's actively-developed tool with its own release cadence. For the exact workflow it targets — two CLIs, one plan, one build, one inspection, in a single project repo — it is the honest answer to "I've been copy-pasting between agents by hand," and the install is one line: `/plugin marketplace add chaseai-yt/claudex-loop`. What we took for *this* repo: [`agent-relay`](../skills/agent-relay/SKILL.md) gained hash-bound verdicts (a `Relay-Reviewed` trailer citing a diff a leg never actually re-read is now a named anti-pattern with a check) and an explicit recommendation to use real tool-permission sandboxing for the cold-read leg wherever the harness supports it, instead of relying on instruction alone. agent-relay stays the broader tool: any number of agents, any vendor, across session and repo-history boundaries that claudex-loop doesn't address at all — the two are complements, not competitors, and a project that has both CLIs benefits from running claudex-loop's enforced two-party review *inside* one relay leg. |
+
+**Seventh Harvest principle:** the honest comparison is not "which one is better," it
+is "which one has teeth." claudex-loop's approval is a hash comparison a machine
+enforces; agent-relay's verdict is a sentence a leg is trusted to have earned
+honestly. Where the harness can enforce the discipline mechanically — sandboxed
+tools, a hash check — prefer enforcement to trust. Where it can't (a relay leg is
+often a different vendor's agent, launched separately, with no shared runner),
+the ledger and the mandatory verdict are the next best thing, and they are still
+better than nothing.
 
 ---
 
