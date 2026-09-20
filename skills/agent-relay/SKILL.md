@@ -114,6 +114,46 @@ Design is the exception. **Design gets one owner for the whole chain** — see [
 
 ---
 
+## Give the verdict teeth, when the harness allows it
+
+Everything above is discipline: a leg is *trusted* to have read the diff cold, *trusted*
+to have ruled honestly. Discipline is what you have when nothing can enforce the
+rule mechanically — which is the normal case for a relay, since legs are often
+different vendors' agents, launched separately, with no shared runner between
+them. But when two things ARE available, use them; enforcement beats trust every
+time it's on the table. (See [`playbooks/11`](../../playbooks/11-the-2026-steal-map.md)'s
+Seventh Harvest — [claudex-loop](https://github.com/chaseai-yt/claudex-loop) does
+both of these mechanically, for the narrower case of two specific CLIs reviewing
+one plan; the ideas generalize past that case, the tool doesn't need to.)
+
+**Hash-bind the verdict.** A `Relay-Reviewed` trailer citing a diff is a claim
+that the diff at that moment was read. If the branch moves and the trailer stays
+in the ledger unmarked, the next reader has no way to know the verdict is stale —
+and per [`route-dont-scan`](../route-dont-scan/SKILL.md)'s repo-map lesson, "the
+thing said it was checked" is exactly the kind of claim worth verifying rather
+than trusting. Record what was actually reviewed, not just that review happened:
+
+```bash
+git rev-parse HEAD > .relay-reviewed-at   # or: record the SHA in the verdict note itself
+relay.sh verdict confirm "reviewed at $(git rev-parse --short HEAD) — <finding>"
+```
+
+A verdict whose cited commit is not an ancestor of the current HEAD is not
+evidence about the current state of the repo. It's evidence about a repo that
+used to exist.
+
+**Sandbox the cold-read leg's tools, not just its instructions, when the harness
+supports it.** "Read the diff before the note" is an instruction an agent could,
+in principle, ignore or half-follow. Where your harness can enforce read-only —
+Claude Code's `--tools Read,Glob,Grep --strict-mcp-config` with an empty MCP
+config, or an equivalent flag on another CLI — a leg that opens with those flags
+cannot edit files or reach for a tool that lets it skip the reading. That
+converts "the leg is supposed to read cold" into "the leg is not capable of
+skipping the read," which is a stronger claim and worth the extra setup on any
+leg where the stakes justify it.
+
+---
+
 ## What travels, what does not
 
 | Travels through a commit | Dies at the handoff |
@@ -139,6 +179,7 @@ Everything in the right column must be **written down or deliberately dropped.**
 | Trusting leg 1's number because leg 2 did not flag it | Absence of a flag is not a check. Unverified inheritance compounds silently down the chain |
 | Relay for a one-file fix | A leg costs a cold read of the diff; small work goes to one agent per [`subagent-routing`](../subagent-routing/SKILL.md) |
 | Running legs until it feels done | The stop rule is zero corrections twice, not a feeling |
+| A `Relay-Reviewed` trailer citing a commit the branch has since moved past | The verdict was true once; it is not evidence about the current diff. Hash-bind it |
 
 ---
 

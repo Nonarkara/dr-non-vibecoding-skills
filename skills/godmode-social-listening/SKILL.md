@@ -4,7 +4,6 @@ description: >-
   Scrape, tag, and display public mentions of a Thai city from news, RSS, and
   GDELT — never authenticated scraping. Use when building a dashboard's
   social-listening box.
-
 license: MIT
 ---
 

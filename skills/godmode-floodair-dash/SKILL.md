@@ -4,7 +4,6 @@ description: >-
   Wire FloodDash (RID water class) and AirDash (AQI banding) for a Thai city
   into the coupling layer. Use when adding flood, water, or air modules to a
   city dashboard.
-
 license: MIT
 ---
 

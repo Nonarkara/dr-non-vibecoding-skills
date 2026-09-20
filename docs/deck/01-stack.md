@@ -4,7 +4,6 @@
 > Plain markdown · No runtime · Agent-agnostic
 
 **The system's secret is not the model.** It is the four shapes — **169 skills**, **16 playbooks**, **14 references**, **17 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
-
 ![STACK — the package at a glance](../../infographics/pages/page-01.png)
 
 ---
@@ -56,7 +55,6 @@ The two short captions on the page are the whole point of the deck:
 
 - **Taste + memory out of your head.** The reason the practice has a 12th template, a 6th design principle, an Axiom Design Core at all, is that the load-bearing judgment — *what is good, what is the right shape for this surface, what the user notices first* — has to be written down. If it lives only in your head, it dies with your attention, and the next session is a re-derivation.
 - **Repeated decisions = lookups.** The 169 skills are not 169 things to memorise. They are indexed lookups. The next time you face the decision "did the deploy actually reach the user," you do not solve the problem; you look up `deploy-verification` and read the recipe. The catalog is a router. The skill is the answer. The reference is the why.
-
 The collection is a **written operating system** because the alternative — re-deriving the same answers from first principles every session — is what kills the throughput of working with agents.
 
 ## What to do with this

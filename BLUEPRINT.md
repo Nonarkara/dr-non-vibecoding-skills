@@ -77,7 +77,6 @@ cp -r <path-to-cloned-repo>/skills/* ~/.agents/skills/   # Codex / ChatGPT deskt
 ```
 
 Confirm they're readable (`ls ~/.claude/skills | wc -l` → 169). These are the standing instructions for everything that follows — `ship-discipline`, `deploy-verification`, `agent-memory`, `shared-memory-hub` (Obsidian second brain via `obsidian-bridge` MCP), `always-on-services`, `data-catalog`, `axiom-design-core`, `design-dna`, `design-registers`, `no-design-tells` + `no-ai-tells`, `ninja-innovation`, `anti-regression`, `director-not-typer`, `risk-posture`, `dr-non-golden-rules`, `karpathy-guidelines`, `design-method`, `harness-hardening`, `codex-workbench`, `human-walkthrough` (Mama Rule + 3 personas before a major release), `power-of-hindsight` (Collect → Analyze → Reconstruct), `local-llm-ollama`, `simple-rag`, `obsidian-mcp-forge`, `improvement-radar`, `messaging-gateway`, `home-cctv-grid`, `satellite-change-watch`, `staff-swarm`, `google-cloud-run`, `stripe-checkout-billing`, `auth-entitlement` (identity joined to billing), `observability-budget` (what wakes you at 3 AM), `restore-drill` (a dated restore, not a green backup job), `agent-relay` (when more than one agent touches this repo).
-
 ### Step 3 — Workspace index (only if I said "many projects" in Step 1)
 
 Create `CLAUDE.md` at the workspace root from `templates/workspace-CLAUDE.md.template`

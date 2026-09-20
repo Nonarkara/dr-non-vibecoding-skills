@@ -4,7 +4,6 @@ description: >-
   Wire maps, satellite imagery, and free basemap APIs for a Thai city out of
   the box. Use when adding map or satellite layers, or choosing a basemap
   fallback chain.
-
 license: MIT
 ---
 

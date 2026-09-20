@@ -38,6 +38,52 @@ Write the active path into the workspace index (Tier 1) so this is a lookup, not
 
 ---
 
+## Build the map once (for repos routing can't shrink)
+
+Routing decides *where* to go once you already know the shape of the tree. Some
+trees are too big to hold that shape in your head — this practice's own skills
+repository crossed that line: 167 skills, ~850 files. Reconstructing "what
+changed, what overlaps" after a week away took a dozen `grep`/`find`/`git log`
+calls in one session, each one a fresh scan the previous one should have made
+unnecessary.
+
+The fix is a persistent artifact, not a better memory: build a structural map
+**once**, at zero LLM cost, and route off it instead of re-discovering the tree
+every session.
+
+```bash
+scripts/repo-map.sh .              # writes REPO_MAP.md — ~10s on this repo, 850 files
+```
+
+It gives three things a blind scan cannot, without opening a single file's
+contents: a pruned directory tree, a **god-files** list (which files everything
+else assumes you've read — computed by counting cross-references, not by
+guessing), and a **symbols index** (top-level declarations per file, grep-pattern
+extraction — good enough to answer "which file defines X" before opening
+anything). Regenerate after a structural change; it does not watch.
+
+**This is the cheap version, and say so.** It is grep patterns matching
+declaration keywords, not an AST — a match inside a string is a false positive,
+a nested declaration is invisible, and it cannot trace what calls what. For a
+real call graph, the honest upgrade is [graphify](https://github.com/Graphify-Labs/graphify)
+(Apache-2.0): tree-sitter AST parsing, zero LLM tokens for code, Leiden community
+detection for the god-nodes/wiki view. Its own worked examples, not the marketing
+average, are the number worth citing: **71.5× fewer tokens on a 52-file corpus of
+code + papers + images, 5.4× on 4 mixed files, ~1× on a 6-file plain Python
+library** — the payoff scales with corpus size and how much of it is prose and
+images, not code. A single-purpose app repo may see close to nothing; a 20-project
+workspace or a repo like this one is exactly where it pays.
+
+**Fork the method, not the pack**, per
+[`playbooks/11-the-2026-steal-map.md`](../../playbooks/11-the-2026-steal-map.md):
+`scripts/repo-map.sh` is the zero-dependency default, shipped and tested against
+this repo. Reach for `graphify` as an optional CLI, invoked per
+[`mcp-cli-first`](../mcp-cli-first/SKILL.md)'s tiering, when the map itself needs
+to be the deliverable — not as a default dependency of this stack. Neither one
+is a substitute for reading the diff: the map tells you where to look, never what
+the code currently does. That check still happens per file, every time, per
+[`agent-relay`](../agent-relay/SKILL.md)'s cold-read rule.
+
 ## The secrets exception
 
 If a path looks like `.secrets-backup/`, `.env`, `credentials.json`, or a vault folder that holds keys: **do not echo values**, even truncated. Point at the Keychain / env var name. `reference/security-hygiene.md` is the discipline. Routing into a secrets directory is not curiosity. It is a leak.
@@ -52,6 +98,7 @@ If a path looks like `.secrets-backup/`, `.env`, `credentials.json`, or a vault 
 | "How does this project's deploy work?" | Read that project's `CLAUDE.md` / `scripts/`. |
 | "What is live?" | The workspace index table, then the project's health curl. |
 | "Audit every repo for X" | Now a cross-project operation. Say so. Then fan out with a brief, not a blind recursive grep from root. |
+| "What does this 850-file repo look like" | Consult `REPO_MAP.md` if one exists; if not, build it once with `scripts/repo-map.sh`. Not a tree walk. |
 
 A needle query dispatched as a workspace-wide explore is the same waste as scanning for a one-file question. `subagent-routing` decides *whether* to dispatch. This skill decides *where the work is*.
 

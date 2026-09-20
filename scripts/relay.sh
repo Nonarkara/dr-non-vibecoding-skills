@@ -205,7 +205,32 @@ cmd_check() {
   else
     echo "relay: ledger OK"
   fi
+  check_hash_staleness
   return "$errors"
+}
+
+# Warn (never fail the gate) on any verdict citing a commit hash that is no
+# longer an ancestor of HEAD — a verdict that was true once, about a diff the
+# branch has since moved past. See skills/agent-relay/SKILL.md "Give the
+# verdict teeth". Soft on purpose: not every verdict cites a hash yet, and a
+# repo this ran in but is no longer the working tree for is a false positive
+# we cannot rule out from the ledger text alone.
+check_hash_staleness() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 0
+  local stale=0
+  while IFS= read -r line; do
+    [ -n "$line" ] || continue
+    local hash; hash="$(echo "$line" | grep -oE '\b[0-9a-f]{7,40}\b' | head -1 || true)"
+    [ -n "$hash" ] || continue
+    git cat-file -e "${hash}^{commit}" 2>/dev/null || continue
+    if git merge-base --is-ancestor "$hash" HEAD 2>/dev/null; then
+      continue
+    fi
+    echo "relay: WARNING — verdict cites $hash, which is not an ancestor of HEAD (branch moved past it): $line" >&2
+    stale=$((stale + 1))
+  done < <(grep -E '^- Verdict on leg ' "$LEDGER" 2>/dev/null)
+  [ "$stale" -gt 0 ] && echo "relay: $stale verdict(s) cite a commit the branch has since moved past — see skills/agent-relay/SKILL.md" >&2
+  return 0
 }
 
 case "${1:-}" in

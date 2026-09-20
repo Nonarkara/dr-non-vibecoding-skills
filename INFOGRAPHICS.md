@@ -20,7 +20,6 @@ Every page cites its source file at the bottom. If a page says something that is
 
 ### The repo is a working operating system *(page 2)*
 4 artifact types → skills in `skills/` → one agent practice. (This slide was drawn when the tree had 25 skills; the live count is the README badges: **169 skills** · **16 playbooks** · **14 references** · **17 templates**. The one-liner is `./setup.sh --become-builder`.)
-
 <img src="infographics/pages/page-02.png" width="820" alt="System 01 — the repo is a working operating system">
 
 *Source: [`README.md`](README.md)*

@@ -4,7 +4,6 @@ description: >-
   Harvest data.go.th (Thailand's CKAN open-data portal) for every dataset
   naming a city or province. Use when building or refreshing a city's data.go.th
   data page.
-
 license: MIT
 ---
 

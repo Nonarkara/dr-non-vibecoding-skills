@@ -146,7 +146,7 @@ A clean pass that faithfully applies §1 still reads as generic unless it adds s
 
 ## §4 — Positive replacement, universal register (what to do instead)
 
-Killing tells isn't enough — replace them with an actual discipline, not silence:
+Killing tells isn't enough — replace them with an actual discipline, not silence: For prose that needs more than tell-removal — genuine clarity, a sentence that sticks, a register decision — [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md)'s writing cluster (Williams, Pinker, Heath brothers) is the deeper reference; this section is the floor, not the ceiling.
 
 1. **Know your audience.** A dashboard operator scanning at arm's length needs a different sentence than a client reading a proposal. Write for the actual reader, not a generic "user."
 2. **Say only what needs to be said.** Cut the sentence that restates what the UI already shows. No "summary of summary," no acknowledgment preambles, no recap of the user's own question.
