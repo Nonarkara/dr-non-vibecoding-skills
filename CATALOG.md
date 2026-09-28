@@ -111,6 +111,11 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`code-slop-patterns`](skills/code-slop-patterns/SKILL.md) | Catch AI-generated code patterns — dead code, swallowed exceptions, unsafe `as any`, hallucinated imports, TODO stubs. Use as pre-commit/CI gate or when reviewing AI-assisted PRs. |
 | [`pr-slop-patterns`](skills/pr-slop-patterns/SKILL.md) | Catch AI-generated PR slop before merge — vague titles, missing descriptions, empty commits, single-line diffs as features. Use as PR-quality gate in CI. |
 | [`slop-detect-stack`](skills/slop-detect-stack/SKILL.md) | Orchestrator for the four-layer anti-slop stack — code, PR, prose, UI. Use before shipping AI output or when setting up pre-commit/CI/PR gates for AI-assisted work. |
+| [`framework-choice`](skills/framework-choice/SKILL.md) | Greenfield agent work or choosing between LangGraph, CrewAI, AutoGen, Agno, LlamaIndex — pick the smallest framework that ships |
+| [`plan-and-execute`](skills/plan-and-execute/SKILL.md) | A task has 3+ ordered steps, dependencies between them, or any step can fail — make the agent plan, execute, replan |
+| [`reflection-loop`](skills/reflection-loop/SKILL.md) | Output quality matters and a rubric exists — make the agent critique and revise its own output before shipping |
+| [`rag-patterns`](skills/rag-patterns/SKILL.md) | simple-rag plateaus and the next move is unclear — pick Naive, Adaptive, Agentic, CRAG, or Self-RAG by failure mode |
+| [`agent-attack-surface`](skills/agent-attack-surface/SKILL.md) | Shipping an agent with memory, tools, or untrusted input — defend against OWASP ASI-Top-10 (memory poisoning, prompt injection, tool abuse) |
 
 ## Design and visual systems
 
