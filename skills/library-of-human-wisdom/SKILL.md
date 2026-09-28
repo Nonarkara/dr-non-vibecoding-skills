@@ -84,7 +84,7 @@ Norman says "make it discoverable"; Maeda says "reduce features." Both right. Pu
 
 ### 4. The Dr Non books are meta-tools, not domain books
 
-`non-writing-the-editor-brain-skill-ri1czx`, `solo-scribble-the-discipline-of-unedited-drafting-egka8o`, the `100-days-of-writing-*` series, `design-by-writing-100-day-reflection-engine`, `self-managed-project-mastery-100-days-of-writing-1e5bhwu`, `repetition-mantra-building-skill-through-simple-repeats-4as3as`, and `boilerplate-reduction` are *about the practice of producing under agents*. They sit beside this skill, not inside any single cluster. Load them when you are stuck on *how to write*, not on what to write.
+`non-writing-the-editor-brain-skill`, `solo-scribble-the-discipline-of-unedited-drafting`, the `100-days-of-writing-*` series, `design-by-writing-100-day-reflection-engine`, `self-managed-project-mastery-100-days-of-writing`, `repetition-mantra-building-skill-through-simple-repeats`, and `boilerplate-reduction` are *about the practice of producing under agents*. They sit beside this skill, not inside any single cluster. Load them when you are stuck on *how to write*, not on what to write.
 
 ---
 

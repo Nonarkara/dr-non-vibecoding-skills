@@ -22,6 +22,55 @@ No verdict without a behaviour change. Stars, demos, and threads are signals to 
 
 ---
 
+## Steal and improve — the practice this skill automates
+
+The weekly procedure below is the schedule. This is the judgment underneath it, kept
+close to verbatim because it is the operational core, the same way `staff-swarm`
+keeps its founding mental model in the author's own words:
+
+> "When I see interesting GitHub repos, I ask Claude or any agents to study them
+> first. When it fits with our stack, I just bring them in. If I can't bring them
+> in directly, I bring the ideas of them in — steal the idea and improve the
+> codebase based on the languages of the computation that we use. Sometimes I
+> just use the same techniques to get things that are in the public domain, like
+> cameras and other things that I can grab easily, and put them into the
+> projects."
+
+Three branches, one instinct — study first, then decide which of these applies:
+
+| Branch | When | What happens |
+|---|---|---|
+| **Bring it in directly** | It fits the stack as-is, and the licence permits it | Vendor the dependency or the file. Attribution stays intact; see [`reference/commit-conventions.md`](../../reference/commit-conventions.md). This is routine in **project** repos built with this practice. |
+| **Steal the idea, reimplement** | The source is a different language or stack, or the fit is close but not exact | Port the *technique*, not the file. Reimplement in the target project's own language and idioms — a Python rate-limiter's algorithm becomes a Bash one; a React state-machine pattern becomes a Svelte store. The algorithm crosses the boundary; the code does not. |
+| **Same technique, applied to data instead of code** | The target isn't a repo at all — a public camera feed, a government open-data portal, a satellite archive | The reconnaissance instinct is identical: find it, read what it actually offers, decide fit, integrate. See [`deep-scraping`](../deep-scraping/SKILL.md) (the technique), [`data-catalog`](../data-catalog/SKILL.md) (record it once), [`free-apis.md`](../../reference/free-apis.md), [`home-cctv-grid`](../home-cctv-grid/SKILL.md), and [`satellite-change-watch`](../satellite-change-watch/SKILL.md) (the instances). |
+
+**This meta-repo is the one place all three branches narrow to one.** A curated
+skill collection cannot vendor other people's `SKILL.md` packs wholesale —
+[`skill-writing`](../skill-writing/SKILL.md) and
+[`playbooks/11-the-2026-steal-map.md`](../../playbooks/11-the-2026-steal-map.md)
+hold that line deliberately, and it is the *reimplement* branch every time here.
+Do not read that as the general rule. In an actual project — a dashboard, a
+control tower, a scraper — "bring it in directly" is the default when it fits,
+and reimplementation is the fallback, not the other way around. Confusing the
+meta-repo's stricter local rule with the general practice is the single most
+likely way an agent misreads this skill.
+
+**Data is available; the insight is in the layering, not the invention.** The
+second half of the same instinct, in the author's words:
+
+> "Data is available. It is just that the person understands how to layer
+> different datasets that sometimes look like they're not remotely related to
+> each other, and then realizes that there are insights that you can see from
+> there. That is usually the reason why and how a lot of people came up with
+> interesting projects, ideas, and products, rather than just trying to invent
+> things from scratch."
+
+That is a distinct skill from this one — studying and porting *technique* is not
+the same move as combining *existing public data* for a new reading. See
+[`couple-dont-silo`](../couple-dont-silo/SKILL.md).
+
+---
+
 ## The procedure — weekly, 30 minutes, automated fetch + human verdict
 
 ### 1. Sources (small fixed list — never the whole internet)
@@ -33,7 +82,7 @@ No verdict without a behaviour change. Stars, demos, and threads are signals to 
 | Release notes of the 10 tools you run | RSS (`reference/free-apis.md` pattern) | Upstream drift that breaks adapters |
 | The 5 repos you already stole from | `gh release list` | v2/v3 rewrites are the highest-yield reads |
 
-Four sources. A fifth is added only when a month passes with zero verdicts from the current four — the list is load-bearing, not decorative.
+Four sources. A fifth is added only when a month passes with zero verdicts from the current four — the list is load-bearing, not decorative. Open-data discovery (a public camera feed, a government portal) is deliberately **not** a fifth row here — it runs on project need, not a weekly clock, and belongs to the branch table above, not this cadence.
 
 ### 2. Score — behaviour change or it is noise
 

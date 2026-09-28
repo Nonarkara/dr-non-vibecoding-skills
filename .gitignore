@@ -3,3 +3,6 @@
 node_modules/
 *.log
 data/
+
+# repo-map.sh output — derived, regenerate on demand, never commit
+REPO_MAP.md

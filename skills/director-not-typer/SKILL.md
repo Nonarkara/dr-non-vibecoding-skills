@@ -18,6 +18,8 @@ Get the split wrong and you burn the director's attention on decisions they cann
 
 ## Who holds what
 
+The human side of this table is exactly where [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md) earns its place: taste, tone, and "is this humane" are not mechanical questions an agent resolves by pattern-matching alone — they are the questions the library's decision and people clusters exist to inform before the agent guesses.
+
 | Human holds | Agent holds |
 |---|---|
 | Taste, tone, names, dates, people | Libraries, file layout, boot behavior |

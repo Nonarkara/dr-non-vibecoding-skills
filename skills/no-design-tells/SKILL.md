@@ -184,6 +184,8 @@ A widely-circulated anti-slop prompt advises *"prefer atmosphere — subtle text
 
 These are mechanical checks. Run them before the Delivery Gate; a fail blocks ship regardless of purpose.
 
+These gates are written to be checked against code and computed values. For the loop that checks a *rendered* screenshot with vision — the same gates, plus everything that only shows up once a human (or an agent's eyes) actually looks at the page — see [`see-and-revise`](../see-and-revise/SKILL.md).
+
 - **Eyebrow restraint (taste):** max **1 eyebrow per 3 sections** (eyebrow = small uppercase wide-tracking label above a headline, e.g. `text-[11px] uppercase tracking-[0.18em]`). Count `uppercase tracking` across sections; if > `ceil(sectionCount/3)` → FAIL.
 - **Hero viewport (taste):** headline max 2 lines desktop, subtext max 20 words and 3–4 lines, total hero text elements max 4 (eyebrow + headline + subtext + 1–2 CTAs). CTA text single line; two CTAs with same intent (e.g. "Get in touch" + "Contact us") → one label only. Hero must fit initial viewport (`min-h-[100dvh]`, not `h-screen`; top padding ≤ `pt-24`). FAIL if overflow forces scroll to CTA.
 - **Navigation:** single line on desktop (≥1024px), height ≤80px (default 64–72px). Every nav item has a real destination; links to nowhere are Hard Gate FAIL.

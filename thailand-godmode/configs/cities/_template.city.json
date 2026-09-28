@@ -1,0 +1,34 @@
+{
+  "slug": "REPLACE-ME",
+  "nameTh": "REPLACE-ME",
+  "nameEn": "Replace Me",
+  "aliases": [],
+  "region": "central",
+  "center": { "lon": 100.5, "lat": 13.75, "zoom": 10 },
+  "isCoastal": false,
+  "dataGoThQueries": [],
+  "hydrology": {
+    "stations": [],
+    "dams": [],
+    "downstream": []
+  },
+  "airQuality": {
+    "stations": []
+  },
+  "geometry": {
+    "corridors": [],
+    "marinePoints": []
+  },
+  "cctv": {
+    "bbox": [100.0, 13.5, 101.0, 14.0]
+  },
+  "socialListening": {
+    "keywords": [],
+    "rssFeeds": []
+  },
+  "brandPalette": {
+    "cool": "#12428f",
+    "sun": "#7a5800",
+    "streetAccents": []
+  }
+}

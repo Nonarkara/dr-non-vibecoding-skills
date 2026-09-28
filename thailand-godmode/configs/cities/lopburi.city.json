@@ -1,0 +1,66 @@
+{
+  "slug": "lopburi",
+  "nameTh": "ลพบุรี",
+  "nameEn": "Lopburi",
+  "aliases": ["Lop Buri", "เมืองลพบุรี", "ลพบุรี province"],
+  "region": "central",
+  "center": { "lon": 100.61, "lat": 14.8, "zoom": 10.5 },
+  "isCoastal": false,
+  "dataGoThQueries": ["ลพบุรี", "Lopburi", "Lop Buri"],
+  "hydrology": {
+    "stations": [
+      {
+        "id": "example-pasak-upstream",
+        "nameTh": "สถานีตัวอย่าง เขื่อนป่าสักชลสิทธิ์",
+        "nameEn": "Example — Pa Sak Jolasid Dam",
+        "bankLevelMsl": 0,
+        "expectedIntervalMin": 1440
+      }
+    ],
+    "dams": [
+      {
+        "id": "pasak-jolasid",
+        "nameTh": "เขื่อนป่าสักชลสิทธิ์",
+        "nameEn": "Pa Sak Jolasid Dam",
+        "deadStorageMcm": 14.64
+      }
+    ],
+    "downstream": [
+      {
+        "districtTh": "อ.พัฒนานิคม",
+        "districtEn": "Phatthana Nikhom",
+        "fromStationId": "pasak-jolasid",
+        "travelTimeHours": 6
+      }
+    ]
+  },
+  "airQuality": {
+    "stations": []
+  },
+  "geometry": {
+    "corridors": [
+      {
+        "id": "old-town",
+        "labelTh": "เมืองเก่าลพบุรี",
+        "labelEn": "Lopburi Old Town",
+        "aliases": ["เมืองเก่า", "old town", "phra prang sam yot"],
+        "center": [100.6156, 14.7995],
+        "zoom": 13,
+        "defaultActionTh": "ตรวจสอบการเข้าถึงเมืองเก่าและการจัดการฝูงลิง"
+      }
+    ],
+    "marinePoints": []
+  },
+  "cctv": {
+    "bbox": [100.3, 14.4, 101.1, 15.3]
+  },
+  "socialListening": {
+    "keywords": ["ลพบุรี", "Lopburi", "Lop Buri", "เขื่อนป่าสักชลสิทธิ์", "พระปรางค์สามยอด"],
+    "rssFeeds": []
+  },
+  "brandPalette": {
+    "cool": "#12428f",
+    "sun": "#7a5800",
+    "streetAccents": ["#a8324a", "#0b6564", "#6b3fa0", "#9c5217"]
+  }
+}

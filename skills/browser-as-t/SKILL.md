@@ -31,7 +31,7 @@ Then T is:
 4. Hunt regressions. The usual failure is "works on the page I edited, broken on the one that reads the same store."
 5. If layout changed, hit-test at **1280 / 768 / 375**. Overlap, clipped type, unreachable controls.
 
-A single render screenshot of the happy path is **not** this list.
+A single render screenshot of the happy path is **not** this list. For the appearance pass a screenshot *does* earn — spacing, type, color, motion, checked with vision against the design system — see [`see-and-revise`](../see-and-revise/SKILL.md). Run both; neither replaces the other.
 
 ---
 

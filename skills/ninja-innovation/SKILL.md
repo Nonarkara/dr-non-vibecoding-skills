@@ -100,6 +100,10 @@ Demonstrate the value first. Talk about it second. Don't add a "🔥 NEW!" badge
 
 ---
 
+## Human wisdom, before the ninja move
+
+Reframing, subtracting, and reusing are mechanical moves. Whether the simplified result still serves the human who has to use it is a separate question — see [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md)'s design cluster (Norman, Maeda) before shipping a "simpler" version that quietly removed the thing that made it usable.
+
 ## The Decision Test (for any tool / dashboard / form)
 
 When designing a tool that helps a user *decide* something, ask:

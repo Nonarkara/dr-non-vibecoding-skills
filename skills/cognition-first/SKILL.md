@@ -8,7 +8,7 @@ license: MIT
 
 > Sources: Daniel Kahneman, *Thinking, Fast and Slow* (2011) · Daniel Pink, *Drive* (2009).
 
-Every user is a human, not an economic abstraction: not perfectly rational, not infinitely patient, and always affected by how a choice is framed. These two books cover how people *decide* and what makes them *keep going*.
+Every user is a human, not an economic abstraction: not perfectly rational, not infinitely patient, and always affected by how a choice is framed. These two books cover how people *decide* and what makes them *keep going*. When the decision needs more than these two — a business-model call, a framing choice, an incentive design — the fuller set is in [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md)'s decision cluster.
 
 ---
 

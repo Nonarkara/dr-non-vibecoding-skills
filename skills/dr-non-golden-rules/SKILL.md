@@ -14,6 +14,10 @@ license: MIT
 
 ---
 
+## Human wisdom, before the rule
+
+These fifteen rules are mechanics — what to build, in what order. They are not the same question as "would a human find this decision wise." When a rule below and a live judgment call diverge — the incentive looks right on paper but feels manipulative, the modular split is clean but the result feels cold — consult [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md)'s decision cluster before defaulting to the mechanical answer.
+
 ## Authority boundary
 
 These rules choose a path inside the user's authorized scope. They do not authorize spending,

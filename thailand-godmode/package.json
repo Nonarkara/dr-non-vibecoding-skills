@@ -1,0 +1,17 @@
+{
+  "name": "dr-non-thailand-godmode",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Private trade-secret toolkit: OOTBPAP skills, playbooks, and code to stand up a zero-baht God Mode dashboard for any city in Thailand.",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "scripts": {
+    "new-city": "node scripts/new-city.mjs",
+    "fetch-datagoth": "node scripts/fetch-datagoth.mjs",
+    "typecheck": "tsc -b --noEmit",
+    "test": "node --test scripts/test-cook.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}

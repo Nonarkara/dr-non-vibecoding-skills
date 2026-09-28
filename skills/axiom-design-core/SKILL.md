@@ -16,6 +16,10 @@ Named for Axiom, the practice this grew out of. `design-dna` is the contract —
 
 ---
 
+## Checking a build against this ladder
+
+This file states what good looks like. It does not itself look at anything — for the loop that screenshots a real change, checks it against these layers with vision, and revises before a human ever sees it, see [`see-and-revise`](../see-and-revise/SKILL.md).
+
 ## The stack of reasons
 
 ```mermaid
@@ -51,7 +55,7 @@ Other lineages that hold up the same way: Vignelli's modular grid + route-color 
 
 ## Layer 2 — Borrow psychology on purpose
 
-Every non-decorative choice traces to a named mechanism, not a hunch:
+Every non-decorative choice traces to a named mechanism, not a hunch. The table below is the compressed version; the full set of source books is [`library-of-human-wisdom`](../library-of-human-wisdom/SKILL.md)'s design cluster — Norman × 2, Alexander, Maeda, Kelley × 4, IDEO × 4.
 
 | Mechanism | What it does | Where it shows up |
 |---|---|---|

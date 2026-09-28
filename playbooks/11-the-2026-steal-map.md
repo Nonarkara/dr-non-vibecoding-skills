@@ -152,7 +152,7 @@ The fork was self-sustaining but not yet whole. The user's own scenarios named t
 
 | Scenario | Already covered | New, with receipt |
 |---|---|---|
-| RAG assistant on Telegram / Line / WhatsApp | `simple-rag` retrieval, `local-ai-fabric` Telegram memory | **New skill [`messaging-gateway`](../skills/messaging-gateway/SKILL.md).** One loop for all three apps; Telegram polling first, Line second for Thailand, WhatsApp last; citations in every reply; dual-write硬化 write path. |
+| RAG assistant on Telegram / Line / WhatsApp | `simple-rag` retrieval, `local-ai-fabric` Telegram memory | **New skill [`messaging-gateway`](../skills/messaging-gateway/SKILL.md).** One loop for all three apps; Telegram polling first, Line second for Thailand, WhatsApp last; citations in every reply; hardened dual-write path. |
 | Home CCTV into one platform | `itic-cctv-integration` honesty tiers (public cameras) | **New skill [`home-cctv-grid`](../skills/home-cctv-grid/SKILL.md).** Same three degrees (stream/snapshot/pin) for RTSP/ONVIF via go2rtc; local disk; calm offline tiles. |
 | Satellite change over time from NASA | `free-apis.md` FIRMS/EONET rows, `data-catalog` adapter rule | **New skill [`satellite-change-watch`](../skills/satellite-change-watch/SKILL.md).** Dated time-stacks, slider before CV, honest latency on every view. |
 | Hosting / payments / voice for a solo business | `deploy-pages.sh` (Cloudflare), `voice-clone-podcast` (local TTS) | **New references [`hosting-matrix.md`](../reference/hosting-matrix.md)** (Pages vs Vercel vs Railway vs Render + minimal configs) and **[`payments-voice.md`](../reference/payments-voice.md)** (Stripe Checkout rules, ElevenLabs-vs-local decision). |
@@ -160,6 +160,103 @@ The fork was self-sustaining but not yet whole. The user's own scenarios named t
 | Complicated digital twin, front to backend to security | `map-3d-city`, `appsec-stack`, `always-on-services` in parts | **New playbook [13-the-digital-twin](13-the-digital-twin.md).** The composition: layers, build order, why it stays usable, the stranger-on-a-phone test. |
 
 **Fifth Harvest principle:** the whole stack is a composition of proven parts, not a new platform. Every scenario above resolves to skills that already exist plus one small honest procedure where the gap was real. If a scenario needs a sixth new skill, the scenario is probably two scenarios.
+
+---
+
+## What we studied — Sixth Harvest (2026-09): codebase knowledge graphs
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) (Apache-2.0) | Tree-sitter AST + call-graph parsing, zero LLM tokens for code; Leiden community detection; `GRAPH_REPORT.md` + `graph.json` read before an agent greps. Vendor's own worked examples: 71.5× on a 52-file code+papers+images corpus, 5.4× on 4 mixed files, ~1× on a 6-file plain Python library — not the 71× headline the blog posts repeat as if it were typical. | **The pattern, not the package.** Build a structural map once, route off it, stop re-scanning. Folded into [`route-dont-scan`](../skills/route-dont-scan/SKILL.md) as "Build the map once," backed by a new zero-dependency script, `scripts/repo-map.sh` (grep-pattern extraction, not an AST — the honest cheap version). **Refused** as a default dependency: this practice is plain markdown with zero runtime dependencies, and a third-party PyPI package plus a Claude-vision call for every doc/image/PDF is a real ongoing cost this repo does not need for code-only corpora. Named as the option when the map itself needs to be the deliverable, invoked as a CLI per [`mcp-cli-first`](../skills/mcp-cli-first/SKILL.md), never vendored. |
+
+**Sixth Harvest principle:** the incident that justified this one happened in this
+session, not in a marketing post — reconstructing "what changed, what overlaps"
+across a 167-skill, 850-file tree after a week away took a dozen scan-from-root
+calls that a ten-second, zero-token pre-build would have made unnecessary. The
+number worth remembering is the vendor's own smallest example, not their largest:
+71.5× is real, and it is not what a typical repo gets.
+
+---
+
+## What we studied — Seventh Harvest (2026-09): cross-CLI review automation
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| [chaseai-yt/claudex-loop](https://github.com/chaseai-yt/claudex-loop) (MIT) | A real, tested tool, not a pack: four skills sharing one 420-line stdlib-only Python runner that shells out to `claude` and `codex` CLIs for cross-provider plan review, build, and inspection. 23 unit tests against fake CLI processes plus a recorded live run (two real models, a seeded defect, both caught). Every approval is bound to a SHA256 of the plan file — a changed plan invalidates it automatically. Every inspection snapshots the diff (staged, unstaged, untracked, deleted) and re-checks it hasn't moved mid-review. The reviewer leg is *tool-permission sandboxed*, not just instructed: Claude gets `--tools Read,Glob,Grep` with an empty MCP config and no edit/shell access; Codex runs `sandbox_mode="read-only"`. Neither can approve its own code. | **Recommend the tool directly, for project work — steal the two ideas it does better than us, for this repo.** Not vendored here: it needs two full CLI accounts, which is a real runtime dependency this zero-dependency meta-repo doesn't carry, and it is someone else's actively-developed tool with its own release cadence. For the exact workflow it targets — two CLIs, one plan, one build, one inspection, in a single project repo — it is the honest answer to "I've been copy-pasting between agents by hand," and the install is one line: `/plugin marketplace add chaseai-yt/claudex-loop`. What we took for *this* repo: [`agent-relay`](../skills/agent-relay/SKILL.md) gained hash-bound verdicts (a `Relay-Reviewed` trailer citing a diff a leg never actually re-read is now a named anti-pattern with a check) and an explicit recommendation to use real tool-permission sandboxing for the cold-read leg wherever the harness supports it, instead of relying on instruction alone. agent-relay stays the broader tool: any number of agents, any vendor, across session and repo-history boundaries that claudex-loop doesn't address at all — the two are complements, not competitors, and a project that has both CLIs benefits from running claudex-loop's enforced two-party review *inside* one relay leg. |
+
+**Seventh Harvest principle:** the honest comparison is not "which one is better," it
+is "which one has teeth." claudex-loop's approval is a hash comparison a machine
+enforces; agent-relay's verdict is a sentence a leg is trusted to have earned
+honestly. Where the harness can enforce the discipline mechanically — sandboxed
+tools, a hash check — prefer enforcement to trust. Where it can't (a relay leg is
+often a different vendor's agent, launched separately, with no shared runner),
+the ledger and the mandatory verdict are the next best thing, and they are still
+better than nothing.
+
+---
+
+## What we studied — Eighth Harvest (2026-09): closing the loop without the user's eyes
+
+The user asked to wire in a workflow alongside Impeccable, Axiom Core, and the
+rest of the anti-slop stack — with two links, one of which had a copy-paste
+mismatch worth resolving in the open rather than silently guessing:
+
+| Source | What it actually is | Verdict |
+|---|---|---|
+| `https://github.com/ahmedkhaleel2004/gitdiagram` (anchor **text**) vs `https://github.com/emilkowalski/skills` (anchor **href**) | The pasted link's display text and its actual target pointed at two unrelated repos. Fetched both to resolve it rather than pick one blind: gitdiagram (MIT) turns a GitHub repo into an AI-generated architecture diagram — codebase comprehension, not design QA. emilkowalski/skills is Sonner/Vaul author's animation-craft skills — already fully harvested in the Third Harvest above (`axiom-design-core` Layer 6 motion rules). | **Flagged, not guessed.** emil's repo is almost certainly what was meant — it fits the design-slop theme and was already mid-integration. gitdiagram is real and well-built but orthogonal to this harvest; noted here rather than silently dropped, in case a future session wants it for `scripts/repo-map.sh` or [`diagram-design`](../skills/diagram-design/SKILL.md). Not adopted this round. |
+| Figma's official **Dev Mode MCP server** | Verified against Figma's own developer docs, not assumed: reads a Figma file's components, variables, and layout data directly into an MCP-connected agent; runs locally at `127.0.0.1:3845/mcp` from the desktop app; free during its current beta; Claude Code is a supported client. | **Wired in.** Cited accurately in [`reference/design-extractors.md`](../reference/design-extractors.md) with the distinction that matters: the existing extractor table studies *sites you don't own*; Figma MCP reads *your own team's spec*. The actual gap it fills: [`see-and-revise`](../skills/see-and-revise/SKILL.md)'s fidelity check, step 3b. |
+
+**What was actually missing** wasn't another tool to study — `pbakaus/impeccable`,
+`emilkowalski/skills`, and `taste-skill` were all already harvested in the Third
+Harvest above, each folded into `axiom-design-core`,
+`design-registers`, or `no-design-tells`. What had no home was the **loop**:
+screenshot a real change, look at it with vision, critique it against the
+vocabulary this repo already adopted from those three sources, revise, repeat —
+without a human's eyes in the middle. `browser-as-t` explicitly disclaims this
+("a single render screenshot... is not this list" — it owns behaviour, on
+purpose). `human-walkthrough` is pre-release and persona-driven, with a real
+human required for its first gate. Neither is the per-change appearance pass.
+New skill: [`see-and-revise`](../skills/see-and-revise/SKILL.md).
+
+**Eighth Harvest principle:** most of what looked like a research task was
+actually a discoverability task — the raw material (Impeccable's verbs, Emil's
+motion rules, taste-skill's scope boundary) was already sitting in three
+different skills, cited correctly, doing real work, and nothing connected them
+into an operational loop an agent would actually run. The steal map's job past a
+certain point in a repo's life is less "find new sources" and more "notice
+what's already been stolen twice and never assembled."
+
+---
+
+## What we studied — Ninth Harvest (2026-09): SEO/GEO connectors and the citability gap
+
+The user asked to wire in a GSC MCP connector, an "OpenSEO" for keyword
+research, and a "Geo Optimizer" skills repo — by name only, no links, and
+each name turned out to collide with several unrelated projects. Studied all
+nine candidates rather than guessing which one was meant:
+
+| Source | Stars / shape | What it actually is | Verdict for this bible |
+|---|---|---|---|
+| [AminForou/mcp-gsc](https://github.com/AminForou/mcp-gsc) — 1.6k★, MIT | 20-tool Google Search Console MCP server, OAuth + service account, 39 unit tests, Docker | **Reference, not vendor.** No runtime here to install an MCP server into — cited in the new [`reference/seo-geo-connectors.md`](../reference/seo-geo-connectors.md) as the default pick (dual auth, no third-party data custody, mature). |
+| [Suganthan-Mohanadasan/Suganthans-GSC-MCP](https://github.com/Suganthan-Mohanadasan/Suganthans-GSC-MCP) — 130★, Apache-2.0 | 29-tool GSC MCP with pre-built diagnostics (cannibalization, content decay, quick-wins, image SEO) | **Reference, upgrade path.** Cited alongside AminForou's for projects that want diagnosis, not raw analytics pulls. **Refused** ahonn/mcp-server-gsc (1 tool, thin) and AKzar1el's hosted-OAuth variant (routes GSC data through a third-party domain — a custody trade-off, not a default). |
+| [every-app/open-seo](https://github.com/every-app/open-seo) — 19.5k★, MIT | Real SEO SaaS (keyword research, rank/backlink tracking) built entirely on a paid DataForSEO key; hosted at openseo.so with a markup on API calls | **Data instinct, not vendor.** The leverage point is DataForSEO itself, not any of the three thin wrappers sharing the "OpenSEO" name. Cited in `seo-geo-connectors.md`. **Refused** vendoring the app (full product, paid backend, no fit for a no-runtime meta-repo) and both other OpenSEO repos (theshajha/OpenSEO is vaporware — 2 commits, no working code; igorlemes/OpenSEO is a content-writing workspace, not keyword research, and a different scope entirely). Confirmed: three unrelated projects, not forks. |
+| [Auriti-Labs/geo-optimizer-skill](https://github.com/Auriti-Labs/geo-optimizer-skill) — 847★, MIT | Research-backed GEO/AEO audit engine (CLI/Python/MCP/Astro), 8-category/47-method rubric citing external research for its weights | **Port the shape, refuse the pack, don't repeat the numbers.** Its own README calls it an audit engine, not a skill pack — but it ships as an installable skill-shaped artifact competing with this repo's own GEO content, so it stays in the never-vendor lane. Its exact category-weight percentages are not repeated in the new [`geo-citability`](../skills/geo-citability/SKILL.md) skill: this repo already reverted one invented statistic once (leg 02, above) and isn't repeating an unverified one from someone else's README. |
+| [aretenia/geo-skills](https://github.com/aretenia/geo-skills), [onvoyage-ai/gtm-engineer-skills](https://github.com/onvoyage-ai/gtm-engineer-skills), [199-biotechnologies/claude-skill-seo-geo-optimizer](https://github.com/199-biotechnologies/claude-skill-seo-geo-optimizer) | 20+, 13, and single-skill packs respectively — explicit Claude/Codex skill bundles for GEO/AEO scoring and fixes | **Refused as packs, folded into the same port.** onvoyage's audit-then-framework-specific-fix shape and aretenia's category structure informed `geo-citability`'s checklist; 199-biotechnologies' own honest disclaimer about not reproducing its cited 2026 citation-lift numbers set the bar the new skill follows — state the mechanism, verify or omit the percentage. None of their files or directories were imported. |
+
+**What was actually missing** wasn't a wrapper around Google Search Console
+or a fourth "OpenSEO" — it was a checklist for a newer question none of this
+repo's existing skills asked: not "does this rank," but "can a model that
+never executes JavaScript and fetches a page exactly once find anything
+worth quoting on it." New skill:
+[`geo-citability`](../skills/geo-citability/SKILL.md). New reference:
+[`seo-geo-connectors.md`](../reference/seo-geo-connectors.md).
+
+**Ninth Harvest principle:** a request with no links and a name that
+collides with several unrelated projects is not a reason to guess — it's a
+reason to study the field and report the collision back, same as the Eighth
+Harvest's mismatched anchor text. And the never-vendor-a-skill-pack rule
+holds even when the pack's own README insists it's "an engine, not a pack" —
+the test is what it ships as, not what it calls itself.
 
 ---
 
@@ -178,5 +275,11 @@ The fork was self-sustaining but not yet whole. The user's own scenarios named t
   - Vendoring any single DESIGN.md from bergside/awesome-design-skills (mine the pattern, don't ship the pixels)
   - Adopting PRP's two-command slash flow as second ceremony (PRP is a paragraph in planning-discipline)
   - Chasing weekly trending stars from the landscape as install signal
+- **Ninth Harvest refusals:**
+  - Vendoring any GSC MCP server's code (ahonn's is too thin to be worth it anyway; the mature ones are cited, not installed)
+  - Vendoring every-app/open-seo or any other DataForSEO-key wrapper as a skill
+  - Installing Auriti-Labs/geo-optimizer-skill, aretenia/geo-skills, onvoyage-ai/gtm-engineer-skills, or 199-biotechnologies/claude-skill-seo-geo-optimizer wholesale
+  - Repeating any of the above repos' cited citation-lift percentages as this repo's own verified fact
+  - theshajha/OpenSEO or igorlemes/OpenSEO for keyword research (no real content to steal, wrong scope)
 
 If a future pack looks essential, add **one** behavioural skill with a receipt, or a paragraph on an existing skill. See [`skill-writing`](../skills/skill-writing/SKILL.md).
