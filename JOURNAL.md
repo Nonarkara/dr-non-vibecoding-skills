@@ -176,3 +176,13 @@ The iPhone-unboxing principle: the new builder should not need to ask the author
 **Why:** Visual rigor and ordinary usability are different proofs. MoMA governs the surface; Mama proves that the surface can be understood, completed, and recovered from by the person the builder is most likely to overlook.
 **Diff:** `skills/human-walkthrough/SKILL.md`, `skills/no-design-tells/SKILL.md`, `reference/named-aesthetics.md`, onboarding and routing docs, plugin manifests
 **Tags:** `moma · mama-rule · real-user-test · older-users · usability-gate`
+
+---
+
+## 2026-10-02 — Wada colour chords become part of the design spine
+
+**Date:** 2026-10-02
+**What:** Distilled Sanzo Wada's *A Dictionary of Color Combinations, Vol. 1* into `wada-colour-chords`, a production method for 2–4 colour relationships, unequal visual weights, semantic separation, perceptual reconstruction, and accessibility proof; wired its signature rule through the colour, DNA, Axiom, scaffold, router, and library surfaces.
+**Why:** Historical palettes should give agent-built interfaces authorship and tension without turning scanned ink values into false digital precision or allowing decorative colour to erase wayfinding and status meaning.
+**Diff:** `skills/wada-colour-chords/`, `skills/colour-and-type/SKILL.md`, `skills/design-dna/SKILL.md`, `skills/axiom-design-core/SKILL.md`, `templates/design-tokens.css.template`, `setup.sh`, routing/count surfaces, plugin version 1.8.0
+**Tags:** `sanzo-wada · colour-chords · design-lineage · accessibility · book-to-skill`

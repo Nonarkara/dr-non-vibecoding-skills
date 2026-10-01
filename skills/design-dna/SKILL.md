@@ -36,10 +36,17 @@ Most design drift is one token quietly doing two jobs. Name the roles explicitly
 | `--bull` | `#00c896` | **Signal only** — gain, buy, positive. Never a nav active state. |
 | `--red-anchor` | `#e8002d` | **Brand identity only** — the wordmark marker. Never bull/bear, never alerts. |
 | `--night` | `#0a0c12` | **Atmospheric surface** — interpretive/editorial panels only |
+| `--wada-companion` | project-specific | **Bounded atmosphere only** — one section, diagram family, or editorial season. Never action or status. |
 
 Then state the invariant in a sentence an agent can check:
 
 > Amber = wayfinding. Green = signal. Red = signal-loss or brand. These three channels must never bleed into each other.
+
+The colour relationship comes from `wada-colour-chords`; this file makes its
+roles enforceable. The standing Dr Non contract is: **monochrome carries the
+work; amber points; one companion sets atmosphere; status colours report
+facts.** Record the companion's lineage and forbid it from links, buttons,
+focus, selection, and status.
 
 ---
 
@@ -52,6 +59,8 @@ This is the part almost nobody writes, and it's the part that works:
   that is a regression. Replace with `var(--amber-nav)`.
 - If you see `--red-anchor` on a P&L row or market signal:
   that is a regression. The red anchor is for the wordmark only.
+- If you see `--wada-companion` on an action, link, focus ring, or status:
+  that is a regression. Return the functional role to its semantic token.
 ```
 
 Now "don't regress the design" is a grep, not a vibe.

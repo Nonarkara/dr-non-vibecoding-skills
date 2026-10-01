@@ -32,6 +32,20 @@ Most of any interface is neutrals. Build the ramp deliberately, in perceptual sp
 - **Check contrast while choosing, not after shipping.** Retrofitting contrast means re-picking the colour, which means re-picking everything that was harmonised against it.
 - **Semantic status colour is separate from the accent** and only exists where it names a real state. A warning colour that appears decoratively has spent its meaning.
 
+### Choose relationships, not isolated swatches
+
+Once the ground and neutral ramp exist, load `wada-colour-chords` before choosing
+the authored colours. Select two to four colours as one relationship, then give
+them unequal weights and separate jobs. For Dr Non surfaces the standing rule is:
+
+> Monochrome carries the work. Amber points. One companion colour sets the
+> atmosphere. Status colours report facts.
+
+The companion is a bounded editorial or structural field, not a second accent.
+It never marks actions, focus, links, selection, or status. Reconstruct historical
+colour relationships in OKLCH; do not promote sampled scan pixels into canonical
+web values.
+
 ## 4. Type: earn the second family
 
 Start with one family. A second must justify itself with a **role**, not a mood — a serif for the read, a mono for character-cell alignment. "It looks nice with it" is not a role. Three families is almost always one too many.
@@ -74,6 +88,8 @@ If nothing breaks, it was never load-bearing. A palette that survives this test 
 □ Do all neutrals share one temperature and one hue drift?
 □ Was the ramp generated perceptually (OKLCH), or stepped by eye?
 □ Does the accent mark exceptions, or appear everywhere?
+□ Was the authored colour chosen as a 2–4 colour relationship, not one swatch at a time?
+□ Is the companion bounded and forbidden from action or status roles?
 □ Does the accent pass 4.5:1 on the ground it actually sits on?
 □ Does the second type family have a role, or a mood?
 □ Is the scale derived from one ratio — and does it render as three sizes?
@@ -81,4 +97,4 @@ If nothing breaks, it was never load-bearing. A palette that survives this test 
 □ Can you delete one size, one weight, one neutral, one colour and lose nothing?
 ```
 
-Pairs with `design-dna` (enforcement), `design-registers` (which ground and accent policy), `no-design-tells` (the palettes that mark a surface as generated).
+Pairs with `wada-colour-chords` (relational palette selection), `design-dna` (enforcement), `design-registers` (which ground and accent policy), `no-design-tells` (the palettes that mark a surface as generated).

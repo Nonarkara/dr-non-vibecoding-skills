@@ -13,9 +13,11 @@ metadata:
 
 > The books that taught us how to design for humans, written before AI made it cheap to generate *competent* work — and therefore the books most at risk of being forgotten.
 
-This is the **router**, not the library. The library is the **35+ book-derived skills** already in `skills/`, each one distilled by the book-to-skill pipeline at [`nonscrape.nonarkara.org`](https://nonscrape.nonarkara.org) and mirrored locally. Your job here is to know the shape of the library well enough that you load the right book for the right moment.
+This is the **router**, not the library. The library is the **35+ book-derived skills** already in `skills/`: most were distilled by the book-to-skill pipeline at [`nonscrape.nonarkara.org`](https://nonscrape.nonarkara.org), while a small number were distilled locally from user-supplied sources. Your job here is to know the shape of the library well enough that you load the right book for the right moment.
 
-The full version of each skill — 5–10 chapters with glossary, patterns, and cheatsheet — lives on the live skillhub. The local SKILL.md is the offline copy and the agent-loadable front door.
+Pipeline-derived skills may link to a fuller live-skillhub version. Locally
+distilled skills carry their source and evidence boundary inside the repository.
+In both cases the local `SKILL.md` is the agent-loadable front door.
 
 ---
 
@@ -23,14 +25,16 @@ The full version of each skill — 5–10 chapters with glossary, patterns, and 
 
 You are about to do work that touches a human in a way the literature has spent decades studying. Specifically:
 
-- **Designing any UI**: load the design cluster first (Norman × 2, Alexander, Maeda, Kelley × 4, Williams, IDEO × 4).
+- **Designing any UI**: load the minimum relevant design set—Norman for use, Maeda for reduction, Wada for colour relationships, then Kelley/IDEO/Alexander only when their problem is present.
 - **Evaluating a claim, scoring options, recommending**: load the decision cluster (Kahneman, Thaler × 2, Christensen, Ries × 2, Dobelli, Levitt/Dubner, Heath brothers, Graham, Kiyosaki).
 - **Writing prose for humans to read**: load the writing cluster (Williams, Pinker, Heath brothers + Dr Non's own).
 - **Understanding users as cultural beings**: load the people cluster (Malinowski, Leach, Kleinman, Bayat, Augé, Favret-Saada, Douglas, Geertz × 3).
 - **Picking a business model or proposition**: load the business cluster (Osterwalder × 2, Christensen, Kiyosaki, Graham).
 - **Reasoning about money and risk**: load the finance cluster (Graham, Kiyosaki, Thaler × 2, Kahneman).
 
-The full index — every book, the one-line essence, the trigger list — is in [`reference/library/`](../../reference/library/) (the local mirror index) and on the live skillhub.
+The complete local index—every book, its one-line essence, and its trigger—is in
+[`reference/library/`](../../reference/library/). Pipeline-derived entries may
+also appear on the live skillhub; locally distilled entries need not.
 
 ---
 
@@ -40,8 +44,8 @@ The full index — every book, the one-line essence, the trigger list — is in 
 flowchart LR
   L["library-of-human-wisdom\n(this router)"]
 
-  subgraph Design["DESIGN & CRAFT — 14 books"]
-    D1["Norman: DOET"] & D2["Norman: Emotional Design"] & D3["Alexander: Pattern Language"] & D4["Maeda: Laws of Simplicity"] & D5["Kelley: Art of Innovation"] & D6["Kelley: Ten Faces"] & D7["IDEO Method Cards"] & D8["IDEO: HCD Process"] & D9["Moggridge: Interaction Design"] & D10["Williams: Classic Style"] & D11["Geertz × 3"] & D12["Pinker: Language Instinct"] & D13["Thaler & Sunstein: Nudge"] & D14["Heath: Made to Stick"] --> L
+  subgraph Design["DESIGN & CRAFT — 15 books"]
+    D1["Norman: DOET"] & D2["Norman: Emotional Design"] & D3["Alexander: Pattern Language"] & D4["Maeda: Laws of Simplicity"] & D5["Wada: Colour Chords"] & D6["Kelley: Art of Innovation"] & D7["Kelley: Ten Faces"] & D8["IDEO Method Cards"] & D9["IDEO: HCD Process"] & D10["Moggridge: Interaction Design"] & D11["Williams: Classic Style"] & D12["Geertz × 3"] & D13["Pinker: Language Instinct"] & D14["Thaler & Sunstein: Nudge"] & D15["Heath: Made to Stick"] --> L
   end
 
   subgraph Decision["DECISION & REASONING — 11 books"]
@@ -90,17 +94,21 @@ Norman says "make it discoverable"; Maeda says "reduce features." Both right. Pu
 
 ## How a book-derived skill is structured
 
-Each book skill in `skills/<book-slug>-<id>/SKILL.md` follows the same shape (per the consolidated SKILL.md discipline from PR #3117114):
+Each book skill in `skills/<book-slug>/SKILL.md` follows the same shape. Some
+pipeline-derived slugs retain a generated ID suffix; locally distilled slugs do
+not need one.
 
-1. **YAML frontmatter** — name, description, license, source (the live skillhub URL), book credit.
+1. **YAML frontmatter** — name, description, license, source (live skillhub or primary publication), book credit.
 2. **One-line essence** — the single sentence you take away.
 3. **Core claim** — 2–3 sentences in Dr Non's voice.
 4. **When to load** — three to five concrete triggers.
 5. **The moves** — three to five concrete moves you can apply now, **inline glossary terms**, **inline patterns**, **inline cheatsheet items**.
 6. **Connects to** — pointers to the *other* repo skills that complement it.
-7. **For the full thing** — link to the live skillhub chapter set.
+7. **For the full thing** — link to the live skillhub chapter set when one exists; otherwise state the local evidence boundary.
 
-That last section is the honesty contract: the local file is the consolidated essence, not a substitute for the book's argument. Agents that need depth pull from the live skillhub.
+That last section is the honesty contract: the local file is the consolidated
+essence, not a substitute for the book's argument. Agents that need depth use
+the named source available for that skill; they do not invent missing chapters.
 
 ---
 

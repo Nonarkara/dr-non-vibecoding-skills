@@ -6,12 +6,12 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 174 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 175 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 174](https://img.shields.io/badge/skills-174-F59E0B)](skills/)
+[![Skills: 175](https://img.shields.io/badge/skills-175-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
@@ -27,7 +27,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**174 skills** · **16 playbooks** · **14 references** · **17 templates**
+**175 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -231,7 +231,7 @@ dr-non-vibecoding-skills/
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 174 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 175 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -295,7 +295,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Rate limits that protect without punishing real users | [`rate-limiting`](skills/rate-limiting/SKILL.md) | Token bucket vs sliding window, per-user-not-per-IP, graceful 429 with `Retry-After`, and the 429-vs-403 split between retryable overload and permanent abuse. |
 | Database migrations that don't break production | [`db-migrations`](skills/db-migrations/SKILL.md) | Expand-and-contract across three releases, batched backfill, `CREATE INDEX CONCURRENTLY`, never-rename-in-one-release, and the SQLite WAL/busy_timeout caveat. |
 | Secrets that live in exactly one place | [`secrets-management`](skills/secrets-management/SKILL.md) | Keychain by name, `.env.example` ships, gitleaks pre-commit, `.mcpignore` as documented intent only, and rotate-first-rewrite-history-second. |
-| The library of pre-AI wisdom that gives the practice consequence | [`library-of-human-wisdom`](skills/library-of-human-wisdom/SKILL.md) + 35+ book-derived SKILL.md files mirrored from [`nonscrape.nonarkara.org`](https://nonscrape.nonarkara.org)'s book-to-skill pipeline | Indexed in [`reference/library/`](reference/library/). Six AI-generated hero illustrations in [`assets/illustrations/`](assets/illustrations/). The router picks the right book — Norman, Geertz, Kahneman, Thaler, Alexander, Maeda, Williams, Pinker, Graham, Kiyosaki, Dr Non's own. |
+| The library of pre-AI wisdom that gives the practice consequence | [`library-of-human-wisdom`](skills/library-of-human-wisdom/SKILL.md) + 35+ book-derived SKILL.md files from the [`nonscrape.nonarkara.org`](https://nonscrape.nonarkara.org) pipeline and supplied sources | Indexed in [`reference/library/`](reference/library/). Six AI-generated hero illustrations in [`assets/illustrations/`](assets/illustrations/). The router picks the right book — Norman, Wada, Geertz, Kahneman, Thaler, Alexander, Maeda, Williams, Pinker, Graham, Kiyosaki, Dr Non's own. |
 
 See the complete grouped inventory in [`CATALOG.md`](CATALOG.md).
 
@@ -449,7 +449,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["174 skills"] --> A["Your agent"]
+  S["175 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
   R["14 refs"] --> A
   T["17 templates"] --> A

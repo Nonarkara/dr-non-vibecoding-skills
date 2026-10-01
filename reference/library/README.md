@@ -28,6 +28,7 @@ This file is the **table of contents**. The router that picks the right book for
 | `emotional-design-three-levels-for-meaningful-products` | Norman — *Emotional Design* | Three levels — visceral, behavioral, reflective — that decide whether a product is used once or for years. |
 | `pattern-language-design-toolkit` | Alexander — *A Pattern Language* | Towns, buildings, and software are made of patterns; the patterns live in the world, not in your head. |
 | `simplicity-moves-ten-laws-for-clearer-design` | Maeda — *The Laws of Simplicity* | Ten laws; the cheapest one is "reduce," the most expensive one is "understand." |
+| `wada-colour-chords` | Wada — *A Dictionary of Color Combinations, Vol. 1* | A colour is a note; choose the 2–4 colour relationship, then assign unequal roles and accessible production values. |
 | `ideo-design-process-observe-brainstorm-prototype-iterate` | Kelley — *The Art of Innovation* | Observe, brainstorm, prototype, iterate — the IDEO loop in the order it actually works. |
 | `innovation-personas-the-ten-faces-of-ideo` | Kelley — *The Ten Faces of Innovation* | Innovation is a team of ten roles; the Devil's Advocate is not on the list. |
 | `ideo-method-cards-choosing-and-applying-design-methods` | Kelley / IDEO — *Method Cards* | 51 methods, matched to project phase, adapted to constraint. |
@@ -95,16 +96,16 @@ This file is the **table of contents**. The router that picks the right book for
 
 | Cluster | Count |
 |---|---|
-| Design & craft | 14 |
+| Design & craft | 15 |
 | Decision & reasoning | 11 |
 | Writing & communication | 9 (incl. 8 Dr Non's own) |
 | People & culture | 7 |
 | Business & value | 3 |
-| **Total book skills** | **44** |
+| **Total book skills** | **45** |
 
-(Plus the router `library-of-human-wisdom` — so the library cluster adds **45 skills** to the repo.)
+(Plus the router `library-of-human-wisdom` — so the library cluster adds **46 skills** to the repo.)
 
-> **Note on counts.** The live skillhub lists 47 entries; one of those is a duplicate derivative of an existing 100-Days-of-Writing skill. The 44 here are the ones that have unique, distinct consolidated SKILL.md files in the repo.
+> **Note on counts.** The live skillhub mirror contributes 44 unique consolidated files after excluding one duplicate derivative. `wada-colour-chords`, distilled locally from the supplied book, brings this index to 45.
 
 ---
 

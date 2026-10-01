@@ -545,7 +545,8 @@ EOF
       cat <<'EOF' > "$tokens_target"
 /**
  * Axiom Design Core — Rams/Braun Lineage Tokens
- * Strict geometric invariants: 0 radius, hairlines, one amber accent.
+ * Strict invariants: 0 radius, hairlines, one amber pointer.
+ * Wada rule: monochrome carries; one optional companion sets atmosphere.
  */
 :root {
   /* Geometry — Sacred Invariant */
@@ -566,6 +567,9 @@ EOF
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
   --color-accent-alpha: rgba(245, 158, 11, 0.12);
+
+  /* Add one --color-companion only after project-specific contrast proof.
+     Bounded atmosphere only; never action, text, focus, or status. */
 
   /* Status Colors */
   --color-success: #10b981;

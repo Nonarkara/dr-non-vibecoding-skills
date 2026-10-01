@@ -51,6 +51,11 @@ That single sentence resolves hundreds of future micro-decisions without a rule 
 
 Other lineages that hold up the same way: Vignelli's modular grid + route-color system (used for NSP — an NBTC-commissioner-grade transit surface needs a transit-grade visual language, not a startup one). Tufte's data-ink minimalism. Swiss brutalist web. Pick one **that matches what the surface is actually for** — a trading desk and a flood-safety panel should not share a lineage, and they don't in this stack.
 
+For colour, Sanzo Wada's collection supplies examples of small chords rather
+than isolated swatches. `wada-colour-chords` turns that evidence into the Dr Non
+production rule—monochrome carries, amber points, one companion sets atmosphere,
+and status colours report facts—without loosening the closed palette.
+
 ---
 
 ## Layer 2 — Borrow psychology on purpose
