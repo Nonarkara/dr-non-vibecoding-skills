@@ -125,6 +125,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | Skill | Load it when… |
 |---|---|
 | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) | Apply Dr Non's reasoned frontend design system. Use when starting or reviewing UI typography, color, motion, layout, and interaction. |
+| [`bauhaus-human-design`](skills/bauhaus-human-design/SKILL.md) | Content-led composition, communication and usability evidence when a rule-compliant frontend still feels interchangeable. |
 | [`design-dna`](skills/design-dna/SKILL.md) | Encode visual decisions as enforceable tokens and regression rules. Use when starting or reviewing a UI whose design keeps drifting. |
 | [`design-registers`](skills/design-registers/SKILL.md) | Choose a Console, Index, Civic, Editorial, or Institutional register before styling. Use when a shared design system makes products feel identical. |
 | [`no-design-tells`](skills/no-design-tells/SKILL.md) | Stop shipping UI a stranger can spot as agent-built. Use before any visual work. |

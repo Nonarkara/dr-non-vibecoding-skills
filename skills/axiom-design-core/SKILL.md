@@ -18,6 +18,11 @@ Named for Axiom, the practice this grew out of. `design-dna` is the contract —
 
 ## Checking a build against this ladder
 
+If the surface obeys this ladder but still feels interchangeable, apply
+[`bauhaus-human-design`](../bauhaus-human-design/SKILL.md): real-content composition,
+communication and an observed task are the quality gate above token compliance.
+Do not transplant Palette's exhibition colours into operational signal roles.
+
 This file states what good looks like. It does not itself look at anything — for the loop that screenshots a real change, checks it against these layers with vision, and revises before a human ever sees it, see [`see-and-revise`](../see-and-revise/SKILL.md).
 
 ## The stack of reasons

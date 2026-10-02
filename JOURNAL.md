@@ -186,3 +186,20 @@ The iPhone-unboxing principle: the new builder should not need to ask the author
 **Why:** Historical palettes should give agent-built interfaces authorship and tension without turning scanned ink values into false digital precision or allowing decorative colour to erase wayfinding and status meaning.
 **Diff:** `skills/wada-colour-chords/`, `skills/colour-and-type/SKILL.md`, `skills/design-dna/SKILL.md`, `skills/axiom-design-core/SKILL.md`, `templates/design-tokens.css.template`, `setup.sh`, routing/count surfaces, plugin version 1.8.0
 **Tags:** `sanzo-wada · colour-chords · design-lineage · accessibility · book-to-skill`
+
+## 2026-10-02 — Authored design above the compliance floor
+
+**What:** Added `bauhaus-human-design`, its source field guide and explicit reading
+ledger; routed it from Axiom design core and the catalogue. Palette carries a
+mechanically mirrored copy and a single-file agent guide.
+**Why:** Dao's compliant palette still left the reading composition weak. The new
+method requires a human task, conserved content, two structural alternatives,
+communication and deep-entry navigation evidence before surface polish.
+**SIC:** Five book sources and five pinned repository studies inform original
+procedural writing. No wholesale packs or books are redistributed. The ledger
+states selected close reading, not completion of all five books.
+**Verification:** Repository and skill-format validators; Palette's real browser
+flows, reflow, native disclosures and download bytes. Fresh review identified a
+small target and excess type tiers, corrected before release. Real-person and
+fluent-language review remain unverified.
+**Tags:** `bauhaus · functional-design · communication · anti-slop · source-credit`
