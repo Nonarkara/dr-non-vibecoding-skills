@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **176 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **177 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
@@ -192,6 +192,7 @@ Pick the skill that matches your problem:
 | The link gets opened on a phone — design for portrait + one thumb first | `skills/phone-first/SKILL.md` |
 | Type in Thai, CJK, Arabic, or any script you do not read | `skills/multilingual-type/SKILL.md` |
 | A palette and type scale need choosing, not just enforcing | `skills/colour-and-type/SKILL.md` |
+| Type must fit the task, text, medium and scripts | `skills/bringhurst-contextual-type/SKILL.md` |
 | A palette needs an authored 2–4 colour relationship without losing semantic roles | `skills/wada-colour-chords/SKILL.md` |
 | Charts, tables, and numbers that do not lie or decorate | `skills/data-display/SKILL.md` |
 | Decks, PDFs, documents, social cards — the non-app surfaces a design system must also govern | `skills/beyond-the-screen/SKILL.md` |

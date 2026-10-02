@@ -18,6 +18,10 @@ and a wandering reading path. A ban list did not resolve the composition.
 
 ## Before CSS
 
+For type-family decisions, use `bringhurst-contextual-type` before selecting
+faces. Read the text, preserve house roles, and proof the intended medium and
+scripts; geometric sans is not a substitute for a typographic brief.
+
 1. Read the project contract and inspect the actual surface. List earned content,
    interactions, routes, languages and exports that must survive. An audit request
    permits findings, not a rewrite. Change only what the user placed in scope.

@@ -48,6 +48,12 @@ web values.
 
 ## 4. Type: earn the second family
 
+Before choosing families, use `bringhurst-contextual-type`: write the reader/task,
+text/medium/script brief and proof the approved family on real content. The
+numeric scale below is a house starting policy, not a universal typographic law.
+Use the project's contract when it already defines tokens; show evidence and
+request a scoped exception when that contract fails legibility or script coverage.
+
 Start with one family. A second must justify itself with a **role**, not a mood — a serif for the read, a mono for character-cell alignment. "It looks nice with it" is not a role. Three families is almost always one too many.
 
 **Build the scale, don't eyeball it.** Pick a base size and a ratio, then take steps:
@@ -60,9 +66,9 @@ Start with one family. A second must justify itself with a **role**, not a mood 
 
 ## 5. The craft details that separate authored from generated
 
-- **Tracking tightens as size grows.** Display type set at default tracking looks loose and amateur; body type set tight looks cramped. Negative tracking on large text, never past `-0.04em`.
-- **Measure caps at 65–75 characters.** Past that the eye loses the line return. This is a hard limit on reading surfaces, not a preference.
-- **Line-height scales inversely with size.** Roughly 1.5 for body, 1.1–1.25 for display. One number everywhere is a tell.
+- **Proof tracking, don't automate tightness.** Negative display tracking may help a particular face; it may also damage it. Inspect actual words and case. Do not apply Latin spacing to Thai/CJK by habit.
+- **Proof measure on real text.** 65–75 characters is a Latin-prose starting range, not a hard limit for every role or script. CSS `ch` is the zero-glyph width, not a character counter.
+- **Couple leading with size, measure and script.** Roughly 1.5 for body and 1.1–1.25 for display are starting points; inspect return paths and stacked marks. One ratio is not evidence of AI authorship.
 - **Tabular figures in columns, proportional in prose.** `font-variant-numeric: tabular-nums` on any column of numbers.
 - **Set a real fallback stack.** A web font that fails to load should degrade to something with similar metrics, not to Times.
 - **Never fake a weight.** Synthetic bold and synthetic italic are the browser smearing glyphs. Load the real cut or use the weights you have.
@@ -93,7 +99,7 @@ If nothing breaks, it was never load-bearing. A palette that survives this test 
 □ Does the accent pass 4.5:1 on the ground it actually sits on?
 □ Does the second type family have a role, or a mood?
 □ Is the scale derived from one ratio — and does it render as three sizes?
-□ Tracking negative on display, measure ≤75ch, tabular figures in columns?
+□ Real-text tracking/measure/leading proof, script coverage, tabular figures in columns?
 □ Can you delete one size, one weight, one neutral, one colour and lose nothing?
 ```
 

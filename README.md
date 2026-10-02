@@ -6,12 +6,12 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 176 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 177 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 176](https://img.shields.io/badge/skills-176-F59E0B)](skills/)
+[![Skills: 177](https://img.shields.io/badge/skills-177-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
@@ -27,7 +27,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**176 skills** · **16 playbooks** · **14 references** · **17 templates**
+**177 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -231,7 +231,7 @@ dr-non-vibecoding-skills/
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 176 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 177 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -281,6 +281,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | A design system agents cannot flatten | [`axiom-design-core`](skills/axiom-design-core/SKILL.md) + [`design-dna`](skills/design-dna/SKILL.md) + [`design-registers`](skills/design-registers/SKILL.md) | 0 border-radius, hairlines over shadows, one amber accent (`#f59e0b`). Enforced via deterministic `axiom-audit`. |
 | Eliminating machine tells | [`no-ai-tells`](skills/no-ai-tells/SKILL.md) + [`no-design-tells`](skills/no-design-tells/SKILL.md) + [`ninja-innovation`](skills/ninja-innovation/SKILL.md) + [`cognition-first`](skills/cognition-first/SKILL.md) | Kills the linguistic and visual clichés that mark software as AI-generated; prioritizes the 5-line move with 500-line impact. |
 | Compliant but still generic design | [`bauhaus-human-design`](skills/bauhaus-human-design/SKILL.md) | Makes composition answer real content and human tasks; adds communication, source boundaries and observable usability above the ban list. |
+| Type that fits the task, not a trend | [`bringhurst-contextual-type`](skills/bringhurst-contextual-type/SKILL.md) | Bringhurst-inspired family selection and real-text proof across media and scripts; preserves house contracts and records justified exceptions. |
 | Free 7-layer AppSec pipeline | [`appsec-stack`](skills/appsec-stack/SKILL.md) | Gitleaks, Semgrep SAST, Dependabot SCA, Syft SBOM, auto-updates, DAST, and exploit verification with zero license costs. |
 | Mac-hosted 24/7 background services | [`always-on-services`](skills/always-on-services/SKILL.md) | Supervised launchd jobs (server / tunnel / watchdog) that survive laptop lid sleep with Cloudflare Tunnel ingress. |
 | Multi-agent parallel coordination | [`staff-swarm`](skills/staff-swarm/SKILL.md) + [`subagent-routing`](skills/subagent-routing/SKILL.md) | Token tiers (Gemini Flash for bulk, Gemini Pro / Sonnet for adapters, Opus for architecture) with bounded briefs. |
@@ -450,7 +451,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["176 skills"] --> A["Your agent"]
+  S["177 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
   R["14 refs"] --> A
   T["17 templates"] --> A

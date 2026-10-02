@@ -203,3 +203,9 @@ flows, reflow, native disclosures and download bytes. Fresh review identified a
 small target and excess type tiers, corrected before release. Real-person and
 fluent-language review remain unverified.
 **Tags:** `bauhaus · functional-design · communication · anti-slop · source-credit`
+
+**Date:** 2026-10-02
+**What:** Added `bringhurst-contextual-type`: content/task/medium/script brief → body and companion roles → real-text proof → typography receipt.
+**Why:** Appropriate type needs evidence; unfamiliar faces, automatic tight tracking and universal Latin measure limits do not establish human craft.
+**Diff:** New original skill/source ledger; colour-and-type guidance corrected; routes and counts updated; portable mirrors and project-specific guidance in Palette, MoMA Rules, Rams × NYCTA and Axiom Design Core. Source is selected close reading of the supplied second edition / 1997 printing, not a full-book completion claim.
+**Tags:** `typography · bringhurst · multilingual · context · anti-slop · source-credit`

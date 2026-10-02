@@ -133,6 +133,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`aesthetics-and-economy`](skills/aesthetics-and-economy/SKILL.md) | Use when a choice is aesthetic *and* economic at once. The economy of words, the aphorism craft, the minimalist manifesto, the Kodawari of constraint. |
 | [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md) | Product UI is not a landing page. Use for dashboards, tables, forms, admin, and settings. |
 | [`colour-and-type`](skills/colour-and-type/SKILL.md) | How to choose a palette and a type scale, not just enforce one. Use when starting a design system. |
+| [`bringhurst-contextual-type`](skills/bringhurst-contextual-type/SKILL.md) | Select and proof type for the text, task, medium and scripts; no arbitrary pairings or universal font blacklist. |
 | [`wada-colour-chords`](skills/wada-colour-chords/SKILL.md) | Apply Dr Non's production method inspired by Wada's 2–4 colour combinations. Use when a palette needs authorship, clear roles, contrast, and accessibility. |
 | [`data-display`](skills/data-display/SKILL.md) | Charts, tables, and numbers that do not lie or decorate. Use whenever data is rendered. |
 | [`phone-first`](skills/phone-first/SKILL.md) | The link gets opened on a phone. Build there first. Use for any surface that will be shared. |
