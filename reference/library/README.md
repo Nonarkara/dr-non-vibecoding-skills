@@ -29,6 +29,7 @@ This file is the **table of contents**. The router that picks the right book for
 | `pattern-language-design-toolkit` | Alexander — *A Pattern Language* | Towns, buildings, and software are made of patterns; the patterns live in the world, not in your head. |
 | `simplicity-moves-ten-laws-for-clearer-design` | Maeda — *The Laws of Simplicity* | Ten laws; the cheapest one is "reduce," the most expensive one is "understand." |
 | `wada-colour-chords` | Wada — *A Dictionary of Color Combinations, Vol. 1* | A colour is a note; choose the 2–4 colour relationship, then assign unequal roles and accessible production values. |
+| [`bauhaus-human-design`](../../skills/bauhaus-human-design/SKILL.md) | Droste / Bauhaus-Archiv; Krug; Zeldman with Marcotte; Sklar; Responsive Web Design Handbook contributors | Selected close-reading synthesis: task and content before finish; authored composition and usability are separate from code compliance. Coverage ledger included; reading is incomplete. |
 | `ideo-design-process-observe-brainstorm-prototype-iterate` | Kelley — *The Art of Innovation* | Observe, brainstorm, prototype, iterate — the IDEO loop in the order it actually works. |
 | `innovation-personas-the-ten-faces-of-ideo` | Kelley — *The Ten Faces of Innovation* | Innovation is a team of ten roles; the Devil's Advocate is not on the list. |
 | `ideo-method-cards-choosing-and-applying-design-methods` | Kelley / IDEO — *Method Cards* | 51 methods, matched to project phase, adapted to constraint. |
@@ -96,16 +97,16 @@ This file is the **table of contents**. The router that picks the right book for
 
 | Cluster | Count |
 |---|---|
-| Design & craft | 15 |
+| Design & craft | 16 |
 | Decision & reasoning | 11 |
 | Writing & communication | 9 (incl. 8 Dr Non's own) |
 | People & culture | 7 |
 | Business & value | 3 |
-| **Total book skills** | **45** |
+| **Total book skills** | **46** |
 
-(Plus the router `library-of-human-wisdom` — so the library cluster adds **46 skills** to the repo.)
+(Plus the router `library-of-human-wisdom` — so the library cluster adds **47 skills** to the repo.)
 
-> **Note on counts.** The live skillhub mirror contributes 44 unique consolidated files after excluding one duplicate derivative. `wada-colour-chords`, distilled locally from the supplied book, brings this index to 45.
+> **Note on counts.** The live skillhub mirror contributes 44 unique consolidated files after excluding one duplicate derivative. The locally distilled `wada-colour-chords` and selected-reading `bauhaus-human-design` bring this index to 46. A skill count is not a count of completed books.
 
 ---
 

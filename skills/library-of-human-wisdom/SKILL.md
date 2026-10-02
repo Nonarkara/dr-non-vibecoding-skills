@@ -26,6 +26,7 @@ In both cases the local `SKILL.md` is the agent-loadable front door.
 You are about to do work that touches a human in a way the literature has spent decades studying. Specifically:
 
 - **Designing any UI**: load the minimum relevant design set—Norman for use, Maeda for reduction, Wada for colour relationships, then Kelley/IDEO/Alexander only when their problem is present.
+- **Compliant but still generic composition**: use [Bauhaus Human Design](../bauhaus-human-design/SKILL.md) for task/content/communication proof. Its five-source synthesis carries an explicit incomplete-reading ledger; it is not five books fully distilled.
 - **Evaluating a claim, scoring options, recommending**: load the decision cluster (Kahneman, Thaler × 2, Christensen, Ries × 2, Dobelli, Levitt/Dubner, Heath brothers, Graham, Kiyosaki).
 - **Writing prose for humans to read**: load the writing cluster (Williams, Pinker, Heath brothers + Dr Non's own).
 - **Understanding users as cultural beings**: load the people cluster (Malinowski, Leach, Kleinman, Bayat, Augé, Favret-Saada, Douglas, Geertz × 3).
