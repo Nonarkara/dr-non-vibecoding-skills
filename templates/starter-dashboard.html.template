@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src https://api.open-meteo.com https://earthquake.usgs.gov https://api.frankfurter.app; img-src 'self' data:; base-uri 'none'; form-action 'none'">
-  <title><Project> — Live Operations Dashboard</title>
+  <title><Project> — Operations Dashboard</title>
   <style>
     /* Axiom Design Core — Rams/Braun Lineage: 0px radius, hairlines, single amber accent */
     :root {
@@ -75,8 +75,12 @@
     .status-dot {
       width: 6px;
       height: 6px;
-      background-color: var(--success);
+      background-color: var(--text-dim);
     }
+
+    .status-badge[data-state="complete"] .status-dot { background-color: var(--success); }
+    .status-badge[data-state="partial"] .status-dot { background-color: var(--accent); }
+    .status-badge[data-state="unavailable"] .status-dot { background-color: var(--danger); }
 
     /* Grid */
     .grid {
@@ -101,6 +105,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 4px 8px;
     }
     .card-title {
       font-size: 0.8125rem;
@@ -171,20 +177,20 @@
         <p><one sentence: what it is and who it's for></p>
       </div>
       <div class="header-right">
-        <div class="status-badge" id="system-status">
-          <div class="status-dot"></div>
-          <span id="status-text">INITIALIZING</span>
+        <div class="status-badge" id="system-status" data-state="pending" role="status" aria-live="polite">
+          <div class="status-dot" aria-hidden="true"></div>
+          <span id="status-text">NOT FETCHED</span>
         </div>
       </div>
     </header>
 
-    <!-- LIVE TELEMETRY CARDS -->
+    <!-- PUBLIC DATA SNAPSHOTS -->
     <div class="grid">
-      <!-- Card 1: Live Weather (Open-Meteo, zero-auth) -->
+      <!-- Card 1: Weather Snapshot (Open-Meteo, zero-auth) -->
       <div class="card" id="card-weather">
         <div class="card-header">
           <span class="card-title">Atmospheric Conditions</span>
-          <span class="card-meta" id="weather-meta">OPEN-METEO</span>
+          <span class="card-meta" id="weather-meta">OPEN-METEO · NOT FETCHED</span>
         </div>
         <div class="stat-hero" id="weather-temp">--°C</div>
         <div class="stat-detail">
@@ -207,13 +213,13 @@
       <div class="card" id="card-seismic">
         <div class="card-header">
           <span class="card-title">Recent Seismic Event</span>
-          <span class="card-meta" id="quake-meta">USGS M4.5+</span>
+          <span class="card-meta" id="quake-meta">USGS M4.5+ · NOT FETCHED</span>
         </div>
         <div class="stat-hero" id="quake-mag">M --</div>
         <div class="stat-detail">
           <div class="stat-row">
             <span>Location</span>
-            <span class="stat-val" id="quake-place">Polling live feed...</span>
+            <span class="stat-val" id="quake-place">No data fetched</span>
           </div>
           <div class="stat-row">
             <span>Recorded Time</span>
@@ -230,7 +236,7 @@
       <div class="card" id="card-fx">
         <div class="card-header">
           <span class="card-title">Foreign Exchange</span>
-          <span class="card-meta">ECB / FRANKFURTER</span>
+          <span class="card-meta" id="fx-meta">ECB / FRANKFURTER · NOT FETCHED</span>
         </div>
         <div class="stat-hero" id="fx-rate">-- THB</div>
         <div class="stat-detail">
@@ -262,52 +268,87 @@
   </div>
 
   <script>
-    // Resilient client-side fetcher with error fallback
+    // A successful request is a snapshot, not proof of real-time observations.
     async function safeFetch(url) {
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return await res.json();
       } catch (err) {
-        console.warn('Live fetch failed, using degraded fallback:', err);
+        console.warn('Feed unavailable:', err);
         return null;
       }
     }
 
     async function loadDashboard() {
-      const statusText = document.getElementById('status-text');
-      const startTime = performance.now();
+      const setText = (id, text) => { document.getElementById(id).textContent = text; };
+      const badge = document.getElementById('system-status');
+      badge.dataset.state = 'pending';
+      setText('status-text', 'FETCHING SNAPSHOT');
+      // Reset before any retry so yesterday's value cannot look newly fetched.
+      for (const [id, value] of Object.entries({
+        'weather-temp': '--°C', 'weather-wind': '-- km/h', 'weather-dir': '--°',
+        'quake-mag': 'M --', 'quake-place': 'No usable data',
+        'quake-depth': '-- km', 'quake-time': '--',
+        'fx-rate': '-- THB', 'fx-eur': '--', 'fx-jpy': '--',
+        'weather-meta': 'OPEN-METEO · PENDING',
+        'quake-meta': 'USGS M4.5+ · PENDING',
+        'fx-meta': 'ECB / FRANKFURTER · PENDING'
+      })) setText(id, value);
+      let available = 0;
 
-      // 1. Fetch Weather (Open-Meteo Bangkok coordinates: 13.75, 100.51)
+      // 1. Open-Meteo current-weather snapshot. Keep the provider's timestamp.
       const weatherData = await safeFetch('https://api.open-meteo.com/v1/forecast?latitude=13.75&longitude=100.51&current_weather=true');
-      if (weatherData && weatherData.current_weather) {
-        const w = weatherData.current_weather;
-        document.getElementById('weather-temp').textContent = `${w.temperature}°C`;
-        document.getElementById('weather-wind').textContent = `${w.windspeed} km/h`;
-        document.getElementById('weather-dir').textContent = `${w.winddirection}°`;
+      setText('weather-meta', 'OPEN-METEO · UNAVAILABLE');
+      const w = weatherData?.current_weather;
+      if (w && [w.temperature, w.windspeed, w.winddirection].every(Number.isFinite)) {
+        setText('weather-temp', `${w.temperature}°C`);
+        setText('weather-wind', `${w.windspeed} km/h`);
+        setText('weather-dir', `${w.winddirection}°`);
+        const time = typeof w.time === 'string' && w.time ? w.time : 'time unknown';
+        setText('weather-meta', `OPEN-METEO · ${time}`);
+        available++;
       }
 
-      // 2. Fetch Latest M4.5+ Earthquake (USGS)
+      // 2. An empty, valid USGS list means no matching events, not a live event.
       const quakeData = await safeFetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4.5&limit=1');
-      if (quakeData && quakeData.features && quakeData.features.length > 0) {
+      setText('quake-meta', 'USGS M4.5+ · UNAVAILABLE');
+      if (Array.isArray(quakeData?.features)) {
         const q = quakeData.features[0];
-        document.getElementById('quake-mag').textContent = `M ${q.properties.mag.toFixed(1)}`;
-        document.getElementById('quake-place').textContent = q.properties.place || 'Unknown';
-        document.getElementById('quake-depth').textContent = `${q.geometry.coordinates[2]} km`;
-        const timeStr = new Date(q.properties.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        document.getElementById('quake-time').textContent = timeStr;
+        if (quakeData.features.length === 0) {
+          setText('quake-meta', 'USGS M4.5+ · NO MATCHING EVENTS');
+          setText('quake-place', 'No events in this response');
+          available++;
+        } else if (Number.isFinite(q?.properties?.mag) &&
+                   Number.isFinite(q?.geometry?.coordinates?.[2]) &&
+                   Number.isFinite(q?.properties?.time) &&
+                   Number.isFinite(new Date(q.properties.time).getTime())) {
+          setText('quake-mag', `M ${q.properties.mag.toFixed(1)}`);
+          setText('quake-place', typeof q.properties.place === 'string' && q.properties.place
+            ? q.properties.place : 'Location unavailable');
+          setText('quake-depth', `${q.geometry.coordinates[2]} km`);
+          setText('quake-time', new Date(q.properties.time).toISOString());
+          setText('quake-meta', 'USGS M4.5+ · EVENT SNAPSHOT');
+          available++;
+        }
       }
 
-      // 3. Fetch FX Rates (Frankfurter ECB USD to THB, EUR, JPY)
+      // 3. ECB reference rates are dated observations, not streaming FX prices.
       const fxData = await safeFetch('https://api.frankfurter.app/latest?from=USD&to=THB,EUR,JPY');
-      if (fxData && fxData.rates) {
-        document.getElementById('fx-rate').textContent = `${fxData.rates.THB.toFixed(2)} THB`;
-        document.getElementById('fx-eur').textContent = fxData.rates.EUR.toFixed(4);
-        document.getElementById('fx-jpy').textContent = fxData.rates.JPY.toFixed(2);
+      setText('fx-meta', 'ECB / FRANKFURTER · UNAVAILABLE');
+      const rates = fxData?.rates;
+      if (rates && [rates.THB, rates.EUR, rates.JPY].every(value => Number.isFinite(value) && value > 0)) {
+        setText('fx-rate', `${rates.THB.toFixed(2)} THB`);
+        setText('fx-eur', rates.EUR.toFixed(4));
+        setText('fx-jpy', rates.JPY.toFixed(2));
+        const date = typeof fxData.date === 'string' && fxData.date ? fxData.date : 'date unknown';
+        setText('fx-meta', `ECB / FRANKFURTER · ${date}`);
+        available++;
       }
 
-      const elapsed = Math.round(performance.now() - startTime);
-      statusText.textContent = `LIVE (${elapsed}ms)`;
+      badge.dataset.state = available === 3 ? 'complete' : available ? 'partial' : 'unavailable';
+      const label = available === 3 ? 'SNAPSHOT' : available ? 'PARTIAL' : 'UNAVAILABLE';
+      setText('status-text', `${label} · ${available}/3 FEEDS`);
     }
 
     // Initialize on page load

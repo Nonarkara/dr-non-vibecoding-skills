@@ -16,17 +16,6 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**165 skills** · **16 playbooks** · **13 references** · **17 templates**
-
-=======
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 169 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
-Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
-
-[![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 169](https://img.shields.io/badge/skills-169-F59E0B)](skills/)[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
-
 **177 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -52,6 +41,16 @@ this repository is the durable version of the same thing.
 
 ---
 
+## Before you run setup
+
+Reading or pasting the skills needs no runtime. The optional tooling has a different contract:
+
+- `setup.sh` needs Bash and standard shell utilities; repository validation needs Python 3. `make` is a convenience wrapper.
+- `--become-builder` **installs skills**; it does not scaffold an application. By default, the installer creates/updates the Claude and Codex user directories, then selects other hosts by flags or detected directories. Existing same-name skill files can be replaced. Review `scripts/install-skills.sh` first; `--dry-run` previews destinations.
+- `--init-project` **writes a project** from the templates. Start in a new directory. It can initialize Git and make an initial local commit when a Git identity is configured. The chosen stack is contract text, not an installed Next.js/React/Python framework.
+- The starter is a browser HTML/JS dashboard. Live weather, earthquake and FX cards need network access and working public providers; the template fetches one snapshot on page load and reports available, partial or unavailable responses. It shows source dates where supplied and labels unknown dates; a successful fetch is not a real-time freshness guarantee. `open` below is macOS-specific; elsewhere open `index.html` in your browser.
+- [`thailand-godmode/`](thailand-godmode/README.md) is a separate experimental code toolkit with its own prerequisites and city configuration. It is not installed by the skills command and is not a complete hosted dashboard.
+
 ## Non-Programmer Quickstart: The Automatic Tesla Paradigm
 
 > If manual coding is like driving a stick-shift car — managing the clutch of syntax, package managers, and compile errors — this stack puts you in the driver's seat of an **autonomous vehicle**. The AI agent handles the mechanics; you decide where to go, how fast to go, and which landmarks to explore.
@@ -70,7 +69,7 @@ cd dr-non-vibecoding-skills
 open ~/Projects/my-app/index.html
 ```
 
-Your browser instantly opens a running, dark-mode dashboard connected to live public data feeds (weather, earthquakes, currency exchange) with zero API keys, zero dependencies, and zero backend configuration.
+Your browser opens a dark-mode HTML/JS starter that requests public weather, earthquake and currency data without API keys or a backend. Internet access and provider availability still matter. Check each card’s source date and missing-data state before adapting it for real operations.
 
 **Now, direct your AI:**
 1. Open `~/Projects/my-app` in **Claude Code**, **Cursor**, or **Antigravity**.
@@ -115,7 +114,7 @@ This stack assumes the same role split the rest of the industry is converging on
   3. *Energy source:* local Ollama on your laptop, free cloud API tiers ([`free-api-keys`](skills/free-api-keys/SKILL.md)), or scale-to-zero Google Cloud Run ([`google-cloud-run`](skills/google-cloud-run/SKILL.md)).
   4. *Look & feel:* the design law ([`axiom-design-core`](skills/axiom-design-core/SKILL.md)), the honest-envelope for displayed numbers, the zero-unverified-claims rule.
 
-The clone-and-bootstrap path is one command: `./setup.sh --become-builder`. The agent does the rest. The stack is the *operating system* that turns the agent into a *Doer* and the human into the *Thinker*.
+The skills-install path is one command: `./setup.sh --become-builder`. Project scaffolding is the separate `--init-project` step above. The agent does the rest. The stack is the *operating system* that turns the agent into a *Doer* and the human into the *Thinker*.
 
 ### Read next
 
@@ -173,7 +172,7 @@ git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-That is the entire onboarding. The script discovers every agent installed on your machine (Antigravity, Gemini CLI, Claude Code, Codex, Cursor, Hermes, OpenCode), installs the skills into their native discovery directories, and prints **You are Dr Non the Builder** with the three immediate moves:
+That installs the skills to selected discovery directories (see the destination and overwrite caveats above), then prints **You are Dr Non the Builder** with the three immediate moves:
 1. **Scaffold a project contract** (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`).
 2. **Pass the Mama Rule with a real older nontechnical user, then conduct the multi-persona walkthrough** ([`human-walkthrough`](skills/human-walkthrough/SKILL.md)).
 3. **Run a data-driven hindsight review** ([`power-of-hindsight`](skills/power-of-hindsight/SKILL.md)).

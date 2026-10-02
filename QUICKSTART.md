@@ -7,7 +7,7 @@ git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-That installs every skill on every agent this machine has and prints **You are Dr Non the Builder**.
+That installs the collection into the installer’s selected destinations and prints **You are Dr Non the Builder**. Read [Before you run setup](README.md#before-you-run-setup) first: Claude and Codex user paths are always included by default, and same-name skill files can be replaced. Inspect destinations with `./setup.sh --become-builder --dry-run` before installing.
 
 Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.md#other-ways-to-install). Agent-driven project scaffold: [`BLUEPRINT.md`](BLUEPRINT.md).
 
@@ -29,7 +29,7 @@ cd ~/Projects/my-app
 claude
 ```
 
-From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 169 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
+From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, can discover the installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
 ### What ships in the scaffold (runnable, not just docs)
 
 `scripts/new-project.sh` (and `./setup.sh --init-project`) drop these into every new project by default:
@@ -61,8 +61,12 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 177
-# also: ls ~/.agents/skills | wc -l
+# From this clone; use the destination printed by the installer.
+# Check this collection, not the total number of unrelated installed skills.
+for skill in skills/*/SKILL.md; do
+  name=$(basename "$(dirname "$skill")")
+  test -f "$HOME/.claude/skills/$name/SKILL.md" || printf 'Missing: %s\n' "$name"
+done
 ```
 
 `AGENTS.md` is project memory; skills are reusable workflows. Keep those roles separate.

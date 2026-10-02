@@ -23,3 +23,8 @@ jobs:
         run: bash scripts/test-install-skills.sh
       - name: Prove first-time-user bootstrap works offline
         run: bash scripts/test-bootstrap.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Prove starter feed states with offline fixtures
+        run: node --test scripts/test-starter-dashboard.mjs
