@@ -21,7 +21,7 @@ Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
-There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
+Reading the skills requires no runtime. Optional installers, project templates, and the separate `thailand-godmode/` code toolkit have their own prerequisites and side effects; see `README.md` → “Before you run setup.”
 
 ---
 
