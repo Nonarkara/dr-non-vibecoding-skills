@@ -209,3 +209,9 @@ fluent-language review remain unverified.
 **Why:** Appropriate type needs evidence; unfamiliar faces, automatic tight tracking and universal Latin measure limits do not establish human craft.
 **Diff:** New original skill/source ledger; colour-and-type guidance corrected; routes and counts updated; portable mirrors and project-specific guidance in Palette, MoMA Rules, Rams × NYCTA and Axiom Design Core. Source is selected close reading of the supplied second edition / 1997 printing, not a full-book completion claim.
 **Tags:** `typography · bringhurst · multilingual · context · anti-slop · source-credit`
+
+**Date:** 2026-10-04
+**What:** Added `design-slop-field-guide`: 18 patterns of AI design slop in five groups (truth, reader, layout, colour, process), each with evidence, danger, a runnable test and a fix, plus a 19-line pre-ship checklist.
+**Why:** A study of 44 citizen-built, mostly AI-assisted flood apps (Thailand, 27 Sep – 3 Oct 2026) and FloodDash's own corrections showed the same failures recurring: no-data rendered as safe, fallback shown as live, unsourced advice ("passable"), wrong place, overlapping controls, one neon accent doing every job, agent reports that do not match the diff.
+**Diff:** New skill + `field-guide.md`; catalogue row; counts 177 → 178. Same guide filed in MoMA Rules, Axiom Design Core, Rams × NYCTA Design Core and Palette, each with a note on which patterns that repo's own checks catch.
+**Tags:** `anti-slop · design-slop · civic · crisis-ui · field-evidence · honesty`

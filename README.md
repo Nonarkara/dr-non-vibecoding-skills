@@ -11,7 +11,7 @@ A complete, production-hardened stack for pairing with AI agents — plain markd
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 177](https://img.shields.io/badge/skills-177-F59E0B)](skills/)
+[![Skills: 178](https://img.shields.io/badge/skills-178-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
@@ -27,7 +27,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**177 skills** · **16 playbooks** · **14 references** · **17 templates**
+**178 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
