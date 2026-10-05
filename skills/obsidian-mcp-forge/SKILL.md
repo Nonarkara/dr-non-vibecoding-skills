@@ -6,11 +6,13 @@ license: MIT
 
 # Obsidian MCP Forge (A+ coding brain)
 
-> Markdown is truth. SQLite and embeddings are disposable. The MCP server is a thin stdio shim. Cull zombies. Prove recall with smoke + eval.
+> Markdown is truth. SQLite and embeddings are disposable. The coding MCP is a filesystem stdio bridge. Cull by age. Prove recall with smoke + eval.
 
-[`shared-memory-hub`](../shared-memory-hub/SKILL.md) is the **ritual** (`recall_lessons` → `capture_lesson`, max 3, verified-only). This skill is the **machine** that makes that ritual cheap enough to use on every coding session — the setup Dr Non actually runs after burning tokens on the wrong paths.
+[`shared-memory-hub`](../shared-memory-hub/SKILL.md) is the **ritual** (`recall_lessons` → `capture_lesson`, max 3, verified-only). This skill is the **machine**.
 
-Reference implementation (method, not secrets): [`second-brain-os`](https://github.com/Nonarkara/second-brain-os). Live operator vault (private): `~/Documents/SecondBrain`.
+Reconstruct from [`second-brain-os`](https://github.com/Nonarkara/second-brain-os). Fork the method. Leave the private vault private.
+
+Two receipts: the 2026-09-11 forge-vs-REST burn, and the 2026-10-05 dual-Mac audit ([lesson](../../docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md)).
 
 Influences: [`shared-memory-hub`](../shared-memory-hub/SKILL.md), [`mcp-cli-first`](../mcp-cli-first/SKILL.md), [`context-economy`](../context-economy/SKILL.md), [`lesson-residue`](../lesson-residue/SKILL.md), [`always-on-services`](../always-on-services/SKILL.md), [`simple-rag`](../simple-rag/SKILL.md), [`harness-hardening`](../harness-hardening/SKILL.md).
 
@@ -18,110 +20,116 @@ Influences: [`shared-memory-hub`](../shared-memory-hub/SKILL.md), [`mcp-cli-firs
 
 ## Why this path (paid for in tokens)
 
-| Temptation | What actually happened | Keep instead |
+| Temptation | What actually happened | Keep |
 |---|---|---|
-| Official **Local REST API + MCP** as the only way | Plugin not installed; coding still needed vault while Obsidian habits varied; REST path never became the daily driver | **Filesystem `obsidian-bridge` (stdio)** as the production coding MCP |
-| `npx` random `obsidian-bridge` package | Wrong tool surface; no local eval; no scar hygiene | Your vault’s `.mcp/obsidian-bridge` + `.mcp/obsidian-memory` |
-| Vector DB day one | Cost + ops for what hybrid FTS5 + optional Ollama embeds already do locally | Disposable SQLite index; delete and rebuild from Markdown anytime |
-| Trust “configured” without proof | Smoke drifted; eval 19/20; 15 zombie Node bridges eating RAM | Nightly **cull + index + eval**; smoke must stay green |
-| Generic eval queries (“live map vanished”) | Newer scars steal the query; old fixture goes red | Queries must **uniquely** identify the scar; retarget fixtures when the corpus grows |
+| Official **Local REST API + MCP** as the coding path | The plugin can read as up inside Obsidian with no window and a dead port (`27123` / `27124`). Coding still needed the vault. | Filesystem `obsidian-bridge` (stdio). REST stays optional. |
+| Bridge and `brain.py` copied under `$VAULT/.mcp/` | A fork, and a second Mac, do not have those copies. Recall then cannot find the CLI. The public kit (2026-09-10) still joins `.mcp/obsidian-memory/brain.py` onto the vault. | Resolve both from the shipped `mcp/` tree, or from `OBSIDIAN_BRAIN_CLI`. |
+| Nightly `pkill` of every `obsidian-bridge` | Codex leaks one bridge process per thread. A once-a-day kill-all also takes down live Cursor and Claude bridges. | Age-filter. Spare a bridge whose client is still alive. |
+| Both machines write, and git holds `/Users/<name>/...` | The second machine drifted onto a different vault and a different REST setup. Home paths do not travel. | One nightly writer. Absolute paths stay in the local `mcp.json`. |
+| `npx` a random `obsidian-bridge` | Wrong tool surface, no local eval, no scar hygiene. | The kit in `second-brain-os`. |
+| Vector DB on day one | Cost and ops for a job hybrid FTS5 plus optional Ollama embeds already do locally. | Disposable SQLite. Delete it and rebuild from Markdown. |
+| Generic eval queries (“live map vanished”) | A newer scar steals the query and the old fixture goes red. | The query uniquely identifies the scar. Retarget the fixture when the corpus grows. |
 
-**Economics:** one verified scar recalled in top-3 beats re-deriving the fix in a fresh agent context. That is the whole ROI.
+**Economics:** one verified scar in the top 3 beats re-deriving the fix in a fresh context.
 
 ---
 
-## The production shape (what “good” looks like)
+## The production shape
 
 ```
-~/Documents/SecondBrain/          # or forkable vault root
-  .mcp/
-    obsidian-bridge/              # stdio MCP (Cursor/Claude/Codex/Antigravity)
-      index.js
-      smoke-test.mjs              # must exit 0
-    obsidian-memory/
-      brain.py                    # index | recall | capture | audit | eval | context
-      memory_core.py
-      eval-cases.json             # fixed retrieval suite — keep at 20/20
-    cache/                        # gitignored — brain-index.sqlite
-  Scars/ Debug-Logs/ Anti-Regression/
-  Knowledge/ Topics/ Bible/
-  Memory/ Daily/ Sessions/
-  Soul/ Will/ Bridges/ Senses/ Reflexes/ Vitals/
-  Reflexes/Scripts/
-    cull-orphan-mcp-bridges.sh    # kill leftover bridge processes
-    vault-maintenance.mjs         # nightly: redact → cull → index → eval → doctor → ship
-    secondbrain-doctor.mjs
+second-brain-os/                         # reconstruct kit
+  mcp/obsidian-bridge/index.js           # stdio MCP — Cursor, Claude, Codex, Antigravity
+  mcp/obsidian-bridge/smoke-test.mjs
+  mcp/obsidian-memory/brain.py           # index | recall | capture | audit | eval | context
+  mcp/config/.mcp.json.example
+  scripts/cull-orphan-mcp-bridges.sh
+  vault/                                 # empty regions for a new fork
+
+<vault>/                                 # OBSIDIAN_VAULT — markdown only
+  Scars/ Knowledge/ Memory/ ...
+  .mcp/cache/                            # gitignored disposable index
 ```
+
+`<vault>/.mcp/cache/` is the index. It is not a second copy of the bridge.
 
 ### Wire once per host
 
+Local `mcp.json` only. Do not commit it.
+
 ```jsonc
-// ~/.cursor/mcp.json  and/or  Claude mcpServers  and/or  project .mcp.json
 {
   "mcpServers": {
     "obsidian-bridge": {
-      "command": "/opt/homebrew/bin/node",
-      "args": ["/Users/YOU/Documents/SecondBrain/.mcp/obsidian-bridge/index.js"],
-      "env": { "OBSIDIAN_VAULT": "/Users/YOU/Documents/SecondBrain" }
+      "command": "node",
+      "args": ["<kit>/mcp/obsidian-bridge/index.js"],
+      "env": {
+        "OBSIDIAN_VAULT": "<vault>",
+        "OBSIDIAN_BRAIN_CLI": "<kit>/mcp/obsidian-memory/brain.py"
+      }
     }
   }
 }
 ```
 
-No API keys in the vault. `OBSIDIAN_VAULT` is a path, not a secret.
+`OBSIDIAN_VAULT` is a path on that machine. `OBSIDIAN_BRAIN_CLI` is the brain CLI when the process cwd is not the kit. No API keys.
 
-Optional: Official Local REST API MCP when you want Obsidian-aware tags/open-note/`vault_patch` **and** Obsidian is open. It does **not** replace the filesystem forge for coding agents.
+If `index.js` still sets `BRAIN_CLI` to `path.join(VAULT, ".mcp/obsidian-memory/brain.py")`, change that join so it reads `OBSIDIAN_BRAIN_CLI` first, then the shipped `mcp/obsidian-memory/brain.py` next to the bridge. Smoke launches that same `index.js`.
+
+Official Local REST API is for tags, open-note, and `vault_patch` when a window is actually up and `lsof` shows `27123` / `27124`. An enabled plugin with a dead port is a down server. Coding agents keep the filesystem forge either way.
+
+### Two machines
+
+One machine is the nightly writer (index, eval, private vault commit/push). The other reads. A second writer drifts the vault and can leave REST pointed at a different folder than `OBSIDIAN_VAULT`.
 
 ---
 
 ## Minimum tool contract
 
-Earn the server with recall + capture + audit. Live forges may expose more (search, daily, templates) — extras must not replace the ritual.
+Earn the server with recall, capture, and audit. Extra tools (search, daily, templates) must not replace the ritual.
 
 | Tool / CLI | Job |
 |---|---|
-| `recall_lessons` / `brain recall` | Top‑k verified lessons with Markdown paths |
-| `capture_lesson` / `brain capture` | Write a dated scar; refuse secrets + empty evidence |
+| `recall_lessons` / `brain recall` | Top-k verified lessons with Markdown paths |
+| `capture_lesson` / `brain capture` | Write a dated scar; refuse secrets and empty evidence |
 | `get_brain_context` / `brain context` | Compact conservation-law startup (budget-capped) |
 | `audit_super_mcp` / `brain audit` | Files, safety rails, index health, last eval |
-| `search_vault` | Lexical/hybrid search when recall is too narrow |
-| `brain index` | Rebuild disposable SQLite (+ embed missing via Ollama `nomic-embed-text` when up) |
-| `brain eval` | Fixed case suite — gate accuracy + latency |
+| `search_vault` | Lexical or hybrid search when recall is too narrow |
+| `brain index` | Rebuild disposable SQLite (embed missing via Ollama `nomic-embed-text` when it is up) |
+| `brain eval` | Fixed case suite — gate accuracy and latency |
 
 ---
 
 ## Hygiene that keeps it A+
 
-### 1. Cull orphan bridges
+### 1. Cull by age, once a day
 
-Claude Code, Cursor, and Antigravity spawn a stdio bridge per session and often leave zombies (double-digit Node processes overnight).
+Codex can leak one `obsidian-bridge` process per thread. Cursor and Claude spawn one per session and sometimes leave it.
 
-```bash
-bash Reflexes/Scripts/cull-orphan-mcp-bridges.sh
-# pattern: SecondBrain/.mcp/obsidian-bridge/index.js
-# Safe: clients respawn a fresh bridge on the next tool call
-```
+The daily job age-filters. It leaves a bridge whose parent is still Cursor or Claude. It reaps processes old enough to be abandoned (Codex threads that exited, clients that did not reap). Clients start a fresh bridge on the next tool call.
 
-Call this from nightly maintenance and whenever the laptop feels warm for no reason.
+Match `mcp/obsidian-bridge/index.js` (and a leftover `SecondBrain/.mcp/obsidian-bridge/index.js` if one is still on disk). Do not match every `node` process with “obsidian” in the command line.
 
 ### 2. Keep the index honest
 
+From the kit, with the vault and the CLI set:
+
 ```bash
-export OBSIDIAN_VAULT=~/Documents/SecondBrain
-python3 .mcp/obsidian-memory/brain.py index --json   # prefer mode: hybrid, missing_embeddings: 0
-python3 .mcp/obsidian-memory/brain.py eval --json    # target: 20/20, accuracy 1.0
-cd .mcp/obsidian-bridge && node smoke-test.mjs       # must print status: pass
+export OBSIDIAN_VAULT="<vault>"
+export OBSIDIAN_BRAIN_CLI="<kit>/mcp/obsidian-memory/brain.py"
+python3 "$OBSIDIAN_BRAIN_CLI" index --json    # prefer mode: hybrid, missing_embeddings: 0
+python3 "$OBSIDIAN_BRAIN_CLI" eval --json     # target: 20/20, accuracy 1.0
+node mcp/obsidian-bridge/smoke-test.mjs       # status: pass, against the kit's index.js
 ```
 
-If Ollama is up with `nomic-embed-text`, fill missing embeddings. If embeds are down, lexical fallback still works — do not pretend hybrid is healthy when `missing_embeddings > 0` for days.
+If Ollama is up with `nomic-embed-text`, fill missing embeddings. If embeds are down, lexical fallback still works. Do not call the index hybrid-healthy while `missing_embeddings > 0` for days.
 
 ### 3. Fixture drift is a real failure mode
 
-When `brain eval` drops a case because a **newer** scar matches the old query better, **retarget the query** (or add retrieval aliases on the canonical scar). Do not lower the bar. Do not delete the old scar.
+When `brain eval` drops a case because a newer scar matches the old query better, retarget the query (or add a retrieval alias on the canonical scar). Keep the bar. Keep the old scar.
 
-### 4. Nightly loop
+### 4. Nightly loop, one writer
 
-`vault-maintenance`: redact secrets outside `Vitals/Credentials/` → cull orphans → `brain index` + `brain eval` → doctor → commit/push private backup. Soft-fail index/eval into heartbeat; hard-fail only on exposed secrets.
+On the writer machine only: redact secrets outside `Vitals/Credentials/` → age-filtered cull → `brain index` + `brain eval` → doctor → commit/push the private backup. Soft-fail index/eval into the heartbeat. Hard-fail only on exposed secrets.
 
 ---
 
@@ -129,28 +137,35 @@ When `brain eval` drops a case because a **newer** scar matches the old query be
 
 | Temptation | Refuse because |
 |---|---|
-| Declare REST plugin “the 2026 default” and mark the forge superseded | Coding MCP must work when Obsidian is closed, headless, or plugin-less — forge is the durable path |
-| 20 MCP tools, no smoke | Tools that are never proven are decorative harness |
-| Dump the vault into context | [`context-economy`](../context-economy/SKILL.md) — max 3 lessons |
-| Secrets in notes | Every agent reads the vault; Keychain/env names only |
-| Unverified capture | Rot the index for the whole fleet |
-| Skip cull | Zombie bridges waste RAM and make MCP flaky |
-| Commit `brain-index.sqlite` or API keys | Index is disposable; keys are not method |
+| Treat “plugin enabled” as REST being up | The listener is the port. Coding MCP is the filesystem bridge. |
+| Join the bridge or `brain.py` onto `$VAULT/.mcp/` | The kit ships them under `mcp/`. The vault holds Markdown and a disposable cache. |
+| `pkill` every live bridge once a day | That kills working Cursor and Claude sessions to collect Codex leaks. Age-filter. |
+| Commit `/Users/<name>/...` | The second machine cannot use that path, and the path names a home directory. |
+| Two nightly writers | The second vault and the second REST config drift apart. |
+| 20 MCP tools, no smoke | Unproven tools are decoration. |
+| Dump the vault into context | [`context-economy`](../context-economy/SKILL.md) — max 3 lessons. |
+| Secrets in notes | Every agent reads the vault. Keychain and env names only. |
+| Unverified capture | Rots the index for the whole fleet. |
+| Commit `brain-index.sqlite` or API keys | The index is disposable. Keys are not method. |
 
 ---
 
 ## The test (A+ scorecard)
 
-Fresh machine or morning check:
+On the machine you are about to code on:
 
-1. Orphan bridge count is **0** (or one live client).
-2. `node smoke-test.mjs` → **pass**.
-3. `brain eval` → **20/20** (or your suite size) with gates green.
-4. `brain audit` → index **ready**, `missing_embeddings` **0** when Ollama is up.
-5. Fresh agent: `recall_lessons("<last week’s real bug>")` returns the fix in top‑3 with a path.
-6. `capture_lesson` with empty evidence is refused.
+1. The coding MCP command is `<kit>/mcp/obsidian-bridge/index.js`. `OBSIDIAN_BRAIN_CLI` (or the sibling `mcp/obsidian-memory/brain.py`) resolves, and a recall call runs.
+2. `node mcp/obsidian-bridge/smoke-test.mjs` passes against that bridge.
+3. `brain eval` is 20/20 (or your suite size) with the gates green.
+4. `brain audit` shows the index ready, and `missing_embeddings` is 0 when Ollama is up.
+5. If REST is configured, `lsof` shows `27123` or `27124`. An enabled plugin with neither port is a down server, and coding still works through the forge.
+6. A cull dry-run spares a bridge started this session by Cursor or Claude, and lists Codex orphans old enough to reap.
+7. `git grep` on the kit and the vault finds no `/Users/<name>/` path.
+8. One machine is scheduled to write tonight.
+9. A fresh agent’s `recall_lessons` on last week’s real bug returns the fix in the top 3, with a path.
+10. `capture_lesson` with empty evidence is refused.
 
-If any fail, the brain is decoration — fix before the next coding session.
+Any miss means the brain is decoration. Fix it before the next coding session.
 
 ---
 
@@ -158,5 +173,5 @@ If any fail, the brain is decoration — fix before the next coding session.
 
 - Ritual: [`shared-memory-hub`](../shared-memory-hub/SKILL.md)
 - Residue after pain: [`lesson-residue`](../lesson-residue/SKILL.md)
-- Public method repo: [second-brain-os](https://github.com/Nonarkara/second-brain-os)
-- Do not confuse with third-party `npx obsidian-bridge` packages — wire **your** vault’s forge path
+- Reconstruct kit: [second-brain-os](https://github.com/Nonarkara/second-brain-os)
+- Dual-Mac audit: [`docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md`](../../docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md)
