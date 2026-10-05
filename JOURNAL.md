@@ -215,3 +215,13 @@ fluent-language review remain unverified.
 **Why:** A study of 44 citizen-built, mostly AI-assisted flood apps (Thailand, 27 Sep – 3 Oct 2026) and FloodDash's own corrections showed the same failures recurring: no-data rendered as safe, fallback shown as live, unsourced advice ("passable"), wrong place, overlapping controls, one neon accent doing every job, agent reports that do not match the diff.
 **Diff:** New skill + `field-guide.md`; catalogue row; counts 177 → 178. Same guide filed in MoMA Rules, Axiom Design Core, Rams × NYCTA Design Core and Palette, each with a note on which patterns that repo's own checks catch.
 **Tags:** `anti-slop · design-slop · civic · crisis-ui · field-evidence · honesty`
+
+---
+
+## 2026-10-05 — Obsidian coding MCP, after the dual-Mac audit
+
+**Date:** 2026-10-05
+**What:** `obsidian-mcp-forge` now matches the live forge: filesystem `obsidian-bridge` is the coding MCP, the brain CLI resolves from the shipped `mcp/` tree or `OBSIDIAN_BRAIN_CLI`, the daily cull age-filters, and one machine is the nightly writer.
+**Why:** The 2026-10-05 dual-Mac audit found REST reading as up with a dead port, Codex leaking one bridge per thread, `$VAULT/.mcp` copies missing on a fork, and a second machine drifting onto another vault. Absolute `/Users/<name>` paths do not travel.
+**Diff:** `skills/obsidian-mcp-forge/SKILL.md`, `README.md`, `skills/shared-memory-hub/SKILL.md`, `docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md`
+**Tags:** `obsidian · mcp · dual-mac · forge-first · hygiene`

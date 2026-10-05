@@ -383,23 +383,24 @@ mkdir -p .cursor/skills && cp -R dr-non-vibecoding-skills/skills/* .cursor/skill
 
 ### Obsidian Second Brain (Recommended Memory Hub)
 
-Shared, local-first memory for every coding agent: Markdown vault + **filesystem** `obsidian-bridge` MCP + disposable SQLite recall index. This is the A+ path Dr Non actually runs — not a random `npx` package, and not “REST plugin only.”
+Shared, local-first memory for every coding agent: a Markdown vault, the filesystem `obsidian-bridge` MCP, and a disposable SQLite recall index. The coding MCP is that forge. Official Local REST API is optional: the plugin can read as up with no Obsidian window and a dead port.
 
 - Skill: [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) (machine) + [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) (ritual)
-- Method repo: [`second-brain-os`](https://github.com/Nonarkara/second-brain-os)
+- Reconstruct kit: [`second-brain-os`](https://github.com/Nonarkara/second-brain-os) — `mcp/obsidian-bridge` and `mcp/obsidian-memory`. Do not assume copies under `$VAULT/.mcp`.
 
 ```bash
-# Point Cursor/Claude/Codex at YOUR vault forge (stdio). Example:
-# ~/.cursor/mcp.json → command: node, args: ["/path/to/SecondBrain/.mcp/obsidian-bridge/index.js"]
-# env: OBSIDIAN_VAULT=/path/to/SecondBrain
+# Local mcp.json only. Do not commit /Users/<name> paths.
+#   command: node
+#   args: ["<kit>/mcp/obsidian-bridge/index.js"]
+#   env:  OBSIDIAN_VAULT=<vault>
+#         OBSIDIAN_BRAIN_CLI=<kit>/mcp/obsidian-memory/brain.py
 #
-# Prove it:
-#   bash Reflexes/Scripts/cull-orphan-mcp-bridges.sh
-#   python3 .mcp/obsidian-memory/brain.py eval --json    # target 20/20
-#   cd .mcp/obsidian-bridge && node smoke-test.mjs       # must pass
+# Prove it from the kit:
+#   python3 mcp/obsidian-memory/brain.py eval --json    # target 20/20
+#   node mcp/obsidian-bridge/smoke-test.mjs            # must pass
 ```
 
-When active, agents `recall_lessons` before architecting and `capture_lesson` after verifying novel fixes. Cull orphan bridge processes; retarget eval fixtures when scars multiply. Secrets never enter the vault.
+When active, agents `recall_lessons` before architecting and `capture_lesson` after verifying novel fixes. Cull orphan bridges by age (Codex can leak one process per thread; leave live Cursor and Claude bridges up). One machine is the nightly writer. Retarget eval fixtures when scars multiply. Secrets never enter the vault.
 
 ---
 
