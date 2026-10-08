@@ -17,6 +17,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
 **185 skills** · **17 playbooks** · **14 references** · **19 templates**
+
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
