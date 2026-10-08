@@ -225,3 +225,13 @@ fluent-language review remain unverified.
 **Why:** The 2026-10-05 dual-Mac audit found REST reading as up with a dead port, Codex leaking one bridge per thread, `$VAULT/.mcp` copies missing on a fork, and a second machine drifting onto another vault. Absolute `/Users/<name>` paths do not travel.
 **Diff:** `skills/obsidian-mcp-forge/SKILL.md`, `README.md`, `skills/shared-memory-hub/SKILL.md`, `docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md`
 **Tags:** `obsidian · mcp · dual-mac · forge-first · hygiene`
+
+---
+
+## 2026-10-08 — A gate in front of the library
+
+**Date:** 2026-10-08
+**What:** Added the foundation: `START-HERE.md`, seven skills (class, need, done, slop, reproducibility, security baseline, review), playbook 17, two templates, `CREDITS.md`, SHA-pinned Actions, and a conflict-marker check.
+**Why:** The library already knew how to ship. It did not make an agent choose how much engineering a task deserved, or stop before claiming a result it had not run. Borrowed ideas are credited. Elastic-licensed context-mode is named and not copied.
+**Diff:** `START-HERE.md`, `CREDITS.md`, `skills/proportionality`, `skills/user-need`, `skills/definition-of-done`, `skills/anti-slop`, `skills/reproducible-result`, `skills/security-baseline`, `skills/vibe-review`, `playbooks/17-the-vibe-foundation.md`, `templates/vibe-review.md.template`, `templates/security-baseline.yml.template`
+**Tags:** `foundation · proportionality · anti-slop · security · credits`

@@ -1,0 +1,22 @@
+# Review
+
+Answer each line with a pointer to evidence, or with "skipped" and the reason. A blank line means the review has not finished.
+
+1. Class (throwaway, prototype, production, civic), and why this diff matches it.
+2. Mode (learn, produce, play, or the other word you used), and why the reply matches it.
+3. Pass sentence, written before the edit. Command and output.
+4. Slop pass: code, interface, prose. Hits and rewrites, or the lines you checked.
+5. Security row for that class. Scan output shows file and rule. No secret value.
+6. Rerun record: command, versions, lockfile, seed or input. Or why this class does not need one.
+7. Succeeded / failed / skipped / unverified.
+
+Reviewer notes, when the change is code someone else will maintain:
+
+- The change belongs here.
+- It does what was asked, including the edge someone will hit.
+- Nothing is more general than today's task.
+- A test fails when the behavior breaks.
+- Names can be read. Comments say why.
+- I read these files. I did not read these files.
+- Nits are marked as nits.
+- Every finding has a file and a line.

@@ -3,7 +3,7 @@
 > **A written operating system for AI-assisted software shipping.**
 > Plain markdown · No runtime · Agent-agnostic
 
-**The system's secret is not the model.** It is the four shapes — **169 skills**, **16 playbooks**, **14 references**, **17 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
+**The system's secret is not the model.** It is the four shapes — **185 skills**, **17 playbooks**, **14 references**, **19 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
 ![STACK — the package at a glance](../../infographics/pages/page-01.png)
 
 ---
@@ -14,12 +14,12 @@ A new contributor usually reads the README, sees the table, and concludes there 
 
 There is one product. The four shapes are **four views of the same practice**, not four separate products:
 
-- **Skills** are the standing instructions an agent loads — 69 `SKILL.md` files in `skills/`. Each is a one-decision change, with a trigger word, a test, and a body.
-- **Playbooks** are the incidents and reasoning — 15 narratives in `playbooks/`. Why the skill exists, what it was born from, what was refused.
-- **References** are the stable implementation details — 7 docs in `reference/`. APIs, stack picks, commit style, named references, security hygiene, hosting, payments/voice.
-- **Templates** are the drop-in files — 12 in `templates/`. CLAUDE.md, AGENTS.md, deploy script, launchd plist, tunnel config, lesson doc, plus the workspace indexes and the env / gitignore / design-tokens starters.
+- **Skills** are the standing instructions an agent loads — 185 `SKILL.md` files in `skills/`. Each is a one-decision change, with a trigger word, a test, and a body.
+- **Playbooks** are the incidents and reasoning — 17 narratives in `playbooks/`. Why the skill exists, what it was born from, what was refused.
+- **References** are the stable implementation details — 14 docs in `reference/`. APIs, stack picks, commit style, named references, security hygiene, hosting, payments/voice.
+- **Templates** are the drop-in files — 19 in `templates/`. CLAUDE.md, AGENTS.md, deploy script, launchd plist, tunnel config, lesson doc, plus the workspace indexes and the env / gitignore / design-tokens starters.
 
-The counts are deliberate. The validator enforces them. Adding a 70th skill bumps the description-character budget automatically; the gate keeps every addition honest.
+The counts are deliberate. The validator enforces them. Adding a skill bumps the description-character budget automatically; the gate keeps every addition honest.
 
 ## Plain markdown, no runtime, agent-agnostic
 
