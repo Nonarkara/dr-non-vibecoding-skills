@@ -40,6 +40,20 @@ Fail the surface when any of these is the unchosen default:
 
 [`design-slop-field-guide`](../design-slop-field-guide/SKILL.md) is the field list from real flood apps, each with a test. A layout change still goes through [`see-and-revise`](../see-and-revise/SKILL.md).
 
+## Don't make users do the backend's job
+
+The system infers, defaults, and saves. The screen shows an exception, or a decision that needs a person. A control for a fact the system already holds is a hit. A picture that adds no fact is a hit.
+
+ครูชีต is the attendance card Non pointed at. The phone is class ม.2/3 maths. Each visible student has a chip for มา, สาย, ลา, and ขาด: a tap per student per status. Four tiles above the list repeat those same counts. A green button asks the teacher to save the roll for 32 people. The page is a pale mint frame with stock 3D icons (clipboard, calendar, document, books, cap). The useful fact, that the rows live in the teacher's own Google Sheet and the maker cannot see the students, sits in a footnote under the phone.
+
+For each input or tap on a screen:
+
+1. Could the system know this already?
+2. Could it be a default, so the person changes only the exception?
+3. Does this need a save step?
+
+A yes on 1 or 2, or a save step for a change the person just made, is a hit. Rewrite so the person acts only where a human decision is required.
+
 ## Prose
 
 Fail the paragraph when any of these is true:

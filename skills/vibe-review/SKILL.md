@@ -21,7 +21,7 @@ You may hand work back when every line below is answered with evidence, or marke
 1. **Class.** What did [`proportionality`](../proportionality/SKILL.md) say, and does the diff match that weight?
 2. **Need.** What did [`user-need`](../user-need/SKILL.md) say, and does the reply match that depth?
 3. **Pass condition.** Where is the sentence from [`definition-of-done`](../definition-of-done/SKILL.md), and where is the command output?
-4. **Slop.** What did the [`anti-slop`](../anti-slop/SKILL.md) pass find in code, interface, and prose?
+4. **Slop.** What did the [`anti-slop`](../anti-slop/SKILL.md) pass find in code, interface, and prose? On a screen, answer the three questions under "Don't make users do the backend's job".
 5. **Security.** Which row of [`security-baseline`](../security-baseline/SKILL.md) applies, and what did the scan print? Confirm it printed a location and a rule, not a secret.
 6. **Reproducibility.** Can someone else rerun it from the record in [`reproducible-result`](../reproducible-result/SKILL.md)?
 7. **Buckets.** Succeeded, failed, skipped, unverified, as in [`result-honesty`](../result-honesty/SKILL.md).

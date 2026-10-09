@@ -5,7 +5,7 @@ Answer each line with a pointer to evidence, or with "skipped" and the reason. A
 1. Class (throwaway, prototype, production, civic), and why this diff matches it.
 2. Mode (learn, produce, play, or the other word you used), and why the reply matches it.
 3. Pass sentence, written before the edit. Command and output.
-4. Slop pass: code, interface, prose. Hits and rewrites, or the lines you checked.
+4. Slop pass: code, interface, prose. Hits and rewrites, or the lines you checked. On a screen, the three questions under "Don't make users do the backend's job".
 5. Security row for that class. Scan output shows file and rule. No secret value.
 6. Rerun record: command, versions, lockfile, seed or input. Or why this class does not need one.
 7. Succeeded / failed / skipped / unverified.
