@@ -1,0 +1,9 @@
+{
+  "task": "Fix the greeting bug in greet.py",
+  "status": "done",
+  "base": "main",
+  "changed_files": ["greet.py"],
+  "claims": [
+    {"says": "greeting test passes", "type": "test", "run": "python3 check_greet.py", "name": "1 passed"}
+  ]
+}

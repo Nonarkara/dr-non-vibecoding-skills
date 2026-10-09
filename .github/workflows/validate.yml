@@ -23,6 +23,8 @@ jobs:
         run: bash scripts/test-install-skills.sh
       - name: Prove first-time-user bootstrap works offline
         run: bash scripts/test-bootstrap.sh
+      - name: Prove Non-Bluff catches each failure and passes honest work
+        run: bash scripts/test-non-bluff.sh
       - name: Markdown lint the foundation pages
         uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
         with:
@@ -37,4 +39,5 @@ jobs:
             skills/security-baseline/SKILL.md
             skills/user-need/SKILL.md
             skills/vibe-review/SKILL.md
+            skills/non-bluff/SKILL.md
             templates/vibe-review.md.template

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "about": "Each rule is a regex tested against one line that names the action: 'shell: <command>', 'tool: <tool name> <input>', 'read: <path>' or 'write: <path>'. deny always blocks. ask stops and needs a human to approve it. Anything that matches no rule is allowed and still logged.",
+  "protected_branches": ["main", "master", "production"],
+  "rules": [
+    {"id": "no-hook-bypass", "action": "deny", "match": "^shell:.*\\s--no-verify\\b", "why": "Skips the repo's own checks."},
+    {"id": "force-push", "action": "deny", "match": "^shell:.*\\bgit\\s+push\\b[^;&|]*(\\s--force(-with-lease)?\\b|\\s-[a-zA-Z]*f\\b|\\s\\+\\S+)", "why": "Rewrites shared history."},
+    {"id": "rm-rf-root-or-home", "action": "deny", "match": "^shell:.*\\brm\\s+(-\\S+\\s+)*-\\S*[rR]\\S*\\s+(-\\S+\\s+)*(/|~|\\$HOME|/\\*|~/\\*)(\\s|;|$)", "why": "Deletes the machine or the home folder."},
+    {"id": "print-token", "action": "deny", "match": "^shell:.*\\bgh\\s+auth\\s+token\\b", "why": "Prints a credential into the transcript."},
+
+    {"id": "push-protected", "action": "ask", "match": "^shell:.*\\bgit\\s+push\\b[^;&|]*\\b(main|master|production)\\b", "why": "Pushes straight to a protected branch."},
+    {"id": "merge", "action": "ask", "match": "(^shell:.*\\bgh\\s+pr\\s+merge\\b|^tool:\\s*\\S*merge_pull_request)", "why": "A merge is visible to everyone and hard to undo."},
+    {"id": "deploy-or-publish", "action": "ask", "match": "^shell:.*\\b(wrangler\\s+(deploy|publish|pages\\s+deploy)|vercel\\b.*--prod|netlify\\s+deploy\\b.*--prod|fly\\s+deploy|firebase\\s+deploy|gcloud\\s+\\S+\\s+deploy|kubectl\\s+(apply|delete|rollout)|terraform\\s+(apply|destroy)|npm\\s+publish|cargo\\s+publish|twine\\s+upload|docker\\s+push|gh\\s+release\\s+create|launchctl\\s+(kickstart|bootout|unload))\\b", "why": "Changes a live system or a public package."},
+    {"id": "delete", "action": "ask", "match": "(^shell:.*(\\brm\\s+(-\\S+\\s+)*-\\S*[rR]|\\bgit\\s+(branch\\s+-D|reset\\s+--hard|clean\\s+-\\S*f)|\\bgit\\s+push\\b.*\\s(--delete|:\\S+)|\\bgh\\s+(repo|release)\\s+delete|\\b(DROP\\s+(TABLE|DATABASE)|TRUNCATE)\\b)|^tool:\\s*\\S*(delete|trash|remove|destroy)\\S*)", "why": "Deletes something."},
+    {"id": "secret-read-or-write", "action": "ask", "match": "(^(read|write):\\s*\\S*(\\.env(\\.[\\w-]+)?|id_rsa|id_ed25519|\\.pem|\\.p12|\\.key|credentials(\\.json)?|\\.netrc|\\.npmrc|\\.pypirc|secrets?\\.(json|ya?ml|toml))$|^shell:.*(\\bgh\\s+secret\\s+(set|delete|remove)\\b|\\b(cat|less|more|head|tail|bat|cp|scp|base64)\\b[^;&|]*(\\.env\\b|id_rsa|id_ed25519|\\.pem\\b|credentials\\.json|\\.netrc\\b)))", "why": "Touches a secret."},
+    {"id": "send-message", "action": "ask", "match": "(^tool:\\s*\\S*(send|reply|forward|post_?message|create_draft|publish|tweet|create_post)\\S*|^shell:.*(\\b(sendmail|mutt)\\b|\\bmail\\s+-s\\b|hooks\\.slack\\.com|api\\.telegram\\.org|discord(app)?\\.com/api/webhooks))", "why": "Speaks for you outside this machine."},
+    {"id": "payment", "action": "ask", "match": "(^tool:\\s*\\S*(charge|payment|payout|purchase|checkout|refund|transfer|invoice)\\S*|^shell:.*\\b(stripe\\s+(charges|payment_intents|payouts|refunds|transfers)\\s+create|api\\.stripe\\.com/v1/(charges|payment_intents|payouts|refunds|transfers)))", "why": "Moves money."},
+    {"id": "pipe-to-shell", "action": "ask", "match": "^shell:.*\\b(curl|wget)\\b[^;&]*\\|\\s*(sudo\\s+)?(ba|z)?sh\\b", "why": "Runs code from the internet without reading it."},
+    {"id": "sudo", "action": "ask", "match": "^shell:(.*[;&|]\\s*|\\s*)sudo\\b", "why": "Runs as the machine's administrator."},
+    {"id": "guard-self-edit", "action": "ask", "match": "^write:\\s*\\S*(\\.github/workflows/|\\.cursor/hooks|\\.claude/settings|non-bluff/(policy\\.json|scripts/|hooks/))", "why": "Changes the checks or this guard itself."}
+  ]
+}
