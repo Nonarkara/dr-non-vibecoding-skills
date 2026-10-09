@@ -12,12 +12,12 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **178 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **185 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
-- **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **14 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, SEO/GEO connectors, and the Strix pentest boundary.
-- **17 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
+- **19 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc, the vibe-review checklist, the report-only security workflow).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working. The collection is now positioned as a stack — four interoperating shapes — rather than a skills library alone.*
 
@@ -35,7 +35,7 @@ and needs no install. If that is all you were given, that is enough to start.
 
 ### 1. Read the spine first
 
-Start with `README.md` (the public face). The one-liner is `./setup.sh --become-builder` — skills on every detected agent, then contract / walkthrough / hindsight. `BLUEPRINT.md` is the *project* paste after that. The README lists the skills and links to each.
+Start with [`START-HERE.md`](START-HERE.md), then `README.md` (the public face). The one-liner is `./setup.sh --become-builder` — skills on every detected agent, then contract / walkthrough / hindsight. `BLUEPRINT.md` is the *project* paste after that. The README lists the skills and links to each.
 
 ### 2. Install the skills
 
@@ -112,6 +112,13 @@ Pick the skill that matches your problem:
 
 | If the problem is… | Read |
 |---|---|
+| How much engineering, testing, or security this task deserves | `skills/proportionality/SKILL.md` |
+| The person is learning, shipping, or playing | `skills/user-need/SKILL.md` |
+| About to say the work is done | `skills/definition-of-done/SKILL.md` |
+| Generated code, UI, or prose looks machine-made | `skills/anti-slop/SKILL.md` |
+| A result has to be rerun or adjusted later | `skills/reproducible-result/SKILL.md` |
+| Secrets, dependency scans, or supply-chain checks on a new repo | `skills/security-baseline/SKILL.md` |
+| One pass before handing work back | `skills/vibe-review/SKILL.md` |
 | Agent keeps re-explaining the project | `skills/agent-memory/SKILL.md` |
 | A rule the agent ignores, or a named agent that was never installed | `skills/harness-hardening/SKILL.md` |
 | Agent makes cowboy edits without a plan | `skills/planning-discipline/SKILL.md` |

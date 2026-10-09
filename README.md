@@ -6,33 +6,31 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 177 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 185 skills, 17 playbooks, 14 references, and 19 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 178](https://img.shields.io/badge/skills-178-F59E0B)](skills/)
-[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
+[![Skills: 185](https://img.shields.io/badge/skills-185-F59E0B)](skills/)
+[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
+[![Templates: 19](https://img.shields.io/badge/templates-19-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**165 skills** · **16 playbooks** · **13 references** · **17 templates**
+**185 skills** · **17 playbooks** · **14 references** · **19 templates**
 
-=======
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 169 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
-Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
-
-[![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 169](https://img.shields.io/badge/skills-169-F59E0B)](skills/)[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
-
-**178 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
 
 ชุดทักษะและคู่มือปฏิบัติการสำหรับเปลี่ยนความคิดให้เป็นซอฟต์แวร์และธุรกิจจริง — มาร์กดาวน์ล้วน ไม่มีรันไทม์ ผู้อ่านเป้าหมายคือคนไทยและคนอังกฤษด้วยกัน
+
+---
+
+## Start here
+
+New to the stack, or an agent opening it cold: read [`START-HERE.md`](START-HERE.md) before the manifesto. One page. Classify the task, match the person, write the pass condition, then build. Sources for the ideas that were borrowed are in [`CREDITS.md`](CREDITS.md).
+
+คนใหม่และเอเจนต์เริ่มที่ [`START-HERE.md`](START-HERE.md) ก่อนอ่านแถลงการณ์
 
 ---
 
@@ -443,6 +441,7 @@ The 16 numbered playbooks record the lived field experience behind the rules:
 14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 15. [How Dr Non prompts](playbooks/15-how-dr-non-prompts.md) — Eleven seconds of typing that produces three hours of work, and the four things you must already have for it to.
 16. [The philosophical spine](playbooks/16-the-philosophical-spine.md) — Ontology, virtue ethics, and why pure utilitarian AI optimization breaks without human grounding.
+17. [The vibe foundation](playbooks/17-the-vibe-foundation.md) — Classify the task, match the person, prove the pass line, and leave a command someone else can run.
 
 ---
 
@@ -452,10 +451,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["177 skills"] --> A["Your agent"]
-  P["16 playbooks"] --> A
+  S["185 skills"] --> A["Your agent"]
+  P["17 playbooks"] --> A
   R["14 refs"] --> A
-  T["17 templates"] --> A
+  T["19 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

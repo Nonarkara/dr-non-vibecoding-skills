@@ -1,0 +1,20 @@
+# Lint the foundation pages. The historical library is not in this glob:
+# a full-tree lint would demand a rewrite, and the rewrite is the thing
+# anti-regression tells us not to do. Frontmatter and local links for every
+# skill are scripts/validate_repo.py.
+config:
+  MD013: false
+  MD033: false
+frontMatter: "^---[\\s\\S]*?---\\s*"
+globs:
+  - START-HERE.md
+  - CREDITS.md
+  - playbooks/17-the-vibe-foundation.md
+  - skills/proportionality/SKILL.md
+  - skills/anti-slop/SKILL.md
+  - skills/definition-of-done/SKILL.md
+  - skills/reproducible-result/SKILL.md
+  - skills/security-baseline/SKILL.md
+  - skills/user-need/SKILL.md
+  - skills/vibe-review/SKILL.md
+  - templates/vibe-review.md.template

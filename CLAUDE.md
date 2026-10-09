@@ -32,6 +32,9 @@ The meta layer: skills, playbooks, references, and templates for shipping with
 agents. No runtime, nothing to compile. Counts live on eleven surfaces and
 `make validate` is the only authority — never hand-edit one of them.
 
+The one-page path is [`START-HERE.md`](START-HERE.md). The foundation skills
+are the gate. The rest of `skills/` is the library.
+
 ## Anti-regression
 
 This repository's distinctive parts are load-bearing and get flattened by

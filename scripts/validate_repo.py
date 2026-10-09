@@ -418,6 +418,31 @@ def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]
     return playbook_count, reference_count, template_count
 
 
+CONFLICT_MARKER = re.compile(r"^(<{7}|={7}$|>{7})( |$)")
+
+
+def validate_conflict_markers(errors: list[str]) -> None:
+    """Reject unresolved merge markers. Fenced examples are ignored."""
+    suffixes = {".md", ".yml", ".yaml", ".py", ".sh", ".json"}
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or ".git" in path.parts:
+            continue
+        if path.suffix not in suffixes:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            continue
+        if path.suffix == ".md":
+            text = without_fenced_code(text)
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if CONFLICT_MARKER.match(line):
+                fail(
+                    errors,
+                    f"{path.relative_to(ROOT)}:{line_number}: unresolved merge conflict marker",
+                )
+
+
 def validate_hygiene(errors: list[str]) -> None:
     for junk in ROOT.rglob(".DS_Store"):
         if ".git" not in junk.parts:
@@ -463,6 +488,7 @@ def main() -> int:
     playbook_count, reference_count, template_count = validate_counts(
         errors, len(skill_dirs)
     )
+    validate_conflict_markers(errors)
     validate_hygiene(errors)
     validate_installer_safety(errors)
     validate_catalog(errors, skill_dirs)

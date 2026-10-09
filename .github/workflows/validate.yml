@@ -11,11 +11,11 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.12"
-      - name: Validate cross-agent skills, links, counts, and plugin
+      - name: Validate frontmatter, local links, counts, and plugin
         run: python3 scripts/validate_repo.py
       - name: Check shell syntax
         run: bash -n setup.sh scripts/*.sh
@@ -23,3 +23,18 @@ jobs:
         run: bash scripts/test-install-skills.sh
       - name: Prove first-time-user bootstrap works offline
         run: bash scripts/test-bootstrap.sh
+      - name: Markdown lint the foundation pages
+        uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
+        with:
+          globs: |
+            START-HERE.md
+            CREDITS.md
+            playbooks/17-the-vibe-foundation.md
+            skills/proportionality/SKILL.md
+            skills/anti-slop/SKILL.md
+            skills/definition-of-done/SKILL.md
+            skills/reproducible-result/SKILL.md
+            skills/security-baseline/SKILL.md
+            skills/user-need/SKILL.md
+            skills/vibe-review/SKILL.md
+            templates/vibe-review.md.template
