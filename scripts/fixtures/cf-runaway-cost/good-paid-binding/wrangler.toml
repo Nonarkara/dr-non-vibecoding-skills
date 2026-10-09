@@ -1,0 +1,16 @@
+name = "demo"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+# budget alert covers this R2 bucket:
+# https://developers.cloudflare.com/billing/manage/budget-alerts/
+
+[limits]
+cpu_ms = 30000
+
+[observability]
+enabled = true
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "demo"

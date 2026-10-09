@@ -40,6 +40,7 @@ Do not install a 40-plugin audit suite on a flood dashboard. Steal the *stance*.
 | Secrets | Keys, sheet IDs, tunnel tokens, analytics IDs in the diff? |
 | Blast | Auth, user input, XSS, HTML injection on alert layers — hold-to-confirm still there? |
 | Wrong green | Did verification curl the custom domain too early? Watchdog on the wrong volume? |
+| Cost | Workers or Durable Objects: does `python3 scripts/cf_runaway_cost_check.py` pass, and does every new Durable Object, Queue, Workers AI, or R2 binding name a Cloudflare budget or usage alert? An unguarded `setAlarm` blocks the merge. The guards are a run cap, exponential backoff of at least 1 second, a kill-switch env var, and `getAlarm()` before `setAlarm`. |
 | Design DNA | Rounded cards, extra font size, gradient, template reflex? |
 
 This is not a pentest. Life-safety and public HTML get ceremony ([`risk-posture`](../risk-posture/SKILL.md)). A personal essay site gets honesty and anti-regression, not a smart-contract toolkit.
@@ -50,7 +51,7 @@ This is not a pentest. Life-safety and public HTML get ceremony ([`risk-posture`
 
 Findings only, by severity. Each finding: location, why it is real (command or click), what would disprove it. No "nice work" paragraph. Unverified suspicions go in a separate **unverified** bucket — see [`result-honesty`](../result-honesty/SKILL.md).
 
-Critical findings **block** ship. The author does not close them by arguing with the same context that wrote the bug.
+Critical findings **block** ship. The author does not close them by arguing with the same context that wrote the bug. A Cloudflare finding from [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md) is one of those: `setAlarm(Date.now())`, a self-fetch, an uncapped fan-out, a KV/D1/R2 write per request or in a loop, polling under 10 seconds with no hidden-tab pause and no backoff, a Worker config without `limits.cpu_ms` and `observability`, `accept()` where `acceptWebSocket()` belongs, or a new paid binding with no budget alert.
 
 ---
 

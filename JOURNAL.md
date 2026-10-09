@@ -225,3 +225,13 @@ fluent-language review remain unverified.
 **Why:** The 2026-10-05 dual-Mac audit found REST reading as up with a dead port, Codex leaking one bridge per thread, `$VAULT/.mcp` copies missing on a fork, and a second machine drifting onto another vault. Absolute `/Users/<name>` paths do not travel.
 **Diff:** `skills/obsidian-mcp-forge/SKILL.md`, `README.md`, `skills/shared-memory-hub/SKILL.md`, `docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md`
 **Tags:** `obsidian · mcp · dual-mac · forge-first · hygiene`
+
+---
+
+## 2026-10-09 — A Durable Object alarm that bills while you sleep
+
+**Date:** 2026-10-09
+**What:** Added `cf-runaway-cost`: fail a Workers review when `setAlarm`, a self-call, a KV/D1/R2 write, a fast poll, a bare Wrangler config, `accept()`, or a new paid binding ships without the guard. Wired into the four slop skills. A grep script and fixtures run in `make test`.
+**Why:** On 8 Oct 2026 @shmily7 paid US$10,811.41 after a Codex-written Durable Object alarm kept scheduling itself with `Date.now()`. Cloudflare budget alerts send mail. They do not stop the meter. The default notice is often $10, a day late.
+**Diff:** `skills/cf-runaway-cost/SKILL.md`, `scripts/cf_runaway_cost_check.py`, `scripts/test-cf-runaway-cost.sh`, `skills/code-slop-patterns/SKILL.md`, `skills/pr-slop-patterns/SKILL.md`, `skills/adversarial-review/SKILL.md`, `skills/slop-detect-stack/SKILL.md`
+**Tags:** `cloudflare · durable-objects · runaway-cost · anti-slop · named-incident`

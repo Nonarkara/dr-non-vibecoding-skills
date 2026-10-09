@@ -69,7 +69,7 @@ Layers 1–4 are deterministic and cheap. Layer 5 is human-only. Run 1–4 first
 
 | Layer | Surface | Catches | Misses | Skill |
 |---|---|---|---|---|
-| **1. Code** | the diff | structural patterns (`as any`, swallowed errors, oversized functions) | wrong algorithm, wrong abstraction | [`code-slop-patterns`](../code-slop-patterns/SKILL.md) |
+| **1. Code** | the diff | structural patterns (`as any`, swallowed errors, oversized functions) and a Cloudflare bill that can grow while the project is idle | wrong algorithm, wrong abstraction | [`code-slop-patterns`](../code-slop-patterns/SKILL.md) + [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md) |
 | **2. PR** | the PR metadata | vague titles, empty descriptions, fix-up diary commits, oversized diffs | whether the change is conceptually right | [`pr-slop-patterns`](../pr-slop-patterns/SKILL.md) |
 | **3. Prose** | the prose | banned vocabulary, formulaic structure, inflated rhetoric | whether the argument is true | [`no-ai-tells`](../no-ai-tells/SKILL.md) |
 | **4. UI** | the surface | generic layouts, gradients, predictable cards, AEO misses | whether the design is right for the user | [`slop-detect`](../slop-detect/SKILL.md) + [`no-design-tells`](../no-design-tells/SKILL.md) |
@@ -81,7 +81,7 @@ Layers 1–4 are deterministic and cheap. Layer 5 is human-only. Run 1–4 first
 
 ### "I'm shipping an AI-assisted feature"
 
-1. Run **Layer 1** — load [`code-slop-patterns`](../code-slop-patterns/SKILL.md) and apply the 12 rules to your diff.
+1. Run **Layer 1** — load [`code-slop-patterns`](../code-slop-patterns/SKILL.md) and apply the rules to your diff. If the diff touches Cloudflare Workers, Durable Objects, KV, D1, R2, Queues, Workers AI, or a Wrangler config, also load [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md) and run `python3 scripts/cf_runaway_cost_check.py` on the Worker project. A hit fails the review.
 2. Run **Layer 2** — load [`pr-slop-patterns`](../pr-slop-patterns/SKILL.md) and check title, description, commits, diff size.
 3. Run **Layer 3** — load [`no-ai-tells`](../no-ai-tells/SKILL.md) and scan every prose surface (PR description, comments, docs).
 4. If the surface is a UI change — run **Layer 4**, load [`slop-detect`](../slop-detect/SKILL.md) and the [`no-design-tells`](../no-design-tells/SKILL.md) discipline.
@@ -89,7 +89,7 @@ Layers 1–4 are deterministic and cheap. Layer 5 is human-only. Run 1–4 first
 
 ### "I'm setting up CI gates for an AI-assisted team"
 
-1. Pre-commit: Layer 1 (`code-slop-patterns` rules 1, 2, 4, 5, 6, 10 — the cheap ones).
+1. Pre-commit: Layer 1 (`code-slop-patterns` rules 1, 2, 4, 5, 6, 10 — the cheap ones). On a Worker tree, add `scripts/cf_runaway_cost_check.py`.
 2. CI: Layer 1 full + Layer 3 prose scan on PR description.
 3. PR action: Layer 2 (`pr-slop-patterns`).
 4. UI: Layer 4 (`slop-detect` scoring on landing pages).
@@ -132,6 +132,7 @@ The cheap layers catch ~80% of AI slop at <1% of the cost. The semantic layer ca
 ## Connects to
 
 - [`../code-slop-patterns/SKILL.md`](../code-slop-patterns/SKILL.md) — Layer 1, the deterministic code gate
+- [`../cf-runaway-cost/SKILL.md`](../cf-runaway-cost/SKILL.md) — Layer 1 when the diff can spend Cloudflare money; the grep is `scripts/cf_runaway_cost_check.py`
 - [`../pr-slop-patterns/SKILL.md`](../pr-slop-patterns/SKILL.md) — Layer 2, the PR metadata gate
 - [`../no-ai-tells/SKILL.md`](../no-ai-tells/SKILL.md) — Layer 3, the prose gate
 - [`../slop-detect/SKILL.md`](../slop-detect/SKILL.md) — Layer 4, the design slop tool bridge
