@@ -244,6 +244,22 @@ counter += 1; // skip the failed attempts so we don't retry poisoned inputs
 
 **Detection:** review each new comment: does it explain a *why* that isn't obvious from the code? If not, delete it.
 
+### Rule 13 — cf-runaway-cost
+
+A Cloudflare Worker can keep spending after the tab is closed. Fail the diff when any of these appears without the guard in [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md):
+
+- `setAlarm` without a run cap, exponential backoff of at least 1 second, a kill-switch env var, and a `getAlarm()` check. `setAlarm(Date.now())` fails on its own. `setAlarm` from `fetch` without `getAlarm()` fails on its own.
+- A Worker `fetch` of its own URL, or a cron or queue that fans out with no cap.
+- A KV, D1, or R2 write on the request path or inside a loop, with no batch and no `ratelimits` binding.
+- Client polling faster than 10 seconds against a Worker, with no pause while the tab is hidden and no backoff.
+- A new Worker config with no `limits.cpu_ms` and no `observability`.
+- A Durable Object WebSocket that calls `accept()` instead of `acceptWebSocket()`.
+- A new paid binding (Durable Object, Queues, Workers AI, R2) and no Cloudflare budget or usage alert that covers it.
+
+The passing `alarm()` is the reference snippet in that skill. Copy it. Do not drop the `finally` block.
+
+**Detection:** `python3 scripts/cf_runaway_cost_check.py <worker-dir>` from a clone of this stack. A hit fails the review until the guard is in the diff. A clean run still wants a human to point at the four alarm guards when `setAlarm` is present.
+
 ---
 
 ## The detection stack
@@ -263,12 +279,13 @@ flowchart LR
   style G fill:#2a1414,stroke:#e8002d,color:#e8e8e8
 ```
 
-The 12 rules are layered: cheap type/syntax checks first, structural checks next, semantic checks last. Each layer catches a different class of "compiles but shouldn't ship" output.
+Rules 1–12 are layered: cheap type and syntax checks first, structural checks next, semantic checks last. Rule 13 is the Cloudflare bill. It is the same check as [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md), not a second copy of the snippet.
 
 ---
 
 ## Connects to
 
+- [`../cf-runaway-cost/SKILL.md`](../cf-runaway-cost/SKILL.md) — Rule 13, the Cloudflare bill
 - [`../slop-detect-stack/SKILL.md`](../slop-detect-stack/SKILL.md) — orchestration skill that chains all the slop-detect skills
 - [`../no-ai-tells/SKILL.md`](../no-ai-tells/SKILL.md) — prose slop (Wikipedia taxonomy)
 - [`../no-design-tells/SKILL.md`](../no-design-tells/SKILL.md) — UI slop (Adrian Krebs fingerprint)

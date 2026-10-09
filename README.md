@@ -11,7 +11,7 @@ A complete, production-hardened stack for pairing with AI agents — plain markd
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 178](https://img.shields.io/badge/skills-178-F59E0B)](skills/)
+[![Skills: 179](https://img.shields.io/badge/skills-179-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
@@ -27,7 +27,7 @@ Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-v
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**178 skills** · **16 playbooks** · **14 references** · **17 templates**
+**179 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -316,8 +316,9 @@ Every rule in this repository was paid for by a real production incident:
 | Rules in an agent prompt named CLI hooks that were never installed | [`harness-hardening`](skills/harness-hardening/SKILL.md) |
 | Express middleware parsed JSON before Stripe webhook signature check | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) |
 | Two files in this repo quoted the same free-tier figures in opposite order, written weeks apart | [`agent-relay`](skills/agent-relay/SKILL.md) |
+| A Codex-written Durable Object alarm rescheduled itself with `Date.now()`; @shmily7 paid a US$10,811.41 Cloudflare bill on 8 Oct 2026 | [`cf-runaway-cost`](skills/cf-runaway-cost/SKILL.md) |
 
-The complete incident narratives are preserved in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
+The row above links the rule. Longer write-ups of the older rows are in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
 ---
 

@@ -23,3 +23,5 @@ jobs:
         run: bash scripts/test-install-skills.sh
       - name: Prove first-time-user bootstrap works offline
         run: bash scripts/test-bootstrap.sh
+      - name: Prove the Cloudflare runaway-cost grep
+        run: bash scripts/test-cf-runaway-cost.sh
