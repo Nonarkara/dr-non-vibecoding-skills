@@ -1,0 +1,10 @@
+{"expect": "deny", "event": {"hook_event_name": "PreToolUse", "tool_name": "Bash", "tool_input": {"command": "git push --force origin main"}}}
+{"expect": "ask", "event": {"hook_event_name": "PreToolUse", "tool_name": "Bash", "tool_input": {"command": "gh pr merge 7 --squash"}}}
+{"expect": "deny", "event": {"hook_event_name": "beforeShellExecution", "command": "npx wrangler pages deploy dist", "cwd": "."}}
+{"expect": "deny", "event": {"hook_event_name": "beforeMCPExecution", "tool_name": "send_message", "tool_input": "{\"to\": \"someone@example.com\"}", "mcp_server_name": "gmail"}}
+{"expect": "ask", "event": {"hook_event_name": "PreToolUse", "tool_name": "mcp__stripe__create_payment_intent", "tool_input": {"amount": 5000}}}
+{"expect": "ask", "event": {"hook_event_name": "PreToolUse", "tool_name": "Read", "tool_input": {"file_path": "/home/me/project/.env"}}}
+{"expect": "deny", "event": {"hook_event_name": "beforeReadFile", "file_path": "/home/me/.ssh/id_ed25519", "content": "never logged"}}
+{"expect": "ask", "event": {"hook_event_name": "PreToolUse", "tool_name": "Write", "tool_input": {"file_path": "/repo/.github/workflows/validate.yml", "content": "x"}}}
+{"expect": "allow", "event": {"hook_event_name": "PreToolUse", "tool_name": "Bash", "tool_input": {"command": "python3 check_greet.py"}}}
+{"expect": "allow", "event": {"hook_event_name": "beforeShellExecution", "command": "git status", "cwd": ""}}

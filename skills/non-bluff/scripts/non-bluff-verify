@@ -1,0 +1,189 @@
+#!/usr/bin/env python3
+"""Re-check every claim in a done receipt. Standard library only.
+
+    non-bluff-verify RECEIPT [--repo DIR]
+
+RECEIPT is a .json file, or a Markdown file / reply holding a ```done-receipt
+block. Each claim is checked again from scratch: commands re-run, URLs
+fetched, commits looked up, CI and PRs read from GitHub. The changed-file
+list is compared with the real diff. Quotes in "approvals" must appear,
+word for word, in the source they cite. Any claim that cannot be proven fails.
+Exit 0 only when everything is proven.
+"""
+from __future__ import annotations
+
+import html
+import json
+import os
+import re
+import subprocess
+import sys
+import urllib.request
+import importlib.util
+from importlib.machinery import SourceFileLoader
+from pathlib import Path
+
+sys.dont_write_bytecode = True  # keep the skill folder clean
+_loader = SourceFileLoader("non_bluff_guard", str(Path(__file__).with_name("non-bluff-guard")))
+guard = importlib.util.module_from_spec(importlib.util.spec_from_loader("non_bluff_guard", _loader))
+_loader.exec_module(guard)
+TIMEOUT = int(os.environ.get("NON_BLUFF_TIMEOUT", "600"))
+
+
+def tail(text: str, lines: int = 4) -> str:
+    return guard.redact("\n".join(text.strip().splitlines()[-lines:]))
+
+
+def norm(text: str) -> str:
+    text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+    return re.sub(r"\s+", " ", text.replace("“", '"').replace("”", '"').replace("’", "'")).strip().lower()
+
+
+def fetch(url: str) -> tuple[int, str]:
+    headers = {"User-Agent": "non-bluff-verify"}
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if token and url.startswith("https://api.github.com/"):
+        headers["Authorization"] = "Bearer " + token  # sent, never printed
+    request = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            return response.status, response.read(2_000_000).decode("utf-8", "replace")
+    except urllib.error.HTTPError as exc:
+        return exc.code, ""
+
+
+def run(command: str, repo: Path) -> tuple[int, str]:
+    decision, rule, _ = guard.decide("shell: " + command, str(repo))
+    if decision != "allow":
+        return -1, f"refused to re-run: policy rule '{rule}' says {decision}"
+    done = subprocess.run(command, shell=True, cwd=repo, capture_output=True, text=True, timeout=TIMEOUT)
+    return done.returncode, done.stdout + done.stderr
+
+
+def git(repo: Path, *args: str) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", "-C", str(repo), *args], capture_output=True, text=True)
+
+
+def check_claim(claim: dict, repo: Path) -> tuple[bool, str]:
+    kind = claim.get("type")
+    if kind in ("command", "test"):
+        code, output = run(claim["run"], repo)
+        want = claim.get("exit", 0)
+        if code != want:
+            return False, f"exit {code}, receipt said {want}\n{tail(output)}"
+        expected = claim.get("tail") or claim.get("name")
+        if expected and norm(expected) not in norm(output):
+            return False, f"output does not contain {expected!r}\n{tail(output)}"
+        return True, f"exit {code}" + (f", saw {expected!r}" if expected else "")
+    if kind == "commit":
+        sha, branch = claim["sha"], claim.get("branch", "HEAD")
+        if git(repo, "cat-file", "-e", sha + "^{commit}").returncode:
+            return False, f"commit {sha} does not exist"
+        if git(repo, "merge-base", "--is-ancestor", sha, branch).returncode:
+            return False, f"commit {sha} is not on {branch}"
+        return True, f"{sha} is on {branch}"
+    if kind == "ci":
+        status, body = fetch(f"https://api.github.com/repos/{claim['repo']}/actions/runs/{claim['run_id']}")
+        got = json.loads(body).get("conclusion") if status == 200 else f"HTTP {status}"
+        return got == claim.get("conclusion", "success"), f"run {claim['run_id']} conclusion {got}"
+    if kind == "pr_merged":
+        status, body = fetch(f"https://api.github.com/repos/{claim['repo']}/pulls/{claim['pr']}")
+        if status != 200:
+            return False, f"HTTP {status}"
+        pr = json.loads(body)
+        ok = pr.get("merged") and (pr.get("merge_commit_sha") or "").startswith(claim.get("sha", ""))
+        return bool(ok), f"merged={pr.get('merged')} merge_commit={str(pr.get('merge_commit_sha'))[:12]}"
+    if kind == "url":
+        status, body = fetch(claim["url"])
+        if status != claim.get("status", 200):
+            return False, f"HTTP {status}, receipt said {claim.get('status', 200)}"
+        if claim.get("contains") and norm(claim["contains"]) not in norm(body):
+            return False, f"HTTP {status} but page lacks {claim['contains']!r}"
+        return True, f"HTTP {status}"
+    return False, f"unknown claim type {kind!r}"
+
+
+def check_scope(receipt: dict, repo: Path) -> list[str]:
+    if "changed_files" not in receipt:
+        return []
+    base = receipt.get("base", "origin/main")
+    if git(repo, "rev-parse", "--verify", "-q", base).returncode:
+        return [f"scope: base {base!r} not found, so the diff cannot be checked"]
+    actual = set()
+    for args in (("diff", "--name-only", f"{base}...HEAD"), ("diff", "--name-only", "HEAD"),
+                 ("ls-files", "--others", "--exclude-standard")):
+        actual |= {line for line in git(repo, *args).stdout.splitlines() if line}
+    claimed = set(receipt["changed_files"])
+    problems = [f"scope: {path} changed but is not in the receipt (outside the stated scope)" for path in sorted(actual - claimed)]
+    problems += [f"scope: receipt lists {path} but the diff does not touch it" for path in sorted(claimed - actual)]
+    return problems
+
+
+def check_approvals(receipt: dict, base_dir: Path) -> list[str]:
+    problems = []
+    for item in receipt.get("approvals", []):
+        quote, source = item.get("quote", "").strip(), item.get("source", "").strip()
+        if not quote or not source:
+            problems.append("attribution: an approval needs both the exact quote and where it was said")
+            continue
+        if source.startswith(("http://", "https://")):
+            status, text = fetch(source)
+            if status != 200:
+                problems.append(f"attribution: {source} returned HTTP {status}")
+                continue
+        else:
+            path = (base_dir / source).resolve()
+            if not path.is_file():
+                problems.append(f"attribution: source {source} not found")
+                continue
+            text = path.read_text(encoding="utf-8")
+        if norm(quote) not in norm(text):
+            problems.append(f"attribution: {quote!r} does not appear in {source}")
+    return problems
+
+
+def load_receipt(path: Path) -> dict:
+    text = path.read_text(encoding="utf-8")
+    if path.suffix == ".json":
+        return json.loads(text)
+    blocks = guard.RECEIPT.findall(text)
+    if not blocks:
+        raise SystemExit(f"FAIL: no ```done-receipt block in {path}")
+    return json.loads(blocks[-1])
+
+
+def main(argv: list[str]) -> int:
+    if not argv or argv[0] in ("-h", "--help"):
+        print(__doc__)
+        return 2
+    path = Path(argv[0]).resolve()
+    repo = Path(argv[argv.index("--repo") + 1]).resolve() if "--repo" in argv else Path.cwd()
+    receipt = load_receipt(path)
+    failures = []
+    status = receipt.get("status", "done")
+    claims = receipt.get("claims", [])
+    if status == "done" and not claims:
+        failures.append("status is done but there is no evidence")
+    if status == "done" and receipt.get("not_verified"):
+        failures.append("status is done but not_verified is not empty")
+    for number, claim in enumerate(claims, 1):
+        label = claim.get("says") or claim.get("type")
+        try:
+            ok, detail = check_claim(claim, repo)
+        except Exception as exc:  # a claim we cannot check is a claim we cannot accept
+            ok, detail = False, f"could not check: {type(exc).__name__}: {guard.redact(str(exc))[:200]}"
+        print(f"{'PASS' if ok else 'FAIL'} claim {number} ({label}): {detail}")
+        if not ok:
+            failures.append(f"claim {number} ({label}) not proven")
+    failures += check_scope(receipt, repo)
+    failures += check_approvals(receipt, path.parent)
+    for item in receipt.get("not_verified", []):
+        print(f"NOT VERIFIED: {item}")
+    for failure in failures:
+        print(f"FAIL: {failure}")
+    print(f"{'OK' if not failures else 'NOT DONE'}: {len(claims)} claim(s), {len(failures)} failure(s)")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

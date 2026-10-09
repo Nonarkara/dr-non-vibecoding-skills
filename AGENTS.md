@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **185 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **186 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
@@ -114,7 +114,7 @@ Pick the skill that matches your problem:
 |---|---|
 | How much engineering, testing, or security this task deserves | `skills/proportionality/SKILL.md` |
 | The person is learning, shipping, or playing | `skills/user-need/SKILL.md` |
-| About to say the work is done | `skills/definition-of-done/SKILL.md` |
+| About to say the work is done | `skills/definition-of-done/SKILL.md`, then the receipt in `skills/non-bluff/SKILL.md` |
 | Generated code, UI, or prose looks machine-made | `skills/anti-slop/SKILL.md` |
 | A result has to be rerun or adjusted later | `skills/reproducible-result/SKILL.md` |
 | Secrets, dependency scans, or supply-chain checks on a new repo | `skills/security-baseline/SKILL.md` |
