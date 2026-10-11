@@ -35,4 +35,5 @@ test: validate relay-check
 	@bash -n setup.sh scripts/*.sh
 	@bash scripts/test-install-skills.sh
 	@bash scripts/test-bootstrap.sh
+	@node scripts/test-starter.mjs
 	@bash scripts/test-cf-runaway-cost.sh

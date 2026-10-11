@@ -21,7 +21,7 @@ done
 
 # 2. Check for Leaked Secrets in Staging
 if command -v git >/dev/null 2>&1 && [[ -d .git ]]; then
-  if git diff --cached --name-only | grep -E '(\.env|\.pem|\.key|id_rsa)' >/dev/null 2>&1; then
+  if git diff --cached --name-only | grep -vE '(^|/)\.env\.example$' | grep -E '(\.env|\.pem|\.key|id_rsa)' >/dev/null 2>&1; then
     echo "❌ Secret or environment file staged in git! Aborting."
     ERRORS=$((ERRORS + 1))
   else

@@ -15,13 +15,16 @@ Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.
 
 ## 0. The 60-Second Bootstrap (Zero to Vibe Coding)
 
-If you have never written code before, this stack gets you from clone to first commit in 60 seconds. The agent does the typing; you set the destination, the speed, the energy source, and the look-and-feel.
+Start with `bash scripts/doctor.sh`. Bootstrap requires Bash, Git and Python 3;
+the skills are plain Markdown. No signup is needed to open the static starter.
+Your coding agent needs its own installation and login. A first commit is skipped
+when Git identity is unset. We do not promise a measured 60-second onboarding time.
 
 ```bash
-# 1. Bootstrap a complete, turnkey project folder
+# 1. Bootstrap a runnable static starter and its contracts
 ./setup.sh --init-project ~/Projects/my-app --yes
 
-# 2. View your live dashboard immediately (zero setup, zero server needed)
+# 2. Open the static page; external feeds require internet
 open ~/Projects/my-app/index.html
 
 # 3. Step in and launch Claude Code (or Cursor, Codex, Gemini CLI)
@@ -29,7 +32,15 @@ cd ~/Projects/my-app
 claude
 ```
 
-From the very first turn, Claude Code reads `CLAUDE.md`, sees your exact commands and the project's sacred invariants, loads the 169 installed skills, and begins building your product while preserving your domain intent. You can immediately direct: *"Update index.html to add live earthquake tracking for Tokyo and dark-gold styling."*
+For HTTP preview, run `./scripts/start.sh` inside the generated folder. Failed
+feeds are labelled unavailable; successful requests are validated. The generated
+contracts contain commands for the actual static code, not an uninstalled framework.
+After restarting your agent, confirm it sees a skill before directing it:
+*"Update index.html to add earthquake tracking for Tokyo."*
+
+Local LLMs, voice cloning, Telegram/LINE/Discord, shared memory, hosting and custom
+domains are optional and require separate provisioning. Deployment helpers are
+adaptation templates; they do not provision an account or deploy automatically.
 ### What ships in the scaffold (runnable, not just docs)
 
 `scripts/new-project.sh` (and `./setup.sh --init-project`) drop these into every new project by default:

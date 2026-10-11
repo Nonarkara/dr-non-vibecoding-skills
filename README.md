@@ -173,10 +173,21 @@ git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-That is the entire onboarding. The script discovers every agent installed on your machine (Antigravity, Gemini CLI, Claude Code, Codex, Cursor, Hermes, OpenCode), installs the skills into their native discovery directories, and prints **You are Dr Non the Builder** with the three immediate moves:
+The script copies skills to the Claude, shared `.agents`, and user-level Cursor paths;
+it adds Gemini, Antigravity, Hermes and OpenCode paths when their configuration
+directories exist. This is path preparation, not binary detection or proof of
+activation. Restart your agent and confirm it lists a skill. It then prints
+**You are Dr Non the Builder** with the three immediate moves:
 1. **Scaffold a project contract** (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`).
 2. **Pass the Mama Rule with a real older nontechnical user, then conduct the multi-persona walkthrough** ([`human-walkthrough`](skills/human-walkthrough/SKILL.md)).
 3. **Run a data-driven hindsight review** ([`power-of-hindsight`](skills/power-of-hindsight/SKILL.md)).
+
+Before bootstrap, run `bash scripts/doctor.sh`. Bash, Git and Python 3 support the
+bootstrap workflow; Node.js is also needed for `make test`. Skills themselves are
+Markdown and need no runtime. Windows shell scripts require WSL or a Bash
+environment; native PowerShell is not tested. Local models, voice, bots, memory
+and cloud deployment are optional integrations with separate provisioning.
+The scaffold is a static starter even if `--stack` names a future framework.
 
 ```mermaid
 flowchart LR
@@ -377,6 +388,10 @@ cp -R dr-non-vibecoding-skills/skills/* "$HOME/.agents/skills/"
 # Claude Code
 mkdir -p "$HOME/.claude/skills"
 cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
+
+# Gemini CLI (separate from Antigravity)
+mkdir -p "$HOME/.gemini/skills"
+cp -R dr-non-vibecoding-skills/skills/* "$HOME/.gemini/skills/"
 
 # Cursor project-level skills
 mkdir -p .cursor/skills && cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/

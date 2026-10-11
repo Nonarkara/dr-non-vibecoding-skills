@@ -13,7 +13,9 @@
 #   claude  →  ~/.claude/skills/
 #   codex   →  ~/.agents/skills/   (Codex / ChatGPT desktop)
 #   cursor  →  .cursor/skills/     (project-local; pass --cursor from inside a project)
-#   antigravity → .agents/skills/  (same path as Codex; counted once)
+#   gemini  →  ~/.gemini/skills/   (shared ~/.agents/skills also accepted)
+#   antigravity → ~/.gemini/antigravity/skills/
+#   default all → user-level ~/.cursor/skills/, even from the stack clone
 #   hermes  →  ~/.hermes/skills/
 #   opencode → ~/.config/opencode/skills/
 
@@ -34,7 +36,8 @@ for arg in "$@"; do
     --cursor) WANT_CURSOR=1; WANT_ALL=0 ;;
     --hermes) WANT_HERMES=1; WANT_ALL=0 ;;
     --opencode) WANT_OPENCODE=1; WANT_ALL=0 ;;
-    --gemini|--antigravity) WANT_GEMINI=1; WANT_ANTIGRAVITY=1; WANT_ALL=0 ;;
+    --gemini) WANT_GEMINI=1; WANT_ALL=0 ;;
+    --antigravity) WANT_ANTIGRAVITY=1; WANT_ALL=0 ;;
     --all) WANT_ALL=1 ;;
     --help|-h) echo "Usage: $0 [--claude] [--codex] [--cursor] [--gemini] [--antigravity] [--hermes] [--opencode] [--all] [--dry-run]"; exit 0 ;;
     *) echo "unknown flag: $arg (try --help)" >&2; exit 1 ;;
@@ -75,6 +78,10 @@ do_all() {
   # Only install to cursor/.agents if we're inside a project or the dir already exists
   install_host "claude"   "$INSTALL_ROOT/.claude/skills"
   install_host "codex"    "$INSTALL_ROOT/.agents/skills"
+  install_host "cursor (user)" "$INSTALL_ROOT/.cursor/skills"
+  if [[ -d "$INSTALL_ROOT/.gemini" ]]; then
+    install_host "gemini" "$INSTALL_ROOT/.gemini/skills"
+  fi
   # Antigravity reads ~/.agents/skills (Codex path) plus ~/.gemini/antigravity/skills if present
   if [[ -d "$INSTALL_ROOT/.gemini" ]] || [[ $WANT_ANTIGRAVITY -eq 1 ]]; then
     install_host "antigravity" "$INSTALL_ROOT/.gemini/antigravity/skills"
@@ -99,7 +106,8 @@ if [[ $WANT_ALL -eq 1 ]]; then
 else
   [[ $WANT_CLAUDE -eq 1 ]] && install_host "claude" "$INSTALL_ROOT/.claude/skills"
   [[ $WANT_CODEX -eq 1 ]] && install_host "codex" "$INSTALL_ROOT/.agents/skills"
-  [[ $WANT_ANTIGRAVITY -eq 1 || $WANT_GEMINI -eq 1 ]] && install_host "antigravity" "$INSTALL_ROOT/.gemini/antigravity/skills"
+  [[ $WANT_GEMINI -eq 1 ]] && install_host "gemini" "$INSTALL_ROOT/.gemini/skills"
+  [[ $WANT_ANTIGRAVITY -eq 1 ]] && install_host "antigravity" "$INSTALL_ROOT/.gemini/antigravity/skills"
   [[ $WANT_CURSOR -eq 1 ]] && install_host "cursor" ".cursor/skills"
   [[ $WANT_HERMES -eq 1 ]] && install_host "hermes" "$INSTALL_ROOT/.hermes/skills"
   [[ $WANT_OPENCODE -eq 1 ]] && install_host "opencode" "$INSTALL_ROOT/.config/opencode/skills"
@@ -108,5 +116,5 @@ fi
 if [[ $DRY_RUN -eq 1 ]]; then
   echo "dry-run: no files changed (expected $expected skills)"
 else
-  echo "done — expected $expected skills per host. Verify with: ls ~/.claude/skills | wc -l"
+  echo "done — $expected stack skills copied per listed destination. Restart your agent; copying does not prove activation."
 fi
