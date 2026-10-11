@@ -216,9 +216,9 @@ A 16:9 single page distilled from the whole deck: Memory (context survives), Des
 
 ---
 
-## Library illustrations — the 6 hero images
+## Library illustrations — the 7 hero images
 
-Six AI-generated illustrations in [`assets/illustrations/`](assets/illustrations/) — same Vignelli/Rams visual language as the deck above. Use them as hero images for the book-derived skill cluster, the design lineage, the security stack, the backend surface, the threat model, and the book-to-skill pipeline.
+Seven AI-generated illustrations in [`assets/illustrations/`](assets/illustrations/) — same Vignelli/Rams visual language as the deck above. Use them as hero images for the book-derived skill cluster, the design lineage, the security stack, the backend surface, the threat model, the book-to-skill pipeline, and the four-layer anti-slop pipeline.
 
 | File | Hero for |
 |---|---|
@@ -228,5 +228,6 @@ Six AI-generated illustrations in [`assets/illustrations/`](assets/illustrations
 | `security-threat-model.jpg` | `appsec-stack`, `secrets-management` — the fortress as a metaphor |
 | `security-stack-four-layers.jpg` | `appsec-stack` — the seven-layer scanner stack |
 | `backend-architecture.jpg` | `api-design`, `caching-layers`, `webhooks-reliable`, `rate-limiting`, `db-migrations`, `observability-budget` — the backend surface |
+| `slop-detect-stack-cover.jpg` | `slop-detect-stack` — the four-layer anti-slop pipeline (code, PR, prose, UI) |
 
 [← Back to the README](README.md)
