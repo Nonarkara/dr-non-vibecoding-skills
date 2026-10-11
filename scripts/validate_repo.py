@@ -419,11 +419,30 @@ def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]
 
 
 def validate_hygiene(errors: list[str]) -> None:
+    import subprocess
+    # Only flag .DS_Store if it's tracked by git. macOS Finder auto-creates
+    # .DS_Store on directory access, so a strict rglob check produces false
+    # positives in local dev even when .gitignore is correct. The real check
+    # is "did this file ever get committed?" — and that's `git ls-files`.
+    try:
+        tracked = subprocess.run(
+            ["git", "ls-files"],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.splitlines()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        tracked = []
+    tracked_dots = {p for p in tracked if p.endswith(".DS_Store") or "/.DS_Store" in p}
     for junk in ROOT.rglob(".DS_Store"):
-        if ".git" not in junk.parts:
+        if ".git" in junk.parts:
+            continue
+        rel = str(junk.relative_to(ROOT))
+        if rel in tracked_dots or any(rel.endswith(t) or t.endswith(rel) for t in tracked_dots):
             fail(
                 errors,
-                f"{junk.relative_to(ROOT)}: remove OS metadata from the repository",
+                f"{rel}: remove OS metadata from the repository",
             )
 
 
