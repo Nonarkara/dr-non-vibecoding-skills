@@ -3,7 +3,7 @@
 > **A written operating system for AI-assisted software shipping.**
 > Plain markdown · No runtime · Agent-agnostic
 
-**The system's secret is not the model.** It is the four shapes — **185 skills**, **17 playbooks**, **14 references**, **19 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
+**The system's secret is not the model.** It is the four shapes — **187 skills**, **17 playbooks**, **14 references**, **19 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
 ![STACK — the package at a glance](../../infographics/pages/page-01.png)
 
 ---

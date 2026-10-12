@@ -235,3 +235,31 @@ fluent-language review remain unverified.
 **Why:** The library already knew how to ship. It did not make an agent choose how much engineering a task deserved, or stop before claiming a result it had not run. Borrowed ideas are credited. Elastic-licensed context-mode is named and not copied.
 **Diff:** `START-HERE.md`, `CREDITS.md`, `skills/proportionality`, `skills/user-need`, `skills/definition-of-done`, `skills/anti-slop`, `skills/reproducible-result`, `skills/security-baseline`, `skills/vibe-review`, `playbooks/17-the-vibe-foundation.md`, `templates/vibe-review.md.template`, `templates/security-baseline.yml.template`
 **Tags:** `foundation · proportionality · anti-slop · security · credits`
+
+---
+
+## 2026-10-09 — A Durable Object alarm that bills while you sleep
+
+**Date:** 2026-10-09
+**What:** Added `cf-runaway-cost`: fail a Workers review when `setAlarm`, a self-call, a KV/D1/R2 write, a fast poll, a bare Wrangler config, `accept()`, or a new paid binding ships without the guard. Wired into the four slop skills. A grep script and fixtures run in `make test`.
+**Why:** On 8 Oct 2026 @shmily7 paid US$10,811.41 after a Codex-written Durable Object alarm kept scheduling itself with `Date.now()`. Cloudflare budget alerts send mail. They do not stop the meter. The default notice is often $10, a day late.
+**Diff:** `skills/cf-runaway-cost/SKILL.md`, `scripts/cf_runaway_cost_check.py`, `scripts/test-cf-runaway-cost.sh`, `skills/code-slop-patterns/SKILL.md`, `skills/pr-slop-patterns/SKILL.md`, `skills/adversarial-review/SKILL.md`, `skills/slop-detect-stack/SKILL.md`
+**Tags:** `cloudflare · durable-objects · runaway-cost · anti-slop · named-incident`
+
+## 2026-10-11 — Plug-and-play claims meet the fresh-clone test
+
+**Date:** 2026-10-11
+**What:** Separated Gemini and Antigravity installation; added root-onboarding Cursor support, exact static contracts, README/component reference, a start launcher and a prerequisite doctor. Starter feeds now report unavailable or partial states and fit 320px.
+**Why:** The public-clone audit could pass file-existence checks while handing newcomers unusable npm commands and a false green LIVE indicator. Commands and status now describe observed reality.
+**Diff:** `scripts/scaffold_static.py`, `scripts/doctor.sh`, `scripts/test-starter.mjs`, `scripts/test-starter-browser.mjs`, `docs/lessons/2026-10-11-plug-and-play-contracts.md`
+**Tags:** `bootstrap · developer-experience · wrong-green · cross-agent · first-use`
+
+---
+
+## 2026-10-12 — One agent contract, checked against the gate skills
+
+**Date:** 2026-10-12
+**What:** Added `agent-instructions/` (`MASTER.md`, `REPO-TEMPLATE.md`, `README.md`) and linked it from the README. `AGENTS.md` now says 179 skills in both places and names the new title, Dr Non's Vibe Coding Stack.
+**Why:** Hosts were each growing a private rules file. The draft contradicted non-bluff (merge and deploy without a person, "done" without a receipt), vibe-review (a Done bucket instead of Succeeded), and the design system anti-slop defers to (amber wayfinding, named faces, code slop).
+**Diff:** `agent-instructions/`, `README.md`, `AGENTS.md`, `JOURNAL.md`
+**Tags:** `agent-contract · non-bluff · anti-slop · counts`

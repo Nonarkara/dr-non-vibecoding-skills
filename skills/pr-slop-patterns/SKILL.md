@@ -211,6 +211,14 @@ PR merged with:
 
 **Detection:** GitHub branch protection settings, required status checks, required review count. Anti-slop can't enforce this — GitHub does.
 
+### Category 9 — A Cloudflare diff names its cost guard
+
+When the diff touches a Worker, `wrangler.toml` / `wrangler.json`, a Durable Object, KV, D1, R2, Queues, or Workers AI, the description has to say which guard from [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md) is in the code. The seven fails are: an unguarded `setAlarm` (no run cap, no exponential backoff of at least 1 second, no kill-switch env var, no `getAlarm()` check, a `setAlarm(Date.now())`, or `setAlarm` from `fetch` with no check), a Worker fetching its own host, a cron or queue fan-out with no cap, a KV/D1/R2 write per request or in a loop with no batch and no `ratelimits` binding, client polling under 10 seconds with no hidden-tab pause and no backoff, a new Worker config without `limits.cpu_ms` and `observability`, a Durable Object WebSocket on `accept()` instead of `acceptWebSocket()`, and a new paid binding (Durable Object, Queues, Workers AI, R2) with no budget or usage alert.
+
+A description that says "added a Durable Object" and never mentions the alarm guard or a budget alert fails review.
+
+**Detection:** path match on the diff, then `python3 scripts/cf_runaway_cost_check.py <worker-dir>`. The description check is a read. The script does not understand a paragraph.
+
 ---
 
 ## The detection stack
@@ -233,7 +241,7 @@ flowchart LR
   style B fill:#2a1414,stroke:#e8002d,color:#e8e8e8
 ```
 
-The 8 categories form a layered gate: cheap metadata checks first, structural diff checks next, contributor-signal checks last. Each layer catches a different class of "looks mergeable but shouldn't" PR.
+Categories 1–8 are the metadata gate: title and description first, diff shape next, contributor signals last. Category 9 is the Cloudflare bill. It fails a PR whose description never names the guard in [`cf-runaway-cost`](../cf-runaway-cost/SKILL.md).
 
 ---
 
@@ -241,6 +249,7 @@ The 8 categories form a layered gate: cheap metadata checks first, structural di
 
 - [`../slop-detect-stack/SKILL.md`](../slop-detect-stack/SKILL.md) — orchestration skill that chains all the slop-detect skills
 - [`../code-slop-patterns/SKILL.md`](../code-slop-patterns/SKILL.md) — the code-side companion (deterministic checks on the diff itself)
+- [`../cf-runaway-cost/SKILL.md`](../cf-runaway-cost/SKILL.md) — Category 9, the Cloudflare bill the description has to name
 - [`../no-ai-tells/SKILL.md`](../no-ai-tells/SKILL.md) — prose slop (catches AI-tells in the PR description)
 - [`../adversarial-review/SKILL.md`](../adversarial-review/SKILL.md) — for the conceptual review this skill can't do
 - [`../ship-discipline/SKILL.md`](../ship-discipline/SKILL.md) — the commit-message style this skill's category 3 enforces

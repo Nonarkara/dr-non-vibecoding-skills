@@ -64,7 +64,7 @@ Options:
 Project Bootstrapper Options (non-interactive):
   --name <name>                  Project name (default: directory basename)
   --desc <description>           One-sentence purpose
-  --stack <stack>                Primary stack (e.g. "Next.js + TypeScript", "Vite", "FastAPI")
+  --stack <stack>                Future stack intent; generated baseline is Static HTML/JS
   --url <url>                    Live URL (e.g. "https://app.example.com")
   --port <port>                  Local dev port (default: 3000)
   --axiom-design                 Apply Axiom Design Core tokens (hairlines, 0 radius, amber)
@@ -242,7 +242,7 @@ bootstrap_project() {
     proj_desc="${input_desc:-$proj_desc}"
   fi
 
-  local proj_stack="${opt_stack:-Next.js + TypeScript}"
+  local proj_stack="${opt_stack:-Static HTML/JS}"
   if [[ -z "$opt_stack" && "$non_interactive" != "true" ]]; then
     echo -e "Primary stack choices: [1] Next.js + TS, [2] Vite + React, [3] Python + FastAPI, [4] Node / Express, [5] Static HTML/JS, [6] Other"
     read -rp "Select stack [default: 1]: " stack_choice
@@ -262,7 +262,7 @@ bootstrap_project() {
     proj_port="${input_port:-$proj_port}"
   fi
 
-  local default_url="https://${proj_name}.example.com"
+  local default_url="not deployed"
   local proj_url="${opt_url:-$default_url}"
   if [[ -z "$opt_url" && "$non_interactive" != "true" ]]; then
     read -rp "Canonical Live URL [${default_url}]: " input_url
@@ -294,6 +294,14 @@ bootstrap_project() {
   local today
   today="$(date +%Y-%m-%d)"
   local created_files=()
+
+  # Fill executable contracts before the legacy template fallbacks. The baseline
+  # is static regardless of the requested future stack; existing files are sacred.
+  command -v python3 >/dev/null 2>&1 || { echo "Bootstrap needs Python 3. Run scripts/doctor.sh for prerequisites." >&2; return 1; }
+  python3 "$ROOT_DIR/scripts/scaffold_static.py" "$target_dir" \
+    --name "$proj_name" --desc "$proj_desc" --stack "$proj_stack" \
+    --port "$proj_port" --url "$proj_url"
+  created_files+=("Runnable static baseline, exact contracts, README, start.sh, and component reference (existing files preserved)")
 
   # ----------------------------------------------------------------------------
   # 2.1 CLAUDE.md (Tier-2 Project Contract)
@@ -689,7 +697,7 @@ EOF
   done
 
   echo -e "\n${AMBER}${BOLD}Immediate Next Steps for Non-Programmers & Vibe Coders:${NC}"
-  echo -e "  1. ${CYAN}open \"${target_dir}/index.html\"${NC} (or double-click to view live dashboard in browser)"
+  echo -e "  1. Open index.html, or run ${CYAN}./scripts/start.sh${NC} inside the project for HTTP preview. Feeds need internet."
   echo -e "  2. Direct your agent in ${CYAN}${target_dir}${NC} with Claude Code, Cursor, or Antigravity:"
   echo -e "     ${DIM}\"Update index.html to add a crypto ticker and change weather location to Tokyo\"${NC}"
   echo -e "  3. Review contracts in ${BOLD}CLAUDE.md${NC} and run pre-flight check: ${CYAN}./scripts/verify.sh${NC}"

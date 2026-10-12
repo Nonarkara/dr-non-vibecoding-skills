@@ -4,5 +4,10 @@ node_modules/
 *.log
 data/
 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
 # repo-map.sh output — derived, regenerate on demand, never commit
 REPO_MAP.md

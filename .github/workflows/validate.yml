@@ -25,6 +25,19 @@ jobs:
         run: bash scripts/test-bootstrap.sh
       - name: Prove Non-Bluff catches each failure and passes honest work
         run: bash scripts/test-non-bluff.sh
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Prove starter failure states are honest
+        run: node scripts/test-starter.mjs
+      - name: Install isolated browser-test tooling
+        run: |
+          npm install --prefix "$RUNNER_TEMP/drnon-browser" --no-save --package-lock=false playwright@1.63.0
+          "$RUNNER_TEMP/drnon-browser/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Prove fresh bootstrap in a browser
+        run: DR_NON_PLAYWRIGHT="$RUNNER_TEMP/drnon-browser/node_modules/playwright/index.mjs" node scripts/test-starter-browser.mjs
+      - name: Prove the Cloudflare runaway-cost grep
+        run: bash scripts/test-cf-runaway-cost.sh
       - name: Markdown lint the foundation pages
         uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
         with:

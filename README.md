@@ -6,18 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 186 skills, 17 playbooks, 14 references, and 19 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 187 skills, 17 playbooks, 14 references, and 19 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
-Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
+Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 186](https://img.shields.io/badge/skills-186-F59E0B)](skills/)
+[![Skills: 187](https://img.shields.io/badge/skills-187-F59E0B)](skills/)
 [![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
 [![Templates: 19](https://img.shields.io/badge/templates-19-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**186 skills** · **17 playbooks** · **14 references** · **19 templates**
-
+**187 skills** · **17 playbooks** · **14 references** · **19 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -183,10 +182,23 @@ git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-That is the entire onboarding. The script discovers every agent installed on your machine (Antigravity, Gemini CLI, Claude Code, Codex, Cursor, Hermes, OpenCode), installs the skills into their native discovery directories, and prints **You are Dr Non the Builder** with the three immediate moves:
+The script copies skills to the Claude, shared `.agents`, and user-level Cursor paths;
+it adds Gemini, Antigravity, Hermes and OpenCode paths when their configuration
+directories exist. This is path preparation, not binary detection or proof of
+activation. Restart your agent and confirm it lists a skill. It then prints
+**You are Dr Non the Builder** with the three immediate moves:
 1. **Scaffold a project contract** (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`).
 2. **Pass the Mama Rule with a real older nontechnical user, then conduct the multi-persona walkthrough** ([`human-walkthrough`](skills/human-walkthrough/SKILL.md)).
 3. **Run a data-driven hindsight review** ([`power-of-hindsight`](skills/power-of-hindsight/SKILL.md)).
+
+The standing contract for every agent is [`agent-instructions/MASTER.md`](agent-instructions/MASTER.md) (one file, symlinked under each host's name). [`agent-instructions/REPO-TEMPLATE.md`](agent-instructions/REPO-TEMPLATE.md) is the per-repo `AGENTS.md`: repo facts only.
+
+Before bootstrap, run `bash scripts/doctor.sh`. Bash, Git and Python 3 support the
+bootstrap workflow; Node.js is also needed for `make test`. Skills themselves are
+Markdown and need no runtime. Windows shell scripts require WSL or a Bash
+environment; native PowerShell is not tested. Local models, voice, bots, memory
+and cloud deployment are optional integrations with separate provisioning.
+The scaffold is a static starter even if `--stack` names a future framework.
 
 ```mermaid
 flowchart LR
@@ -232,16 +244,18 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 169 modular agent capabilities (plain markdown with YAML frontmatter)├── playbooks/        # 16 narrative war stories & architectural deep-dives
-├── reference/        # 13 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
-├── templates/        # 17 drop-in production scaffolding files
+├── skills/           # 187 modular agent capabilities (plain markdown with YAML frontmatter)
+├── playbooks/        # 17 narrative war stories & architectural deep-dives
+├── reference/        # 14 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
+├── templates/        # 19 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
+├── agent-instructions/ # MASTER.md for every agent, REPO-TEMPLATE.md for one repo
 ├── HANDSHAKE.md      # One paste. Works in any agent, with no install
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 177 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 187 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -250,9 +264,10 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 169 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword || [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 13 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 17 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
+| [`skills/`](skills/) | 187 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`playbooks/`](playbooks/) | 17 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`reference/`](reference/) | 14 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`templates/`](templates/) | 19 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
 
 ### Out of the Box, Plug and Play
 
@@ -308,6 +323,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Database migrations that don't break production | [`db-migrations`](skills/db-migrations/SKILL.md) | Expand-and-contract across three releases, batched backfill, `CREATE INDEX CONCURRENTLY`, never-rename-in-one-release, and the SQLite WAL/busy_timeout caveat. |
 | Secrets that live in exactly one place | [`secrets-management`](skills/secrets-management/SKILL.md) | Keychain by name, `.env.example` ships, gitleaks pre-commit, `.mcpignore` as documented intent only, and rotate-first-rewrite-history-second. |
 | The library of pre-AI wisdom that gives the practice consequence | [`library-of-human-wisdom`](skills/library-of-human-wisdom/SKILL.md) + 35+ book-derived SKILL.md files from the [`nonscrape.nonarkara.org`](https://nonscrape.nonarkara.org) pipeline and supplied sources | Indexed in [`reference/library/`](reference/library/). Six AI-generated hero illustrations in [`assets/illustrations/`](assets/illustrations/). The router picks the right book — Norman, Wada, Geertz, Kahneman, Thaler, Alexander, Maeda, Williams, Pinker, Graham, Kiyosaki, Dr Non's own. |
+| The four-layer anti-slop pipeline (code, PR, prose, UI) | [`slop-detect-stack`](skills/slop-detect-stack/SKILL.md) orchestrator + [`code-slop-patterns`](skills/code-slop-patterns/SKILL.md) + [`pr-slop-patterns`](skills/pr-slop-patterns/SKILL.md) + [`no-ai-tells`](skills/no-ai-tells/SKILL.md) + [`slop-detect`](skills/slop-detect/SKILL.md) + [`no-design-tells`](skills/no-design-tells/SKILL.md) | 12 deterministic code rules + 8 PR-metadata categories + prose and UI slop. ~80% of low-quality AI output caught at <1% of the cost of human review. Sources: `scanaislop/aislop` (MIT), `peakoss/anti-slop` (MIT), `hardikpandya/stop-slop` (MIT). |
 
 See the complete grouped inventory in [`CATALOG.md`](CATALOG.md).
 
@@ -326,8 +342,9 @@ Every rule in this repository was paid for by a real production incident:
 | Rules in an agent prompt named CLI hooks that were never installed | [`harness-hardening`](skills/harness-hardening/SKILL.md) |
 | Express middleware parsed JSON before Stripe webhook signature check | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) |
 | Two files in this repo quoted the same free-tier figures in opposite order, written weeks apart | [`agent-relay`](skills/agent-relay/SKILL.md) |
+| A Codex-written Durable Object alarm rescheduled itself with `Date.now()`; @shmily7 paid a US$10,811.41 Cloudflare bill on 8 Oct 2026 | [`cf-runaway-cost`](skills/cf-runaway-cost/SKILL.md) |
 
-The complete incident narratives are preserved in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
+The row above links the rule. Longer write-ups of the older rows are in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
 ---
 
@@ -386,6 +403,10 @@ cp -R dr-non-vibecoding-skills/skills/* "$HOME/.agents/skills/"
 # Claude Code
 mkdir -p "$HOME/.claude/skills"
 cp -R dr-non-vibecoding-skills/skills/* "$HOME/.claude/skills/"
+
+# Gemini CLI (separate from Antigravity)
+mkdir -p "$HOME/.gemini/skills"
+cp -R dr-non-vibecoding-skills/skills/* "$HOME/.gemini/skills/"
 
 # Cursor project-level skills
 mkdir -p .cursor/skills && cp -R dr-non-vibecoding-skills/skills/* .cursor/skills/
@@ -463,7 +484,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["186 skills"] --> A["Your agent"]
+  S["187 skills"] --> A["Your agent"]
   P["17 playbooks"] --> A
   R["14 refs"] --> A
   T["19 templates"] --> A

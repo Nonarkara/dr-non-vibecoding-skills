@@ -19,7 +19,7 @@ Every page cites its source file at the bottom. If a page says something that is
 ## System
 
 ### The repo is a working operating system *(page 2)*
-4 artifact types → skills in `skills/` → one agent practice. (This slide was drawn when the tree had 25 skills; the live count is the README badges: **185 skills** · **17 playbooks** · **14 references** · **19 templates**. The one-liner is `./setup.sh --become-builder`.)
+4 artifact types → skills in `skills/` → one agent practice. (This slide was drawn when the tree had 25 skills; the live count is the README badges: **187 skills** · **17 playbooks** · **14 references** · **19 templates**. The one-liner is `./setup.sh --become-builder`.)
 <img src="infographics/pages/page-02.png" width="820" alt="System 01 — the repo is a working operating system">
 
 *Source: [`README.md`](README.md)*
@@ -216,9 +216,9 @@ A 16:9 single page distilled from the whole deck: Memory (context survives), Des
 
 ---
 
-## Library illustrations — the 6 hero images
+## Library illustrations — the 7 hero images
 
-Six AI-generated illustrations in [`assets/illustrations/`](assets/illustrations/) — same Vignelli/Rams visual language as the deck above. Use them as hero images for the book-derived skill cluster, the design lineage, the security stack, the backend surface, the threat model, and the book-to-skill pipeline.
+Seven AI-generated illustrations in [`assets/illustrations/`](assets/illustrations/) — same Vignelli/Rams visual language as the deck above. Use them as hero images for the book-derived skill cluster, the design lineage, the security stack, the backend surface, the threat model, the book-to-skill pipeline, and the four-layer anti-slop pipeline.
 
 | File | Hero for |
 |---|---|
@@ -228,5 +228,6 @@ Six AI-generated illustrations in [`assets/illustrations/`](assets/illustrations
 | `security-threat-model.jpg` | `appsec-stack`, `secrets-management` — the fortress as a metaphor |
 | `security-stack-four-layers.jpg` | `appsec-stack` — the seven-layer scanner stack |
 | `backend-architecture.jpg` | `api-design`, `caching-layers`, `webhooks-reliable`, `rate-limiting`, `db-migrations`, `observability-budget` — the backend surface |
+| `slop-detect-stack-cover.jpg` | `slop-detect-stack` — the four-layer anti-slop pipeline (code, PR, prose, UI) |
 
 [← Back to the README](README.md)

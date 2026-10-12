@@ -42,6 +42,8 @@
     }
     header {
       display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
       justify-content: space-between;
       align-items: flex-end;
       border-bottom: 1px solid var(--border);
@@ -75,13 +77,17 @@
     .status-dot {
       width: 6px;
       height: 6px;
-      background-color: var(--success);
+      background-color: var(--accent);
     }
+    .status-badge[data-state="ready"] .status-dot { background-color: var(--success); }
+    .status-badge[data-state="unavailable"] .status-dot { background-color: var(--danger); }
+    .card { min-width: 0; overflow-wrap: anywhere; }
+    .card-header { flex-wrap: wrap; gap: 8px; }
 
     /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
       gap: 16px;
       margin-bottom: 24px;
     }
@@ -264,13 +270,17 @@
   <script>
     // Resilient client-side fetcher with error fallback
     async function safeFetch(url) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
       try {
-        const res = await fetch(url);
+        const res = await fetch(url, { signal: controller.signal });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return await res.json();
       } catch (err) {
         console.warn('Live fetch failed, using degraded fallback:', err);
         return null;
+      } finally {
+        clearTimeout(timeout);
       }
     }
 
@@ -278,36 +288,59 @@
       const statusText = document.getElementById('status-text');
       const startTime = performance.now();
 
-      // 1. Fetch Weather (Open-Meteo Bangkok coordinates: 13.75, 100.51)
-      const weatherData = await safeFetch('https://api.open-meteo.com/v1/forecast?latitude=13.75&longitude=100.51&current_weather=true');
-      if (weatherData && weatherData.current_weather) {
+      const results = await Promise.all([
+        safeFetch('https://api.open-meteo.com/v1/forecast?latitude=13.75&longitude=100.51&current_weather=true'),
+        safeFetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4.5&limit=1'),
+        safeFetch('https://api.frankfurter.app/latest?from=USD&to=THB,EUR,JPY')
+      ]);
+      const [weatherData, quakeData, fxData] = results;
+      let available = 0;
+      // Only count validated observations, never merely successful HTTP responses.
+      if (weatherData?.current_weather && ['temperature','windspeed','winddirection'].every(k => Number.isFinite(weatherData.current_weather[k]))) {
+        available++;
         const w = weatherData.current_weather;
         document.getElementById('weather-temp').textContent = `${w.temperature}°C`;
         document.getElementById('weather-wind').textContent = `${w.windspeed} km/h`;
         document.getElementById('weather-dir').textContent = `${w.winddirection}°`;
+      } else {
+        document.getElementById('weather-temp').textContent = 'Unavailable';
+        document.getElementById('weather-meta').textContent = 'OPEN-METEO · UNAVAILABLE';
       }
 
       // 2. Fetch Latest M4.5+ Earthquake (USGS)
-      const quakeData = await safeFetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4.5&limit=1');
-      if (quakeData && quakeData.features && quakeData.features.length > 0) {
+      if (Array.isArray(quakeData?.features) && quakeData.features.length === 0) {
+        available++;
+        document.getElementById('quake-mag').textContent = 'No events';
+        document.getElementById('quake-place').textContent = 'No matching M4.5+ events in this query';
+      } else if (Number.isFinite(quakeData?.features?.[0]?.properties?.mag) && Number.isFinite(quakeData.features[0].properties.time) && Number.isFinite(quakeData.features[0].geometry?.coordinates?.[2])) {
+        available++;
         const q = quakeData.features[0];
         document.getElementById('quake-mag').textContent = `M ${q.properties.mag.toFixed(1)}`;
         document.getElementById('quake-place').textContent = q.properties.place || 'Unknown';
         document.getElementById('quake-depth').textContent = `${q.geometry.coordinates[2]} km`;
         const timeStr = new Date(q.properties.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         document.getElementById('quake-time').textContent = timeStr;
+      } else {
+        document.getElementById('quake-mag').textContent = 'Unavailable';
+        document.getElementById('quake-place').textContent = 'USGS feed unavailable';
       }
 
       // 3. Fetch FX Rates (Frankfurter ECB USD to THB, EUR, JPY)
-      const fxData = await safeFetch('https://api.frankfurter.app/latest?from=USD&to=THB,EUR,JPY');
-      if (fxData && fxData.rates) {
+      if (fxData?.rates && ['THB','EUR','JPY'].every(k => Number.isFinite(fxData.rates[k]) && fxData.rates[k] > 0) && typeof fxData.date === 'string') {
+        available++;
         document.getElementById('fx-rate').textContent = `${fxData.rates.THB.toFixed(2)} THB`;
         document.getElementById('fx-eur').textContent = fxData.rates.EUR.toFixed(4);
         document.getElementById('fx-jpy').textContent = fxData.rates.JPY.toFixed(2);
+        document.querySelector('#card-fx .card-meta').textContent = `ECB · ${fxData.date}`;
+      } else {
+        document.getElementById('fx-rate').textContent = 'Unavailable';
+        document.querySelector('#card-fx .card-meta').textContent = 'ECB · UNAVAILABLE';
       }
 
       const elapsed = Math.round(performance.now() - startTime);
-      statusText.textContent = `LIVE (${elapsed}ms)`;
+      statusText.textContent = `${available === 3 ? 'READY' : available ? 'PARTIAL' : 'UNAVAILABLE'} · ${available}/3 feeds (${elapsed}ms)`;
+      statusText.parentElement.dataset.state = available === 3 ? 'ready' : available ? 'partial' : 'unavailable';
+      statusText.parentElement.setAttribute('role', 'status');
     }
 
     // Initialize on page load

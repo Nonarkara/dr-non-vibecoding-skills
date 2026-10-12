@@ -41,13 +41,17 @@ The `Makefile` at the repo root is the developer-muscle-memory wrapper — `make
 
 ### 1. `--become-builder` / `--install-skills` — install the stack into every agent
 
-Idempotent and additive. Detects which agent hosts exist on this machine and updates every Dr Non `SKILL.md` folder in each host's discovery path without deleting skills from other sources. `--become-builder` does the same install, then prints the Builder identity and next steps. Do not hardcode the count in a new wrapper — count directories that actually contain `SKILL.md`.
+Idempotent and additive. Prepares Claude, shared `.agents` and user-level Cursor
+paths, plus optional hosts whose configuration directories exist. It does not
+detect running binaries or prove activation. Restart the agent and confirm a
+skill is discovered. Unrelated skills are preserved. Do not hardcode the count.
 
 | Agent | Target | Notes |
 |---|---|---|
 | **Claude Code** | `~/.claude/skills/` | Also `Mavis Code` (Mavis Code runs in the same discovery path) |
 | **Codex / ChatGPT Desktop** | `~/.agents/skills/` | Codex also accepts a plugin install — see README |
-| **Antigravity / Gemini CLI** | `~/.gemini/antigravity/skills/` & `~/.agents/skills/` | Native AGY discovery + shared agent fabric |
+| **Gemini CLI** | `~/.gemini/skills/` or shared `~/.agents/skills/` | `--gemini` targets Gemini; shared alias takes precedence |
+| **Antigravity** | `~/.gemini/antigravity/skills/` | `--antigravity` is separate from Gemini CLI |
 | **Cursor** | `~/.cursor/skills/` | Project-level is `.cursor/skills/`; this is the global drop |
 | **Hermes** | `~/.hermes/skills/` | Detected only if `~/.hermes` exists |
 | **OpenCode** | `~/.config/opencode/skills/` | Detected only if `~/.config/opencode` exists |
@@ -66,14 +70,18 @@ Post-install, the count is verified: if the destination does not contain the exp
 
 ### 2. `--init-project <path>` — scaffold a new project
 
-Generates a fully operational project codebase at `<path>` with **zero unfilled placeholder brackets**. The output is ready for the next agent session to read and the next human to ship.
+Generates a runnable **static HTML/JS baseline** at `<path>` with executable
+project contracts, README, start script and component reference. `--stack` records
+future intent; it does not install Next.js, React or FastAPI. Existing files are
+preserved. Deploy and service helpers remain templates needing real configuration.
 
 What it creates, in order:
 
 | File | Source | Purpose |
 |---|---|---|
-| `CLAUDE.md` | `templates/CLAUDE.md.template` | Tier-2 project contract for Claude agents, with the real project name, stack, live URL, dev port, and an Anti-Regression section (prefilled with three real entries, not a TODO) |
-| `AGENTS.md` | `templates/AGENTS.md.template` | Universal Tier-2 contract mirror for Codex, Cursor, Gemini CLI, Antigravity, Aider, OpenCode, Devin, Hermes |
+| `CLAUDE.md` | `scripts/scaffold_static.py` | Filled Tier-2 contract describing the actual static starter and exact commands |
+| `AGENTS.md`, `GEMINI.md` | `scripts/scaffold_static.py` | Same filled contract for other agents |
+| `README.md`, `scripts/start.sh`, `docs/components.html` | shared static scaffold | First-use instructions, loopback preview and component reference |
 | `.gitignore` | `templates/gitignore.template` | Hardened against secrets (`.env*`, `*.pem`, `*.key`), OS junk (`.DS_Store`), AI agent artifacts (`.gemini/`, `.claude/`, `scratch/`), and the standard Node/Python/Next.js noise |
 | `.env.example` | `templates/env.example.template` | Empty-value environment variables with signup URLs and a one-line secret-hygiene note |
 | `docs/lessons/` | (directory, with `.gitkeep`) | Pre-seeded with a `YYYY-MM-DD-bootstrap.md` lesson doc establishing the load-bearing invariants for future sessions |

@@ -74,6 +74,11 @@ if [[ -e "$PROJECT_ABS" && $FORCE -eq 0 ]]; then
 fi
 mkdir -p "$PROJECT_ABS"
 
+# The same runnable baseline as setup.sh; --stack describes future intent, not
+# a framework we have installed. Never overwrite the user's existing contracts.
+python3 "$ROOT/scripts/scaffold_static.py" "$PROJECT_ABS" \
+  --name "$PROJECT_NAME" --stack "$STACK" --port "$PORT"
+
 copy_template() {
   local src="$1" dest="$2"
   if [[ -f "$dest" && $FORCE -eq 0 ]]; then
@@ -97,7 +102,9 @@ for f in "$PROJECT_ABS/CLAUDE.md" "$PROJECT_ABS/AGENTS.md"; do
 done
 
 # — GEMINI.md (Mirror for Gemini CLI and Google AI agents) —
-cp "$PROJECT_ABS/AGENTS.md" "$PROJECT_ABS/GEMINI.md"
+if [[ ! -f "$PROJECT_ABS/GEMINI.md" ]]; then
+  cp "$PROJECT_ABS/AGENTS.md" "$PROJECT_ABS/GEMINI.md"
+fi
 echo "wrote $PROJECT_ABS/GEMINI.md (Gemini CLI mirror)"
 
 # — .gitignore & .env.example —

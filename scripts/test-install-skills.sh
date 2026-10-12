@@ -23,3 +23,12 @@ done
 
 test "$installed" = "$expected"
 echo "OK: installer preserved an unrelated skill and installed $installed stack skills"
+
+DR_NON_INSTALL_ROOT="$TEST_ROOT" "$ROOT/scripts/install-skills.sh" --gemini >/dev/null
+test -f "$TEST_ROOT/.gemini/skills/karpathy-guidelines/SKILL.md"
+test ! -d "$TEST_ROOT/.gemini/antigravity"
+DR_NON_INSTALL_ROOT="$TEST_ROOT" "$ROOT/scripts/install-skills.sh" --antigravity >/dev/null
+test -f "$TEST_ROOT/.gemini/antigravity/skills/karpathy-guidelines/SKILL.md"
+(cd "$ROOT"; DR_NON_INSTALL_ROOT="$TEST_ROOT" scripts/install-skills.sh --all >/dev/null)
+test -f "$TEST_ROOT/.cursor/skills/karpathy-guidelines/SKILL.md"
+echo "OK: Gemini and Antigravity are separate hosts; root onboarding installs user-level Cursor skills"
