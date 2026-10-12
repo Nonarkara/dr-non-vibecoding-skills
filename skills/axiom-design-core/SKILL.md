@@ -140,6 +140,7 @@ A beautiful typographic hierarchy that only serves a fluent, sighted, young read
 - **Properties are physical.** Animate `transform` and `opacity` only (GPU, 60fps). Never animate `width/height/top/left` or box-shadow directly — use scale + opacity + shadow tint tied to `transform`.
 - **Shadows over borders.** A semi-transparent shadow (`rgba(0,0,0,0.08)`) reads as elevation; a solid border reads as a wireframe. Prefer shadow for cards that float, border for dividers that sit.
 - **Find animation opportunities, then say no.** Check empty→loading→content, hover→focus, stale→fresh, number tick, sheet/overlay. Most surfaces need 2–3 places, not 20. Every extra motion is a tax — `prefers-reduced-motion` respected, `transform`/`opacity` only, under 300ms for ordinary UI.
+- **Archival film.** A retro or archival video hero or artifact uses [Destockd](../../reference/named-references.md#destockd). Encode, credit, and the rights check are in that entry.
 
 Influences: [emilkowalski/skills](https://github.com/emilkowalski/skills) (`animate` · `review-animations` · `find-animation-opportunities` · `animation-vocabulary`), [iart-ai/web-animation-skills](https://github.com/iart-ai/web-animation-skills) (GSAP/SVG/Lottie/60fps/a11y).
 
