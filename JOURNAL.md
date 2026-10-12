@@ -253,3 +253,13 @@ fluent-language review remain unverified.
 **Why:** The upstream skill is MIT and is markdown plus two dependency-free validators. This stack already had the spend incident and the verifier stance. The adapter binds that workflow to those two skills instead of leaving a second audit loop with no receipt.
 **Diff:** `skills/security-audit/`, `scripts/security-audit-findings-gate.sh`, `scripts/security-audit-adapt-evidence.cjs`, README and both plugin manifests. Counts 179 → 180.
 **Tags:** `security-audit · cloudflare · vendor · mit · evidence`
+
+---
+
+## 2026-10-12 — One agent contract, checked against the gate skills
+
+**Date:** 2026-10-12
+**What:** Added `agent-instructions/` (`MASTER.md`, `REPO-TEMPLATE.md`, `README.md`) and linked it from the README. `AGENTS.md` now says 179 skills in both places and names the new title, Dr Non's Vibe Coding Stack.
+**Why:** Hosts were each growing a private rules file. The draft contradicted non-bluff (merge and deploy without a person, "done" without a receipt), vibe-review (a Done bucket instead of Succeeded), and the design system anti-slop defers to (amber wayfinding, named faces, code slop).
+**Diff:** `agent-instructions/`, `README.md`, `AGENTS.md`, `JOURNAL.md`
+**Tags:** `agent-contract · non-bluff · anti-slop · counts`
