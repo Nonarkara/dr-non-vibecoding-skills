@@ -48,6 +48,7 @@ Seven behavioural skills (`systematic-debugging`, `browser-as-t`, `lesson-residu
 ## Upstream credit (kept by upstream license)
 
 - **`skills/karpathy-guidelines/SKILL.md`** is MIT-licensed and derived from [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills). The upstream attribution is preserved in the skill's own frontmatter; see also [NOTICE.md](NOTICE.md).
+- **`skills/security-audit/`** is MIT-licensed and vendored from [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) at commit `c1c8a8c1471069fb0e188eeaff69b8e8db6564a8`. Copyright (c) 2025-2026 Cloudflare, Inc. Their `LICENSE` stays inside the skill folder.
 
 ---
 

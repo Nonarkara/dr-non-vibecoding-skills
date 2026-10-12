@@ -36,3 +36,7 @@ jobs:
         run: DR_NON_PLAYWRIGHT="$RUNNER_TEMP/drnon-browser/node_modules/playwright/index.mjs" node scripts/test-starter-browser.mjs
       - name: Prove the Cloudflare runaway-cost grep
         run: bash scripts/test-cf-runaway-cost.sh
+      - name: Prove vendored security-audit validators and findings gate
+        run: |
+          node --test skills/security-audit/validate-findings.test.cjs skills/security-audit/validate-coverage-ledger.test.cjs
+          bash scripts/test-security-audit-gate.sh

@@ -37,3 +37,5 @@ test: validate relay-check
 	@bash scripts/test-bootstrap.sh
 	@node scripts/test-starter.mjs
 	@bash scripts/test-cf-runaway-cost.sh
+	@node --test skills/security-audit/validate-findings.test.cjs skills/security-audit/validate-coverage-ledger.test.cjs
+	@bash scripts/test-security-audit-gate.sh

@@ -1,6 +1,6 @@
 # Skill Catalog
 
-One hundred sixty focused skills, grouped by the decision they change. Start with one problem;
+One hundred eighty focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -84,6 +84,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`always-on-services`](skills/always-on-services/SKILL.md) | Run Mac-hosted services with launchd and Cloudflare Tunnels. Use for background jobs, public local services, watchdogs, and restart failures. |
 | [`dual-write-resilience`](skills/dual-write-resilience/SKILL.md) | Pair a primary database with a silent fallback mirror. Use when civic dashboards, monitors, or bots must survive database outages and quotas. |
 | [`cso`](skills/cso/SKILL.md) | Security audit mode: secrets archaeology, supply chain, STRIDE, OWASP Top 10. Use to audit a codebase in one command, complementing the free AppSec pipeline. |
+| [`security-audit`](skills/security-audit/SKILL.md) | Review code for trust-boundary vulnerabilities. Use for a security question, focused review, audit, or pen test. Run every phase only for an explicit audit or a requested report. |
 | [`canary`](skills/canary/SKILL.md) | Post-deploy monitoring: watch the live app for console errors, perf regressions, and page failures vs a pre-deploy baseline. Use after any ship, before the deploy is called done. |
 | [`health`](skills/health/SKILL.md) | Code quality dashboard: weighted 0-10 composite from type, lint, test, dead-code, shell-lint. Use to ask "how good is this code" and to track trends across commits. |
 | [`devex-review`](skills/devex-review/SKILL.md) | Live DX audit: navigate docs, time the onboarding flow, screenshot error messages, score the CLI. Use to measure TTHW before declaring a developer-facing feature shipped. |
