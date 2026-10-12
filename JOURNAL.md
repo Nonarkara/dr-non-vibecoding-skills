@@ -243,3 +243,13 @@ fluent-language review remain unverified.
 **Why:** The public-clone audit could pass file-existence checks while handing newcomers unusable npm commands and a false green LIVE indicator. Commands and status now describe observed reality.
 **Diff:** `scripts/scaffold_static.py`, `scripts/doctor.sh`, `scripts/test-starter.mjs`, `scripts/test-starter-browser.mjs`, `docs/lessons/2026-10-11-plug-and-play-contracts.md`
 **Tags:** `bootstrap · developer-experience · wrong-green · cross-agent · first-use`
+
+---
+
+## 2026-10-12 — Cloudflare's security audit, bound to this stack
+
+**Date:** 2026-10-12
+**What:** Vendored `security-audit` from cloudflare/security-audit-skill at `c1c8a8c`, with Cloudflare's LICENSE kept in the skill folder. The adapter maps confirmed findings to file:line plus the observed result, routes resource-exhaustion and operator-spend checks through `cf-runaway-cost`, uses `adversarial-review` for phase 3 and phase 5, and gates any `findings.json` with `validate-findings.cjs`.
+**Why:** The upstream skill is MIT and is markdown plus two dependency-free validators. This stack already had the spend incident and the verifier stance. The adapter binds that workflow to those two skills instead of leaving a second audit loop with no receipt.
+**Diff:** `skills/security-audit/`, `scripts/security-audit-findings-gate.sh`, `scripts/security-audit-adapt-evidence.cjs`, README and both plugin manifests. Counts 179 → 180.
+**Tags:** `security-audit · cloudflare · vendor · mit · evidence`

@@ -28,6 +28,8 @@ Do not install a 40-plugin audit suite on a flood dashboard. Steal the *stance*.
 4. **Executable over rhetorical.** A failing test, a curl, a click path ([`browser-as-t`](../browser-as-t/SKILL.md)) beats "this might be a concern."
 5. **Stop.** When you cannot confirm a new finding, you are done. Infinite review is stalling.
 
+When a full [`security-audit`](../security-audit/SKILL.md) run reaches phase 3 (candidate validation) or phase 5 (independent record verification), this skill is the verifier. The task text stays in that skill's `VALIDATION-AND-REPORTING.md`. The verifier is a fresh agent with the candidate and the source, blind to the hunter's argument.
+
 ---
 
 ## What to look for (civic, not Solidity)

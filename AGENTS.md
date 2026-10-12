@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **179 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **180 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
@@ -202,6 +202,7 @@ Pick the skill that matches your problem:
 | YAGNI decision ladder: does it need to exist, is it in the codebase, does stdlib do it, can it be one line, then the minimum | `skills/ponytail/SKILL.md` |
 | Output compression: 65% fewer tokens, byte-exact code and errors — the prose gets terse, the bytes that matter stay exact | `skills/caveman/SKILL.md` |
 | Security audit mode: secrets archaeology, supply chain, STRIDE, OWASP Top 10 — daily and comprehensive modes | `skills/cso/SKILL.md` |
+| A codebase security audit, pen test, or vulnerability review with source evidence | `skills/security-audit/SKILL.md` |
 | Post-deploy monitoring: watch the live app for console errors, perf regressions, and page failures vs a pre-deploy baseline | `skills/canary/SKILL.md` |
 | Code quality dashboard: weighted 0-10 composite from type, lint, test, dead-code, shell-lint, with trend tracking | `skills/health/SKILL.md` |
 | Live developer-experience audit: navigate docs, time the onboarding flow, screenshot error messages, score the CLI | `skills/devex-review/SKILL.md` |

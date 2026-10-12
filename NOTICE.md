@@ -9,6 +9,12 @@ Copyright (c) 2026 Non Arkaraprasertkul / Axiom X Co., Ltd.
 It retains its upstream attribution in its own frontmatter. MIT here does not
 replace that credit.
 
+`skills/security-audit/` is MIT-licensed and vendored from
+[cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill)
+at commit `c1c8a8c1471069fb0e188eeaff69b8e8db6564a8`. Copyright (c) 2025-2026
+Cloudflare, Inc. Their notice is `skills/security-audit/LICENSE` and stays
+with the files. The local binding is `skills/security-audit/ADAPTER.md`.
+
 Several skills are **original writing** that credit ideas in body `Influences:`
 sections (Anthropic skills format, Superpowers, Compound Engineering, Addy
 Osmani agent-skills, gstack, Vercel agent-skills, Every's Compound Engineering
