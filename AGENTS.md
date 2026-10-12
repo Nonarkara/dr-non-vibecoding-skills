@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **179 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **180 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
@@ -65,7 +65,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 179 on every task.
+# the rules file that host actually reads; do not load all 180 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -168,6 +168,7 @@ Pick the skill that matches your problem:
 | About to ship AI-generated code | `skills/code-slop-patterns/SKILL.md` |
 | A Cloudflare Worker, Durable Object, alarm, KV, D1, R2, Queue, or Workers AI change can bill with no stop | `skills/cf-runaway-cost/SKILL.md` |
 | About to open or review an AI-assisted PR | `skills/pr-slop-patterns/SKILL.md` |
+| About to open a pull request, or the review queue is the bottleneck | `skills/review-ready-pr/SKILL.md` |
 | Setting up the four-layer anti-slop pipeline (code, PR, prose, UI) | `skills/slop-detect-stack/SKILL.md` |
 | Picking a visual register before writing CSS | `skills/design-registers/SKILL.md` |
 | Building a full project scaffold in one paste | `skills/full-stack-bootstrap/SKILL.md` |

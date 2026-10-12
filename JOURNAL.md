@@ -253,3 +253,13 @@ fluent-language review remain unverified.
 **Why:** Hosts were each growing a private rules file. The draft contradicted non-bluff (merge and deploy without a person, "done" without a receipt), vibe-review (a Done bucket instead of Succeeded), and the design system anti-slop defers to (amber wayfinding, named faces, code slop).
 **Diff:** `agent-instructions/`, `README.md`, `AGENTS.md`, `JOURNAL.md`
 **Tags:** `agent-contract · non-bluff · anti-slop · counts`
+
+---
+
+## 2026-10-12 — Review-ready PRs, because the queue is the bottleneck
+
+**Date:** 2026-10-12
+**What:** Added `review-ready-pr` and a read-only `scripts/pr_queue.py` that lists one owner's open PRs, guesses risk, and marks low-risk green ones BATCH. Skill count is 180.
+**Why:** Chen and Stratton (Jellyfish, January 2021–March 2026) found AI agents raised lines 30% and PRs 23%, while PR-to-merge time rose 49% and resolved Jira issues did not. The review queue is the constraint. Agents still do not merge.
+**Diff:** `skills/review-ready-pr/SKILL.md`, `scripts/pr_queue.py`, `scripts/test-pr-queue.sh`, `CATALOG.md`, count surfaces
+**Tags:** `review-bottleneck · pull-requests · ponytail · non-bluff · counts`
