@@ -15,7 +15,7 @@ AI slop is not one problem. It is *four* problems wearing the same outfit: low-q
 
 This skill is the router. The four layers are the work. The cheap deterministic layer catches the structural patterns; the semantic layer catches the conceptual ones. Run them in order; don't skip steps.
 
-*The four layers: [`code-slop-patterns`](../code-slop-patterns/SKILL.md), [`pr-slop-patterns`](../pr-slop-patterns/SKILL.md), [`no-ai-tells`](../no-ai-tells/SKILL.md), [`slop-detect`](../slop-detect/SKILL.md) + [`no-design-tells`](../no-design-tells/SKILL.md).*
+*The one-page scan is [`anti-slop`](../anti-slop/SKILL.md). The four layers behind it: [`code-slop-patterns`](../code-slop-patterns/SKILL.md), [`pr-slop-patterns`](../pr-slop-patterns/SKILL.md), [`no-ai-tells`](../no-ai-tells/SKILL.md), [`slop-detect`](../slop-detect/SKILL.md) + [`no-design-tells`](../no-design-tells/SKILL.md).*
 
 ---
 

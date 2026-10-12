@@ -169,6 +169,13 @@ If the canonical is too big, that's a project hygiene problem, not a context-eco
 
 ---
 
+## Tool output stays in the tool
+
+A log, a browser snapshot, or a JSON dump is something you read. The reply carries the decision and the `file:line`. Two tools in the owner's vetted catalog can hold that raw output outside the reply. They are optional. [`proportionality`](../proportionality/SKILL.md) decides whether another install is earned. This skill does not copy either tool.
+
+- [Context Mode](https://github.com/mksglu/context-mode) is Elastic License 2.0. That is source-available, not an OSI open-source licence. Credit it. Do not copy its text or its code into this repo, and do not offer it as a hosted service. Read its hooks before installing them. They sit on every tool call. Its own benchmark is about tool-output bytes, not a promise about your bill.
+- [Headroom](https://github.com/headroomlabs-ai/headroom) is Apache-2.0. It compresses tool output on your machine. Measure your own session before you trust a savings figure. If you run the proxy, bind it to localhost, turn the telemetry beacon off (`HEADROOM_BEACON=off` or `DO_NOT_TRACK=1`), and treat the local cache as secret-bearing. `headroom wrap` rewrites agent config. Review that diff.
+
 ## The single test
 
 If a sentence in your draft response doesn't change what the user does next, delete it. If a paragraph doesn't move the task forward, delete the paragraph. If a section repeats something the user already knows or the diff already shows, delete the section. The token you save is one the user can spend on the next task.

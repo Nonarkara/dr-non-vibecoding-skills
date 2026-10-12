@@ -91,6 +91,8 @@ jobs:
         env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
 ```
 
+Those action tags float. The day-one vetted scan is Trivy, report-only, pinned to a commit SHA, with `permissions: contents: read`. That workflow is [`security-baseline`](../security-baseline/SKILL.md). Gitleaks is not in the owner's vetted catalog, so the baseline does not add it beside Trivy.
+
 Keyless cloud deployment safety net (ban exported service account JSON keys in CI):
 
 ```yaml

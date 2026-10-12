@@ -37,3 +37,4 @@ test: validate relay-check
 	@bash scripts/test-bootstrap.sh
 	@node scripts/test-starter.mjs
 	@bash scripts/test-cf-runaway-cost.sh
+	@bash scripts/test-non-bluff.sh

@@ -228,6 +228,16 @@ fluent-language review remain unverified.
 
 ---
 
+## 2026-10-08 — A gate in front of the library
+
+**Date:** 2026-10-08
+**What:** Added the foundation: `START-HERE.md`, seven skills (class, need, done, slop, reproducibility, security baseline, review), playbook 17, two templates, `CREDITS.md`, SHA-pinned Actions, and a conflict-marker check.
+**Why:** The library already knew how to ship. It did not make an agent choose how much engineering a task deserved, or stop before claiming a result it had not run. Borrowed ideas are credited. Elastic-licensed context-mode is named and not copied.
+**Diff:** `START-HERE.md`, `CREDITS.md`, `skills/proportionality`, `skills/user-need`, `skills/definition-of-done`, `skills/anti-slop`, `skills/reproducible-result`, `skills/security-baseline`, `skills/vibe-review`, `playbooks/17-the-vibe-foundation.md`, `templates/vibe-review.md.template`, `templates/security-baseline.yml.template`
+**Tags:** `foundation · proportionality · anti-slop · security · credits`
+
+---
+
 ## 2026-10-09 — A Durable Object alarm that bills while you sleep
 
 **Date:** 2026-10-09

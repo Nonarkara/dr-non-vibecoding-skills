@@ -6,22 +6,42 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 177 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 187 skills, 17 playbooks, 14 references, and 19 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 179](https://img.shields.io/badge/skills-179-F59E0B)](skills/)
-[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
+[![Skills: 187](https://img.shields.io/badge/skills-187-F59E0B)](skills/)
+[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
+[![Templates: 19](https://img.shields.io/badge/templates-19-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**179 skills** · **16 playbooks** · **14 references** · **17 templates**
+**187 skills** · **17 playbooks** · **14 references** · **19 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
 
 ชุดทักษะและคู่มือปฏิบัติการสำหรับเปลี่ยนความคิดให้เป็นซอฟต์แวร์และธุรกิจจริง — มาร์กดาวน์ล้วน ไม่มีรันไทม์ ผู้อ่านเป้าหมายคือคนไทยและคนอังกฤษด้วยกัน
+
+---
+
+## Start here
+
+New to the stack, or an agent opening it cold: read [`START-HERE.md`](START-HERE.md) before the manifesto. One page. Classify the task, match the person, write the pass condition, then build. Sources for the ideas that were borrowed are in [`CREDITS.md`](CREDITS.md).
+
+คนใหม่และเอเจนต์เริ่มที่ [`START-HERE.md`](START-HERE.md) ก่อนอ่านแถลงการณ์
+
+---
+
+## Non-Bluff: make "done" mean done
+
+Agents sometimes say "done" when the work is not done, do things nobody asked for, or claim you approved something you did not. [Arena's Alignment Index](https://arena.ai/blog/ai-alignment-index) found the first in about 10% of real sessions and 48% of code-debugging sessions. [`skills/non-bluff`](skills/non-bluff/SKILL.md) turns that into three checks that do not take the agent's word for it.
+
+1. **Tell your agent the rule.** Point it at [`skills/non-bluff/SKILL.md`](skills/non-bluff/SKILL.md), or run `scripts/install-skills.sh`. From then on "done" must come with a done receipt: each claim paired with proof a machine can re-check (a command and its output, a passing test, a green CI run, a merged commit, a live URL). Whatever it could not check, it must list as not verified.
+2. **Re-check the receipt yourself.** `python3 skills/non-bluff/scripts/non-bluff-verify reply.md --repo .` re-runs the commands, fetches the URLs, looks up the commits, CI runs and PRs, compares the file list with the real diff, and finds each quoted approval in its source. It exits 0 only if every claim holds.
+3. **Put a guard in front of risky actions.** Copy [`hooks/claude-settings.example.json`](skills/non-bluff/hooks/claude-settings.example.json) (Claude Code) or [`hooks/cursor-hooks.example.json`](skills/non-bluff/hooks/cursor-hooks.example.json) (Cursor). Pushes to `main`, merges, deploys, deletes, secrets, messages and payments then stop for you, and every action is written to a tamper-evident log. The list is plain JSON in [`policy.json`](skills/non-bluff/policy.json). Edit it.
+
+No install beyond Python 3. `bash scripts/test-non-bluff.sh` shows each failure being caught. The skill page lists what a hook cannot catch.
 
 ---
 
@@ -224,9 +244,10 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 169 modular agent capabilities (plain markdown with YAML frontmatter)├── playbooks/        # 16 narrative war stories & architectural deep-dives
-├── reference/        # 13 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
-├── templates/        # 17 drop-in production scaffolding files
+├── skills/           # 187 modular agent capabilities (plain markdown with YAML frontmatter)
+├── playbooks/        # 17 narrative war stories & architectural deep-dives
+├── reference/        # 14 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
+├── templates/        # 19 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── agent-instructions/ # MASTER.md for every agent, REPO-TEMPLATE.md for one repo
@@ -234,7 +255,7 @@ dr-non-vibecoding-skills/
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 177 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 187 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -243,9 +264,10 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 169 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword || [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 13 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 17 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
+| [`skills/`](skills/) | 187 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword |
+| [`playbooks/`](playbooks/) | 17 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`reference/`](reference/) | 14 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`templates/`](templates/) | 19 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
 
 ### Out of the Box, Plug and Play
 
@@ -452,6 +474,7 @@ The 16 numbered playbooks record the lived field experience behind the rules:
 14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 15. [How Dr Non prompts](playbooks/15-how-dr-non-prompts.md) — Eleven seconds of typing that produces three hours of work, and the four things you must already have for it to.
 16. [The philosophical spine](playbooks/16-the-philosophical-spine.md) — Ontology, virtue ethics, and why pure utilitarian AI optimization breaks without human grounding.
+17. [The vibe foundation](playbooks/17-the-vibe-foundation.md) — Classify the task, match the person, prove the pass line, and leave a command someone else can run.
 
 ---
 
@@ -461,10 +484,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["177 skills"] --> A["Your agent"]
-  P["16 playbooks"] --> A
+  S["187 skills"] --> A["Your agent"]
+  P["17 playbooks"] --> A
   R["14 refs"] --> A
-  T["17 templates"] --> A
+  T["19 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

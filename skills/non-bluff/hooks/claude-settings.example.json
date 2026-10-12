@@ -1,0 +1,21 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Read|Write|Edit|MultiEdit|NotebookEdit|mcp__.*",
+        "hooks": [{ "type": "command", "command": "python3 \"$HOME/.claude/skills/non-bluff/scripts/non-bluff-guard\"", "timeout": 10 }]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|MultiEdit|NotebookEdit|mcp__.*",
+        "hooks": [{ "type": "command", "command": "python3 \"$HOME/.claude/skills/non-bluff/scripts/non-bluff-guard\"", "timeout": 10 }]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [{ "type": "command", "command": "python3 \"$HOME/.claude/skills/non-bluff/scripts/non-bluff-guard\"", "timeout": 10 }]
+      }
+    ]
+  }
+}

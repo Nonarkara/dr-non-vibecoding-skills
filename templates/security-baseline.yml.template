@@ -1,0 +1,41 @@
+# Report-only security scan for a repo that has code.
+# Copy to .github/workflows/security-baseline.yml after you confirm the pins.
+# Pins resolved 2026-10-08. Let Dependabot move them.
+# Start with exit 0. After you have triaged noise, fail on secrets and critical findings.
+# Scan output must show file:line and rule id, never a secret value.
+# SARIF uploads belong on public repos only. This template prints a table.
+
+name: Security baseline
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Trivy (report-only)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln,secret,misconfig
+          format: table
+          exit-code: "0"
+
+      - name: Python for Semgrep
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Semgrep (report-only, no token)
+        run: |
+          python3 -m pip install --disable-pip-version-check "semgrep==1.180.0"
+          semgrep scan --config p/secrets || true

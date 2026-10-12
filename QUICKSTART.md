@@ -41,6 +41,7 @@ After restarting your agent, confirm it sees a skill before directing it:
 Local LLMs, voice cloning, Telegram/LINE/Discord, shared memory, hosting and custom
 domains are optional and require separate provisioning. Deployment helpers are
 adaptation templates; they do not provision an account or deploy automatically.
+
 ### What ships in the scaffold (runnable, not just docs)
 
 `scripts/new-project.sh` (and `./setup.sh --init-project`) drop these into every new project by default:
@@ -72,7 +73,7 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 ## 1. Confirm the skills landed (30 sec)
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 179
+ls ~/.claude/skills | wc -l   # expect 187
 # also: ls ~/.agents/skills | wc -l
 ```
 
