@@ -8,7 +8,7 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 177 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
-Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
+Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
 [![Skills: 179](https://img.shields.io/badge/skills-179-F59E0B)](skills/)
@@ -171,6 +171,8 @@ activation. Restart your agent and confirm it lists a skill. It then prints
 2. **Pass the Mama Rule with a real older nontechnical user, then conduct the multi-persona walkthrough** ([`human-walkthrough`](skills/human-walkthrough/SKILL.md)).
 3. **Run a data-driven hindsight review** ([`power-of-hindsight`](skills/power-of-hindsight/SKILL.md)).
 
+The standing contract for every agent is [`agent-instructions/MASTER.md`](agent-instructions/MASTER.md) (one file, symlinked under each host's name). [`agent-instructions/REPO-TEMPLATE.md`](agent-instructions/REPO-TEMPLATE.md) is the per-repo `AGENTS.md`: repo facts only.
+
 Before bootstrap, run `bash scripts/doctor.sh`. Bash, Git and Python 3 support the
 bootstrap workflow; Node.js is also needed for `make test`. Skills themselves are
 Markdown and need no runtime. Windows shell scripts require WSL or a Bash
@@ -227,6 +229,7 @@ dr-non-vibecoding-skills/
 ├── templates/        # 17 drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
+├── agent-instructions/ # MASTER.md for every agent, REPO-TEMPLATE.md for one repo
 ├── HANDSHAKE.md      # One paste. Works in any agent, with no install
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
