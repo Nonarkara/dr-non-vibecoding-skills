@@ -243,3 +243,13 @@ fluent-language review remain unverified.
 **Why:** The public-clone audit could pass file-existence checks while handing newcomers unusable npm commands and a false green LIVE indicator. Commands and status now describe observed reality.
 **Diff:** `scripts/scaffold_static.py`, `scripts/doctor.sh`, `scripts/test-starter.mjs`, `scripts/test-starter-browser.mjs`, `docs/lessons/2026-10-11-plug-and-play-contracts.md`
 **Tags:** `bootstrap · developer-experience · wrong-green · cross-agent · first-use`
+
+---
+
+## 2026-10-12 — One agent contract, checked against the gate skills
+
+**Date:** 2026-10-12
+**What:** Added `agent-instructions/` (`MASTER.md`, `REPO-TEMPLATE.md`, `README.md`) and linked it from the README. `AGENTS.md` now says 179 skills in both places and names the new title, Dr Non's Vibe Coding Stack.
+**Why:** Hosts were each growing a private rules file. The draft contradicted non-bluff (merge and deploy without a person, "done" without a receipt), vibe-review (a Done bucket instead of Succeeded), and the design system anti-slop defers to (amber wayfinding, named faces, code slop).
+**Diff:** `agent-instructions/`, `README.md`, `AGENTS.md`, `JOURNAL.md`
+**Tags:** `agent-contract · non-bluff · anti-slop · counts`
