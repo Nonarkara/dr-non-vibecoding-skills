@@ -1,6 +1,6 @@
 # Skill Catalog
 
-One hundred sixty focused skills, grouped by the decision they change. Start with one problem;
+One hundred eighty focused skills, grouped by the decision they change. Start with one problem;
 load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
@@ -41,6 +41,7 @@ load one matching skill. The collection is a routing system, not a checklist.
 | [`result-honesty`](skills/result-honesty/SKILL.md) | Report succeeded, failed, skipped, and unverified with evidence. Use at session end, handoff, deploy closeout, or whenever asked whether it worked. |
 | [`build-journal`](skills/build-journal/SKILL.md) | Use when a meaningful change to a project must be recorded. The 5-line flight-recorder discipline. The journal is the narrative, not the log. |
 | [`ship-discipline`](skills/ship-discipline/SKILL.md) | Run Commit, Push, Deploy, Test; localhost is not a deliverable. Use when closing work, checking whether a change is live, or making a completion claim. |
+| [`review-ready-pr`](skills/review-ready-pr/SKILL.md) | Open one-intent PRs under a size cap with a risk label and evidence in the body. Use before opening a pull request, or when the review queue is the bottleneck. |
 | [`wrong-green`](skills/wrong-green/SKILL.md) | Test the failure users care about, not a nearby success metric. Use when CI, deploy logs, health checks, watchdogs, or curl say OK too easily. |
 | [`lesson-residue`](skills/lesson-residue/SKILL.md) | Capture verified residue from a painful or surprising session. Use before closing expensive work; skip routine edits. |
 | [`context-economy`](skills/context-economy/SKILL.md) | Match response length and shape to the task. Use when prose crowds out results, context repeats, or status needs a concise evidence-backed form. |
