@@ -20,7 +20,7 @@ The one-page order is [`START-HERE.md`](START-HERE.md).
 | Picking up another agent's commits | [`agent-relay`](skills/agent-relay/SKILL.md) |
 | Reading a terse or compound brief | [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) |
 | Deciding how much engineering the task deserves | [`proportionality`](skills/proportionality/SKILL.md) + [`user-need`](skills/user-need/SKILL.md) |
-| Claiming the work is finished | [`definition-of-done`](skills/definition-of-done/SKILL.md) + [`vibe-review`](skills/vibe-review/SKILL.md) |
+| Claiming the work is finished | [`definition-of-done`](skills/definition-of-done/SKILL.md) + [`non-bluff`](skills/non-bluff/SKILL.md) + [`vibe-review`](skills/vibe-review/SKILL.md) |
 
 ## The foundation
 
@@ -31,6 +31,7 @@ Load these before the rest of the library. Each one points at the older skill it
 | [`proportionality`](skills/proportionality/SKILL.md) | Classify work as throwaway, prototype, production, or civic before picking tests and security. Use when scope or stakes are unclear. |
 | [`user-need`](skills/user-need/SKILL.md) | Match depth and tone to learning, producing, or playing. Use when one request could be a lesson, a change, or a toy. |
 | [`definition-of-done`](skills/definition-of-done/SKILL.md) | Write the pass condition first, run it, and show the evidence. Use before any claim that work is done or fixed. |
+| [`non-bluff`](skills/non-bluff/SKILL.md) | No "done" without a receipt a script can re-check, no risky action without a human, no "you approved" without the quote. Use before claiming work is done. |
 | [`anti-slop`](skills/anti-slop/SKILL.md) | Catch banned patterns in generated code, interface, and prose before they ship. Use when a diff or a page looks machine-made. |
 | [`reproducible-result`](skills/reproducible-result/SKILL.md) | Pin versions, commit the lockfile, and record the seed and the command. Use when a result has to be rerun or adjusted. |
 | [`security-baseline`](skills/security-baseline/SKILL.md) | Keep secrets out of code and logs, and scan dependencies in CI as a report first. Use when a repo will be shared, deployed, or handed over. |

@@ -17,4 +17,5 @@ globs:
   - skills/security-baseline/SKILL.md
   - skills/user-need/SKILL.md
   - skills/vibe-review/SKILL.md
+  - skills/non-bluff/SKILL.md
   - templates/vibe-review.md.template

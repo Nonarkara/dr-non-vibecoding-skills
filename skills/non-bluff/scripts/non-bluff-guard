@@ -1,0 +1,225 @@
+#!/usr/bin/env python3
+"""Pre-tool guard for Claude Code and Cursor. Standard library only.
+
+Reads one hook event as JSON on stdin, decides allow / ask / deny from
+policy.json, appends one line to a hash-chained action log, and prints the
+answer in the format the calling tool expects. On Stop it refuses a "done"
+reply that has no done receipt, or a "you approved" with no quote or link.
+
+    non-bluff-guard --check "git push --force"     # try a command by hand
+    non-bluff-guard --verify-log                   # prove the log was not edited
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+POLICY = Path(os.environ.get("NON_BLUFF_POLICY", HERE.parent / "policy.json"))
+LOG = Path(os.environ.get("NON_BLUFF_LOG", Path.home() / ".non-bluff" / "actions.jsonl"))
+STATE = LOG.parent / "last-reply"
+
+SECRET_PATTERNS = [
+    (re.compile(r"(?i)\bbearer\s+[\w.~+/-]{8,}=*"), "Bearer [REDACTED]"),
+    (re.compile(r"\b(gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9_-]{20,}|xox[abprs]-[\w-]{10,}|AKIA[0-9A-Z]{16}|AIza[\w-]{30,})\b"), "[REDACTED]"),
+    (re.compile(r"(?i)\b([\w-]*(?:token|secret|passw(?:or)?d|api[_-]?key)[\w-]*)(\s*[=:]\s*)(['\"]?)[^\s'\"]{6,}\3"), r"\1\2[REDACTED]"),
+]
+
+DONE_WORDS = re.compile(
+    r"(?<![Nn]ot )(?<!n't )\b(done|fixed|completed?|finished|merged|deployed|shipped|resolved|all (?:tests|checks) pass(?:ed|ing)?|it works now)\b"
+    r"|เสร็จ(?:แล้ว)?|เรียบร้อย(?:แล้ว)?|แก้(?:ไข)?แล้ว",
+    re.I,
+)
+ATTRIBUTION = re.compile(
+    r"\b(you|you've|you have) (approved|said|asked|told me|agreed|confirmed|okayed|signed off|wanted)\b"
+    r"|\b(as|per) (you|your) (requested|approved|asked|instructions?|request|approval)\b|\bwith your (approval|ok|go-ahead)\b"
+    r"|คุณ(?:ได้)?(?:อนุมัติ|บอก|สั่ง|ขอ|ตกลง)|ตามที่คุณ",
+    re.I,
+)
+RECEIPT = re.compile(r"```done-receipt\s*\n(.*?)```", re.S)
+EVIDENCE = re.compile(r"https?://\S+|[\"“«][^\"”»]{8,}[\"”»]|^\s*>\s*\S", re.M)
+
+
+def redact(text: str) -> str:
+    for pattern, repl in SECRET_PATTERNS:
+        text = pattern.sub(repl, text)
+    return text
+
+
+def load_policy() -> dict:
+    return json.loads(POLICY.read_text(encoding="utf-8"))
+
+
+def decide(subject: str, cwd: str | None = None, policy: dict | None = None) -> tuple[str, str, str]:
+    """Return (decision, rule id, why). deny beats ask beats allow."""
+    policy = policy or load_policy()
+    found = ("allow", "", "")
+    for rule in policy["rules"]:
+        if re.search(rule["match"], subject, re.I | re.S):
+            if rule["action"] == "deny":
+                return "deny", rule["id"], rule["why"]
+            found = ("ask", rule["id"], rule["why"])
+    if found[0] == "allow" and re.match(r"shell:.*\bgit\s+push\b", subject) and cwd:
+        branch = subprocess.run(["git", "-C", cwd, "rev-parse", "--abbrev-ref", "HEAD"],
+                                capture_output=True, text=True).stdout.strip()
+        if branch in policy.get("protected_branches", []):
+            found = ("ask", "push-protected", f"Current branch is {branch}.")
+    return found
+
+
+def check_reply(text: str) -> list[str]:
+    """Problems with a final reply: done without receipt, attribution without evidence."""
+    problems = []
+    has_receipt = bool(RECEIPT.search(text))
+    if DONE_WORDS.search(text) and not has_receipt:
+        problems.append("The reply says the work is done but has no ```done-receipt block. "
+                        "Add the receipt with evidence, or say plainly what state the work is in.")
+    for block in RECEIPT.findall(text):
+        try:
+            json.loads(block)
+        except json.JSONDecodeError as exc:
+            problems.append(f"The done-receipt is not valid JSON: {exc}")
+    prose = RECEIPT.sub("", text)
+    for sentence in re.split(r"(?<=[.!?。])\s+|\n{2,}", prose):
+        if ATTRIBUTION.search(sentence) and not EVIDENCE.search(sentence):
+            problems.append("Says the user approved or said something without quoting it or linking it: "
+                            + redact(sentence.strip())[:160])
+    return problems
+
+
+def append_log(entry: dict) -> None:
+    LOG.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+    prev = "0" * 64
+    if LOG.exists():
+        with LOG.open("rb") as handle:
+            handle.seek(max(0, LOG.stat().st_size - 4096))
+            lines = handle.read().splitlines()
+            if lines:
+                prev = json.loads(lines[-1]).get("hash", prev)
+    entry = {"ts": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), **entry, "prev": prev}
+    entry["hash"] = hashlib.sha256((prev + json.dumps(entry, sort_keys=True)).encode()).hexdigest()
+    fd = os.open(LOG, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o600)
+    with os.fdopen(fd, "a", encoding="utf-8") as handle:
+        handle.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def verify_log() -> int:
+    prev = "0" * 64
+    for number, line in enumerate(LOG.read_text(encoding="utf-8").splitlines(), 1):
+        entry = json.loads(line)
+        claimed = entry.pop("hash")
+        if entry.get("prev") != prev or hashlib.sha256((prev + json.dumps(entry, sort_keys=True)).encode()).hexdigest() != claimed:
+            print(f"FAIL: {LOG} line {number} was edited, removed or reordered")
+            return 1
+        prev = claimed
+    print(f"OK: {LOG} chain intact")
+    return 0
+
+
+def subject_of(event: dict) -> str | None:
+    """One line that names the action, or None for events that are not actions."""
+    tool = event.get("tool_name") or ""
+    raw = event.get("tool_input")
+    tool_input = raw if isinstance(raw, dict) else {}
+    if isinstance(raw, str):
+        try:
+            tool_input = json.loads(raw)
+        except json.JSONDecodeError:
+            tool_input = {"raw": raw}
+    name = event.get("hook_event_name", "")
+    if name in ("beforeShellExecution", "afterShellExecution") or tool in ("Bash", "Shell"):
+        return "shell: " + (event.get("command") or tool_input.get("command", ""))
+    if name == "afterFileEdit":
+        return "write: " + event.get("file_path", "")
+    if name == "beforeReadFile" or tool == "Read":
+        return "read: " + (event.get("file_path") or tool_input.get("file_path", ""))
+    if tool in ("Write", "Edit", "MultiEdit", "NotebookEdit", "Delete"):
+        path = tool_input.get("file_path") or tool_input.get("notebook_path") or tool_input.get("path", "")
+        return ("tool: delete " if tool == "Delete" else "write: ") + path
+    if tool:
+        return f"tool: {tool} " + json.dumps(tool_input, sort_keys=True)[:2000]
+    return None
+
+
+def respond(event: dict, decision: str, why: str) -> int:
+    """Answer only to block or ask. "allow" prints nothing, so the tool's own
+    permission prompts still apply: this guard can add friction, never remove it."""
+    name = event.get("hook_event_name", "")
+    if decision == "allow":
+        if name.startswith("before") or name == "preToolUse":
+            print(json.dumps({"permission": "allow"}))  # Cursor needs a reply; its own approvals still apply
+        return 0
+    message = f"non-bluff {decision}: {why}"
+    if name == "PreToolUse":
+        print(json.dumps({"hookSpecificOutput": {"hookEventName": "PreToolUse",
+                                                 "permissionDecision": decision,
+                                                 "permissionDecisionReason": message}}))
+        return 0
+    # Cursor does not reliably enforce "ask" (ignored in Auto-review and some sandbox
+    # paths), so ask becomes deny unless you opt in on a mode where ask works.
+    if decision == "ask" and not (os.environ.get("NON_BLUFF_CURSOR_ASK") == "1"
+                                  and name in ("beforeShellExecution", "beforeMCPExecution")):
+        decision = "deny"
+        message += " This needs the user. Show them the exact command and let them run or approve it."
+    print(json.dumps({"permission": decision, "user_message": message, "agent_message": message}))
+    return 0
+
+
+def main(argv: list[str]) -> int:
+    if argv[1:2] == ["--verify-log"]:
+        return verify_log()
+    if argv[1:2] == ["--check"]:
+        decision, rule, why = decide("shell: " + " ".join(argv[2:]), os.getcwd())
+        print(f"{decision} {rule} {why}".strip())
+        return 0 if decision == "allow" else 1
+    if argv[1:2] == ["--check-reply"]:
+        problems = check_reply(Path(argv[2]).read_text(encoding="utf-8") if len(argv) > 2 else sys.stdin.read())
+        for problem in problems:
+            print("FAIL:", problem)
+        print("OK: reply passes" if not problems else f"{len(problems)} problem(s)")
+        return 1 if problems else 0
+
+    event = json.load(sys.stdin)
+    name = event.get("hook_event_name", "")
+    cwd = event.get("cwd") or (event.get("workspace_roots") or [None])[0]
+
+    if name == "afterAgentResponse":            # Cursor: remember the reply for the stop check
+        STATE.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
+        STATE.write_text(event.get("text", ""), encoding="utf-8")
+        return 0
+    if name in ("Stop", "SubagentStop", "stop"):
+        text = event.get("last_assistant_message")
+        if text is None and STATE.exists():
+            text = STATE.read_text(encoding="utf-8")
+        problems = check_reply(text or "")
+        append_log({"event": name, "decision": "block" if problems else "allow",
+                    "rule": "non-bluff", "subject": "; ".join(problems)[:300]})
+        if problems:
+            reason = "Not finished: " + " ".join(problems)
+            print(json.dumps({"decision": "block", "reason": reason} if name != "stop"
+                             else {"followup_message": reason}))
+        return 0
+
+    subject = subject_of(event)
+    if subject is None:
+        return 0
+    if name in ("PostToolUse", "afterShellExecution", "afterMCPExecution", "afterFileEdit"):
+        append_log({"event": name, "decision": "ran", "subject": redact(subject)[:300]})
+        return 0
+    decision, rule, why = decide(subject, cwd)
+    append_log({"event": name, "decision": decision, "rule": rule, "subject": redact(subject)[:300]})
+    return respond(event, decision, why or "allowed")
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main(sys.argv))
+    except Exception as exc:  # fail closed: a broken guard blocks, it does not wave things through
+        print(f"non-bluff error, blocking to be safe: {type(exc).__name__}", file=sys.stderr)
+        sys.exit(2)

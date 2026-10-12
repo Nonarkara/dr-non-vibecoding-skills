@@ -1,0 +1,7 @@
+{
+  "task": "Fix the greeting bug in greet.py",
+  "status": "done",
+  "claims": [
+    {"says": "greeting test passes", "type": "test", "run": "python3 check_greet.py", "name": "1 passed"}
+  ]
+}

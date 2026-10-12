@@ -18,6 +18,8 @@ The tool list is the owner's vetted catalog (163 tools, refreshed 2026-10-08). A
 | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | Apache-2.0 | A credit in the same skill: local compression of logs and JSON is a real option. Measure your own session. If you run the proxy, bind localhost, turn the telemetry beacon off, and treat the cache as sensitive. | Their code, their headline savings figures, and `headroom wrap` (it rewrites agent config). |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | MIT | Already in [`karpathy-guidelines`](skills/karpathy-guidelines/SKILL.md). [`definition-of-done`](skills/definition-of-done/SKILL.md) uses the "criteria, then verify" order. | A second copy of that skill. |
 | [DietrichGebert/ponytail](https://github.com/dietrichgebert/ponytail) | MIT | Already in [`ponytail`](skills/ponytail/SKILL.md). Proportionality points at the ladder instead of rewriting it. | A second copy. |
+| [Arena Alignment Index](https://arena.ai/blog/ai-alignment-index) (preview, preliminary) | Arena's published research, not a code licence | The three failure names and definitions (unauthorized action, false attribution, deceptive completion) and the headline rates quoted in [`non-bluff`](skills/non-bluff/SKILL.md), attributed. | Their judge, rubrics, data and scores. Non-Bluff does not reproduce their measurement. |
+| [Claude Code hooks](https://code.claude.com/docs/en/hooks) and [Cursor hooks](https://cursor.com/docs/agent/hooks) docs | Vendor documentation | The event names and JSON formats the `non-bluff` guard reads and answers. | Their example scripts. |
 | Owner's vetted catalog | The owner's notes, not republished | Which tools to name: Trivy, Semgrep, Dependabot, Sigstore, Playwright, k6, Ruff, uv, and the learning links in [`user-need`](skills/user-need/SKILL.md). | The catalog file itself. It is not in this repo. |
 
 Learning links, used as links only:
@@ -38,3 +40,4 @@ Learning links, used as links only:
 - OWASP Juice Shop except as a localhost scanner drill on a machine with no secrets.
 - Gitleaks as a second secret scanner beside Trivy in the new baseline. Older [`appsec-stack`](skills/appsec-stack/SKILL.md) pages still mention it. The day-one vetted scanner is Trivy.
 - Rewriting the existing library. The new skills are a gate in front of it.
+- A third-party agent firewall or policy engine for `non-bluff`. Two short standard-library scripts and one JSON policy were enough. Open Policy Agent stays out for the reason above.

@@ -15,7 +15,7 @@ If you have the clone, you and the agent follow this order. Skip a step only by 
 5. **Slop pass.** [`anti-slop`](skills/anti-slop/SKILL.md) on code, interface, and prose.
 6. **Security.** [`security-baseline`](skills/security-baseline/SKILL.md) at the level the class names.
 7. **Record.** [`reproducible-result`](skills/reproducible-result/SKILL.md) — versions, lockfile, seed, command.
-8. **Prove it.** Run the pass condition. Report succeeded, failed, skipped, unverified ([`result-honesty`](skills/result-honesty/SKILL.md)).
+8. **Prove it.** Run the pass condition. Report succeeded, failed, skipped, unverified ([`result-honesty`](skills/result-honesty/SKILL.md)). Say "done" only with a done receipt that [`non-bluff`](skills/non-bluff/SKILL.md) can re-check.
 9. **Review.** [`vibe-review`](skills/vibe-review/SKILL.md). The copyable list is [`templates/vibe-review.md.template`](templates/vibe-review.md.template).
 
 The rest of `skills/` is the library for the specific problem. The index is [`CATALOG.md`](CATALOG.md). Where an idea came from is [`CREDITS.md`](CREDITS.md). The walkthrough is [`playbooks/17-the-vibe-foundation.md`](playbooks/17-the-vibe-foundation.md).

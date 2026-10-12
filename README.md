@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 185 skills, 17 playbooks, 14 references, and 19 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 186 skills, 17 playbooks, 14 references, and 19 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills`; the GitHub URL and plugin ID are unchanged so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 185](https://img.shields.io/badge/skills-185-F59E0B)](skills/)
+[![Skills: 186](https://img.shields.io/badge/skills-186-F59E0B)](skills/)
 [![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
 [![Templates: 19](https://img.shields.io/badge/templates-19-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**185 skills** · **17 playbooks** · **14 references** · **19 templates**
+**186 skills** · **17 playbooks** · **14 references** · **19 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -31,6 +31,18 @@ Independent. Written for a **Thai–English** audience. Not an official depa, AS
 New to the stack, or an agent opening it cold: read [`START-HERE.md`](START-HERE.md) before the manifesto. One page. Classify the task, match the person, write the pass condition, then build. Sources for the ideas that were borrowed are in [`CREDITS.md`](CREDITS.md).
 
 คนใหม่และเอเจนต์เริ่มที่ [`START-HERE.md`](START-HERE.md) ก่อนอ่านแถลงการณ์
+
+---
+
+## Non-Bluff: make "done" mean done
+
+Agents sometimes say "done" when the work is not done, do things nobody asked for, or claim you approved something you did not. [Arena's Alignment Index](https://arena.ai/blog/ai-alignment-index) found the first in about 10% of real sessions and 48% of code-debugging sessions. [`skills/non-bluff`](skills/non-bluff/SKILL.md) turns that into three checks that do not take the agent's word for it.
+
+1. **Tell your agent the rule.** Point it at [`skills/non-bluff/SKILL.md`](skills/non-bluff/SKILL.md), or run `scripts/install-skills.sh`. From then on "done" must come with a done receipt: each claim paired with proof a machine can re-check (a command and its output, a passing test, a green CI run, a merged commit, a live URL). Whatever it could not check, it must list as not verified.
+2. **Re-check the receipt yourself.** `python3 skills/non-bluff/scripts/non-bluff-verify reply.md --repo .` re-runs the commands, fetches the URLs, looks up the commits, CI runs and PRs, compares the file list with the real diff, and finds each quoted approval in its source. It exits 0 only if every claim holds.
+3. **Put a guard in front of risky actions.** Copy [`hooks/claude-settings.example.json`](skills/non-bluff/hooks/claude-settings.example.json) (Claude Code) or [`hooks/cursor-hooks.example.json`](skills/non-bluff/hooks/cursor-hooks.example.json) (Cursor). Pushes to `main`, merges, deploys, deletes, secrets, messages and payments then stop for you, and every action is written to a tamper-evident log. The list is plain JSON in [`policy.json`](skills/non-bluff/policy.json). Edit it.
+
+No install beyond Python 3. `bash scripts/test-non-bluff.sh` shows each failure being caught. The skill page lists what a hook cannot catch.
 
 ---
 
@@ -451,7 +463,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["185 skills"] --> A["Your agent"]
+  S["186 skills"] --> A["Your agent"]
   P["17 playbooks"] --> A
   R["14 refs"] --> A
   T["19 templates"] --> A
