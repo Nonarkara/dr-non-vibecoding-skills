@@ -227,6 +227,7 @@ Block 3 — HARD GATES
   □ EYEBROWS       — ≤1 per 3 sections
   □ HERO           — headline 2 lines, subtext 20 words / 4 lines, ≤4 elements, CTA single line, fits viewport
   □ NAVIGATION     — single line at 1024px, ≤80px, every link real
+  □ MAP DASHBOARD  — if the page is a map, `map-first-dashboard` passes (65% of height at 390×844, largest area at 1440×900, top bar ≤44/48px, bottom nav ≤56px, cards in a drawer). The ≤80px nav line above is the marketing ceiling; a map bar is tighter.
   □ SECTIONS       — no layout family repeated, zigzag ≤2, bento cells = content, palette locked
   □ ACCESSIBILITY  — contrast 4.5:1, 44px taps, no overflow, keyboard navigable
   □ PROVENANCE     — dist has no generator meta, builder host, or leaked key
@@ -243,4 +244,4 @@ An unchecked box is unfinished work, not a style opinion. Blocks 1–3 are PASS/
 
 ## Pairs with
 
-`design-dna` (the enforceable token contract) · `design-registers` (which register this surface is — dials are the numeric handle, registers the named audience) · `anti-regression` (do not let cleanup undo it) · `no-ai-tells` (the prose layer of the same problem) · `ux-archaeology` (mine 67 DESIGN.md from bergside/awesome-design-skills for prior art).
+`design-dna` (the enforceable token contract) · `design-registers` (which register this surface is — dials are the numeric handle, registers the named audience) · `anti-regression` (do not let cleanup undo it) · `no-ai-tells` (the prose layer of the same problem) · `map-first-dashboard` (map chrome) · `ux-archaeology` (mine 67 DESIGN.md from bergside/awesome-design-skills for prior art).

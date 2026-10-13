@@ -114,6 +114,7 @@ Localhost is never a deliverable. Per change, show:
 - Code slop is a fail: `as any` or a lint suppression, an empty catch, a `TODO` left as the body, an import
   that does not resolve, the same helper written twice. No `<meta name="generator">` that names the builder.
 - WCAG 2.2 AA, keyboard reachable, `prefers-reduced-motion` respected, phone-first (portrait, one thumb).
+- Map dashboards follow [`map-first-dashboard`](../skills/map-first-dashboard/SKILL.md) on the first layout. The map is the centre: at least 65% of viewport height at 390×844 (aim 70%), and the largest area at 1440×900. Top bar ≤48px desktop and ≤44px mobile. Bottom nav ≤56px. Stats and alerts open as a drawer or overlay, then close. Painted controls use 4–6px vertical padding and a 1px border; the 44px hit area comes from spacing.
 - Show what the system *cannot* do, plainly, in the product.
 - Copy: plain and direct. Banned: delve, tapestry, leverage, seamless, robust, testament, "in today's
   world", "not just X but Y", closing recaps, fake precision ("100%" without a source). Em dashes stay;

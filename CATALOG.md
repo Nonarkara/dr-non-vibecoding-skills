@@ -148,6 +148,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Paths, edges, districts, nodes, landmarks. Use for navigation, dashboards, patterns. |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Borrow public product patterns and DESIGN.md files without copying pixels or secrets. Use when rebuilding from prior art or evaluating external design systems. |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | Render fast 3D city buildings without blocky or overlapping geometry. Use when choosing MapLibre or deck.gl, or repairing city-map extrusion. |
+| [`map-first-dashboard`](skills/map-first-dashboard/SKILL.md) | Give the map most of the screen and keep the bars slim. Use on the first layout of a map dashboard, and before calling that layout done. Do not use for a page with no map. |
 | [`geospatial-core`](skills/geospatial-core/SKILL.md) | Source, simplify, project, and serve map layers without shipping a 40MB GeoJSON. Use when a surface renders boundaries, points, routes, or basemaps. |
 | [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | Build or audit dependency-free N-axis radar charts. Use when comparing weighted dimensions or before duplicating polar-coordinate implementations. |
 | [`diagram-design`](skills/diagram-design/SKILL.md) | Use when a diagram must be made (architecture, flow, sequence, state, comparison). The 7 rules for diagrams that survive being looked at. Pairs with radar-chart-pattern. |

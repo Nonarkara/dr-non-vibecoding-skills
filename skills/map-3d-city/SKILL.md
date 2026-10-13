@@ -54,3 +54,5 @@ Reimplementing this per project. The paint spec, the height-fallback logic, and 
 ## The one-line version
 
 > Minecraft for the walk-through, MapLibre-native extrusion for the dashboard — and extract the extrusion code the second time you write it, not the fourth.
+
+Chrome around that dashboard is [`map-first-dashboard`](../map-first-dashboard/SKILL.md). Correct buildings in a small window under thick bars is still a failed screen.
