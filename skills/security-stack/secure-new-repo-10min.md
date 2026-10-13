@@ -65,11 +65,11 @@ Before you commit it, check three things in the file:
 ## 5. Dependencies, locally
 
 ```bash
-osv-scanner scan source --recursive .
+osv-scanner scan source --recursive --allow-no-lockfiles .
 trivy fs .
 ```
 
-Install both on the M5 if they are missing (`brew install osv-scanner trivy`). Commit the output's summary. Findings stay in the report until you triage them. They do not block this first pull request.
+Install both on the M5 if they are missing (`brew install osv-scanner trivy`). `--allow-no-lockfiles` keeps a repo with no manifest from exiting 128. If the log says `No package sources found`, nothing was scanned. That is not a clean bill for dependencies you have not locked yet. Findings stay in the report until you triage them. They do not block this first pull request.
 
 ## 6. Semgrep, locally
 

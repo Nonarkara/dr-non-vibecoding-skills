@@ -46,7 +46,7 @@ jobs:
           sudo mv osv-scanner /usr/local/bin/osv-scanner
       - name: osv-scanner
         continue-on-error: true
-        run: osv-scanner scan source --recursive .
+        run: osv-scanner scan source --recursive --allow-no-lockfiles .
 
   trivy:
     runs-on: ubuntu-latest
