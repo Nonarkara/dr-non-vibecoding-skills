@@ -1,0 +1,103 @@
+# Copy to .github/workflows/security.yml in the app repo.
+# Report-only. permissions stay contents: read. Every uses: is a commit SHA.
+# Do not add write permissions to "make the upload work".
+# Actions on this account have a $10 budget and can be blocked by billing.
+# If the run does not appear, paste the local logs. Do not write "CI passed".
+name: security
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Install gitleaks
+        # MIT CLI. v8.30.1, commit 83d9cd684c87d95d656c1458ef04895a7f1cbd8e.
+        # Not gitleaks-action: that one is a commercial EULA.
+        run: |
+          set -euo pipefail
+          version=8.30.1
+          file="gitleaks_${version}_linux_x64.tar.gz"
+          curl -sSL -o "$file" "https://github.com/gitleaks/gitleaks/releases/download/v${version}/${file}"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  ${file}" | sha256sum -c -
+          tar -xzf "$file" gitleaks
+          sudo mv gitleaks /usr/local/bin/gitleaks
+      - name: gitleaks detect
+        run: gitleaks detect --source . --redact --no-banner --exit-code 0
+
+  osv-scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install osv-scanner
+        # Apache-2.0. v2.7.0. The GitHub Action uploads to code scanning
+        # and wants more than contents: read, so the CLI is the report path.
+        run: |
+          set -euo pipefail
+          curl -sSL -o osv-scanner "https://github.com/google/osv-scanner/releases/download/v2.7.0/osv-scanner_linux_amd64"
+          echo "160c6253e2922e9e0a6a9771c5c4c40a4b3c6090b34a3cdd5e80c96cc2e4218b  osv-scanner" | sha256sum -c -
+          chmod +x osv-scanner
+          sudo mv osv-scanner /usr/local/bin/osv-scanner
+      - name: osv-scanner
+        continue-on-error: true
+        run: osv-scanner scan source --recursive .
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: trivy fs
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          version: v0.75.0
+          cache: "false"
+          exit-code: "0"
+      - name: trivy config
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: config
+          scan-ref: .
+          version: v0.75.0
+          cache: "false"
+          exit-code: "0"
+
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: semgrep scan
+        # CLI 1.180.0, commit a35fe8306115b3e55274969098cc46f8451d6b4d.
+        # Engine LGPL-2.1. Rules stay on the registry (Semgrep Rules License v1.0).
+        # No app token. Metrics off. semgrep-action is deprecated; do not switch to it.
+        env:
+          SEMGREP_SEND_METRICS: "off"
+        run: |
+          unset SEMGREP_APP_TOKEN || true
+          pip install "semgrep==1.180.0"
+          semgrep scan --config auto --metrics=off --disable-version-check
+
+  codeql:
+    # Public OSI repos only. The query pack is MIT. The CLI is under the
+    # GitHub CodeQL Terms: private repos need paid Advanced Security. Do not enable it.
+    if: github.event.repository.visibility == 'public'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: github/codeql-action/init@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        with:
+          languages: javascript-typescript
+      - uses: github/codeql-action/analyze@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        with:
+          upload: never
