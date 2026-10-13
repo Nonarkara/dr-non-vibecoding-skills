@@ -6,17 +6,17 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 177 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 180 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 179](https://img.shields.io/badge/skills-179-F59E0B)](skills/)
+[![Skills: 180](https://img.shields.io/badge/skills-180-F59E0B)](skills/)
 [![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
 [![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**179 skills** · **16 playbooks** · **14 references** · **17 templates**
+**180 skills** · **16 playbooks** · **14 references** · **17 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -291,6 +291,7 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Directing an agent in eleven seconds instead of a paragraph | [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) + [`HANDSHAKE.md`](HANDSHAKE.md) | The prompt is short because the repository is long. Nine prompt patterns and the failure mode of misreading each. |
 | Agents handing work to each other across sessions and vendors | [`agent-relay`](skills/agent-relay/SKILL.md) + [`scripts/relay.sh`](scripts/relay.sh) | A baton, an append-only ledger, `Relay-*` commit trailers, and a mandatory verdict on the previous leg. Read the diff before the summary; stop after two clean legs. |
 | Map layers that fit on a phone | [`geospatial-core`](skills/geospatial-core/SKILL.md) | Source, CRS, simplification tolerance and precision in a manifest beside every layer. Static GeoJSON on a CDN until it hurts; `[lon, lat]`, never `[lat, lon]`. |
+| A map that is a small window under thick bars | [`map-first-dashboard`](skills/map-first-dashboard/SKILL.md) | First layout: map ≥65% of height at 390×844 and the largest area at 1440×900. Top bar ≤48px desktop / ≤44px mobile. Bottom nav ≤56px. Stats and alerts open as a drawer. |
 | Data that exists only as a web page | [`deep-scraping`](skills/deep-scraping/SKILL.md) | Store raw, then parse from raw — a selector change costs seconds, not a re-crawl. A scraper returning zero rows fails loudly instead of quietly emptying the dashboard. |
 | Real-world sensory perception | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) + [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) | Telegram/Line bots with cited RAG; RTSP/ONVIF local camera grids; dated satellite time-stacks for flood/fire awareness. |
 | Zero-cost public APIs & datasets | [`public-api-integration`](skills/public-api-integration/SKILL.md) + [`reference/free-apis.md`](reference/free-apis.md) + [`reference/public-datasets.md`](reference/public-datasets.md) | Direct browser-to-data integration without keys, paid tiers, or backend overhead. SWR cache & CORS safety. |
@@ -321,6 +322,7 @@ Every rule in this repository was paid for by a real production incident:
 | Express middleware parsed JSON before Stripe webhook signature check | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) |
 | Two files in this repo quoted the same free-tier figures in opposite order, written weeks apart | [`agent-relay`](skills/agent-relay/SKILL.md) |
 | A Codex-written Durable Object alarm rescheduled itself with `Date.now()`; @shmily7 paid a US$10,811.41 Cloudflare bill on 8 Oct 2026 | [`cf-runaway-cost`](skills/cf-runaway-cost/SKILL.md) |
+| 13 Oct 2026, Malaysia · God Mode: thick bars and stacked alert and stat cards left the map a small window | [`map-first-dashboard`](skills/map-first-dashboard/SKILL.md) |
 
 The row above links the rule. Longer write-ups of the older rows are in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
@@ -461,7 +463,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["177 skills"] --> A["Your agent"]
+  S["180 skills"] --> A["Your agent"]
   P["16 playbooks"] --> A
   R["14 refs"] --> A
   T["17 templates"] --> A

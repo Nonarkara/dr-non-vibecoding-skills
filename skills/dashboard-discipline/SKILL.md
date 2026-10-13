@@ -102,6 +102,7 @@ Recorded so a later agent reading the same sources does not re-import them.
 □ Does every interactive element actually do something?
 □ Swap the logo — would anyone notice?
 □ Do any two screens differ only in card contents?
+□ If the screen's job is a map, does `map-first-dashboard` pass on the first layout (65% of height at 390×844, largest area at 1440×900, bars within 44/48px and 56px, cards in a drawer)?
 ```
 
-Pairs with `no-design-tells` (the general layer), `legible-systems` (paths, edges, districts, nodes, landmarks), `honest-envelope`, `cognition-first`.
+Pairs with `no-design-tells` (the general layer), `legible-systems` (paths, edges, districts, nodes, landmarks), `honest-envelope`, `cognition-first`, `map-first-dashboard` (the map gets the table; the bars are the tray).

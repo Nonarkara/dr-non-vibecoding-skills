@@ -253,3 +253,13 @@ fluent-language review remain unverified.
 **Why:** Hosts were each growing a private rules file. The draft contradicted non-bluff (merge and deploy without a person, "done" without a receipt), vibe-review (a Done bucket instead of Succeeded), and the design system anti-slop defers to (amber wayfinding, named faces, code slop).
 **Diff:** `agent-instructions/`, `README.md`, `AGENTS.md`, `JOURNAL.md`
 **Tags:** `agent-contract · non-bluff · anti-slop · counts`
+
+---
+
+## 2026-10-13 — The map is the table
+
+**Date:** 2026-10-13
+**What:** Added `map-first-dashboard`. The map keeps at least 65% of mobile viewport height; the top bar stays within 48px on desktop and 44px on mobile; the bottom nav stays within 56px. Stats and alerts open as a drawer. Skill count is 180.
+**Why:** On 13 Oct 2026 the Malaysia · God Mode screen shipped thick bars and stacked alert cards, so the map was a small window. The owner called the map the cadaver on a surgical table and the bars the instrument tray. The same chrome has been eating the map on every pass.
+**Diff:** `skills/map-first-dashboard/SKILL.md`, `agent-instructions/MASTER.md`, `AGENTS.md`, `README.md`, `CATALOG.md`, dashboard and frontend checklists
+**Tags:** `map-dashboard · layout · phone-first · named-incident · counts`

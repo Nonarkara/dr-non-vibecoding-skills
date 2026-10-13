@@ -65,6 +65,7 @@ Devtools responsive mode does not reproduce: real touch targets, the browser chr
 □ Does the display size hold, or did the hierarchy flatten?
 □ Are primary actions in the thumb zone?
 □ Opened on a real phone, on the live URL?
+□ Map dashboard: painted controls stay slim; the 44px hit area is spacing. Map share is `map-first-dashboard`.
 ```
 
-Pairs with `cognition-first`, `dashboard-discipline`, `no-design-tells`, `ship-discipline` (the live URL is the test surface).
+Pairs with `cognition-first`, `dashboard-discipline`, `no-design-tells`, `map-first-dashboard`, `ship-discipline` (the live URL is the test surface).

@@ -12,7 +12,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **179 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **180 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
@@ -65,7 +65,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 179 on every task.
+# the rules file that host actually reads; do not load all 180 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -134,6 +134,7 @@ Pick the skill that matches your problem:
 | Asked to "improve X" with no spec | `skills/ninja-innovation/SKILL.md` |
 | Workspace has 90 worktrees and you're afraid to delete | `skills/workspace-lean/SKILL.md` |
 | 3D city map has glitchy overlapping buildings | `skills/map-3d-city/SKILL.md` |
+| A map dashboard where bars and cards shrink the map | `skills/map-first-dashboard/SKILL.md` |
 | Navigation feels like a maze | `skills/legible-systems/SKILL.md` |
 | Dep keeps needing "one more patch" | `skills/know-when-to-wait/SKILL.md` |
 | Don't know whether to build first or wait | `skills/dr-non-golden-rules/SKILL.md` |

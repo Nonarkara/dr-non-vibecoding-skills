@@ -67,7 +67,9 @@ is "de-emphasised" below 4.5:1, it is not de-emphasised, it is gone.
 
 44×44 CSS pixels minimum for anything tappable, with real spacing between
 adjacent targets. See [`phone-first`](../phone-first/SKILL.md) — this is the same
-constraint arriving from the accessibility side, and the two agree.
+constraint arriving from the accessibility side, and the two agree. On a map
+dashboard the painted chip stays slim (4–6px vertical padding, 1px border).
+The 44px is the hit box, from spacing, per [`map-first-dashboard`](../map-first-dashboard/SKILL.md).
 
 ### 4. Every non-text thing has a text equivalent
 

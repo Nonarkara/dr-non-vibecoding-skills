@@ -59,3 +59,4 @@ a bug to route around with placeholder data.
 | Copying another province's bank-level reference for a new station | It's a real published value per station — get it from RID or the local authority, or leave the station unclassified |
 | Requiring an Air4Thai key before AQI renders at all | Open-Meteo is the floor; Air4Thai is a strict improvement |
 | Omitting a station with no live feed | Render it `unavailable` — an honest gap is better than a silent omission |
+| Stacking alerts and stat tiles above the city map | The map is the table. Cards go in a drawer. The numbers are [`map-first-dashboard`](../map-first-dashboard/SKILL.md). |

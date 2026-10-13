@@ -34,6 +34,13 @@ npx playwright screenshot --viewport-size=768,1024  "$URL" /tmp/see-768.png
 npx playwright screenshot --viewport-size=375,812   "$URL" /tmp/see-375.png
 ```
 
+A map dashboard also captures the two sizes [`map-first-dashboard`](../map-first-dashboard/SKILL.md) measures, and pastes `mapGates()` for each:
+
+```bash
+npx playwright screenshot --viewport-size=390,844  "$URL" /tmp/map-390.png
+npx playwright screenshot --viewport-size=1440,900 "$URL" /tmp/map-1440.png
+```
+
 Capture every state the change touches — loaded, empty, error, loading — not just the happy path. A surface that looks impeccable full and ugly empty has only been half-reviewed.
 
 ### 2. Look — actually, not from memory of the code
@@ -49,6 +56,7 @@ Run the same verbs [`no-design-tells`](../no-design-tells/SKILL.md)'s Delivery G
 | [`axiom-design-core`](../axiom-design-core/SKILL.md)'s constraint ladder | Layer violations: an off-system color, a fifth type size, a shadow where a hairline belongs, motion with no state behind it |
 | [`no-design-tells`](../no-design-tells/SKILL.md)'s Hard Gate | The mechanical tells: generic font stack, default Tailwind spacing untouched, a component that looks like every other generated app |
 | [`design-registers`](../design-registers/SKILL.md)'s floor/ceiling | Is this surface's register consistent with its stated floor — a dashboard held to dashboard rules, not landing-page taste bleeding in |
+| [`map-first-dashboard`](../map-first-dashboard/SKILL.md), when the page is a map | Map height share at 390×844, largest area at 1440×900, bar caps, slim chips, cards in a drawer |
 | The Figma source, when one exists | Fidelity: did the build match the spec, not just "does it look fine on its own" — see step 3b |
 
 Write findings the way [`claudex-loop`](https://github.com/chaseai-yt/claudex-loop) structures them, since the discipline already lives in this repo's [`agent-relay`](../agent-relay/SKILL.md): each finding gets a severity, a concrete location, and a fix — not a vibe.
