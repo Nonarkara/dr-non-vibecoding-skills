@@ -125,3 +125,5 @@ silently reintroduced, nor mistaken for an accidental deletion.
 Show a screenshot to someone who knows your work. Can they tell it's yours without the logo?
 
 If no, you don't have a design system. You have defaults.
+
+The owner's design system is [Palette](https://github.com/Nonarkara/palette) (MIT). How it sits with the machines and the no-slop rule is in [`now-stack.md`](../../now-stack.md).
