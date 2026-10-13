@@ -2,7 +2,7 @@
 
 Sources for [`now-stack.md`](../now-stack.md), [`machine-routing.md`](../machine-routing.md), and [`stack-gaps.md`](../stack-gaps.md). The pages describe the practice. They do not vendor these tools.
 
-[`CREDITS.md`](../CREDITS.md) is not on `main`. Open pull request [#13](https://github.com/Nonarkara/dr-non-vibecoding-skills/pull/13) adds that file. These rows stay here so the two pull requests do not both create it. Fold them into `CREDITS.md` when #13 has merged.
+`CREDITS.md` is not on `main`. Open pull request [#13](https://github.com/Nonarkara/dr-non-vibecoding-skills/pull/13) adds that file. These rows stay here so the two pull requests do not both create it. Fold them into `CREDITS.md` when #13 has merged.
 
 | Source | Licence | What these pages used | What stayed there |
 |---|---|---|---|
