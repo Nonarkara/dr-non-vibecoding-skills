@@ -19,6 +19,29 @@ The threat model the CSO addresses is broader than the pipeline's: secrets alrea
 
 ## The two modes
 
+### Coverage-led audit method (2026-10-14)
+
+Borrow the method, not a wholesale pack, from Cloudflare's
+[security-audit-skill](https://github.com/cloudflare/security-audit-skill): map trust
+boundaries; keep a coverage ledger; hunt uncovered paths; try to disprove each
+candidate; validate structured records; independently check final source claims.
+Use `confirmed`, `needs_validation`, and `rejected` separately. Missing a defence
+layer is a hardening note unless an actual reachable boundary failure is established.
+
+Do not turn a confidence score into a coverage score or certification. Record
+tested/unverified/not-applicable units and the exact revision. A comprehensive
+audit can report gaps; it cannot silently mark them covered. Retest changed paths.
+Target-controlled builds/tests require sanitized credentials, OS-enforced isolation,
+bounded resources and permitted egress. Without that boundary, retain unresolved
+claims instead of executing untrusted code. Independent review uses a fresh
+context within the task's delegation authority; if unavailable, say so.
+
+Optional upstream installation must use a reviewed revision, licensed attribution
+and a scoped environment. Reports stay outside the target or in an explicitly
+ignored private directory, never in deployed static assets. Adding audit guidance
+does not authorize a live scan. Route active verification through
+[strix-authorized-pentest](../strix-authorized-pentest/SKILL.md).
+
 The CSO runs in one of two modes. The choice is made by the trigger — "daily" goes to the lighter mode, "comprehensive" to the heavier one. If the trigger is ambiguous, the default is **daily**.
 
 ### Daily mode — zero noise, 8/10 confidence gate

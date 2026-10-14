@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+"""Validate release evidence attestations. This is NOT a vulnerability scanner."""
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+CONTROLS = {'browser', 'api', 'identity', 'data', 'supply-chain', 'edge', 'agent', 'operations'}
+STATES = {'passed', 'failed', 'unverified', 'not_applicable'}
+
+def validate(record, root, release=False, commit=None):
+    errors, gaps = [], []
+    if not isinstance(record, dict):
+        return ['manifest must be an object'], []
+    if record.get('schema_version') != 1:
+        errors.append('unsupported schema_version')
+    if record.get('maturity') not in {'Demo', 'Pilot', 'Production', 'Contract'}:
+        errors.append('invalid maturity')
+    revision = record.get('target_commit')
+    if release and (not isinstance(revision, str) or not re.fullmatch(r'[a-f0-9]{40}', revision)):
+        errors.append('release requires the full target_commit')
+    if release and commit != revision:
+        errors.append('evidence target_commit does not match the requested release commit')
+    rows = record.get('controls')
+    if not isinstance(rows, list):
+        return errors + ['controls must be an array'], gaps
+    seen = set()
+    for row in rows:
+        if not isinstance(row, dict):
+            errors.append('control must be an object'); continue
+        name, state = row.get('id'), row.get('status')
+        if not isinstance(name, str) or name not in CONTROLS:
+            errors.append('unknown control id'); continue
+        if name in seen:
+            errors.append(f'{name}: duplicate control')
+        seen.add(name)
+        if not isinstance(state, str) or state not in STATES:
+            errors.append(f'{name}: invalid status'); continue
+        evidence = row.get('evidence')
+        if not isinstance(evidence, list):
+            errors.append(f'{name}: evidence must be an array'); continue
+        if state in {'failed', 'unverified'}:
+            gaps.append(name)
+        if state in {'passed', 'not_applicable'}:
+            for field in ('owner', 'reason'):
+                value = row.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    errors.append(f'{name}: {field} required')
+            if not evidence:
+                errors.append(f'{name}: evidence required, including for not_applicable')
+        for artifact in evidence:
+            if not isinstance(artifact, dict):
+                errors.append(f'{name}: invalid evidence'); continue
+            filename, digest = artifact.get('path'), artifact.get('sha256')
+            if not isinstance(filename, str) or not isinstance(digest, str) or not re.fullmatch(r'[a-f0-9]{64}', digest):
+                errors.append(f'{name}: evidence needs path and SHA-256'); continue
+            # Reject absolute paths, traversal, symlink escapes and credential files.
+            local = Path(filename)
+            if local.is_absolute() or '..' in local.parts or any(p.startswith('.') for p in local.parts):
+                errors.append(f'{name}: unsafe evidence path'); continue
+            # An innocently named link can point to .env inside the project too.
+            current = root
+            linked = False
+            for part in local.parts:
+                current = current / part
+                if current.is_symlink():
+                    linked = True; break
+            if linked:
+                errors.append(f'{name}: symlink evidence is not accepted'); continue
+            file = (root / local).resolve()
+            if root.resolve() not in file.parents or not file.is_file():
+                errors.append(f'{name}: evidence missing or outside project'); continue
+            if file.stat().st_size > 5_000_000:
+                errors.append(f'{name}: evidence exceeds 5 MB'); continue
+            if hashlib.sha256(file.read_bytes()).hexdigest() != digest:
+                errors.append(f'{name}: evidence hash mismatch')
+            try:
+                when = datetime.fromisoformat(artifact.get('checked_at', '').replace('Z', '+00:00'))
+                age = (datetime.now(timezone.utc) - when).total_seconds()
+                if when.tzinfo is None or age < -300 or age > 30 * 86400:
+                    errors.append(f'{name}: evidence date is future, naive or older than 30 days')
+            except (ValueError, TypeError, AttributeError):
+                errors.append(f'{name}: evidence needs an ISO date with timezone')
+    if seen != CONTROLS:
+        errors.append('required control coverage is incomplete')
+    if release and gaps:
+        errors.append('release blocked by failed/unverified controls: ' + ', '.join(gaps))
+    return errors, gaps
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('manifest', nargs='?', default='docs/security-controls.json')
+    p.add_argument('--release', action='store_true', help='require complete evidence for a release commit')
+    p.add_argument('--commit', help='exact revision being released; defaults to Git HEAD')
+    a = p.parse_args()
+    file = Path(a.manifest).resolve()
+    root = Path.cwd().resolve()
+    commit = a.commit
+    if a.release and commit is None:
+        try:
+            commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True, stderr=subprocess.DEVNULL).strip()
+        except (OSError, subprocess.CalledProcessError):
+            p.error('release needs --commit or an existing Git commit')
+    try:
+        record = json.loads(file.read_text())
+        errors, gaps = validate(record, root, a.release, commit)
+    except (OSError, ValueError) as exc:
+        print(f'ERROR: cannot read manifest ({type(exc).__name__})', file=sys.stderr)
+        return 1
+    for error in errors:
+        print('ERROR: ' + error, file=sys.stderr)
+    if errors:
+        return 1
+    if not a.release:
+        print('INVENTORY ONLY — not security clearance. Unverified/failed: ' + (', '.join(gaps) or 'none recorded'))
+    else:
+        print('Release evidence attestations validated. Not a security guarantee; reviewer must verify artifact contents.')
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())

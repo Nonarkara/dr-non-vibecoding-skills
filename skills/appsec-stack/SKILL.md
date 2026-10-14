@@ -41,7 +41,23 @@ An agent with filesystem access reads your `.env`. An email-ingest pipeline writ
 | 6b | DAST templates | [Nuclei](https://github.com/projectdiscovery/nuclei) | Known-vuln patterns at runtime, fast | scheduled |
 | 7 | **Exploit verify** | Manual testing, [Nuclei](https://github.com/projectdiscovery/nuclei), or optional [Strix](../../reference/strix-when-to-run.md) | Whether a found pattern is *actually* exploitable | authorized staging + critical changes |
 
-Every layer is free, runs in CI on GitHub Actions runners, and has no per-seat cost.
+The open-source tools can run without a per-seat software fee. CI minutes,
+infrastructure, managed services and model-backed Strix/Claude reviews can cost
+money; verify licensing, account limits and budgets before enabling them.
+
+## Source-to-edge release coverage
+
+The seven scanners do not implement identity, tenant isolation, edge policy,
+agent permissions or recovery. Use the [full-stack release playbook](../../playbooks/17-security-from-source-to-edge.md)
+and evidence gate. Route Cloudflare to [cloudflare-security](../cloudflare-security/SKILL.md),
+Claude hosts to [claude-security](../claude-security/SKILL.md), and explicitly
+authorized exploit verification to [strix-authorized-pentest](../strix-authorized-pentest/SKILL.md).
+Nothing in this skill provisions those controls by itself.
+
+The snippets below are adaptation examples, not hardened CI defaults. Resolve
+every third-party Action to a reviewed full commit SHA and each container to a
+reviewed digest before use. Use least privileges, separate untrusted test runners
+from release credentials, and retain required checks even when AI review is clean.
 
 ---
 
@@ -59,7 +75,10 @@ The temptation is to turn on all seven at once. Don't. Each layer has its own no
 
 **5. Renovate (after the SCA backlog is drained).** Once a week, the bot opens PRs for outdated deps. Auto-merge for patch versions after CI passes; review minor and major manually. Dependabot is a drop-in alternative if you are already on GitHub.
 
-**6. DAST (after the first public deploy).** ZAP baseline against a staging URL on a schedule. ZAP API scan against any OpenAPI spec you publish. The baseline scan will not break the build; treat findings as advisory until triaged.
+**6. DAST (after staging exists).** ZAP baseline against an authorized staging URL
+on a schedule. API/full scans can actively attack the service; approve their
+scope separately. Baseline findings and execution errors can fail CI depending
+on configuration. Triage results; do not ignore exit status to obtain green.
 
 **7. Exploit verify (only on critical changes, or in incident response).** Use Nuclei with verified templates, a manual pentest, or Strix under the explicit scope in [`reference/strix-when-to-run.md`](../../reference/strix-when-to-run.md). This is the layer that answers "static said yes, but is it really exploitable?" — the one every other layer is structurally unable to answer. Active scanners belong on authorized disposable staging, not production by default.
 
@@ -195,7 +214,9 @@ jobs:
         with: { target: 'https://staging.your-app.example' }
 ```
 
-Baseline scan = passive only, no auth, won't break things. The `zaproxy/action-full-scan` exists but is a different conversation.
+Baseline uses passive analysis but still crawls and sends requests; it is not
+zero traffic or guaranteed harmless. Authorize staging, bound time and traffic,
+and inspect warnings/errors. Full/API scan modes require separate active-scan scope.
 
 ---
 
@@ -232,7 +253,8 @@ The IG1 ("essential cyber hygiene") implementation group of CIS Critical Securit
 | 4. Secure Configuration of Enterprise Assets and Software | Trivy IaC scan + SAST |
 | 5. Account Management | SAST (auth checks) + DAST (ZAP auth tests) |
 
-IG1 is the floor. State it explicitly when the conversation turns to "are we doing enough?" — because the honest answer is "yes, for IG1" rather than the more expensive IG2/IG3.
+This is a partial crosswalk, not evidence that all IG1 safeguards are implemented.
+Name the tested controls and gaps; do not claim CIS compliance from tool selection.
 
 ---
 

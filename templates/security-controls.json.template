@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "maturity": "Demo",
+  "target_commit": "",
+  "controls": [
+    {"id": "browser", "status": "unverified", "owner": "", "reason": "CSP, XSS, framing, cookie and cross-origin boundaries need review", "evidence": []},
+    {"id": "api", "status": "unverified", "owner": "", "reason": "Input, SSRF, uploads, webhooks, size/time and spend limits need review", "evidence": []},
+    {"id": "identity", "status": "unverified", "owner": "", "reason": "Authentication, per-object/tenant authorization and CSRF need review", "evidence": []},
+    {"id": "data", "status": "unverified", "owner": "", "reason": "Private storage, queries, exports, retention and cache isolation need review", "evidence": []},
+    {"id": "supply-chain", "status": "unverified", "owner": "", "reason": "Secrets, dependencies, lockfiles, SBOM and privileged CI need review", "evidence": []},
+    {"id": "edge", "status": "unverified", "owner": "", "reason": "TLS, aliases, origin access, rate limits and edge rules need review", "evidence": []},
+    {"id": "agent", "status": "unverified", "owner": "", "reason": "Runtime/tool permissions, model output and prompt injection need review", "evidence": []},
+    {"id": "operations", "status": "unverified", "owner": "", "reason": "Alerts, incident response, rollback and a dated restore need review", "evidence": []}
+  ]
+}

@@ -253,3 +253,11 @@ fluent-language review remain unverified.
 **Why:** Hosts were each growing a private rules file. The draft contradicted non-bluff (merge and deploy without a person, "done" without a receipt), vibe-review (a Done bucket instead of Succeeded), and the design system anti-slop defers to (amber wayfinding, named faces, code slop).
 **Diff:** `agent-instructions/`, `README.md`, `AGENTS.md`, `JOURNAL.md`
 **Tags:** `agent-contract · non-bluff · anti-slop · counts`
+
+## 2026-10-14 — Security boundaries, with evidence instead of a badge
+
+**Date:** 2026-10-14
+**What:** Added Cloudflare security, Claude host security and authorized Strix pentesting skills; a source-to-edge release playbook; reviewed settings and evidence templates; scaffold and CI regression gates.
+**Why:** The director requested full-stack protection. Review advice does not enforce permission boundaries, and a clean scanner result cannot establish coverage. New projects now state their unverified controls explicitly.
+**Diff:** `skills/cloudflare-security/`, `skills/claude-security/`, `skills/strix-authorized-pentest/`, `playbooks/17-security-from-source-to-edge.md`, `templates/security-release.py.template`, `docs/lessons/2026-10-14-security-evidence-is-not-clearance.md`
+**Tags:** `security · cloudflare · claude · strix · evidence`

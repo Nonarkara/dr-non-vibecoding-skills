@@ -21,6 +21,7 @@ required=(
   CLAUDE.md AGENTS.md GEMINI.md .gitignore .env.example index.html
   scripts/deploy.sh scripts/verify.sh scripts/secrets-audit.sh
   scripts/database.py design/tokens.css README.md docs/components.html scripts/start.sh
+  scripts/security_release.py docs/security-controls.json
 )
 for file in "${required[@]}"; do
   test -f "$PROJECT/$file"
@@ -50,6 +51,7 @@ test -f "$TEST_ROOT/sibling/index.html"
 test -d "$PROJECT/.git"
 ! git -C "$PROJECT" rev-parse --verify HEAD >/dev/null 2>&1
 (cd "$PROJECT"; bash scripts/verify.sh >/dev/null)
+(cd "$PROJECT"; ! python3 scripts/security_release.py --release --commit 0000000000000000000000000000000000000000 >/dev/null 2>&1)
 bash "$PROJECT/scripts/secrets-audit.sh" "$PROJECT" >/dev/null
 (
   cd "$PROJECT"

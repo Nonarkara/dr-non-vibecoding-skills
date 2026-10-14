@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "deny": ["Read(.env)", "Read(.env.*)", "Read(~/.ssh/**)", "Read(~/.aws/**)"]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": false,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": [".env", ".env.*", "~/.ssh", "~/.aws"]
+    }
+  }
+}

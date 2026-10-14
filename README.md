@@ -6,17 +6,20 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
-A complete, production-hardened stack for pairing with AI agents — plain markdown, zero runtime dependencies. A battle-tested collection of 177 skills, 16 playbooks, 14 references, and 17 drop-in templates that bridge the gap between human intuition and shipped software. Proven on live civic sensor grids, and architected for any resilient business.
+A fork-and-use stack for pairing with AI agents: Markdown skills, playbooks,
+references and drop-in templates. Much of the practice comes from live civic
+systems; the new security skills are preventive guidance, not a claim that every
+control has been deployed. Skills need no runtime; executable helpers list theirs.
 
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 179](https://img.shields.io/badge/skills-179-F59E0B)](skills/)
-[![Playbooks: 16](https://img.shields.io/badge/playbooks-16-1A1A1A)](playbooks/)
-[![Templates: 17](https://img.shields.io/badge/templates-17-0F766E)](templates/)
+[![Skills: 182](https://img.shields.io/badge/skills-182-F59E0B)](skills/)
+[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
+[![Templates: 20](https://img.shields.io/badge/templates-20-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**179 skills** · **16 playbooks** · **14 references** · **17 templates**
+**182 skills** · **17 playbooks** · **14 references** · **20 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -24,6 +27,25 @@ Independent. Written for a **Thai–English** audience. Not an official depa, AS
 ชุดทักษะและคู่มือปฏิบัติการสำหรับเปลี่ยนความคิดให้เป็นซอฟต์แวร์และธุรกิจจริง — มาร์กดาวน์ล้วน ไม่มีรันไทม์ ผู้อ่านเป้าหมายคือคนไทยและคนอังกฤษด้วยกัน
 
 ---
+
+## Security: source to edge
+
+Start with [the full-stack security release playbook](playbooks/17-security-from-source-to-edge.md).
+It links browser, API, identity, data, supply chain, edge, agents and operations
+to concrete negative tests and an evidence ledger. New scaffolds start with all
+eight boundaries **unverified**. Inventory validation is not release clearance.
+
+- [Cloudflare security](skills/cloudflare-security/SKILL.md): authenticated ingress,
+  origin/alias checks, private storage, edge controls and cost-abuse limits.
+- [Claude security](skills/claude-security/SKILL.md): permissions and isolation,
+  official security plugins, trusted-PR review and their enforcement limits.
+- [Strix authorized pentesting](skills/strix-authorized-pentest/SKILL.md): scoped
+  staging verification, isolated targets, explicit budgets and incomplete-run checks.
+
+Cloudflare's [security-audit-skill](https://github.com/cloudflare/security-audit-skill)
+informs the coverage-led audit method in [cso](skills/cso/SKILL.md). Upstream packs,
+plugins, executables, credentials, paid model calls and account changes are opt-in.
+Nothing here guarantees complete security or configures your production account.
 
 ## Try it in ten seconds, with nothing installed
 
@@ -461,10 +483,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["177 skills"] --> A["Your agent"]
-  P["16 playbooks"] --> A
+  S["182 skills"] --> A["Your agent"]
+  P["17 playbooks"] --> A
   R["14 refs"] --> A
-  T["17 templates"] --> A
+  T["20 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

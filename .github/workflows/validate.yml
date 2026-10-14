@@ -23,6 +23,8 @@ jobs:
         run: bash scripts/test-install-skills.sh
       - name: Prove first-time-user bootstrap works offline
         run: bash scripts/test-bootstrap.sh
+      - name: Prove security evidence cannot silently clear missing controls
+        run: python3 scripts/test-security-release.py
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
