@@ -152,3 +152,5 @@ That is "succeeded" + "concerned" + "what would you like". Three sentences, one 
 The cleanest version: every claim has a proof and a boundary. Every report has all four buckets. Every correction is one line. The user can act on the agent's output the moment they finish reading it.
 
 One handoff, four buckets. For reconstructing the system from a year of its own data, use [`power-of-hindsight`](../power-of-hindsight/SKILL.md).
+
+The owner's name for a "done" that lacks a receipt is Non-Bluff: a CI run, a merged SHA, a live URL, or a passing test. The map is [`now-stack.md`](../../now-stack.md).

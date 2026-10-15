@@ -39,6 +39,8 @@ The hook recognises a small, opinionated set of patterns. The list is not exhaus
 
 The list is **opinionated, not exhaustive**. A project that uses Terraform has additional patterns (`terraform destroy` without a saved plan); a project that uses Docker has additional patterns (`docker system prune -a`); a project that uses Postgres has additional patterns (`DELETE FROM` without a `WHERE` clause). The list is extended per project, in `.careful/patterns.yaml`, with the same "high hit rate" bar.
 
+If the tree contains another agent's commits, do not `reset --hard`, `stash`, or `amend` that work. Build from the merged tree. The rule is in [`now-stack.md`](../../now-stack.md).
+
 A pattern that fires on a false positive once a month is removed from the list. The list is a curated set, not a maximal one.
 
 ---

@@ -175,3 +175,4 @@ Any miss means the brain is decoration. Fix it before the next coding session.
 - Residue after pain: [`lesson-residue`](../lesson-residue/SKILL.md)
 - Reconstruct kit: [second-brain-os](https://github.com/Nonarkara/second-brain-os)
 - Dual-Mac audit: [`docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md`](../../docs/lessons/2026-10-05-dual-mac-obsidian-mcp.md)
+- Where this brain sits in the whole stack: [`now-stack.md`](../../now-stack.md)

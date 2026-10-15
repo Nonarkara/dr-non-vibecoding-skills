@@ -507,6 +507,12 @@ Localhost is never a deliverable. See [`ship-discipline`](skills/ship-discipline
 
 ---
 
+## Where the work runs
+
+The owner's machines, assistants, hosts, and rules for "done" are in [`now-stack.md`](now-stack.md). Which machine or service gets a job is in [`machine-routing.md`](machine-routing.md). Holes in that setup, matched to catalog tools, are in [`stack-gaps.md`](stack-gaps.md). Sources for those pages are in [`docs/credits-now-stack.md`](docs/credits-now-stack.md).
+
+---
+
 ## License & Contributing
 
 This repository is licensed under the [MIT License](LICENSE). Copyright © 2026 **Non Arkaraprasertkul / Axiom X Co., Ltd.**
