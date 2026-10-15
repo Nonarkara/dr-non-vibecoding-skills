@@ -53,6 +53,35 @@ Not recommended: **`starvingarc/agent-ui-atlas`** indexes 723 styles but contain
 
 ---
 
+## Destockd
+
+Retro or archival video heroes and artifacts come from [Destockd](https://www.destockd.com/).
+
+Destockd is a free search engine: no account, no card, no watermark. The index is 41,000+ shots from [FedFlix](https://archive.org/details/FedFlix), US government films on the Internet Archive. Search is visual text search, plus "see similar shots". Each shot downloads as an MP4.
+
+Most clips are US-government public domain. Destockd gives no warranty. A film may contain third-party music or footage. There is no model release and no trademark release. Before serious or commercial use, open that clip's archive.org record and read [NARA motion-picture permissions](https://www.archives.gov/research/motion-pictures/permissions).
+
+Recorded 2026-10-12. The shot count and the rights language change. Re-open the clip's archive.org record before shipping.
+
+### Shipping a clip
+
+- Loop of 3–6 seconds, muted, `autoplay loop playsinline`.
+- WebM/AV1, plus an MP4 fallback. 720p or smaller. Under about 1.5 MB.
+- A poster frame. Under `prefers-reduced-motion: reduce`, show the poster only and do not play the loop.
+- A README that shows the clip uses a GIF or WebP under 5 MB. That image links to the clip.
+- Grade the colour to Palette (`tokens.css`, the closed roles in [`design-dna`](../skills/design-dna/SKILL.md)).
+- A crayon rotoscope at about 8 fps is optional. Do not use the sumi-e ink style.
+
+The element is `<video muted autoplay loop playsinline poster="…">`, WebM source first, MP4 source second. The poster is its own image, so reduced motion still has a frame when the video stays stopped.
+
+Credit, beside the clip:
+
+> Footage: '[Film]' (US Government, public domain) via FedFlix / Internet Archive, found with Destockd.
+
+`[Film]` is the source film's title.
+
+---
+
 ## Naming your own
 
 The strongest reference is usually one you already own: a previous surface that worked, a photograph from the project's own context, a physical artifact from the domain. A transit dashboard citing a real transit artifact will beat one citing a SaaS product, because the constraints transfer.
