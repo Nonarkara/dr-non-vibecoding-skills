@@ -12,12 +12,12 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **179 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
+- **182 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
 - [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
-- **16 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **14 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, SEO/GEO connectors, and the Strix pentest boundary.
-- **17 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
+- **20 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working. The collection is a stack of four shapes.*
 
@@ -65,7 +65,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 179 on every task.
+# the rules file that host actually reads; do not load all 182 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -164,6 +164,10 @@ Pick the skill that matches your problem:
 | Wiring logs / metrics / traces for a service | `skills/observability-budget/SKILL.md` |
 | Storing API keys, tokens, or passwords | `skills/secrets-management/SKILL.md` |
 | Touching auth, user input, or DB queries | `skills/appsec-stack/SKILL.md` + `skills/secrets-management/SKILL.md` + `skills/auth-entitlement/SKILL.md` |
+| Cloudflare ingress, Access, origins, WAF, Workers or private storage | `skills/cloudflare-security/SKILL.md` |
+| Claude Code permissions, sandbox, plugins, MCP or security review | `skills/claude-security/SKILL.md` |
+| An explicitly authorized staging pentest or exploit retest | `skills/strix-authorized-pentest/SKILL.md` |
+| A full-stack release needs security evidence without a false green | `playbooks/17-security-from-source-to-edge.md` |
 | Designing/writing/deciding for humans, picking the right book | `skills/library-of-human-wisdom/SKILL.md` |
 | About to ship AI-generated code | `skills/code-slop-patterns/SKILL.md` |
 | A Cloudflare Worker, Durable Object, alarm, KV, D1, R2, Queue, or Workers AI change can bill with no stop | `skills/cf-runaway-cost/SKILL.md` |

@@ -4,6 +4,13 @@ Strix is an optional exploit-verification layer, not a default dependency of thi
 
 Source: [usestrix/strix](https://github.com/usestrix/strix) and its [agent skill](https://github.com/usestrix/strix/blob/main/skills/penetration-testing-with-strix/SKILL.md). Checked 2026-09-14. Strix is Apache-2.0; this file is original guidance and does not vendor its skill pack.
 
+Updated workflow checked 2026-10-14: use the native
+[strix-authorized-pentest](../skills/strix-authorized-pentest/SKILL.md) wrapper for
+scope, writable checkout isolation, explicit CLI budget/turn limits and incomplete
+zero-exit runs. `--max-budget` and `--max-turns` can stop coverage early; inspect
+run metadata, usage and analyzed scope rather than treating `completed` as complete coverage.
+No Strix executable, model, cloud account or upstream skill pack is auto-installed.
+
 ## Decision boundary
 
 | Situation | Use |
@@ -26,10 +33,12 @@ Source: [usestrix/strix](https://github.com/usestrix/strix) and its [agent skill
 
 ## Installation choice
 
-Do not merge Strix’s nine agent skills into this repository. Install them per project when the project actually needs autonomous pentesting:
+Do not merge Strix's skill pack into this repository. The native wrapper is
+included; the upstream workflow is optional per project. If needed, select only
+the relevant skill after reviewing and pinning the source revision:
 
 ```bash
-npx skills add usestrix/strix
+npx skills add usestrix/strix --skill penetration-testing-with-strix
 ```
 
 Or use the upstream self-hosted CLI instructions. Pin a reviewed release or commit in CI; do not execute a moving remote install script inside a privileged production runner.

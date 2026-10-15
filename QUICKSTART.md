@@ -71,8 +71,14 @@ If you want to know who built this and why, read [`ABOUT.md`](ABOUT.md). If you 
 
 ## 1. Confirm the skills landed (30 sec)
 
+Security starts unverified: review `docs/security-controls.json` in your generated
+project. Run `python3 scripts/security_release.py` for inventory checks and
+its `--release --commit FULL_TARGET_COMMIT` mode before a release. See
+[the security playbook](playbooks/17-security-from-source-to-edge.md) for evidence.
+No live controls or scanners are automatically installed or enabled.
+
 ```bash
-ls ~/.claude/skills | wc -l   # expect 179
+ls ~/.claude/skills | wc -l   # expect 182
 # also: ls ~/.agents/skills | wc -l
 ```
 

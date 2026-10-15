@@ -69,6 +69,12 @@ After the same fix fails twice, stop changing code. Capture the exact failure, l
 
 ## Ship report
 
+For full-stack security, use the [source-to-edge release playbook](../../playbooks/17-security-from-source-to-edge.md).
+The strict evidence gate must run for the actual release revision, alongside
+security regression tests. Inventory validation is not clearance, and a completed
+ledger cannot replace review of its artifacts. No maturity upgrade follows from
+installing a skill, scanner, WAF rule or review plugin.
+
 Report four buckets:
 
 - **Succeeded** — action plus evidence.

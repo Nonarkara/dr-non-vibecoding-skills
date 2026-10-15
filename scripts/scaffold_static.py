@@ -67,6 +67,12 @@ Current maturity: Demo. No authentication, paid API keys or personal data.
 Validate external data. If adding a paid endpoint, add authentication and rate limits.
 Displayed observations need source and observation date; never pass fallback data off as live.
 
+Security inventory: `docs/security-controls.json`. All controls start unverified.
+Run `python3 scripts/security_release.py` for inventory validation only.
+Before deployment, run `python3 scripts/security_release.py --release --commit FULL_TARGET_COMMIT`
+with current, hashed evidence for every applicable boundary. No scanner, plugin,
+Cloudflare rule or penetration test has been provisioned by this scaffold.
+
 ## Design contract
 
 Register: Console. Reader: a newcomer checking three public feeds.
@@ -85,6 +91,9 @@ commit, push, deploy and verify it before calling a production change done.
 '''
 for filename in ('AGENTS.md', 'CLAUDE.md', 'GEMINI.md'):
     add(filename, contract)
+
+add('docs/security-controls.json', (root / 'templates/security-controls.json.template').read_text())
+add('scripts/security_release.py', (root / 'templates/security-release.py.template').read_text(), True)
 
 add('scripts/start.sh', f'''#!/usr/bin/env bash
 set -euo pipefail
@@ -123,6 +132,15 @@ shared memory and paid APIs need their own setup. None is required to open this 
 `scripts/deploy.sh` is a template: choose a hosting target, configure it, and adapt
 its output root and versioned asset probes before using it. It is not a one-click deploy.
 Do not upload secrets, local databases or service credentials with static files.
+
+## Security status
+
+The starter is a Demo, not a security-certified deployment. Review the eight
+boundaries in `docs/security-controls.json`; they begin unverified. Inventory:
+`python3 scripts/security_release.py`. Before releasing, run its strict
+`--release --commit FULL_TARGET_COMMIT` mode with fresh hashed evidence.
+The ledger checks attestations; real tests and review must establish the claims.
+Claude plugins, Cloudflare controls and Strix are separate opt-in integrations.
 ''')
 component = a.target / 'docs/components.html'
 if not component.exists():

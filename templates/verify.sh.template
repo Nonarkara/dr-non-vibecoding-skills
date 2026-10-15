@@ -2,7 +2,7 @@
 # ==============================================================================
 # Dr Non Pre-Flight Invariant & Integrity Verification Gate
 # Runs before commit, deploy, or completion report.
-# Copy to <project>/scripts/verify.sh and chmod +x. No dependencies beyond git.
+# Copy to <project>/scripts/verify.sh and chmod +x. Security inventory needs Python 3.
 # ==============================================================================
 set -euo pipefail
 
@@ -56,10 +56,20 @@ elif [[ -f "pyproject.toml" ]] || [[ -f "requirements.txt" ]]; then
   fi
 fi
 
+# Security inventory is not production clearance. Strict release mode is separate.
+if [[ -f docs/security-controls.json ]]; then
+  if [[ ! -f scripts/security_release.py ]]; then
+    echo "❌ Missing security inventory validator."
+    ERRORS=$((ERRORS + 1))
+  else
+    python3 scripts/security_release.py || ERRORS=$((ERRORS + 1))
+  fi
+fi
+
 if (( ERRORS > 0 )); then
   echo "❌ Verification failed with $ERRORS error(s)."
   exit 1
 fi
 
-echo "✓ All Dr Non invariants verified clean."
+echo "✓ Pre-flight checks passed. This is not security release clearance."
 exit 0
