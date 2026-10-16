@@ -71,6 +71,7 @@ Three identical cards in a row · centred everything · equal-weight grids where
 - **Non-semantic data markup.** A grid of `<div>`s pretending to be a table. Use `<table>` for tabular data, `<dl>` for key–value pairs, plus `<nav>`, `<dialog>`, `<button>`, `<a>`. Fails keyboard, screen readers and copy-paste — and reliably marks generated markup. (Hard Gate.)
 - **Fake loading.** A `setTimeout` standing in for real async. It always looks right in the demo and lies about system state in production. (Hard Gate — this is `honest-envelope` in motion.)
 - **Missing states.** Generated product UI ships the happy path only. Every interactive component covers eight — default · hover · `:focus-visible` · `:active` · disabled · loading · error · success. Every data surface covers four — loading · empty · error · success. The empty state is where the curse of knowledge does most damage: the author has never seen it. (Hard Gate.)
+- **The real-estate leak.** *(Added 2026-10-16 by Dr Non, from the Jakarta atlas rain panel.)* Four choice buttons stretched to the panel's full width at ~88 px tall each, a selected state in gold text on a near-white fill, and an hour label squeezed to a single letter, "n". The panel held about one line of information per 90 px and sat on top of the map, which is the actual product. Three rules follow. **A control's box is its label plus padding:** no `width:100%` on buttons in a choice group; chips wrap. **A panel over a map or canvas shrinks to its content:** a region with nothing to show collapses, and the hero surface gets that space back. **A selected state is a solid ink fill with inverted text,** never coloured text on a pale fill. (Hard Gate.)
 - **Interactive elements wired to nothing.** Worse than a missing control — it teaches the operator the surface is decorative. (Hard Gate.)
 
 ### Copy
@@ -193,6 +194,7 @@ These gates are written to be checked against code and computed values. For the 
 - **Accessibility (anti-slop R-25 / R-03):** text contrast ≥4.5:1 (large ≥3:1), tap targets ≥44px, no horizontal overflow, no keyboard trap. FAIL on any violation.
 - **Product UI states:** every interactive component covers all eight states, every data surface all four. Any loading state driven by `setTimeout` rather than real async → FAIL. Any interactive element with no behaviour → FAIL.
 - **Semantic data markup:** tabular data in `<table>`, key–value in `<dl>`. A `<div>` grid standing in for either → FAIL.
+- **Real-estate gate (Dr Non, 2026-10-16):** look at the rendered screenshot, not the code. It is a FAIL if any control's box is more than about 2× its label's width or height, if any overlay's information fills less than half of its area, or if any label is clipped or squeezed. Touch targets stay at least 44 px on coarse pointers; meet that through height, never by stretching width. The hero map or canvas outranks empty panel space, always.
 - **No empty-proof publishing:** no fake stats (`10k+` without source), no AI avatars as testimonials, no links to nowhere. Empty is better than deceptive.
 
 ---
