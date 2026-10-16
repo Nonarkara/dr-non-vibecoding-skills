@@ -126,6 +126,7 @@ Localhost is never a deliverable. Per change, show:
   (allow-list embeds explicitly). Validate all input; parameterized queries; escape output; safe URLs.
 - Run secret scan before every commit (`gitleaks`/repo `verify.sh`). Never commit `.env`, keys, tokens,
   personal data, CCTV credentials. Thai PDPA applies to cameras, bots, and logins.
+- A new repo starts at [`security-stack`](../skills/security-stack/SKILL.md): ten minutes, report-only scans, DAST on the M5 against our own systems.
 - **Runaway-cost guards are mandatory** for anything that can bill: Cloudflare (Durable Object alarms,
   Workers AI, Queues, cron), LLM APIs, maps APIs. Set caps/budgets, rate limits, kill switch, alert.
 - **No Google product with a card attached.** Free tiers only; flag any key that could bill before use.
