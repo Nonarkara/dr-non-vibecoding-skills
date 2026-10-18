@@ -1,3 +1,5 @@
+> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Run `tools/slop-lint.mjs` on any page you ship.
+
 # CLAUDE.md — entry point for Claude-based agents
 
 This repo's canonical instructions are [`AGENTS.md`](AGENTS.md). This file exists
