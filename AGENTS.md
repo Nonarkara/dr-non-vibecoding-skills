@@ -1,3 +1,5 @@
+> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Run `tools/slop-lint.mjs` on any page you ship.
+
 # AGENTS.md — entry point for non-Claude agents
 
 > This file is the **mirror**, not the source. The canonical agent instructions for this repo live in the per-skill `SKILL.md` files inside `skills/` and the per-project `CLAUDE.md` style content inside each skill's body. This file exists so that any agent — Codex, Aider, OpenCode, Cursor, Gemini CLI, Devin, the OpenAI family — can land in this repo, read one file, and know what to do next.
