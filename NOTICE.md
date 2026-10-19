@@ -33,9 +33,3 @@ writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)".
 This repository is independent studio writing. It is not an official product of
 depa, ASEAN, any municipality, or any UN body. It is not affiliated with
 Anthropic, Vercel, YC, Trail of Bits, Every Inc., or those skill authors.
-
-The "Ship basics" section of `ANTI-SLOP.md` and the checks in
-`tools/basics-lint.mjs` are original work that follows Harsh Vijay, *11 Website
-Design Best Practices To Follow In 2026*, ruttl, 9 August 2026,
-<https://www.ruttl.com/blog/web-design-best-practices>. No text or code is
-copied. Thresholds come from WCAG 2.2 and Google's Core Web Vitals.
