@@ -261,3 +261,11 @@ fluent-language review remain unverified.
 **Why:** The director requested full-stack protection. Review advice does not enforce permission boundaries, and a clean scanner result cannot establish coverage. New projects now state their unverified controls explicitly.
 **Diff:** `skills/cloudflare-security/`, `skills/claude-security/`, `skills/strix-authorized-pentest/`, `playbooks/17-security-from-source-to-edge.md`, `templates/security-release.py.template`, `docs/lessons/2026-10-14-security-evidence-is-not-clearance.md`
 **Tags:** `security · cloudflare · claude · strix · evidence`
+
+## 2026-10-19 — Composition belongs to the subject
+
+**Date:** 2026-10-19
+**What:** Packaged the existing local anti-slop design skill for public forks, credited and mapped all eleven Ruttl web-design topics to their existing skill owners, and added a composition method and reusable brief to Bauhaus Human Design.
+**Why:** A list of visual prohibitions does not tell a builder how to arrange this particular subject. The method asks for two content-led alternatives, familiar controls, purposeful space and evidence; it does not certify taste or human usability.
+**Diff:** `skills/anti-slop-design/`, `skills/bauhaus-human-design/`, `scripts/test-install-skills.sh`, README/catalog/agent routing and synchronized counts. Byte-for-byte resource installation checks and the full test suite passed; independent review found no actionable issues. No product UI changed or human usability session occurred.
+**Tags:** `composition · bauhaus · anti-slop · ruttl · source-credit · portable-skills`

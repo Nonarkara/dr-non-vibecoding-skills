@@ -78,7 +78,7 @@ its `--release --commit FULL_TARGET_COMMIT` mode before a release. See
 No live controls or scanners are automatically installed or enabled.
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 182
+ls ~/.claude/skills | wc -l   # expect 183
 # also: ls ~/.agents/skills | wc -l
 ```
 

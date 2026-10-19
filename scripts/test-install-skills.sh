@@ -32,3 +32,13 @@ test -f "$TEST_ROOT/.gemini/antigravity/skills/karpathy-guidelines/SKILL.md"
 (cd "$ROOT"; DR_NON_INSTALL_ROOT="$TEST_ROOT" scripts/install-skills.sh --all >/dev/null)
 test -f "$TEST_ROOT/.cursor/skills/karpathy-guidelines/SKILL.md"
 echo "OK: Gemini and Antigravity are separate hosts; root onboarding installs user-level Cursor skills"
+
+# The useful method must survive installation, not merely exist in the repo.
+for host in .claude .agents; do
+  for resource in anti-slop-design/SKILL.md \
+    bauhaus-human-design/references/ruttl-composition.md \
+    bauhaus-human-design/assets/composition-brief.md; do
+    cmp "$ROOT/skills/$resource" "$TEST_ROOT/$host/skills/$resource"
+  done
+done
+echo "OK: Claude/shared-agent installs retain the composition skill, source guide and worksheet byte-for-byte"
