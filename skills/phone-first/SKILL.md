@@ -65,6 +65,7 @@ Devtools responsive mode does not reproduce: real touch targets, the browser chr
 □ Does the display size hold, or did the hierarchy flatten?
 □ Are primary actions in the thumb zone?
 □ Opened on a real phone, on the live URL?
+□ `node tools/slop-lint.mjs <url> --strict`: no tap-targets or viewport-meta FAIL?
 ```
 
 Pairs with `cognition-first`, `dashboard-discipline`, `no-design-tells`, `ship-discipline` (the live URL is the test surface).

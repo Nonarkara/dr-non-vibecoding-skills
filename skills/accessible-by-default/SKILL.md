@@ -109,6 +109,9 @@ exactly the [`wrong-green`](../wrong-green/SKILL.md) failure. Three checks, in
 increasing cost:
 
 ```bash
+# 0. House gate: contrast, names, labels, alt, focus, 44px targets (ANTI-SLOP.md "Ship basics").
+node tools/slop-lint.mjs https://your-live-url --strict
+
 # 1. Automated pass — catches roughly a third of real issues. Necessary, not sufficient.
 npx @axe-core/cli https://your-live-url
 

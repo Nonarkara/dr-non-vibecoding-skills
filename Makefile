@@ -38,3 +38,4 @@ test: validate relay-check
 	@python3 scripts/test-security-release.py
 	@node scripts/test-starter.mjs
 	@bash scripts/test-cf-runaway-cost.sh
+	@node --test scripts/test-basics-lint.mjs
