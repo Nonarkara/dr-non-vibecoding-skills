@@ -14,12 +14,12 @@ control has been deployed. Skills need no runtime; executable helpers list their
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 182](https://img.shields.io/badge/skills-182-F59E0B)](skills/)
+[![Skills: 184](https://img.shields.io/badge/skills-184-F59E0B)](skills/)
 [![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
-[![Templates: 20](https://img.shields.io/badge/templates-20-0F766E)](templates/)
+[![Templates: 21](https://img.shields.io/badge/templates-21-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**182 skills** · **17 playbooks** · **14 references** · **20 templates**
+**184 skills** · **17 playbooks** · **14 references** · **21 templates**
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -483,10 +483,10 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["182 skills"] --> A["Your agent"]
+  S["184 skills"] --> A["Your agent"]
   P["17 playbooks"] --> A
   R["14 refs"] --> A
-  T["20 templates"] --> A
+  T["21 templates"] --> A
   A --> W["Project contract"]
   W --> D["Deploy script"]
   D --> V["Verify live"]

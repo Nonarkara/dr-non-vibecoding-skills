@@ -1,0 +1,76 @@
+# Mobile & device testing mindset — <Project>
+
+> Copy this block into the project contract (`AGENTS.md` or `CLAUDE.md`) so every
+> agent inherits it. Mount to **exactly one location per agent** — Claude Code loads
+> both `CLAUDE.md` and `~/.claude/rules/*.md`, so duplicating wastes context.
+>
+> Extracted from the discipline behind Google's ARTEMIS (Apache-2.0). The path is
+> ours; the tool is whatever is wired up. See `skills/device-automation/SKILL.md`.
+
+## 1. Explore before you code
+
+Never write a device test for a screen you have not seen on a device. The design
+doc does not contain: the splash delay that eats your first tap, the permission
+dialog on Android 13+, the keyboard covering the submit button at 360dp, the back
+gesture that leaves the flow instead of dismissing the keyboard.
+
+Drive the flow by hand once. Record what actually happened. Then write the test.
+
+## 2. Route reactive vs. planned before you run
+
+| Reactive (Flash) | Planned (Pro) |
+|---|---|
+| Observe → act, one screen at a time | Plan with milestones → act → verify each checkpoint |
+| ~3–5s per step | ~15–40s per step |
+| Known flow, "does this button work" | 100+ step horizons, exploratory, "walk checkout and report" |
+| No plan, no final report | Safety check, checkpoint verification, written report |
+
+Start reactive. Move to planned the moment the task needs a claim you must defend.
+"An observation does not need a verification graph; a claim does."
+
+## 3. Dynamic-first, coordinate-fallback
+
+Targeting tiers, in order. Do not skip down.
+
+1. **Accessibility id / resource id / content-desc** — stable across redesigns.
+2. **Visual / OCR match** — when there is no accessibility tree (Canvas, some Compose, Flutter).
+3. **Raw coordinate** — last resort, and a liability.
+
+Coordinates break on rotation, font scaling, and inset changes. Every coordinate
+tap carries a comment naming what it was in the previous layout. If you cannot
+name it, the test is already broken and you do not know it yet.
+
+## 4. Latency compensation
+
+Transient UI — auto-fading control bars, toasts, spinners — disappears between
+turns. Chain taps into one action sequence instead of waiting a model turn per tap.
+A blocked action is a **result**: surface it, do not tap past it.
+
+## 5. Prove it, or report it unverified
+
+| Claim | Evidence |
+|---|---|
+| "The flow works" | End-state screenshot + trace |
+| "It crashed" | Logcat stack, not a paraphrase |
+| "The button does nothing" | Before + after screenshots, same screen |
+| "It's slow" | Per-step latency from the trace |
+| "There was a popup" | Screenshot + a decision on whether it blocks |
+
+A blocked action is a finding. Silently retrying until it passes is a fabrication.
+Report in the four buckets: succeeded / failed / skipped / unverified.
+
+## 6. Emulator is not device
+
+No real touch latency, no thermal throttling, no OEM skin, no real push path.
+An emulator pass is necessary and not sufficient. Run one AVD; two will fight
+your other work for RAM.
+
+## 7. Android only
+
+iOS is not covered here. XCUITest or a different tool. Do not promise an iOS
+device test from an Android harness.
+
+## 8. Company benchmark claims are claims
+
+A vendor "99% success" on the vendor's own benchmark says nothing about this app's
+onboarding, auth, or custom surfaces. Measure this app, do not inherit the number.

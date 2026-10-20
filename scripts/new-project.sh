@@ -162,6 +162,11 @@ if [[ ! -f "$PROJECT_ABS/docs/components.html" ]]; then
   cp "$TEMPLATES/component-library.html.template" "$PROJECT_ABS/docs/components.html"
   echo "wrote $PROJECT_ABS/docs/components.html (open in browser)"
 fi
+# Device-testing rules — for Android/mobile projects, copy into the contract
+if [[ ! -f "$PROJECT_ABS/docs/device-test-rules.md" ]]; then
+  cp "$TEMPLATES/device-test-rules.md.template" "$PROJECT_ABS/docs/device-test-rules.md"
+  echo "wrote $PROJECT_ABS/docs/device-test-rules.md (fold into AGENTS.md if this ships an app)"
+fi
 
 # — minimal project README if none exists —
 if [[ ! -f "$PROJECT_ABS/README.md" ]]; then

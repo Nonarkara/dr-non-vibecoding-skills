@@ -1,9 +1,10 @@
 ---
 name: anti-slop-design
 description: >-
-  Use before designing, building, reviewing or redesigning any page, site,
-  dashboard, deck or visual, and when checking vibecoded UI for AI design slop.
-  Hard rules that must never be re-created.
+  Hard rules never to re-create on any page, site, dashboard or deck. Use before
+  designing or reviewing UI, and when vibecoded output looks like every other AI
+  page.
+license: MIT
 ---
 # Anti-slop design rules (hard rules)
 

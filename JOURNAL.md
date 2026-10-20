@@ -261,3 +261,11 @@ fluent-language review remain unverified.
 **Why:** The director requested full-stack protection. Review advice does not enforce permission boundaries, and a clean scanner result cannot establish coverage. New projects now state their unverified controls explicitly.
 **Diff:** `skills/cloudflare-security/`, `skills/claude-security/`, `skills/strix-authorized-pentest/`, `playbooks/17-security-from-source-to-edge.md`, `templates/security-release.py.template`, `docs/lessons/2026-10-14-security-evidence-is-not-clearance.md`
 **Tags:** `security · cloudflare · claude · strix · evidence`
+
+## 2026-10-20 — The agent gets hands on a real phone
+
+**What:** Added `device-automation` (drive a real phone or emulator with vision, not guesses) and `templates/device-test-rules.md.template` (the mounted testing mindset), wired into `new-project.sh`. Also finished Codex's partial `anti-slop-design` — added the missing CATALOG row, MIT line, and trimmed the over-length description.
+**Why:** `browser-as-t` proves web behaviour; nothing proved the app itself. The path — explore before coding, reactive vs planned routing, dynamic-first locate, prove-it-or-say-unverified — is vendor-agnostic. ARTEMIS (Apache-2.0) is one implementation, not the point.
+**SIC:** Google's 99%+ AndroidWorld is a company-reported benchmark on 20+ Google-chosen apps; it says nothing about our onboarding or our auth. Recorded as a claim, not a promise. ARTEMIS is Android-only; iOS is roadmap.
+**Diff:** `skills/device-automation/SKILL.md`, `templates/device-test-rules.md.template`, `skills/anti-slop-design/SKILL.md`, `CATALOG.md`, `scripts/new-project.sh`, `BLUEPRINT.md` (removed a duplicated paragraph), count surfaces 182→184 skills, 20→21 templates
+**Tags:** `device-automation · android · artemis · mcp · testing · proof`

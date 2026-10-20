@@ -9,5 +9,8 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Cloudflare wrangler local state (contains account_id; never commit)
+.wrangler/
+
 # repo-map.sh output — derived, regenerate on demand, never commit
 REPO_MAP.md
