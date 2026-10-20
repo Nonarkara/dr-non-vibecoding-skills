@@ -277,3 +277,10 @@ fluent-language review remain unverified.
 **Why:** A list of visual prohibitions does not tell a builder how to arrange this particular subject. The method asks for two content-led alternatives, familiar controls, purposeful space and evidence; it does not certify taste or human usability.
 **Diff:** `skills/anti-slop-design/`, `skills/bauhaus-human-design/`, `scripts/test-install-skills.sh`, README/catalog/agent routing and synchronized counts. Byte-for-byte resource installation checks and the full test suite passed; independent review found no actionable issues. No product UI changed or human usability session occurred.
 **Tags:** `composition · bauhaus · anti-slop · ruttl · source-credit · portable-skills`
+## 2026-10-20 — Spatial hallucination becomes a reviewable contract
+
+**Date:** 2026-10-20
+**What:** Added the anti-spatial-hallucination guide and an identical reference inside the existing anti-slop design skill.
+**Why:** Dr Non’s Shanghai reviews showed that a correctly aligned small cartoon could still be patched onto the page; narrative relationship must be decided before dimensions.
+**Diff:** Root guide, README, ANTI-SLOP and anti-slop skill entrypoint/reference; no new skill or count change.
+**Tags:** `spatial-hallucination · composition · narrative-images · access · codex`

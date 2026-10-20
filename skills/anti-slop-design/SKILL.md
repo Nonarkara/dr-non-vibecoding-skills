@@ -63,3 +63,7 @@ Conventional controls stay familiar; authorship comes from the content's arrange
 Use the [composition worksheet](../bauhaus-human-design/assets/composition-brief.md)
 for decisions, real task outcomes and unverified checks. Neither lint nor a
 completed worksheet certifies taste, accessibility or human authorship.
+
+## Spatial relationships and narrative images
+
+When a composition is aligned yet arbitrary, or an image feels pasted beside text, read [Anti-spatial-hallucination](references/spatial-hallucination.md). It defines image roles, hero/overlay acceptance, whitespace intent and responsive evidence. Do not enlarge every image or weaken the host project’s style rules. This packaged reference mirrors the root guide; update both together.

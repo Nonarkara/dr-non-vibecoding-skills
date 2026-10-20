@@ -532,3 +532,7 @@ Reuse the skills, playbooks, templates, and documentation freely with attributio
 - Pair every rule with the production incident that proved it necessary.
 - Zero secrets, live API keys, private hosts, or invented benchmark numbers.
 - Maintain the voice: production-tested, clear, humble, and civic-minded.
+
+## Anti-spatial-hallucination
+
+[The composition guide](ANTI-SPATIAL-HALLUCINATION.md) asks why each element is here, this size and this far from its neighbour. It covers image roles, narrative heroes, readable overlays, purposeful whitespace, action grouping and responsive evidence. Hero treatment is a choice to justify, not a new template.
