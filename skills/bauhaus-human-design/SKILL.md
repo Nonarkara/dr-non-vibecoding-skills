@@ -18,6 +18,13 @@ and a wandering reading path. A ban list did not resolve the composition.
 
 ## Before CSS
 
+Apply [anti-slop-design](../anti-slop-design/SKILL.md) and the project's house
+contract first. For website composition, use the credited
+[Ruttl source/adaptation guide](references/ruttl-composition.md) and copy the
+relevant prompts from [the composition brief](assets/composition-brief.md) into
+the existing design contract. Keep the subject-specific decisions; do not add a
+mandatory signoff form or assume that source advice proves usability.
+
 For type-family decisions, use `bringhurst-contextual-type` before selecting
 faces. Read the text, preserve house roles, and proof the intended medium and
 scripts; geometric sans is not a substitute for a typographic brief.

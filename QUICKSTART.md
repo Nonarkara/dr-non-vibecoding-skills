@@ -78,8 +78,7 @@ its `--release --commit FULL_TARGET_COMMIT` mode before a release. See
 No live controls or scanners are automatically installed or enabled.
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 184
-# also: ls ~/.agents/skills | wc -l
+ls ~/.claude/skills | wc -l   # expect 184# also: ls ~/.agents/skills | wc -l
 ```
 
 `AGENTS.md` is project memory; skills are reusable workflows. Keep those roles separate.

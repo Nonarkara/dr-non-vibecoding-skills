@@ -1,14 +1,19 @@
 ---
 name: anti-slop-design
 description: >-
-  Hard rules never to re-create on any page, site, dashboard or deck. Use before
-  designing or reviewing UI, and when vibecoded output looks like every other AI
-  page.
+  Apply Dr Non's composition rules. Use before building or reviewing a page,
+  dashboard, deck or visual that risks generic AI design.
 license: MIT
 ---
 # Anti-slop design rules (hard rules)
 
 These are known AI design-slop patterns. Check every page against them before shipping, and fix any hit. They come on top of the house design system (Palette) and any map rule such as the map taking most of the screen.
+
+The original seven rules below are Dr Non's existing local skill, now packaged
+for forks. Also read the project's `ANTI-SLOP.md` where present; this skill does
+not relax a stricter project rule. [Bauhaus Human Design](../bauhaus-human-design/SKILL.md)
+supplies the positive composition method and its credited Ruttl source map.
+Conventional controls stay familiar; authorship comes from the content's arrangement.
 
 ## 1. Boxes fit their content
 - No text box, card, button or panel that is much wider or taller than the text inside it.
@@ -26,7 +31,7 @@ These are known AI design-slop patterns. Check every page against them before sh
 
 ## 4. No AI-slop fonts
 - Banned as primary faces: Inter, Poppins, Montserrat, Roboto, Open Sans, Lato, DM Sans, Space Grotesk, Geist, Plus Jakarta Sans, Manrope, Nunito, and any system-ui default stack used as the design font.
-- Use a modern Bauhaus / Bayer Universal–style geometric face. The real ones are licensed and paid, so use free lookalikes: Jost (first choice, Futura and Bauhaus in spirit), Josefin Sans or League Spartan for display, and Prompt or Kanit for Thai. For Chinese, use a matching geometric sans and keep its weights consistent.
+- Use a modern Bauhaus / Bayer Universal–style geometric face with a verified license. Free options include Jost (first choice, Futura and Bauhaus in spirit), Josefin Sans or League Spartan for display, and Prompt or Kanit for Thai. For Chinese, use a matching geometric sans and keep its weights consistent.
 - At most two families per product.
 
 ## 5. No lazy ornaments
@@ -54,3 +59,7 @@ These are known AI design-slop patterns. Check every page against them before sh
 2. Check each of rules 1 to 7 above, and list every hit with its element.
 3. Fix the hits, then screenshot again.
 4. Have a different agent or person check the result; never self-review.
+
+Use the [composition worksheet](../bauhaus-human-design/assets/composition-brief.md)
+for decisions, real task outcomes and unverified checks. Neither lint nor a
+completed worksheet certifies taste, accessibility or human authorship.

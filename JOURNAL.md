@@ -264,8 +264,16 @@ fluent-language review remain unverified.
 
 ## 2026-10-20 — The agent gets hands on a real phone
 
-**What:** Added `device-automation` (drive a real phone or emulator with vision, not guesses) and `templates/device-test-rules.md.template` (the mounted testing mindset), wired into `new-project.sh`. Also finished Codex's partial `anti-slop-design` — added the missing CATALOG row, MIT line, and trimmed the over-length description.
+**What:** Added `device-automation` (drive a real phone or emulator with vision, not guesses) and `templates/device-test-rules.md.template` (the mounted testing mindset), wired into `new-project.sh`. Removed a duplicated paragraph in `BLUEPRINT.md` left by an earlier edit.
 **Why:** `browser-as-t` proves web behaviour; nothing proved the app itself. The path — explore before coding, reactive vs planned routing, dynamic-first locate, prove-it-or-say-unverified — is vendor-agnostic. ARTEMIS (Apache-2.0) is one implementation, not the point.
-**SIC:** Google's 99%+ AndroidWorld is a company-reported benchmark on 20+ Google-chosen apps; it says nothing about our onboarding or our auth. Recorded as a claim, not a promise. ARTEMIS is Android-only; iOS is roadmap.
-**Diff:** `skills/device-automation/SKILL.md`, `templates/device-test-rules.md.template`, `skills/anti-slop-design/SKILL.md`, `CATALOG.md`, `scripts/new-project.sh`, `BLUEPRINT.md` (removed a duplicated paragraph), count surfaces 182→184 skills, 20→21 templates
+**SIC:** Google's 99%+ AndroidWorld is a company-reported benchmark on 20+ Google-chosen apps; it says nothing about our onboarding or our auth. Recorded as a claim, not a promise. ARTEMIS is Android-only; iOS is roadmap. On merge I found upstream had already shipped a fuller `anti-slop-design` (PR #24) and took theirs over my fix; the local copy had been a stale partial.
+**Diff:** `skills/device-automation/SKILL.md`, `templates/device-test-rules.md.template`, `CATALOG.md`, `scripts/new-project.sh`, `BLUEPRINT.md`, count surfaces 182→184 skills, 20→21 templates
 **Tags:** `device-automation · android · artemis · mcp · testing · proof`
+
+## 2026-10-19 — Composition belongs to the subject
+
+**Date:** 2026-10-19
+**What:** Packaged the existing local anti-slop design skill for public forks, credited and mapped all eleven Ruttl web-design topics to their existing skill owners, and added a composition method and reusable brief to Bauhaus Human Design.
+**Why:** A list of visual prohibitions does not tell a builder how to arrange this particular subject. The method asks for two content-led alternatives, familiar controls, purposeful space and evidence; it does not certify taste or human usability.
+**Diff:** `skills/anti-slop-design/`, `skills/bauhaus-human-design/`, `scripts/test-install-skills.sh`, README/catalog/agent routing and synchronized counts. Byte-for-byte resource installation checks and the full test suite passed; independent review found no actionable issues. No product UI changed or human usability session occurred.
+**Tags:** `composition · bauhaus · anti-slop · ruttl · source-credit · portable-skills`

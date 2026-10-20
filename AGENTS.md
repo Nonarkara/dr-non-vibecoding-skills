@@ -1,3 +1,5 @@
+> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Run `tools/slop-lint.mjs` on any page you ship.
+
 # AGENTS.md — entry point for non-Claude agents
 
 > This file is the **mirror**, not the source. The canonical agent instructions for this repo live in the per-skill `SKILL.md` files inside `skills/` and the per-project `CLAUDE.md` style content inside each skill's body. This file exists so that any agent — Codex, Aider, OpenCode, Cursor, Gemini CLI, Devin, the OpenAI family — can land in this repo, read one file, and know what to do next.
@@ -12,8 +14,7 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **184 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
+- **184 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **14 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, SEO/GEO connectors, and the Strix pentest boundary.
@@ -65,7 +66,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 182 on every task.
+# the rules file that host actually reads; do not load all 183 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -126,6 +127,8 @@ Pick the skill that matches your problem:
 | Deploy "succeeded" but old version is served | `skills/deploy-verification/SKILL.md` |
 | Side project dies when the laptop closes | `skills/always-on-services/SKILL.md` |
 | Design keeps regressing | `skills/axiom-design-core/SKILL.md` + `skills/design-dna/SKILL.md` |
+| Before any visual design, including composition review | `skills/anti-slop-design/SKILL.md` |
+| Web best practices need a subject-specific composition, not a template | `skills/bauhaus-human-design/SKILL.md` and its Ruttl composition guide |
 | UI looks agent-built | `skills/no-design-tells/SKILL.md` + `skills/no-ai-tells/SKILL.md` + `skills/dashboard-discipline/SKILL.md` |
 | Copy reads like AI | `skills/no-ai-tells/SKILL.md` + `skills/make-it-stick/SKILL.md` |
 | Rebuilding the same API adapter | `skills/data-catalog/SKILL.md` |

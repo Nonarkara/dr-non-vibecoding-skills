@@ -5,6 +5,13 @@ load one matching skill. The collection is a routing system, not a checklist.
 
 ## The smallest useful path
 
+For composition, start with [anti-slop-design](skills/anti-slop-design/SKILL.md),
+then [Bauhaus Human Design](skills/bauhaus-human-design/SKILL.md). Its
+[credited Ruttl map](skills/bauhaus-human-design/references/ruttl-composition.md)
+routes all eleven article topics to their existing skill owners; the portable
+[composition brief](skills/bauhaus-human-design/assets/composition-brief.md)
+records choices and actual task evidence. This adds a working method, not a taste score.
+
 | Moment | Load |
 |---|---|
 | Choosing what to build | [`dr-non-golden-rules`](skills/dr-non-golden-rules/SKILL.md) + [`design-thinking-vibecoding`](skills/design-thinking-vibecoding/SKILL.md) |

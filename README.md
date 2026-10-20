@@ -14,12 +14,12 @@ control has been deployed. Skills need no runtime; executable helpers list their
 Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 184](https://img.shields.io/badge/skills-184-F59E0B)](skills/)
-[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
+[![Skills: 184](https://img.shields.io/badge/skills-184-F59E0B)](skills/)[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
 [![Templates: 21](https://img.shields.io/badge/templates-21-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
 **184 skills** · **17 playbooks** · **14 references** · **21 templates**
+
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
 Independent. Written for a **Thai–English** audience. Not an official depa, ASEAN, or municipal product.
@@ -46,6 +46,19 @@ Cloudflare's [security-audit-skill](https://github.com/cloudflare/security-audit
 informs the coverage-led audit method in [cso](skills/cso/SKILL.md). Upstream packs,
 plugins, executables, credentials, paid model calls and account changes are opt-in.
 Nothing here guarantees complete security or configures your production account.
+
+## Composition that belongs to the subject
+
+The [anti-slop-design skill](skills/anti-slop-design/SKILL.md) now travels with
+the install. Pair it with [Bauhaus Human Design](skills/bauhaus-human-design/SKILL.md):
+choose what wins, assign space a purpose, compare two real arrangements, and test
+the reader's task. Familiar controls stay familiar; the content earns its own composition.
+
+The [credited Ruttl source map](skills/bauhaus-human-design/references/ruttl-composition.md)
+accounts for all eleven article topics without copying the article or adopting its
+sales claims. Use the downloadable [composition brief](skills/bauhaus-human-design/assets/composition-brief.md)
+with Palette roles, multilingual text and your existing design contract. Both files
+ship inside the skill folder. Neither a lint score nor an empty worksheet proves taste.
 
 ## Try it in ten seconds, with nothing installed
 
@@ -483,8 +496,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["184 skills"] --> A["Your agent"]
-  P["17 playbooks"] --> A
+  S["184 skills"] --> A["Your agent"]  P["17 playbooks"] --> A
   R["14 refs"] --> A
   T["21 templates"] --> A
   A --> W["Project contract"]
