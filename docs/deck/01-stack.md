@@ -17,9 +17,9 @@ There is one product. The four shapes are **four views of the same practice**, n
 - **Skills** are the standing instructions an agent loads — 184 `SKILL.md` files in `skills/`. Each is a one-decision change, with a trigger word, a test, and a body.
 - **Playbooks** are the incidents and reasoning — 17 narratives in `playbooks/`. Why the skill exists, what it was born from, what was refused.
 - **References** are the stable implementation details — 14 docs in `reference/`. APIs, stack picks, commit style, named references, security hygiene, hosting, payments/voice.
-- **Templates** are the drop-in files — 12 in `templates/`. CLAUDE.md, AGENTS.md, deploy script, launchd plist, tunnel config, lesson doc, plus the workspace indexes and the env / gitignore / design-tokens starters.
+- **Templates** are the drop-in files — 21 templates in `templates/`. CLAUDE.md, AGENTS.md, deploy script, launchd plist, tunnel config, lesson doc, plus the workspace indexes and the env / gitignore / design-tokens starters.
 
-The counts are deliberate. The validator enforces them — in the badge, in this table, in every page of the deck, and in the AGENTS contract. Adding a skill bumps the description-character budget automatically; the gate keeps every addition honest.
+The counts are deliberate. The validator enforces them — in the badge, in this table, in every page of the deck, and in the AGENTS contract — and it reads every live markdown file in the repo that states a count, not only the pages that call themselves surfaces. Adding a skill bumps the description-character budget automatically; the gate keeps every addition honest.
 
 ## Plain markdown, no runtime, agent-agnostic
 
@@ -47,14 +47,14 @@ Read each as a verb a human and an agent do together:
 - **HINDSIGHT** — after a year of patching, collect every signal and reconstruct the parts that carry weight from first principles ([`power-of-hindsight`](../../skills/power-of-hindsight/SKILL.md)). The Frankenstein phase has an end date in writing.
 - **RECONSTRUCT** — back to SKILLS, but with a cleaner version of the system whose rationale is now known.
 
-The loop is what makes the four shapes a **stack**. A library of 69 unconnected skills is a search problem. A loop where the output of one stage feeds the input of the next is a system.
+The loop is what makes the four shapes a **stack**. A library of unconnected skills is a search problem. A loop where the output of one stage feeds the input of the next is a system.
 
 ## Taste + memory out of your head. Repeated decisions = lookups
 
 The two short captions on the page are the whole point of the deck:
 
 - **Taste + memory out of your head.** The reason the practice has another template, an Axiom Design Core at all, is that the load-bearing judgment — *what is good, what is the right shape for this surface, what the user notices first* — has to be written down. If it lives only in your head, it dies with your attention, and the next session is a re-derivation.
-- **Repeated decisions = lookups.** The 184 skills are not 169 things to memorise. They are indexed lookups. The next time you face the decision "did the deploy actually reach the user," you do not solve the problem; you look up `deploy-verification` and read the recipe. The catalog is a router. The skill is the answer. The reference is the why.
+- **Repeated decisions = lookups.** The 184 skills are not a pile of things to memorise. They are indexed lookups. The next time you face the decision "did the deploy actually reach the user," you do not solve the problem; you look up `deploy-verification` and read the recipe. The catalog is a router. The skill is the answer. The reference is the why.
 The collection is a **written operating system** because the alternative — re-deriving the same answers from first principles every session — is what kills the throughput of working with agents.
 
 ## What to do with this

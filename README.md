@@ -259,9 +259,10 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 169 modular agent capabilities (plain markdown with YAML frontmatter)├── playbooks/        # 16 narrative war stories & architectural deep-dives
-├── reference/        # 13 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
-├── templates/        # 17 drop-in production scaffolding files
+├── skills/           # 184 skills — plain markdown with YAML frontmatter
+├── playbooks/        # 17 playbooks — narrative war stories & architectural deep-dives
+├── reference/        # 14 references — battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
+├── templates/        # 21 templates — drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── agent-instructions/ # MASTER.md for every agent, REPO-TEMPLATE.md for one repo
@@ -278,7 +279,8 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 184 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword || [`playbooks/`](playbooks/) | 17 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`skills/`](skills/) | 184 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword
+| [`playbooks/`](playbooks/) | 17 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
 | [`reference/`](reference/) | 14 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
 | [`templates/`](templates/) | 21 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
 

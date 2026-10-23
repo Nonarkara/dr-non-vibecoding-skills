@@ -104,7 +104,7 @@ This file is the **table of contents**. The router that picks the right book for
 | Business & value | 3 |
 | **Total book skills** | **46** |
 
-(Plus the router `library-of-human-wisdom` — so the library cluster adds **47 skills** to the repo.)
+(Plus the router `library-of-human-wisdom` — so the library cluster adds **47 more skills** to the repo.)
 
 > **Note on counts.** The live skillhub mirror contributes 44 unique consolidated files after excluding one duplicate derivative. The locally distilled `wada-colour-chords` and selected-reading `bauhaus-human-design` bring this index to 46. A skill count is not a count of completed books.
 

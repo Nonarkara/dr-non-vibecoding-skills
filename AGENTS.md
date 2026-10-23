@@ -15,11 +15,21 @@ If you are **any other agent**, this file is yours.
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
 - **184 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.
-- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
-- [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
 - **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **14 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, SEO/GEO connectors, and the Strix pentest boundary.
 - **21 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
+- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
+- [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
+
+The collection's size is written in prose in many files, and a bare count —
+`N skills` — always means *this* collection. `make validate` reads every live
+markdown file that states one. `make sync-counts` writes the counts it owns:
+the badge, the tree map, the AGENTS contract, the deck, the ecosystem
+reference, BLUEPRINT, QUICKSTART and INFOGRAPHICS. A count in a skill file is
+yours to fix, because a number there may be somebody else's collection. Write
+another collection's count as a hyphenated compound (`a 91-skill collection`), a
+threshold as a threshold (`past 160 skills`), a subset as a compound (`a
+20-skill set`), and a difference as a difference (`47 more skills`).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working. The collection is a stack of four shapes.*
 

@@ -2,7 +2,7 @@
 
 > A 19-page deck expanded into a read-it-once tour of the system. Each page in this folder is the **text** behind one PNG in [`infographics/pages/`](../../infographics/pages/). Read the PNG, then read the text — or read the text alone, the deck survives without the pixels.
 >
-> **The pixels are a dated snapshot; the text is not.** The posters were drawn on 2026-09-09 and carry the counts as they stood that day. The text below carries the current counts, and `make validate` checks every one of them against the tree — so the two never disagree by accident. The live count is also the badge in the [README](../../README.md).
+> **The pixels are a dated snapshot; the text is not.** The posters were drawn on 2026-09-09 and carry the counts as they stood that day. The text below carries the current counts, and `make validate` checks every count claim it can read against the tree — so the two never disagree by accident. The live count is also the badge in the [README](../../README.md).
 
 **Who this is for.** A new contributor who has just cloned the repo and wants the operating philosophy in one sitting, not the 184 skill files. A reviewer who has five minutes to understand the load-bearing claims. A future Dr Non in two years who has forgotten why this is shaped the way it is.
 
@@ -17,11 +17,12 @@ The pages are not independent. They build.
 | # | Page | The argument it makes | If you skip it |
 |---|---|---|---|
 | [01](01-stack.md) | **STACK** — the package at a glance | 184 skills, 17 playbooks, 14 references, 21 templates is **one product**, not four. Plain markdown, no runtime, agent-agnostic. The routing loop is a habit, not a diagram. | You treat the repo as a skills library instead of a stack. You add skills without knowing the loop they belong to. |
-| [03](03-route.md) | **ROUTE** — the smallest useful path | "The catalog is a router." Eight moments, eight routes. The 184 skills collapse to 8 if you are in a hurry. **Route, don't scan.** | You load all 184 skills into context on every change. You spend the first ten minutes of every session finding where to start. || [05](05-map.md) | **MAP** — a decision map, not a toolbox | Eight categories that each answer a different question. New skills land in exactly one of them. | You write a new skill and cannot decide where it belongs. The categories drift. The catalog becomes a junk drawer. |
+| [03](03-route.md) | **ROUTE** — the smallest useful path | "The catalog is a router." Eight moments, eight routes. The 184 skills collapse to 8 if you are in a hurry. **Route, don't scan.** | You load all 184 skills into context on every change. You spend the first ten minutes of every session finding where to start.
+| [05](05-map.md) | **MAP** — a decision map, not a toolbox | Eight categories that each answer a different question. New skills land in exactly one of them. | You write a new skill and cannot decide where it belongs. The categories drift. The catalog becomes a junk drawer. |
 | [07](07-proof.md) | **PROOF** — green ≠ true | Tests prove correctness; the browser/curl proves existence. The four-step proof chain (commit → push → deploy → test live) is non-negotiable. | You ship a green test and a stale user. You say "it works" because the CI is green. |
 | [08](08-dna.md) | **DESIGN DNA** — taste > executable contract | Lineage → psychology → constraint → tokens → regression. The five stages turn "make it look like Dr Non" into a checkable brief. | You inherit a design system and flatten it. You ship a UI that nobody can tell from another agent-built site. |
 | [11](11-close.md) | **CLOSE THE LOOP** — walk > learn > reconstruct | Three personas (first-time, second-time, extreme) find complementary bugs. Output is Now / Next / Later / Never. Power of hindsight is collect → analyze → reconstruct. | You stop at "shipped." You never reconstruct the patchwork. The Frankenstein year never ends. |
-| [12](12-ship.md) | **SHIP** — the system in one sentence | The secret is not the model. Five categories (memory, design, catalog, ship, risk) each carry one thing that survives. **The best stack is the one that ships.** | You over-engineer. You under-verify. You write the 70th skill instead of rebuilding the 30 that already work. |
+| [12](12-ship.md) | **SHIP** — the system in one sentence | The secret is not the model. Five categories (memory, design, catalog, ship, risk) each carry one thing that survives. **The best stack is the one that ships.** | You over-engineer. You under-verify. You write another skill instead of rebuilding the ones that already work. |
 
 The pages 01 → 03 → 05 → 07 → 08 → 11 → 12 are the **load-bearing argument**. Read them in order once, then drop in on the one you need.
 

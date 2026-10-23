@@ -42,7 +42,7 @@ Write the active path into the workspace index (Tier 1) so this is a lookup, not
 
 Routing decides *where* to go once you already know the shape of the tree. Some
 trees are too big to hold that shape in your head — this practice's own skills
-repository crossed that line: 167 skills, ~850 files. Reconstructing "what
+repository crossed that line: past 160 skills and ~850 files. Reconstructing "what
 changed, what overlaps" after a week away took a dozen `grep`/`find`/`git log`
 calls in one session, each one a fresh scan the previous one should have made
 unnecessary.

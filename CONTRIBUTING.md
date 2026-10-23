@@ -48,12 +48,49 @@ python3 scripts/validate_repo.py
 ```
 
 If you added a skill, a playbook, a reference or a template, the gate will
-point at every surface that still holds the old number. Write the new ones
+point at every file that still holds the old number. Write the counts it owns
 mechanically:
 
 ```bash
 make sync-counts   # rewrites the count claims, then runs the gate
 ```
+
+The writer owns the badge, the tree map, the four-shapes table, the AGENTS
+contract, the deck, the ecosystem reference, BLUEPRINT, QUICKSTART,
+INFOGRAPHICS and the examples in this file. A
+count in a skill file is yours to fix: the writer cannot know whether "33
+skills" is somebody else's collection, so it leaves the sentence alone and the
+gate keeps failing until you write it — as the truth, or as a hyphenated
+compound.
+
+The writer also refuses a line that holds a count claim and another number the
+gate cannot read, rather than rewriting one and leaving the other. It says
+which line it refused, and the gate fails on it: two generations of the same
+count in one sentence is a sentence nobody can trust.
+
+Every change the writer makes is printed — file, line, old number, new number.
+Read them. The writer makes a number true; it does not know what your sentence
+meant, so a count that was meant as a ceiling becomes the collection's size,
+and only you can tell that from the diff.
+
+### How to write a count so the gate can read it
+
+The gate reads one shape of claim: a number next to the word that names the
+shape — `184 skills`, `17 playbooks`, `14 references`, `21 templates`, and the
+repo's own variants (`184 \`SKILL.md\` files`, `17 narratives`, `14 docs`,
+`21 drop-ins`). A bare claim in that shape states the size of *this* collection,
+so it must be true.
+
+A number that belongs to something else has to be written so it cannot be read
+that way:
+
+| Meaning | Write it like this | Not like this |
+|---|---|---|
+| Another collection | a 91-skill collection | a bare `N skills` claim |
+| A subset of this one | a 20-skill set | a bare `N skills` claim |
+| A difference | 47 more skills | — (already excluded) |
+| A threshold | past 160 skills, at most 20 skills | — (already excluded) |
+| A past state | the 167-skill repo of that day | — (already excluded) |
 
 The validator checks:
 
@@ -63,8 +100,8 @@ The validator checks:
 - local Markdown links outside fenced examples;
 - sequential, unique playbook numbering, and a README list that holds every playbook;
 - README and AGENTS count claims, including badge alts and QUICKSTART/BLUEPRINT expect counts;
-- every count claim in prose — the badge, the four-shapes table, the tree, the AGENTS contract, the deck and the infographic companion — against the tree;
-- list items that run into each other, in any markdown file;
+- every count claim in prose, in every live file — the badge, the four-shapes table, the tree, the AGENTS contract, the deck, the ecosystem reference and the skill files — against the tree;
+- list items and table rows that run into each other, in any markdown file;
 - Codex and Claude plugin packaging;
 - additive installation that preserves skills from other authors and vendors;
 - OS metadata and unfinished placeholders.

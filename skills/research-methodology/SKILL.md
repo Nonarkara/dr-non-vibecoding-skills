@@ -17,7 +17,7 @@ This skill is the *decision logic* for doing research — gathering, evaluating,
 
 The discipline is the same whether the research is for a market analysis, a technical decision, a scientific question, or a legal brief. The medium differs; the *path* is universal.
 
-**Provenance:** distilled from three converging practices — the K-Dense Scientific Agent Skills library (165 research skills, the largest open collection), the Anthropic Cybersecurity Skills library (818 skills with evidence-bounded hypothesis generation), and the repo's own [`data-catalog`](../data-catalog/SKILL.md) (the data side), [`qualitative-reasoning`](../qualitative-reasoning/SKILL.md) (the judgment side), and [`power-of-hindsight`](../power-of-hindsight/SKILL.md) (the retrospective side). The skill is the *path* distilled from the 165 + 818 skills' discipline, not the vendored content.
+**Provenance:** distilled from three converging practices — the K-Dense Scientific Agent Skills library (a 165-skill research collection, the largest open collection), the Anthropic Cybersecurity Skills library (an 818-skill library with evidence-bounded hypothesis generation), and the repo's own [`data-catalog`](../data-catalog/SKILL.md) (the data side), [`qualitative-reasoning`](../qualitative-reasoning/SKILL.md) (the judgment side), and [`power-of-hindsight`](../power-of-hindsight/SKILL.md) (the retrospective side). The skill is the *path* distilled from the 165- and 818-skill collections' discipline, not the vendored content.
 
 ---
 

@@ -60,10 +60,10 @@ Always run with `--dry-run` first to see the host list and the count.
 
 ```bash
 ./setup.sh --become-builder --dry-run
-# would install 169 skills → /Users/<you>/.claude/skills  (claude)
-# would install 169 skills → /Users/<you>/.agents/skills  (codex)
-# would install 169 skills → /Users/<you>/.gemini/antigravity/skills  (antigravity)
-# dry-run: no files changed (expected 169 skills)
+# installs every skill in this repo → /Users/<you>/.claude/skills  (claude)
+# installs every skill in this repo → /Users/<you>/.agents/skills  (codex)
+# installs every skill in this repo → /Users/<you>/.gemini/antigravity/skills  (antigravity)
+# dry-run: no files changed (the count is printed)
 ```
 
 Post-install, the count is verified: if the destination does not contain the expected number of skill folders, the script warns. The check is the safeguard against a partial rsync.
@@ -175,7 +175,7 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 - **The Makefile wraps `setup.sh` for muscle memory** (`make install-skills`, `make validate`, `make test`). The Makefile does not duplicate the logic; if a flag changes in `setup.sh`, the Makefile picks it up automatically.
 - **`scripts/new-project.sh` is a sibling of `--init-project`.** They produce the same output; the flag is preferred for new work. `new-project.sh` remains the path-mode entry for shells that don't like long flags.
 - **The 4-question pre-flight is the only friction by design.** Adding a fifth question is a breaking change for any script that wraps the bootstrap. State an assumption and move on.
-- **The validator's `description_chars` budget is 151 per skill × N skills.** Adding a new skill pushes the budget up automatically. Adding a skill with a description that exceeds 180 characters fails the gate outright.
+- **The validator's `description_chars` budget is 151 characters × N skills.** Adding a new skill pushes the budget up automatically. Adding a skill with a description that exceeds 180 characters fails the gate outright.
 - **The AGENTS.md mirror must stay under 32 KiB** (Codex's default budget). The validator enforces it. If a routing table grows past it, split the table into a per-domain file.
 
 ---
@@ -183,7 +183,7 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 ## The check
 
 ```
-□ ./setup.sh --become-builder --dry-run shows 169 skills to the detected hosts
+□ ./setup.sh --become-builder --dry-run shows the skill count to the detected hosts
 □ ./setup.sh --become-builder (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc. and prints "You are Dr Non the Builder"
 □ ./setup.sh --validate passes with the current skill/playbook/reference/template counts and no errors
 □ ./setup.sh --init-project <test-path> generates a project with no unfilled placeholder brackets

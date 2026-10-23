@@ -27,51 +27,124 @@ MAX_SKILL_NAME_LENGTH = 64
 ALLOWED_FRONTMATTER_KEYS = {"name", "description", "license", "allowed-tools", "metadata"}
 
 # --- Prose counts -------------------------------------------------------------
-# The badge in the README is the inventory. These surfaces restate the same
-# count in prose, and each one has drifted at least once, in two generations
-# (the deck said 69 in its body and 169 in its headline while the tree held
-# 184). A gate that only reads the badge cannot see any of that, so the deck's
-# own line — "the counts are deliberate, the validator enforces them" — was
-# false. These are the surfaces the check now reads.
+# The badge in the README is the inventory. Other places restate the same count
+# in prose, and each one has drifted at least once, in two generations (the
+# deck said 69 in its body and 169 in its headline while the tree held 184).
+# A gate that only reads the badge cannot see any of that, so the deck's own
+# line — "the counts are deliberate, the validator enforces them" — was false.
 #
-# Dated records are deliberately excluded: docs/lessons/ and docs/relay/ record
-# what the repo held on the day they were written, and a stale number there is
-# a receipt, not a lie.
+# The first version of this gate read the four shape words only, and only in
+# the five files the README badge sits next to. An independent review showed it
+# missing the README's own tree diagram ("# 169 modular agent capabilities"),
+# four deck pages, and three skill files outside the list — every one of them
+# stale, and all of them invisible to `make validate`. So the rule is now
+# broader on both axes: one definition of a count claim, and that definition
+# read on every live file in the repo.
+#
+# Dated records are deliberately excluded: docs/lessons/, docs/relay/ and
+# JOURNAL.md record what the repo held on the day they were written, and a
+# stale number there is a receipt, not a lie.
 COUNT_SURFACE_FILES = (
     "README.md",
     "AGENTS.md",
     "BLUEPRINT.md",
     "QUICKSTART.md",
     "INFOGRAPHICS.md",
+    "CONTRIBUTING.md",
+    "reference/stack-ecosystem.md",
 )
 COUNT_SURFACE_DIRS = ("docs/deck",)
 
-# A count claim is a bare number immediately followed by a word that names a
-# shape of this collection, with nothing before it — because "~20 skills" and
-# "1-2 skills" are thresholds and "35+ book-derived skills" is somebody else's
-# collection. A number sitting behind a comparison word is a threshold too, so
-# "more than 33 skills" is not a claim about the collection.
-#
-# The four shape words take two digits or more: a one-digit number in that form
-# is a threshold ("load more than 3 skills"). Every other form below names the
-# collection outright, so a single digit is still a count. Each form below is a
-# way this repo actually writes the number; each names its label.
+DATED_RECORD_DIRS = ("docs/lessons", "docs/relay")
+DATED_RECORD_FILES = ("JOURNAL.md",)
+
+# The words this repo uses for its four shapes, and the shape each one names.
+# A count claim is a number followed — within two adjectives — by one of these.
+# The list is the repo's own vocabulary, not a generic dictionary: it has to
+# catch "16 narrative war stories" and "184 `SKILL.md` files" as well as the
+# plain "184 skills", or the README's own tree map stays unreadable to the
+# gate that is supposed to police it.
+SHAPE_ALIASES = {
+    "war stories": "playbooks",
+    "scaffolding files": "templates",
+    "`skill.md` files": "skills",
+    "skill.md files": "skills",
+    "skill files": "skills",
+    "skill descriptions": "skills",
+    "numbered playbooks": "playbooks",
+    "narratives": "playbooks",
+    "capabilities": "skills",
+    "blueprints": "references",
+    "drop-ins": "templates",
+    "docs": "references",
+    "skills": "skills",
+    "playbooks": "playbooks",
+    "references": "references",
+    "templates": "templates",
+}
+
+# A number behind a comparison word is a threshold, not a claim about the
+# collection: "more than 33 skills", "past 160 skills", "at most 20 skills".
 _NOT_A_THRESHOLD = (
     "(?<!than )(?<!past )(?<!over )(?<!under )(?<!fewer )(?<!less )(?<!least )"
-    "(?<!more )(?<!up to )(?<!only )(?<!just )(?<!at least )"
-)
-COUNT_CLAIM_PATTERNS = (
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d{{2,}})\s+(skills|playbooks|references|templates)\b"), None),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+skill\s+(?:descriptions|files)\b"), "skills"),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+numbered\s+playbooks\b"), "playbooks"),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+`SKILL\.md`\s+files\b"), "skills"),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+narratives\b"), "playbooks"),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+docs\b"), "references"),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+drop-ins\b"), "templates"),
-    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+answers\b"), "skills"),
-    (re.compile(r"load all (\d+) on every task"), "skills"),
+    "(?<!more )(?<!up to )(?<!only )(?<!just )(?<!at least )(?<!at most )"
+    "(?<!below )(?<!roughly )(?<!around )(?<!about )(?<!no more than )"
+    "(?<!beyond )(?<!above )(?<!nearly )(?<!some )(?<!approximately )(?<!exactly )"
 )
 
+# A number owned by something else is not the total either: "its 25 skills"
+# belongs to a skill, "47 more skills" is a difference. The possessives sit
+# before the number, the deltas after it, and both are exclusions.
+_NOT_A_POSSESSIVE = (
+    "(?<!its )(?<!their )(?<!our )(?<!your )(?<!my )(?<!his )(?<!her )"
+    "(?<!these )(?<!those )(?<!any )(?<!such )"
+)
+_NOT_A_DELTA = "(?!(?:more|other|others|extra|additional|per)\\s)"
+
+# A year is not a count. "The 2026 skills catalogue" is a date wearing a
+# noun, and the writer rewriting it to "The 184 skills catalogue" is the kind
+# of sentence nobody wants in a repository.
+_NOT_A_YEAR = "(?!(?:19|20)\\d\\d\\b)"
+
+_ALIAS_PATTERN = "|".join(
+    # The docs publish the escaped form — \`SKILL.md\` files — as often as the
+    # plain one, and the gate has to read both or the repo's own canonical
+    # example is the one form it cannot see.
+    re.escape(alias).replace(r"\ ", r"\s+").replace("`", r"\\?`")
+    for alias in sorted(SHAPE_ALIASES, key=len, reverse=True)
+)
+
+# Two digits is the floor. A one-digit number in this shape is a local thing —
+# "3 docs", "2 drop-ins" — and never the size of a collection that holds
+# hundreds. It is not a threshold; it is just not this collection.
+#
+# "N per something" is a rate, not a total: "20 docs per folder" is not a
+# claim that the repo holds twenty references.
+COUNT_CLAIM_PATTERN = re.compile(
+    rf"{_NOT_A_THRESHOLD}{_NOT_A_POSSESSIVE}(?<![\w~+<>=-]){_NOT_A_YEAR}"
+    rf"(\d{{1,3}}(?:,\d{{3}})+|\d{{2,}})[*_`]*\s+{_NOT_A_DELTA}"
+    rf"(?:[A-Za-z][\w-]*\s+){{0,2}}(?P<alias>{_ALIAS_PATTERN})\b(?!\.[A-Za-z])"
+    rf"(?!\s+per\b)",
+    re.IGNORECASE,
+)
+
+# A count inside quotation marks is somebody else's sentence. The repo cannot
+# rewrite what another author wrote, and the author cannot rewrite a quoted
+# collection's size into this repo's size — so a quoted count is not a claim.
+QUOTED_SPAN = re.compile(r"\"[^\"]*\"|“[^”]*”")
+
+# Two forms the repo uses that name the collection without naming a shape word
+# next to the number. Both are quoted in the deck; both are counts.
+VERB_CLAIM_PATTERNS = (
+    (re.compile(r"load all (\d{2,})\b"), "skills"),
+    (re.compile(r"scan all (\d{2,})\b"), "skills"),
+)
+
+
+def alias_label(alias: str) -> str | None:
+    """The shape a matched alias names, or None when it names none."""
+    key = re.sub(r"\s+", " ", alias.strip().lower()).replace("\\", "")
+    return SHAPE_ALIASES.get(key)
 
 
 def fail(errors: list[str], message: str) -> None:
@@ -387,11 +460,15 @@ def validate_plugin(errors: list[str]) -> None:
             )
 
 
-def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]:
+def validate_counts(
+    errors: list[str], counts: dict[str, int]
+) -> tuple[int, int, int]:
+    """The badge, the alt text, the mermaid label and the two command lines."""
     playbooks = sorted((ROOT / "playbooks").glob("[0-9][0-9]-*.md"))
-    playbook_count = len(playbooks)
-    reference_count = len(list((ROOT / "reference").glob("*.md")))
-    template_count = len(list((ROOT / "templates").iterdir()))
+    playbook_count = counts["playbooks"]
+    reference_count = counts["references"]
+    template_count = counts["templates"]
+    skill_count = counts["skills"]
     readme = README.read_text(encoding="utf-8")
     agents = AGENTS.read_text(encoding="utf-8")
 
@@ -465,48 +542,118 @@ def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]
     return playbook_count, reference_count, template_count
 
 
+def collection_counts() -> dict[str, int]:
+    """The four counts, computed one way.
+
+    `scripts/sync-counts.py` imports this. An earlier version of the writer
+    counted `skills/*/SKILL.md` while the validator counted skill directories,
+    so a half-written skill folder made the writer a no-op while the checker
+    demanded a number the writer could not produce.
+    """
+    return {
+        "skills": len(
+            [
+                path
+                for path in (ROOT / "skills").iterdir()
+                if path.is_dir() and (path / "SKILL.md").is_file()
+            ]
+        ),
+        "playbooks": len(list((ROOT / "playbooks").glob("[0-9][0-9]-*.md"))),
+        "references": len(list((ROOT / "reference").glob("*.md"))),
+        "templates": len(list((ROOT / "templates").iterdir())),
+    }
+
+
 def count_claims(text: str) -> list[tuple[int, str, int]]:
-    """Every count this collection states in prose: (number, label, line number)."""
+    """Every count this collection states in prose: (number, label, line number).
+
+    Fenced code is read too. The README's tree map and its mermaid graph are
+    both inside a fence, and both state the collection's size — the first
+    version of this gate skipped fences, so the tree map under the badge was
+    the one place on the page the gate could not see.
+
+    A count inside quotation marks is skipped: it is somebody else's sentence,
+    and this repo does not get to rewrite what another author wrote.
+    """
     claims: list[tuple[int, str, int]] = []
     for index, line in enumerate(text.splitlines(), start=1):
-        for pattern, fixed_label in COUNT_CLAIM_PATTERNS:
+        quoted = [(match.start(), match.end()) for match in QUOTED_SPAN.finditer(line)]
+        for match in COUNT_CLAIM_PATTERN.finditer(line):
+            if any(start <= match.start(1) < end for start, end in quoted):
+                continue
+            label = alias_label(match.group("alias"))
+            if label is None:
+                continue
+            claims.append((int(match.group(1).replace(",", "")), label, index))
+        for pattern, label in VERB_CLAIM_PATTERNS:
             for match in pattern.finditer(line):
-                number = int(match.group(1))
-                label = fixed_label or match.group(2)
-                claims.append((number, label, index))
+                claims.append((int(match.group(1)), label, index))
     return claims
 
 
 def count_surfaces() -> list[Path]:
+    """Files whose counts are the collection's own — the ones the writer owns."""
     surfaces = [ROOT / name for name in COUNT_SURFACE_FILES]
     for directory in COUNT_SURFACE_DIRS:
         surfaces.extend(sorted((ROOT / directory).glob("*.md")))
     return [path for path in surfaces if path.exists()]
 
 
+def live_files() -> list[Path]:
+    """Every markdown file that states the repo's size today."""
+    files: list[Path] = []
+    for path in sorted(ROOT.rglob("*.md")):
+        relative = path.relative_to(ROOT)
+        if any(part in {".git", "node_modules", ".venv"} for part in relative.parts):
+            continue
+        text = str(relative)
+        if any(text.startswith(f"{directory}/") for directory in DATED_RECORD_DIRS):
+            continue
+        if text in DATED_RECORD_FILES:
+            continue
+        files.append(path)
+    return files
+
+
 def validate_prose_counts(errors: list[str], counts: dict[str, int]) -> int:
-    """A surface that states the collection's size has to state it right."""
+    """A live file that states the collection's size has to state it right.
+
+    This reads every live file, not only the surfaces the writer owns. A count
+    in a skill file is a count the reader will act on, and three skill files
+    carried stale numbers for years because the gate never looked there.
+    """
     checked = 0
-    for path in count_surfaces():
+    for path in live_files():
         text = path.read_text(encoding="utf-8")
+        seen: set[tuple[int, str, int]] = set()
         for number, label, line in count_claims(text):
             checked += 1
             expected = counts.get(label)
             if expected is None:
                 continue
-            if number != expected:
-                fail(
-                    errors,
-                    f"{path.relative_to(ROOT)}:{line}: says '{number} {label}' "
-                    f"but the repo holds {expected} {label}",
-                )
+            if number == expected:
+                continue
+            key = (number, label, line)
+            if key in seen:
+                # "Do not scan all 184 skills" is one count read two ways.
+                continue
+            seen.add(key)
+            fail(
+                errors,
+                f"{path.relative_to(ROOT)}:{line}: says '{number} {label}' "
+                f"but the repo holds {expected} {label} — write the number, or "
+                f"write it so it cannot be read as the collection's size "
+                f"(a hyphenated compound, a threshold, or another collection)",
+            )
     return checked
 
 
 def validate_playbook_index(errors: list[str], playbooks: list[Path]) -> None:
     """The README's playbook list must be the whole set, in order, numbered right."""
     readme = README.read_text(encoding="utf-8")
-    listed = re.findall(r"(?m)^\s*(\d+)\.\s*\[([^\]]+)\]\((playbooks/[^)]+)\)", readme)
+    listed = re.findall(
+        r"(?m)^\s*(\d+)\.\s*\[([^\]]+)\]\((playbooks/[^)]+)\)", playbook_section(readme)
+    )
     if not listed:
         fail(errors, "README.md: no numbered playbook list found")
         return
@@ -525,26 +672,57 @@ def validate_playbook_index(errors: list[str], playbooks: list[Path]) -> None:
         fail(errors, "README.md: playbook list repeats an entry")
 
 
+def playbook_section(readme: str) -> str:
+    """The Playbooks section of the README, and nothing else.
 
-def validate_markdown_lists(errors: list[str]) -> int:
-    """A list item that swallows the next one loses a line from every reader.
+    The first version of this check scanned the whole README, so a numbered
+    link to a playbook anywhere else in the file was read as a playbook entry
+    and produced a message about entry 1 being numbered 18. The list lives in
+    one section; read that one.
+    """
+    match = re.search(r"(?mi)^##\s+playbooks\b", readme)
+    if not match:
+        return readme
+    rest = readme[match.end() :]
+    next_heading = re.search(r"(?m)^##\s+", rest)
+    return rest[: next_heading.start()] if next_heading else rest
+
+
+def validate_markdown_structure(errors: list[str]) -> int:
+    """A list item or a table row that swallows the next one loses a line.
 
     A missing newline between two bullets is invisible in the diff of a busy
     file and fatal to the document: the second item renders as trailing text
-    inside the first. The contract files are read by agents, not by people
-    skimming, so the structure has to be right.
+    inside the first. The same defect in a table row is worse, because a reader
+    sees one row with extra cells instead of two rows. The contract files are
+    read by agents, not by people skimming, so the structure has to be right.
+
+    Fenced code is skipped: a shell one-liner can hold `||`, and a code block
+    can show a markdown list that is only a list inside the block.
     """
-    pattern = re.compile(r"^\s*[-*]\s.*[a-z0-9.,;:)]\s*[-*]\s+\[")
+    bullet = re.compile(r"^\s*[-*]\s+.*[.!]\s*-\s+")
     checked = 0
     for path in sorted(ROOT.rglob("*.md")):
         if ".git" in path.parts:
             continue
         checked += 1
+        in_fence = False
         for index, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-            if pattern.match(line):
+            stripped = line.strip()
+            if stripped.startswith("```") or stripped.startswith("~~~"):
+                in_fence = not in_fence
+                continue
+            if in_fence:
+                continue
+            if bullet.match(line):
                 fail(
                     errors,
                     f"{path.relative_to(ROOT)}:{index}: a list item runs into the next one",
+                )
+            elif stripped.startswith("|") and "||" in stripped:
+                fail(
+                    errors,
+                    f"{path.relative_to(ROOT)}:{index}: two table rows share one line",
                 )
     return checked
 
@@ -610,23 +788,17 @@ def main() -> int:
     skill_dirs, description_chars = validate_skills(errors)
     checked_links = validate_links(errors)
     validate_plugin(errors)
-    playbook_count, reference_count, template_count = validate_counts(
-        errors, len(skill_dirs)
-    )
-    prose_claims = validate_prose_counts(
-        errors,
-        {
-            "skills": len(skill_dirs),
-            "playbooks": playbook_count,
-            "references": reference_count,
-            "templates": template_count,
-        },
-    )
+    # One count, one source. The writer (scripts/sync-counts.py) imports the
+    # same function, so it can never disagree with the checker about what the
+    # repo holds.
+    counts = collection_counts()
+    playbook_count, reference_count, template_count = validate_counts(errors, counts)
+    prose_claims = validate_prose_counts(errors, counts)
     validate_playbook_index(
         errors, sorted((ROOT / "playbooks").glob("[0-9][0-9]-*.md"))
     )
     validate_hygiene(errors)
-    markdown_files = validate_markdown_lists(errors)
+    markdown_files = validate_markdown_structure(errors)
     validate_installer_safety(errors)
     validate_catalog(errors, skill_dirs)
 

@@ -1,6 +1,6 @@
 # 03 — ROUTE
 
-> **The catalog is a router.** Start with the moment you are in. Load the smallest useful skill set. Do not scan all 71.
+> **The catalog is a router.** Start with the moment you are in. Load the smallest useful skill set. Do not scan all 184 skills.
 
 A router collapses 184 skills to 8. If you know the moment, you know the route. The page is a cheat sheet for the 8 moments a working day actually contains.
 ![ROUTE — the smallest useful path](../../infographics/pages/page-03.png)
@@ -22,7 +22,7 @@ A router collapses 184 skills to 8. If you know the moment, you know the route. 
 
 The 8 moments are not exhaustive. They are the moments that **recur**. Anything one-shot — a typo, a one-line color change — does not need a route; it needs a `fix:` commit.
 
-## Why "load one for the decision" instead of "load all 169"
+## Why "load one for the decision" instead of "load all 184 skills"
 
 Three reasons, in order of cost.
 

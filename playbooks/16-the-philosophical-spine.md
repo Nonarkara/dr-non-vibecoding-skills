@@ -149,7 +149,7 @@ To build sustainable systems that people actually trust, the architecture must d
 
 ---
 
-## 5. How the 100 Skills Map to the Spine
+## 5. How the 100-Skill Map to the Spine
 
 The skills in this repository are not a loose catalog; they are a tiered implementation of this philosophy:
 

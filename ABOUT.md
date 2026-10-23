@@ -103,7 +103,7 @@ The transformation from blog → skills → stack happened in 5 stages over 2024
 
 **Stage 3 — The nonism bundle (2026-09).** Four skills distilled from the corpus in one sitting, via an LLM call against a JSON-shape prompt. The bundle was the first attempt at *systematic* distillation. Of the four, only one (`design-by-writing-100-day-reflection-engine`) was strong enough to ship; the other three were personal-philosophy cheatsheet cards that were stripped or rejected. The lesson: *the discipline travels, the implementation is one of many*.
 
-**Stage 4 — The stack (2026-09).** A new agent (Mavis) joined the work. The skill-curation discipline was formalized: sample 2-4 chapters per theme, extract paths not content, strip personal philosophy, cap at 3 skills per round. The 100-skill milestone was crossed in three rounds of corpus extraction. The 16 playbooks were written to capture the *why* and the *war stories* behind the skills. The 11 references and 13 templates were assembled as the *operational surface* for the stack.
+**Stage 4 — The stack (2026-09).** A new agent (Mavis) joined the work. The skill-curation discipline was formalized: sample 2-4 chapters per theme, extract paths not content, strip personal philosophy, cap at 3 skills per round. The 100-skill milestone was crossed in three rounds of corpus extraction. The playbooks were written to capture the *why* and the *war stories* behind the skills. The references and templates were assembled as the *operational surface* for the stack.
 
 **Stage 5 — The philosophical spine (2026-09).** The 100-skill stack was given a *spine* — the 5 layers (Moral & Judgment Floor, Human-Centered Subject, Aesthetic & Economic Discipline, Systemic & Long-Term Invariants, Epistemic Humility & Truth Gates), the 5 moves for the agent, the 8 rules of cyber-hygiene, the 6 rules of off-grid operation. The spine is the contract: the *why* of every skill, in one document.
 
@@ -123,7 +123,7 @@ The journal is the *what* of the work. The about is the *who* and the *why*. Tog
 
 - **Use the stack.** `./setup.sh --become-builder` is the one-liner. The agent does the rest. If the first user is confused, the journal and the war-stories playbook (`playbooks/06-war-stories.md`) are the recovery path.
 - **Read the corpus.** The 127 posts at [nonharvard.wordpress.com](https://nonharvard.wordpress.com) are the source. The skills in this stack are the distillation. The two are not equivalent; the corpus has the *texture*, the stack has the *shape*.
-- **Suggest changes.** Open an issue. The journal records the discussion. The PR adds the change. The 16 playbooks document the reasoning.
+- **Suggest changes.** Open an issue. The journal records the discussion. The PR adds the change. The playbooks document the reasoning.
 - **Contribute skills.** New skills are added through the same distillation discipline — sample 2-4 sources, extract paths, strip personal content, cap at 3 per round. The `skill-writing` skill is the procedure.
 - **Follow along.** The journal is the timeline. The author writes at the Axiom X studio in Bangkok. The civic work continues.
 
