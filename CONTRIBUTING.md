@@ -47,14 +47,24 @@ Run the same gate as GitHub Actions:
 python3 scripts/validate_repo.py
 ```
 
+If you added a skill, a playbook, a reference or a template, the gate will
+point at every surface that still holds the old number. Write the new ones
+mechanically:
+
+```bash
+make sync-counts   # rewrites the count claims, then runs the gate
+```
+
 The validator checks:
 
 - folder/name/frontmatter agreement and MIT metadata;
 - cross-agent frontmatter compatibility: names at most 64 characters, supported keys only, and YAML-safe descriptions;
 - concise trigger descriptions within the repository discovery budget;
 - local Markdown links outside fenced examples;
-- sequential, unique playbook numbering;
+- sequential, unique playbook numbering, and a README list that holds every playbook;
 - README and AGENTS count claims, including badge alts and QUICKSTART/BLUEPRINT expect counts;
+- every count claim in prose — the badge, the four-shapes table, the tree, the AGENTS contract, the deck and the infographic companion — against the tree;
+- list items that run into each other, in any markdown file;
 - Codex and Claude plugin packaging;
 - additive installation that preserves skills from other authors and vendors;
 - OS metadata and unfinished placeholders.

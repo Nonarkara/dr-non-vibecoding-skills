@@ -284,3 +284,11 @@ fluent-language review remain unverified.
 **Why:** Dr Non’s Shanghai reviews showed that a correctly aligned small cartoon could still be patched onto the page; narrative relationship must be decided before dimensions.
 **Diff:** Root guide, README, ANTI-SLOP and anti-slop skill entrypoint/reference; no new skill or count change.
 **Tags:** `spatial-hallucination · composition · narrative-images · access · codex`
+
+## 2026-10-23 — The badge was never the count
+
+**Date:** 2026-10-23
+**What:** Taught the validator to read the collection's size where it is written in prose — the README tree and four-shapes table, the AGENTS contract, the deck and the infographic companion — proved the gate by mutation, and repaired every number it found, including the README's missing playbook 17 and a list item in AGENTS.md that ran into the next one.
+**Why:** Two harvests had drifted the deck across two generations (69 in the body, 169 in the headline, 184 in the tree) while the gate read only the badge, so the deck's own claim that the validator enforces the counts was false. A corrected number is a snapshot that drifts again; the gate is what stops it.
+**Diff:** `scripts/validate_repo.py`, `scripts/sync-counts.py`, `Makefile`, `README.md`, `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `INFOGRAPHICS.md`, `docs/deck/`, `docs/lessons/2026-10-23-the-badge-was-never-the-count.md`; no skill added, no count changed.
+**Tags:** `counts · gate · drift · deck · validator · mutation-proof`

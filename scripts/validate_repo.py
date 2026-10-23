@@ -26,6 +26,53 @@ MAX_DESCRIPTION_LENGTH = 180
 MAX_SKILL_NAME_LENGTH = 64
 ALLOWED_FRONTMATTER_KEYS = {"name", "description", "license", "allowed-tools", "metadata"}
 
+# --- Prose counts -------------------------------------------------------------
+# The badge in the README is the inventory. These surfaces restate the same
+# count in prose, and each one has drifted at least once, in two generations
+# (the deck said 69 in its body and 169 in its headline while the tree held
+# 184). A gate that only reads the badge cannot see any of that, so the deck's
+# own line — "the counts are deliberate, the validator enforces them" — was
+# false. These are the surfaces the check now reads.
+#
+# Dated records are deliberately excluded: docs/lessons/ and docs/relay/ record
+# what the repo held on the day they were written, and a stale number there is
+# a receipt, not a lie.
+COUNT_SURFACE_FILES = (
+    "README.md",
+    "AGENTS.md",
+    "BLUEPRINT.md",
+    "QUICKSTART.md",
+    "INFOGRAPHICS.md",
+)
+COUNT_SURFACE_DIRS = ("docs/deck",)
+
+# A count claim is a bare number immediately followed by a word that names a
+# shape of this collection, with nothing before it — because "~20 skills" and
+# "1-2 skills" are thresholds and "35+ book-derived skills" is somebody else's
+# collection. A number sitting behind a comparison word is a threshold too, so
+# "more than 33 skills" is not a claim about the collection.
+#
+# The four shape words take two digits or more: a one-digit number in that form
+# is a threshold ("load more than 3 skills"). Every other form below names the
+# collection outright, so a single digit is still a count. Each form below is a
+# way this repo actually writes the number; each names its label.
+_NOT_A_THRESHOLD = (
+    "(?<!than )(?<!past )(?<!over )(?<!under )(?<!fewer )(?<!less )(?<!least )"
+    "(?<!more )(?<!up to )(?<!only )(?<!just )(?<!at least )"
+)
+COUNT_CLAIM_PATTERNS = (
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d{{2,}})\s+(skills|playbooks|references|templates)\b"), None),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+skill\s+(?:descriptions|files)\b"), "skills"),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+numbered\s+playbooks\b"), "playbooks"),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+`SKILL\.md`\s+files\b"), "skills"),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+narratives\b"), "playbooks"),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+docs\b"), "references"),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+drop-ins\b"), "templates"),
+    (re.compile(rf"{_NOT_A_THRESHOLD}(?<![\w~+<>=-])(\d+)\s+answers\b"), "skills"),
+    (re.compile(r"load all (\d+) on every task"), "skills"),
+)
+
+
 
 def fail(errors: list[str], message: str) -> None:
     errors.append(message)
@@ -418,6 +465,90 @@ def validate_counts(errors: list[str], skill_count: int) -> tuple[int, int, int]
     return playbook_count, reference_count, template_count
 
 
+def count_claims(text: str) -> list[tuple[int, str, int]]:
+    """Every count this collection states in prose: (number, label, line number)."""
+    claims: list[tuple[int, str, int]] = []
+    for index, line in enumerate(text.splitlines(), start=1):
+        for pattern, fixed_label in COUNT_CLAIM_PATTERNS:
+            for match in pattern.finditer(line):
+                number = int(match.group(1))
+                label = fixed_label or match.group(2)
+                claims.append((number, label, index))
+    return claims
+
+
+def count_surfaces() -> list[Path]:
+    surfaces = [ROOT / name for name in COUNT_SURFACE_FILES]
+    for directory in COUNT_SURFACE_DIRS:
+        surfaces.extend(sorted((ROOT / directory).glob("*.md")))
+    return [path for path in surfaces if path.exists()]
+
+
+def validate_prose_counts(errors: list[str], counts: dict[str, int]) -> int:
+    """A surface that states the collection's size has to state it right."""
+    checked = 0
+    for path in count_surfaces():
+        text = path.read_text(encoding="utf-8")
+        for number, label, line in count_claims(text):
+            checked += 1
+            expected = counts.get(label)
+            if expected is None:
+                continue
+            if number != expected:
+                fail(
+                    errors,
+                    f"{path.relative_to(ROOT)}:{line}: says '{number} {label}' "
+                    f"but the repo holds {expected} {label}",
+                )
+    return checked
+
+
+def validate_playbook_index(errors: list[str], playbooks: list[Path]) -> None:
+    """The README's playbook list must be the whole set, in order, numbered right."""
+    readme = README.read_text(encoding="utf-8")
+    listed = re.findall(r"(?m)^\s*(\d+)\.\s*\[([^\]]+)\]\((playbooks/[^)]+)\)", readme)
+    if not listed:
+        fail(errors, "README.md: no numbered playbook list found")
+        return
+    for position, (number, _title, target) in enumerate(listed, start=1):
+        if int(number) != position:
+            fail(
+                errors,
+                f"README.md: playbook list entry {position} is numbered {number}",
+            )
+    paths = [target for _number, _title, target in listed]
+    for playbook in playbooks:
+        relative = f"playbooks/{playbook.name}"
+        if relative not in paths:
+            fail(errors, f"README.md: playbook list is missing {relative}")
+    if len(paths) != len(set(paths)):
+        fail(errors, "README.md: playbook list repeats an entry")
+
+
+
+def validate_markdown_lists(errors: list[str]) -> int:
+    """A list item that swallows the next one loses a line from every reader.
+
+    A missing newline between two bullets is invisible in the diff of a busy
+    file and fatal to the document: the second item renders as trailing text
+    inside the first. The contract files are read by agents, not by people
+    skimming, so the structure has to be right.
+    """
+    pattern = re.compile(r"^\s*[-*]\s.*[a-z0-9.,;:)]\s*[-*]\s+\[")
+    checked = 0
+    for path in sorted(ROOT.rglob("*.md")):
+        if ".git" in path.parts:
+            continue
+        checked += 1
+        for index, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if pattern.match(line):
+                fail(
+                    errors,
+                    f"{path.relative_to(ROOT)}:{index}: a list item runs into the next one",
+                )
+    return checked
+
+
 def validate_hygiene(errors: list[str]) -> None:
     import subprocess
     # Only flag .DS_Store if it's tracked by git. macOS Finder auto-creates
@@ -482,7 +613,20 @@ def main() -> int:
     playbook_count, reference_count, template_count = validate_counts(
         errors, len(skill_dirs)
     )
+    prose_claims = validate_prose_counts(
+        errors,
+        {
+            "skills": len(skill_dirs),
+            "playbooks": playbook_count,
+            "references": reference_count,
+            "templates": template_count,
+        },
+    )
+    validate_playbook_index(
+        errors, sorted((ROOT / "playbooks").glob("[0-9][0-9]-*.md"))
+    )
     validate_hygiene(errors)
+    markdown_files = validate_markdown_lists(errors)
     validate_installer_safety(errors)
     validate_catalog(errors, skill_dirs)
 
@@ -502,7 +646,8 @@ def main() -> int:
     print(
         f"OK: {len(skill_dirs)} skills ({description_chars}/{DESCRIPTION_BUDGET_PER_SKILL * len(skill_dirs)} description chars), "
         f"{playbook_count} playbooks, {reference_count} references, {template_count} templates, "
-        f"{checked_links} local links, plugin packaging, repository hygiene, AGENTS.md budget"
+        f"{checked_links} local links, {prose_claims} prose counts, {markdown_files} markdown files, "
+        f"plugin packaging, repository hygiene, AGENTS.md budget"
     )
     return 0
 

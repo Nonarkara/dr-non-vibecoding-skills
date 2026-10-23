@@ -26,7 +26,7 @@ The five are the **survival set**. A practice that loses one of them is a practi
 
 The line at the top of the page is the most important line in the deck. It is also the most counter-intuitive.
 
-The model is the loudest variable in the system. Every six months a new model ships, and the practice's apparent relevance is questioned. **The model is not the system.** The system is the four shapes wired into one routing loop, with the 169 skills carrying the load-bearing judgments and the 17 templates carrying the load-bearing files.
+The model is the loudest variable in the system. Every six months a new model ships, and the practice's apparent relevance is questioned. **The model is not the system.** The system is the four shapes wired into one routing loop, with the 184 skills carrying the load-bearing judgments and the 21 templates carrying the load-bearing files.
 A new model arrives. The practice does not change. The skills are still the skills. The contracts are still the contracts. The deploy is still the deploy. The model's contribution is **the speed at which the practice can execute** — not the practice itself.
 
 This is the difference between a model-as-substitute and a model-as-tool. A model-as-substitute replaces the operator; the operator's judgments stop mattering. A model-as-tool is a typist that does the writing; the operator's judgments are still the ones that matter. The practice assumes model-as-tool. The collection of skills, templates, references, and playbooks is what survives whether the model is GPT-5, Claude 4, Gemini 3, or whatever ships next year.
@@ -38,14 +38,14 @@ The second line is the second-most important line. It is the **operating instruc
 - **Decide once.** Every decision in this collection was made because a real incident or a real constraint forced the decision. The skill body carries the decision; the playbook carries the incident; the reference carries the stable details. A new contributor does not re-derive the decision. They look it up.
 - **Look up forever.** The skills are static markdown. The model can be queried against them indefinitely. The cost of a lookup is one description match; the cost of re-deriving the decision is one hour of confused reading. The practice is biased toward lookups, every time.
 
-The 169 skills are the lookups. The 16 playbooks are the receipts for the lookups. The 14 references are the stable implementation details. The 17 templates are the drop-in files. The whole collection is the **decision ledger** that compounds.
+The 184 skills are the lookups. The 17 playbooks are the receipts for the lookups. The 14 references are the stable implementation details. The 21 templates are the drop-in files. The whole collection is the **decision ledger** that compounds.
 ## The golden rule
 
 **The best stack is the one that ships.**
 
 The golden rule is the bottom of the page for a reason. It is the **test** the practice applies to itself. A skill that does not ship is removed. A template that does not get copied is removed. A reference that does not get read is removed. A playbook that does not get cited is removed. The collection is conserved by what it actually does, not by what it says about itself.
 
-The corollary is **the worst stack is the one that does not ship.** A 70-skill collection that nobody uses is a graveyard. A 1-skill collection that somebody uses every day is a practice. The number of skills is not the score; the **number of shipped changes per quarter, each backed by a real proof, each informed by a real lesson** is the score.
+The corollary is **the worst stack is the one that does not ship.** A large collection that nobody uses is a graveyard. A single skill that somebody uses every day is a practice. The number of skills is not the score; the **number of shipped changes per quarter, each backed by a real proof, each informed by a real lesson** is the score.
 
 ## What to do with this
 

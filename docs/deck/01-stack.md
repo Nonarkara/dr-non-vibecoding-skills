@@ -3,7 +3,7 @@
 > **A written operating system for AI-assisted software shipping.**
 > Plain markdown · No runtime · Agent-agnostic
 
-**The system's secret is not the model.** It is the four shapes — **169 skills**, **16 playbooks**, **14 references**, **17 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
+**The system's secret is not the model.** It is the four shapes — **184 skills**, **17 playbooks**, **14 references**, **21 templates** — wired into one routing loop, with the count being a real number and not a marketing claim.
 ![STACK — the package at a glance](../../infographics/pages/page-01.png)
 
 ---
@@ -14,12 +14,12 @@ A new contributor usually reads the README, sees the table, and concludes there 
 
 There is one product. The four shapes are **four views of the same practice**, not four separate products:
 
-- **Skills** are the standing instructions an agent loads — 69 `SKILL.md` files in `skills/`. Each is a one-decision change, with a trigger word, a test, and a body.
-- **Playbooks** are the incidents and reasoning — 15 narratives in `playbooks/`. Why the skill exists, what it was born from, what was refused.
-- **References** are the stable implementation details — 7 docs in `reference/`. APIs, stack picks, commit style, named references, security hygiene, hosting, payments/voice.
+- **Skills** are the standing instructions an agent loads — 184 `SKILL.md` files in `skills/`. Each is a one-decision change, with a trigger word, a test, and a body.
+- **Playbooks** are the incidents and reasoning — 17 narratives in `playbooks/`. Why the skill exists, what it was born from, what was refused.
+- **References** are the stable implementation details — 14 docs in `reference/`. APIs, stack picks, commit style, named references, security hygiene, hosting, payments/voice.
 - **Templates** are the drop-in files — 12 in `templates/`. CLAUDE.md, AGENTS.md, deploy script, launchd plist, tunnel config, lesson doc, plus the workspace indexes and the env / gitignore / design-tokens starters.
 
-The counts are deliberate. The validator enforces them. Adding a 70th skill bumps the description-character budget automatically; the gate keeps every addition honest.
+The counts are deliberate. The validator enforces them — in the badge, in this table, in every page of the deck, and in the AGENTS contract. Adding a skill bumps the description-character budget automatically; the gate keeps every addition honest.
 
 ## Plain markdown, no runtime, agent-agnostic
 
@@ -53,14 +53,14 @@ The loop is what makes the four shapes a **stack**. A library of 69 unconnected 
 
 The two short captions on the page are the whole point of the deck:
 
-- **Taste + memory out of your head.** The reason the practice has a 12th template, a 6th design principle, an Axiom Design Core at all, is that the load-bearing judgment — *what is good, what is the right shape for this surface, what the user notices first* — has to be written down. If it lives only in your head, it dies with your attention, and the next session is a re-derivation.
-- **Repeated decisions = lookups.** The 169 skills are not 169 things to memorise. They are indexed lookups. The next time you face the decision "did the deploy actually reach the user," you do not solve the problem; you look up `deploy-verification` and read the recipe. The catalog is a router. The skill is the answer. The reference is the why.
+- **Taste + memory out of your head.** The reason the practice has another template, an Axiom Design Core at all, is that the load-bearing judgment — *what is good, what is the right shape for this surface, what the user notices first* — has to be written down. If it lives only in your head, it dies with your attention, and the next session is a re-derivation.
+- **Repeated decisions = lookups.** The 184 skills are not 169 things to memorise. They are indexed lookups. The next time you face the decision "did the deploy actually reach the user," you do not solve the problem; you look up `deploy-verification` and read the recipe. The catalog is a router. The skill is the answer. The reference is the why.
 The collection is a **written operating system** because the alternative — re-deriving the same answers from first principles every session — is what kills the throughput of working with agents.
 
 ## What to do with this
 
 - **Read this page before you read the README.** The README is the inventory; this page is the argument. If you only read the README, you know what is in the box. If you only read this page, you know why the box is shaped that way. You need both.
-- **Run `./setup.sh --become-builder` once per machine, then run `make validate` after every change to the skills or the playbooks.** The validator is the gate; the install is the activation.
+- **Run `./setup.sh --become-builder` once per machine, then run `make validate` after every change to the skills or the playbooks.** The validator is the gate; the install is the activation. If the gate names a count, `make sync-counts` writes the right number rather than your guess.
 - **When a session ends, ask: what part of the loop did we just do, and what is next?** If the answer is "we shipped," the next step is walkthrough. If the answer is "we walked through," the next step is hindsight. If you cannot answer, the loop has been forgotten.
 
 ## Pairs with

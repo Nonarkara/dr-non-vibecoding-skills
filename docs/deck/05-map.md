@@ -1,6 +1,6 @@
 # 05 — MAP
 
-> **A decision map, not a toolbox.** 169 skills, grouped by the decision they change. Eight categories. One skill per category is the daily ceiling; everything else is a lookup.
+> **A decision map, not a toolbox.** 184 skills, grouped by the decision they change. Eight categories. One skill per category is the daily ceiling; everything else is a lookup.
 The map is the whole-system view at a glance. The route (page 03) is the moment-by-moment index. The map is what the route draws from.
 
 ![MAP — how to see the whole system](../../infographics/pages/page-05.png)
@@ -22,7 +22,7 @@ Each category owns a different question. A new skill lands in the category whose
 | **Local AI / Retrieval** | Operable, no SaaS. FTS5 before vectors, one machine before a fabric. | `local-llm-ollama`, `simple-rag`, `obsidian-mcp-forge`, `improvement-radar`, `messaging-gateway`, `staff-swarm` |
 | **Close the Loop** | Ship is not the end. The system needs to be walked, learned from, and reconstructed. | `human-walkthrough`, `power-of-hindsight` |
 
-The categories are not arbitrary. They fall out of a question the practice asks on every commit: *is this change a thing the agent does, a thing the project remembers, a thing the production survives, a thing the user sees, a thing the operator has to judge, a thing the world pushes back on, or a thing the loop has to close?* Eight questions, eight categories, 69 answers.
+The categories are not arbitrary. They fall out of a question the practice asks on every commit: *is this change a thing the agent does, a thing the project remembers, a thing the production survives, a thing the user sees, a thing the operator has to judge, a thing the world pushes back on, or a thing the loop has to close?* Eight questions, eight categories, 184 answers.
 
 ## Why "decision map, not a toolbox"
 

@@ -1,5 +1,5 @@
 # Dr Non's Vibe Coding Stack — Makefile
-.PHONY: help become-builder install-skills init-project audit validate test relay-status relay-check make-it-mine repo-map
+.PHONY: help become-builder install-skills init-project audit validate sync-counts test relay-status relay-check make-it-mine repo-map
 
 help:
 	@./setup.sh --help
@@ -18,6 +18,9 @@ audit:
 
 validate:
 	@python3 scripts/validate_repo.py
+
+sync-counts:
+	@python3 scripts/sync-counts.py
 
 make-it-mine:
 	@./scripts/make-it-mine.sh --help

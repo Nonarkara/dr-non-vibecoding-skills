@@ -31,8 +31,10 @@ anything — it carries the constraints that a handoff would otherwise lose.
 ## What this repo is
 
 The meta layer: skills, playbooks, references, and templates for shipping with
-agents. No runtime, nothing to compile. Counts live on eleven surfaces and
-`make validate` is the only authority — never hand-edit one of them.
+agents. No runtime, nothing to compile. Counts live on every surface that
+states them, and `make validate` is the only authority — never hand-edit one of
+them. After you add a skill or a playbook, `make sync-counts` writes the new
+numbers and `make validate` proves them.
 
 ## Anti-regression
 
