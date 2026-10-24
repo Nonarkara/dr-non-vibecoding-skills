@@ -1,0 +1,8 @@
+# Copy to the app repo root.
+# The hook builds a Go binary on first run. Run that on the M5, not the M3.
+# CLI licence: MIT. Do not switch this to gitleaks-action (commercial EULA).
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e # v8.30.1
+    hooks:
+      - id: gitleaks
