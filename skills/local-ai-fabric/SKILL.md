@@ -22,6 +22,8 @@ M5 Max (128GB, "the beast")          M3 Air (16GB, always-on)
 ```
 The small always-on machine holds the gateway; the big sometimes-on machine holds the capable model. Any bot or dashboard talks to the gateway, never to Ollama directly — the gateway is what stays reachable.
 
+Which jobs belong on which machine, including the M3 swap and disk gate, is in [`machine-routing.md`](../../machine-routing.md). The full picture is [`now-stack.md`](../../now-stack.md).
+
 ## The operator gateway — `_toolkit/axiom-ops/operator/server.mjs`
 
 Zero npm dependencies, Node 22.5+ (`node:sqlite`), OpenAI-compatible: `POST /v1/chat/completions`, `GET /health`.

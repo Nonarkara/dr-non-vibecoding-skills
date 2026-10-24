@@ -171,3 +171,4 @@ Run the fixture script. It must flag every `bad-*` file and pass every `good-*` 
 - [`../observability-budget/SKILL.md`](../observability-budget/SKILL.md) — what should wake a person; the budget alert here is the dollar version
 - [`../rate-limiting/SKILL.md`](../rate-limiting/SKILL.md) — the shape of a limit; the binding above is the Workers form
 - [`../wrong-green/SKILL.md`](../wrong-green/SKILL.md) — a green deploy can leave the alarm running
+- [`../../now-stack.md`](../../now-stack.md) — where Cloudflare sits, and the rule that a budget email is not a spending cap

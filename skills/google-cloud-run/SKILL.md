@@ -12,6 +12,8 @@ Google Cloud Run is the premier hosting target for the Thinker-to-Doer practice:
 - **Generous Free Tier:** 2 million requests, 180,000 vCPU-seconds, and 360,000 GiB-seconds per month. Check the current vendor page before repeating these — free-tier figures move, and quoting a stale one is the same error as inventing one.
 - **Zero Ingress Hassle:** Instant Google-managed SSL certificates for custom domains.
 
+Billing stays on the free tier, with no card on the Google account. If a command or the console asks for a card, stop. See [`now-stack.md`](../../now-stack.md).
+
 ---
 
 ## The Two Deployment Paths

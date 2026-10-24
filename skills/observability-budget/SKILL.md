@@ -93,3 +93,5 @@ Count the alerts. Count how many you acted on. If fewer than half were actionabl
 ## The test
 
 Kill the upstream dependency deliberately, on a weekday afternoon. Time how long until something reaches your one channel, and read the message on your phone without opening anything else. If you cannot tell what broke and what to do from that message alone, the alert is not finished.
+
+The owner's paging rule: an outage shorter than 10 minutes does not page. Write that floor into the wake list. The rest of the stack is [`now-stack.md`](../../now-stack.md).

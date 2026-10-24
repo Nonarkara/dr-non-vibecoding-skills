@@ -149,3 +149,5 @@ If your service can't answer that in one line, you don't have a service. You hav
 Personal projects with the operational properties of production systems: they survive reboots, restart on crash, hold public HTTPS URLs, back themselves up, and tell you when they're sick.
 
 Cost: a domain, some `.plist` files, and about an hour the first time.
+
+The M3 is the always-on machine, and it swaps. The swap and disk gate, and which jobs stay off it, are in [`now-stack.md`](../../now-stack.md) and [`machine-routing.md`](../../machine-routing.md).

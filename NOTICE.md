@@ -33,3 +33,8 @@ writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)".
 This repository is independent studio writing. It is not an official product of
 depa, ASEAN, any municipality, or any UN body. It is not affiliated with
 Anthropic, Vercel, YC, Trail of Bits, Every Inc., or those skill authors.
+
+`now-stack.md`, `machine-routing.md`, and `stack-gaps.md` cite the owner's
+open-source toolbox and the tools named in `docs/credits-now-stack.md`. Those
+pages describe the practice. They do not vendor the toolbox or those tools.
+Palette is MIT at <https://github.com/Nonarkara/palette>.
