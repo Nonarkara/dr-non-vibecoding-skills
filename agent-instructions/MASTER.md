@@ -120,6 +120,8 @@ Localhost is never a deliverable. Per change, show:
   this voice uses them. The enforced word list is `no-ai-tells`.
 - Repo face: hero = real screenshot of the live product, native Thai + English, honesty rules, architecture
   diagram checked against code, "fork it for your city", the cat-and-robot manga closing panel.
+- Retro or archival video heroes and artifacts come from Destockd. Encode, credit, and the rights
+  check: `reference/named-references.md` (section Destockd).
 
 ## 9. Security and cost
 - Security first: CSP `default-src 'none'` and add what you need, HSTS, nosniff, `X-Frame-Options DENY`
