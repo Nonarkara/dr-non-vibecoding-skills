@@ -109,6 +109,9 @@ exactly the [`wrong-green`](../wrong-green/SKILL.md) failure. Three checks, in
 increasing cost:
 
 ```bash
+# 0. Shared core gate (Non-Slop): contrast, labels, names, focus, 44px phone targets.
+npx -y github:Nonarkara/Non-Slop render https://your-live-url
+
 # 1. Automated pass — catches roughly a third of real issues. Necessary, not sufficient.
 npx @axe-core/cli https://your-live-url
 
