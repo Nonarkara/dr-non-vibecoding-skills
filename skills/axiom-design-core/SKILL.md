@@ -180,3 +180,6 @@ Influences: [kuras3/product-ui-design](https://github.com/kuras3/product-ui-desi
 - [`design-dna`](../design-dna/SKILL.md) — the enforcement layer: tokens, CSS resets, the exact regression phrasing to grep for
 - [Design at the speed of light](../../playbooks/07-design-at-the-speed-of-light.md) — how this philosophy stays fast instead of becoming a bottleneck
 - [`BLUEPRINT.md`](../../BLUEPRINT.md) — bootstraps a new project with these defaults already wired in
+
+<!-- decision-geometry-route:v1 -->
+For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.

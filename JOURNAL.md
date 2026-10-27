@@ -284,3 +284,11 @@ fluent-language review remain unverified.
 **Why:** Dr Non’s Shanghai reviews showed that a correctly aligned small cartoon could still be patched onto the page; narrative relationship must be decided before dimensions.
 **Diff:** Root guide, README, ANTI-SLOP and anti-slop skill entrypoint/reference; no new skill or count change.
 **Tags:** `spatial-hallucination · composition · narrative-images · access · codex`
+
+## 2026-10-27 — Task geometry becomes a shared release concern
+
+- What: add the expansion-chain diagnosis and decision-proximity/preservation gate to existing anti-slop guidance, templates and agent entry points.
+- Why: the Khao Lak pilot passed styling checks while a stretched map, large title and repeated reading bands displaced the useful task.
+- Diff: DECISION-GEOMETRY.md; tools/decision-geometry/; anti-slop reference; project templates; CI regression job.
+- Proof: browser fixture at four viewport sizes; deliberately oversized, stretched, distant, hidden, bleeding, clipped and obstructed states fail. Independent review prompted offscreen-preservation and report-boundary fixes.
+- Tags: spatial-hallucination, anti-slop, task-geometry, preservation.

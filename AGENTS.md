@@ -2,6 +2,19 @@
 
 # AGENTS.md — entry point for non-Claude agents
 
+<!-- decision-geometry:v1 -->
+## Task geometry before styling
+
+Read [Decision geometry](DECISION-GEOMETRY.md) for every UI composition change.
+Trace oversized introductions, sibling-stretched maps and separated controls to
+the first unnecessary expansion. Keep the task, its evidence and its next action
+legible together. Color, typography, alignment and zero horizontal overflow do
+not clear a failed composition. Preserve earned content and operating regions;
+use task-specific budgets, real viewport/state captures, a failing regression
+mutation and independent review. The guide's fixture numbers are not universal.
+<!-- /decision-geometry:v1 -->
+
+
 > This file is the **mirror**, not the source. The canonical agent instructions for this repo live in the per-skill `SKILL.md` files inside `skills/` and the per-project `CLAUDE.md` style content inside each skill's body. This file exists so that any agent — Codex, Aider, OpenCode, Cursor, Gemini CLI, Devin, the OpenAI family — can land in this repo, read one file, and know what to do next.
 
 If you are a Claude-based agent reading this repo, your entry point is the workspace's own `CLAUDE.md` (Tier 1), the project's `CLAUDE.md` (Tier 2), and the lesson docs in `docs/lessons/` (Tier 3). See `skills/agent-memory/SKILL.md` for the ladder.

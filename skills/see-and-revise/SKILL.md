@@ -109,3 +109,6 @@ Re-run step 1 for the changed surface, then step 3. Stop when either is true:
 ## The test
 
 Point at the screenshot, the specific finding in the shared audit vocabulary, the fix, and the re-screenshot that confirms it — and be able to say no human looked at any of those images before you shipped. If any step happened from reasoning about code rather than looking at a rendered image, the loop did not close; it only looked like it did.
+
+<!-- decision-geometry-route:v1 -->
+For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.

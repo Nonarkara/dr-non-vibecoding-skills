@@ -105,3 +105,6 @@ Recorded so a later agent reading the same sources does not re-import them.
 ```
 
 Pairs with `no-design-tells` (the general layer), `legible-systems` (paths, edges, districts, nodes, landmarks), `honest-envelope`, `cognition-first`.
+
+<!-- decision-geometry-route:v1 -->
+For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.

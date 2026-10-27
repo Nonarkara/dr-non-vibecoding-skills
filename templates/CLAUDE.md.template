@@ -82,3 +82,15 @@ up" unless you've said it's deliberate.>
 
 🟢 active / active / dormant — as of YYYY-MM.
 <If dormant: what's pruned and what command resurrects it.>
+
+## Task geometry release rule
+
+For UI work, trace oversized regions, sibling stretch and separated controls to
+their first unnecessary expansion. Preserve the map/chart/content and keep the
+primary information and action legible together. Record task-specific dimensions,
+chrome, section height and decision proximity at 390/1024/1440 and the actual
+working viewport. Prove a regression mutation fails the same budget. Palette,
+type and source-lint checks do not clear geometry. Use the design framework's
+DECISION-GEOMETRY.md or the installed anti-slop skill; if browser evidence is
+unavailable, report unverified. Do not install tools or rewrite unrelated UI
+solely because this template exists.

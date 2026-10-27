@@ -7,6 +7,16 @@ license: MIT
 ---
 # Anti-slop design rules (hard rules)
 
+## Task geometry is a release concern
+
+For oversized intros, sibling-stretched maps, separated controls or repeated
+explanations, read [Decision geometry](references/decision-geometry.md).
+Measure the whole task composition before styling. Preserve usable maps,
+complete qualifications, readable labels and working controls; prove the old
+expansion fails a task-specific budget. A clean font/color/overflow scan is not
+rendered clearance.
+
+
 These are known AI design-slop patterns. Check every page against them before shipping, and fix any hit. They come on top of the house design system (Palette) and any map rule such as the map taking most of the screen.
 
 The original seven rules below are Dr Non's existing local skill, now packaged
