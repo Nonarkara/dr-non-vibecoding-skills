@@ -229,3 +229,14 @@ headings identify the task, and keep necessary qualifications at their decision
 point. Do not repair the page by hiding controls, shrinking text or removing
 working content. [Decision geometry](https://github.com/Nonarkara/Non-Slop/blob/main/DECISION-GEOMETRY.md) defines the measurement,
 regression mutation and review evidence; its budgets are product-specific.
+
+## Glance path and kinetic grid
+
+Canonical text: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). Change the rules there. Until those files are on `main`, the enforceable copy in this stack is `ANTI-SLOP.md` and `skills/anti-slop-design/SKILL.md`.
+
+TODO(non-slop): neither canonical file is on `main` yet (checked 2026-11-02; no glance-path or kinetic-grid pull request). Enforce the four lines below until both are live, then delete the lines and keep the links.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

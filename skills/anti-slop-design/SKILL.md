@@ -66,7 +66,7 @@ Conventional controls stay familiar; authorship comes from the content's arrange
 
 ## Review checklist (run before shipping)
 1. Screenshot the page at 1440, 1024 and 390 px wide.
-2. Check each of rules 1 to 7 above, and list every hit with its element.
+2. Check each of rules 1 to 7 above, and glance path / kinetic grid below. List every hit with its element.
 3. Fix the hits, then screenshot again.
 4. Have a different agent or person check the result; never self-review.
 
@@ -77,3 +77,16 @@ completed worksheet certifies taste, accessibility or human authorship.
 ## Spatial relationships and narrative images
 
 When a composition is aligned yet arbitrary, or an image feels pasted beside text, read [Anti-spatial-hallucination](references/spatial-hallucination.md). It defines image roles, hero/overlay acceptance, whitespace intent and responsive evidence. Do not enlarge every image or weaken the host project’s style rules. This packaged reference mirrors the root guide; update both together.
+
+## Glance path and kinetic grid
+
+Canonical text: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). Change the rules there. The repo copy is [`ANTI-SLOP.md`](../../ANTI-SLOP.md); the MSH gate is [`no-design-tells`](../no-design-tells/SKILL.md).
+
+TODO(non-slop): neither file is on `main` yet (checked 2026-11-02; no glance-path or kinetic-grid pull request). Enforce the four lines below until both are live, then delete the lines and keep the links.
+
+Judge these on the screenshot. A source lint does not score them.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

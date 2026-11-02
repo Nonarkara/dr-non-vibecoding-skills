@@ -34,7 +34,7 @@ Before shipping any interface someone will act on — civic, safety, money, heal
 
 ## Related
 
-[`accessible-by-default`](../accessible-by-default/SKILL.md) · [`adversarial-review`](../adversarial-review/SKILL.md)
+[`accessible-by-default`](../accessible-by-default/SKILL.md) · [`adversarial-review`](../adversarial-review/SKILL.md) · glance path and kinetic grid in [`anti-slop-design`](../anti-slop-design/SKILL.md) (visual gravity, no leapfrog, extreme scale on a grid set first, snap motion and a skeleton). Canonical: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). TODO(non-slop): those files are not on `main` yet (2026-11-02).
 
 ## Anti-slop design rules (hard rules)
 

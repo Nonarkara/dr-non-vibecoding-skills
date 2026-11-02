@@ -78,3 +78,16 @@ Apps whose maps show victims' or reporters' personal data were not pictured or q
 ## Composition and image placement
 
 Read [Anti-spatial-hallucination](ANTI-SPATIAL-HALLUCINATION.md) for the relationship-level review: why this position, size and distance, and whether a narrative image or another composition serves the task. The standalone anti-slop skill packages the same guide.
+
+## Glance path and kinetic grid
+
+Canonical text: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). Change the rules there. The packaged skill is [`skills/anti-slop-design`](skills/anti-slop-design/SKILL.md); the MSH gate is [`skills/no-design-tells`](skills/no-design-tells/SKILL.md).
+
+TODO(non-slop): neither file is on `main` yet (checked 2026-11-02; no glance-path or kinetic-grid pull request). Enforce the four lines below until both are live, then delete the lines and keep the links.
+
+Judge these on the screenshot. `slop-lint` does not score them.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

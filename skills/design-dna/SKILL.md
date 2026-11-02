@@ -128,3 +128,6 @@ If no, you don't have a design system. You have defaults.
 
 <!-- decision-geometry-route:v1 -->
 For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.
+
+<!-- glance-path-kinetic-grid:v1 -->
+Also enforce glance path and kinetic grid from that skill: the headline or CTA sits on the exit of the dominant visual, with no dead zone above a heavy hero; related text does not leapfrog a huge image; a layout break needs extreme scale contrast and a grid set first; motion snaps and loading is a skeleton. Canonical: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). TODO(non-slop): those files are not on `main` yet (2026-11-02).

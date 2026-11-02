@@ -101,6 +101,7 @@ Recorded so a later agent reading the same sources does not re-import them.
 □ Is every loading state driven by real async?
 □ Does every interactive element actually do something?
 □ Swap the logo — would anyone notice?
+□ Glance path and kinetic grid: visual gravity, no leapfrog over a huge image, extreme scale on a grid set first, snap motion, skeleton loading?
 □ Do any two screens differ only in card contents?
 ```
 
@@ -108,3 +109,6 @@ Pairs with `no-design-tells` (the general layer), `legible-systems` (paths, edge
 
 <!-- decision-geometry-route:v1 -->
 For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.
+
+<!-- glance-path-kinetic-grid:v1 -->
+Also enforce glance path and kinetic grid from that skill: the headline or CTA sits on the exit of the dominant visual, with no dead zone above a heavy hero; related text does not leapfrog a huge image; a layout break needs extreme scale contrast and a grid set first; motion snaps and loading is a skeleton. Canonical: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). TODO(non-slop): those files are not on `main` yet (2026-11-02).
