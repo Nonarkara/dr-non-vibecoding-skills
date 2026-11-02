@@ -10,7 +10,7 @@
 
 Background: KMITL (Thailand), MIT (Fulbright), Oxford, Harvard (PhD in anthropology of urban China). Ten years of fieldwork in Shanghai on housing, displacement, and the lilong typology. Three years of research and consulting in Bangkok on smart-city deployments, sensor grids, and the policy/human-rights interface.
 
-The civic-studio practice has shipped: live civic sensor grids (air quality, water, traffic), open-data dashboards, AI-assisted mapping, and the digital-twin infrastructure for several Thai municipalities. The lessons from shipping those — what works, what the operator actually needs at 2 AM, what makes a deployment survive a government transition — are the load-bearing ideas in the skills below.
+The civic-studio practice has shipped: live civic sensor grids (air quality, water, traffic), open-data dashboards, AI-assisted mapping, and the digital-twin infrastructure for several Thai municipalities. The same desk ships animated games and sims, cinematic flyovers, city twins, and GLB walkthroughs. Those are first-class project types beside the civic work. The lessons from shipping them — what works, what the operator actually needs at 2 AM, what makes a deployment survive a government transition, what a shared game engine must not fork — are the load-bearing ideas in the skills below.
 
 Independent. Written for a Thai–English audience. Not an official depa, ASEAN, or municipal product.
 

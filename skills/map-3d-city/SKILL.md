@@ -54,3 +54,5 @@ Reimplementing this per project. The paint spec, the height-fallback logic, and 
 ## The one-line version
 
 > Minecraft for the walk-through, MapLibre-native extrusion for the dashboard — and extract the extrusion code the second time you write it, not the fourth.
+
+A directed flyover, a city-twin camera, or a GLB walk is [`3d-flyover-walkthrough`](../3d-flyover-walkthrough/SKILL.md). Extrusion and the Arnis bake stay here. A person finishing a task is [`human-walkthrough`](../human-walkthrough/SKILL.md).

@@ -27,15 +27,41 @@ If you are **any other agent**, this file is yours.
 
 Dr Non's practice, packaged as a fork-and-use system. Four shapes:
 
-- **184 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
+- **192 skills** in `skills/` — plain markdown with YAML frontmatter, agent-agnostic, no runtime.- [`ABOUT.md`](ABOUT.md) is the author, the origin story, and the research lineage. Read it once.
 - [`JOURNAL.md`](JOURNAL.md) is the flight recorder. Every meaningful change to the stack, with the *what*, the *why*, the *diff*, the *tags*. The discipline is `skills/build-journal/SKILL.md`; the AI maintains the journal on the user's behalf.
-- **17 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
+- **18 playbooks** in `playbooks/` — narrative walkthroughs of how the system is actually used.
 - **14 references** in `reference/` — APIs, public datasets, stack picks, named references, hosting, payments/voice, commit style, security hygiene, design extractors, stack ecosystem, named aesthetics, reverse-engineering tree, SEO/GEO connectors, and the Strix pentest boundary.
 - **21 templates** in `templates/` — drop-in files (`CLAUDE.md`, `AGENTS.md`, workspace indexes, deploy + verify scripts, starter dashboard, gitignore, env, design tokens, launchd plist, tunnel config, lesson doc).
 
 *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working. The collection is a stack of four shapes.*
 
 There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
+
+## Project-type router
+
+Civic dashboards are one project type. Animated games, cinematic 3D, and GLB walkthroughs are the others. Load one row from [`playbooks/18-games-flyovers-and-dashboards.md`](playbooks/18-games-flyovers-and-dashboards.md).
+
+| Project | Load |
+|---|---|
+| Maps and dashboards | [`map-api-recycle`](skills/map-api-recycle/SKILL.md), [`geospatial-core`](skills/geospatial-core/SKILL.md), [`map-3d-city`](skills/map-3d-city/SKILL.md), [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md), [`msh-gate`](skills/msh-gate/SKILL.md) |
+| Animated game or sim | [`animated-games`](skills/animated-games/SKILL.md), [`build-check-split`](skills/build-check-split/SKILL.md) |
+| 3D flyover or city twin | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md), then [`map-3d-city`](skills/map-3d-city/SKILL.md) only if the shot is extrusion or an Arnis bake |
+| GLB walkthrough | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md) (GLB tier), [`msh-gate`](skills/msh-gate/SKILL.md) |
+| Which Mac, or a session handoff | [`machine-fleet`](skills/machine-fleet/SKILL.md), [`session-secondbrain-handoff`](skills/session-secondbrain-handoff/SKILL.md) |
+
+`human-walkthrough` is the Mama Rule for a person finishing a task. `map-3d-city` stays dashboard extrusion and the Arnis twin. A camera path is `3d-flyover-walkthrough`.
+
+## SecondBrain
+
+Shared coding memory is the SecondBrain vault through `obsidian-bridge` v2 (14 tools), the same server on every Mac. The Obsidian app can stay closed. There is no Obsidian CLI on this path.
+
+Start: `get_context(project=<exact repo name>, query=<task>)`. End: `capture_coding_session` (`summary`, `decisions`, `changes`, `tests`, `blockers`, `next_steps`). Read `Kit/` before planning. Do not edit `Kit/`, `Soul/`, `Bible/`, or `Vitals/`.
+
+Authority: current `AGENTS.md` → project instructions → `Kit/` → verified Scars and Knowledge → raw sessions.
+
+`Kit/Project-Types.md` names the four project types. `Kit/Machines.md` holds the vault roots: Pro `/Users/nonarkara/Documents/SecondBrain`, Air `/Users/axiom/SecondBrain`, box `/workspace/SecondBrain`, Studio TBD (future always-on hub). Sync is git only. Absolute paths stay in that note and in local `mcp.json`.
+
+Caveat: those Kit notes are on the box through commit `82dcd473`. They are not on Pro and not on GitHub. The Pro vault is mid-rebase. The box is 131 commits ahead and unpushed. Do not claim Kit is live on every Mac. Procedure: [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md), [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md).
 
 ---
 
@@ -79,7 +105,7 @@ cp -R skills/* "$HOME/.claude/skills/"
 #   cp AGENTS.md /path/to/your-project/AGENTS.md
 #   (.cursorrules is legacy — do not generate it)
 # Gemini / Aider / OpenCode / Devin / Hermes / Antigravity — copy only relevant instructions into
-# the rules file that host actually reads; do not load all 183 on every task.
+# the rules file that host actually reads; do not load all 192 on every task.
 # Hermes: ~/.hermes/skills/ · Antigravity: ~/.gemini/antigravity/skills/ & .agents/skills/
 ```
 
@@ -136,11 +162,15 @@ Pick the skill that matches your problem:
 | Impulse is `ls -R` on a multi-project tree | `skills/route-dont-scan/SKILL.md` |
 | Public dashboard or bot 500s when DB hiccups | `skills/dual-write-resilience/SKILL.md` |
 | Agents in fleet repeat each other's mistakes | `skills/shared-memory-hub/SKILL.md` |
+| A coding session should start and end in the vault | `skills/session-secondbrain-handoff/SKILL.md` |
+| A job could run on the Pro, the Air, or the future Studio | `skills/machine-fleet/SKILL.md` |
+| The author is about to call their own work shippable | `skills/build-check-split/SKILL.md` |
 | Agent says "done" without verifying | `skills/ship-discipline/SKILL.md` |
 | Deploy "succeeded" but old version is served | `skills/deploy-verification/SKILL.md` |
 | Side project dies when the laptop closes | `skills/always-on-services/SKILL.md` |
 | Design keeps regressing | `skills/axiom-design-core/SKILL.md` + `skills/design-dna/SKILL.md` |
 | Before any visual design, including composition review | `skills/anti-slop-design/SKILL.md` |
+| A UI merge needs the MSH gate from a different agent | `skills/msh-gate/SKILL.md` |
 | Web best practices need a subject-specific composition, not a template | `skills/bauhaus-human-design/SKILL.md` and its Ruttl composition guide |
 | UI looks agent-built | `skills/no-design-tells/SKILL.md` + `skills/no-ai-tells/SKILL.md` + `skills/dashboard-discipline/SKILL.md` |
 | Copy reads like AI | `skills/no-ai-tells/SKILL.md` + `skills/make-it-stick/SKILL.md` |
@@ -150,6 +180,10 @@ Pick the skill that matches your problem:
 | Asked to "improve X" with no spec | `skills/ninja-innovation/SKILL.md` |
 | Workspace has 90 worktrees and you're afraid to delete | `skills/workspace-lean/SKILL.md` |
 | 3D city map has glitchy overlapping buildings | `skills/map-3d-city/SKILL.md` |
+| A map or feed is about to get a new endpoint | `skills/map-api-recycle/SKILL.md` |
+| An animated game or sim shares an engine across modes | `skills/animated-games/SKILL.md` |
+| A cinematic flyover, city twin, or GLB walkthrough | `skills/3d-flyover-walkthrough/SKILL.md` |
+| Several bots need a glance color and a visual era | `skills/agent-glance-id/SKILL.md` |
 | Navigation feels like a maze | `skills/legible-systems/SKILL.md` |
 | Dep keeps needing "one more patch" | `skills/know-when-to-wait/SKILL.md` |
 | Don't know whether to build first or wait | `skills/dr-non-golden-rules/SKILL.md` |

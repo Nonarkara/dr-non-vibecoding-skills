@@ -39,3 +39,5 @@ Each line is a skill that already exists. The twin is what happens when they all
 ## The test
 
 A stranger opens the URL on a phone, finds the fire / flood / camera they care about in under a minute, and can point at every number's source and age. If they cannot, it is a demo with layers — not a twin.
+
+A directed flyover, a GLB walk, or an animated game is [playbook 18](18-games-flyovers-and-dashboards.md). Extrusion and the Arnis bake stay in `map-3d-city`.

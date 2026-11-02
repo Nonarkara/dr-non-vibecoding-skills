@@ -11,6 +11,8 @@ license: MIT
 
 > Every session ends. The question is not whether the next session starts fresh — it does — but whether the fresh session starts *informed*.
 
+The vault handoff is [`session-secondbrain-handoff`](../session-secondbrain-handoff/SKILL.md). This file is the git checkpoint.
+
 [`agent-memory`](../agent-memory/SKILL.md) is the **project memory**: the durable, long-lived record of what the project is, what the conventions are, what the gotchas are. The context-save is the **session memory**: the short-lived, transient record of what *this* session was doing, what was decided, and what is left. The two are different. The project memory is the same in every session; the session memory is the residue of the one that just ended.
 
 The discipline is older than any tool: a developer closing a ticket writes a note for the developer who picks up the next day. The note has three fields — *what was I doing, what did I decide, what is next*. The next developer reads the note, knows the context, and continues. The context-save is the same note, automated: at the end of the session, a script captures the git state, the open files, the decisions, the remaining work, and writes a single file the next session can read.

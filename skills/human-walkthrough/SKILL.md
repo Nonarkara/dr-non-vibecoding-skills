@@ -11,6 +11,8 @@ license: MIT
 
 > First pass the Mama Rule with a real ordinary user. Then make the system survive three structured personas. The gaps between what they find and what was intended are the blueprint for what to rebuild.
 
+A cinematic camera path, a city-twin flyover, or a GLB walk is [`3d-flyover-walkthrough`](../3d-flyover-walkthrough/SKILL.md). This skill is the person.
+
 This is the structured, multi-persona, browser-driven user test. It is the missing layer between [`browser-as-t`](../browser-as-t/SKILL.md) (verification — "did the change ship?") and `ux-archaeology` (pattern extraction — "what did the prior art do?"). It assumes a working build and a real URL, opens the system through a browser tool, walks it as three different users, and produces a **blueprint** for what to rebuild and a **roadmap** for the order to do it in.
 
 It combines one real first-time-user gate with a structured cognitive walkthrough. The three personas are analytical lenses rather than substitute humans: every action passes the four-question cognitive-walkthrough test (Wharton, Rieman, Lewis, Polson), and the gaps are filed by severity.

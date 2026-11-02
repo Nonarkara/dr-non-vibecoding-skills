@@ -14,7 +14,7 @@ Quota labels in [`reference/free-apis.md`](../../reference/free-apis.md) are sna
 
 ## 1. The Decision Ladder for External Data
 
-Before adding an external data source or asking for API credentials, climb this ladder:
+Before adding an external data source or asking for API credentials, check [`map-api-recycle`](../map-api-recycle/SKILL.md) for a map or city feed, then climb this ladder:
 
 ```
 1. Is the data published by a public institution (USGS, World Bank, Open-Meteo, ECB)?

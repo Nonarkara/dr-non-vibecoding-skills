@@ -10,6 +10,8 @@ license: MIT
 
 > A same-model photocopy is not a review. Assume a flaw; stop when you cannot confirm a new one.
 
+Shipability of UI, games, and 3D also requires [`build-check-split`](../build-check-split/SKILL.md). The author does not close that gate.
+
 Playbook 10 calls this heterogeneous review. Addy Osmani's engineering skills put a QA gate before ship. gstack's `/review` is a specialist who looks for production bugs. Trail of Bits' marketplace is the serious end of this — differential review, false-positive gates, a *second opinion* on another CLI — and it is CC-BY-SA, so **this file is original procedure**, not their text.
 
 Influences: [Addy Osmani's agent skills](https://github.com/addyosmani/agent-skills),

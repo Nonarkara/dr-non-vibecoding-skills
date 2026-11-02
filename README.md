@@ -7,18 +7,20 @@ A mentor and a student, one Mac, a city outside the window. The banner is illust
 **The Thinker → Doer Operating System: Shipping Real Software and Real Businesses with AI Agents.**
 
 A fork-and-use stack for pairing with AI agents: Markdown skills, playbooks,
-references and drop-in templates. Much of the practice comes from live civic
-systems; the new security skills are preventive guidance, not a claim that every
-control has been deployed. Skills need no runtime; executable helpers list theirs.
+references and drop-in templates. The practice ships civic dashboards and maps,
+animated games and sims, and cinematic 3D: flyovers, city twins, and GLB
+walkthroughs. Much of the early proof is live civic systems. The security skills
+are preventive guidance, and they are not a claim that every control has been
+deployed. Skills need no runtime; executable helpers list theirs.
 
-Civic is the proof, not the prerequisite. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
+Civic work is one project type in the router below. *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working.*
 
 [![Validate skills repository](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/Nonarkara/dr-non-vibecoding-skills/actions/workflows/validate.yml)
-[![Skills: 184](https://img.shields.io/badge/skills-184-F59E0B)](skills/)[![Playbooks: 17](https://img.shields.io/badge/playbooks-17-1A1A1A)](playbooks/)
+[![Skills: 192](https://img.shields.io/badge/skills-192-F59E0B)](skills/)[![Playbooks: 18](https://img.shields.io/badge/playbooks-18-1A1A1A)](playbooks/)
 [![Templates: 21](https://img.shields.io/badge/templates-21-0F766E)](templates/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-1A1A1A)](LICENSE)
 
-**184 skills** · **17 playbooks** · **14 references** · **21 templates**
+**192 skills** · **18 playbooks** · **14 references** · **21 templates**
 
 **Author.** [Non Arkaraprasertkul](https://github.com/Nonarkara) (Nonarkara) — architect, urban anthropologist, civic-studio practice at **Axiom X Co., Ltd.**, Bangkok.
 
@@ -73,6 +75,24 @@ No install, no plugin, no repo. If it changes how your agent behaves, the rest o
 this repository is the durable version of the same thing.
 
 วางไฟล์เดียว ใช้ได้กับเอเจนต์ทุกตัว ไม่ต้องติดตั้งอะไรเลย
+
+---
+
+## Which project is this?
+
+Load one row. The long form is [playbook 18](playbooks/18-games-flyovers-and-dashboards.md). `Kit/Project-Types.md` in the vault is the owner's list when that checkout actually has the file. It is on the box, not yet on Pro or GitHub. See [SecondBrain](skills/obsidian-mcp-forge/SKILL.md).
+
+| Project | Load |
+|---|---|
+| Maps and dashboards | [`map-api-recycle`](skills/map-api-recycle/SKILL.md), [`geospatial-core`](skills/geospatial-core/SKILL.md), [`map-3d-city`](skills/map-3d-city/SKILL.md), [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md), [`phone-first`](skills/phone-first/SKILL.md), [`msh-gate`](skills/msh-gate/SKILL.md) |
+| Animated game or sim | [`animated-games`](skills/animated-games/SKILL.md), [`build-check-split`](skills/build-check-split/SKILL.md) |
+| 3D flyover or city twin | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md). [`map-3d-city`](skills/map-3d-city/SKILL.md) only when the shot is extrusion or an Arnis bake |
+| GLB walkthrough | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md) (GLB tier), [`msh-gate`](skills/msh-gate/SKILL.md) |
+| Hybrid | The row for the surface the person sees first, then [`build-check-split`](skills/build-check-split/SKILL.md) |
+| Session start and stop | [`session-secondbrain-handoff`](skills/session-secondbrain-handoff/SKILL.md) |
+| Which Mac | [`machine-fleet`](skills/machine-fleet/SKILL.md) |
+
+`human-walkthrough` is the Mama Rule. A camera path is `3d-flyover-walkthrough`.
 
 ---
 
@@ -325,7 +345,10 @@ Every popular repository provides one piece of the puzzle. This practice unites 
 | Multi-agent parallel coordination | [`staff-swarm`](skills/staff-swarm/SKILL.md) + [`subagent-routing`](skills/subagent-routing/SKILL.md) | Token tiers (Gemini Flash for bulk, Gemini Pro / Sonnet for adapters, Opus for architecture) with bounded briefs. |
 | Directing an agent in eleven seconds instead of a paragraph | [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) + [`HANDSHAKE.md`](HANDSHAKE.md) | The prompt is short because the repository is long. Nine prompt patterns and the failure mode of misreading each. |
 | Agents handing work to each other across sessions and vendors | [`agent-relay`](skills/agent-relay/SKILL.md) + [`scripts/relay.sh`](scripts/relay.sh) | A baton, an append-only ledger, `Relay-*` commit trailers, and a mandatory verdict on the previous leg. Read the diff before the summary; stop after two clean legs. |
-| Map layers that fit on a phone | [`geospatial-core`](skills/geospatial-core/SKILL.md) | Source, CRS, simplification tolerance and precision in a manifest beside every layer. Static GeoJSON on a CDN until it hurts; `[lon, lat]`, never `[lat, lon]`. |
+| Map layers that fit on a phone | [`geospatial-core`](skills/geospatial-core/SKILL.md) + [`map-api-recycle`](skills/map-api-recycle/SKILL.md) | Source, CRS, simplification tolerance and precision in a manifest beside every layer. Port a proven adapter before adding an endpoint. `[lon, lat]`, never `[lat, lon]`. |
+| An animated game or sim with arcade and board modes | [`animated-games`](skills/animated-games/SKILL.md) | One engine, a recorded hash, and a playtester who did not write the build. Phantom-ball and ghost-possession fail the merge. |
+| A flyover, a city twin, or a GLB walk | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md) | Shallowest tier that holds the shot. MapLibre extrusion and Arnis stay in [`map-3d-city`](skills/map-3d-city/SKILL.md). No invented coordinates. |
+| UI the author reviewed alone | [`build-check-split`](skills/build-check-split/SKILL.md) + [`msh-gate`](skills/msh-gate/SKILL.md) | A different agent runs the MSH review before merge. |
 | Data that exists only as a web page | [`deep-scraping`](skills/deep-scraping/SKILL.md) | Store raw, then parse from raw — a selector change costs seconds, not a re-crawl. A scraper returning zero rows fails loudly instead of quietly emptying the dashboard. |
 | Real-world sensory perception | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) + [`home-cctv-grid`](skills/home-cctv-grid/SKILL.md) + [`satellite-change-watch`](skills/satellite-change-watch/SKILL.md) | Telegram/Line bots with cited RAG; RTSP/ONVIF local camera grids; dated satellite time-stacks for flood/fire awareness. |
 | Zero-cost public APIs & datasets | [`public-api-integration`](skills/public-api-integration/SKILL.md) + [`reference/free-apis.md`](reference/free-apis.md) + [`reference/public-datasets.md`](reference/public-datasets.md) | Direct browser-to-data integration without keys, paid tiers, or backend overhead. SWR cache & CORS safety. |
@@ -356,6 +379,7 @@ Every rule in this repository was paid for by a real production incident:
 | Express middleware parsed JSON before Stripe webhook signature check | [`stripe-checkout-billing`](skills/stripe-checkout-billing/SKILL.md) |
 | Two files in this repo quoted the same free-tier figures in opposite order, written weeks apart | [`agent-relay`](skills/agent-relay/SKILL.md) |
 | A Codex-written Durable Object alarm rescheduled itself with `Date.now()`; @shmily7 paid a US$10,811.41 Cloudflare bill on 8 Oct 2026 | [`cf-runaway-cost`](skills/cf-runaway-cost/SKILL.md) |
+| Soccer twin: a rendered ball the simulation did not own, or possession the state did not assign | [`animated-games`](skills/animated-games/SKILL.md) |
 
 The row above links the rule. Longer write-ups of the older rows are in [`playbooks/06-war-stories.md`](playbooks/06-war-stories.md) and [`playbooks/11-the-2026-steal-map.md`](playbooks/11-the-2026-steal-map.md).
 
@@ -469,7 +493,7 @@ If the brief is terse or compound, decode it with $prompt-like-dr-non before sta
 
 ## Playbooks: Read Once, Internalize Forever
 
-The 16 numbered playbooks record the lived field experience behind the rules:
+The numbered playbooks record the lived field experience behind the rules:
 
 1. [How I actually code](playbooks/01-how-i-actually-code.md) — The daily solo-builder rhythm.
 2. [The CLAUDE.md ladder](playbooks/02-the-claude-md-ladder.md) — Three tiers of persistent project contracts.
@@ -487,6 +511,8 @@ The 16 numbered playbooks record the lived field experience behind the rules:
 14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 15. [How Dr Non prompts](playbooks/15-how-dr-non-prompts.md) — Eleven seconds of typing that produces three hours of work, and the four things you must already have for it to.
 16. [The philosophical spine](playbooks/16-the-philosophical-spine.md) — Ontology, virtue ethics, and why pure utilitarian AI optimization breaks without human grounding.
+17. [Security from source to edge](playbooks/17-security-from-source-to-edge.md) — Enforced boundaries and failure tests, not a scanner badge.
+18. [Games, flyovers, and dashboards](playbooks/18-games-flyovers-and-dashboards.md) — Load order for maps, animated games, city-twin flyovers, and GLB walkthroughs.
 
 ---
 
@@ -496,7 +522,7 @@ Short node labels ensure clean rendering in GitHub Markdown without truncation:
 
 ```mermaid
 flowchart TB
-  S["184 skills"] --> A["Your agent"]  P["17 playbooks"] --> A
+  S["192 skills"] --> A["Your agent"]  P["18 playbooks"] --> A
   R["14 refs"] --> A
   T["21 templates"] --> A
   A --> W["Project contract"]

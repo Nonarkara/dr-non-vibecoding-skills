@@ -292,3 +292,13 @@ fluent-language review remain unverified.
 - Diff: DECISION-GEOMETRY.md; tools/decision-geometry/; anti-slop reference; project templates; CI regression job.
 - Proof: browser fixture at four viewport sizes; deliberately oversized, stretched, distant, hidden, bleeding, clipped and obstructed states fail. Independent review prompted offscreen-preservation and report-boundary fixes.
 - Tags: spatial-hallucination, anti-slop, task-geometry, preservation.
+
+---
+
+## 2026-11-02 — Games, flyovers, and the SecondBrain handoff
+
+**Date:** 2026-11-02
+**What:** Added eight skills and playbook 18 so the stack routes maps, animated games, city-twin flyovers, and GLB walkthroughs. Refreshed the SecondBrain bridge notes to obsidian-bridge v2. Skill count 192, playbooks 18.
+**Why:** The catalog still read as civic dashboards. The soccer twin's phantom-ball and ghost-possession, and cinematic 3D, had no loadable skill. Kit notes are on the box through `82dcd473` and are not on Pro or GitHub yet, so the skills record the intended shape and say so.
+**Diff:** `skills/animated-games/`, `skills/3d-flyover-walkthrough/`, `skills/msh-gate/`, `skills/map-api-recycle/`, `skills/build-check-split/`, `skills/agent-glance-id/`, `skills/machine-fleet/`, `skills/session-secondbrain-handoff/`, `skills/obsidian-mcp-forge/`, `skills/shared-memory-hub/`, `playbooks/18-games-flyovers-and-dashboards.md`, README, CATALOG, AGENTS, ABOUT
+**Tags:** `games · 3d · msh · second-brain · counts`

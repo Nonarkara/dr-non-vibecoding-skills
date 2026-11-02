@@ -25,6 +25,24 @@ records choices and actual task evidence. This adds a working method, not a tast
 | After a year of patches | [`power-of-hindsight`](skills/power-of-hindsight/SKILL.md) |
 | Picking up another agent's commits | [`agent-relay`](skills/agent-relay/SKILL.md) |
 | Reading a terse or compound brief | [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) |
+| An animated game or sim | [`animated-games`](skills/animated-games/SKILL.md) + [`build-check-split`](skills/build-check-split/SKILL.md) |
+| A flyover, city twin, or GLB walk | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md) + [`msh-gate`](skills/msh-gate/SKILL.md) |
+| A map that needs data | [`map-api-recycle`](skills/map-api-recycle/SKILL.md) + [`geospatial-core`](skills/geospatial-core/SKILL.md) |
+| Which Mac, or a vault handoff | [`machine-fleet`](skills/machine-fleet/SKILL.md) + [`session-secondbrain-handoff`](skills/session-secondbrain-handoff/SKILL.md) |
+
+## Project-type router
+
+Civic dashboards, animated games, and cinematic 3D are one practice. Load the matching row in [playbook 18](playbooks/18-games-flyovers-and-dashboards.md). `Kit/Project-Types.md` is the owner's list when the vault checkout on this machine has it (animated game/sim, 3D flyover/city twin, GLB walkthrough, maps). That note is not on every Mac yet.
+
+| Project | Load |
+|---|---|
+| Maps and dashboards | [`map-api-recycle`](skills/map-api-recycle/SKILL.md), [`map-3d-city`](skills/map-3d-city/SKILL.md), [`dashboard-discipline`](skills/dashboard-discipline/SKILL.md), [`msh-gate`](skills/msh-gate/SKILL.md) |
+| Animated game or sim | [`animated-games`](skills/animated-games/SKILL.md), [`build-check-split`](skills/build-check-split/SKILL.md) |
+| 3D flyover or city twin | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md); [`map-3d-city`](skills/map-3d-city/SKILL.md) when the shot is extrusion or Arnis |
+| GLB walkthrough | [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md) |
+| Hybrid | The surface the person sees first, then [`build-check-split`](skills/build-check-split/SKILL.md) |
+
+`human-walkthrough` is the Mama Rule. A camera path stays in `3d-flyover-walkthrough`. `ANTI-SPATIAL-HALLUCINATION.md` and `ANTI-SLOP.md` stay the composition guides.
 
 ## Think, build, review, ship
 
@@ -42,6 +60,7 @@ records choices and actual task evidence. This adds a working method, not a tast
 | [`anti-regression`](skills/anti-regression/SKILL.md) | Protect earned behavior and distinctive UI from destructive cleanup. Use before large rewrites or edits to maps, canvases, HUDs, and mature files. |
 | [`systems-thinking`](skills/systems-thinking/SKILL.md) | Map feedback loops, flows, time horizons, and leverage points. Use when a problem keeps returning or a local fix creates long-term system cost. |
 | [`adversarial-review`](skills/adversarial-review/SKILL.md) | Run a flaw-seeking second pass with executable evidence. Use before merge, after risky changes, or when the author would otherwise review their own work. |
+| [`build-check-split`](skills/build-check-split/SKILL.md) | Let a different agent decide whether work is shippable. Use before merge on UI, games, or 3D. Do not treat the author's own review as the gate. |
 | [`browser-as-t`](skills/browser-as-t/SKILL.md) | Verify user-visible changes by exercising real browser flows. Use for UI, routing, forms, or client state; skip docs-only and server-only work. |
 | [`see-and-revise`](skills/see-and-revise/SKILL.md) | Screenshot a real UI change and critique it with vision against the design system, then revise. Use after any layout, spacing, type, color, or motion change. |
 | [`browser-use`](skills/browser-use/SKILL.md) | Use when an agent must drive a real browser to fill a form, navigate a flow, or complete a multi-step user journey. Pairs with browser-as-t. |
@@ -67,7 +86,9 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | Skill | Load it when… |
 |---|---|
 | [`agent-memory`](skills/agent-memory/SKILL.md) | Write project context that survives sessions. Use when creating AGENTS.md or CLAUDE.md, recording gotchas, or repeatedly re-explaining a repository. |
-| [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Persist verified lessons across agents in an Obsidian-backed memory hub. Use when capturing cross-session decisions, failures, and project context. |
+| [`shared-memory-hub`](skills/shared-memory-hub/SKILL.md) | Persist lessons in the SecondBrain vault through obsidian-bridge. Use when capturing cross-session decisions. Do not edit Kit, Soul, Bible, or Vitals. |
+| [`session-secondbrain-handoff`](skills/session-secondbrain-handoff/SKILL.md) | Open with get_context and write the handoff via capture_coding_session. Use at coding session start and stop. Do not use the Obsidian app or its CLI. |
+| [`machine-fleet`](skills/machine-fleet/SKILL.md) | Route work across the live Pro, the Air, and the future Studio hub. Use when a job could run on more than one Mac. Do not invent a Studio path or SKU. |
 | [`harness-hardening`](skills/harness-hardening/SKILL.md) | Audit whether agent rules, specialists, and hooks actually exist and fire. Use when setting up or debugging an AI coding harness. |
 | [`mcp-cli-first`](skills/mcp-cli-first/SKILL.md) | Use the strongest operation surface: connector, CLI, API, then GUI. Use when a cloud or service action can be executed instead of described. |
 | [`subagent-routing`](skills/subagent-routing/SKILL.md) | Decide whether to delegate and write a six-field brief. Use when a bounded subtask, independent review, or parallel work could justify a fresh agent. |
@@ -106,6 +127,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`caveman`](skills/caveman/SKILL.md) | Caveman output: 65% fewer tokens, byte-exact code and errors. Use when agent output is bloated. Pairs with ponytail for code brevity. |
 | [`honest-envelope`](skills/honest-envelope/SKILL.md) | Label every displayed number with source, tier, and age. Use for metrics, caches, fallback data, outages, and any live-looking dashboard value. |
 | [`data-catalog`](skills/data-catalog/SKILL.md) | Record reusable data-source contracts and known-good adapters. Use before adding an API or feed, reusing an integration, or responding to upstream drift. |
+| [`map-api-recycle`](skills/map-api-recycle/SKILL.md) | Port a proven map or API adapter before adding an endpoint. Use when a map or feed needs data. Do not invent coordinates or a second client. |
 | [`couple-dont-silo`](skills/couple-dont-silo/SKILL.md) | Layer unrelated public datasets against each other for insight, instead of inventing from scratch. Use before building anything from a blank page. |
 | [`public-api-integration`](skills/public-api-integration/SKILL.md) | Select, probe, proxy, and integrate free public APIs and open datasets for zero-friction dashboards. Use when building client-side apps without backend or API costs. |
 | [`research-methodology`](skills/research-methodology/SKILL.md) | Use when a research project must be done — gather, evaluate, synthesize, cite. The 7 moves for research that survives the test of time. Pairs with data-catalog. |
@@ -127,6 +149,7 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`slop-detect-stack`](skills/slop-detect-stack/SKILL.md) | Orchestrator for the four-layer anti-slop stack — code, PR, prose, UI. Use before shipping AI output or when setting up pre-commit/CI/PR gates for AI-assisted work. |
 | [`device-automation`](skills/device-automation/SKILL.md) | Drive a real phone or emulator with vision instead of guessing — ARTEMIS, Appium, or adb. Use to test an app end to end, catch the defect a human eye misses, or prove a UI works on device. |
 | [`anti-slop-design`](skills/anti-slop-design/SKILL.md) | Use before designing, building, reviewing or redesigning any page, site, dashboard, deck or visual, and when checking vibecoded UI for AI design slop. Hard rules that must never be re-created. |
+| [`msh-gate`](skills/msh-gate/SKILL.md) | Fail a UI merge until a different agent runs the MSH review. Use before shipping a page, HUD, or flyover chrome. Do not rewrite the Non-Slop spatial law. |
 | [`framework-choice`](skills/framework-choice/SKILL.md) | Greenfield agent work or choosing between LangGraph, CrewAI, AutoGen, Agno, LlamaIndex — pick the smallest framework that ships |
 | [`plan-and-execute`](skills/plan-and-execute/SKILL.md) | A task has 3+ ordered steps, dependencies between them, or any step can fail — make the agent plan, execute, replan |
 | [`reflection-loop`](skills/reflection-loop/SKILL.md) | Output quality matters and a rubric exists — make the agent critique and revise its own output before shipping |
@@ -160,6 +183,9 @@ Ship is not the end. A screenshot is not a walkthrough. A lesson from one sessio
 | [`legible-systems`](skills/legible-systems/SKILL.md) | Paths, edges, districts, nodes, landmarks. Use for navigation, dashboards, patterns. |
 | [`ux-archaeology`](skills/ux-archaeology/SKILL.md) | Borrow public product patterns and DESIGN.md files without copying pixels or secrets. Use when rebuilding from prior art or evaluating external design systems. |
 | [`map-3d-city`](skills/map-3d-city/SKILL.md) | Render fast 3D city buildings without blocky or overlapping geometry. Use when choosing MapLibre or deck.gl, or repairing city-map extrusion. |
+| [`3d-flyover-walkthrough`](skills/3d-flyover-walkthrough/SKILL.md) | Pick the shallowest 3D tier for a flyover, city twin, or GLB walk. Use for cinematic cameras and walk or fly modes. Do not use for a Mama-rule UX pass. |
+| [`animated-games`](skills/animated-games/SKILL.md) | Keep one game engine honest across arcade and board modes. Use when building or merging an animated game or sim. Do not use for a map dashboard. |
+| [`agent-glance-id`](skills/agent-glance-id/SKILL.md) | Mark each bot with one flat glance color and a distinct visual era. Use when several agents share a desk. Skip a single-agent repo. |
 | [`geospatial-core`](skills/geospatial-core/SKILL.md) | Source, simplify, project, and serve map layers without shipping a 40MB GeoJSON. Use when a surface renders boundaries, points, routes, or basemaps. |
 | [`radar-chart-pattern`](skills/radar-chart-pattern/SKILL.md) | Build or audit dependency-free N-axis radar charts. Use when comparing weighted dimensions or before duplicating polar-coordinate implementations. |
 | [`diagram-design`](skills/diagram-design/SKILL.md) | Use when a diagram must be made (architecture, flow, sequence, state, comparison). The 7 rules for diagrams that survive being looked at. Pairs with radar-chart-pattern. |
@@ -205,7 +231,7 @@ Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, thre
 | [`local-llm-ollama`](skills/local-llm-ollama/SKILL.md) | Run single-machine Ollama with sane models, context, and health checks. Use when starting local inference, working offline, or backing embeddings and drafts locally. |
 | [`free-api-keys`](skills/free-api-keys/SKILL.md) | Use when an agent or operator needs LLM API keys without a credit card, or when provisioning a stack on $0/month. Pairs with local-llm-ollama, free-apis.md. |
 | [`simple-rag`](skills/simple-rag/SKILL.md) | Build a tiny local RAG with SQLite FTS5 first, embeddings only if needed. Use when docs, notes, or a corpus must be searchable with citations and no vector-DB ops. |
-| [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) | Use when agents need cheap shared memory across Cursor, Claude, Codex, and Antigravity without SaaS. The A+ Obsidian coding brain — filesystem bridge + disposable recall. |
+| [`obsidian-mcp-forge`](skills/obsidian-mcp-forge/SKILL.md) | Wire obsidian-bridge v2 to the SecondBrain git vault. Use when agents need shared coding memory with the app closed. Do not use the Obsidian CLI or Local REST. |
 | [`improvement-radar`](skills/improvement-radar/SKILL.md) | Run a weekly watchdog that finds cloneable repos and turns them into steal-map verdicts. Use when keeping a stack excellent without doomscrolling or vendoring packs. |
 | [`messaging-gateway`](skills/messaging-gateway/SKILL.md) | Put a cited local or cloud assistant behind Telegram, LINE, Discord, or WhatsApp. Use when answers or approved automations must reach chat. |
 | [`staff-swarm`](skills/staff-swarm/SKILL.md) | Run researcher, field, and orchestrator agents with token-tier routing. Use when a job needs parallel collection plus one mind assembling results. |
@@ -215,7 +241,7 @@ Small, operable, no SaaS. FTS5 before vectors, one machine before a fabric, thre
 - [`README.md`](README.md) — `./setup.sh --become-builder` is the one-liner. You are Dr Non the Builder.
 - [`QUICKSTART.md`](QUICKSTART.md) is the fifteen minutes *after* that.
 - [`BLUEPRINT.md`](BLUEPRINT.md) bootstraps a new *project* (agent paste or `--init-project`).
-- [`playbooks/`](playbooks/) explains the incidents and reasoning behind the standing instructions.
+- [`playbooks/`](playbooks/) explains the incidents and reasoning behind the standing instructions. Games, flyovers, and dashboards: [`playbooks/18-games-flyovers-and-dashboards.md`](playbooks/18-games-flyovers-and-dashboards.md).
 - [`reference/`](reference/) carries stable implementation details that should not crowd every skill.
 - [`templates/`](templates/) contains the files meant to be copied and adapted.
 

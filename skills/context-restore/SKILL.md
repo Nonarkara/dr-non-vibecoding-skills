@@ -11,7 +11,7 @@ license: MIT
 
 > A fresh session is a blank screen. The question is whether the screen shows what the previous session was doing, or whether the next session spends ten minutes re-deriving the context.
 
-[`context-save`](../context-save/SKILL.md) writes the checkpoint; this skill reads it. The two are designed together: a file written by `context-save` is a file `context-restore` can read. The discipline is **to use both, every session, on principle**: the save at the end of the session, the restore at the start of the next. A team that saves but does not restore is writing notes nobody reads; a team that restores but does not save is reading notes nobody wrote.
+[`context-save`](../context-save/SKILL.md) writes the git checkpoint; this skill reads it. The vault note is [`session-secondbrain-handoff`](../session-secondbrain-handoff/SKILL.md). The two are designed together: a file written by `context-save` is a file `context-restore` can read. The discipline is **to use both, every session, on principle**: the save at the end of the session, the restore at the start of the next. A team that saves but does not restore is writing notes nobody reads; a team that restores but does not save is reading notes nobody wrote.
 
 The restore is not a full re-derivation. The restore is the **first 30 seconds of the next session**: read the checkpoint, check the git state, ask the operator "is this what you were doing?" If the answer is yes, continue. If the answer is no, the restore is wrong; the operator corrects and the session continues. The cost of the restore is one file read and one confirmation; the cost of *not* restoring is the ten minutes the next session spends figuring out where the previous one left off.
 
