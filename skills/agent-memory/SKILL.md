@@ -124,11 +124,17 @@ That last line is the whole point. From a real one:
 
 ## Tier 0 — A vault, if you're going long
 
-Beyond three tiers, project-scoped memory stops being enough. Mine is an Obsidian vault of roughly 1,300 notes organised by brain anatomy — lessons and wins in one region, security incidents and red lines in another, the active todo queue in a third — exposed to agents over MCP as a filesystem server plus a content-search server.
+Beyond three tiers, project-scoped memory stops being enough. The coding vault is the git repo [Nonarkara/second-brain-vault](https://github.com/Nonarkara/second-brain-vault), reached by `obsidian-bridge` v2 with the app closed ([`obsidian-mcp-forge`](../obsidian-mcp-forge/SKILL.md)). Session residue goes to `Memory/Sessions/` via [`session-secondbrain-handoff`](../session-secondbrain-handoff/SKILL.md).
+
+Read `Kit/` before planning when this machine has it. Do not edit `Kit/`, `Soul/`, `Bible/`, or `Vitals/`. Those notes are on the box through commit `82dcd473` and are not on Pro or GitHub yet. Do not claim they are on every Mac.
+
+Authority: current `AGENTS.md` → project instructions → `Kit/` → verified Scars and Knowledge → raw sessions. The full ritual is [`shared-memory-hub`](../shared-memory-hub/SKILL.md).
+
+The older picture, still true as a shape: an Obsidian vault of roughly 1,300 notes organised by brain anatomy — lessons and wins in one region, security incidents and red lines in another, the active todo queue in a third — exposed to agents over MCP as a filesystem server.
 
 Whether the metaphor is anatomy or plain folders matters far less than three properties:
 
-- **Agents can read and write it.** Memory only humans update dies.
+- **Agents can read and write it.** Memory only humans update dies. `Kit/`, `Soul/`, `Bible/`, and `Vitals/` stay human-owned. Sessions go to `Memory/Sessions/`.
 - **It has an entry-point note** telling agents how to navigate, what's stale, and what the search tool can and cannot do (filename-only search is a trap worth documenting).
 - **It contains no secrets.** Assume every agent reads everything. Store pointers to Keychain entries, never values. I learned this the hard way — see [security hygiene](../../reference/security-hygiene.md).
 

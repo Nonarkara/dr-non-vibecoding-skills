@@ -47,6 +47,9 @@ The meta layer: skills, playbooks, references, and templates for shipping with
 agents. No runtime, nothing to compile. Counts live on eleven surfaces and
 `make validate` is the only authority — never hand-edit one of them.
 
+The project-type router and the SecondBrain handoff live in [`AGENTS.md`](AGENTS.md).
+Civic dashboards, animated games, and cinematic 3D are all in that router.
+
 ## Anti-regression
 
 This repository's distinctive parts are load-bearing and get flattened by

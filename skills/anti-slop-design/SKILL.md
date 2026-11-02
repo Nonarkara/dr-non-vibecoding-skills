@@ -68,7 +68,7 @@ Conventional controls stay familiar; authorship comes from the content's arrange
 1. Screenshot the page at 1440, 1024 and 390 px wide.
 2. Check each of rules 1 to 7 above, and list every hit with its element.
 3. Fix the hits, then screenshot again.
-4. Have a different agent or person check the result; never self-review.
+4. Have a different agent or person check the result; never self-review. The merge gate that names MSH is [`msh-gate`](../msh-gate/SKILL.md).
 
 Use the [composition worksheet](../bauhaus-human-design/assets/composition-brief.md)
 for decisions, real task outcomes and unverified checks. Neither lint nor a

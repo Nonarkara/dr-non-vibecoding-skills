@@ -10,6 +10,8 @@ license: MIT
 
 > Before wiring a new adapter, check whether it's already catalogued — and port the known-good implementation instead of rebuilding it.
 
+Map and city feeds: [`map-api-recycle`](../map-api-recycle/SKILL.md) before a new endpoint.
+
 The fourth time you write an Open-Meteo client, you write a subtly different one, with a different cache TTL and a different failure behaviour. Then a feed changes shape and you fix it in one project out of four.
 
 *Visual summary: [`INFOGRAPHICS.md`](../../INFOGRAPHICS.md), page 10.*

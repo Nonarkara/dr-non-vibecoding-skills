@@ -17,6 +17,7 @@ sense is when you bring them together and look at the relationships between
 factors... Otherwise, it's just a bunch of scientific data that would mean
 nothing to anyone."* This skill is that principle, generalized past Thailand
 city dashboards to anything being built from public or already-catalogued data.
+A map endpoint that already exists in an older project is [`map-api-recycle`](../map-api-recycle/SKILL.md).
 
 [`improvement-radar`](../improvement-radar/SKILL.md) is this same instinct
 pointed at *code and technique* — study a repo, decide fit. This skill is the

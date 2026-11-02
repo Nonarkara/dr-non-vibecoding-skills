@@ -1,8 +1,8 @@
 ---
 name: shared-memory-hub
 description: >-
-  Persist verified lessons across agents in an Obsidian-backed memory hub. Use when
-  capturing cross-session decisions, failures, and project context.
+  Persist lessons in the SecondBrain vault through obsidian-bridge. Use when
+  capturing cross-session decisions. Do not edit Kit, Soul, Bible, or Vitals.
 license: MIT
 ---
 
@@ -10,94 +10,77 @@ license: MIT
 
 > One verified lesson is stored once, recalled only when relevant, and shared across every agent in the fleet.
 
-In a multi-agent practice where Claude Code, Codex, Antigravity, Cursor, and MiniMax work concurrently on the same codebase, **agent-private memory is a liability**. If Claude discovers a fatal edge-case bug in an API adapter and stores it in Claude-private storage, Codex or Cursor will walk into the exact same trap two hours later.
+Shared coding memory is the SecondBrain vault through `obsidian-bridge` v2 (14 tools), the same server on every Mac. The Obsidian app can stay closed. There is no Obsidian CLI on this path.
 
-This skill defines the **Vault-Centric Memory Architecture** — connecting all agents to a local-first Obsidian Second Brain (`~/Documents/SecondBrain`) via the `obsidian-bridge` MCP server or shell CLI (`brain recall`).
+The machine is [`obsidian-mcp-forge`](../obsidian-mcp-forge/SKILL.md). The session note is [`session-secondbrain-handoff`](../session-secondbrain-handoff/SKILL.md). Which Mac is [`machine-fleet`](../machine-fleet/SKILL.md). The git repo is [Nonarkara/second-brain-vault](https://github.com/Nonarkara/second-brain-vault). [second-brain-os](https://github.com/Nonarkara/second-brain-os) is the older kit; the live bridge wins when they disagree.
 
-For the **A+ machine** (filesystem forge, age-filtered cull, smoke + eval, disposable index, fixture-drift discipline, one nightly writer), load [`obsidian-mcp-forge`](../obsidian-mcp-forge/SKILL.md). Official Local REST API is optional. The plugin can read as enabled with no window and a dead port; coding agents use the filesystem forge. Bridge and `brain` CLI resolve from the shipped `mcp/` tree in [`second-brain-os`](https://github.com/Nonarkara/second-brain-os), or from `OBSIDIAN_BRAIN_CLI`.
+## Caveat
 
----
+Kit notes exist on the cloud-agent box through commit `82dcd473`. They are not on the Pro vault and not on GitHub. The Pro vault is mid-rebase. The box is 131 commits ahead and unpushed. Read `Kit/` when this checkout has it. Do not claim Kit is live on every Mac. This workspace did not contain the vault, so that commit was not re-checked here.
 
-## Memory Topology
+Intended roots, also in `Kit/Machines.md` once that note is present: Pro `/Users/nonarkara/Documents/SecondBrain`, Air `/Users/axiom/SecondBrain`, box `/workspace/SecondBrain`, Studio TBD. Local `mcp.json` only. Do not commit those paths into a project repo.
 
-```mermaid
-flowchart TD
-    subgraph Fleet["Multi-Agent Fleet"]
-        AG["Antigravity\n(Planning & Architecture)"]
-        CC["Claude Code\n(Deep Coding & Refactors)"]
-        MM["MiniMax / Mavis\n(Subagents & Fast Sprints)"]
-        CX["Codex / Cursor\n(Targeted Edits)"]
-    end
+## Authority
 
-    subgraph Hub["Shared Memory Hub (Local-First)"]
-        MCP["obsidian-bridge MCP Server\n(or 'brain' CLI)"]
-        Vault[("Obsidian Second Brain\n~/Documents/SecondBrain\n(Plain Markdown + Vector/FTS5)")]
-        Scars["Scars & Anti-Regression\n/Scars/Debug-Logs/"]
-        Knowledge["Domain Knowledge & APIs\n/Knowledge/Topics/"]
-        Rituals["Context & Principles\n/Will/Tools/"]
-    end
+`Current AGENTS.md` → project instructions → `Kit/` → verified Scars and Knowledge → raw sessions.
 
-    AG & CC & MM & CX <-->|1. Pre-flight recall_lessons\n2. Post-flight capture_lesson| MCP
-    MCP <--> Vault
-    Vault --- Scars & Knowledge & Rituals
+A recalled session never outranks a Kit note, and a Kit note never outranks the current project instructions or `AGENTS.md`. Raw `Memory/Sessions/` notes are evidence, not rules.
 
-    style Vault fill:#0d2a1c,stroke:#00c896,color:#e8e8e8
-    style MCP fill:#1e1e1e,stroke:#ffd000,color:#e8e8e8
-```
+## The ritual
 
----
+### Start
 
-## The Two-Step Ritual
+Read `Kit/` before planning when the files are there (`Kit/Project-Types.md`, `Kit/Anti-MSH.md`, `Kit/Map-API-Recycling.md`, `Kit/Machines.md`). Do not edit `Kit/`, `Soul/`, `Bible/`, or `Vitals/`.
 
-### 1. Pre-Flight Recall (Before Coding)
-Before writing code, refactoring architecture, or debugging an unfamiliar error:
-- Call `recall_lessons(query: "<task / stack / error>")` via MCP, or run `brain recall "<task>"`.
-- Retrieve **at most 3 targeted lessons**. Never dump or load the entire vault into the context window.
-- If a verified scar exists for this subsystem (e.g. "deck.gl occlusion bug on MapLibre" or "Cloudflare Worker json() status code swallow"), follow the proven fix immediately.
+`get_context(project=<exact repo name>, query=<task>)`
 
-### 2. Post-Flight Capture (After Verification)
-When a novel bug, API failure, or architectural fix is **verified on the live system**:
-- Call `capture_lesson` before closing the session or writing to any agent-private scratchpad.
-- A valid lesson requires six concrete fields:
+Use at most 3 lessons. Do not dump the vault into the window.
+
+### End
+
+`capture_coding_session` with `project`, `summary`, `decisions`, `changes`, `tests`, `blockers`, `next_steps`.
+
+That note lives under `Memory/Sessions/`. Questions for Non go in `blockers`.
+
+A verified production fix, once you have evidence, is a `log_decision` or a `write_note` in the vault's Scars region. Confirm the path with `search_vault` before writing. The older `/Scars/Debug-Logs/` path is the previous hub default; the live vault may have moved it. The six fields:
 
 ```markdown
 ---
 type: scar
 updated: YYYY-MM-DD
+drafted_by: <client>/<model>
+reviewed: false
 tags: [stack, subsystem, bug-type]
 ---
 
 # [Symptom / What Broke]
 
 ## Symptom
-Exact error message, status code, or visual glitch observed in production.
+Exact error message, status code, or visual glitch.
 
 ## Failed Attempt
-What an intuitive or standard LLM fix attempted and why it failed.
+What was tried, and why it failed.
 
 ## Root Cause
-The underlying mechanism (e.g. CDN caching header collision, unhandled promise rejection).
+The mechanism.
 
 ## Verified Fix
-The exact minimal code change that resolved the problem.
+The smallest change that held.
 
 ## Verification Evidence
-The `curl` response, test output, or live URL proving the fix works.
+The command output, test, hash, or live URL.
 ```
 
----
+`reviewed` stays false until a person or a different agent has reviewed the note. `capture_lesson` / `recall_lessons` are the older kit. Call them only if this server still lists them.
 
-## Memory Governance Laws
+## Laws
 
-1. **Hierarchy of Authority:**
-   `Current AGENTS.md` → `Project CLAUDE.md / context.md` → `Verified Scars & Knowledge Notes` → `Raw Evidence`.
-   *A recalled lesson never overrides an explicitly newer project rule.*
+1. **Authority** is the order above. A newer project rule beats a scar.
+2. **No unverified idea filed as a scar.** Hypotheses stay in the session note.
+3. **No secrets in markdown.** Keychain names and env names only.
+4. **No edits** to `Kit/`, `Soul/`, `Bible/`, or `Vitals/`.
+5. **Agent notes** carry `updated`, `drafted_by: <client>/<model>`, and `reviewed: false`.
 
-2. **No Unverified Ideas in Memory:**
-   Only fixes verified in production qualify as durable lessons. Unverified hypotheses remain session scratch and must not guide future agents.
+## The test
 
-3. **Zero Secrets in Markdown:**
-   API keys, passwords, and private tokens live strictly in gitignored `.env` files or system keychains. Never write credential strings into the shared vault.
-
-4. **Self-Test at Session End:**
-   If you solved a tricky bug today, test `recall_lessons` with your problem statement. If it returns generic boilerplate instead of your specific fix, capture was skipped.
+If you fixed something real, `get_context` on the next session with the exact repo name returns that fix in the top 3. If it returns a generic note, the capture was skipped or filed under the wrong project name.
