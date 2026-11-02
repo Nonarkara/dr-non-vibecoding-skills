@@ -80,9 +80,9 @@ When a composition is aligned yet arbitrary, or an image feels pasted beside tex
 
 ## Glance path and kinetic grid
 
-Canonical text: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). Change the rules there. The repo copy is [`ANTI-SLOP.md`](../../ANTI-SLOP.md); the MSH gate is [`no-design-tells`](../no-design-tells/SKILL.md).
+Canonical text: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. The gate is [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). Review gate §3c walks the same checks. Change the rules there. The repo copy is [`ANTI-SLOP.md`](../../ANTI-SLOP.md); the MSH gate is [`no-design-tells`](../no-design-tells/SKILL.md).
 
-TODO(non-slop): neither file is on `main` yet (checked 2026-11-02; no glance-path or kinetic-grid pull request). Enforce the four lines below until both are live, then delete the lines and keep the links.
+TODO(non-slop): [Non-Slop #9](https://github.com/Nonarkara/Non-Slop/pull/9) is open and not merged, so §6 and the `AGENTS.md` gate are not on `main` yet. Enforce the four lines below until that pull request lands, then keep these links.
 
 Judge these on the screenshot. A source lint does not score them.
 

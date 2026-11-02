@@ -34,7 +34,7 @@ Before shipping any interface someone will act on — civic, safety, money, heal
 
 ## Related
 
-[`accessible-by-default`](../accessible-by-default/SKILL.md) · [`adversarial-review`](../adversarial-review/SKILL.md) · glance path and kinetic grid in [`anti-slop-design`](../anti-slop-design/SKILL.md) (visual gravity, no leapfrog, extreme scale on a grid set first, snap motion and a skeleton). Canonical: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md) and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md). TODO(non-slop): those files are not on `main` yet (2026-11-02).
+[`accessible-by-default`](../accessible-by-default/SKILL.md) · [`adversarial-review`](../adversarial-review/SKILL.md) · glance path and kinetic grid in [`anti-slop-design`](../anti-slop-design/SKILL.md) (visual gravity, no leapfrog, extreme scale on a grid set first, snap motion and a skeleton). Canonical: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. Gate: [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). TODO(non-slop): [Non-Slop #9](https://github.com/Nonarkara/Non-Slop/pull/9) is not merged, so those sections are not on `main` yet.
 
 ## Anti-slop design rules (hard rules)
 

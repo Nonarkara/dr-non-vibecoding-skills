@@ -23,9 +23,11 @@ contract first, including glance path and kinetic grid: the headline or CTA
 sits on the exit of the dominant visual, with no dead zone above a heavy hero;
 related text does not leapfrog a huge image; a layout break needs extreme scale
 contrast and a grid set first; motion snaps and loading is a skeleton.
-Canonical: [Non-Slop `MSH.md`](https://github.com/Nonarkara/Non-Slop/blob/main/MSH.md)
-and [Non-Slop `ANTI-SLOP.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SLOP.md).
-TODO(non-slop): those files are not on `main` yet (2026-11-02). For website composition, use the credited
+Canonical: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6.
+Gate: [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md).
+TODO(non-slop): [Non-Slop #9](https://github.com/Nonarkara/Non-Slop/pull/9) is not merged, so those sections are not on `main` yet.
+
+For website composition, use the credited
 [Ruttl source/adaptation guide](references/ruttl-composition.md) and copy the
 relevant prompts from [the composition brief](assets/composition-brief.md) into
 the existing design contract. Keep the subject-specific decisions; do not add a
