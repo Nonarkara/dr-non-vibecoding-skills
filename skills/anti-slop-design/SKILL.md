@@ -44,6 +44,40 @@ Conventional controls stay familiar; authorship comes from the content's arrange
 - Use real contrast in size (at least a 1.5 to 2 times type-scale step between levels), weight, colour and space. No grid of equal cards where everything has the same weight.
 - If a screenshot squinted at shows no focal point, it fails.
 
+## 6b. Glance path: the payload sits on the exit
+The eye enters on visual weight, not DOM order. The heaviest thing on the first
+screen — a big image, a saturated card, a video, or the map on a map product —
+is the entry; the eye then drifts down and aside.
+- Headline, key number and primary action sit on that exit (below or beside),
+  never in a dead band above a heavy visual, and never forced to climb back up
+  over one.
+- No leapfrog: related copy stays on the same side of the dominant visual as
+  its headline.
+- A headline may sit at the top only when it is itself the dominant visual
+  (unapologetically large display type, no competing full-bleed image).
+- Keep semantic heading order for accessibility, but the visual order and the
+  Tab order must agree — CSS that shows one order and tabs another fails.
+Full law: Non-Slop `GLANCE-PATH-FOR-AI.md`.
+
+## 6c. Kinetic grids: energy by obeying a grid
+Dynamic layouts come from rigidly following a named geometric system — scale,
+voids and colour do the excitement; nothing floats.
+- Name one grid before coding: `radial` | `axial` | `column` | `modular`.
+  No name means no rotation, no diagonal type, no overlap — stay orthogonal.
+- Snap major elements to tracks/modules/axes; gutters are breathing room, not
+  filler slots; arbitrary `position: absolute` drift is a fail.
+- Leave whole modules, columns or corners empty on purpose; never plug a void
+  with a badge, a filler card, or a boxed logo.
+- Title vs body is a real scale step (≥1.5–2×; posters run 5–10×). Prefer size
+  over weight for the win. ≤8 sizes unless `STYLE.md` unlocks more.
+- Quiet ground + at most 1–2 saturated accents, each with a job. A data colour
+  that already means something spends an accent.
+- Motion: steep ease/snap, skeleton then content, hard cuts — no floaty morphs
+  or slow crossfades; honour `prefers-reduced-motion`.
+- Map/ops dashboards and dense forms stay `column` or `modular` around the
+  primary surface; radial/axial posters are for marketing and openers.
+Full law: Non-Slop `KINETIC-GRIDS-FOR-AI.md`.
+
 ## 7. More slop to kill
 - Centre-everything layouts and symmetric card grids used by default.
 - Fake depth: stacked shadows, glassmorphism, rounded-everything at the same radius.
