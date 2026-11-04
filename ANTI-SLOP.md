@@ -1,5 +1,12 @@
 # ANTI-SLOP: read this before you design or build any screen
 
+
+Read [Decision geometry](DECISION-GEOMETRY.md) before accepting a composition:
+measure the expansion chain and the information/action relationship, preserve
+working content, and prove a task-specific regression budget fails the old fault.
+A palette or source-lint pass cannot substitute for rendered task evidence.
+
+
 These are Dr Non's hard rules against AI design slop, and they apply to every agent (Grok Bot, Claude, Cursor, ChatGPT, Copilot) and every person. They sit on top of the house design system (Palette). If a rule here conflicts with a habit of your model, this file wins.
 
 ## The principle: empty space is a decision, and subtract before you add
@@ -36,6 +43,15 @@ On any map or data product the map is the operating table, and everything else i
 - The map or data takes **≥60% of the first desktop screen** and the first full screen on a phone. Clean apps averaged 89%, slop apps 41%.
 - Panels are compact, collapsible and sized to their content, docked at the edges. Nothing covers the map on load.
 - Numbers sit next to the place they describe. They don't go in a separate card grid.
+
+## Ship basics: the core lives in Non-Slop
+
+The basics we keep forgetting (phone first, access, learned conventions, one primary action, plain copy, a speed budget) are part of the shared core in [Non-Slop](https://github.com/Nonarkara/Non-Slop). The rules are in its [AGENTS.md](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md) and [skills/direction](https://github.com/Nonarkara/Non-Slop/blob/main/skills/direction/SKILL.md). The checks are `npx -y github:Nonarkara/Non-Slop scan .` and `npx -y github:Nonarkara/Non-Slop render <url>`. Don't restate them here; change them there. The list follows Harsh Vijay, [*11 Website Design Best Practices To Follow In 2026*](https://www.ruttl.com/blog/web-design-best-practices) (ruttl, 9 Aug 2026), paraphrased and credited in Non-Slop's [CREDITS.md](https://github.com/Nonarkara/Non-Slop/blob/main/CREDITS.md).
+
+What this repo adds on top:
+- Public frontends offer EN, TH and ZH, with the switch on every page. Non-Slop checks that Thai and Chinese text is marked up, but does not require all three.
+- Treat an access hit from `render` as blocking, even when slop-lint says OK. That covers contrast, missing labels or names, invisible focus and phone targets under 44px. `STYLE.md` can't allow these away: keep the choice and ask the owner for a fix that keeps it.
+- If `render` reports heavy images or no link home, fix it, or give the reason in one sentence in the PR.
 
 ## Check it: slop-lint
 

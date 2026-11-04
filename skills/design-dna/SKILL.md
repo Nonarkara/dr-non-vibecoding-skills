@@ -125,3 +125,6 @@ silently reintroduced, nor mistaken for an accidental deletion.
 Show a screenshot to someone who knows your work. Can they tell it's yours without the logo?
 
 If no, you don't have a design system. You have defaults.
+
+<!-- decision-geometry-route:v1 -->
+For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.

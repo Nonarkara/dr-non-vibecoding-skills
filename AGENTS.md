@@ -1,6 +1,19 @@
-> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. Run `tools/slop-lint.mjs` on any page you ship.
+> **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. The shared core is [Non-Slop](https://github.com/Nonarkara/Non-Slop). Run `tools/slop-lint.mjs` and `npx -y github:Nonarkara/Non-Slop render <url>` on any page you ship.
 
 # AGENTS.md — entry point for non-Claude agents
+
+<!-- decision-geometry:v1 -->
+## Task geometry before styling
+
+Read [Decision geometry](DECISION-GEOMETRY.md) for every UI composition change.
+Trace oversized introductions, sibling-stretched maps and separated controls to
+the first unnecessary expansion. Keep the task, its evidence and its next action
+legible together. Color, typography, alignment and zero horizontal overflow do
+not clear a failed composition. Preserve earned content and operating regions;
+use task-specific budgets, real viewport/state captures, a failing regression
+mutation and independent review. The guide's fixture numbers are not universal.
+<!-- /decision-geometry:v1 -->
+
 
 > This file is the **mirror**, not the source. The canonical agent instructions for this repo live in the per-skill `SKILL.md` files inside `skills/` and the per-project `CLAUDE.md` style content inside each skill's body. This file exists so that any agent — Codex, Aider, OpenCode, Cursor, Gemini CLI, Devin, the OpenAI family — can land in this repo, read one file, and know what to do next.
 

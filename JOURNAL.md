@@ -300,3 +300,11 @@ fluent-language review remain unverified.
 **Why:** A gate that reads a list of surfaces misses everything the list forgot, and a list rots. Replacing `999` for ten counts left `make validate` printing OK, so the deck's claim that the validator enforces the counts was still false — it had only moved. The review also caught the writer counting skill files while the checker counted skill directories, and two table rows merged into one line on the very lines the first pass edited.
 **Diff:** `scripts/validate_repo.py`, `scripts/sync-counts.py`, `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `README.md`, `ABOUT.md`, `reference/stack-ecosystem.md`, `reference/library/README.md`, `playbooks/`, `skills/`, `docs/deck/`, `docs/relay/RELAY.md`, `docs/lessons/2026-10-23-the-badge-was-never-the-count.md`; no skill added, no count changed.
 **Tags:** `counts · gate · independent-review · drift · validator · mutation-proof`
+
+## 2026-10-27 — Task geometry becomes a shared release concern
+
+- What: add the expansion-chain diagnosis and decision-proximity/preservation gate to existing anti-slop guidance, templates and agent entry points.
+- Why: the Khao Lak pilot passed styling checks while a stretched map, large title and repeated reading bands displaced the useful task.
+- Diff: DECISION-GEOMETRY.md; tools/decision-geometry/; anti-slop reference; project templates; CI regression job.
+- Proof: browser fixture at four viewport sizes; deliberately oversized, stretched, distant, hidden, bleeding, clipped and obstructed states fail. Independent review prompted offscreen-preservation and report-boundary fixes.
+- Tags: spatial-hallucination, anti-slop, task-geometry, preservation.
