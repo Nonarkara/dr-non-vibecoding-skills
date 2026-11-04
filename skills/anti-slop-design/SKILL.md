@@ -16,7 +16,6 @@ complete qualifications, readable labels and working controls; prove the old
 expansion fails a task-specific budget. A clean font/color/overflow scan is not
 rendered clearance.
 
-
 These are known AI design-slop patterns. Check every page against them before shipping, and fix any hit. They come on top of the house design system (Palette) and any map rule such as the map taking most of the screen.
 
 The original seven rules below are Dr Non's existing local skill, now packaged
@@ -67,7 +66,7 @@ is the entry; the eye then drifts down and aside.
   (unapologetically large display type, no competing full-bleed image).
 - Keep semantic heading order for accessibility, but the visual order and the
   Tab order must agree — CSS that shows one order and tabs another fails.
-Full law: Non-Slop `GLANCE-PATH-FOR-AI.md`.
+Full law: [Non-Slop `GLANCE-PATH-FOR-AI.md`](https://github.com/Nonarkara/Non-Slop/blob/main/GLANCE-PATH-FOR-AI.md).
 
 ## 6c. Kinetic grids: energy by obeying a grid
 Dynamic layouts come from rigidly following a named geometric system — scale,
@@ -86,7 +85,9 @@ voids and colour do the excitement; nothing floats.
   or slow crossfades; honour `prefers-reduced-motion`.
 - Map/ops dashboards and dense forms stay `column` or `modular` around the
   primary surface; radial/axial posters are for marketing and openers.
-Full law: Non-Slop `KINETIC-GRIDS-FOR-AI.md`.
+Full law: [Non-Slop `KINETIC-GRIDS-FOR-AI.md`](https://github.com/Nonarkara/Non-Slop/blob/main/KINETIC-GRIDS-FOR-AI.md).
+
+MSH takes precedence; preserve the project's `STYLE.md`, readable text and task geometry. Applied guide: [Non-Slop spatial law §6](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md). Independent evidence gate: [Non-Slop review §3c](https://github.com/Nonarkara/Non-Slop/blob/main/skills/review/SKILL.md). Judge the render; source lint does not score these relationships.
 
 ## 7. More slop to kill
 - Centre-everything layouts and symmetric card grids used by default.
@@ -100,7 +101,7 @@ Full law: Non-Slop `KINETIC-GRIDS-FOR-AI.md`.
 
 ## Review checklist (run before shipping)
 1. Screenshot the page at 1440, 1024 and 390 px wide.
-2. Check each of rules 1 to 7 above, and list every hit with its element.
+2. Check each of rules 1 to 7 above, including §6b glance path and §6c kinetic grids above. List every hit with its element.
 3. Fix the hits, then screenshot again.
 4. Have a different agent or person check the result; never self-review.
 

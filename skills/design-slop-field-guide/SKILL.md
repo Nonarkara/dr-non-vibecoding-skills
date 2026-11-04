@@ -34,7 +34,7 @@ Before shipping any interface someone will act on — civic, safety, money, heal
 
 ## Related
 
-[`accessible-by-default`](../accessible-by-default/SKILL.md) · [`adversarial-review`](../adversarial-review/SKILL.md)
+[`accessible-by-default`](../accessible-by-default/SKILL.md) · [`adversarial-review`](../adversarial-review/SKILL.md) · glance path and kinetic grid in [`anti-slop-design`](../anti-slop-design/SKILL.md) (visual gravity, no leapfrog, extreme scale on a grid set first, snap motion and a skeleton). Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. Gate: [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md).
 
 ## Anti-slop design rules (hard rules)
 

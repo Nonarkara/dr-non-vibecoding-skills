@@ -308,3 +308,12 @@ fluent-language review remain unverified.
 - Diff: DECISION-GEOMETRY.md; tools/decision-geometry/; anti-slop reference; project templates; CI regression job.
 - Proof: browser fixture at four viewport sizes; deliberately oversized, stretched, distant, hidden, bleeding, clipped and obstructed states fail. Independent review prompted offscreen-preservation and report-boundary fixes.
 - Tags: spatial-hallucination, anti-slop, task-geometry, preservation.
+
+
+## 2026-11-04 — Reconcile the hierarchy routes
+
+**Date:** 2026-11-04
+**What:** Integrated the hierarchy routing from PR #28 with the existing glance-path and kinetic-grid sections, preserving task geometry and local count-gate commits.
+**Why:** Parallel agents had left overlapping rules and provisional upstream status text; one route per rule keeps the owner laws, MSH precedence and project style visible without duplicate instructions.
+**Diff:** [PR #28](https://github.com/Nonarkara/dr-non-vibecoding-skills/pull/28), [anti-slop-design](skills/anti-slop-design/SKILL.md), [applied spatial guide](ANTI-SPATIAL-HALLUCINATION.md).
+**Tags:** `hierarchy · reconciliation · agent-relay`

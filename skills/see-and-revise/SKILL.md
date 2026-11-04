@@ -48,6 +48,7 @@ Run the same verbs [`no-design-tells`](../no-design-tells/SKILL.md)'s Delivery G
 |---|---|
 | [`axiom-design-core`](../axiom-design-core/SKILL.md)'s constraint ladder | Layer violations: an off-system color, a fifth type size, a shadow where a hairline belongs, motion with no state behind it |
 | [`no-design-tells`](../no-design-tells/SKILL.md)'s Hard Gate | The mechanical tells: generic font stack, default Tailwind spacing untouched, a component that looks like every other generated app |
+| Glance path and kinetic grid ([`anti-slop-design`](../anti-slop-design/SKILL.md)) | Dead zone above a heavy hero; headline or CTA off the exit of the dominant visual; related text leapfrogging a huge image; a layout break without extreme scale contrast or without the grid set first; a floaty morph instead of snap motion and a layout skeleton |
 | [`design-registers`](../design-registers/SKILL.md)'s floor/ceiling | Is this surface's register consistent with its stated floor — a dashboard held to dashboard rules, not landing-page taste bleeding in |
 | The Figma source, when one exists | Fidelity: did the build match the spec, not just "does it look fine on its own" — see step 3b |
 
@@ -112,3 +113,6 @@ Point at the screenshot, the specific finding in the shared audit vocabulary, th
 
 <!-- decision-geometry-route:v1 -->
 For UI composition, apply [anti-slop task geometry](../anti-slop-design/SKILL.md) before accepting style compliance. Measure sibling stretch, oversized introductory regions and separation of information from its action; preserve the operating content.
+
+<!-- glance-path-kinetic-grid:v1 -->
+Also enforce glance path and kinetic grid from that skill: the headline or CTA sits on the exit of the dominant visual, with no dead zone above a heavy hero; related text does not leapfrog a huge image; a layout break needs extreme scale contrast and a grid set first; motion snaps and loading is a skeleton. Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. Gate: [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md).

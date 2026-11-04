@@ -1,11 +1,9 @@
 # ANTI-SLOP: read this before you design or build any screen
 
-
 Read [Decision geometry](DECISION-GEOMETRY.md) before accepting a composition:
 measure the expansion chain and the information/action relationship, preserve
 working content, and prove a task-specific regression budget fails the old fault.
 A palette or source-lint pass cannot substitute for rendered task evidence.
-
 
 These are Dr Non's hard rules against AI design slop, and they apply to every agent (Grok Bot, Claude, Cursor, ChatGPT, Copilot) and every person. They sit on top of the house design system (Palette). If a rule here conflicts with a habit of your model, this file wins.
 
@@ -78,3 +76,14 @@ Apps whose maps show victims' or reporters' personal data were not pictured or q
 ## Composition and image placement
 
 Read [Anti-spatial-hallucination](ANTI-SPATIAL-HALLUCINATION.md) for the relationship-level review: why this position, size and distance, and whether a narrative image or another composition serves the task. The standalone anti-slop skill packages the same guide.
+
+## Glance path and kinetic grid
+
+Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. The gate is [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). Non-Slop review gate §3c walks the same checks. Change the rules there. The packaged skill is [`skills/anti-slop-design`](skills/anti-slop-design/SKILL.md); the MSH gate in this stack is [`skills/no-design-tells`](skills/no-design-tells/SKILL.md).
+
+Judge these on the screenshot. `slop-lint` does not score them.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

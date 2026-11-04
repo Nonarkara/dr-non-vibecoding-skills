@@ -229,3 +229,12 @@ headings identify the task, and keep necessary qualifications at their decision
 point. Do not repair the page by hiding controls, shrinking text or removing
 working content. [Decision geometry](https://github.com/Nonarkara/Non-Slop/blob/main/DECISION-GEOMETRY.md) defines the measurement,
 regression mutation and review evidence; its budgets are product-specific.
+
+## Glance path and kinetic grid
+
+Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. The gate is [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). Non-Slop review gate §3c walks the same checks. Change the rules there.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

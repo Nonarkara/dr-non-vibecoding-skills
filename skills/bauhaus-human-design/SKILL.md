@@ -19,7 +19,14 @@ and a wandering reading path. A ban list did not resolve the composition.
 ## Before CSS
 
 Apply [anti-slop-design](../anti-slop-design/SKILL.md) and the project's house
-contract first. For website composition, use the credited
+contract first, including glance path and kinetic grid: the headline or CTA
+sits on the exit of the dominant visual, with no dead zone above a heavy hero;
+related text does not leapfrog a huge image; a layout break needs extreme scale
+contrast and a grid set first; motion snaps and loading is a skeleton.
+Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6.
+Gate: [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md).
+
+For website composition, use the credited
 [Ruttl source/adaptation guide](references/ruttl-composition.md) and copy the
 relevant prompts from [the composition brief](assets/composition-brief.md) into
 the existing design contract. Keep the subject-specific decisions; do not add a
