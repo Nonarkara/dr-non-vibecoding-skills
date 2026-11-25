@@ -36,7 +36,7 @@ Codex starts with each skill's name and description, then reads the full skill o
 - front-load the actual trigger in `description`;
 - keep every skill focused on one recognizable job;
 - put conditional detail in linked references;
-- do not create 30 near-duplicate skills whose descriptions compete for the same prompt.
+- do not create dozens of near-duplicate skills whose descriptions compete for the same prompt.
 
 For a repository that distributes many skills, keep one canonical `skills/` tree and package it as a plugin. Copying the same tree into `.agents/skills/`, `.cursor/skills/`, and `.claude/skills/` inside the source repo creates silent drift.
 

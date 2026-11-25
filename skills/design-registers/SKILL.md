@@ -45,7 +45,7 @@ Starting dials are not themes. Move them when the brief gives evidence, then sta
 - One accent: amber `#f59e0b`.
 - Maximum three text sizes per page.
 - Mobile-first; prove the 390px layout before scaling up.
-- Motion communicates feedback or state, stays under 300ms for ordinary UI, uses `transform` or `opacity`, and respects `prefers-reduced-motion`.
+- Motion communicates feedback or state, snaps, stays under 300ms for ordinary UI, uses `transform` or `opacity`, and respects `prefers-reduced-motion`. Loading is the skeleton of the real layout. A floaty morph fails. Glance path, leapfrog, and scale-on-a-grid: [`anti-slop-design`](../anti-slop-design/SKILL.md). Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. Gate: [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md).
 - Default type: Josefin Sans for display, Source Sans 3 for body, JetBrains Mono for data.
 - Thai uses non-looped faces only: IBM Plex Sans Thai, Noto Sans Thai, Prompt, or Kanit. First person is `ผม`. Preserve “Samastiti,” SCITI, and SmaSCITI exactly.
 

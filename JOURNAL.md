@@ -285,10 +285,35 @@ fluent-language review remain unverified.
 **Diff:** Root guide, README, ANTI-SLOP and anti-slop skill entrypoint/reference; no new skill or count change.
 **Tags:** `spatial-hallucination · composition · narrative-images · access · codex`
 
-## 2026-10-24 — Restore the unfinished full-stack execution routes
+## 2026-10-23 — The badge was never the count
 
-**Date:** 2026-10-24
-**What:** Restored outcome-first build routes and an additive scaffold execution receipt; corrected credential-ledger, browser-session and fallback instructions in existing skills.
-**Why:** A beginner needs a working local result and a safe next route when an external step fails, not another tool list or an unsupported claim that cloud security was installed.
-**Diff:** [Build paths](BUILD_PATHS.md), `scripts/scaffold_static.py`, bootstrap routing and existing execution skills. `bash scripts/test-bootstrap.sh` passed, including byte-for-byte preservation of operator receipt notes on rerun; no deployment or real-person usability result is claimed.
-**Tags:** `full-stack · bootstrap · failure-evidence · restoration · authority`
+**Date:** 2026-10-23
+**What:** Taught the validator to read the collection's size where it is written in prose — the README tree and four-shapes table, the AGENTS contract, the deck and the infographic companion — proved the gate by mutation, and repaired every number it found, including the README's missing playbook 17 and a list item in AGENTS.md that ran into the next one.
+**Why:** Two harvests had drifted the deck across two generations (69 in the body, 169 in the headline, 184 in the tree) while the gate read only the badge, so the deck's own claim that the validator enforces the counts was false. A corrected number is a snapshot that drifts again; the gate is what stops it.
+**Diff:** `scripts/validate_repo.py`, `scripts/sync-counts.py`, `Makefile`, `README.md`, `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `INFOGRAPHICS.md`, `docs/deck/`, `docs/lessons/2026-10-23-the-badge-was-never-the-count.md`; no skill added, no count changed.
+**Tags:** `counts · gate · drift · deck · validator · mutation-proof`
+
+## 2026-10-23 — The gate that read a list, and what it missed
+
+**Date:** 2026-10-23
+**What:** Three independent reviews of the count gate, each by a different agent, and each one right. The first returned DO NOT SHIP: the gate read five named files plus the deck, and ten stale counts survived on live surfaces — including the README's own tree map, far below the badge that says 184. The second caught the writer counting skill files while the checker counted skill directories, and the writer writing a sentence holding two generations of the same count. The third caught the writer's refusal rule defeated by inline code, the gate reading the plain form of "`SKILL.md` files" but not the escaped form the repo's own docs publish, and the gate rejecting the escape it documented. Rebuilt the gate to read every live markdown file with one shared definition of a count claim, gave the writer and the checker one source of truth for the count, and repaired what each review found.
+**Why:** A gate that reads a list of surfaces misses everything the list forgot, and a list rots. Replacing `999` for ten counts left `make validate` printing OK, so the deck's claim that the validator enforces the counts was still false — it had only moved. The review also caught the writer counting skill files while the checker counted skill directories, and two table rows merged into one line on the very lines the first pass edited.
+**Diff:** `scripts/validate_repo.py`, `scripts/sync-counts.py`, `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md`, `README.md`, `ABOUT.md`, `reference/stack-ecosystem.md`, `reference/library/README.md`, `playbooks/`, `skills/`, `docs/deck/`, `docs/relay/RELAY.md`, `docs/lessons/2026-10-23-the-badge-was-never-the-count.md`; no skill added, no count changed.
+**Tags:** `counts · gate · independent-review · drift · validator · mutation-proof`
+
+## 2026-10-27 — Task geometry becomes a shared release concern
+
+- What: add the expansion-chain diagnosis and decision-proximity/preservation gate to existing anti-slop guidance, templates and agent entry points.
+- Why: the Khao Lak pilot passed styling checks while a stretched map, large title and repeated reading bands displaced the useful task.
+- Diff: DECISION-GEOMETRY.md; tools/decision-geometry/; anti-slop reference; project templates; CI regression job.
+- Proof: browser fixture at four viewport sizes; deliberately oversized, stretched, distant, hidden, bleeding, clipped and obstructed states fail. Independent review prompted offscreen-preservation and report-boundary fixes.
+- Tags: spatial-hallucination, anti-slop, task-geometry, preservation.
+
+
+## 2026-11-04 — Reconcile the hierarchy routes
+
+**Date:** 2026-11-04
+**What:** Integrated the hierarchy routing from PR #28 with the existing glance-path and kinetic-grid sections, preserving task geometry and local count-gate commits.
+**Why:** Parallel agents had left overlapping rules and provisional upstream status text; one route per rule keeps the owner laws, MSH precedence and project style visible without duplicate instructions.
+**Diff:** [PR #28](https://github.com/Nonarkara/dr-non-vibecoding-skills/pull/28), [anti-slop-design](skills/anti-slop-design/SKILL.md), [applied spatial guide](ANTI-SPATIAL-HALLUCINATION.md).
+**Tags:** `hierarchy · reconciliation · agent-relay`

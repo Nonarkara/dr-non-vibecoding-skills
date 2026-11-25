@@ -1,5 +1,10 @@
 # ANTI-SLOP: read this before you design or build any screen
 
+Read [Decision geometry](DECISION-GEOMETRY.md) before accepting a composition:
+measure the expansion chain and the information/action relationship, preserve
+working content, and prove a task-specific regression budget fails the old fault.
+A palette or source-lint pass cannot substitute for rendered task evidence.
+
 These are Dr Non's hard rules against AI design slop, and they apply to every agent (Grok Bot, Claude, Cursor, ChatGPT, Copilot) and every person. They sit on top of the house design system (Palette). If a rule here conflicts with a habit of your model, this file wins.
 
 ## The principle: empty space is a decision, and subtract before you add
@@ -37,6 +42,15 @@ On any map or data product the map is the operating table, and everything else i
 - Panels are compact, collapsible and sized to their content, docked at the edges. Nothing covers the map on load.
 - Numbers sit next to the place they describe. They don't go in a separate card grid.
 
+## Ship basics: the core lives in Non-Slop
+
+The basics we keep forgetting (phone first, access, learned conventions, one primary action, plain copy, a speed budget) are part of the shared core in [Non-Slop](https://github.com/Nonarkara/Non-Slop). The rules are in its [AGENTS.md](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md) and [skills/direction](https://github.com/Nonarkara/Non-Slop/blob/main/skills/direction/SKILL.md). The checks are `npx -y github:Nonarkara/Non-Slop scan .` and `npx -y github:Nonarkara/Non-Slop render <url>`. Don't restate them here; change them there. The list follows Harsh Vijay, [*11 Website Design Best Practices To Follow In 2026*](https://www.ruttl.com/blog/web-design-best-practices) (ruttl, 9 Aug 2026), paraphrased and credited in Non-Slop's [CREDITS.md](https://github.com/Nonarkara/Non-Slop/blob/main/CREDITS.md).
+
+What this repo adds on top:
+- Public frontends offer EN, TH and ZH, with the switch on every page. Non-Slop checks that Thai and Chinese text is marked up, but does not require all three.
+- Treat an access hit from `render` as blocking, even when slop-lint says OK. That covers contrast, missing labels or names, invisible focus and phone targets under 44px. `STYLE.md` can't allow these away: keep the choice and ask the owner for a fix that keeps it.
+- If `render` reports heavy images or no link home, fix it, or give the reason in one sentence in the PR.
+
 ## Check it: slop-lint
 
 `tools/slop-lint.mjs` lives in Nonarkara/palette and Nonarkara/dr-non-vibecoding-skills.
@@ -62,3 +76,14 @@ Apps whose maps show victims' or reporters' personal data were not pictured or q
 ## Composition and image placement
 
 Read [Anti-spatial-hallucination](ANTI-SPATIAL-HALLUCINATION.md) for the relationship-level review: why this position, size and distance, and whether a narrative image or another composition serves the task. The standalone anti-slop skill packages the same guide.
+
+## Glance path and kinetic grid
+
+Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. The gate is [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). Non-Slop review gate §3c walks the same checks. Change the rules there. The packaged skill is [`skills/anti-slop-design`](skills/anti-slop-design/SKILL.md); the MSH gate in this stack is [`skills/no-design-tells`](skills/no-design-tells/SKILL.md).
+
+Judge these on the screenshot. `slop-lint` does not score them.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

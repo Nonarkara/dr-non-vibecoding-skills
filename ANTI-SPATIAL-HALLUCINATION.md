@@ -219,3 +219,22 @@ A screenshot looking neater is not the stopping condition. The stopping conditio
 “Spatial hallucination” and the governing question come from Non Arkaraprasertkul's iterative design reviews, consolidated with Codex on 20 October 2026. The Shanghai example is described without publishing private reference photos or screenshots. Accessibility checks follow the established WCAG contrast and reflow concepts; see the [W3C contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) and [reflow guidance](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
 
 The same version is distributed in Non-Slop, Palette and Dr Non's Vibe Coding Stack. When editing a root guide and its packaged skill reference together, keep their contents identical. Preserve project-specific constraints in each integration rather than weakening this guide or silently overriding the host product.
+
+## Task geometry: stop the expansion chain
+
+An oversized region can stretch its parent or sibling, push useful content below
+the first screen and separate evidence from its controls. Diagnose that first
+expansion. Give maps/charts an independent task-sized operating area, make tool
+headings identify the task, and keep necessary qualifications at their decision
+point. Do not repair the page by hiding controls, shrinking text or removing
+working content. [Decision geometry](https://github.com/Nonarkara/Non-Slop/blob/main/DECISION-GEOMETRY.md) defines the measurement,
+regression mutation and review evidence; its budgets are product-specific.
+
+## Glance path and kinetic grid
+
+Applied guide: [Non-Slop `ANTI-SPATIAL-HALLUCINATION.md`](https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md) §6. The gate is [Non-Slop `AGENTS.md`](https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). Non-Slop review gate §3c walks the same checks. Change the rules there.
+
+- **Visual gravity.** The headline or the CTA sits where the eye leaves the dominant visual. No dead zone above a heavy hero.
+- **No leapfrog.** Related text stays with its image. A caption or headline does not jump across a huge picture.
+- **Extreme scale, grid first.** A broken layout rule needs extreme scale contrast, and the grid is set before the break.
+- **Snap motion.** Motion snaps. Loading shows the skeleton of the real layout. A floaty morph fails.

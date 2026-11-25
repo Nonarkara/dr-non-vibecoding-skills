@@ -267,9 +267,10 @@ If you fork or clone this repository, here is the complete map of how the system
 
 ```
 dr-non-vibecoding-skills/
-├── skills/           # 169 modular agent capabilities (plain markdown with YAML frontmatter)├── playbooks/        # 16 narrative war stories & architectural deep-dives
-├── reference/        # 13 battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
-├── templates/        # 17 drop-in production scaffolding files
+├── skills/           # 184 skills — plain markdown with YAML frontmatter
+├── playbooks/        # 17 playbooks — narrative war stories & architectural deep-dives
+├── reference/        # 14 references — battle-tested engineering blueprints (GCP, Stripe, AppSec, APIs, datasets)
+├── templates/        # 21 templates — drop-in production scaffolding files
 ├── scripts/          # Zero-dependency bash & python tools (setup, install, validator, relay)
 ├── docs/             # Visual diagrams, slide deck companions, and hero imagery
 ├── agent-instructions/ # MASTER.md for every agent, REPO-TEMPLATE.md for one repo
@@ -277,7 +278,7 @@ dr-non-vibecoding-skills/
 ├── FORK.md           # Make it yours: three tiers, attribution kept, bio not faked
 ├── AGENTS.md         # Universal contract mirror for non-Claude agents (Codex, Cursor, Gemini)
 ├── BLUEPRINT.md      # The complete agent-driven project paste
-├── CATALOG.md        # The complete categorized routing inventory of all 177 skills
+├── CATALOG.md        # The complete categorized routing inventory of all 184 skills
 ├── CONTRIBUTORS.md   # Human author and credited AI collaborator provenance
 └── QUICKSTART.md     # The 15-minute hands-on guide after installation
 ```
@@ -286,9 +287,10 @@ dr-non-vibecoding-skills/
 
 | Shape | Count in this repo | What it is | How to use it |
 |---|---|---|---|
-| [`skills/`](skills/) | 169 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword || [`playbooks/`](playbooks/) | 16 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
-| [`reference/`](reference/) | 13 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
-| [`templates/`](templates/) | 17 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
+| [`skills/`](skills/) | 184 `SKILL.md` files | Standing operational instructions loaded on demand | Agent reads the file when triggered by a specific task or keyword
+| [`playbooks/`](playbooks/) | 17 narratives | The field experience, reasoning, and production failures | Read once to understand the human judgment behind the rules |
+| [`reference/`](reference/) | 14 docs | Concrete recipes: Google Cloud, Stripe, free APIs, public datasets, AppSec | Consult when choosing hosting, wiring payments, or hardening CI/CD |
+| [`templates/`](templates/) | 21 drop-ins | Production contracts, deploy scripts, starter dashboard, launchd plists, tokens, secrets scanner, SQLite bootstrap, component library | Copy directly into your new project repository |
 
 ### Out of the Box, Plug and Play
 
@@ -477,7 +479,7 @@ If the brief is terse or compound, decode it with $prompt-like-dr-non before sta
 
 ## Playbooks: Read Once, Internalize Forever
 
-The 16 numbered playbooks record the lived field experience behind the rules:
+The 17 numbered playbooks record the lived field experience behind the rules:
 
 1. [How I actually code](playbooks/01-how-i-actually-code.md) — The daily solo-builder rhythm.
 2. [The CLAUDE.md ladder](playbooks/02-the-claude-md-ladder.md) — Three tiers of persistent project contracts.
@@ -495,6 +497,7 @@ The 16 numbered playbooks record the lived field experience behind the rules:
 14. [The relay](playbooks/14-the-relay.md) — Many agents passing one repo between them: the cold read, the mandatory verdict, and the stop rule.
 15. [How Dr Non prompts](playbooks/15-how-dr-non-prompts.md) — Eleven seconds of typing that produces three hours of work, and the four things you must already have for it to.
 16. [The philosophical spine](playbooks/16-the-philosophical-spine.md) — Ontology, virtue ethics, and why pure utilitarian AI optimization breaks without human grounding.
+17. [Security from source to edge](playbooks/17-security-from-source-to-edge.md) — A chain of enforced boundaries from source to edge, not another scanner badge.
 
 ---
 
@@ -544,3 +547,12 @@ Reuse the skills, playbooks, templates, and documentation freely with attributio
 ## Anti-spatial-hallucination
 
 [The composition guide](ANTI-SPATIAL-HALLUCINATION.md) asks why each element is here, this size and this far from its neighbour. It covers image roles, narrative heroes, readable overlays, purposeful whitespace, action grouping and responsive evidence. Hero treatment is a choice to justify, not a new template.
+
+## Task geometry
+
+[Decision geometry](DECISION-GEOMETRY.md) is part of the spatial law: prevent an
+oversized region from stretching its parent, pushing the task down and separating
+its controls. The [portable measurement gate](tools/decision-geometry/README.md)
+checks project-authored budgets, including preservation of operating regions.
+It supplements this framework's visual language; it does not restyle it or
+certify an interface from source alone.

@@ -22,7 +22,7 @@ Load `build-journal` before any of these:
 - A breaking change to the install path is being made.
 - A security incident has been discovered and remediated.
 - A rename, rebrand, or reorganization is being applied.
-- A milestone is being crossed (100 skills, 1000 commits, 1 year of operation).
+- A milestone is being crossed (a 100-skill milestone, 1000 commits, 1 year of operation).
 - A decision is being made that closes a future option (deprecation, removal, hard pivot).
 - A new contributor is joining and the journal needs an entry to introduce the work.
 
@@ -126,7 +126,7 @@ When the AI is drafting an entry, the AI runs the *meaningful* check: *is this a
 - Is this a breaking change to the install path? *Yes* if it changes a 1-liner the user has memorized; *no* if it's a bug fix.
 - Is this a security incident? *Yes* if it affected users; *no* if it was a pre-emptive patch.
 - Is this a rename, rebrand, or reorganization? *Yes* if users have to update references; *no* if it's a typo fix.
-- Is this a milestone? *Yes* if it changes how the project is perceived (100 skills, 1000 commits, 1 year of operation); *no* if it's a round number.
+- Is this a milestone? *Yes* if it changes how the project is perceived (a 100-skill milestone, 1000 commits, 1 year of operation); *no* if it's a round number.
 - Is this a decision that closes a future option? *Yes* if the user has to know; *no* if it's a tentative choice that can be reversed.
 
 A meaningful event is *load-bearing*; a non-meaningful event is *log noise*. The journal is the *load-bearing events*; the git log is the *log noise*.

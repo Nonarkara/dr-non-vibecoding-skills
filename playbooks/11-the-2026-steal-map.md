@@ -1,6 +1,6 @@
 # The 2026 Steal Map
 
-What we studied in the public skill ecosystem, what we actually took, and what we refused. Written so the next agent does not "helpfully" vendor Superpowers, gstack, or 400 Copilot skills into this tree.
+What we studied in the public skill ecosystem, what we actually took, and what we refused. Written so the next agent does not "helpfully" vendor Superpowers, gstack, or a 400-skill Copilot collection into this tree.
 
 The rule we kept: **fork the method, not the pack.** Ten behavioural skills beat five hundred domain prompts. This repo stays a curated synthesis.
 
@@ -31,8 +31,8 @@ The holes were **how agents close the loop**: debugging without shotgun patches,
 |---|---|---|
 | [anthropics/skills](https://github.com/anthropics/skills) | Canonical `SKILL.md` shape; Apache-2.0 examples; document skills are source-available | **Structure only.** Template + description-as-trigger. Do not vendor pdf/docx internals. |
 | [obra/superpowers](https://github.com/obra/superpowers) — 282k★ | Brainstorm → worktree → plan → TDD → subagents → review → finish. MIT. | **Behaviour.** Took debugging phases and the "skills must fire" law. **Refused** TDD-always (fights 45-minute civic ships) and worktree-default (we already have [`workspace-lean`](../skills/workspace-lean/SKILL.md)). |
-| [EveryInc/compound-engineering-plugin](https://github.com/EveryInc/compound-engineering-plugin) | 33 skills; brainstorm → plan → work → review → **`/ce-compound` capture**. MIT. | **The return arrow.** [`lesson-residue`](../skills/lesson-residue/SKILL.md) is that idea in our lesson template, not 33 slash commands. |
-| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | Google-engineering SDLC for agents: spec/plan/build/test/review/ship. MIT. | **Stance.** Adversarial review + "spec before code" (already ours). **Refused** installing 25 skills and TDD-enforced `/build auto`. |
+| [EveryInc/compound-engineering-plugin](https://github.com/EveryInc/compound-engineering-plugin) | A 33-skill plugin; brainstorm → plan → work → review → **`/ce-compound` capture**. MIT. | **The return arrow.** [`lesson-residue`](../skills/lesson-residue/SKILL.md) is that idea in our lesson template, not 33 slash commands. |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | Google-engineering SDLC for agents: spec/plan/build/test/review/ship. MIT. | **Stance.** Adversarial review + "spec before code" (already ours). **Refused** installing its 25-skill set and TDD-enforced `/build auto`. |
 | [garrytan/gstack](https://github.com/garrytan/gstack) | 23 slash specialists (CEO, CSO, QA in a real browser, ship). MIT. | **QA in a real browser** → [`browser-as-t`](../skills/browser-as-t/SKILL.md). **Refused** the virtual org chart; it confuses agents and burns context. |
 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | React/Next performance, web-design jobs, claimable Vercel deploy. MIT. | **Jobs not pixels** (focus, URL-state, i18n) inside [`ux-archaeology`](../skills/ux-archaeology/SKILL.md). **Refused** React 40-rule pack — Axiom DNA is the design law; Vercel is a vendor. |
 | [trailofbits/skills](https://github.com/trailofbits/skills) | Real audit procedures. **CC-BY-SA 4.0** — do not paste. | **Stance only** (assume a flaw, false-positive gate, second opinion). No Solidity/YARA/DWARF in this repo. |
