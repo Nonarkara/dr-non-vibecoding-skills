@@ -36,5 +36,8 @@ test: validate relay-check
 	@bash scripts/test-install-skills.sh
 	@bash scripts/test-bootstrap.sh
 	@python3 scripts/test-security-release.py
+	@python3 scripts/test-deploy-security.py
+	@python3 scripts/test-cooked-data.py
+	@node scripts/test-public-fetch.mjs
 	@node scripts/test-starter.mjs
 	@bash scripts/test-cf-runaway-cost.sh

@@ -7,7 +7,9 @@ git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills && ./setup.sh --become-builder
 ```
 
-That installs every skill on every agent this machine has and prints **You are Dr Non the Builder**.
+That copies skills to configured discovery paths and prints **You are Dr Non the Builder**.
+It does not install agents or prove they activated the skills; restart yours and
+confirm discovery. Pick a result in [BUILD_PATHS.md](BUILD_PATHS.md) before adding tools.
 
 Plugin, Makefile, and copy-by-hand paths: README [Other ways to install](README.md#other-ways-to-install). Agent-driven project scaffold: [`BLUEPRINT.md`](BLUEPRINT.md).
 
@@ -50,7 +52,8 @@ adaptation templates; they do not provision an account or deploy automatically.
 ├── CLAUDE.md / AGENTS.md       # Tier-2 contract
 ├── .gitignore / .env.example   # hygiene
 ├── docs/
-│   └── components.html         # templates/component-library.html.template — open in browser
+│   ├── components.html         # templates/component-library.html.template — open in browser
+│   └── execution.md            # additive attempt/evidence/next-safe-alternative receipt
 ├── scripts/
 │   ├── deploy.sh               # poison-proof CDN deploy
 │   ├── verify.sh               # pre-flight gate (contracts, secrets, anti-regression, type-check)
@@ -59,9 +62,9 @@ adaptation templates; they do not provision an account or deploy automatically.
 └── README.md                   # one-liner + Run + Contract + Deploy
 ```
 
-The four diamond rules enforced out of the box:
-- **No secret ships.** `scripts/secrets-audit.sh` before every commit.
-- **Always build a database.** `python scripts/database.py init` then `log` / `query` / `stats`.
+The four working rules:
+- **Check secrets before shipping.** `scripts/secrets-audit.sh` is a baseline check, not a security guarantee.
+- **Use a database when needed.** The SQLite helper is optional; run `python3 scripts/database.py init` for persistence.
 - **The page is the system.** Open `docs/components.html` to see every UI building block.
 - **Verify before commit, not after.** `scripts/verify.sh` before every completion claim.
 
@@ -78,10 +81,14 @@ its `--release --commit FULL_TARGET_COMMIT` mode before a release. See
 No live controls or scanners are automatically installed or enabled.
 
 ```bash
-ls ~/.claude/skills | wc -l   # expect 184# also: ls ~/.agents/skills | wc -l
+ls ~/.claude/skills | wc -l   # expect 184
+# also: ls ~/.agents/skills | wc -l
 ```
 
 `AGENTS.md` is project memory; skills are reusable workflows. Keep those roles separate.
+Keep `docs/execution.md` as the execution record: pending, passed, failed,
+blocked or skipped, with evidence and a next safe alternative. A failed live
+feed need not block the local Demo; a fixture is not proof of live readiness.
 `.cursorrules` is legacy. There is no runtime dependency.
 
 ---

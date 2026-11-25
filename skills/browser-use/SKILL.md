@@ -29,7 +29,8 @@ Do **not** use this skill for:
 - Pure verification of a known-good state (use `browser-as-t`).
 - Page scraping where an API exists (use `deep-scraping` + the API).
 - Workflows the agent can complete via a CLI / MCP / direct API (faster, more reliable).
-- Authenticated flows where a session token is available (use the token, not the browser).
+- Authenticated flows with an approved official API credential and equivalent
+  API operation. Never extract browser session cookies to create that credential.
 
 ---
 
@@ -121,7 +122,8 @@ The most common agent failure is clicking on a still-loading page. The fix is *e
 
 - Wait for a specific element to be visible (`wait_for_selector` in Playwright).
 - Wait for a specific text to be present.
-- Wait for the network to be idle (no pending requests for 500ms).
+- Wait for the task's visible postcondition with a bounded timeout. Network idle
+  alone is not readiness: polling, analytics and streams may never become idle.
 
 A wait is not a pause; the wait is a *commitment* to a specific page state. Without the wait, the agent is acting on a *probable* page, not a *known* page.
 
@@ -161,9 +163,13 @@ The convention is the *contract* between the agent and the page. The page declar
 
 If the agent needs to maintain a session across multiple actions:
 
-- Use a *named* session (cookie jar in Playwright).
-- Save the session state after each load-bearing action.
-- Restore the session state when the agent re-enters.
+- Use only an authorized browser session or approved test account.
+- If persistence is necessary and authorized, keep credential-bearing state in
+  protected local storage outside Git, screenshots, fixtures, logs and shared memory.
+- Never extract real-user cookies/tokens, upload session state, or turn a browser
+  login into an API credential. Prefer the official authorization flow.
+- Restore only authorized test state; redact captures and expire/delete that
+  state according to the approved retention policy.
 
 The session is the agent's *continuity*. A session lost between actions is a session the agent must rebuild; that is wasted time and a fragile contract.
 
@@ -210,5 +216,6 @@ A "browser-use" action is *ready* to run when:
 - The captcha / 2FA / payment abort is in place and tested.
 - The stable selectors (`data-testid`, `aria-label`, `role` + name) are used, not position-based.
 - The frame / shadow DOM / iframe is detected and entered before interaction.
-- The session is persisted if the action spans multiple steps.
+- Any necessary session persistence is authorized, protected outside Git and has
+  a retention policy; real-user cookies are never extracted or shared.
 - The surprise is reported, not acted on.

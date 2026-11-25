@@ -17,7 +17,7 @@ expected="$(find "$ROOT/skills" -mindepth 2 -maxdepth 2 -name SKILL.md | wc -l |
 installed=0
 for skill_dir in "$ROOT"/skills/*; do
   [[ -f "$skill_dir/SKILL.md" ]] || continue
-  skill_name="$(basename "$skill_dir")"
+  skill_name="${skill_dir##*/}"
   [[ -f "$TEST_ROOT/.claude/skills/$skill_name/SKILL.md" ]] && installed=$((installed + 1))
 done
 
@@ -37,7 +37,8 @@ echo "OK: Gemini and Antigravity are separate hosts; root onboarding installs us
 for host in .claude .agents; do
   for resource in anti-slop-design/SKILL.md \
     bauhaus-human-design/references/ruttl-composition.md \
-    bauhaus-human-design/assets/composition-brief.md; do
+    bauhaus-human-design/assets/composition-brief.md \
+    public-api-integration/assets/fetch-with-fallback.mjs; do
     cmp "$ROOT/skills/$resource" "$TEST_ROOT/$host/skills/$resource"
   done
 done

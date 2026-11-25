@@ -73,7 +73,7 @@ The temptation is to turn on all seven at once. Don't. Each layer has its own no
 
 **4. SBOM (when first asked).** Syft generates a CycloneDX bill-of-materials for every release. Required for some compliance regimes; useful for incident response ("what version of `libfoo` did 1.4.2 actually ship with?").
 
-**5. Renovate (after the SCA backlog is drained).** Once a week, the bot opens PRs for outdated deps. Auto-merge for patch versions after CI passes; review minor and major manually. Dependabot is a drop-in alternative if you are already on GitHub.
+**5. Renovate (after the SCA backlog is drained).** Once a week, the bot opens PRs for outdated deps. Keep human approval for every merge, including patch updates; green CI is evidence, not approval. Dependabot is an alternative if you are already on GitHub.
 
 **6. DAST (after staging exists).** ZAP baseline against an authorized staging URL
 on a schedule. API/full scans can actively attack the service; approve their
@@ -89,12 +89,33 @@ on configuration. Triage results; do not ignore exit status to obtain green.
 ### 1. Gitleaks pre-commit hook
 
 ```bash
-# One-time install
-brew install gitleaks
-# ~/.git/hooks/pre-commit
-#!/usr/bin/env bash
-gitleaks protect --staged --redact --no-banner
+# Run inside the target repository, with Gitleaks already installed.
+# This honors core.hooksPath and refuses to overwrite an existing hook.
+python3 - <<'PY'
+import os
+from pathlib import Path
+import subprocess
+hook = Path(subprocess.check_output(
+    ['git', 'rev-parse', '--git-path', 'hooks/pre-commit'], text=True).strip())
+hook.parent.mkdir(parents=True, exist_ok=True)
+try:
+    fd = os.open(hook, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o755)
+except FileExistsError:
+    raise SystemExit('Existing hook retained. Review and integrate the scanner manually.')
+with os.fdopen(fd, 'w') as stream:
+    stream.write('#!/usr/bin/env bash\nset -euo pipefail\n'
+                 'exec gitleaks git --staged --redact --no-banner\n')
+hook.chmod(0o755)
+PY
 ```
+
+If Gitleaks is missing, choose its reviewed CLI distribution first; do not silently
+install tools or paid services. Existing hooks need deliberate integration, not replacement.
+The optional [Gitleaks Action](https://github.com/gitleaks/gitleaks-action) has
+separate organization licensing requirements; check those before enabling it.
+The CLI can run in CI without adopting that Action. Sources checked 2026-10-24:
+[CLI staged flag](https://github.com/gitleaks/gitleaks/blob/master/cmd/git.go),
+[Git hooks path](https://git-scm.com/docs/git-config#Documentation/git-config.txt-corehooksPath).
 
 ```yaml
 # .github/workflows/secrets.yml
@@ -104,9 +125,9 @@ jobs:
   gitleaks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with: { fetch-depth: 0 }
-      - uses: gitleaks/gitleaks-action@v2
+      - uses: gitleaks/gitleaks-action@v3
         env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
 ```
 
@@ -190,9 +211,10 @@ jobs:
 ```json5
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":automergeMinor"],
+  "extends": ["config:recommended"],
+  "automerge": false,
   "packageRules": [
-    { "matchUpdateTypes": ["minor", "patch"], "automerge": true },
+    { "matchUpdateTypes": ["minor", "patch"], "automerge": false },
     { "matchUpdateTypes": ["major"], "labels": ["breaking"] }
   ],
   "vulnerabilityAlerts": { "enabled": true }
@@ -266,7 +288,7 @@ Name the tested controls and gaps; do not claim CIS compliance from tool selecti
 
 **ZAP full scan on a live production URL.** The baseline scan is passive. The full scan actively probes for vulnerabilities. Run the full scan only against a disposable staging environment, never against a user-facing service.
 
-**Renovate with no automerge policy.** The bot opens 40 PRs a week; the team ignores them; deps go stale. Configure `automerge` for patch and minor, and review majors manually. The default Renovate behaviour is to ask for everything.
+**Renovate without a review cadence.** Unread update PRs are not maintenance. Batch review on a bounded schedule, triage security updates promptly, and keep human merge approval. Do not enable automerge to hide an unmanageable backlog. See [Renovate automerge](https://docs.renovatebot.com/configuration-options/#automerge) (checked 2026-10-24).
 
 **Treating "no findings" as "secure".** A scanner that produces zero findings is either perfect or broken. The real test: deliberately introduce a known-bad pattern (a hardcoded `sk-` token, an `eval()` call, a `package.json` entry pointing at a vulnerable version) and verify the gate fires. Then remove it. Run this test once per quarter, per layer.
 
@@ -282,7 +304,7 @@ Name the tested controls and gaps; do not claim CIS compliance from tool selecti
 □ Semgrep CI on every PR, with p/default and p/owasp-top-ten enabled
 □ Trivy filesystem scan on every PR; container scan on every release
 □ Syft SBOM generated and attached to every release
-□ Renovate running, with automerge for patch + minor, manual review for major
+□ Renovate running, with a review cadence and human approval for every merge
 □ ZAP baseline scan on a schedule (weekly) against staging
 □ Known-bad-pattern test deliberately introduced and caught at each layer
 □ Pre-commit hooks are bypassable (--no-verify); CI gates are not — both are present

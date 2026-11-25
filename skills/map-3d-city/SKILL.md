@@ -22,7 +22,7 @@ Building-populated 3D city maps are the signature front-end of this whole practi
 
 ## Tier 2 — the live web dashboard, via MapLibre native `fill-extrusion`
 
-**Not deck.gl.** A deck.gl canvas overlay on top of a base map causes incorrect occlusion and duplicated building faces at the seam between the two rendering systems — the buildings and the map disagree about depth. MapLibre's native `fill-extrusion` paint layer shares the map's own depth buffer, so there's no seam to disagree across.
+**Native first, not native only.** Use MapLibre `fill-extrusion` for ordinary building footprints: it shares the map renderer's depth handling without another framework. A separate overlaid deck.gl canvas cannot interleave depth with map layers, but deck.gl's supported **interleaved** integration shares the WebGL2 context and is valid when the task needs deck.gl. Check version compatibility and occlusion rather than banning it. [Primary integration guide](https://deck.gl/docs/developer-guide/base-maps/using-with-maplibre) rechecked 2026-10-24; no renderer benchmark performed.
 
 ```mermaid
 flowchart LR
@@ -34,7 +34,7 @@ flowchart LR
 ```
 
 The recipe:
-1. **Bake footprints** — OSM → GeoJSON, with a `height`/`min_height` fallback for buildings missing that tag (most of them, in practice).
+1. **Bake footprints** — OSM → GeoJSON, with a `height`/`min_height` fallback for buildings missing those tags. Preserve measured/tagged height separately from estimates: record `height_source`, estimation method and units. A level-count heuristic is not a survey. Mark unknowns and allow a 2D footprint rather than silently inventing a skyline.
 2. **Serve at scale** — PMTiles behind a Range-request-capable edge proxy for large cities (100k+ buildings); a plain GeoJSON file is fine under roughly 15k buildings — don't build tile infrastructure you don't need yet.
 3. **Extrude** — `fill-extrusion-height` from the baked property, `fill-extrusion-base` from `min_height`.
 4. **Terrain, optional** — drape over a DEM (e.g. AWS Terrarium tiles via `map.setTerrain`) behind a feature flag, so 2D stays the safe default and 3D is opt-in per deployment.
@@ -45,7 +45,7 @@ Reimplementing this per project. The paint spec, the height-fallback logic, and 
 
 ## Scar-earned rules
 
-- **One depth buffer.** All operational 3D overlays render through the map's own layer system — never a second canvas composited on top.
+- **One depth context when occlusion matters.** Prefer native layers; supported interleaved deck.gl is also valid. Keep a separate canvas only where its independent depth is intentional, and test label/building/terrain intersections. Do not render duplicate native and overlay buildings.
 - **Scope pointer/click handlers to the canvas**, not the window — a window-level raycast listener swallows clicks meant for UI panels sitting over the map.
 - **Set a zoom floor and disable world-copy repetition** (`minZoom`, `renderWorldCopies: false`) — zoomed out far enough, an unconstrained map tiles the whole planet sideways and it reads as broken, not zoomed out.
 - **No procedural filler on a real-city surface.** Generated trees/props on top of real building data is a visual lie the moment someone compares it to the actual street. If the data doesn't contain it, the map doesn't show it.

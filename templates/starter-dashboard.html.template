@@ -8,19 +8,20 @@
   <style>
     /* Axiom Design Core — Rams/Braun Lineage: 0px radius, hairlines, single amber accent */
     :root {
-      --bg: #0a0a0a;
-      --surface: #141414;
-      --surface-hover: #1a1a1a;
-      --border: #262626;
-      --border-subtle: #1f1f1f;
-      --text: #ededed;
-      --text-muted: #a1a1aa;
-      --text-dim: #71717a;
-      --accent: #f59e0b; /* Amber */
+      --bg: #faf8f1;
+      --surface: #faf8f1;
+      --surface-hover: #eeeade;
+      --border: #bbb6a7;
+      --border-subtle: #d9d3c4;
+      --text: #202521;
+      --text-muted: #4b514a;
+      --text-dim: #596056;
+      --accent: #875000; /* Amber: action and focus, not a measurement */
       --accent-dim: rgba(245, 158, 11, 0.12);
-      --success: #10b981;
-      --danger: #ef4444;
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --success: #276443;
+      --danger: #a02c21;
+      /* Local faces only: Jost is preferred, not bundled or remotely fetched. */
+      --font-sans: Jost, Futura, Avenir, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
@@ -29,7 +30,7 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-sans);
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       padding: 24px;
@@ -87,16 +88,17 @@
     /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-      gap: 16px;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 24px 40px;
+      align-items: start;
       margin-bottom: 24px;
     }
 
     /* Card */
     .card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 16px;
+      border: 0;
+      padding: 0;
       position: relative;
     }
     .card:hover {
@@ -109,7 +111,7 @@
       margin-bottom: 12px;
     }
     .card-title {
-      font-size: 0.8125rem;
+      font-size: 1rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -124,11 +126,11 @@
       font-family: var(--font-mono);
       font-size: 1.75rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--text);
       margin-bottom: 8px;
     }
     .stat-detail {
-      font-size: 0.8125rem;
+      font-size: 1rem;
       color: var(--text-muted);
       display: flex;
       flex-direction: column;
@@ -150,11 +152,10 @@
 
     /* Instructions callout for AI pairing */
     .agent-box {
-      border: 1px dashed var(--border);
-      background: rgba(20, 20, 20, 0.6);
-      padding: 16px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
       margin-top: 32px;
-      font-size: 0.8125rem;
+      font-size: 1rem;
       color: var(--text-muted);
     }
     .agent-box strong {
@@ -162,21 +163,41 @@
     }
     .code-pill {
       font-family: var(--font-mono);
-      background: #1f1f1f;
+      background: var(--surface-hover);
       padding: 2px 6px;
       color: var(--text);
+    }
+    p { max-width: 65ch; }
+    #card-weather { grid-row: span 2; }
+    #weather-temp { font-size: clamp(3rem, 8vw, 6rem); line-height: 1.2; }
+    #card-weather[data-state="unavailable"] #weather-temp { font-size: 1.75rem; }
+    #card-seismic, #card-fx { border-left: 1px solid var(--border); padding-left: 24px; }
+    .stat-row { gap: 16px; align-items: baseline; }
+    .stat-row > span:first-child { flex-shrink: 0; }
+    .stat-val { text-align: right; min-width: 0; }
+    .header-right { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    button { font: inherit; color: var(--accent); background: transparent; border: 1px solid currentColor; padding: 8px 12px; cursor: pointer; }
+    button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    button:disabled { cursor: wait; }
+    .agent-box { max-width: 65ch; }
+    @media (max-width: 640px) {
+      body { padding: 20px; }
+      .grid { display: block; }
+      .card { margin-bottom: 28px; }
+      #card-seismic, #card-fx { border-left: 0; border-top: 1px solid var(--border); padding: 20px 0 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <main class="container">
     <header>
       <div class="header-left">
-        <h1><span>▲</span> <Project></h1>
+        <h1><Project></h1>
         <p><one sentence: what it is and who it's for></p>
       </div>
       <div class="header-right">
+        <button id="refresh" type="button">Refresh feeds</button>
         <div class="status-badge" id="system-status">
           <div class="status-dot"></div>
           <span id="status-text">INITIALIZING</span>
@@ -187,9 +208,9 @@
     <!-- LIVE TELEMETRY CARDS -->
     <div class="grid">
       <!-- Card 1: Live Weather (Open-Meteo, zero-auth) -->
-      <div class="card" id="card-weather">
+      <section class="card" id="card-weather" aria-labelledby="weather-title">
         <div class="card-header">
-          <span class="card-title">Atmospheric Conditions</span>
+          <h2 class="card-title" id="weather-title">Bangkok weather</h2>
           <span class="card-meta" id="weather-meta">OPEN-METEO</span>
         </div>
         <div class="stat-hero" id="weather-temp">--°C</div>
@@ -207,12 +228,13 @@
             <span class="stat-val">13.75°N, 100.51°E</span>
           </div>
         </div>
-      </div>
+        <p class="card-meta" id="weather-time">Observation time unknown</p>
+      </section>
 
       <!-- Card 2: Seismic Monitor (USGS Earthquakes, zero-auth) -->
-      <div class="card" id="card-seismic">
+      <section class="card" id="card-seismic" aria-labelledby="quake-title">
         <div class="card-header">
-          <span class="card-title">Recent Seismic Event</span>
+          <h2 class="card-title" id="quake-title">Latest global M4.5+ earthquake</h2>
           <span class="card-meta" id="quake-meta">USGS M4.5+</span>
         </div>
         <div class="stat-hero" id="quake-mag">M --</div>
@@ -230,12 +252,12 @@
             <span class="stat-val" id="quake-depth">-- km</span>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- Card 3: Currency Rates (Frankfurter ECB, zero-auth) -->
-      <div class="card" id="card-fx">
+      <section class="card" id="card-fx" aria-labelledby="fx-title">
         <div class="card-header">
-          <span class="card-title">Foreign Exchange</span>
+          <h2 class="card-title" id="fx-title">1 USD in Thai baht</h2>
           <span class="card-meta">ECB / FRANKFURTER</span>
         </div>
         <div class="stat-hero" id="fx-rate">-- THB</div>
@@ -253,19 +275,20 @@
             <span class="stat-val">USD (1.00)</span>
           </div>
         </div>
-      </div>
+      </section>
     </div>
 
     <!-- AI AGENT & BUILDER HANDSHAKE -->
     <div class="agent-box">
-      <strong>Vibe Coder Guidance:</strong> This starter dashboard runs 100% in your browser without backend setup.
+      <strong>Make this yours:</strong> This demo reads three unrelated public feeds in your browser, without a backend. Weather is model output, not a station reading; exchange rates are daily benchmarks, not trading prices. These feeds do not imply a relationship or a local earthquake warning. Network access and provider terms still apply.
       To customize, open this folder in <strong>Claude Code</strong>, <strong>Cursor</strong>, or <strong>Antigravity</strong> and say:
       <br><br>
       <em>"Modify index.html to show a live crypto price ticker using CoinGecko and switch the weather coordinates to Tokyo."</em>
       <br><br>
       Contracts and invariants are maintained in <span class="code-pill">CLAUDE.md</span> and <span class="code-pill">AGENTS.md</span>.
     </div>
-  </div>
+    <p class="card-meta">Local Jost / Futura / Avenir where installed; fonts are not bundled. Prototype, not an emergency or financial decision system.</p>
+  </main>
 
   <script>
     // Resilient client-side fetcher with error fallback
@@ -285,24 +308,36 @@
     }
 
     async function loadDashboard() {
+      const refresh = document.getElementById('refresh');
+      if (refresh.disabled) return;
+      refresh.disabled = true;
       const statusText = document.getElementById('status-text');
+      document.getElementById('card-weather').dataset.state = 'loading';
       const startTime = performance.now();
+      statusText.textContent = 'REFRESHING · observations cleared';
+      for (const [id, text] of Object.entries({ 'weather-temp':'--°C', 'weather-wind':'-- km/h', 'weather-dir':'--°', 'weather-time':'Observation time unknown', 'weather-meta':'OPEN-METEO', 'quake-mag':'M --', 'quake-place':'Checking USGS…', 'quake-time':'--', 'quake-depth':'-- km', 'fx-rate':'-- THB', 'fx-eur':'--', 'fx-jpy':'--' })) document.getElementById(id).textContent = text;
 
       const results = await Promise.all([
-        safeFetch('https://api.open-meteo.com/v1/forecast?latitude=13.75&longitude=100.51&current_weather=true'),
+        safeFetch('https://api.open-meteo.com/v1/forecast?latitude=13.75&longitude=100.51&current_weather=true&timezone=UTC&temperature_unit=celsius&wind_speed_unit=kmh'),
         safeFetch('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=4.5&limit=1'),
         safeFetch('https://api.frankfurter.app/latest?from=USD&to=THB,EUR,JPY')
       ]);
       const [weatherData, quakeData, fxData] = results;
       let available = 0;
       // Only count validated observations, never merely successful HTTP responses.
-      if (weatherData?.current_weather && ['temperature','windspeed','winddirection'].every(k => Number.isFinite(weatherData.current_weather[k]))) {
+      const wUnits = weatherData?.current_weather_units;
+      const wTime = weatherData?.current_weather?.time;
+      const validWeatherTime = typeof wTime === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(wTime) && validDate(wTime.slice(0,10)) && Number.isFinite(Date.parse(`${wTime}Z`));
+      if (weatherData?.utc_offset_seconds === 0 && validWeatherTime && wUnits?.temperature === '°C' && wUnits?.windspeed === 'km/h' && wUnits?.winddirection === '°' && ['temperature','windspeed','winddirection'].every(k => Number.isFinite(weatherData.current_weather[k])) && weatherData.current_weather.windspeed >= 0 && weatherData.current_weather.winddirection >= 0 && weatherData.current_weather.winddirection <= 360) {
+        document.getElementById('card-weather').dataset.state = 'ready';
         available++;
         const w = weatherData.current_weather;
         document.getElementById('weather-temp').textContent = `${w.temperature}°C`;
         document.getElementById('weather-wind').textContent = `${w.windspeed} km/h`;
         document.getElementById('weather-dir').textContent = `${w.winddirection}°`;
+        document.getElementById('weather-time').textContent = `Model valid ${wTime.replace('T',' ')} UTC`;
       } else {
+        document.getElementById('card-weather').dataset.state = 'unavailable';
         document.getElementById('weather-temp').textContent = 'Unavailable';
         document.getElementById('weather-meta').textContent = 'OPEN-METEO · UNAVAILABLE';
       }
@@ -312,13 +347,13 @@
         available++;
         document.getElementById('quake-mag').textContent = 'No events';
         document.getElementById('quake-place').textContent = 'No matching M4.5+ events in this query';
-      } else if (Number.isFinite(quakeData?.features?.[0]?.properties?.mag) && Number.isFinite(quakeData.features[0].properties.time) && Number.isFinite(quakeData.features[0].geometry?.coordinates?.[2])) {
+      } else if (Number.isFinite(quakeData?.features?.[0]?.properties?.mag) && Number.isFinite(quakeData.features[0].properties.time) && Number.isFinite(new Date(quakeData.features[0].properties.time).getTime()) && Number.isFinite(quakeData.features[0].geometry?.coordinates?.[2])) {
         available++;
         const q = quakeData.features[0];
         document.getElementById('quake-mag').textContent = `M ${q.properties.mag.toFixed(1)}`;
-        document.getElementById('quake-place').textContent = q.properties.place || 'Unknown';
+        document.getElementById('quake-place').textContent = typeof q.properties.place === 'string' ? q.properties.place : 'Unknown';
         document.getElementById('quake-depth').textContent = `${q.geometry.coordinates[2]} km`;
-        const timeStr = new Date(q.properties.time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const timeStr = new Date(q.properties.time).toISOString().replace('T', ' ').replace('.000Z', ' UTC');
         document.getElementById('quake-time').textContent = timeStr;
       } else {
         document.getElementById('quake-mag').textContent = 'Unavailable';
@@ -326,7 +361,7 @@
       }
 
       // 3. Fetch FX Rates (Frankfurter ECB USD to THB, EUR, JPY)
-      if (fxData?.rates && ['THB','EUR','JPY'].every(k => Number.isFinite(fxData.rates[k]) && fxData.rates[k] > 0) && typeof fxData.date === 'string') {
+      if (fxData?.base === 'USD' && fxData?.amount === 1 && fxData?.rates && ['THB','EUR','JPY'].every(k => Number.isFinite(fxData.rates[k]) && fxData.rates[k] > 0) && validDate(fxData.date)) {
         available++;
         document.getElementById('fx-rate').textContent = `${fxData.rates.THB.toFixed(2)} THB`;
         document.getElementById('fx-eur').textContent = fxData.rates.EUR.toFixed(4);
@@ -341,10 +376,16 @@
       statusText.textContent = `${available === 3 ? 'READY' : available ? 'PARTIAL' : 'UNAVAILABLE'} · ${available}/3 feeds (${elapsed}ms)`;
       statusText.parentElement.dataset.state = available === 3 ? 'ready' : available ? 'partial' : 'unavailable';
       statusText.parentElement.setAttribute('role', 'status');
+      refresh.disabled = false;
+    }
+
+    function validDate(value) {
+      return typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0,10) === value;
     }
 
     // Initialize on page load
     window.addEventListener('DOMContentLoaded', loadDashboard);
+    document.getElementById('refresh').addEventListener('click', loadDashboard);
   </script>
 </body>
 </html>

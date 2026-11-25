@@ -284,3 +284,11 @@ fluent-language review remain unverified.
 **Why:** Dr Non’s Shanghai reviews showed that a correctly aligned small cartoon could still be patched onto the page; narrative relationship must be decided before dimensions.
 **Diff:** Root guide, README, ANTI-SLOP and anti-slop skill entrypoint/reference; no new skill or count change.
 **Tags:** `spatial-hallucination · composition · narrative-images · access · codex`
+
+## 2026-10-24 — Restore the unfinished full-stack execution routes
+
+**Date:** 2026-10-24
+**What:** Restored outcome-first build routes and an additive scaffold execution receipt; corrected credential-ledger, browser-session and fallback instructions in existing skills.
+**Why:** A beginner needs a working local result and a safe next route when an external step fails, not another tool list or an unsupported claim that cloud security was installed.
+**Diff:** [Build paths](BUILD_PATHS.md), `scripts/scaffold_static.py`, bootstrap routing and existing execution skills. `bash scripts/test-bootstrap.sh` passed, including byte-for-byte preservation of operator receipt notes on rerun; no deployment or real-person usability result is claimed.
+**Tags:** `full-stack · bootstrap · failure-evidence · restoration · authority`

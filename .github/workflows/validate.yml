@@ -25,11 +25,17 @@ jobs:
         run: bash scripts/test-bootstrap.sh
       - name: Prove security evidence cannot silently clear missing controls
         run: python3 scripts/test-security-release.py
+      - name: Prove deployment cannot bypass evidence or expose the project root
+        run: python3 scripts/test-deploy-security.py
+      - name: Prove offline cooked comparisons retain provenance
+        run: python3 scripts/test-cooked-data.py
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
       - name: Prove starter failure states are honest
         run: node scripts/test-starter.mjs
+      - name: Prove cache and provider failure routes
+        run: node scripts/test-public-fetch.mjs
       - name: Install isolated browser-test tooling
         run: |
           npm install --prefix "$RUNNER_TEMP/drnon-browser" --no-save --package-lock=false playwright@1.63.0

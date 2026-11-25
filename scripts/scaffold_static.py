@@ -60,6 +60,8 @@ Read README.md and these exact commands first. Recall at most three relevant
 shared lessons if the memory bridge is available; the bridge is optional.
 State the blast radius, make surgical changes, and verify the changed behaviour.
 Record verified novel fixes in docs/lessons/. No secrets in contracts or Git.
+Keep attempts, evidence and next safe alternatives in docs/execution.md; retain
+earlier failures and operator notes. Local fixtures do not prove live readiness.
 
 ## Production gates
 
@@ -94,6 +96,31 @@ for filename in ('AGENTS.md', 'CLAUDE.md', 'GEMINI.md'):
 
 add('docs/security-controls.json', (root / 'templates/security-controls.json.template').read_text())
 add('scripts/security_release.py', (root / 'templates/security-release.py.template').read_text(), True)
+add('docs/execution.md', '''# Execution receipt — Demo
+
+Keep this file across sessions. Append attempts; do not erase earlier failures.
+Never include credentials, authorization headers, cookies, personal data or secret URLs.
+
+| Step / intended result | State | Evidence (command, exit status, artifact, commit) | Next safe alternative |
+|---|---|---|---|
+| Open the static reader | pending | Not exercised yet | Run scripts/start.sh for loopback preview |
+| External observations | pending | Internet and provider availability unverified | Use a labelled fixture or unavailable state |
+| Production security / deployment | blocked | No infrastructure or controls provisioned | Review docs/security-controls.json and obtain required approval |
+
+States: pending (not attempted), passed (specific check met), failed (attempted
+and check unmet), blocked (needs access, input or authority), skipped (not
+applicable, with reason). A passed local check is not a production clearance.
+
+For each failed attempt record the symptom, cause if verified, retry budget,
+safe alternative and its eventual result. Stop on 401/403 or consent challenges;
+honour Retry-After on 429 with bounded attempts and elapsed time. Do not evade
+access restrictions through another identity. Fixtures must never be called live.
+
+Before UI changes apply anti-slop-design, contextual type, Palette colour roles
+and a subject-specific composition brief. Human usability and Thai/Chinese
+fluency are unverified until reviewed by real people; screenshots alone do not
+prove either. Security plugins and scanners require separate opt-in setup.
+''')
 
 add('scripts/start.sh', f'''#!/usr/bin/env bash
 set -euo pipefail
@@ -118,6 +145,8 @@ The server requires Python 3 and is bound to your computer only.
 
 Run `bash scripts/verify.sh` before committing. Open `docs/components.html` for the
 component reference. Read `AGENTS.md` (same contract in CLAUDE.md and GEMINI.md).
+Keep `docs/execution.md` as the attempt/evidence/next-safe-alternative receipt.
+It starts pending or blocked, not passed. Re-running setup preserves your notes.
 
 ## What was actually created
 

@@ -8,7 +8,7 @@ license: MIT
 
 > Get going at zero initial spend. The providers below are candidates, not contracts: verify today's quota, card requirement, data use, and commercial terms before building around one.
 
-This skill is the *companion* to [`local-llm-ollama`](../local-llm-ollama/SKILL.md) (offline) and [`reference/free-apis.md`](../../reference/free-apis.md) (the wider free-API catalog). The discipline: **use the right provider for the right job; never pay for what is free; rotate when a free tier is exhausted.**
+This skill is the *companion* to [`local-llm-ollama`](../local-llm-ollama/SKILL.md) (offline) and [`reference/free-apis.md`](../../reference/free-apis.md) (the wider free-API catalog). The discipline: **choose by task, verify terms and privacy, respect quotas and stop when the budget is exhausted.**
 
 Provider details were reviewed 2026-09-14. Exact quotas are volatile; record the provider documentation URL and `checked_at` in the project's data catalog. A free signup is not a reliability, privacy, or commercial-use guarantee.
 
@@ -167,7 +167,10 @@ These are the cheatsheet rules — the kind of sentence an agent pastes above th
 
 1. **Use the right provider for the right job.** Speed (Groq), long context (Google), daily volume (Cerebras), variety (OpenRouter), no signup (AI Horde), embeddings (Cohere). Do not let one provider become the only path.
 2. **Never pay for what is free.** Before entering a card on any hosted LLM, check the free tier of Groq / Google / Cerebras / OpenRouter first. The free tier is the default; paid is the exception.
-3. **Rotate when throttled.** A 429 from Groq is not a failure — it is a signal to fall through to Cerebras or OpenRouter. Implement the fall-through at the caller layer, not the prompt layer.
+3. **Respect throttling.** Honour Retry-After on 429 with bounded attempts,
+   elapsed time and spend. Use another already approved provider only when its
+   terms, retention and privacy permit the same payload. Never rotate accounts,
+   identities or keys to evade a provider restriction; stop on 401/403.
 4. **Cache the response, not the key.** The key is free; the response is expensive. A `cached(60s, key=prompt_hash)` wrapper beats any provider switch.
 5. **Local for embeddings and drafts; cloud for reasoning.** Ollama + `nomic-embed-text` for embeddings and short drafts (no rate limit, no key, no egress). Cloud for tasks the small model can't do well.
 6. **No-key providers for the demo, not the production.** AI Horde and LLM7.io are zero-friction but the lowest priority and the tightest limits. Use them to prove a concept; switch before shipping.
@@ -193,7 +196,9 @@ MISTRAL_API_KEY=
 HUGGINGFACE_TOKEN=
 ```
 
-The provider a call routes to is a function of the task, not the order of the file. The caller is the [`mcp-cli-first`](../mcp-cli-first/SKILL.md) / `with-api-guards` style — pick by need, log which key was used, fall through on 429.
+The provider a call routes to is a function of the task, not the order of the file.
+Pick by need; log provider name and outcome, never which key or any part of it.
+Fallback requires approved destinations and payload privacy, not merely an available key.
 
 ---
 
@@ -225,5 +230,6 @@ A "free stack" is *ready* to ship when:
 - The embeddings + short-draft path is on local Ollama, not on a free cloud tier.
 - The `.env` is in `.gitignore`, the secrets are in the operator's password manager, and the production environment reads from a secret store.
 - Each call site logs the *provider* (not the key) so fall-through behaviour is auditable.
-- A 429 response triggers fall-through within the caller, not a "retry the same key" loop.
+- A 429 response honours Retry-After and bounded budgets; fallback destinations
+  have explicit terms/privacy approval. No identity or account-based evasion.
 - Commercial-use eligibility is checked for every provider the production app uses, not just the dev one.

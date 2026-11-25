@@ -19,13 +19,69 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-PROJECT="${PAGES_PROJECT:-myapp}"
-CANONICAL="${PAGES_CANONICAL:-https://myapp.pages.dev}"   # converges first
-CUSTOM="${PAGES_CUSTOM:-https://myapp.example.org}"       # touch only after canonical is clean
-ROOT="${PAGES_ROOT:-public}"                              # local dir being deployed
+PROJECT="${PAGES_PROJECT:?Set PAGES_PROJECT explicitly}"
+CANONICAL="${PAGES_CANONICAL:?Set PAGES_CANONICAL explicitly}" # converges first
+CUSTOM="${PAGES_CUSTOM:?Set PAGES_CUSTOM explicitly}"
+ROOT="${PAGES_ROOT:?Set PAGES_ROOT to an audited asset-only directory}"
 
 need() { command -v "$1" >/dev/null || { echo "missing: $1" >&2; exit 1; }; }
-need npx; need curl; need grep
+need python3; need git; need npx; need curl; need grep
+
+# Validate names before reading file contents or invoking an upload-capable tool.
+# A Git ignore file does not protect an asset-directory upload.
+python3 - "$ROOT" "$CANONICAL" "$CUSTOM" <<'PY'
+from pathlib import Path
+import os
+import sys
+from urllib.parse import urlsplit
+
+def refuse(message):
+    sys.exit('FAIL: ' + message)
+
+for address in sys.argv[2:]:
+    url = urlsplit(address)
+    if (url.scheme != 'https' or not url.hostname or url.username or url.password
+            or url.path not in ('', '/') or url.query or url.fragment):
+        refuse('deploy hosts must be credential-free HTTPS origins')
+
+relative = Path(sys.argv[1])
+if relative.is_absolute() or '..' in relative.parts or not relative.parts:
+    refuse('PAGES_ROOT must be a non-root relative asset directory without traversal')
+current = Path.cwd()
+for part in relative.parts:
+    current /= part
+    if current.is_symlink():
+        refuse('asset root must not contain symlinks')
+root = current.resolve()
+if root == Path.cwd().resolve() or not root.is_dir():
+    refuse('asset root must be an existing subdirectory, never the repository root')
+
+private = {'.git', '.aws', '.ssh', '.npmrc', '.dev.vars'}
+def unsafe(name):
+    lower = name.lower()
+    return (lower in private or lower.startswith('.git.')
+            or lower.startswith('.dev.vars.')
+            or (lower.startswith('.env') and lower != '.env.example')
+            or lower in {'id_rsa', 'id_ed25519', 'credentials', 'credentials.json', 'secrets.json'}
+            or lower.endswith(('.pem', '.key', '.p12', '.pfx', '.sqlite', '.sqlite3', '.db')))
+
+if any(unsafe(part) for part in relative.parts):
+    refuse('private component in asset root')
+def walk_error(error):
+    refuse('cannot inspect complete asset tree')
+for directory, folders, files in os.walk(root, followlinks=False, onerror=walk_error):
+    for name in folders + files:
+        entry = Path(directory) / name
+        if entry.is_symlink() or unsafe(name):
+            refuse('private file/component or symlink in asset tree; inspect names locally')
+        if not entry.is_dir() and not entry.is_file():
+            refuse('asset tree contains a non-regular file')
+PY
+
+# This validates attestations, not security itself. Reviewer must inspect receipts.
+# Copy both security templates into the project and collect real evidence first.
+REVISION=$(git rev-parse --verify HEAD)
+python3 scripts/security_release.py docs/security-controls.json --release --commit "$REVISION"
 
 versions_on() { curl -fsS --max-time 20 "$1/" | grep -oE 'v=[0-9]+(\.[0-9]+)+' | sort -u; }
 
@@ -35,7 +91,7 @@ echo "── Expected asset version: ${EXPECTED}"
 
 echo "── Deploying $ROOT/ → '${PROJECT}'"
 npx wrangler pages deploy "$ROOT" --project-name "${PROJECT}" \
-  --commit-hash "$(git rev-parse HEAD)"
+  --commit-hash "$REVISION"
 
 wait_for_html() {  # $1=host  $2=label
   local got

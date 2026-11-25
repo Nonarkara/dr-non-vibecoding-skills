@@ -76,11 +76,14 @@ this repository is the durable version of the same thing.
 
 ---
 
-## Non-Programmer Quickstart: The Automatic Tesla Paradigm
+## Non-Programmer Quickstart: choose a result
 
-> If manual coding is like driving a stick-shift car — managing the clutch of syntax, package managers, and compile errors — this stack puts you in the driver's seat of an **autonomous vehicle**. The AI agent handles the mechanics; you decide where to go, how fast to go, and which landmarks to explore.
+Start with [four build paths](BUILD_PATHS.md): a website, a protected operation,
+cooked-data analytics, or maps and satellite comparisons. Choose the result;
+your agent handles mechanics within the authority you give it.
 
-If you have never written a line of code in your life, you can spin up a running, live-data dashboard in **three minutes**:
+If you have never written code, begin with this runnable static Demo. Requires
+Bash, Git and Python 3 for scaffolding; no measured onboarding-time promise:
 
 ```bash
 # 1. Clone this repository
@@ -90,11 +93,16 @@ cd dr-non-vibecoding-skills
 # 2. Bootstrap your new project (replaces all manual scaffolding)
 ./setup.sh --init-project ~/Projects/my-app --name "Civic Pulse" --desc "Real-time municipal telemetry" -y
 
-# 3. View your live dashboard immediately in your browser
+# 3. Open the local Demo; live feeds require internet and may be unavailable
 open ~/Projects/my-app/index.html
 ```
 
-Your browser instantly opens a running, dark-mode dashboard connected to live public data feeds (weather, earthquakes, currency exchange) with zero API keys, zero dependencies, and zero backend configuration.
+The reader opens without API keys or a backend. External feeds (weather,
+earthquakes, currency exchange) can fail; the page labels unavailable data.
+The generated contracts describe static HTML/JS, not an installed framework.
+`docs/execution.md` keeps pending, passed, failed, blocked and skipped attempts,
+their evidence and next safe alternatives. Re-running setup preserves your notes.
+Models, cloud infrastructure, identity, scanners and Strix need separate setup.
 
 **Now, direct your AI:**
 1. Open `~/Projects/my-app` in **Claude Code**, **Cursor**, or **Antigravity**.
