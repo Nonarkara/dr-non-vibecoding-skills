@@ -317,3 +317,11 @@ fluent-language review remain unverified.
 **Why:** Parallel agents had left overlapping rules and provisional upstream status text; one route per rule keeps the owner laws, MSH precedence and project style visible without duplicate instructions.
 **Diff:** [PR #28](https://github.com/Nonarkara/dr-non-vibecoding-skills/pull/28), [anti-slop-design](skills/anti-slop-design/SKILL.md), [applied spatial guide](ANTI-SPATIAL-HALLUCINATION.md).
 **Tags:** `hierarchy · reconciliation · agent-relay`
+
+## 2026-11-25 — Rehearse the path from clone to review
+
+**Date:** 2026-11-25
+**What:** Added a brief-to-PR workflow benchmarked against gstack, an offline rehearsal, a cooked-data example, and release and starter regression checks.
+**Why:** The catalogue had specialist skills, but a new builder needed an entry path and a way to verify that setup and fallback routes actually work.
+**Diff:** [Workflow](WORKFLOW.md), [build paths](BUILD_PATHS.md), [data example](examples/cooked-data/README.md), and [deploy evidence lesson](docs/lessons/2026-10-24-deploy-evidence-boundary.md).
+**Tags:** `onboarding · gstack · execution · release-evidence · frontend`

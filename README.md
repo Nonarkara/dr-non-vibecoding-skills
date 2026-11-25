@@ -78,6 +78,10 @@ this repository is the durable version of the same thing.
 
 ## Non-Programmer Quickstart: choose a result
 
+Use the [brief-to-PR workflow](WORKFLOW.md) to direct your agent through framing,
+implementation, review and proof. Run `make rehearse` after cloning to exercise
+installation, scaffolding and offline analytics in temporary folders.
+
 Start with [four build paths](BUILD_PATHS.md): a website, a protected operation,
 cooked-data analytics, or maps and satellite comparisons. Choose the result;
 your agent handles mechanics within the authority you give it.

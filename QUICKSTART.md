@@ -1,5 +1,8 @@
 # Quickstart — after you are the Builder
 
+Run `make rehearse` to exercise the local setup without modifying your agent's
+installed skills. Use the [brief-to-PR workflow](WORKFLOW.md) for your first task.
+
 The one-liner is in the README:
 
 ```bash
@@ -130,7 +133,7 @@ This single sentence eliminated most of the "it works!" / "no it doesn't" round-
 
 ## 4. Steal the deploy script (5 min)
 
-If you deploy static assets behind any CDN, copy [`templates/deploy-pages.sh`](templates/deploy-pages.sh). It deploys, then **proves the bytes arrived** by md5-checking real assets through throwaway cache keys.
+For Cloudflare Pages, [`templates/deploy-pages.sh`](templates/deploy-pages.sh) verifies that the published assets match the local bytes. Set the Pages project and domain, provide the versioned assets the script probes, and prepare release evidence for the commit you intend to publish. The generated starter uses inline JavaScript. See the [Pages deployment checklist](WORKFLOW.md#pages-deployment) before running the script.
 
 The version of this script that only checked the HTML version string let a patched XSS fix sit un-served in production for hours. See [war stories](playbooks/06-war-stories.md#the-poisoned-edge-2026-08-09).
 

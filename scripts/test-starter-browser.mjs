@@ -47,11 +47,24 @@ try {
   assert.equal(await page.locator('#quake-place img').count(),0);
   assert.equal(await page.evaluate(()=>window.fixtureXSS),undefined);
   assert.match(await page.locator('#quake-place').innerText(),/^<img/);
+  good[1].features[0].properties.place='Eastern Gulf of Thailand (test fixture)';
+  await page.getByRole('button',{name:'Refresh feeds'}).click();
+  await page.waitForFunction(()=>document.querySelector('#quake-place').textContent.includes('test fixture'));
   for(const width of [320,390,1024,1440]){
     await page.setViewportSize({width,height:900});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),width);
     if(screenshotDir) await page.screenshot({path:path.join(screenshotDir,`ready-${width}.png`),fullPage:true});
+    if(width>=1024){
+      const weather=await page.locator('#card-weather').boundingBox();
+      const guidance=await page.locator('.agent-box').boundingBox();
+      assert.ok(guidance.y-weather.y-weather.height<=32,'guidance should stay near the primary reading');
+    }
   }
+  await page.setViewportSize({width:390,height:844});
+  await page.evaluate(()=>{document.documentElement.style.fontSize='200%';});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth),390);
+  await page.evaluate(()=>{document.documentElement.style.fontSize='';});
+  await page.setViewportSize({width:1440,height:900});
   for(const override of [{base:'EUR'},{amount:2},{date:'2026-02-30'}]){
     fixtures=[good[0],good[1],{...good[2],...override}];
     await page.getByRole('button',{name:'Refresh feeds'}).click();

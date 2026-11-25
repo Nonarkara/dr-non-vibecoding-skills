@@ -8,8 +8,8 @@ PROJECT="$TEST_ROOT/audit-fixture"
 
 # Simulate a first-time Git user: bootstrap must finish even without identity,
 # signing keys, hooks, package managers, or network access.
-env GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null \
-  "$ROOT/setup.sh" --init-project "$PROJECT" \
+export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null
+"$ROOT/setup.sh" --init-project "$PROJECT" \
   --name "Audit Fixture" \
   --desc "Cross-agent bootstrap verification." \
   --stack "Static HTML" \

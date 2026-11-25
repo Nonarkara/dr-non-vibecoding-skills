@@ -154,7 +154,6 @@
     .agent-box {
       border-top: 1px solid var(--border);
       padding-top: 20px;
-      margin-top: 32px;
       font-size: 1rem;
       color: var(--text-muted);
     }
@@ -168,7 +167,7 @@
       color: var(--text);
     }
     p { max-width: 65ch; }
-    #card-weather { grid-row: span 2; }
+    .secondary-feeds { grid-column: 2; grid-row: 1 / span 2; display: grid; gap: 24px; }
     #weather-temp { font-size: clamp(3rem, 8vw, 6rem); line-height: 1.2; }
     #card-weather[data-state="unavailable"] #weather-temp { font-size: 1.75rem; }
     #card-seismic, #card-fx { border-left: 1px solid var(--border); padding-left: 24px; }
@@ -183,6 +182,7 @@
     @media (max-width: 640px) {
       body { padding: 20px; }
       .grid { display: block; }
+      .secondary-feeds { display: block; }
       .card { margin-bottom: 28px; }
       #card-seismic, #card-fx { border-left: 0; border-top: 1px solid var(--border); padding: 20px 0 0; }
     }
@@ -229,8 +229,10 @@
           </div>
         </div>
         <p class="card-meta" id="weather-time">Observation time unknown</p>
+        <p class="card-meta">Weather model data by <a href="https://open-meteo.com/">Open-Meteo</a> (CC BY 4.0). The free API is for non-commercial use. <a href="https://open-meteo.com/en/terms">Usage terms</a></p>
       </section>
 
+      <div class="secondary-feeds">
       <!-- Card 2: Seismic Monitor (USGS Earthquakes, zero-auth) -->
       <section class="card" id="card-seismic" aria-labelledby="quake-title">
         <div class="card-header">
@@ -276,16 +278,17 @@
           </div>
         </div>
       </section>
-    </div>
+      </div>
 
     <!-- AI AGENT & BUILDER HANDSHAKE -->
     <div class="agent-box">
       <strong>Make this yours:</strong> This demo reads three unrelated public feeds in your browser, without a backend. Weather is model output, not a station reading; exchange rates are daily benchmarks, not trading prices. These feeds do not imply a relationship or a local earthquake warning. Network access and provider terms still apply.
       To customize, open this folder in <strong>Claude Code</strong>, <strong>Cursor</strong>, or <strong>Antigravity</strong> and say:
       <br><br>
-      <em>"Modify index.html to show a live crypto price ticker using CoinGecko and switch the weather coordinates to Tokyo."</em>
+      <em>"Switch the weather feed to Tokyo. Keep its source and time visible, and test what happens when the feed is unavailable."</em>
       <br><br>
       Contracts and invariants are maintained in <span class="code-pill">CLAUDE.md</span> and <span class="code-pill">AGENTS.md</span>.
+    </div>
     </div>
     <p class="card-meta">Local Jost / Futura / Avenir where installed; fonts are not bundled. Prototype, not an emergency or financial decision system.</p>
   </main>

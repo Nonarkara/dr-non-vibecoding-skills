@@ -34,13 +34,16 @@ relay-status:
 relay-check:
 	@./scripts/relay.sh check
 
-test: validate relay-check
-	@bash -n setup.sh scripts/*.sh
+.PHONY: rehearse
+rehearse:
 	@bash scripts/test-install-skills.sh
 	@bash scripts/test-bootstrap.sh
+	@python3 scripts/test-cooked-data.py
+
+test: validate relay-check rehearse
+	@bash -n setup.sh scripts/*.sh
 	@python3 scripts/test-security-release.py
 	@python3 scripts/test-deploy-security.py
-	@python3 scripts/test-cooked-data.py
 	@node scripts/test-public-fetch.mjs
 	@node scripts/test-starter.mjs
 	@bash scripts/test-cf-runaway-cost.sh
