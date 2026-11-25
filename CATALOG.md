@@ -26,6 +26,14 @@ records choices and actual task evidence. This adds a working method, not a tast
 | Picking up another agent's commits | [`agent-relay`](skills/agent-relay/SKILL.md) |
 | Reading a terse or compound brief | [`prompt-like-dr-non`](skills/prompt-like-dr-non/SKILL.md) |
 
+## Choose a result before a skill
+
+[BUILD_PATHS.md](BUILD_PATHS.md) routes a newcomer to a website, protected
+operation, cooked-data analytics or map/satellite workflow. It separates runnable
+local examples from integrations needing authority and credentials. Use a small
+relevant set of skills; record failures and safe alternatives rather than loading
+the entire catalogue or calling unprovisioned controls “secured”.
+
 ## Think, build, review, ship
 
 | Skill | Load it when… |

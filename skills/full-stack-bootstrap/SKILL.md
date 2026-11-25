@@ -18,6 +18,10 @@ If `setup.sh` and `BLUEPRINT.md` are not present in this checkout, tell the user
 
 ## The one command
 
+Start with [BUILD_PATHS.md](../../BUILD_PATHS.md) when the person names an outcome,
+not a framework: website, protected operation, cooked data or maps/satellites.
+This skill bootstraps the local baseline; the path identifies what to implement next.
+
 ```bash
 git clone https://github.com/Nonarkara/dr-non-vibecoding-skills.git
 cd dr-non-vibecoding-skills && ./setup.sh --become-builder
@@ -82,6 +86,7 @@ What it creates, in order:
 | `CLAUDE.md` | `scripts/scaffold_static.py` | Filled Tier-2 contract describing the actual static starter and exact commands |
 | `AGENTS.md`, `GEMINI.md` | `scripts/scaffold_static.py` | Same filled contract for other agents |
 | `README.md`, `scripts/start.sh`, `docs/components.html` | shared static scaffold | First-use instructions, loopback preview and component reference |
+| `docs/execution.md` | shared static scaffold, additive | Pending/passed/failed/blocked/skipped attempts, evidence and next safe alternative; existing notes survive reruns |
 | `.gitignore` | `templates/gitignore.template` | Hardened against secrets (`.env*`, `*.pem`, `*.key`), OS junk (`.DS_Store`), AI agent artifacts (`.gemini/`, `.claude/`, `scratch/`), and the standard Node/Python/Next.js noise |
 | `.env.example` | `templates/env.example.template` | Empty-value environment variables with signup URLs and a one-line secret-hygiene note |
 | `docs/lessons/` | (directory, with `.gitkeep`) | Pre-seeded with a `YYYY-MM-DD-bootstrap.md` lesson doc establishing the load-bearing invariants for future sessions |
@@ -114,7 +119,7 @@ Useful after pulling an old project out of storage, or when an agent session dri
 
 ### 4. `--validate` — run the repo validator
 
-`scripts/validate_repo.py` — the same gate GitHub Actions runs. Checks skill frontmatter (name, description ≤180, MIT, "Use" trigger), playbook numbering, the live count claims in README and AGENTS (currently 69/13/7/12), badge alts, QUICKSTART/BLUEPRINT expect counts, plugin packaging, broken local links, OS metadata in the tree, and the AGENTS.md 32 KiB Codex budget.
+`scripts/validate_repo.py` — the same gate GitHub Actions runs. Checks skill frontmatter (name, description ≤180, MIT, "Use" trigger), playbook numbering, current tree-derived counts in README and AGENTS, badge alts, QUICKSTART/BLUEPRINT expect counts, plugin packaging, broken local links, OS metadata in the tree, and the AGENTS.md 32 KiB Codex budget.
 
 The validator is fast (sub-second on a warm checkout). Run it after any change to a skill, a playbook, or the count badges.
 
@@ -124,9 +129,9 @@ The validator is fast (sub-second on a warm checkout). Run it after any change t
 
 Every bootstrap — interactive or scripted — answers these four. State assumptions for everything else; these four change the output.
 
-1. **Primary language and stack?** Next.js + TypeScript · Vite + React · Python + FastAPI · other. Determines the project scaffold, the deploy script's expectations, and which language-specific AppSec tools (Bandit, Brakeman, gosec) get wired into CI.
+1. **Primary language and stack?** Next.js + TypeScript · Vite + React · Python + FastAPI · other. Records future intent; the current generator produces static HTML/JS. Framework implementation and language-specific AppSec CI are subsequent work, not installed by naming a stack.
 2. **One project or many in this workspace?** Determines whether a Tier-1 workspace index (`CLAUDE.md` at the workspace root) is needed now or can wait.
-3. **Anything here run as an always-on service?** Backend, bot, cron. If yes and this is a Mac, the launchd + Cloudflare Tunnel layer is wired in (see `always-on-services`). If Linux, the pattern is `systemd` units; the shape (server / watchdog / backup as separate supervised jobs) still applies.
+3. **Anything here run as an always-on service?** Backend, bot, cron. If yes and this is a Mac, optional launchd + Cloudflare Tunnel templates can be generated, not activated (see `always-on-services`). Linux service implementation is separate work. Installing services or changing cloud accounts requires approval.
 4. **Axiom Design Core as the visual default?** Hairlines, 0px border-radius, three type sizes, amber `#f59e0b` accent, named single-purpose palette roles — or do you have your own design language already? If you have your own, write the Anti-Regression entries for it into the project's `CLAUDE.md` from step 4; the value is in writing it down, not in which system you picked.
 
 After the four answers, infer the rest the way `dr-non-golden-rules` says: state the assumption, do not stall on it.
@@ -154,6 +159,17 @@ Each step says what it did in one sentence before moving on, per `dr-non-golden-
 ---
 
 ## What the project has when it is done
+
+Current generated maturity is **Demo**: a static reader, contracts, inert helpers
+and unverified security inventory. Cloudflare controls, Claude security plugins,
+Strix and backend identity are not provisioned. Record actual checks and failed
+routes in `docs/execution.md`; respect access restrictions, Retry-After, privacy
+and bounded attempts/spend. Label local fixtures; they cannot prove live readiness.
+
+Before changing its UI use anti-slop-design, contextual type, Palette roles and
+the Bauhaus composition brief. Browser evidence, independent visual review and
+real-person usability are separate gates. Thai/Chinese fluency is unverified
+until reviewed by fluent people; never fabricate a human test.
 
 A workspace that knows what's in it, even after a five-week break. A project an agent cannot accidentally vandalise, because the load-bearing decisions are written down with their reasons. A deploy path that proves bytes reached a human instead of trusting a green checkmark. Infrastructure that survives the laptop restarting, if you asked for it. A design system with a reason behind every rule, not just a rule.
 
@@ -183,7 +199,7 @@ None of this is exotic. It is an afternoon of setup, once, that removes the same
 ## The check
 
 ```
-□ ./setup.sh --become-builder --dry-run shows the skill count to the detected hosts
+□ ./setup.sh --become-builder --dry-run shows the current tree-derived skill count and configured paths
 □ ./setup.sh --become-builder (no dry-run) installs to ~/.claude/skills, ~/.agents/skills, etc. and prints "You are Dr Non the Builder"
 □ ./setup.sh --validate passes with the current skill/playbook/reference/template counts and no errors
 □ ./setup.sh --init-project <test-path> generates a project with no unfilled placeholder brackets

@@ -12,6 +12,8 @@ Free tiers aren't a compromise, they're scope discipline: if you can't build it 
 
 ## AI & Summarization
 
+**Scoped policy recheck — 2026-10-24:** Open-Meteo, OSMF Nominatim, NASA FIRMS and Copernicus STAC documentation were re-read for the corrections below. Other catalog entries retain their earlier discovery status; no endpoints, keys, quotas or browser CORS were live-probed in this pass. “No key” does not mean unrestricted reuse.
+
 | Service | Free Tier | Key? | Best for | Signup |
 |---------|-----------|------|----------|--------|
 | **Groq** | 14,400 req/day | Yes | Fast chat, OpenAI-compatible | https://console.groq.com |
@@ -49,7 +51,7 @@ HUGGINGFACE_TOKEN=
 
 | Service | What It Provides | Free Tier | Key? | Signup |
 |---------|-----------------|-----------|------|--------|
-| **Open-Meteo** | Forecasts, historical climate (ERA5), air quality, marine | Unlimited (non-commercial) | No | https://open-meteo.com |
+| **Open-Meteo** | Forecasts, historical climate (ERA5), air quality, marine | Non-commercial free API: under 10,000/day, 5,000/hour, 600/minute; attribution required | No | [Terms](https://open-meteo.com/en/terms) |
 | **OpenWeatherMap** | Current weather, forecasts, AQI | 1,000 calls/day | Yes | https://openweathermap.org/api |
 | **NOAA CDO** | US historical weather stations, normals, extremes | 1,000/day | Yes | https://www.ncdc.noaa.gov/cdo-web/webservices |
 | **Copernicus CDS** | ERA5 reanalysis, seasonal forecasts (EU/ECMWF) | Unlimited | Yes | https://cds.climate.copernicus.eu |
@@ -80,7 +82,7 @@ https://api.openweathermap.org/data/2.5/weather?q=Phuket&appid={KEY}
 |---------|-----------------|-----------|------|--------|
 | **USGS Earthquakes** | Global earthquakes, near real-time | Unlimited | No | https://earthquake.usgs.gov/fdsnws/event/1 |
 | **NASA EONET** | Active wildfires, storms, volcanoes, floods | Unlimited | No | https://eonet.gsfc.nasa.gov/docs/v3 |
-| **NASA FIRMS** | Satellite fire/thermal detection (MODIS, VIIRS) | Unlimited | Yes | https://firms.modaps.eosdis.nasa.gov |
+| **NASA FIRMS** | Satellite fire/thermal detection (MODIS, VIIRS), not a burned-area estimate | Free MAP_KEY; transaction limits apply | Yes | [API / key](https://firms.modaps.eosdis.nasa.gov/api/) |
 | **NASA EarthData/CMR** | MODIS, Landsat, ASTER satellite data search | Unlimited | Yes (login) | https://cmr.earthdata.nasa.gov |
 
 ```
@@ -214,7 +216,7 @@ https://opensky-network.org/api/states/all?lamin=7.5&lomin=98.0&lamax=8.2&lomax=
 
 | Service | What It Provides | Free Tier | Key? | Signup |
 |---------|-----------------|-----------|------|--------|
-| **Nominatim** | Forward/reverse geocoding (OSM) | 1 req/sec | No | https://nominatim.openstreetmap.org |
+| **Nominatim public server** | Forward/reverse geocoding (OSM) | Not a generic vibecoding default; explicit policy-compliant choice only | No | [Usage policy](https://operations.osmfoundation.org/policies/nominatim/) |
 | **Photon** | Fast geocoding + autocomplete (OSM) | Fair use | No | https://photon.komoot.io |
 | **Overpass API** | Query any OSM feature (roads, buildings, POIs) | Fair use | No | https://overpass-api.de |
 | **Mapbox** | Tiles, geocoding, directions, satellite | 50K loads/month | Yes | https://www.mapbox.com |
@@ -227,7 +229,7 @@ https://opensky-network.org/api/states/all?lamin=7.5&lomin=98.0&lamax=8.2&lomax=
 
 ```
 # No key:
-https://nominatim.openstreetmap.org/search?q=Phuket&format=json
+# Nominatim deliberately omitted: select a compliant provider explicitly.
 https://overpass-api.de/api/interpreter?data=[out:json];node["amenity"="hospital"](7.8,98.2,8.0,98.5);out;
 https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
 ```
@@ -235,6 +237,8 @@ https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/til
 ---
 
 ## Transit & Transport
+
+**Geocoding boundary:** OSMF's public Nominatim policy forbids building it into generic low/no-code or vibe-coding platforms. Do not silently generate a public-server adapter for every clone. An explicit user-selected application must satisfy the current policy: identify the app, attribute OSM, cache, stay under the app-wide limit (not per user), support provider switching, and never implement client autocomplete or systematic bulk harvesting. Self-hosting or another provider has its own terms; a proxy does not waive them.
 
 | Service | What It Provides | Free Tier | Key? | Signup |
 |---------|-----------------|-----------|------|--------|
@@ -296,12 +300,12 @@ When integrating public APIs into client-side vibecoding projects, enforce these
 1. **Enforce HTTPS Exclusively**:
    - Never call an unencrypted `http://` endpoint from modern browsers. Browsers block mixed content and trigger security warnings.
 2. **Verify CORS Availability Before Writing Code**:
-   - In browser-based client apps, the endpoint must serve `Access-Control-Allow-Origin: *`.
+   - The response must allow the actual application origin; `*` is only one option for non-credentialed requests. Credentialed CORS needs the exact allowed origin and appropriate credentials headers, never wildcard origin.
    - Probe before coding:
      ```bash
-     curl -s -I "https://api.example.com/data" | grep -i "access-control-allow-origin"
+     curl -s -D - -o /dev/null -H 'Origin: https://your-app.example' "https://api.example.com/data"
      ```
-   - If CORS is missing, route through a 5-line Cloudflare Worker or edge proxy rather than rewriting frontend code.
+   - Check the real method and any preflight, then test in a browser. If a backend is permitted, use an allowlisted upstream and origin, bounded request size/timeouts/rate limits/cache, and server-held credentials. Never create an arbitrary-URL open proxy or bypass a provider's usage restrictions.
 3. **Zero Billed Secrets in Browser Bundles**:
    - Any API key that incurs cost or has write permissions must NEVER appear in client-side HTML, CSS, or JS.
    - Use public no-key APIs for client prototypes. When authenticated APIs are required, terminate the key on a backend server or serverless proxy.
@@ -351,7 +355,7 @@ HERE_API_KEY=                    # https://developer.here.com
 # USGS Quakes:  https://earthquake.usgs.gov
 # NASA EONET:   https://eonet.gsfc.nasa.gov
 # Frankfurter:  https://api.frankfurter.app
-# Nominatim:    https://nominatim.openstreetmap.org
+# Geocoding: choose a provider explicitly; public Nominatim is not the generic default.
 # Overpass:     https://overpass-api.de
 # ReliefWeb:    https://api.reliefweb.int
 # UN Data:      https://population.un.org/dataportalapi

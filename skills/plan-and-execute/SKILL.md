@@ -86,6 +86,20 @@ A 3-step plan is too coarse. A 12-step plan is brittle. Aim for 3–7.
 
 Each step's output is captured as **evidence** (a quote, a number, a screenshot, a URL), not "I worked on X." The agent's claim "step 3 done" is worthless without the timeline it produced.
 
+Keep an append-only `docs/execution.md` receipt: intended result, state
+(`pending`, `passed`, `failed`, `blocked`, `skipped`), command and exit status or
+artifact, verified cause, retry budget and next safe alternative. Preserve prior
+attempts and operator notes across reruns. Redact credentials and private data.
+Do not replace “not attempted” with “passed”; record why a step is skipped.
+
+Classify failures before changing routes: 401/403 or consent means stop and
+confirm authorized access; 429 means respect Retry-After and bounded elapsed
+time/attempt/spend budgets; transient 5xx/timeouts permit bounded retries;
+invalid data needs quarantine; missing tools or authority means blocked. Never
+evade restrictions with another identity. An already approved equivalent source
+still needs terms/privacy checks. Labelled fixtures keep a Demo useful but cannot
+satisfy a live-data gate. Continue independent local work while external work is blocked.
+
 If a step fails in a way the plan predicted, the plan says what to do. If a step fails in a way the plan *did not* predict, stop and replan.
 
 ### 4. Evaluate — compare the result to the scope

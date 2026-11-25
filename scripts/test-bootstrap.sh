@@ -8,8 +8,8 @@ PROJECT="$TEST_ROOT/audit-fixture"
 
 # Simulate a first-time Git user: bootstrap must finish even without identity,
 # signing keys, hooks, package managers, or network access.
-env GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null \
-  "$ROOT/setup.sh" --init-project "$PROJECT" \
+export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null
+"$ROOT/setup.sh" --init-project "$PROJECT" \
   --name "Audit Fixture" \
   --desc "Cross-agent bootstrap verification." \
   --stack "Static HTML" \
@@ -21,7 +21,7 @@ required=(
   CLAUDE.md AGENTS.md GEMINI.md .gitignore .env.example index.html
   scripts/deploy.sh scripts/verify.sh scripts/secrets-audit.sh
   scripts/database.py design/tokens.css README.md docs/components.html scripts/start.sh
-  scripts/security_release.py docs/security-controls.json
+  scripts/security_release.py docs/security-controls.json docs/execution.md
 )
 for file in "${required[@]}"; do
   test -f "$PROJECT/$file"
@@ -41,8 +41,11 @@ grep -q 'Research &amp; &lt;Design&gt; / Lab' "$SPECIAL/index.html"
 grep -q 'Live URL: not deployed' "$SPECIAL/AGENTS.md"
 grep -q 'No framework or dependencies have been installed' "$SPECIAL/AGENTS.md"
 printf '\nUser-owned sentence.\n' >> "$SPECIAL/AGENTS.md"
+printf '\nOperator execution note: preserve this attempt.\n' >> "$SPECIAL/docs/execution.md"
+cp "$SPECIAL/docs/execution.md" "$TEST_ROOT/execution-before.md"
 "$ROOT/setup.sh" --init-project "$SPECIAL" --yes --no-services >/dev/null
 grep -q 'User-owned sentence' "$SPECIAL/AGENTS.md"
+cmp "$SPECIAL/docs/execution.md" "$TEST_ROOT/execution-before.md"
 
 "$ROOT/scripts/new-project.sh" "$TEST_ROOT/sibling" --stack none >/dev/null
 test -f "$TEST_ROOT/sibling/index.html"

@@ -29,9 +29,9 @@ Every change view names its two dates, its source, and its resolution. "Before/a
 | NASA FIRMS (MODIS/VIIRS) | Active fire / thermal points | Free key, see `free-apis.md` |
 | NASA EONET | Storms, floods, volcanoes, wildfires events | No key |
 | NASA GIBS / Worldview | Daily imagery tiles (MODIS, VIIRS) | No key, tile URLs |
-| Copernicus (Sentinel via CDS) | 10m optical for real change diffs | Free account |
+| Copernicus Data Space Ecosystem (Sentinel-2) | Optical bands at band-dependent resolution, including 10m bands | Public STAC discovery; asset access/processing may require account/authentication |
 
-Start with FIRMS points + GIBS tiles — no account, same-day results. Sentinel earns its account when 10m resolution changes a decision.
+Start with GIBS dated visual tiles, then FIRMS points with a free MAP_KEY. Do not promise no-account FIRMS API access or same-day availability. Sentinel earns the extra download/processing work when spatial resolution changes a decision. [FIRMS API](https://firms.modaps.eosdis.nasa.gov/api/) and [CDSE STAC](https://documentation.dataspace.copernicus.eu/APIs/STAC.html) documentation rechecked 2026-10-24; no imagery fetched. STAC discovers items/assets; it is not itself an imagery rendering or analysis API. Verify an asset's format, CRS, band scale and access method; do not assume every TIFF is a Cloud-Optimized GeoTIFF (COG).
 
 ### 2. Collect on a schedule, store the stack
 
@@ -42,7 +42,7 @@ Start with FIRMS points + GIBS tiles — no account, same-day results. Sentinel 
 ### 3. Diff simply, show the delta
 
 - Level 1 (no vision model): side-by-side same-tile slider + FIRMS-point overlay. Ships in a day, answers most questions.
-- Level 2: pixel diff on aligned tiles (same zoom/bbox or it is meaningless) → changed-area mask → area km² number with source + dates.
+- Level 2: use analysis-ready bands on one registered CRS/resolution/grid, consistent radiometric scaling, and explicit cloud/shadow/no-data masks before deriving a candidate change mask. Same bbox/zoom alone does not align observations. A rendered PNG RGB difference is a visual difference, not measured flood or burned area. Validate against dated ground/reference evidence; report algorithm, threshold, valid-observation coverage and uncertainty. Only calculate km² with a justified equal-area grid or geodesic pixel areas; never count Web Mercator pixels as equal ground area. Retain the source assets and mask for reproduction.
 - Level 3 (only if Level 2 changes a decision weekly): CV segmentation — and then it is a [`know-when-to-wait`](../know-when-to-wait/SKILL.md) question, not a weekend patch. The iTIC skill's honest CV gap (researched pipeline, zero shipped inference lines) is the cautionary tale: say plainly what is thresholding vs what is a model.
 
 ---
@@ -53,7 +53,7 @@ Start with FIRMS points + GIBS tiles — no account, same-day results. Sentinel 
 |---|---|
 | Comparing different zooms/sources as before/after | Unaligned tiles diff into fiction — same bbox, same zoom, same source |
 | Hiding the date gap | "Change" over a cloudy 40-day gap is weather, not deforestation — print both dates |
-| Paid imagery day one | GIBS + FIRMS answer most civic questions free; pay only when 10m changes the call |
+| Paid imagery day one | First test whether free dated imagery answers the specific question; don't claim visual tiles answer every civic analysis need |
 | Live-imagery claims | Revisit latency is days, not seconds — label age or lose trust |
 | CV model before the slider survives | The slider + overlay is the product; the model is an upgrade with an eval set |
 

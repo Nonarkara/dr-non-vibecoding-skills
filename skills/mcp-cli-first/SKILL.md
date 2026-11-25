@@ -87,13 +87,21 @@ If you are about to write any of these, stop and use the tool instead. These phr
 - "You can find this under…"
 - "Open [service] and look for…"
 
-If the tool is connected, call it. If the tool isn't connected but exists, install the connection and call it. The only valid reason to write one of these phrases is the explicit "no API/CLI path" case above, and even then, only for that one step.
+If the tool is connected and the action authorized, call it. A missing connection
+is not permission to install software, grant account access or change security
+settings. Inspect requirements and obtain the necessary authority first; keep
+independent work moving. Use the explicit “no API/CLI path” explanation when needed.
 
 ---
 
 ## After any setup that creates live values
 
-Every CLI/MCP setup step produces values the user will need again — API keys, service account credentials, namespace IDs, ARNs, webhook URLs, tunnel tokens, OAuth client IDs. **Write them into the project's `context.md` immediately** — env var names, the literal values, the source, the date. The user should never have to re-derive a live value from scratch. If the project has no `context.md`, create one at the project root.
+Setup may produce public identifiers and secrets. Record only non-sensitive
+identifiers, environment variable names, source, date and secret-store references
+in `context.md`. Never record literal keys, credentials, tokens, session state or
+capability-bearing webhook URLs. Store secrets through the approved secret
+manager without echoing them. If access to that store is not authorized, stop
+the secret-handling step and record the blocker without its value.
 
 ```markdown
 # <Project> Context
@@ -109,7 +117,7 @@ Every CLI/MCP setup step produces values the user will need again — API keys, 
 | Cloudflare Tunnel | `tunnel-uuid-here` | 2026-08-25 | `cloudflared tunnel create` |
 | Public hostname | `https://api.example.org` | 2026-08-25 | DNS CNAME → tunnel |
 | OAuth client (Google) | `smart-city-thailand-cdp` | 2026-06-18 | console.cloud.google.com (one-time) |
-| Slack webhook (alerts) | `https://hooks.slack.com/services/...` | 2026-08-25 | slack.com/api/apps (one-time) |
+| Slack webhook (alerts) | `ALERT_WEBHOOK_URL` in approved secret store | 2026-08-25 | approved provisioning receipt; no literal URL |
 
 ## Env vars the project expects
 
@@ -131,11 +139,13 @@ Every CLI/MCP setup step produces values the user will need again — API keys, 
 When the user asks to "set up X", the agent should:
 
 1. Check the tier list. Use the tool. Do not describe a dashboard.
-2. Capture the live values produced.
-3. Write the values to `context.md`.
+2. Classify produced values as public identifiers or secrets without logging secrets.
+3. Write only non-sensitive identifiers and secret-store references to `context.md`.
 4. Tell the user what is now true, not what they should do. "Tunnel is up at `https://api.example.org` — verified with `curl`. The namespace ID is in `context.md`."
 
-If the setup touches secrets, the agent should remind the user, once, that the values are now in the secret manager and the env var names are in `context.md`. No further narration needed.
+If authorized secret storage actually succeeded, report that fact once and point
+to the env var names in `context.md`, never the values. Otherwise report the
+blocked secret-handling step; do not claim storage happened.
 
 ---
 
@@ -151,4 +161,6 @@ That incident is the rule. The agent and the user are looking at different scree
 
 If your output to the user describes more than one GUI click in a row, you have not checked the tier list. Go back. Use the tool. Write the result to `context.md`. Tell the user what is now true, not what they should do.
 
-If the tool is not connected and you know the install command, install it. If the install command is not obvious, ask once — "I'll need the Cloudflare MCP to do this in-tool rather than via dashboard; want me to set that up?" — and then proceed. Asking once is fine. Asking three times is the failure mode.
+Knowing an install command is not authorization to install or connect it. State
+the permission/access required, record the blocked step and next safe alternative
+in `docs/execution.md`, then continue only work that does not depend on it.

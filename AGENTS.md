@@ -46,7 +46,8 @@ threshold as a threshold (`past 160 skills`), a subset as a compound (`a
 
 *Renamed September 2026 from `dr-non-vibecoding-skills` to Dr Non's Vibe Coding Stack. The GitHub URL and plugin ID stay `dr-non-vibecoding-skills` so existing clones and installs keep working. The collection is a stack of four shapes.*
 
-There is nothing to compile, nothing to configure, and nothing that can go out of date except the advice itself.
+The skills need no runtime. Executable examples and helpers declare their own
+requirements; integrations and operational advice need periodic verification.
 
 ---
 
@@ -59,6 +60,11 @@ how to read a compressed brief, and the eight non-negotiables. It is self-contai
 and needs no install. If that is all you were given, that is enough to start.
 
 ### 1. Read the spine first
+
+For a nonexpert building something, start with [BUILD_PATHS.md](BUILD_PATHS.md):
+website, protected operation, cooked data or maps/satellites. Preserve a project's
+`docs/execution.md` attempt/evidence/next-safe-alternative receipt. Failure is a
+learning input, not permission to evade access or mark a boundary passed.
 
 Start with `README.md` (the public face). The one-liner is `./setup.sh --become-builder` — skills on every detected agent, then contract / walkthrough / hindsight. `BLUEPRINT.md` is the *project* paste after that. The README lists the skills and links to each.
 

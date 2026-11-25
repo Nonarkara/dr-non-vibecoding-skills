@@ -158,13 +158,17 @@ print_builder_identity() {
 ${AMBER}${BOLD}You are Dr Non the Builder.${NC}
 ${DIM}กลายเป็น Dr Non the Builder แล้ว — ทักษะทุกเอเจนต์บนเครื่องนี้ พร้อมส่งของ${NC}
 
-${BOLD}${total_skills} skills${NC} on every agent this machine has.
+${BOLD}${total_skills} skills${NC} copied to configured discovery paths; restart your agent and confirm discovery.
 One product: install → build → ship → walkthrough → hindsight reconstruct.
+
+Choose your result in BUILD_PATHS.md: website / protected operation / cooked data / maps.
+No cloud controls, scanners, models or credentials were provisioned by this install.
 
 ${AMBER}${BOLD}Next — the three moves that make the skills executable${NC}
 
   1. ${BOLD}Contract${NC}      copy templates/AGENTS.md.template (or CLAUDE.md.template)
                      into the project you will ship. Anti-regression first.
+                     Keep attempts, evidence and safe alternatives in docs/execution.md.
   2. ${BOLD}Walkthrough${NC}   skills/human-walkthrough  — 3 personas × a real browser
                      before a major release. Output: blueprint + Now/Next/Later/Never.
   3. ${BOLD}Hindsight${NC}     skills/power-of-hindsight — Collect → Analyze → Reconstruct

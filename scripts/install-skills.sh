@@ -63,7 +63,7 @@ install_host() {
   local installed=0 total=0 skill_dir skill_name
   for skill_dir in "$SKILLS_SRC"/*; do
     [[ -f "$skill_dir/SKILL.md" ]] || continue
-    skill_name="$(basename "$skill_dir")"
+    skill_name="${skill_dir##*/}" # no subprocess per skill per host
     [[ -f "$dest/$skill_name/SKILL.md" ]] && installed=$((installed + 1))
   done
   total="$(find "$dest" -mindepth 2 -maxdepth 2 -name SKILL.md 2>/dev/null | wc -l | tr -d ' ')"
