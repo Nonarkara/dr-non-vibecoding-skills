@@ -1,4 +1,6 @@
 > **Read [ANTI-SLOP.md](ANTI-SLOP.md) before any design or frontend work.** These are Dr Non's hard rules against AI design slop: empty space is a decision, subtract before you add, and the map comes first. The shared core is [Non-Slop](https://github.com/Nonarkara/Non-Slop). Run `tools/slop-lint.mjs` and `npx -y github:Nonarkara/Non-Slop render <url>` on any page you ship.
+>
+> **Eight giveaway bans** (eyebrows, side stripes, one italic word, display caps, banned faces, equal stat cards, blurbs under every title, blinking status dots) are hard defaults in [ANTI-SLOP.md](ANTI-SLOP.md#eight-giveaway-bans). Keep one only when the product's `STYLE.md` names that choice.
 
 # AGENTS.md — entry point for non-Claude agents
 
@@ -330,7 +332,7 @@ If you build something with this, the author would genuinely like to see it.
 
 ## Anti-slop design rules (hard rules)
 
-These are known AI design-slop patterns. Never re-create them. Check every page before shipping; fix any hit. They sit on top of Palette and any map-first rule.
+These are known AI design-slop patterns. Never re-create them. The eight giveaway bans are [ANTI-SLOP.md](ANTI-SLOP.md#eight-giveaway-bans). Check every page before shipping; fix any hit. They sit on top of Palette and any map-first rule.
 
 1. **Boxes fit their content.** No text box, card, button or panel much wider or taller than its text. Padding follows type size (~0.5–1.5× line height). No fixed/min heights that leave empty space under short text.
 2. **Balanced composition.** Deliberate grid; visual weight balanced. No heavy side with an empty side, no orphan block. Squint-test at desktop, tablet and phone.
@@ -340,4 +342,4 @@ These are known AI design-slop patterns. Never re-create them. Check every page 
 6. **Clear hierarchy: something must win.** One obvious first look (hero number, map, headline), then second and third. Real contrast in size (≥1.5–2× type step), weight, colour and space. No equal-weight card grids. Squint-test must show a focal point.
 7. **More slop to kill.** Centre-everything / symmetric card grids by default; fake depth (stacked shadows, glassmorphism, same radius everywhere); vague slogan heroes; filler copy ("Unlock the power…", "Seamless", "Revolutionize") and fake stats; too many colours (one meaningful accent); thick chrome that shrinks content; icons/badges on every line; dense same-size grey text.
 
-**Pre-ship:** screenshot at 1440 / 1024 / 390; list hits against 1–7; fix; re-screenshot; different agent/person reviews — never self-review.
+**Pre-ship:** screenshot at 1440 / 1024 / 390; list hits against 1–7 and the eight giveaway bans; fix; re-screenshot; different agent/person reviews — never self-review.
