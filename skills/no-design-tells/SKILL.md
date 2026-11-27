@@ -228,7 +228,7 @@ Block 2 — LIVELINESS + CRAFTSMANSHIP
   □ C1–C5          — Intentionality, Functional Completeness, Content-Driven, Resilience, Evidence
 
 Block 3 — HARD GATES
-  □ EYEBROWS       — ≤1 per 3 sections
+  □ EYEBROWS       — banned unless STYLE.md names the choice (ANTI-SLOP.md#eight-giveaway-bans)
   □ HERO           — headline 2 lines, subtext 20 words / 4 lines, ≤4 elements, CTA single line, fits viewport
   □ NAVIGATION     — single line at 1024px, ≤80px, every link real
   □ SECTIONS       — no layout family repeated, zigzag ≤2, bento cells = content, palette locked

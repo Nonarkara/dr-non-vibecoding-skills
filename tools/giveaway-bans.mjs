@@ -493,6 +493,18 @@ function nextFontFaces(source) {
   return faces;
 }
 
+// The two badge phrases from the eight-ban law. A line that negates them, or
+// that carries a clock time, is a status sentence. The bare badge still hits.
+export function cannedStatusBadge(text) {
+  return String(text || '').split(/\n+|(?<=[.!?])\s+/).some(chunk => {
+    const t = chunk.replace(/\s+/g, ' ').trim();
+    if (!/all systems operational|ai engine active/i.test(t)) return false;
+    if (/\b(?:not|no|never|isn'?t|aren'?t|wasn'?t|weren'?t)\b/i.test(t)) return false;
+    if (/\b\d{1,2}:\d{2}\b/.test(t)) return false;
+    return true;
+  });
+}
+
 export function scanSource(source, { style = '' } = {}) {
   const waived = waiversFromStyle(style);
   const root = parseHtml(source);
@@ -585,8 +597,7 @@ export function scanSource(source, { style = '' } = {}) {
     if (hit) counts.italicHeadlineWords++;
   }
 
-  const visible = textOf(root);
-  if (/all systems operational/i.test(visible) || /ai engine active/i.test(visible)) counts.statusDots++;
+  if (cannedStatusBadge(textOf(root))) counts.statusDots++;
 
   const faces = [...collectFaces(root, rules, cssChunks), ...nextFontFaces(source)];
   if (faces.some(isBannedFace)) counts.bannedFace = 1;

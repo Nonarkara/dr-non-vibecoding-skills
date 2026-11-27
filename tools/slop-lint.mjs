@@ -306,7 +306,15 @@ export function inPageMetrics() {
       if (row.every(k => k.digits && k.text > 0 && k.text <= 80)) equalStatCardRows++;
     }
   }
-  if (/all systems operational/i.test(txt) || /ai engine active/i.test(txt)) statusDots++;
+  // Same canned-badge test as cannedStatusBadge in tools/giveaway-bans.mjs.
+  // A negation or a clock time on the line is a status sentence, not the badge.
+  if (txt.split(/\n+|(?<=[.!?])\s+/).some(line => {
+    const t = line.replace(/\s+/g, ' ').trim();
+    if (!/all systems operational|ai engine active/i.test(t)) return false;
+    if (/\b(?:not|no|never|isn'?t|aren'?t|wasn'?t|weren'?t)\b/i.test(t)) return false;
+    if (/\b\d{1,2}:\d{2}\b/.test(t)) return false;
+    return true;
+  })) statusDots++;
   const bannedFace = famTop[0] && bannedFaces.includes(famTop[0][0]) ? 1 : 0;
   Object.assign(out, {
     boxesMeasured: measured, medianFill: fills.length ? +fills.sort((a, b) => a - b)[Math.floor(fills.length / 2)].toFixed(3) : null,

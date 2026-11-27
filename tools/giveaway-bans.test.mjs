@@ -73,6 +73,10 @@ test('source patterns that are not the tell stay quiet', () => {
   assert.deepEqual(scanSource("import { Inter } from 'next/font/google'\nexport const font = Inter()\n").hits, ['banned-face']);
   assert.deepEqual(scanSource('<style>body{font-family:"DM Sans",sans-serif}</style><p>Canal</p>').hits, ['banned-face']);
   assert.deepEqual(scanSource('<p>AI Engine Active</p>').hits, ['status-dot']);
+  assert.deepEqual(scanSource('<p>All Systems Operational</p>').hits, ['status-dot']);
+  assert.deepEqual(scanSource('<p>Not all systems operational at 14:02</p>').hits, []);
+  assert.deepEqual(scanSource('<p>The AI engine active period ended at 14:02</p>').hits, []);
+  assert.deepEqual(scanSource('<p>Not all systems operational at 14:02</p>\n<p>All Systems Operational</p>').hits, ['status-dot']);
 });
 
 test('two cards and two blurbs stay under the repeated-row line', () => {
