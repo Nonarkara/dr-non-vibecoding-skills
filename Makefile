@@ -40,4 +40,5 @@ test: validate relay-check
 	@bash scripts/test-bootstrap.sh
 	@python3 scripts/test-security-release.py
 	@node scripts/test-starter.mjs
+	@node --test tools/giveaway-bans.test.mjs
 	@bash scripts/test-cf-runaway-cost.sh

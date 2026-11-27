@@ -5,4 +5,6 @@ alwaysApply: true
 
 Before designing or changing any page, component, style or chart, read `ANTI-SLOP.md` at the repo root and follow its hard limits: empty space is a decision, subtract before you add, the map comes first. The shared core (ship basics included) is Non-Slop: https://github.com/Nonarkara/Non-Slop. Run `node tools/slop-lint.mjs <url>` and `npx -y github:Nonarkara/Non-Slop render <url>` before calling UI work done.
 
+Eight giveaway bans are hard defaults in `ANTI-SLOP.md` (section Eight giveaway bans): eyebrows, side stripes, one italic word, display caps, banned faces, equal stat cards, blurbs under every title, blinking status dots. Keep one only when the product's `STYLE.md` names that choice.
+
 Also enforce glance path and kinetic grid from that file: the headline or CTA sits on the exit of the dominant visual, with no dead zone above a heavy hero; related text does not leapfrog a huge image; a layout break needs extreme scale contrast and a grid set first; motion snaps and loading is a skeleton. Applied guide is Non-Slop `ANTI-SPATIAL-HALLUCINATION.md` §6 (https://github.com/Nonarkara/Non-Slop/blob/main/ANTI-SPATIAL-HALLUCINATION.md). The gate is `AGENTS.md` (https://github.com/Nonarkara/Non-Slop/blob/main/AGENTS.md). Non-Slop review gate §3c walks the same checks.

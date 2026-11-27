@@ -13,4 +13,12 @@ Verdicts:
 - **3–5 = REVIEW**: a person checks each rule that was hit.
 - **<3 = OK.**
 
+Eight giveaway bans from [ANTI-SLOP.md](../ANTI-SLOP.md#eight-giveaway-bans) score at 1 point each, the same weight as a gradient or a glass layer. A listed hit is a ban even when the total is still OK. Source check, no browser:
+
+```bash
+node tools/giveaway-bans.mjs path/to/page.html
+```
+
+A `STYLE.md` beside the file (or above it, up to the project root) waives a ban only when it names that ban as a deliberate choice.
+
 Treat it as a screen, not a judge. In the Oct 2026 study it had precision 0.95 and recall 0.91 at the REVIEW line, and those numbers are in-sample. It sent 2 of 5 professional map apps to REVIEW. Pages behind a login, a bot check, or text drawn in canvas are not measured.

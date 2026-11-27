@@ -7,6 +7,9 @@
 import { chromium } from 'playwright';
 import { PNG } from 'pngjs';
 import fs from 'fs';
+import { score, SLOP_THRESHOLD_POINTS, REVIEW_THRESHOLD_POINTS } from './slop-rules.mjs';
+
+export { RULES, score, SLOP_THRESHOLD_POINTS, REVIEW_THRESHOLD_POINTS } from './slop-rules.mjs';
 
 // ---------------------------------------------------------------- in-page DOM metrics
 export function inPageMetrics() {
@@ -217,6 +220,94 @@ export function inPageMetrics() {
   for (const [k, re] of Object.entries(PH)) ph[k] = (txt.match(re) || []).length;
   const famTop = [...fams.entries()].sort((a, b) => b[1] - a[1]);
   const SLOPF = ['inter', 'poppins', 'montserrat', 'roboto', 'open sans', 'lato', 'dm sans', 'space grotesk', 'geist', 'plus jakarta sans', 'manrope', 'nunito', 'system-ui', '-apple-system', 'blinkmacsystemfont', 'segoe ui', 'arial', 'helvetica', 'sans-serif', 'ui-sans-serif', 'noto sans thai', 'ibm plex sans thai', 'sarabun', 'kanit', 'prompt'];
+  // Eight giveaway bans. Field names match tools/giveaway-bans.mjs. A hairline
+  // (left border under 2px, or the same width as the other sides) is a rule, not a stripe.
+  const bannedFaces = ['plus jakarta sans', 'space grotesk', 'dm sans', 'open sans', 'inter', 'poppins', 'montserrat', 'roboto', 'lato', 'geist', 'manrope', 'nunito'];
+  const trackedOf = cs => { const ls = parseFloat(cs.letterSpacing), fs = parseFloat(cs.fontSize) || 16; return Number.isFinite(ls) && ls > 0.02 * fs; };
+  const upperOf = cs => cs.textTransform === 'uppercase';
+  const mutedOf = cs => { const c = parseC(cs.color); if (!c) return false; const [, s, l] = hsl(c); return s < 0.22 && l > 0.28 && l < 0.72; };
+  const saturatedOf = color => { const c = parseC(color); return !!c && hsl(c)[1] > 0.35; };
+  let eyebrowKickers = 0, sideStripes = 0, italicHeadlineWords = 0, displayCaps = 0, titleBlurbs = 0, statusDots = 0, equalStatCardRows = 0;
+  const kickerEls = new Set();
+  for (const h of document.querySelectorAll('h1,h2,h3,h4,h5,h6')) {
+    const hr = h.getBoundingClientRect();
+    if (hr.width < 2 || hr.top > docTopLimit) continue;
+    const prev = h.previousElementSibling;
+    if (prev && !/^H[1-6]$/.test(prev.tagName)) {
+      const pcs = getComputedStyle(prev);
+      const pt = (prev.innerText || '').replace(/\s+/g, ' ').trim();
+      const words = pt.split(' ').filter(Boolean);
+      const letters = pt.replace(/[^A-Za-z]/g, '');
+      const caps = upperOf(pcs) || (letters.length >= 3 && letters === letters.toUpperCase());
+      const fs = parseFloat(pcs.fontSize) || 16;
+      const cls = prev.getAttribute('class') || '';
+      const small = fs <= 14 || prev.tagName === 'SMALL' || /\btext-(xs|sm)\b/.test(cls);
+      if (pt && pt.length <= 32 && words.length <= 4 && (small || caps) && (caps || trackedOf(pcs))) { eyebrowKickers++; kickerEls.add(prev); }
+    }
+  }
+  for (const h of document.querySelectorAll('h1,h2,h3,h4,h5,h6')) {
+    const hr = h.getBoundingClientRect();
+    if (hr.width < 2 || hr.top > docTopLimit) continue;
+    const hcs = getComputedStyle(h);
+    if (!kickerEls.has(h) && upperOf(hcs) && trackedOf(hcs)) displayCaps++;
+    if (/^H[1-3]$/.test(h.tagName)) {
+      for (const n of h.querySelectorAll('em, i, span')) {
+        if (n.closest('a')) continue;
+        const t = (n.textContent || '').trim();
+        if (!t || /\s/.test(t)) continue;
+        if (!(h.textContent || '').replace(n.textContent || '', '').trim()) continue;
+        const ncs = getComputedStyle(n);
+        const clip = ncs.webkitBackgroundClip || ncs.backgroundClip;
+        const italic = n.tagName === 'EM' || n.tagName === 'I' || ncs.fontStyle === 'italic';
+        const grad = (ncs.backgroundImage || '').includes('gradient') && clip === 'text';
+        const accent = n.tagName === 'SPAN' && ncs.color !== hcs.color && saturatedOf(ncs.color);
+        if (italic || grad || accent) { italicHeadlineWords++; break; }
+      }
+    }
+    const next = h.nextElementSibling;
+    if (next && next.tagName === 'P') {
+      const ncs = getComputedStyle(next);
+      const nt = (next.innerText || '').trim();
+      const nfs = parseFloat(ncs.fontSize) || 16;
+      const hfs = parseFloat(hcs.fontSize) || 16;
+      if (nt && nt.length <= 120 && nfs < hfs && mutedOf(ncs)) titleBlurbs++;
+    }
+  }
+  for (const b of document.querySelectorAll('button, [role="button"], label')) {
+    if (kickerEls.has(b)) continue;
+    const r = b.getBoundingClientRect();
+    if (r.width < 2 || r.top > docTopLimit) continue;
+    const cs = getComputedStyle(b);
+    if (upperOf(cs) && trackedOf(cs)) displayCaps++;
+  }
+  let seenGiveaway = 0;
+  for (const el of document.body.querySelectorAll('*')) {
+    if (++seenGiveaway > 4000) break;
+    if ((el.closest('svg') && el.tagName !== 'svg') || el.tagName === 'BODY' || el.tagName === 'HTML') continue;
+    const r = el.getBoundingClientRect();
+    if (r.width < 2 || r.height < 2 || r.top > docTopLimit) continue;
+    const cs = getComputedStyle(el);
+    if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+    const lw = parseFloat(cs.borderLeftWidth) || 0, rw = parseFloat(cs.borderRightWidth) || 0, tw = parseFloat(cs.borderTopWidth) || 0, bw = parseFloat(cs.borderBottomWidth) || 0;
+    if (lw >= 2 && lw >= rw + 2 && lw >= tw + 2 && lw >= bw + 2) sideStripes++;
+    const anim = `${cs.animationName || ''} ${el.getAttribute('class') || ''}`;
+    if (/\bpulse\b|\bping\b|\bblink\b|animate-pulse|animate-ping/i.test(anim) && r.width <= 16 && r.height <= 16) statusDots++;
+  }
+  for (const p of parents) {
+    if (['TABLE', 'THEAD', 'TBODY', 'TR'].includes(p.tagName)) continue;
+    const kids = [...p.children].map(k => info.get(k)).filter(Boolean).filter(k => k.el.tagName !== 'TD' && k.el.tagName !== 'TH');
+    if (kids.length < 3) continue;
+    const rows = new Map();
+    for (const k of kids) { const key = Math.round(k.r.top / 8); if (!rows.has(key)) rows.set(key, []); rows.get(key).push(k); }
+    for (const row of rows.values()) {
+      if (row.length < 3) continue;
+      const ws = row.map(k => k.r.width), maxW = Math.max(...ws);
+      if (!(maxW > 0) || (maxW - Math.min(...ws)) / maxW >= 0.08) continue;
+      if (row.every(k => k.digits && k.text > 0 && k.text <= 80)) equalStatCardRows++;
+    }
+  }
+  if (/all systems operational/i.test(txt) || /ai engine active/i.test(txt)) statusDots++;
+  const bannedFace = famTop[0] && bannedFaces.includes(famTop[0][0]) ? 1 : 0;
   Object.assign(out, {
     boxesMeasured: measured, medianFill: fills.length ? +fills.sort((a, b) => a - b)[Math.floor(fills.length / 2)].toFixed(3) : null,
     inflatedBoxes: inflated, statTilesStretched: statTiles, wideChips, tallEmptyBoxes: tallBoxes, eqHeightRows: eqRows, eqHeightStretchedCards: eqStretch,
@@ -229,6 +320,7 @@ export function inPageMetrics() {
     purpleShare: colorArea.painted ? +(colorArea.purple / colorArea.painted).toFixed(3) : 0, accentHues: [...hues.entries()].filter(([, c]) => c >= 3).length,
     tailwindDefaultShare: colorSamples ? +(twHits / colorSamples).toFixed(2) : 0, oklch, primaryFont: famTop[0]?.[0] || '', fontFamilies: famTop.filter(([, c]) => c > 50).length,
     defaultFont: famTop[0] ? SLOPF.includes(famTop[0][0]) : false,
+    eyebrowKickers, sideStripes, italicHeadlineWords, displayCaps, titleBlurbs, statusDots, equalStatCardRows, bannedFace,
     placeholderHits: ph, textChars: txt.length, bodySample: txt.slice(0, 160).replace(/\s+/g, ' '), examples
   });
   return out;
@@ -253,40 +345,6 @@ export function pixelStats(buf) {
   let lum = 0; for (const c of tcol) lum += 0.3 * c[0] + 0.59 * c[1] + 0.11 * c[2]; lum /= total;
   return { flatShare: +flatShare.toFixed(3), largestFlatRegion: +(best / total).toFixed(3), meanLum: Math.round(lum), darkScreen: lum < 70 };
 }
-
-// ---------------------------------------------------------------- rules -> score
-// Each rule: id, plain description, signal, threshold. Calibrated on the 2026-10 flood-app study.
-const stretchCount = (d, mobile) => Object.entries(d.stretchByCause || {}).reduce((a, [k, v]) => a + (k === 'card/panel · block-full-width' || (mobile && k === 'chip/badge/button · block-full-width') ? 0 : v), 0);
-// Each rule: id, weight, plain description, test(desktop, mobile). Thresholds set from the Oct 2026 flood-app study (in-sample; see REPORT.md).
-export const RULES = [
-  { id: 'stretch-to-fill', w: 2, desc: 'Small things (stat tiles, chips, short cards) laid out ≥2× wider or ≥1.6× taller than their own content needs, ≥2 of them', test: (d, m) => stretchCount(d, false) + stretchCount(m, true) >= 2 },
-  { id: 'rounded-same', w: 2, desc: 'Rounded-everything: ≥80% of boxes rounded and ≥40% share one radius (≥8 boxes)', test: d => d.boxesMeasured >= 8 && d.roundedShare >= 0.8 && d.radiusModalShare >= 0.4 },
-  { id: 'emoji-icons', w: 2, desc: '≥3 emoji used as icons on labels, headings, buttons or list items', test: (d, m) => Math.max(d.emojiIcons || 0, m.emojiIcons || 0) >= 3 },
-  { id: 'dark-command-centre', w: 2, desc: 'Dark "command centre" first screen (mean luminance <70) plus any of: glow, gradient, glass, ≥10 pills, ≥3 emoji icons', test: (d, m) => !!(d.darkScreen || m.darkScreen) && ((d.neonGlow || 0) >= 1 || (d.gradients || 0) >= 1 || (d.glassBlur || 0) >= 1 || (d.pills || 0) >= 10 || (d.emojiIcons || 0) >= 3) },
-  { id: 'void', w: 2, desc: 'A flat empty region ≥35% of the first screen, or text squeezed into <45% of a desktop width, with no big map', test: (d, m) => (d.mapShareFirstScreen || 0) < 0.4 && (d.dataShareFirstScreen || 0) < 0.4 && ((d.largestFlatRegion || 0) >= 0.35 || (d.textColumnShare != null && d.textColumnShare < 0.45)) },
-  { id: 'hero-no-data', w: 2, desc: 'Hero ≥55% of the first screen with <20% map or data on it', test: d => d.heroShare >= 0.55 && d.dataShareFirstScreen < 0.2 },
-  { id: 'shadow-everything', w: 1, desc: 'Fake depth: ≥8 boxes carry a drop shadow on one screen', test: d => (d.shadows || 0) >= 8 },
-  { id: 'box-soup', w: 1, desc: '≥30 separate boxes with ≥5 different corner radii (no system, everything containerised)', test: d => (d.boxesMeasured || 0) >= 30 && (d.radiusDistinct || 0) >= 5 },
-  { id: 'pill-clutter', w: 1, desc: '≥10 pills/badges on one screen', test: (d, m) => Math.max(d.pills || 0, m.pills || 0) >= 10 },
-  { id: 'modal-on-load', w: 1, desc: 'A modal or full-screen overlay covers the content on first load', test: (d, m) => !!(d.modalOnLoad || m.modalOnLoad) },
-  { id: 'gradients', w: 1, desc: '≥3 decorative gradient fills, or gradient text', test: (d, m) => Math.max(d.gradients || 0, m.gradients || 0) >= 3 || (d.textGradients || 0) >= 1 },
-  { id: 'glass', w: 1, desc: '≥2 glassmorphism (backdrop blur) layers', test: (d, m) => Math.max(d.glassBlur || 0, m.glassBlur || 0) >= 2 },
-  { id: 'big-number-tiles', w: 1, desc: '≥2 big (≥26px) bare numbers in tiles', test: d => (d.bigNumbers || 0) >= 2 },
-  { id: 'long-lines', w: 1, desc: 'Prose lines wider than ~40em (≈80+ Latin characters)', test: d => d.maxLineEm > 40 },
-  { id: 'type-chaos', w: 1, desc: '≥9 distinct font sizes (no type scale)', test: d => d.fontSizes >= 9 },
-  { id: 'boxed-everything', w: 0, desc: '≥70% of first-screen text sits inside cards or boxes (reported only: map apps put text in panels by necessity)', test: d => (d.boxedTextShare || 0) >= 0.7 },
-  { id: 'mobile-overflow', w: 1, desc: 'Phone layout scrolls sideways', test: (d, m) => !!m.hOverflow },
-  { id: 'broken-placeholder', w: 1, desc: 'Visible undefined/NaN, lorem ipsum or mock/sample data', test: d => (d.placeholderHits?.broken || 0) + (d.placeholderHits?.lorem || 0) + (d.placeholderHits?.sample || 0) >= 1 },
-  { id: 'default-font', w: 0, desc: 'Primary face is a stock default (reported only: clean apps use them too)', test: d => !!d.defaultFont },
-];
-export function score(d, m = {}) {
-  const hits = RULES.filter(r => { try { return r.test(d, m); } catch { return false; } });
-  const pts = hits.reduce((a, r) => a + r.w, 0); const max = RULES.reduce((a, r) => a + r.w, 0);
-  return { score: Math.round(100 * pts / max), points: pts, hits: hits.map(r => r.id) };
-}
-// >=6 points: SLOP (high precision); 3-5: REVIEW (a person looks); <3: OK. See REPORT.md for the precision/recall behind these.
-export const SLOP_THRESHOLD_POINTS = +(process.env.SLOP_THRESHOLD || 6);
-export const REVIEW_THRESHOLD_POINTS = +(process.env.REVIEW_THRESHOLD || 3);
 
 export async function measure(page) {
   const dom = await page.evaluate(inPageMetrics);

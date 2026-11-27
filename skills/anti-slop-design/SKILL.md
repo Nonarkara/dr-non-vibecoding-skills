@@ -18,6 +18,8 @@ rendered clearance.
 
 These are known AI design-slop patterns. Check every page against them before shipping, and fix any hit. They come on top of the house design system (Palette) and any map rule such as the map taking most of the screen.
 
+Eight giveaway bans are hard defaults. The statement is [ANTI-SLOP.md](../../ANTI-SLOP.md#eight-giveaway-bans): eyebrows, a side stripe, one italic word, display caps, Inter and the other banned faces, equal stat cards, a blurb under every title, blinking status dots. Keep one only when the project's `STYLE.md` names that choice.
+
 The original seven rules below are Dr Non's existing local skill, now packaged
 for forks. Also read the project's `ANTI-SLOP.md` where present; this skill does
 not relax a stricter project rule. [Bauhaus Human Design](../bauhaus-human-design/SKILL.md)
@@ -101,7 +103,7 @@ MSH takes precedence; preserve the project's `STYLE.md`, readable text and task 
 
 ## Review checklist (run before shipping)
 1. Screenshot the page at 1440, 1024 and 390 px wide.
-2. Check each of rules 1 to 7 above, including §6b glance path and §6c kinetic grids above. List every hit with its element.
+2. Check each of rules 1 to 7 above, including §6b glance path, §6c kinetic grids, and the eight giveaway bans. List every hit with its element.
 3. Fix the hits, then screenshot again.
 4. Have a different agent or person check the result; never self-review.
 

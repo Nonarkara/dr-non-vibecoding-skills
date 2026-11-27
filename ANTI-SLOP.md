@@ -35,6 +35,21 @@ The measured examples come from the study below. "Slop" means the median slop or
 
 The earlier rules still apply: boxes fit their content, the composition balances, banned slop fonts are out (use Jost or Josefin/League Spartan, with Prompt/Kanit for Thai), there's one accent colour that means something, something on the page clearly wins, there's no filler copy, and there are no fake or placeholder numbers.
 
+## Eight giveaway bans
+
+Hard bans. Mitchell Romney's graphic *Ban these before AI designs your site* names them, with credit to Johannes Nagl, Phil Whitehouse, Austin Ballard, sadeeqah S. and Bryce Galbraith. An agent reaches for these by default, so they are banned by default. A product may keep one only when its `STYLE.md` states that pattern as a deliberate choice (`Eyebrows are a deliberate choice on the masthead.` or `allow: eyebrows`). Non's own signature is a choice written down. Judge the page. A voice the style file names stays.
+
+`slop-lint` scores each ban at 1 point, the same weight as a gradient or a glass layer. The point total is still the screen (≥6 SLOP, 3–5 REVIEW, under 3 OK). A listed hit is a ban on its own, including when the total is still OK. Source check: `node tools/giveaway-bans.mjs <file>`. It reads a `STYLE.md` beside the file, walking up to the project root. One named choice waives that ban only.
+
+1. **Eyebrows.** A small tracked or all-caps kicker above a heading (`FEATURES`). The heading carries the section.
+2. **Colour down one side.** An accent bar, a `border-left` stripe, on a card, a callout or a list item. A hairline that draws the box is a rule, not a stripe.
+3. **One italic word.** One italic, gradient or accent-coloured word in a headline (`Build *faster* with AI`). Hierarchy is size and weight.
+4. **All caps for looks.** Uppercase plus letter-spacing on headings, buttons and labels. Real acronyms and codes are written in capitals as themselves, with no tracking.
+5. **Inter on everything.** Inter, and the banned default faces already named in this file: Poppins, Montserrat, Roboto, Open Sans, Lato, DM Sans, Space Grotesk, Geist, Plus Jakarta Sans, Manrope, Nunito. The house faces stay Jost, Josefin Sans, League Spartan, and Prompt or Kanit for Thai.
+6. **Too many cards.** A row of equal stat or feature cards (`24`, `3`, `99%`). Put the numbers in a ruled strip or on the same line as the thing they measure.
+7. **A blurb under every title.** A grey one-line subtitle under every heading, section, card or settings group. A page can have one. Three is a template.
+8. **Blinking status dots.** Pulsing or glowing dots, and badges that read `All Systems Operational` or `AI Engine Active`. Status is plain text with a time, and only when it is real, live and actionable.
+
 ## Map-first "surgical table" rule
 
 On any map or data product the map is the operating table, and everything else is an instrument at its edge.

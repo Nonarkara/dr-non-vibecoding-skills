@@ -317,3 +317,11 @@ fluent-language review remain unverified.
 **Why:** Parallel agents had left overlapping rules and provisional upstream status text; one route per rule keeps the owner laws, MSH precedence and project style visible without duplicate instructions.
 **Diff:** [PR #28](https://github.com/Nonarkara/dr-non-vibecoding-skills/pull/28), [anti-slop-design](skills/anti-slop-design/SKILL.md), [applied spatial guide](ANTI-SPATIAL-HALLUCINATION.md).
 **Tags:** `hierarchy · reconciliation · agent-relay`
+
+## 2026-11-27 — Eight giveaway bans
+
+**Date:** 2026-11-27
+**What:** Hard-banned eight AI-design giveaways (eyebrows, side stripes, one italic word, display caps, Inter and the other banned faces, equal stat cards, a blurb under every title, blinking status dots) unless a product's `STYLE.md` names the choice.
+**Why:** Mitchell Romney's graphic *Ban these before AI designs your site* (Johannes Nagl, Phil Whitehouse, Austin Ballard, sadeeqah S., Bryce Galbraith) names the defaults agents still reach for. Non's own signature stays when it is written down. The screen scores each hit at one point and does not lower an older rule.
+**Diff:** [ANTI-SLOP.md](ANTI-SLOP.md#eight-giveaway-bans), `tools/giveaway-bans.mjs`, `tools/slop-lint.mjs`, `AGENTS.md`, `CLAUDE.md`, `.cursor/rules/anti-slop.mdc`.
+**Tags:** `anti-slop · giveaway-bans · style-md · slop-lint`
